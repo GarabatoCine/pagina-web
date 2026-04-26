@@ -46,43 +46,42 @@
             to { opacity: 0; visibility: hidden; }
         }
 
-        /* --- HEADER (TRANSPARENCIA AUMENTADA) --- */
+        /* --- HEADER ESTILIZADO (MÁS DELGADO Y PEQUEÑO) --- */
         header {
             position: fixed;
             top: 0; left: 0;
             width: 100%;
-            padding: 30px 50px;
+            padding: 15px 50px; /* Reducido para una franja más delgada */
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            /* Bajado de 0.6 a 0.2 para que sea mucho más transparente */
-            background-color: rgba(255, 255, 255, 0.2); 
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background-color: rgba(255, 255, 255, 0.4); /* Transparencia equilibrada */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
         }
 
         .logo-txt {
-            font-size: 1.4rem;
+            font-size: 0.9rem; /* Letra más pequeña y fina */
             font-weight: 300;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: #000; /* Negro puro para que resalte en la transparencia */
+            color: #222; 
         }
 
         .nav-derecha {
             display: flex;
-            gap: 30px;
+            gap: 25px;
             align-items: center;
         }
 
         .nav-derecha a {
-            color: #000;
+            color: #222;
             text-decoration: none;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             font-weight: 300;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
         }
 
@@ -103,7 +102,7 @@
         }
 
         .pie-proyecto {
-            padding: 5px 0 90px 0;
+            padding: 8px 0 85px 0;
             text-align: center;
         }
 
@@ -120,7 +119,7 @@
             letter-spacing: 3px;
             color: #999;
             text-transform: uppercase;
-            margin-top: 2px;
+            margin-top: 3px;
         }
 
         @media (min-width: 1024px) {
