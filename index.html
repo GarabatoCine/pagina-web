@@ -20,7 +20,7 @@ html, body {
     font-family: 'Roboto', sans-serif;
 }
 
-/* --- FONDO (IMAGEN / VIDEO) --- */
+/* --- FONDO --- */
 .bg {
     position: fixed;
     inset: 0;
@@ -30,41 +30,52 @@ html, body {
 }
 
 /* --- CAPA BLANCA --- */
-#whiteLayer {
+#intro {
     position: fixed;
     inset: 0;
-    background: white;
-    z-index: 5;
-
-    animation: fadeWhite 1s ease forwards;
-    animation-delay: 4.5s;
-}
-
-/* --- SVG TEXTO RECORTE --- */
-#svgText {
-    position: fixed;
-    inset: 0;
+    background: #fff;
     z-index: 10;
-}
 
-/* TEXTO */
-.text-mask {
-    font-size: 12vw;
-    font-weight: 900;
-    letter-spacing: -0.05em;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-/* fade inicial */
-#textGroup {
-    opacity: 0;
-    animation: fadeIn 2.5s ease forwards;
-    animation-delay: 1s;
-}
-
-/* movimiento lateral SOLO del texto */
-#textMove {
-    animation: moveLeft 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+    animation: fadeOut 1s ease forwards;
     animation-delay: 4.5s;
+}
+
+/* --- TEXTO TRANSPARENTE REAL --- */
+.texto {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    text-align: center;
+
+    /* 🔥 AQUÍ ESTÁ EL TRUCO */
+    background-image: url('https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true');
+    background-size: cover;
+    background-position: center;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    opacity: 0;
+
+    animation: fadeIn 2.5s ease forwards, moveLeft 1.2s cubic-bezier(0.76,0,0.24,1) forwards;
+    animation-delay: 1s, 4.5s;
+}
+
+/* --- RESPONSIVE --- */
+.texto {
+    font-size: 10vw;
+}
+
+@media (max-width: 768px) {
+    .texto {
+        font-size: 14vw;
+        letter-spacing: -0.03em;
+    }
 }
 
 /* --- ANIMACIONES --- */
@@ -76,7 +87,7 @@ html, body {
     to { transform: translateX(-120%); }
 }
 
-@keyframes fadeWhite {
+@keyframes fadeOut {
     to { opacity: 0; visibility: hidden; }
 }
 
@@ -88,48 +99,10 @@ html, body {
 <!-- FONDO -->
 <img class="bg" src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true">
 
-<!-- CAPA BLANCA -->
-<div id="whiteLayer"></div>
-
-<!-- SVG -->
-<svg id="svgText" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-
-    <defs>
-        <mask id="mask">
-            <rect width="100%" height="100%" fill="white"/>
-            
-            <!-- TEXTO = TRANSPARENCIA -->
-            <text x="50" y="50"
-                text-anchor="middle"
-                dominant-baseline="middle"
-                font-size="14"
-                font-weight="900"
-                font-family="Roboto, sans-serif"
-                fill="black">
-                GARABATO CINE
-            </text>
-        </mask>
-    </defs>
-
-    <!-- BLANCO CON HUECO -->
-    <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
-
-    <!-- TEXTO ANIMADO (invisible pero mueve la máscara visualmente) -->
-    <g id="textGroup">
-        <g id="textMove">
-            <text x="50" y="50"
-                text-anchor="middle"
-                dominant-baseline="middle"
-                font-size="14"
-                font-weight="900"
-                font-family="Roboto, sans-serif"
-                fill="black">
-                GARABATO CINE
-            </text>
-        </g>
-    </g>
-
-</svg>
+<!-- INTRO -->
+<div id="intro">
+    <div class="texto">GARABATO CINE</div>
+</div>
 
 </body>
 </html>
