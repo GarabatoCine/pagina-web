@@ -22,7 +22,7 @@ html, body {
     background: #000;
 }
 
-/* --- IMAGEN DE FONDO (luego la cambias por video) --- */
+/* --- IMAGEN DE FONDO --- */
 .bg-media {
     position: fixed;
     inset: 0;
@@ -32,38 +32,34 @@ html, body {
     z-index: 1;
 }
 
-/* --- CAPA BLANCA SUPERIOR --- */
+/* --- CAPA BLANCA --- */
 #intro {
     position: fixed;
     inset: 0;
-    background: #ffffff;
+    background: #fff;
     z-index: 9999;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    /* deslizamiento final */
     animation: slideOut 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
     animation-delay: 3.2s;
 }
 
-/* --- TEXTO CON "HUECO" --- */
+/* --- TEXTO "RECORTE" --- */
 #intro h1 {
     font-size: 11vw;
     font-weight: 900;
     letter-spacing: -0.05em;
     text-transform: uppercase;
 
-    /* CLAVE: esto crea el hueco real */
-    background: #000;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: black;
+
+    /* 💥 ESTO HACE EL HUECO REAL */
+    mix-blend-mode: destination-out;
 
     opacity: 0;
-
-    /* fade in */
     animation: fadeIn 1.4s ease forwards;
     animation-delay: 0.4s;
 }
@@ -80,7 +76,7 @@ html, body {
     }
 }
 
-/* --- CONTENIDO DESPUÉS --- */
+/* --- CONTENIDO --- */
 .contenido {
     position: relative;
     z-index: 2;
@@ -95,7 +91,7 @@ html, body {
 
 <body>
 
-<!-- IMAGEN (esto se verá dentro del texto) -->
+<!-- IMAGEN DE FONDO -->
 <img 
 class="bg-media" 
 src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true"
@@ -103,7 +99,7 @@ src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20fronter
 
 <!-- INTRO -->
 <div id="intro">
-    <h1>Garabatocine</h1>
+    <h1>GARABATO CINE</h1>
 </div>
 
 <!-- CONTENIDO -->
