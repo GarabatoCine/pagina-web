@@ -25,21 +25,23 @@ html, body {
     background: white;
 }
 
-/* TEXTO (FALLBACK SEGURO) */
-.intro-text {
+/* CONTENEDOR TEXTO */
+.intro-wrap {
     position: absolute;
-    width: 100%;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
+}
 
+/* TITULO */
+.intro-text {
     font-weight: 900;
     letter-spacing: -0.05em;
     text-transform: uppercase;
 
     font-size: 10vw;
 
-    /* 🔥 transparencia estable */
     background-image: url("https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true");
     background-size: cover;
     background-position: center;
@@ -51,39 +53,50 @@ html, body {
     opacity: 0;
 }
 
-/* tablet */
+/* SUBTITULO */
+.intro-sub {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #000;
+    opacity: 0;
+}
+
+/* RESPONSIVE */
 @media (max-width:1024px){
-    .intro-text{
-        font-size: 12vw;
-    }
+    .intro-text{ font-size: 12vw; }
 }
-
-/* móvil */
 @media (max-width:600px){
-    .intro-text{
-        font-size: 14vw;
-    }
+    .intro-text{ font-size: 14vw; }
 }
 
-/* ANIMACIÓN */
+/* 🎬 NUEVO TIMING */
 .play .intro-text {
-    animation: fadeIn 1.2s ease forwards,
-               moveLeft 1s cubic-bezier(0.76,0,0.24,1) forwards;
-    animation-delay: 0.3s, 1.3s;
+    animation:
+        fadeIn 1.8s ease forwards,
+        moveLeft 1.4s cubic-bezier(0.76,0,0.24,1) forwards;
+    animation-delay: 0.3s, 2.2s;
+}
+
+.play .intro-sub {
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 1s;
 }
 
 .play #intro {
-    animation: fadeOut 0.8s ease forwards;
-    animation-delay: 1.3s;
+    animation: fadeOut 0.9s ease forwards;
+    animation-delay: 3.6s; /* empieza cuando ya salió el texto */
 }
 
+/* KEYFRAMES */
 @keyframes fadeIn {
     from { opacity:0; }
     to { opacity:1; }
 }
 
 @keyframes moveLeft {
-    to { transform: translate(-120%, -50%); }
+    to { transform: translate(-160%, -50%); }
 }
 
 @keyframes fadeOut {
@@ -110,6 +123,7 @@ header {
     font-size: 0.9rem;
     letter-spacing: 4px;
     text-transform: uppercase;
+    font-weight: 300;
 }
 
 .nav a {
@@ -147,7 +161,8 @@ header {
 
 .pie-proyecto h2 {
     font-size:1.4rem;
-    letter-spacing:5px;
+    font-weight:300; /* 👈 como antes */
+    letter-spacing:5px; /* 👈 como antes */
     text-transform:uppercase;
 }
 
@@ -162,12 +177,15 @@ header {
 
 <body>
 
-<!-- ================= INTRO ================= -->
+<!-- INTRO -->
 <div id="intro">
-    <div class="intro-text">GARABATO CINE</div>
+    <div class="intro-wrap">
+        <div class="intro-text">GARABATO CINE</div>
+        <div class="intro-sub">COLOMBIA</div>
+    </div>
 </div>
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 <header>
 <div class="logo-txt">Garabato Cine</div>
 <div class="nav">
@@ -179,7 +197,7 @@ header {
 </div>
 </header>
 
-<!-- ================= PROYECTOS ================= -->
+<!-- PROYECTOS -->
 
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" class="imagen-full">
 <div class="pie-proyecto"><h2>La Frontera</h2><p>Largometraje</p></div>
@@ -209,23 +227,20 @@ header {
 <div class="pie-proyecto"><h2>La Tortuga</h2><p>Cortometraje</p></div>
 
 <script>
-// 🔥 SIEMPRE iniciar arriba
+// siempre arriba
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
 window.scrollTo(0,0);
 
 window.addEventListener("load", () => {
-
     window.scrollTo(0,0);
-
     document.body.classList.add("play");
 
     setTimeout(() => {
         const intro = document.getElementById("intro");
         if (intro) intro.remove();
-    }, 2200);
-
+    }, 4600);
 });
 </script>
 
