@@ -15,28 +15,31 @@
             overflow-x: hidden;
         }
 
-        /* --- INTRO TIPO CAVIAR --- */
+        /* --- INTRO TIPO CAVIAR (LETRAS TRANSPARENTES) --- */
         #intro {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: #ffffff;
+            background: #ffffff; /* Fondo inicial blanco */
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            animation: slideUp 1.2s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+            animation: slideUp 1.4s cubic-bezier(0.7, 0, 0.3, 1) forwards;
             animation-delay: 2.5s;
         }
 
         #intro h1 {
-            font-size: 2.5rem;
-            font-weight: 100;
-            letter-spacing: 12px;
+            font-size: 3rem;
+            font-weight: 700; /* Más gruesa para que se note la transparencia */
+            letter-spacing: 15px;
             text-transform: uppercase;
-            color: #000;
+            color: transparent;
+            -webkit-text-stroke: 1px #000; /* Borde negro, centro transparente */
+            animation: fadeIn 1s ease-in;
         }
 
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp {
             0% { transform: translateY(0); }
             100% { transform: translateY(-100%); }
@@ -59,7 +62,10 @@
         .brand { font-weight: 400; letter-spacing: 3px; text-transform: uppercase; font-size: 0.9rem; }
 
         nav { display: flex; gap: 25px; align-items: center; }
-        nav a { color: #000; text-decoration: none; font-size: 0.75rem; font-weight: 300; text-transform: uppercase; letter-spacing: 1.5px; }
+        nav a { color: #000; text-decoration: none; font-size: 0.75rem; font-weight: 300; text-transform: uppercase; letter-spacing: 1.5px; display: flex; align-items: center; }
+
+        .ig-icon { width: 18px; height: 18px; fill: #000; transition: opacity 0.3s; }
+        .ig-icon:hover { opacity: 0.5; }
 
         /* --- CONTENIDO --- */
         .main-content { width: 100%; }
@@ -70,7 +76,6 @@
             text-align: center;
         }
 
-        /* La primera imagen (La Frontera) ocupa toda la pantalla inicial */
         .hero-project {
             height: 100vh;
             width: 100%;
@@ -96,7 +101,10 @@
         .project-info p { font-size: 0.75rem; font-weight: 300; color: #888; letter-spacing: 3px; text-transform: uppercase; }
 
         footer { padding: 80px 20px; text-align: center; font-size: 0.7rem; letter-spacing: 2px; color: #bbb; }
-        .ig-icon { width: 18px; height: 18px; fill: black; vertical-align: middle; }
+        
+        @media (max-width: 768px) {
+            #intro h1 { font-size: 1.5rem; letter-spacing: 5px; }
+        }
     </style>
 </head>
 <body>
@@ -110,7 +118,11 @@
         <nav>
             <a href="#about">About us</a>
             <a href="#contact">Contact</a>
-            <a href="#">IG</a>
+            <a href="https://www.instagram.com/garabatocine/" target="_blank">
+                <svg class="ig-icon" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.247 2.242 1.308 3.607.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.367-.333 2.633-1.308 3.608-.975.975-2.242 1.247-3.607 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.367-.062-2.633-.333-3.608-1.308-.975-.975-1.247-2.242-1.308-3.607-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.367.332-2.633 1.308-3.608.975-.975 2.242-1.247 3.607-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a>
         </nav>
     </header>
 
@@ -168,7 +180,7 @@
 
         <div class="project-block">
             <div class="image-container">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Calaguala.png?raw=true" alt="Calaguala">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada-calaguala.jpg?raw=true" alt="Calaguala">
             </div>
             <div class="project-info">
                 <h2>Calaguala</h2>
