@@ -15,65 +15,56 @@
 }
 
 html, body {
-    width: 100%;
     height: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: 'Roboto', sans-serif;
-    background: #000;
 }
 
-/* --- FONDO --- */
-.bg-media {
+/* --- FONDO (IMAGEN / VIDEO) --- */
+.bg {
     position: fixed;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1;
 }
 
-/* --- INTRO CON MÁSCARA --- */
-#intro {
+/* --- CAPA BLANCA --- */
+#whiteLayer {
     position: fixed;
     inset: 0;
-    z-index: 9999;
+    background: white;
+    z-index: 5;
 
-    /* blanco pero con hueco */
-    background: #fff;
-
-    /* 💥 MÁSCARA REAL */
-    -webkit-mask: url(#mask-text);
-    mask: url(#mask-text);
-
-    animation: slideOut 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
-    animation-delay: 4.5s; /* más tiempo antes de deslizar */
+    animation: fadeWhite 1s ease forwards;
+    animation-delay: 4.5s;
 }
 
-/* --- SVG invisible que define la máscara --- */
-svg {
-    position: absolute;
-    width: 0;
-    height: 0;
+/* --- SVG TEXTO RECORTE --- */
+#svgText {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
 }
 
-/* --- TEXTO (solo para animar opacidad visual) --- */
-.texto {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
-
-    font-size: 11vw;
+/* TEXTO */
+.text-mask {
+    font-size: 12vw;
     font-weight: 900;
     letter-spacing: -0.05em;
-    text-transform: uppercase;
+}
 
-    color: transparent; /* no se ve, solo referencia */
-
+/* fade inicial */
+#textGroup {
     opacity: 0;
     animation: fadeIn 2.5s ease forwards;
-    animation-delay: 1s; /* ⏳ más lento como pediste */
+    animation-delay: 1s;
+}
+
+/* movimiento lateral SOLO del texto */
+#textMove {
+    animation: moveLeft 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+    animation-delay: 4.5s;
 }
 
 /* --- ANIMACIONES --- */
@@ -81,21 +72,12 @@ svg {
     to { opacity: 1; }
 }
 
-@keyframes slideOut {
-    to {
-        transform: translateX(-100%);
-        visibility: hidden;
-    }
+@keyframes moveLeft {
+    to { transform: translateX(-120%); }
 }
 
-/* --- CONTENIDO --- */
-.contenido {
-    position: relative;
-    z-index: 2;
-}
-
-.seccion {
-    height: 100vh;
+@keyframes fadeWhite {
+    to { opacity: 0; visibility: hidden; }
 }
 
 </style>
@@ -103,23 +85,24 @@ svg {
 
 <body>
 
-<!-- IMAGEN DE FONDO -->
-<img 
-class="bg-media" 
-src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true"
-/>
+<!-- FONDO -->
+<img class="bg" src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true">
 
-<!-- SVG MASK -->
-<svg>
+<!-- CAPA BLANCA -->
+<div id="whiteLayer"></div>
+
+<!-- SVG -->
+<svg id="svgText" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+
     <defs>
-        <mask id="mask-text">
-            <!-- fondo visible -->
+        <mask id="mask">
             <rect width="100%" height="100%" fill="white"/>
             
-            <!-- texto = hueco -->
-            <text x="50%" y="50%" dy=".35em"
+            <!-- TEXTO = TRANSPARENCIA -->
+            <text x="50" y="50"
                 text-anchor="middle"
-                font-size="140"
+                dominant-baseline="middle"
+                font-size="14"
                 font-weight="900"
                 font-family="Roboto, sans-serif"
                 fill="black">
@@ -127,17 +110,26 @@ src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20fronter
             </text>
         </mask>
     </defs>
+
+    <!-- BLANCO CON HUECO -->
+    <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+
+    <!-- TEXTO ANIMADO (invisible pero mueve la máscara visualmente) -->
+    <g id="textGroup">
+        <g id="textMove">
+            <text x="50" y="50"
+                text-anchor="middle"
+                dominant-baseline="middle"
+                font-size="14"
+                font-weight="900"
+                font-family="Roboto, sans-serif"
+                fill="black">
+                GARABATO CINE
+            </text>
+        </g>
+    </g>
+
 </svg>
-
-<!-- INTRO -->
-<div id="intro">
-    <div class="texto">GARABATO CINE</div>
-</div>
-
-<!-- CONTENIDO -->
-<div class="contenido">
-    <div class="seccion"></div>
-</div>
 
 </body>
 </html>
