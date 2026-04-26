@@ -12,16 +12,17 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Roboto',sans-serif;overflow-x:hidden;}
 
-/* ================= HERO ================= */
+/* ================= HERO VIDEO ================= */
 
 .hero{
     position:fixed;
     inset:0;
     z-index:-1;
+    overflow:hidden;
     transition:opacity 0.4s ease;
 }
 
-.hero img{
+.hero video{
     width:100%;
     height:100%;
     object-fit:cover;
@@ -40,18 +41,24 @@ body{font-family:'Roboto',sans-serif;overflow-x:hidden;}
     height:100%;
 }
 
-/* ANIMACIÓN TEXTO */
-.play .mask-group{
-    animation:
-        fadeIn 1.4s ease forwards,
-        moveLeft 1.3s cubic-bezier(0.76,0,0.24,1) forwards;
-    animation-delay:0.3s,1.9s;
+svg text{
+    dominant-baseline:middle;
 }
 
-/* DESAPARECE CORTINA */
+.mask-group{
+    opacity:0;
+}
+
+.play .mask-group{
+    animation:
+        fadeIn 1.6s ease forwards,
+        moveLeft 1.3s cubic-bezier(0.76,0,0.24,1) forwards;
+    animation-delay:0.3s,2s;
+}
+
 .play .white-bg{
     animation:fadeOut 0.35s ease forwards;
-    animation-delay:3.1s;
+    animation-delay:3.2s;
 }
 
 @keyframes fadeIn{
@@ -97,20 +104,22 @@ header{
 
 .nav i{font-size:0.9rem;}
 
-/* ================= PROYECTOS ================= */
+/* ================= MEDIA (IMAGEN / VIDEO) ================= */
 
-.imagen-full{
+.media-full{
     width:100%;
     height:auto;
     display:block;
 }
 
 @media(min-width:1024px){
-    .imagen-full{
+    .media-full{
         height:100vh;
         object-fit:cover;
     }
 }
+
+/* ================= TEXTOS ================= */
 
 .pie-proyecto{
     padding:20px 0 80px;
@@ -134,15 +143,16 @@ header{
 
 <body>
 
-<!-- HERO -->
+<!-- HERO VIDEO (INTRO) -->
 <div class="hero">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true">
+<video autoplay muted loop playsinline>
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4" type="video/mp4">
+</video>
 </div>
 
 <!-- INTRO -->
 <div id="intro">
-
-<svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+<svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet">
 
 <defs>
 <mask id="mask">
@@ -151,25 +161,25 @@ header{
 <g class="mask-group" fill="black" text-anchor="middle">
 
 <text x="600" y="280"
-font-size="110"
+font-size="clamp(60px, 10vw, 110px)"
 font-weight="900">
 GARABATO CINE
 </text>
 
 <text x="600" y="340"
-font-size="22"
+font-size="clamp(14px, 2vw, 22px)"
 letter-spacing="4">
 COLOMBIA
 </text>
 
 </g>
+
 </mask>
 </defs>
 
 <rect width="100%" height="100%" fill="white" mask="url(#mask)" class="white-bg"/>
 
 </svg>
-
 </div>
 
 <!-- HEADER -->
@@ -186,35 +196,40 @@ COLOMBIA
 
 <!-- PROYECTOS -->
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" class="imagen-full">
+<!-- LA FRONTERA -->
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" class="media-full">
 <div class="pie-proyecto"><h2>La Frontera</h2><p>Largometraje</p></div>
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Vida%20de%20colores.jpg?raw=true" class="imagen-full">
+<!-- VIDA DE COLORES (VIDEO) -->
+<video autoplay muted loop playsinline class="media-full">
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-vida-de-colores.mp4" type="video/mp4">
+</video>
 <div class="pie-proyecto"><h2>Vida de Colores</h2><p>Serie</p></div>
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Marimonda.jpg?raw=true" class="imagen-full">
+<!-- RESTO -->
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Marimonda.jpg?raw=true" class="media-full">
 <div class="pie-proyecto"><h2>Marimonda</h2><p>Cortometraje</p></div>
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Sabatico.jpg?raw=true" class="imagen-full">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Sabatico.jpg?raw=true" class="media-full">
 <div class="pie-proyecto"><h2>Año Sabático</h2><p>Cortometraje</p></div>
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20El%20congo.jpg?raw=true" class="imagen-full">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20El%20congo.jpg?raw=true" class="media-full">
 <div class="pie-proyecto"><h2>El Congo de Oro</h2><p>Cortometraje</p></div>
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada-calaguala.jpg?raw=true" class="imagen-full">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada-calaguala.jpg?raw=true" class="media-full">
 <div class="pie-proyecto"><h2>Calaguala</h2><p>Cortometraje</p></div>
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20princesita.png?raw=true" class="imagen-full">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20princesita.png?raw=true" class="media-full">
 <div class="pie-proyecto"><h2>La Princesita</h2><p>Cortometraje</p></div>
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Fracturas.jpg?raw=true" class="imagen-full">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Fracturas.jpg?raw=true" class="media-full">
 <div class="pie-proyecto"><h2>Fracturas</h2><p>Cortometraje</p></div>
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20tortuga.jpg?raw=true" class="imagen-full">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20tortuga.jpg?raw=true" class="media-full">
 <div class="pie-proyecto"><h2>La Tortuga</h2><p>Cortometraje</p></div>
 
 <script>
-// SIEMPRE ARRIBA
+// SCROLL ARRIBA SIEMPRE
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
@@ -230,11 +245,8 @@ window.addEventListener("load", () => {
 
     setTimeout(()=>{
         document.getElementById("intro")?.remove();
-
-        // fade del hero → transición perfecta
         document.querySelector(".hero").style.opacity = "0";
-
-    }, 3400);
+    }, 3600);
 
 });
 </script>
