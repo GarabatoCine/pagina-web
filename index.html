@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Garabato Cine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            background-color: #000; 
-            color: #fff; 
+            background-color: #ffffff; 
+            color: #000000; 
             font-family: 'Roboto', sans-serif;
             overflow-x: hidden;
         }
 
-        /* --- INTRO TIPO CAVIAR (Desplazamiento) --- */
+        /* --- INTRO TIPO CAVIAR --- */
         #intro {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: #000;
+            background: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
             animation: slideUp 1.2s cubic-bezier(0.7, 0, 0.3, 1) forwards;
-            animation-delay: 2s;
+            animation-delay: 2.5s;
         }
 
         #intro h1 {
@@ -34,6 +34,7 @@
             font-weight: 100;
             letter-spacing: 12px;
             text-transform: uppercase;
+            color: #000;
         }
 
         @keyframes slideUp {
@@ -41,112 +42,61 @@
             100% { transform: translateY(-100%); }
         }
 
-        /* --- CABECERA ESTILO QUIDDITY --- */
+        /* --- CABECERA --- */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 40px 6%;
+            padding: 30px 4%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(10px);
         }
 
-        .brand {
-            font-weight: 400;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-        }
+        .brand { font-weight: 400; letter-spacing: 3px; text-transform: uppercase; font-size: 0.9rem; }
 
-        nav {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
+        nav { display: flex; gap: 25px; align-items: center; }
+        nav a { color: #000; text-decoration: none; font-size: 0.75rem; font-weight: 300; text-transform: uppercase; letter-spacing: 1.5px; }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: opacity 0.4s;
-        }
+        /* --- CONTENIDO --- */
+        .main-content { width: 100%; }
 
-        nav a:hover { opacity: 0.5; }
-
-        .ig-icon { width: 16px; height: 16px; fill: white; }
-
-        /* --- LISTA DE PROYECTOS (ESTILO QUIDDITY) --- */
-        .main-content {
-            padding: 180px 0 100px 0; /* Espacio para que el primer proyecto no choque con el menú */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .project-link {
-            text-decoration: none;
-            color: #fff;
-            width: 88%; /* No llega al borde total, estilo Quiddity */
-            max-width: 1400px;
-            margin-bottom: 120px;
+        .project-block {
+            width: 100%;
+            margin-bottom: 20px;
             text-align: center;
-            transition: opacity 0.5s ease;
         }
 
-        .project-link:hover {
-            opacity: 0.85;
-        }
-
-        .image-container {
+        /* La primera imagen (La Frontera) ocupa toda la pantalla inicial */
+        .hero-project {
+            height: 100vh;
             width: 100%;
+            position: relative;
             overflow: hidden;
-            background-color: #111;
         }
 
-        .image-container img {
+        .hero-project img {
             width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 1.2s cubic-bezier(0.15, 0, 0.15, 1);
+            height: 100%;
+            object-fit: cover;
         }
 
-        .project-link:hover img {
-            transform: scale(1.02);
-        }
+        .image-container { width: 100%; line-height: 0; }
+        .image-container img { width: 100%; height: auto; display: block; }
 
         .project-info {
-            margin-top: 25px;
+            padding: 40px 0 80px 0;
+            background: #fff;
         }
 
-        .project-info h2 {
-            font-size: 1.4rem;
-            font-weight: 300;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-        }
+        .project-info h2 { font-size: 1.4rem; font-weight: 400; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 8px; }
+        .project-info p { font-size: 0.75rem; font-weight: 300; color: #888; letter-spacing: 3px; text-transform: uppercase; }
 
-        .project-info p {
-            font-size: 0.7rem;
-            font-weight: 100;
-            color: #777;
-            letter-spacing: 3px;
-            margin-top: 8px;
-            text-transform: uppercase;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            padding-bottom: 60px;
-            text-align: center;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            color: #444;
-        }
+        footer { padding: 80px 20px; text-align: center; font-size: 0.7rem; letter-spacing: 2px; color: #bbb; }
+        .ig-icon { width: 18px; height: 18px; fill: black; vertical-align: middle; }
     </style>
 </head>
 <body>
@@ -158,27 +108,25 @@
     <header>
         <div class="brand">Garabato Cine</div>
         <nav>
-            <a href="#about">About</a>
+            <a href="#about">About us</a>
             <a href="#contact">Contact</a>
-            <a href="https://instagram.com/tu_usuario" target="_blank">
-                <svg class="ig-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.247 2.242 1.308 3.607.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.367-.333 2.633-1.308 3.608-.975.975-2.242 1.247-3.607 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.367-.062-2.633-.333-3.608-1.308-.975-.975-1.247-2.242-1.308-3.607-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.367.332-2.633 1.308-3.608.975-.975 2.242-1.247 3.607-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
+            <a href="#">IG</a>
         </nav>
     </header>
 
     <div class="main-content">
 
-        <a href="#link-la-frontera" class="project-link">
-            <div class="image-container">
+        <div class="project-block">
+            <div class="hero-project">
                 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" alt="La Frontera">
             </div>
             <div class="project-info">
                 <h2>La Frontera</h2>
                 <p>Largometraje</p>
             </div>
-        </a>
+        </div>
 
-        <a href="#link-vida-de-colores" class="project-link">
+        <div class="project-block">
             <div class="image-container">
                 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Vida%20de%20colores.jpg?raw=true" alt="Vida de Colores">
             </div>
@@ -186,9 +134,9 @@
                 <h2>Vida de Colores</h2>
                 <p>Serie</p>
             </div>
-        </a>
+        </div>
 
-        <a href="#link-marimonda" class="project-link">
+        <div class="project-block">
             <div class="image-container">
                 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Marimonda.jpg?raw=true" alt="Marimonda">
             </div>
@@ -196,27 +144,73 @@
                 <h2>Marimonda</h2>
                 <p>Cortometraje</p>
             </div>
-        </a>
-
         </div>
 
+        <div class="project-block">
+            <div class="image-container">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Sabatico.jpg?raw=true" alt="Baño Sabático">
+            </div>
+            <div class="project-info">
+                <h2>Baño Sabático</h2>
+                <p>Cortometraje</p>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <div class="image-container">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20El%20congo.jpg?raw=true" alt="El Congo de Oro">
+            </div>
+            <div class="project-info">
+                <h2>El Congo de Oro</h2>
+                <p>Cortometraje</p>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <div class="image-container">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Calaguala.png?raw=true" alt="Calaguala">
+            </div>
+            <div class="project-info">
+                <h2>Calaguala</h2>
+                <p>Cortometraje</p>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <div class="image-container">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20princesita.png?raw=true" alt="La Princesita">
+            </div>
+            <div class="project-info">
+                <h2>La Princesita</h2>
+                <p>Cortometraje</p>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <div class="image-container">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Fracturas.jpg?raw=true" alt="Fracturas">
+            </div>
+            <div class="project-info">
+                <h2>Fracturas</h2>
+                <p>Cortometraje</p>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <div class="image-container">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20tortuga.jpg?raw=true" alt="La Tortuga">
+            </div>
+            <div class="project-info">
+                <h2>La Tortuga</h2>
+                <p>Cortometraje</p>
+            </div>
+        </div>
+
+    </div>
+
     <footer>
-        <p>© 2026 GARABATO CINE</p>
+        <p>© 2026 GARABATO CINE - VALLEDUPAR, COLOMBIA</p>
     </footer>
 
 </body>
 </html>
-¿Por qué este es "el bueno"?
-La Entrada: El logo aparece y se desliza hacia arriba (slideUp), como si la cortina del cine se levantara.
-
-El Menú: Súper compacto (About, Contact, Instagram) y siempre visible pero discreto.
-
-Los Proyectos: Es una lista vertical donde la imagen es el centro. Como en Quiddity, cada imagen es un enlace (cliqueable) que tiene su título y categoría debajo con letras muy finas y espaciadas.
-
-¿Qué sigue?
-
-Carga este código y pon los links de tus fotos.
-
-Si quieres, pásame los links de Instagram o el texto para el "About" y lo integramos.
-
-¿Te gusta cómo se ve esta estructura de una sola columna o prefieres que las fotos sean aún más grandes?
