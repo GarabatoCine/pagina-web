@@ -10,11 +10,7 @@
 
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-
-html, body {
-    font-family: 'Roboto', sans-serif;
-    overflow-x: hidden;
-}
+body { font-family:'Roboto', sans-serif; overflow-x:hidden; }
 
 /* ================= INTRO ================= */
 
@@ -22,84 +18,69 @@ html, body {
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: white;
+    background: #fff;
 }
 
-/* CONTENEDOR */
-.intro-wrap {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+/* --- SVG (PRO REAL) --- */
+#intro svg {
+    width: 100%;
+    height: 100%;
 }
 
-/* TITULO */
-.intro-text {
-    font-weight: 900;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-    white-space: nowrap;
-
-    font-size: 9vw;
-
-    background-image: url("https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true");
-    background-size: cover;
-    background-position: center;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-
-    opacity: 0;
+/* --- FALLBACK TEXTO --- */
+.fallback {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
 }
 
-/* SUBTITULO */
-.intro-sub {
-    margin-top: 12px;
-    font-size: 0.85rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #000;
-    opacity: 0;
+.fallback .title {
+    font-size:9vw;
+    font-weight:900;
+    white-space:nowrap;
+    opacity:0;
 }
 
-/* RESPONSIVE */
-@media (max-width:1024px){
-    .intro-text{ font-size: 11vw; }
-}
-@media (max-width:600px){
-    .intro-text{ font-size: 13vw; }
+.fallback .sub {
+    font-size:0.8rem;
+    letter-spacing:4px;
+    opacity:0;
 }
 
-/* 🎬 TIMING FINAL PRO */
+/* --- ANIMACIONES --- */
 
-.play .intro-text {
+.play .grupo {
     animation:
-        fadeIn 1.8s ease forwards,
+        fadeIn 1.6s ease forwards,
         moveLeft 1.4s cubic-bezier(0.76,0,0.24,1) forwards;
-    animation-delay: 0.3s, 2.2s;
+    animation-delay: 0.3s, 2s;
 }
 
-.play .intro-sub {
-    animation: fadeIn 1.8s ease forwards;
+.play .fondo {
+    animation: fadeOut 0.5s ease forwards;
+    animation-delay: 3.4s;
+}
+
+/* fallback */
+.play .fallback .title,
+.play .fallback .sub {
+    animation: fadeIn 1.6s ease forwards;
     animation-delay: 0.3s;
 }
 
-.play #intro {
-    animation: fadeOut 0.5s ease forwards;
-    animation-delay: 3.6s;
+.play .fallback {
+    animation: moveLeft 1.4s cubic-bezier(0.76,0,0.24,1) forwards;
+    animation-delay: 2s;
 }
 
-/* ANIMACIONES */
-
 @keyframes fadeIn {
-    from { opacity:0; }
-    to { opacity:1; }
+    from {opacity:0;}
+    to {opacity:1;}
 }
 
 @keyframes moveLeft {
-    from { transform: translateX(0); }
     to { transform: translateX(-140%); }
 }
 
@@ -110,62 +91,45 @@ html, body {
 /* ================= HEADER ================= */
 
 header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 15px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-
-    background: rgba(255,255,255,0.6);
-    backdrop-filter: blur(15px);
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    background:rgba(255,255,255,0.6);
+    backdrop-filter:blur(15px);
 }
 
 .logo-txt {
-    font-size: 0.9rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    font-weight: 300;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-weight:300;
 }
 
 .nav a {
-    margin-left: 25px;
-    text-decoration: none;
-    font-size: 0.65rem;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: #222;
+    margin-left:25px;
+    font-size:0.65rem;
+    text-decoration:none;
+    color:#222;
 }
 
-.nav i {
-    font-size: 0.9rem;
-}
+.nav i { font-size:0.9rem; }
 
 /* ================= PROYECTOS ================= */
 
-.imagen-full {
-    width:100%;
-    height:auto;
-    display:block;
-}
+.imagen-full { width:100%; height:auto; }
 
-@media (min-width:1024px){
-    .imagen-full{
-        height:100vh;
-        object-fit:cover;
-    }
+@media(min-width:1024px){
+    .imagen-full{ height:100vh; object-fit:cover; }
 }
 
 .pie-proyecto {
     padding:20px 0 80px;
     text-align:center;
-    background:#fff;
 }
 
 .pie-proyecto h2 {
-    font-size:1.4rem;
     font-weight:300;
     letter-spacing:5px;
     text-transform:uppercase;
@@ -184,10 +148,28 @@ header {
 
 <!-- INTRO -->
 <div id="intro">
-    <div class="intro-wrap">
-        <div class="intro-text">GARABATO CINE</div>
-        <div class="intro-sub">COLOMBIA</div>
-    </div>
+
+<!-- SVG PRO -->
+<svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+<defs>
+<mask id="mask" maskUnits="userSpaceOnUse">
+<rect width="1200" height="600" fill="white"/>
+<g class="grupo" fill="black" text-anchor="middle">
+<text x="600" y="270" font-size="110" font-weight="900">GARABATO CINE</text>
+<text x="600" y="340" font-size="22" letter-spacing="4">COLOMBIA</text>
+</g>
+</mask>
+</defs>
+
+<rect width="100%" height="100%" fill="white" mask="url(#mask)" class="fondo"/>
+</svg>
+
+<!-- FALLBACK -->
+<div class="fallback">
+<div class="title">GARABATO CINE</div>
+<div class="sub">COLOMBIA</div>
+</div>
+
 </div>
 
 <!-- HEADER -->
@@ -203,7 +185,6 @@ header {
 </header>
 
 <!-- PROYECTOS -->
-
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" class="imagen-full">
 <div class="pie-proyecto"><h2>La Frontera</h2><p>Largometraje</p></div>
 
@@ -232,21 +213,34 @@ header {
 <div class="pie-proyecto"><h2>La Tortuga</h2><p>Cortometraje</p></div>
 
 <script>
-// siempre arriba
+// scroll top SIEMPRE
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
 window.scrollTo(0,0);
 
+// DETECCIÓN SEGURA SVG
+function supportsSVGMask() {
+  return typeof SVGMaskElement !== "undefined";
+}
+
 window.addEventListener("load", () => {
 
     window.scrollTo(0,0);
 
-    document.body.classList.add("play");
+    // si NO soporta máscara → ocultar svg y usar fallback
+    if (!supportsSVGMask()) {
+        document.querySelector("svg").style.display = "none";
+    } else {
+        document.querySelector(".fallback").style.display = "none";
+    }
 
-    setTimeout(() => {
-        const intro = document.getElementById("intro");
-        if (intro) intro.remove();
+    requestAnimationFrame(()=>{
+        document.body.classList.add("play");
+    });
+
+    setTimeout(()=>{
+        document.getElementById("intro")?.remove();
     }, 4200);
 
 });
