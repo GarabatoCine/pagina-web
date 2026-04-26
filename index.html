@@ -10,28 +10,7 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-    font-family:'Roboto',sans-serif;
-    background:black;
-    overflow-x:hidden;
-}
-
-/* ================= HERO VIDEO ================= */
-
-.hero{
-    position:fixed;
-    inset:0;
-    z-index:-1;
-    background:black;
-    transition:opacity .5s ease;
-}
-
-.hero video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
+body{font-family:'Roboto',sans-serif;overflow-x:hidden;background:#000;}
 
 /* ================= INTRO ================= */
 
@@ -39,7 +18,7 @@ body{
     position:fixed;
     inset:0;
     z-index:9999;
-    background:white;
+    background:#fff;
 }
 
 #intro svg{
@@ -52,30 +31,22 @@ body{
     opacity:0;
 }
 
-/* ANIMACIONES */
+/* ANIMACIÓN */
 .play .mask-group{
     animation:
-        fadeIn 1.4s ease forwards,
+        fadeIn 1.2s ease forwards,
         moveLeft 1.2s cubic-bezier(.76,0,.24,1) forwards;
-    animation-delay:.4s,1.8s;
+    animation-delay:.3s,1.6s;
 }
 
 .play .white-bg{
     animation:fadeOut .3s ease forwards;
-    animation-delay:3s;
+    animation-delay:2.8s;
 }
 
-@keyframes fadeIn{
-    to{opacity:1;}
-}
-
-@keyframes moveLeft{
-    to{transform:translateX(-140%);}
-}
-
-@keyframes fadeOut{
-    to{opacity:0;visibility:hidden;}
-}
+@keyframes fadeIn{to{opacity:1;}}
+@keyframes moveLeft{to{transform:translateX(-140%);}}
+@keyframes fadeOut{to{opacity:0;visibility:hidden;}}
 
 /* ================= HEADER ================= */
 
@@ -87,7 +58,6 @@ header{
     display:flex;
     justify-content:space-between;
     z-index:1000;
-
     background:rgba(255,255,255,0.6);
     backdrop-filter:blur(15px);
 }
@@ -109,23 +79,14 @@ header{
 
 .media{
     width:100%;
-    background:black;
+    height:100vh;
+    overflow:hidden;
 }
 
-.media img,
 .media video{
     width:100%;
-    height:auto;
-    display:block;
-}
-
-/* Desktop */
-@media(min-width:1024px){
-    .media img,
-    .media video{
-        height:100vh;
-        object-fit:contain;
-    }
+    height:100%;
+    object-fit:cover;
 }
 
 /* ================= TEXTOS ================= */
@@ -133,7 +94,7 @@ header{
 .pie{
     padding:20px 0 80px;
     text-align:center;
-    background:white;
+    background:#fff;
 }
 
 .pie h2{
@@ -153,19 +114,22 @@ header{
 
 <body>
 
-<!-- HERO VIDEO -->
-<div class="hero">
-<video id="heroVideo" autoplay muted loop playsinline preload="auto">
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4" type="video/mp4">
-</video>
-</div>
-
-<!-- INTRO -->
+<!-- INTRO CON VIDEO REAL DENTRO -->
 <div id="intro">
 
-<svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet">
+<svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
 
 <defs>
+
+<!-- VIDEO COMO FONDO -->
+<pattern id="videoPattern" patternUnits="objectBoundingBox" width="1" height="1">
+    <foreignObject width="100%" height="100%">
+        <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+            <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4" type="video/mp4">
+        </video>
+    </foreignObject>
+</pattern>
+
 <mask id="mask">
 <rect width="100%" height="100%" fill="white"/>
 
@@ -186,9 +150,14 @@ COLOMBIA
 </g>
 
 </mask>
+
 </defs>
 
-<rect width="100%" height="100%" fill="white" mask="url(#mask)" class="white-bg"/>
+<!-- VIDEO DENTRO DE LETRAS -->
+<rect width="100%" height="100%" fill="url(#videoPattern)" mask="url(#mask)"/>
+
+<!-- CAPA BLANCA -->
+<rect width="100%" height="100%" fill="white" class="white-bg"/>
 
 </svg>
 
@@ -209,35 +178,33 @@ COLOMBIA
 <!-- CONTENIDO -->
 
 <div class="media">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true">
+<video autoplay muted loop playsinline>
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
+</video>
 </div>
 <div class="pie"><h2>La Frontera</h2><p>Largometraje</p></div>
 
 <div class="media">
-<video autoplay muted loop playsinline preload="auto">
+<video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-vida-de-colores.mp4">
 </video>
 </div>
 <div class="pie"><h2>Vida de Colores</h2><p>Serie</p></div>
 
-<!-- resto proyectos igual -->
-
 <script>
 
-// 🔒 AUTOPLAY SEGURO (iOS/tablet)
+// autoplay reforzado
 document.querySelectorAll("video").forEach(v=>{
     v.muted = true;
-    v.playsInline = true;
     v.play().catch(()=>{});
 });
 
-// 🔒 SCROLL TOP
+// scroll top
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
 
 window.addEventListener("load", ()=>{
-
     window.scrollTo(0,0);
 
     requestAnimationFrame(()=>{
@@ -246,9 +213,7 @@ window.addEventListener("load", ()=>{
 
     setTimeout(()=>{
         document.getElementById("intro")?.remove();
-        document.querySelector(".hero").style.opacity="0";
-    }, 3200);
-
+    }, 3000);
 });
 
 </script>
