@@ -8,47 +8,52 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body { 
+        html, body { 
             background-color: #fff; 
             font-family: 'Roboto', sans-serif;
             overflow-x: hidden;
         }
 
-        /* --- INTRO EFECTO CAVIAR --- */
-        #intro-caviar {
+        /* --- CAPA INTRO (FONDO BLANCO TOTAL) --- */
+        #capa-intro {
             position: fixed;
             top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 9999;
+            width: 100vw; 
+            height: 100vh;
             background-color: #fff;
+            z-index: 9999;
             display: flex;
             justify-content: center;
             align-items: center;
             pointer-events: none;
-            /* Se queda quieto 1.5s y luego se va a la izquierda */
-            animation: salidaCaviar 1s cubic-bezier(0.85, 0, 0.15, 1) forwards;
-            animation-delay: 1.5s;
+            /* La cortina se desplaza después de 3 segundos (aparición + pausa) */
+            animation: deslizarCortina 1.2s cubic-bezier(0.85, 0, 0.15, 1) forwards;
+            animation-delay: 3s; 
         }
 
-        /* El truco del "Hoyo": Texto que recorta el fondo */
+        /* --- TEXTO HOYO (MÁSCARA) --- */
         .texto-hoyo {
+            width: 100%;
+            text-align: center;
             font-size: 10vw;
             font-weight: 900;
             letter-spacing: -5px;
             text-transform: uppercase;
-            text-align: center;
-            background: white; /* Color del fondo de la intro */
-            color: black; /* Esto no se verá por el modo de mezcla */
-            mix-blend-mode: screen; /* HACE QUE EL TEXTO SEA TRANSPARENTE */
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            user-select: none;
+            color: black;
+            background: white;
+            mix-blend-mode: screen; /* Esto crea la transparencia hacia la imagen de atrás */
+            
+            /* Animación de aparecer lentamente */
+            opacity: 0;
+            animation: aparecerLento 1.5s ease-in forwards;
+            animation-delay: 0.5s;
         }
 
-        @keyframes salidaCaviar {
+        @keyframes aparecerLento {
+            to { opacity: 1; }
+        }
+
+        @keyframes deslizarCortina {
             to { transform: translateX(-100%); }
         }
 
@@ -65,19 +70,62 @@
             background-color: rgba(255, 255, 255, 0.6); 
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .logo-txt { font-size: 0.9rem; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; }
-        .nav-derecha a { color: #222; text-decoration: none; font-size: 0.65rem; margin-left: 25px; text-transform: uppercase; }
+        .logo-txt {
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #222; 
+        }
 
-        /* --- PROYECTOS --- */
+        .nav-derecha a {
+            color: #222;
+            text-decoration: none;
+            font-size: 0.65rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            margin-left: 25px;
+        }
+
+        /* --- PROYECTOS (LIMPIOS) --- */
         .contenedor-proyectos { width: 100%; }
-        .proyecto { width: 100%; display: flex; flex-direction: column; }
-        .imagen-full { width: 100%; height: 100vh; object-fit: cover; display: block; }
-        .pie-proyecto { padding: 20px 0 80px 0; text-align: center; background: #fff; }
-        .pie-proyecto h2 { font-size: 1.4rem; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; }
-        .pie-proyecto p { font-size: 0.6rem; letter-spacing: 3px; color: #999; text-transform: uppercase; }
 
+        .proyecto { 
+            width: 100%; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        .imagen-full {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            display: block;
+        }
+
+        .pie-proyecto {
+            padding: 20px 0 80px 0;
+            text-align: center;
+            background: #fff;
+        }
+
+        .pie-proyecto h2 {
+            font-size: 1.4rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #111;
+        }
+
+        .pie-proyecto p {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            color: #999;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
@@ -87,7 +135,7 @@
         history.scrollRestoration = "manual";
     </script>
 
-    <div id="intro-caviar">
+    <div id="capa-intro">
         <div class="texto-hoyo">GARABATO CINE</div>
     </div>
 
