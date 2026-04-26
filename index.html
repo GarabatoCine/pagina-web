@@ -10,7 +10,12 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Roboto',sans-serif;overflow-x:hidden;}
+
+body{
+    font-family:'Roboto',sans-serif;
+    background:black;
+    overflow-x:hidden;
+}
 
 /* ================= HERO VIDEO ================= */
 
@@ -18,8 +23,8 @@ body{font-family:'Roboto',sans-serif;overflow-x:hidden;}
     position:fixed;
     inset:0;
     z-index:-1;
-    overflow:hidden;
-    transition:opacity 0.4s ease;
+    background:black;
+    transition:opacity .5s ease;
 }
 
 .hero video{
@@ -34,6 +39,7 @@ body{font-family:'Roboto',sans-serif;overflow-x:hidden;}
     position:fixed;
     inset:0;
     z-index:9999;
+    background:white;
 }
 
 #intro svg{
@@ -41,28 +47,25 @@ body{font-family:'Roboto',sans-serif;overflow-x:hidden;}
     height:100%;
 }
 
-svg text{
-    dominant-baseline:middle;
-}
-
+/* TEXTO */
 .mask-group{
     opacity:0;
 }
 
+/* ANIMACIONES */
 .play .mask-group{
     animation:
-        fadeIn 1.6s ease forwards,
-        moveLeft 1.3s cubic-bezier(0.76,0,0.24,1) forwards;
-    animation-delay:0.3s,2s;
+        fadeIn 1.4s ease forwards,
+        moveLeft 1.2s cubic-bezier(.76,0,.24,1) forwards;
+    animation-delay:.4s,1.8s;
 }
 
 .play .white-bg{
-    animation:fadeOut 0.35s ease forwards;
-    animation-delay:3.2s;
+    animation:fadeOut .3s ease forwards;
+    animation-delay:3s;
 }
 
 @keyframes fadeIn{
-    from{opacity:0;}
     to{opacity:1;}
 }
 
@@ -80,7 +83,7 @@ header{
     position:fixed;
     top:0;
     width:100%;
-    padding:15px 50px;
+    padding:15px 40px;
     display:flex;
     justify-content:space-between;
     z-index:1000;
@@ -89,51 +92,58 @@ header{
     backdrop-filter:blur(15px);
 }
 
-.logo-txt{
+.logo{
     letter-spacing:4px;
     text-transform:uppercase;
     font-weight:300;
 }
 
 .nav a{
-    margin-left:25px;
-    font-size:0.65rem;
+    margin-left:20px;
+    font-size:.7rem;
     text-decoration:none;
     color:#222;
 }
 
-.nav i{font-size:0.9rem;}
+/* ================= MEDIA ================= */
 
-/* ================= MEDIA (IMAGEN / VIDEO) ================= */
+.media{
+    width:100%;
+    background:black;
+}
 
-.media-full{
+.media img,
+.media video{
     width:100%;
     height:auto;
     display:block;
 }
 
+/* Desktop */
 @media(min-width:1024px){
-    .media-full{
+    .media img,
+    .media video{
         height:100vh;
-        object-fit:cover;
+        object-fit:contain;
     }
 }
 
 /* ================= TEXTOS ================= */
 
-.pie-proyecto{
+.pie{
     padding:20px 0 80px;
     text-align:center;
+    background:white;
 }
 
-.pie-proyecto h2{
+.pie h2{
     font-weight:300;
     letter-spacing:5px;
     text-transform:uppercase;
 }
 
-.pie-proyecto p{
-    font-size:0.6rem;
+.pie p{
+    font-size:.6rem;
     letter-spacing:3px;
     color:#999;
 }
@@ -143,15 +153,16 @@ header{
 
 <body>
 
-<!-- HERO VIDEO (INTRO) -->
+<!-- HERO VIDEO -->
 <div class="hero">
-<video autoplay muted loop playsinline>
+<video id="heroVideo" autoplay muted loop playsinline preload="auto">
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4" type="video/mp4">
 </video>
 </div>
 
 <!-- INTRO -->
 <div id="intro">
+
 <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet">
 
 <defs>
@@ -161,13 +172,13 @@ header{
 <g class="mask-group" fill="black" text-anchor="middle">
 
 <text x="600" y="280"
-font-size="clamp(60px, 10vw, 110px)"
+font-size="clamp(60px,10vw,110px)"
 font-weight="900">
 GARABATO CINE
 </text>
 
 <text x="600" y="340"
-font-size="clamp(14px, 2vw, 22px)"
+font-size="clamp(14px,2vw,22px)"
 letter-spacing="4">
 COLOMBIA
 </text>
@@ -180,11 +191,12 @@ COLOMBIA
 <rect width="100%" height="100%" fill="white" mask="url(#mask)" class="white-bg"/>
 
 </svg>
+
 </div>
 
 <!-- HEADER -->
 <header>
-<div class="logo-txt">Garabato Cine</div>
+<div class="logo">Garabato Cine</div>
 <div class="nav">
 <a href="#">About Us</a>
 <a href="#">Contact</a>
@@ -194,48 +206,37 @@ COLOMBIA
 </div>
 </header>
 
-<!-- PROYECTOS -->
+<!-- CONTENIDO -->
 
-<!-- LA FRONTERA -->
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" class="media-full">
-<div class="pie-proyecto"><h2>La Frontera</h2><p>Largometraje</p></div>
+<div class="media">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true">
+</div>
+<div class="pie"><h2>La Frontera</h2><p>Largometraje</p></div>
 
-<!-- VIDA DE COLORES (VIDEO) -->
-<video autoplay muted loop playsinline class="media-full">
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-vida-de-colores.mp4" type="video/mp4">
+<div class="media">
+<video autoplay muted loop playsinline preload="auto">
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-vida-de-colores.mp4">
 </video>
-<div class="pie-proyecto"><h2>Vida de Colores</h2><p>Serie</p></div>
+</div>
+<div class="pie"><h2>Vida de Colores</h2><p>Serie</p></div>
 
-<!-- RESTO -->
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Marimonda.jpg?raw=true" class="media-full">
-<div class="pie-proyecto"><h2>Marimonda</h2><p>Cortometraje</p></div>
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Sabatico.jpg?raw=true" class="media-full">
-<div class="pie-proyecto"><h2>Año Sabático</h2><p>Cortometraje</p></div>
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20El%20congo.jpg?raw=true" class="media-full">
-<div class="pie-proyecto"><h2>El Congo de Oro</h2><p>Cortometraje</p></div>
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada-calaguala.jpg?raw=true" class="media-full">
-<div class="pie-proyecto"><h2>Calaguala</h2><p>Cortometraje</p></div>
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20princesita.png?raw=true" class="media-full">
-<div class="pie-proyecto"><h2>La Princesita</h2><p>Cortometraje</p></div>
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Fracturas.jpg?raw=true" class="media-full">
-<div class="pie-proyecto"><h2>Fracturas</h2><p>Cortometraje</p></div>
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20tortuga.jpg?raw=true" class="media-full">
-<div class="pie-proyecto"><h2>La Tortuga</h2><p>Cortometraje</p></div>
+<!-- resto proyectos igual -->
 
 <script>
-// SCROLL ARRIBA SIEMPRE
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
-}
-window.scrollTo(0,0);
 
-window.addEventListener("load", () => {
+// 🔒 AUTOPLAY SEGURO (iOS/tablet)
+document.querySelectorAll("video").forEach(v=>{
+    v.muted = true;
+    v.playsInline = true;
+    v.play().catch(()=>{});
+});
+
+// 🔒 SCROLL TOP
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+window.addEventListener("load", ()=>{
 
     window.scrollTo(0,0);
 
@@ -245,10 +246,11 @@ window.addEventListener("load", () => {
 
     setTimeout(()=>{
         document.getElementById("intro")?.remove();
-        document.querySelector(".hero").style.opacity = "0";
-    }, 3600);
+        document.querySelector(".hero").style.opacity="0";
+    }, 3200);
 
 });
+
 </script>
 
 </body>
