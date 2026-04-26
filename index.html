@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garabato Cine</title>
+    <title>Garabato Cine | Portafolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+    
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
+      
       body { 
-        background-color: black; 
-        color: white; 
-        font-family: 'Helvetica', Arial, sans-serif; 
+        background-color: #000000; 
+        color: #FFFFFF; 
+        font-family: 'Roboto', sans-serif; /* Roboto aplicada */
         overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
       }
 
-      /* Sección del Video Banner */
+      /* Banner de Video inicial */
       .hero-video {
         position: relative;
         width: 100%;
@@ -21,48 +25,80 @@
         overflow: hidden;
         background-color: black;
       }
+      
       iframe {
         position: absolute;
         top: 50%;
         left: 50%;
         width: 100vw;
-        height: 100vw;
+        height: 56.25vw;
+        min-height: 100vh;
+        min-width: 177.77vh;
         transform: translate(-50%, -50%);
         pointer-events: none;
       }
 
-      /* Contenedor de Proyectos */
       .container {
-        padding: 50px 10%;
+        padding: 100px 10%;
         text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .titulo-seccion {
+        font-size: 2rem;
+        font-weight: 100; /* Delgada y clarita como pediste */
+        letter-spacing: 8px;
+        margin-bottom: 80px;
+        text-transform: uppercase;
+        color: #ffffff;
       }
 
       .proyecto {
-        margin-bottom: 80px;
+        margin-bottom: 140px;
       }
 
       .proyecto h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-        letter-spacing: 2px;
+        font-size: 1.5rem;
+        font-weight: 700; /* Título fuerte */
+        margin-bottom: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+
+      .proyecto p {
+        font-size: 0.8rem;
+        font-weight: 300; /* Subtítulo delgado */
+        color: #999999; 
+        margin-bottom: 35px;
+        letter-spacing: 4px;
         text-transform: uppercase;
       }
 
       .proyecto img {
         width: 100%;
-        max-width: 900px;
         height: auto;
-        border-radius: 5px;
-        transition: transform 0.3s ease;
+        border-radius: 0px;
+        box-shadow: 0px 20px 60px rgba(0,0,0,0.9);
+        transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
       }
 
       .proyecto img:hover {
-        transform: scale(1.02);
+        transform: scale(1.03);
       }
 
-      h1.titulo-principal {
-        margin-top: 40px;
-        font-size: 3rem;
+      .contacto {
+        padding: 100px 20px;
+        background-color: #080808;
+        text-align: center;
+        border-top: 1px solid #111;
+      }
+
+      .contacto p {
+        font-size: 0.8rem;
+        font-weight: 300;
+        letter-spacing: 2px;
+        color: #555;
       }
     </style>
 </head>
@@ -76,23 +112,66 @@
   </div>
 
   <div class="container">
-    <h1 class="titulo-principal">NUESTROS PROYECTOS</h1>
-    <br><br><br>
+    <h1 class="titulo-seccion">Proyectos</h1>
 
     <div class="proyecto">
       <h2>La Frontera</h2>
-      <img src="TU_ENLACE_AL_GIF_AQUI" alt="La Frontera">
+      <p>Largometraje</p>
+      <img src="Portada La frontera.jpg" alt="La Frontera">
     </div>
 
     <div class="proyecto">
       <h2>Vida de Colores</h2>
-      <img src="TU_ENLACE_AL_GIF_2_AQUI" alt="Vida de Colores">
+      <p>Serie</p>
+      <img src="Portada Vida de colores.jpg" alt="Vida de Colores">
     </div>
 
     <div class="proyecto">
-      <h2>Siguiente Proyecto</h2>
-      <img src="TU_ENLACE_A_FOTO_AQUI" alt="Proyecto 3">
+      <h2>Marimonda</h2>
+      <p>Cortometraje</p>
+      <img src="URL_MARIMONDA" alt="Marimonda">
     </div>
+
+    <div class="proyecto">
+      <h2>Baño Sabático</h2>
+      <p>Cortometraje</p>
+      <img src="URL_BANIO_SABATICO" alt="Baño Sabático">
+    </div>
+
+    <div class="proyecto">
+      <h2>El Congo de Oro</h2>
+      <p>Cortometraje</p>
+      <img src="URL_CONGO_DE_ORO" alt="El Congo de Oro">
+    </div>
+
+    <div class="proyecto">
+      <h2>Calahuala</h2>
+      <p>Cortometraje</p>
+      <img src="URL_CALAHUALA" alt="Calahuala">
+    </div>
+
+    <div class="proyecto">
+      <h2>La Princesita</h2>
+      <p>Cortometraje</p>
+      <img src="URL_LA_PRINCESITA" alt="La Princesita">
+    </div>
+
+    <div class="proyecto">
+      <h2>Fracturas</h2>
+      <p>Cortometraje</p>
+      <img src="URL_FRACTURAS" alt="Fracturas">
+    </div>
+
+    <div class="proyecto">
+      <h2>La Tortuga</h2>
+      <p>Cortometraje</p>
+      <img src="URL_LA_TORTUGA" alt="La Tortuga">
+    </div>
+
+  </div>
+
+  <div class="contacto">
+    <p>© 2026 GARABATO CINE - VALLEDUPAR, COLOMBIA</p>
   </div>
 
 </body>
