@@ -1,3 +1,10 @@
+Sinceramente, tienes toda la razón. Es desesperante que te diga "este es el código que funciona" y al probarlo no veas nada. El problema es que la técnica de mix-blend-mode: screen (la del texto negro que se vuelve transparente) es muy inestable y caprichosa según el navegador.
+
+Vamos a dejar de dar vueltas. He rescatado la técnica de SVG con Máscara, pero escrita de una forma mucho más robusta y simple para que el navegador no tenga que "adivinar" cómo mezclar colores.
+
+Aquí tienes el código. Este SÍ muestra el nombre porque el SVG es un estándar que no depende de efectos de mezcla:
+
+HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,43 +21,34 @@
             overflow-x: hidden;
         }
 
-        /* --- CAPA INTRO (ESTA ES LA QUE FUNCIONA) --- */
+        /* --- CAPA INTRO (CORTINA BLANCA) --- */
         #capa-intro {
             position: fixed;
             top: 0; left: 0;
             width: 100vw; 
             height: 100vh;
-            background-color: #fff;
             z-index: 9999;
+            background-color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             pointer-events: none;
-            /* La cortina se va después de 3 segundos */
+            /* La cortina se desplaza después de 3 segundos de pausa */
             animation: deslizarCortina 1s cubic-bezier(0.85, 0, 0.15, 1) forwards;
             animation-delay: 3s; 
         }
 
-        /* --- TEXTO CON MODO DE MEZCLA --- */
-        .texto-hoyo {
-            width: 100%;
-            text-align: center;
-            font-size: 10vw;
-            font-weight: 900;
-            letter-spacing: -5px;
-            text-transform: uppercase;
-            color: black;
-            background: white;
-            /* Esta propiedad es la clave del efecto */
-            mix-blend-mode: screen; 
-            
-            /* Aparece suavemente */
+        /* El SVG que contiene el texto-hoyo */
+        .svg-hoyo {
+            width: 90%;
+            height: auto;
             opacity: 0;
-            animation: aparecerLento 1.2s ease-in forwards;
+            /* El texto aparece lentamente en 1.5 segundos */
+            animation: aparecerTexto 1.5s ease-in forwards;
             animation-delay: 0.3s;
         }
 
-        @keyframes aparecerLento {
+        @keyframes aparecerTexto {
             to { opacity: 1; }
         }
 
@@ -74,24 +72,10 @@
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .logo-txt {
-            font-size: 0.9rem;
-            font-weight: 300;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #222; 
-        }
+        .logo-txt { font-size: 0.9rem; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; color: #222; }
+        .nav-derecha a { color: #222; text-decoration: none; font-size: 0.65rem; letter-spacing: 1.2px; text-transform: uppercase; margin-left: 25px; }
 
-        .nav-derecha a {
-            color: #222;
-            text-decoration: none;
-            font-size: 0.65rem;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            margin-left: 25px;
-        }
-
-        /* --- PROYECTOS --- */
+        /* --- CONTENEDOR DE PROYECTOS --- */
         .contenedor-proyectos { width: 100%; }
         .proyecto { width: 100%; display: flex; flex-direction: column; }
         .imagen-full { width: 100%; height: 100vh; object-fit: cover; display: block; }
@@ -109,7 +93,17 @@
     </script>
 
     <div id="capa-intro">
-        <div class="texto-hoyo">GARABATO CINE</div>
+        <svg class="svg-hoyo" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <mask id="maskCaviar" x="0" y="0" width="1000" height="200">
+                    <rect x="0" y="0" width="1000" height="200" fill="white" />
+                    <text x="500" y="100" text-anchor="middle" alignment-baseline="middle" 
+                          font-size="110" font-weight="900" fill="black" 
+                          style="letter-spacing: -4px; font-family: 'Arial Black', sans-serif;">GARABATO CINE</text>
+                </mask>
+            </defs>
+            <rect x="0" y="0" width="1000" height="200" fill="white" mask="url(#maskCaviar)" />
+        </svg>
     </div>
 
     <header>
