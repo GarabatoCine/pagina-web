@@ -15,7 +15,7 @@
             overflow-x: hidden;
         }
 
-        /* --- INTRO TIPO CAVIAR (MOVIMIENTO HORIZONTAL) --- */
+        /* --- INTRO TIPO CAVIAR REAL --- */
         #intro {
             position: fixed;
             top: 0; left: 0;
@@ -25,30 +25,32 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            /* El fondo desaparece suavemente después del movimiento */
-            animation: fadeOutBackground 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-            animation-delay: 2.8s;
+            /* El fondo se desvanece, NO se desplaza */
+            animation: fadeBackground 0.8s ease-out forwards;
+            animation-delay: 2.5s;
+            pointer-events: none;
         }
 
         #intro h1 {
-            font-size: 5rem;
+            font-size: clamp(2rem, 8vw, 6rem); /* Tamaño fluido según pantalla */
             font-weight: 900;
-            letter-spacing: 10px;
+            letter-spacing: 15px;
             text-transform: uppercase;
             white-space: nowrap;
             position: absolute;
-            /* Animación de derecha a izquierda */
-            animation: caviarMove 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            color: #000;
+            /* Movimiento de derecha a izquierda */
+            animation: caviarMove 2.8s cubic-bezier(0.45, 0, 0.55, 1) forwards;
         }
 
         @keyframes caviarMove {
             0% { transform: translateX(120%); opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
             100% { transform: translateX(-120%); opacity: 0; }
         }
 
-        @keyframes fadeOutBackground {
+        @keyframes fadeBackground {
             0% { opacity: 1; }
             100% { opacity: 0; visibility: hidden; }
         }
@@ -63,7 +65,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            mix-blend-mode: difference;
+            mix-blend-mode: difference; /* Texto cambia según fondo */
         }
 
         .brand { font-weight: 400; letter-spacing: 4px; text-transform: uppercase; font-size: 0.9rem; color: #fff; }
@@ -76,6 +78,7 @@
 
         .project-block { width: 100%; text-align: center; }
 
+        /* La Frontera ocupa toda la pantalla inicial */
         .hero-project {
             height: 100vh;
             width: 100%;
@@ -104,7 +107,8 @@
         footer { padding: 100px 20px; text-align: center; font-size: 0.6rem; letter-spacing: 2px; color: #ccc; }
 
         @media (max-width: 768px) {
-            #intro h1 { font-size: 2rem; letter-spacing: 4px; }
+            #intro h1 { letter-spacing: 5px; }
+            .project-info { padding: 40px 0 80px 0; }
         }
     </style>
 </head>
