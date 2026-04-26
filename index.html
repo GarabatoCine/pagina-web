@@ -85,11 +85,8 @@
             text-transform: uppercase;
         }
 
-        /* --- PROYECTOS (SOLUCIÓN PARA TABLET) --- */
-        .contenedor-proyectos { 
-            width: 100%; 
-            margin-top: 0; /* Empieza desde arriba */
-        }
+        /* --- PROYECTOS --- */
+        .contenedor-proyectos { width: 100%; }
 
         .proyecto { 
             width: 100%; 
@@ -100,12 +97,12 @@
 
         .imagen-full {
             width: 100%;
-            height: auto; /* IMPORTANTE: Esto evita que se corten en tablets */
+            height: auto;
             display: block;
         }
 
         .pie-proyecto {
-            padding: 15px 0 80px 0; /* Super pegado a la imagen */
+            padding: 10px 0 80px 0; /* Lo pegué aún más: 10px */
             text-align: center;
         }
 
@@ -118,14 +115,13 @@
         }
 
         .pie-proyecto p {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             letter-spacing: 3px;
             color: #999;
             text-transform: uppercase;
             margin-top: 5px;
         }
 
-        /* Ajuste para pantallas grandes para que no se vean infinitas */
         @media (min-width: 1024px) {
             .imagen-full {
                 height: 100vh;
@@ -185,7 +181,7 @@
             <div class="pie-proyecto"><h2>La Tortuga</h2><p>Cortometraje</p></div>
         </div>
         <div class="proyecto">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Princesita.jpg?raw=true" class="imagen-full">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20princesita.jpg?raw=true" class="imagen-full">
             <div class="pie-proyecto"><h2>La Princesita</h2><p>Cortometraje</p></div>
         </div>
         <div class="proyecto">
