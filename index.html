@@ -14,43 +14,43 @@
             overflow-x: hidden;
         }
 
-        /* --- CONTENEDOR DE LA INTRO --- */
-        #intro-wrapper {
+        /* --- CONTENEDOR DE INTRO GARABATO --- */
+        #garabato-intro {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             z-index: 9999;
-            background-color: #fff; /* Este es el fondo blanco de la intro */
+            background-color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             pointer-events: none;
             
-            /* El fondo blanco desaparece suavemente al final */
-            animation: fadeOutIntro 0.6s ease-in forwards;
+            /* El fondo blanco se desvanece al final */
+            animation: desvanecerFondo 0.6s ease-in forwards;
             animation-delay: 4.5s;
         }
 
-        /* EL TEXTO COMO HUECO (MÁSCARA) */
-        .caviar-text {
-            width: 90%;
-            max-width: 1200px;
-            /* Esta animación hace que el 'hueco' esté quieto y luego corra a la izquierda */
-            animation: caviarMove 4.5s cubic-bezier(0.85, 0, 0.15, 1) forwards;
+        /* EL TEXTO GIGANTE COMO MÁSCARA */
+        .texto-garabato {
+            width: 95vw; /* De borde a borde */
+            height: auto;
+            /* Aparece quieto y luego corre a la izquierda */
+            animation: movimientoGarabato 4.5s cubic-bezier(0.85, 0, 0.15, 1) forwards;
         }
 
-        @keyframes caviarMove {
+        @keyframes movimientoGarabato {
             0% { opacity: 0; transform: translateX(0); }
             15% { opacity: 1; transform: translateX(0); } /* Quieto en el centro */
-            75% { transform: translateX(0); opacity: 1; } /* Pausa larga */
-            100% { transform: translateX(-160%); opacity: 0; } /* Salida rápida */
+            75% { transform: translateX(0); opacity: 1; } /* Pausa para lectura */
+            100% { transform: translateX(-200%); opacity: 0; } /* Salida rápida */
         }
 
-        @keyframes fadeOutIntro {
+        @keyframes desvanecerFondo {
             to { opacity: 0; visibility: hidden; }
         }
 
-        /* --- ESTILO DEL HEADER --- */
+        /* --- HEADER --- */
         header {
             position: fixed;
             top: 0; width: 100%;
@@ -65,12 +65,10 @@
             font-size: 0.8rem;
         }
 
-        /* --- CONTENIDO DE FONDO --- */
         .hero-project {
             height: 100vh;
             width: 100%;
             background: #000;
-            display: block;
         }
 
         .hero-project img {
@@ -88,16 +86,17 @@
 </head>
 <body>
 
-    <div id="intro-wrapper">
-        <svg class="caviar-text" viewBox="0 0 800 200">
+    <div id="garabato-intro">
+        <svg class="texto-garabato" viewBox="0 0 1400 250">
             <defs>
-                <mask id="textMask">
+                <mask id="mascaraTexto">
                     <rect width="100%" height="100%" fill="white" />
                     <text x="50%" y="50%" text-anchor="middle" dy=".35em" 
-                          font-size="80" font-weight="900" fill="black">GARABATO CINE</text>
+                          font-size="150" font-weight="900" fill="black" 
+                          style="letter-spacing: -4px; text-transform: uppercase;">GARABATO CINE!</text>
                 </mask>
             </defs>
-            <rect width="100%" height="100%" fill="white" mask="url(#textMask)" />
+            <rect width="100%" height="100%" fill="white" mask="url(#mascaraTexto)" />
         </svg>
     </div>
 
