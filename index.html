@@ -22,7 +22,7 @@ html, body {
     background: #000;
 }
 
-/* --- IMAGEN DE FONDO --- */
+/* --- FONDO --- */
 .bg-media {
     position: fixed;
     inset: 0;
@@ -32,36 +32,48 @@ html, body {
     z-index: 1;
 }
 
-/* --- CAPA BLANCA --- */
+/* --- INTRO CON MÁSCARA --- */
 #intro {
     position: fixed;
     inset: 0;
-    background: #fff;
     z-index: 9999;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* blanco pero con hueco */
+    background: #fff;
+
+    /* 💥 MÁSCARA REAL */
+    -webkit-mask: url(#mask-text);
+    mask: url(#mask-text);
 
     animation: slideOut 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
-    animation-delay: 3.2s;
+    animation-delay: 4.5s; /* más tiempo antes de deslizar */
 }
 
-/* --- TEXTO "RECORTE" --- */
-#intro h1 {
+/* --- SVG invisible que define la máscara --- */
+svg {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+/* --- TEXTO (solo para animar opacidad visual) --- */
+.texto {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+
     font-size: 11vw;
     font-weight: 900;
     letter-spacing: -0.05em;
     text-transform: uppercase;
 
-    color: black;
-
-    /* 💥 ESTO HACE EL HUECO REAL */
-    mix-blend-mode: destination-out;
+    color: transparent; /* no se ve, solo referencia */
 
     opacity: 0;
-    animation: fadeIn 1.4s ease forwards;
-    animation-delay: 0.4s;
+    animation: fadeIn 2.5s ease forwards;
+    animation-delay: 1s; /* ⏳ más lento como pediste */
 }
 
 /* --- ANIMACIONES --- */
@@ -97,9 +109,29 @@ class="bg-media"
 src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true"
 />
 
+<!-- SVG MASK -->
+<svg>
+    <defs>
+        <mask id="mask-text">
+            <!-- fondo visible -->
+            <rect width="100%" height="100%" fill="white"/>
+            
+            <!-- texto = hueco -->
+            <text x="50%" y="50%" dy=".35em"
+                text-anchor="middle"
+                font-size="140"
+                font-weight="900"
+                font-family="Roboto, sans-serif"
+                fill="black">
+                GARABATO CINE
+            </text>
+        </mask>
+    </defs>
+</svg>
+
 <!-- INTRO -->
 <div id="intro">
-    <h1>GARABATO CINE</h1>
+    <div class="texto">GARABATO CINE</div>
 </div>
 
 <!-- CONTENIDO -->
