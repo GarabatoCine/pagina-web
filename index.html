@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,38 +15,27 @@
             overflow-x: hidden;
         }
 
-        /* --- CAPA INTRO (FONDO BLANCO TOTAL) --- */
+        /* --- CAPA INTRO --- */
         #capa-intro {
             position: fixed;
             top: 0; left: 0;
-            width: 100vw; 
-            height: 100vh;
-            background-color: #fff;
+            width: 100%; height: 100%;
             z-index: 9999;
+            background-color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             pointer-events: none;
-            /* La cortina se desplaza después de 3 segundos (aparición + pausa) */
             animation: deslizarCortina 1.2s cubic-bezier(0.85, 0, 0.15, 1) forwards;
-            animation-delay: 3s; 
+            animation-delay: 2.8s; 
         }
 
-        /* --- TEXTO HOYO (MÁSCARA) --- */
-        .texto-hoyo {
-            width: 100%;
-            text-align: center;
-            font-size: 10vw;
-            font-weight: 900;
-            letter-spacing: -5px;
-            text-transform: uppercase;
-            color: black;
-            background: white;
-            mix-blend-mode: screen; /* Esto crea la transparencia hacia la imagen de atrás */
-            
-            /* Animación de aparecer lentamente */
+        /* --- TEXTO MÁSCARA --- */
+        .svg-hoyo {
+            width: 90%;
+            height: auto;
             opacity: 0;
-            animation: aparecerLento 1.5s ease-in forwards;
+            animation: aparecerLento 1.2s ease-in forwards;
             animation-delay: 0.5s;
         }
 
@@ -54,7 +44,7 @@
         }
 
         @keyframes deslizarCortina {
-            to { transform: translateX(-100%); }
+            to { transform: translateX(-100%); visibility: hidden; }
         }
 
         /* --- HEADER --- */
@@ -90,7 +80,7 @@
             margin-left: 25px;
         }
 
-        /* --- PROYECTOS (LIMPIOS) --- */
+        /* --- PROYECTOS --- */
         .contenedor-proyectos { width: 100%; }
 
         .proyecto { 
@@ -136,7 +126,17 @@
     </script>
 
     <div id="capa-intro">
-        <div class="texto-hoyo">GARABATO CINE</div>
+        <svg class="svg-hoyo" viewBox="0 0 1000 200">
+            <defs>
+                <mask id="maskCaviar">
+                    <rect width="100%" height="100%" fill="white" />
+                    <text x="50%" y="50%" text-anchor="middle" dy=".35em" 
+                          font-size="115" font-weight="900" fill="black" 
+                          style="letter-spacing: -5px; font-family: 'Roboto', sans-serif;">GARABATO CINE</text>
+                </mask>
+            </defs>
+            <rect width="100%" height="100%" fill="white" mask="url(#maskCaviar)" />
+        </svg>
     </div>
 
     <header>
