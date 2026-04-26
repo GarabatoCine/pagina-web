@@ -7,8 +7,11 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap" rel="stylesheet">
 
+<!-- ICONO INSTAGRAM -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin:0; padding:0; box-sizing:border-box; }
 
 html, body {
     font-family: 'Roboto', sans-serif;
@@ -21,7 +24,7 @@ html, body {
     position: fixed;
     inset: 0;
     z-index: 9999;
-    pointer-events: none;
+    background: white; /* asegura pantalla blanca inmediata */
 }
 
 #intro svg {
@@ -30,20 +33,23 @@ html, body {
     display: block;
 }
 
-/* 🎬 TIMING TIPO CAVIAR */
+/* --- ANIMACIÓN TIPO CAVIAR --- */
+
 .play .fade {
-    animation: fadeIn 1.4s ease forwards;
+    animation: fadeIn 1.2s ease forwards;
 }
 
 .play .move {
-    animation: moveLeft 0.9s cubic-bezier(0.76,0,0.24,1) forwards;
-    animation-delay: 1.6s;
+    animation: moveLeft 1s cubic-bezier(0.76,0,0.24,1) forwards;
+    animation-delay: 1.2s;
 }
 
 .play .white {
-    animation: fadeOut 0.7s ease forwards;
-    animation-delay: 1.6s;
+    animation: fadeOut 0.8s ease forwards;
+    animation-delay: 1.2s;
 }
+
+/* --- KEYFRAMES --- */
 
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -55,7 +61,7 @@ html, body {
 }
 
 @keyframes fadeOut {
-    to { opacity: 0; }
+    to { opacity: 0; visibility: hidden; }
 }
 
 /* ================= HEADER ================= */
@@ -91,64 +97,47 @@ header {
     color: #222;
 }
 
+/* icono */
+.nav i {
+    font-size: 0.9rem;
+}
+
 /* ================= PROYECTOS ================= */
 
-.contenedor-proyectos {
-    width: 100%;
-}
+.contenedor-proyectos { width:100%; }
 
-.proyecto {
-    display: flex;
-    flex-direction: column;
-}
-
-/* 🔥 SOLUCIÓN: NO MÁS IMÁGENES CORTADAS */
 .imagen-full {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+    width:100%;
+    height:auto;
+    display:block;
 }
 
-/* en desktop mantenemos impacto */
-@media (min-width: 1024px) {
-    .imagen-full {
-        height: 100vh;
-        object-fit: cover;
+/* desktop mantiene impacto */
+@media (min-width:1024px){
+    .imagen-full{
+        height:100vh;
+        object-fit:cover;
     }
 }
 
 .pie-proyecto {
-    padding: 20px 0 80px 0;
-    text-align: center;
-    background: #fff;
+    padding:20px 0 80px;
+    text-align:center;
+    background:#fff;
 }
 
 .pie-proyecto h2 {
-    font-size: 1.4rem;
-    font-weight: 300;
-    letter-spacing: 5px;
-    text-transform: uppercase;
+    font-size:1.4rem;
+    font-weight:300;
+    letter-spacing:5px;
+    text-transform:uppercase;
 }
 
 .pie-proyecto p {
-    font-size: 0.6rem;
-    letter-spacing: 3px;
-    color: #999;
-    text-transform: uppercase;
-}
-
-/* ================= TEXTO INTRO RESPONSIVE ================= */
-
-@media (max-width: 1024px) {
-    #intro svg {
-        transform: scale(0.7);
-    }
-}
-
-@media (max-width: 600px) {
-    #intro svg {
-        transform: scale(0.5);
-    }
+    font-size:0.6rem;
+    letter-spacing:3px;
+    color:#999;
+    text-transform:uppercase;
 }
 
 </style>
@@ -158,10 +147,11 @@ header {
 
 <!-- ================= INTRO ================= -->
 <div id="intro">
-<svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet">
+
+<svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
 
 <defs>
-<mask id="textMask" maskUnits="userSpaceOnUse">
+<mask id="mask" maskUnits="userSpaceOnUse">
 <rect width="1200" height="600" fill="white"/>
 
 <g class="fade move">
@@ -179,82 +169,68 @@ GARABATO CINE
 </mask>
 </defs>
 
-<rect width="100%" height="100%" fill="white" mask="url(#textMask)" class="white"/>
+<rect width="100%" height="100%" fill="white" mask="url(#mask)" class="white"/>
 
 </svg>
+
 </div>
 
 <!-- ================= HEADER ================= -->
 <header>
-    <div class="logo-txt">Garabato Cine</div>
-    <div class="nav">
-        <a href="#">About Us</a>
-        <a href="#">Contact</a>
-        <a href="https://www.instagram.com/garabatocine/" target="_blank">Instagram</a>
-    </div>
+<div class="logo-txt">Garabato Cine</div>
+<div class="nav">
+<a href="#">About Us</a>
+<a href="#">Contact</a>
+<a href="https://www.instagram.com/garabatocine/" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+</div>
 </header>
 
 <!-- ================= PROYECTOS ================= -->
 <div class="contenedor-proyectos">
 
-<div class="proyecto">
+<!-- TODOS tus proyectos -->
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" class="imagen-full">
 <div class="pie-proyecto"><h2>La Frontera</h2><p>Largometraje</p></div>
-</div>
 
-<div class="proyecto">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Vida%20de%20colores.jpg?raw=true" class="imagen-full">
 <div class="pie-proyecto"><h2>Vida de Colores</h2><p>Serie</p></div>
-</div>
 
-<div class="proyecto">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Marimonda.jpg?raw=true" class="imagen-full">
 <div class="pie-proyecto"><h2>Marimonda</h2><p>Cortometraje</p></div>
-</div>
 
-<div class="proyecto">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Sabatico.jpg?raw=true" class="imagen-full">
 <div class="pie-proyecto"><h2>Año Sabático</h2><p>Cortometraje</p></div>
-</div>
 
-<div class="proyecto">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20El%20congo.jpg?raw=true" class="imagen-full">
 <div class="pie-proyecto"><h2>El Congo de Oro</h2><p>Cortometraje</p></div>
-</div>
 
-<div class="proyecto">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada-calaguala.jpg?raw=true" class="imagen-full">
 <div class="pie-proyecto"><h2>Calaguala</h2><p>Cortometraje</p></div>
-</div>
 
-<div class="proyecto">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20princesita.png?raw=true" class="imagen-full">
 <div class="pie-proyecto"><h2>La Princesita</h2><p>Cortometraje</p></div>
-</div>
 
-<div class="proyecto">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Fracturas.jpg?raw=true" class="imagen-full">
 <div class="pie-proyecto"><h2>Fracturas</h2><p>Cortometraje</p></div>
-</div>
 
-<div class="proyecto">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20tortuga.jpg?raw=true" class="imagen-full">
 <div class="pie-proyecto"><h2>La Tortuga</h2><p>Cortometraje</p></div>
-</div>
 
 </div>
 
 <script>
 window.addEventListener("load", () => {
 
-    setTimeout(() => {
-        document.body.classList.add("play");
-    }, 100);
+    // iniciar animación inmediatamente
+    document.body.classList.add("play");
 
+    // remover intro
     setTimeout(() => {
         const intro = document.getElementById("intro");
         if (intro) intro.remove();
-    }, 2600);
+    }, 2200);
 
 });
 </script>
