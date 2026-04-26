@@ -1,188 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garabato Cine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html, body { 
-            background-color: #fff; 
-            font-family: 'Roboto', sans-serif;
-            overflow-x: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garabato Cine</title>
 
-        /* --- CAPA INTRO --- */
-        #capa-intro {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; 
-            height: 100vh;
-            background-color: #fff;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            pointer-events: none;
-            animation: deslizarCortina 1s cubic-bezier(0.85, 0, 0.15, 1) forwards;
-            animation-delay: 3s; 
-        }
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
 
-        /* --- TEXTO HOYO --- */
-        .texto-hoyo {
-            width: 100%;
-            text-align: center;
-            font-size: 10vw;
-            font-weight: 900;
-            letter-spacing: -5px;
-            text-transform: uppercase;
-            color: black;
-            background: white;
-            mix-blend-mode: screen; 
-            opacity: 0;
-            animation: aparecerLento 1.2s ease-in forwards;
-            animation-delay: 0.3s;
-        }
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-        @keyframes aparecerLento {
-            to { opacity: 1; }
-        }
+html, body {
+    background: #000;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+}
 
-        @keyframes deslizarCortina {
-            to { transform: translateX(-100%); visibility: hidden; }
-        }
+/* --- VIDEO DE FONDO --- */
+.video-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
 
-        /* --- HEADER --- */
-        header {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            padding: 15px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.6); 
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
+/* --- CAPA BLANCA --- */
+#capa-intro {
+    position: fixed;
+    inset: 0;
+    background: #fff;
+    z-index: 9999;
 
-        .logo-txt {
-            font-size: 0.9rem;
-            font-weight: 300;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #222; 
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        .nav-derecha a {
-            color: #222;
-            text-decoration: none;
-            font-size: 0.65rem;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            margin-left: 25px;
-        }
+    animation: slideOut 1s cubic-bezier(0.85, 0, 0.15, 1) forwards;
+    animation-delay: 3s;
+}
 
-        /* --- PROYECTOS --- */
-        .contenedor-proyectos { width: 100%; }
+/* --- TEXTO COMO MÁSCARA --- */
+.texto-mask {
+    font-size: 12vw;
+    font-weight: 900;
+    letter-spacing: -5px;
+    text-transform: uppercase;
 
-        .proyecto { 
-            width: 100%; 
-            display: flex;
-            flex-direction: column;
-        }
+    color: black;
 
-        .imagen-full {
-            width: 100%;
-            height: 100vh;
-            object-fit: cover;
-            display: block;
-        }
+    /* CLAVE: esto crea el "hueco" */
+    -webkit-mask-image: linear-gradient(#000, #000);
+    -webkit-mask-composite: destination-out;
 
-        .pie-proyecto {
-            padding: 20px 0 80px 0;
-            text-align: center;
-            background: #fff;
-        }
+    mix-blend-mode: normal;
 
-        .pie-proyecto h2 {
-            font-size: 1.4rem;
-            font-weight: 300;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: #111;
-        }
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards;
+    animation-delay: 0.5s;
+}
 
-        .pie-proyecto p {
-            font-size: 0.6rem;
-            letter-spacing: 3px;
-            color: #999;
-            text-transform: uppercase;
-        }
-    </style>
+/* alternativa más compatible */
+.texto-mask {
+    background: black;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* --- ANIMACIONES --- */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes slideOut {
+    to {
+        transform: translateX(-100%);
+        visibility: hidden;
+    }
+}
+
+/* --- CONTENIDO --- */
+.contenido {
+    position: relative;
+    z-index: 2;
+}
+
+.imagen-full {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+</style>
 </head>
+
 <body>
 
-    <script>
-        window.onbeforeunload = function () { window.scrollTo(0, 0); }
-        history.scrollRestoration = "manual";
-    </script>
+<!-- VIDEO (esto es lo que se ve dentro del texto) -->
+<video class="video-bg" autoplay muted loop playsinline>
+    <source src="TU_VIDEO.mp4" type="video/mp4">
+</video>
 
-    <div id="capa-intro">
-        <div class="texto-hoyo">GARABATO CINE</div>
-    </div>
+<!-- INTRO -->
+<div id="capa-intro">
+    <div class="texto-mask">GARABATO</div>
+</div>
 
-    <header>
-        <div class="logo-txt">Garabato Cine</div>
-        <div class="nav-derecha">
-            <a href="#">About Us</a>
-            <a href="#">Contact</a>
-            <a href="https://www.instagram.com/garabatocine/" target="_blank">Instagram</a>
-        </div>
-    </header>
-
-    <div class="contenedor-proyectos">
-        <div class="proyecto">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" class="imagen-full">
-            <div class="pie-proyecto"><h2>La Frontera</h2><p>Largometraje</p></div>
-        </div>
-        <div class="proyecto">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Vida%20de%20colores.jpg?raw=true" class="imagen-full">
-            <div class="pie-proyecto"><h2>Vida de Colores</h2><p>Serie</p></div>
-        </div>
-        <div class="proyecto">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Marimonda.jpg?raw=true" class="imagen-full">
-            <div class="pie-proyecto"><h2>Marimonda</h2><p>Cortometraje</p></div>
-        </div>
-        <div class="proyecto">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Sabatico.jpg?raw=true" class="imagen-full">
-            <div class="pie-proyecto"><h2>Año Sabático</h2><p>Cortometraje</p></div>
-        </div>
-        <div class="proyecto">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20El%20congo.jpg?raw=true" class="imagen-full">
-            <div class="pie-proyecto"><h2>El Congo de Oro</h2><p>Cortometraje</p></div>
-        </div>
-        <div class="proyecto">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada-calaguala.jpg?raw=true" class="imagen-full">
-            <div class="pie-proyecto"><h2>Calaguala</h2><p>Cortometraje</p></div>
-        </div>
-        <div class="proyecto">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20princesita.png?raw=true" class="imagen-full">
-            <div class="pie-proyecto"><h2>La Princesita</h2><p>Cortometraje</p></div>
-        </div>
-        <div class="proyecto">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Fracturas.jpg?raw=true" class="imagen-full">
-            <div class="pie-proyecto"><h2>Fracturas</h2><p>Cortometraje</p></div>
-        </div>
-        <div class="proyecto">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20tortuga.jpg?raw=true" class="imagen-full">
-            <div class="pie-proyecto"><h2>La Tortuga</h2><p>Cortometraje</p></div>
-        </div>
-    </div>
+<!-- CONTENIDO -->
+<div class="contenido">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" class="imagen-full">
+</div>
 
 </body>
 </html>
