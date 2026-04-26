@@ -6,8 +6,6 @@
 <title>Garabato Cine</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap" rel="stylesheet">
-
-<!-- ICONO INSTAGRAM -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
@@ -24,44 +22,72 @@ html, body {
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: white; /* asegura pantalla blanca inmediata */
+    background: white;
 }
 
-#intro svg {
+/* TEXTO (FALLBACK SEGURO) */
+.intro-text {
+    position: absolute;
     width: 100%;
-    height: 100%;
-    display: block;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+
+    font-size: 10vw;
+
+    /* 🔥 transparencia estable */
+    background-image: url("https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true");
+    background-size: cover;
+    background-position: center;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    opacity: 0;
 }
 
-/* --- ANIMACIÓN TIPO CAVIAR --- */
-
-.play .fade {
-    animation: fadeIn 1.2s ease forwards;
+/* tablet */
+@media (max-width:1024px){
+    .intro-text{
+        font-size: 12vw;
+    }
 }
 
-.play .move {
-    animation: moveLeft 1s cubic-bezier(0.76,0,0.24,1) forwards;
-    animation-delay: 1.2s;
+/* móvil */
+@media (max-width:600px){
+    .intro-text{
+        font-size: 14vw;
+    }
 }
 
-.play .white {
+/* ANIMACIÓN */
+.play .intro-text {
+    animation: fadeIn 1.2s ease forwards,
+               moveLeft 1s cubic-bezier(0.76,0,0.24,1) forwards;
+    animation-delay: 0.3s, 1.3s;
+}
+
+.play #intro {
     animation: fadeOut 0.8s ease forwards;
-    animation-delay: 1.2s;
+    animation-delay: 1.3s;
 }
-
-/* --- KEYFRAMES --- */
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity:0; }
+    to { opacity:1; }
 }
 
 @keyframes moveLeft {
-    to { transform: translateX(-120%); }
+    to { transform: translate(-120%, -50%); }
 }
 
 @keyframes fadeOut {
-    to { opacity: 0; visibility: hidden; }
+    to { opacity:0; visibility:hidden; }
 }
 
 /* ================= HEADER ================= */
@@ -76,14 +102,12 @@ header {
     align-items: center;
     z-index: 1000;
 
-    background-color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.6);
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .logo-txt {
     font-size: 0.9rem;
-    font-weight: 300;
     letter-spacing: 4px;
     text-transform: uppercase;
 }
@@ -97,22 +121,17 @@ header {
     color: #222;
 }
 
-/* icono */
 .nav i {
     font-size: 0.9rem;
 }
 
 /* ================= PROYECTOS ================= */
 
-.contenedor-proyectos { width:100%; }
-
 .imagen-full {
     width:100%;
     height:auto;
-    display:block;
 }
 
-/* desktop mantiene impacto */
 @media (min-width:1024px){
     .imagen-full{
         height:100vh;
@@ -128,7 +147,6 @@ header {
 
 .pie-proyecto h2 {
     font-size:1.4rem;
-    font-weight:300;
     letter-spacing:5px;
     text-transform:uppercase;
 }
@@ -137,7 +155,6 @@ header {
     font-size:0.6rem;
     letter-spacing:3px;
     color:#999;
-    text-transform:uppercase;
 }
 
 </style>
@@ -147,32 +164,7 @@ header {
 
 <!-- ================= INTRO ================= -->
 <div id="intro">
-
-<svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
-
-<defs>
-<mask id="mask" maskUnits="userSpaceOnUse">
-<rect width="1200" height="600" fill="white"/>
-
-<g class="fade move">
-<text x="600" y="300"
-text-anchor="middle"
-dominant-baseline="middle"
-font-size="120"
-font-weight="900"
-font-family="Roboto, sans-serif"
-fill="black">
-GARABATO CINE
-</text>
-</g>
-
-</mask>
-</defs>
-
-<rect width="100%" height="100%" fill="white" mask="url(#mask)" class="white"/>
-
-</svg>
-
+    <div class="intro-text">GARABATO CINE</div>
 </div>
 
 <!-- ================= HEADER ================= -->
@@ -188,9 +180,7 @@ GARABATO CINE
 </header>
 
 <!-- ================= PROYECTOS ================= -->
-<div class="contenedor-proyectos">
 
-<!-- TODOS tus proyectos -->
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" class="imagen-full">
 <div class="pie-proyecto"><h2>La Frontera</h2><p>Largometraje</p></div>
 
@@ -218,15 +208,19 @@ GARABATO CINE
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20tortuga.jpg?raw=true" class="imagen-full">
 <div class="pie-proyecto"><h2>La Tortuga</h2><p>Cortometraje</p></div>
 
-</div>
-
 <script>
+// 🔥 SIEMPRE iniciar arriba
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0,0);
+
 window.addEventListener("load", () => {
 
-    // iniciar animación inmediatamente
+    window.scrollTo(0,0);
+
     document.body.classList.add("play");
 
-    // remover intro
     setTimeout(() => {
         const intro = document.getElementById("intro");
         if (intro) intro.remove();
