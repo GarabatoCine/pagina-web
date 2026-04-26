@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Garabato Cine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -14,7 +14,7 @@
             overflow-x: hidden;
         }
 
-        /* --- INTRO GARABATO (MÁSCARA FUNCIONAL) --- */
+        /* --- INTRO DEFECTIVA (LETRA TRANSPARENTE + DESLIZAMIENTO) --- */
         #capa-intro {
             position: fixed;
             top: 0; left: 0;
@@ -25,28 +25,32 @@
             justify-content: center;
             align-items: center;
             pointer-events: none;
+            
+            /* El fondo blanco desaparece suavemente al final */
             animation: salidaFondo 0.6s ease-in forwards;
-            animation-delay: 4s;
+            animation-delay: 4.5s;
         }
 
+        /* Esta clase aplica la animación de movimiento al texto */
         .svg-texto {
             width: 95vw;
             height: auto;
-            animation: flujoGarabato 4s cubic-bezier(0.85, 0, 0.15, 1) forwards;
+            /* Aparece en el centro (quieta) y luego corre a la izquierda */
+            animation: flujoGarabato 4.5s cubic-bezier(0.85, 0, 0.15, 1) forwards;
         }
 
         @keyframes flujoGarabato {
             0% { opacity: 0; transform: translateX(0); }
-            15% { opacity: 1; transform: translateX(0); } 
-            75% { transform: translateX(0); opacity: 1; } 
-            100% { transform: translateX(-180%); opacity: 0; }
+            15% { opacity: 1; transform: translateX(0); } /* Pausa quieta en el centro */
+            75% { transform: translateX(0); opacity: 1; } /* Sigue quieta */
+            100% { transform: translateX(-180%); opacity: 0; } /* Salida rápida a la izquierda */
         }
 
         @keyframes salidaFondo {
             to { opacity: 0; visibility: hidden; }
         }
 
-        /* --- HEADER SUPERIOR (ESTILO CAPTURA) --- */
+        /* --- HEADER ESTILO CAPTURA (TRANSPARENTE + BLUR) --- */
         header {
             position: fixed;
             top: 0; left: 0;
@@ -56,46 +60,44 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            /* FRANJA BLANCA SEMITRANSPARENTE (COMO TU FOTO) */
-            background-color: rgba(255, 255, 255, 0.7); 
-            backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
-            -webkit-backdrop-filter: blur(10px);
+            
+            /* Transparencia y blur de cristal estilo Safari */
+            background-color: rgba(255, 255, 255, 0.5); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
         }
 
         .logo-header {
-            font-size: 0.9rem;
-            font-weight: 900;
-            letter-spacing: 2px;
+            font-size: 0.85rem;
+            font-weight: 300;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: #000;
+            color: #333; /* Gris oscuro elegante */
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 35px;
             align-items: center;
         }
 
         .nav-links a {
-            color: #000;
+            color: #333;
             text-decoration: none;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 300;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .ig-icon {
-            width: 16px;
-            height: 16px;
-            fill: #000;
+            width: 15px;
+            height: 15px;
+            fill: #333;
         }
 
-        /* --- LISTADO DE PROYECTOS --- */
-        .contenido {
-            width: 100%;
-        }
-
+        /* --- PROYECTOS --- */
         .bloque-proyecto {
             width: 100%;
             background-color: #fff;
@@ -109,23 +111,24 @@
         }
 
         .info-proyecto {
-            padding: 60px 0 100px 0;
+            padding: 70px 0 120px 0;
             text-align: center;
         }
 
         .info-proyecto h2 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 300;
-            letter-spacing: 5px;
+            letter-spacing: 6px;
             text-transform: uppercase;
+            color: #1a1a1a;
         }
 
         .info-proyecto p {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             letter-spacing: 3px;
-            color: #888;
+            color: #999;
             text-transform: uppercase;
-            margin-top: 10px;
+            margin-top: 12px;
         }
     </style>
 </head>
@@ -138,7 +141,7 @@
                     <rect width="100%" height="100%" fill="white" />
                     <text x="50%" y="50%" text-anchor="middle" dy=".35em" 
                           font-size="140" font-weight="900" fill="black" 
-                          style="letter-spacing: -5px;">GARABATO CINE!</text>
+                          style="letter-spacing: -5px; font-family: 'Roboto', sans-serif;">GARABATO CINE!</text>
                 </mask>
             </defs>
             <rect width="100%" height="100%" fill="white" mask="url(#hoyoTexto)" />
@@ -159,42 +162,32 @@
     <div class="contenido">
         <div class="bloque-proyecto">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" class="hero-img">
-            <div class="info-proyecto">
-                <h2>La Frontera</h2>
-                <p>Largometraje</p>
-            </div>
+            <div class="info-proyecto"><h2>La Frontera</h2><p>Largometraje</p></div>
         </div>
 
         <div class="bloque-proyecto">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Vida%20de%20colores.jpg?raw=true" class="hero-img">
-            <div class="info-proyecto">
-                <h2>Vida de Colores</h2>
-                <p>Serie</p>
-            </div>
+            <div class="info-proyecto"><h2>Vida de Colores</h2><p>Serie</p></div>
         </div>
 
         <div class="bloque-proyecto">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Marimonda.jpg?raw=true" class="hero-img">
-            <div class="info-proyecto">
-                <h2>Marimonda</h2>
-                <p>Cortometraje</p>
-            </div>
+            <div class="info-proyecto"><h2>Marimonda</h2><p>Cortometraje</p></div>
         </div>
 
         <div class="bloque-proyecto">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Sabatico.jpg?raw=true" class="hero-img">
-            <div class="info-proyecto">
-                <h2>Año Sabático</h2>
-                <p>Cortometraje</p>
-            </div>
+            <div class="info-proyecto"><h2>Año Sabático</h2><p>Cortometraje</p></div>
         </div>
 
         <div class="bloque-proyecto">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20El%20congo.jpg?raw=true" class="hero-img">
-            <div class="info-proyecto">
-                <h2>El Congo de Oro</h2>
-                <p>Cortometraje</p>
-            </div>
+            <div class="info-proyecto"><h2>El Congo de Oro</h2><p>Cortometraje</p></div>
+        </div>
+
+        <div class="bloque-proyecto">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20tortuga.jpg?raw=true" class="hero-img">
+            <div class="info-proyecto"><h2>La Tortuga</h2><p>Cortometraje</p></div>
         </div>
     </div>
 
