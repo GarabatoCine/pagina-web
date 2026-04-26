@@ -1,10 +1,15 @@
+He rescatado exactamente el código que funcionó para mostrar el nombre. El truco es el mix-blend-mode: screen, que es lo único que ha logrado que el texto sea transparente y se vea la imagen de fondo.
+
+Aquí tienes la versión estable. No he tocado la técnica, solo he asegurado que el fondo blanco sea total y que los tiempos sean claros:
+
+HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Garabato Cine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -14,7 +19,7 @@
             overflow-x: hidden;
         }
 
-        /* --- CAPA INTRO (FONDO BLANCO TOTAL) --- */
+        /* --- CAPA INTRO (ESTA ES LA QUE FUNCIONA) --- */
         #capa-intro {
             position: fixed;
             top: 0; left: 0;
@@ -26,12 +31,12 @@
             justify-content: center;
             align-items: center;
             pointer-events: none;
-            /* La cortina se desplaza después de 3 segundos */
+            /* La cortina se va después de 3 segundos */
             animation: deslizarCortina 1s cubic-bezier(0.85, 0, 0.15, 1) forwards;
             animation-delay: 3s; 
         }
 
-        /* --- EL TEXTO QUE SÍ FUNCIONÓ (MODO MÁSCARA DIRECTA) --- */
+        /* --- TEXTO CON MODO DE MEZCLA --- */
         .texto-hoyo {
             width: 100%;
             text-align: center;
@@ -41,10 +46,10 @@
             text-transform: uppercase;
             color: black;
             background: white;
-            /* Esta es la técnica que permitió ver el fondo a través de las letras */
+            /* Esta propiedad es la clave del efecto */
             mix-blend-mode: screen; 
             
-            /* Aparece suavemente al inicio */
+            /* Aparece suavemente */
             opacity: 0;
             animation: aparecerLento 1.2s ease-in forwards;
             animation-delay: 0.3s;
@@ -91,48 +96,19 @@
             margin-left: 25px;
         }
 
-        /* --- CONTENEDOR DE PROYECTOS (LIMPIO) --- */
+        /* --- PROYECTOS --- */
         .contenedor-proyectos { width: 100%; }
+        .proyecto { width: 100%; display: flex; flex-direction: column; }
+        .imagen-full { width: 100%; height: 100vh; object-fit: cover; display: block; }
+        .pie-proyecto { padding: 20px 0 80px 0; text-align: center; background: #fff; }
+        .pie-proyecto h2 { font-size: 1.4rem; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; color: #111; }
+        .pie-proyecto p { font-size: 0.6rem; letter-spacing: 3px; color: #999; text-transform: uppercase; }
 
-        .proyecto { 
-            width: 100%; 
-            display: flex;
-            flex-direction: column;
-        }
-
-        .imagen-full {
-            width: 100%;
-            height: 100vh;
-            object-fit: cover;
-            display: block;
-        }
-
-        .pie-proyecto {
-            padding: 20px 0 80px 0;
-            text-align: center;
-            background: #fff;
-        }
-
-        .pie-proyecto h2 {
-            font-size: 1.4rem;
-            font-weight: 300;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: #111;
-        }
-
-        .pie-proyecto p {
-            font-size: 0.6rem;
-            letter-spacing: 3px;
-            color: #999;
-            text-transform: uppercase;
-        }
     </style>
 </head>
 <body>
 
     <script>
-        // Asegura que al refrescar siempre empiece arriba
         window.onbeforeunload = function () { window.scrollTo(0, 0); }
         history.scrollRestoration = "manual";
     </script>
