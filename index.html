@@ -12,7 +12,6 @@
             background-color: #ffffff; 
             font-family: 'Roboto', sans-serif;
             overflow-x: hidden;
-            color: #000;
         }
 
         /* --- INTRO GARABATO (MÁSCARA FUNCIONAL) --- */
@@ -27,13 +26,13 @@
             align-items: center;
             pointer-events: none;
             animation: salidaFondo 0.6s ease-in forwards;
-            animation-delay: 4.5s;
+            animation-delay: 4s;
         }
 
         .svg-texto {
             width: 95vw;
             height: auto;
-            animation: flujoGarabato 4.5s cubic-bezier(0.85, 0, 0.15, 1) forwards;
+            animation: flujoGarabato 4s cubic-bezier(0.85, 0, 0.15, 1) forwards;
         }
 
         @keyframes flujoGarabato {
@@ -47,19 +46,20 @@
             to { opacity: 0; visibility: hidden; }
         }
 
-        /* --- HEADER SUPERIOR BLANCO --- */
+        /* --- HEADER SUPERIOR (ESTILO CAPTURA) --- */
         header {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             width: 100%;
-            padding: 25px 50px;
+            padding: 20px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background-color: #ffffff; /* La franja blanca que te gustaba */
-            border-bottom: 1px solid #f0f0f0;
+            /* FRANJA BLANCA SEMITRANSPARENTE (COMO TU FOTO) */
+            background-color: rgba(255, 255, 255, 0.7); 
+            backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .logo-header {
@@ -93,12 +93,12 @@
 
         /* --- LISTADO DE PROYECTOS --- */
         .contenido {
-            margin-top: 80px; /* Para que el primer proyecto no quede bajo el header */
+            width: 100%;
         }
 
         .bloque-proyecto {
             width: 100%;
-            margin-bottom: 20px;
+            background-color: #fff;
         }
 
         .hero-img {
@@ -111,19 +111,17 @@
         .info-proyecto {
             padding: 60px 0 100px 0;
             text-align: center;
-            background-color: #ffffff;
         }
 
         .info-proyecto h2 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 300;
-            letter-spacing: 6px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            color: #000;
         }
 
         .info-proyecto p {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             letter-spacing: 3px;
             color: #888;
             text-transform: uppercase;
