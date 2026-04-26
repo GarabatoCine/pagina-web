@@ -29,39 +29,38 @@ html, body {
     object-fit: cover;
 }
 
-/* --- INTRO WRAPPER --- */
+/* --- INTRO --- */
 #intro {
     position: fixed;
     inset: 0;
     z-index: 10;
+    opacity: 1;
 }
 
-/* --- SVG FULLSCREEN --- */
-#maskSVG {
-    width: 100%;
-    height: 100%;
-    display: block;
+/* estado inicial: sin animación */
+#intro svg rect {
+    opacity: 1;
 }
 
-/* --- ANIMACIONES CONTROLADAS --- */
-.text-fade {
-    opacity: 0;
+/* SOLO cuando activamos */
+.play .text-fade {
     animation: fadeIn 2.2s ease forwards;
     animation-delay: 0.8s;
 }
 
-.text-move {
+.play .text-move {
     animation: moveLeft 1.2s cubic-bezier(0.76,0,0.24,1) forwards;
     animation-delay: 4.2s;
 }
 
-.white-fade {
+.play .white-fade {
     animation: fadeWhite 0.9s ease forwards;
     animation-delay: 4.2s;
 }
 
-/* --- KEYFRAMES --- */
+/* --- ANIMACIONES --- */
 @keyframes fadeIn {
+    from { opacity: 0; }
     to { opacity: 1; }
 }
 
@@ -70,26 +69,7 @@ html, body {
 }
 
 @keyframes fadeWhite {
-    to { opacity: 0; }
-}
-
-/* --- TEXTO RESPONSIVE --- */
-@media (max-width: 1024px) {
-    .mask-text {
-        font-size: 110px;
-    }
-}
-
-@media (max-width: 768px) {
-    .mask-text {
-        font-size: 80px;
-    }
-}
-
-@media (max-width: 480px) {
-    .mask-text {
-        font-size: 55px;
-    }
+    to { opacity: 0; visibility: hidden; }
 }
 
 </style>
@@ -97,50 +77,43 @@ html, body {
 
 <body>
 
-<!-- FONDO -->
 <img class="bg" src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true">
 
-<!-- INTRO -->
 <div id="intro">
 
-<svg id="maskSVG" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
+<svg viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
 
     <defs>
-        <mask id="textMask" maskUnits="userSpaceOnUse">
-
-            <!-- Fondo visible -->
+        <mask id="mask">
             <rect width="1000" height="600" fill="white"/>
-
-            <!-- TEXTO = HUECO -->
             <g class="text-fade text-move">
-                <text
-                    x="500"
-                    y="300"
+                <text x="500" y="300"
                     text-anchor="middle"
                     dominant-baseline="middle"
-                    class="mask-text"
+                    font-size="140"
                     font-weight="900"
                     font-family="Roboto, sans-serif"
                     fill="black">
                     GARABATO CINE
                 </text>
             </g>
-
         </mask>
     </defs>
 
-    <!-- Capa blanca con hueco -->
-    <rect 
-        width="100%" 
-        height="100%" 
-        fill="white" 
-        mask="url(#textMask)" 
-        class="white-fade"
-    />
+    <rect width="100%" height="100%" fill="white" mask="url(#mask)" class="white-fade"/>
 
 </svg>
 
 </div>
+
+<script>
+window.addEventListener("load", () => {
+    // pequeño delay para asegurar visibilidad
+    setTimeout(() => {
+        document.body.classList.add("play");
+    }, 200);
+});
+</script>
 
 </body>
 </html>
