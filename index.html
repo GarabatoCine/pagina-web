@@ -1,3 +1,10 @@
+Entiendo perfectamente la frustración. Si no se ve nada, es porque el navegador está interpretando el "blanco sobre blanco" de una forma que anula el texto antes de aplicar el efecto de transparencia.
+
+Para solucionar esto de una vez por todas, vamos a usar una técnica distinta: SVG con Máscara. Es el método más infalible porque no depende de cómo el navegador mezcla colores, sino de una máscara geométrica real. El blanco será blanco y el "agujero" de las letras será real.
+
+Aquí tienes el código corregido. He incluido todas las portadas para que no tengas que agregarlas luego:
+
+HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,43 +21,34 @@
             overflow-x: hidden;
         }
 
-        /* --- INTRO EFECTO MÁSCARA (TRANSPARENTE) --- */
+        /* --- INTRO DEFINTIVA (MÁSCARA SVG) --- */
         #intro {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-color: #ffffff; /* Fondo blanco que cubre todo */
+            z-index: 9999;
+            pointer-events: none;
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
-            /* El fondo blanco se desvanece al final */
+            background: white;
             animation: fadeOutBackground 0.8s ease-in forwards;
-            animation-delay: 4s; 
-            pointer-events: none;
+            animation-delay: 4s;
         }
 
-        #intro h1 {
-            font-size: clamp(2.5rem, 10vw, 8rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            white-space: nowrap;
-            letter-spacing: -2px;
-            
-            /* ESTA ES LA CLAVE DEL EFECTO CAVIAR: */
-            color: #000; /* Texto negro */
-            background-color: #fff; /* Fondo blanco interno */
-            mix-blend-mode: screen; /* Esto vuelve lo negro TRANSPARENTE sobre blanco */
-            
-            /* ANIMACIÓN: Centro estático -> Pausa -> Salida Izquierda */
+        /* El SVG ocupa toda la pantalla */
+        .intro-svg {
+            width: 100%;
+            height: 100%;
             animation: caviarMove 4s cubic-bezier(0.85, 0, 0.15, 1) forwards;
         }
 
+        /* Animación: Quieto en el centro y luego sale a la izquierda */
         @keyframes caviarMove {
             0% { opacity: 0; transform: translateX(0); }
-            15% { opacity: 1; transform: translateX(0); } /* Aparece quieto en el centro */
-            75% { transform: translateX(0); opacity: 1; } /* Se mantiene quieto 2.5s */
-            100% { transform: translateX(-150%); opacity: 0; } /* Sale a la izquierda */
+            15% { opacity: 1; transform: translateX(0); }
+            75% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(-150%); opacity: 0; }
         }
 
         @keyframes fadeOutBackground {
@@ -61,52 +59,158 @@
         header {
             position: fixed;
             top: 0; width: 100%;
-            padding: 30px 5%;
+            padding: 35px 5%;
             display: flex;
             justify-content: space-between;
             z-index: 1000;
             mix-blend-mode: difference;
             color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
         }
 
+        .project-block { width: 100%; text-align: center; }
+        
         .hero-project {
             height: 100vh;
             width: 100%;
             background: #000;
         }
 
-        .hero-project img {
+        .hero-project img, .image-container img {
             width: 100%; height: 100%; object-fit: cover;
+            display: block;
         }
+
+        .image-container { width: 100%; height: auto; }
+        .image-container img { height: auto; }
 
         .project-info {
             padding: 60px 0 120px 0;
-            text-align: center;
+            background: white;
         }
 
-        .project-info h2 { font-weight: 300; letter-spacing: 5px; text-transform: uppercase; }
-        .project-info p { color: #888; font-size: 0.7rem; letter-spacing: 2px; margin-top: 10px; }
+        .project-info h2 { font-weight: 300; letter-spacing: 6px; text-transform: uppercase; font-size: 1.5rem; }
+        .project-info p { color: #888; font-size: 0.7rem; letter-spacing: 3px; margin-top: 10px; text-transform: uppercase; }
+
+        footer { padding: 100px 0; text-align: center; font-size: 0.6rem; color: #ccc; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
     <div id="intro">
-        <h1>Garabato Cine</h1>
+        <svg class="intro-svg" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <mask id="hole">
+                    <rect width="100%" height="100%" fill="white"/>
+                    <text x="50%" y="50%" text-anchor="middle" dy=".35em" font-family="Roboto" font-weight="900" font-size="100" fill="black">GARABATO CINE</text>
+                </mask>
+            </defs>
+            <rect width="100%" height="100%" fill="white" mask="url(#hole)"/>
+        </svg>
     </div>
 
     <header>
-        <div style="text-transform: uppercase; letter-spacing: 3px; font-weight: 400;">Garabato Cine</div>
-        <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 300;">About / Contact</div>
+        <div>Garabato Cine</div>
+        <div>About / Contact</div>
     </header>
 
-    <div class="hero-project">
-        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" alt="La Frontera">
+    <div class="main-content">
+        <div class="project-block">
+            <div class="hero-project">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true">
+            </div>
+            <div class="project-info">
+                <h2>La Frontera</h2>
+                <p>Largometraje</p>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <div class="image-container">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Vida%20de%20colores.jpg?raw=true">
+            </div>
+            <div class="project-info">
+                <h2>Vida de Colores</h2>
+                <p>Serie</p>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <div class="image-container">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Marimonda.jpg?raw=true">
+            </div>
+            <div class="project-info">
+                <h2>Marimonda</h2>
+                <p>Cortometraje</p>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <div class="image-container">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Sabatico.jpg?raw=true">
+            </div>
+            <div class="project-info">
+                <h2>Año Sabático</h2>
+                <p>Cortometraje</p>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <div class="image-container">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20El%20congo.jpg?raw=true">
+            </div>
+            <div class="project-info">
+                <h2>El Congo de Oro</h2>
+                <p>Cortometraje</p>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <div class="image-container">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada-calaguala.jpg?raw=true">
+            </div>
+            <div class="project-info">
+                <h2>Calaguala</h2>
+                <p>Cortometraje</p>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <div class="image-container">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20princesita.png?raw=true">
+            </div>
+            <div class="project-info">
+                <h2>La Princesita</h2>
+                <p>Cortometraje</p>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <div class="image-container">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Fracturas.jpg?raw=true">
+            </div>
+            <div class="project-info">
+                <h2>Fracturas</h2>
+                <p>Cortometraje</p>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <div class="image-container">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20tortuga.jpg?raw=true">
+            </div>
+            <div class="project-info">
+                <h2>La Tortuga</h2>
+                <p>Cortometraje</p>
+            </div>
+        </div>
     </div>
 
-    <div class="project-info">
-        <h2>La Frontera</h2>
-        <p>LARGOMETRAJE</p>
-    </div>
+    <footer>
+        <p>© 2026 GARABATO CINE - VALLEDUPAR, COLOMBIA</p>
+    </footer>
 
 </body>
 </html>
