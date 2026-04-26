@@ -1,3 +1,10 @@
+Tienes razón. El "aire" blanco que separa las imágenes debe sentirse como parte de la página, no como un bloque con fondo propio. He eliminado el color de fondo de los contenedores de texto para que todo fluya sobre el blanco limpio de la web.
+
+También he ajustado la Intro para que las letras sean un poco más ligeras y el desplazamiento sea aún más sutil, asegurando que nada interrumpa la imagen de La Frontera.
+
+Aquí tienes el código limpio:
+
+HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,7 +22,7 @@
             overflow-x: hidden;
         }
 
-        /* --- INTRO TIPO CAVIAR (Efecto Real) --- */
+        /* --- INTRO TIPO CAVIAR --- */
         #intro {
             position: fixed;
             top: 0; left: 0;
@@ -25,27 +32,23 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            /* Animación: se queda 2s, sube en 1.5s y se desvanece */
-            animation: caviarOut 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+            animation: caviarOut 1.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
             animation-delay: 2s;
         }
 
         #intro h1 {
             font-size: 3.5rem;
-            font-weight: 700;
+            font-weight: 300;
             letter-spacing: 18px;
             text-transform: uppercase;
             color: #000;
-            /* Mezcla con el fondo para parecer transparente sobre la imagen posterior */
-            mix-blend-mode: screen; 
             animation: fadeInText 1s ease-in;
         }
 
         @keyframes fadeInText { from { opacity: 0; } to { opacity: 1; } }
-
         @keyframes caviarOut {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-100%); opacity: 0; visibility: hidden; }
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); visibility: hidden; }
         }
 
         /* --- CABECERA --- */
@@ -58,40 +61,29 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            mix-blend-mode: difference; /* Esto hace que el menú cambie de color según el fondo */
+            mix-blend-mode: difference; /* El menú cambia según el fondo */
         }
 
-        .brand { 
-            font-weight: 400; 
-            letter-spacing: 4px; 
-            text-transform: uppercase; 
-            font-size: 0.9rem; 
-            color: #fff; /* Se verá negro sobre fondo blanco por el blend-mode */
-        }
-
+        .brand { font-weight: 400; letter-spacing: 4px; text-transform: uppercase; font-size: 0.9rem; color: #fff; }
         nav { display: flex; gap: 30px; align-items: center; }
-        nav a { 
-            color: #fff; 
-            text-decoration: none; 
-            font-size: 0.7rem; 
-            font-weight: 300; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-        }
-
+        nav a { color: #fff; text-decoration: none; font-size: 0.7rem; font-weight: 300; text-transform: uppercase; letter-spacing: 2px; }
         .ig-icon { width: 18px; height: 18px; fill: #fff; }
 
         /* --- CONTENIDO --- */
         .main-content { width: 100%; }
 
-        .project-block { width: 100%; margin-bottom: 0px; text-align: center; }
+        .project-block { 
+            width: 100%; 
+            margin-bottom: 0px; 
+            text-align: center;
+            background: transparent; /* Sin fondo */
+        }
 
         .hero-project {
             height: 100vh;
             width: 100%;
             position: relative;
             overflow: hidden;
-            background: #000;
         }
 
         .hero-project img {
@@ -104,18 +96,18 @@
         .image-container img { width: 100%; height: auto; display: block; }
 
         .project-info {
-            padding: 50px 0 100px 0;
-            background: #fff;
+            padding: 60px 0 120px 0; /* Espacio entre el texto y la siguiente imagen */
+            background: transparent; /* Eliminado el fondo blanco */
         }
 
         .project-info h2 { font-size: 1.5rem; font-weight: 300; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 10px; }
         .project-info p { font-size: 0.7rem; font-weight: 300; color: #888; letter-spacing: 3px; text-transform: uppercase; }
 
-        footer { padding: 80px 20px; text-align: center; font-size: 0.6rem; letter-spacing: 2px; color: #ccc; }
+        footer { padding: 100px 20px; text-align: center; font-size: 0.6rem; letter-spacing: 2px; color: #ccc; }
 
         @media (max-width: 768px) {
-            #intro h1 { font-size: 1.4rem; letter-spacing: 6px; }
-            header { padding: 20px; }
+            #intro h1 { font-size: 1.2rem; letter-spacing: 6px; }
+            .project-info { padding: 40px 0 80px 0; }
         }
     </style>
 </head>
