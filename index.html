@@ -14,7 +14,7 @@
             overflow-x: hidden;
         }
 
-        /* --- INTRO CAVIAR (HOYO TRANSPARENTE) --- */
+        /* --- INTRO CAVIAR --- */
         #capa-intro {
             position: fixed;
             top: 0; left: 0;
@@ -46,28 +46,29 @@
             to { opacity: 0; visibility: hidden; }
         }
 
-        /* --- HEADER (LOGO TAMAÑO PROYECTO) --- */
+        /* --- HEADER (TRANSPARENCIA AUMENTADA) --- */
         header {
             position: fixed;
             top: 0; left: 0;
             width: 100%;
-            padding: 30px 50px; /* Un poco más de espacio para el logo grande */
+            padding: 30px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.6); 
+            /* Bajado de 0.6 a 0.2 para que sea mucho más transparente */
+            background-color: rgba(255, 255, 255, 0.2); 
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .logo-txt {
-            font-size: 1.4rem; /* IGUALADO A LOS TÍTULOS DE PROYECTOS */
+            font-size: 1.4rem;
             font-weight: 300;
             letter-spacing: 5px;
             text-transform: uppercase;
-            color: #333; 
+            color: #000; /* Negro puro para que resalte en la transparencia */
         }
 
         .nav-derecha {
@@ -77,7 +78,7 @@
         }
 
         .nav-derecha a {
-            color: #333;
+            color: #000;
             text-decoration: none;
             font-size: 0.75rem;
             font-weight: 300;
@@ -107,7 +108,7 @@
         }
 
         .pie-proyecto h2 {
-            font-size: 1.4rem; /* TAMAÑO DE REFERENCIA */
+            font-size: 1.4rem;
             font-weight: 300;
             letter-spacing: 5px;
             text-transform: uppercase;
@@ -160,42 +161,34 @@
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" class="imagen-full">
             <div class="pie-proyecto"><h2>La Frontera</h2><p>Largometraje</p></div>
         </div>
-
         <div class="proyecto">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Vida%20de%20colores.jpg?raw=true" class="imagen-full">
             <div class="pie-proyecto"><h2>Vida de Colores</h2><p>Serie</p></div>
         </div>
-
         <div class="proyecto">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Marimonda.jpg?raw=true" class="imagen-full">
             <div class="pie-proyecto"><h2>Marimonda</h2><p>Cortometraje</p></div>
         </div>
-
         <div class="proyecto">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Sabatico.jpg?raw=true" class="imagen-full">
             <div class="pie-proyecto"><h2>Año Sabático</h2><p>Cortometraje</p></div>
         </div>
-
         <div class="proyecto">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20El%20congo.jpg?raw=true" class="imagen-full">
             <div class="pie-proyecto"><h2>El Congo de Oro</h2><p>Cortometraje</p></div>
         </div>
-
         <div class="proyecto">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada-calaguala.jpg?raw=true" class="imagen-full">
             <div class="pie-proyecto"><h2>Calaguala</h2><p>Cortometraje</p></div>
         </div>
-
         <div class="proyecto">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20princesita.png?raw=true" class="imagen-full">
             <div class="pie-proyecto"><h2>La Princesita</h2><p>Cortometraje</p></div>
         </div>
-
         <div class="proyecto">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Fracturas.jpg?raw=true" class="imagen-full">
             <div class="pie-proyecto"><h2>Fracturas</h2><p>Cortometraje</p></div>
         </div>
-
         <div class="proyecto">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20tortuga.jpg?raw=true" class="imagen-full">
             <div class="pie-proyecto"><h2>La Tortuga</h2><p>Cortometraje</p></div>
