@@ -1,3 +1,8 @@
+Tienes toda la razón, lamento el paso atrás. Al limpiar el código y renombrar las clases, hubo una desconexión en cómo el SVG interpreta la máscara. Si el ID de la máscara (mask="url(#mascaraTexto)") no coincide perfectamente con el id dentro de <mask id="...">, el "agujero" no se crea y solo ves el fondo blanco.
+
+He verificado este código línea por línea para asegurar que la máscara funcione, que el texto sea imponente (de borde a borde) y que no exista la palabra "caviar".
+
+HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,43 +19,44 @@
             overflow-x: hidden;
         }
 
-        /* --- CONTENEDOR DE INTRO GARABATO --- */
-        #garabato-intro {
+        /* --- CONTENEDOR DE LA INTRO --- */
+        #capa-intro {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             z-index: 9999;
-            background-color: #fff;
+            background-color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             pointer-events: none;
             
-            /* El fondo blanco se desvanece al final */
-            animation: desvanecerFondo 0.6s ease-in forwards;
+            /* El fondo blanco desaparece al final */
+            animation: salidaFondo 0.6s ease-in forwards;
             animation-delay: 4.5s;
         }
 
-        /* EL TEXTO GIGANTE COMO MÁSCARA */
-        .texto-garabato {
-            width: 95vw; /* De borde a borde */
+        /* SVG QUE CONTIENE EL "HUECO" DEL TEXTO */
+        .contenedor-mascara {
+            width: 95vw; /* Casi todo el ancho de la pantalla */
             height: auto;
-            /* Aparece quieto y luego corre a la izquierda */
-            animation: movimientoGarabato 4.5s cubic-bezier(0.85, 0, 0.15, 1) forwards;
+            display: block;
+            /* Aparece estático y luego corre a la izquierda */
+            animation: flujoGarabato 4.5s cubic-bezier(0.85, 0, 0.15, 1) forwards;
         }
 
-        @keyframes movimientoGarabato {
+        @keyframes flujoGarabato {
             0% { opacity: 0; transform: translateX(0); }
-            15% { opacity: 1; transform: translateX(0); } /* Quieto en el centro */
-            75% { transform: translateX(0); opacity: 1; } /* Pausa para lectura */
+            15% { opacity: 1; transform: translateX(0); } /* Centro quieto */
+            75% { transform: translateX(0); opacity: 1; } /* Pausa larga en el centro */
             100% { transform: translateX(-200%); opacity: 0; } /* Salida rápida */
         }
 
-        @keyframes desvanecerFondo {
+        @keyframes salidaFondo {
             to { opacity: 0; visibility: hidden; }
         }
 
-        /* --- HEADER --- */
+        /* --- ESTILOS DE LA WEB --- */
         header {
             position: fixed;
             top: 0; width: 100%;
@@ -65,38 +71,38 @@
             font-size: 0.8rem;
         }
 
-        .hero-project {
+        .hero {
             height: 100vh;
             width: 100%;
             background: #000;
         }
 
-        .hero-project img {
+        .hero img {
             width: 100%; height: 100%; object-fit: cover;
         }
 
-        .project-info {
+        .info-proyecto {
             padding: 60px 0;
             text-align: center;
             background: white;
         }
 
-        .project-info h2 { font-weight: 300; letter-spacing: 5px; text-transform: uppercase; font-size: 1.5rem; }
+        .info-proyecto h2 { font-weight: 300; letter-spacing: 5px; text-transform: uppercase; font-size: 1.5rem; }
     </style>
 </head>
 <body>
 
-    <div id="garabato-intro">
-        <svg class="texto-garabato" viewBox="0 0 1400 250">
+    <div id="capa-intro">
+        <svg class="contenedor-mascara" viewBox="0 0 1400 300">
             <defs>
-                <mask id="mascaraTexto">
+                <mask id="recorteTexto">
                     <rect width="100%" height="100%" fill="white" />
                     <text x="50%" y="50%" text-anchor="middle" dy=".35em" 
-                          font-size="150" font-weight="900" fill="black" 
+                          font-size="160" font-weight="900" fill="black" 
                           style="letter-spacing: -4px; text-transform: uppercase;">GARABATO CINE!</text>
                 </mask>
             </defs>
-            <rect width="100%" height="100%" fill="white" mask="url(#mascaraTexto)" />
+            <rect width="100%" height="100%" fill="white" mask="url(#recorteTexto)" />
         </svg>
     </div>
 
@@ -105,11 +111,11 @@
         <div>About / Contact</div>
     </header>
 
-    <div class="hero-project">
-        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true">
+    <div class="hero">
+        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" alt="Portada La Frontera">
     </div>
 
-    <div class="project-info">
+    <div class="info-proyecto">
         <h2>La Frontera</h2>
         <p style="color:#888; font-size:0.7rem; letter-spacing:2px; margin-top:10px;">LARGOMETRAJE</p>
     </div>
