@@ -1,4 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garabato Cine</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Roboto',sans-serif;background:#000;overflow-x:hidden;}
+
+/* ================= HERO VIDEO ================= */
+
+.hero{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+}
+
+.hero video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
 
 /* ================= INTRO ================= */
 
@@ -6,78 +32,35 @@
     position:fixed;
     inset:0;
     z-index:9999;
-    overflow:hidden;
 }
 
-/* VIDEO DETRÁS DEL TEXTO */
-.intro-video{
-    position:absolute;
-    inset:0;
-    z-index:1;
-}
-
-.intro-video video{
+#intro svg{
     width:100%;
     height:100%;
-    object-fit:cover;
+    display:block;
 }
 
-/* CAPA BLANCA */
-.intro-white{
-    position:absolute;
-    inset:0;
-    background:white;
-    z-index:2;
+.mask-text{
+    opacity:0;
+}
 
+.play .mask-text{
+    animation:
+        fadeIn 1.2s ease forwards,
+        slideLeft 1.2s cubic-bezier(.76,0,.24,1) forwards;
+    animation-delay:.4s,1.7s;
+}
+
+.play .white-bg{
     animation:fadeOut .35s ease forwards;
-    animation-delay:3s;
-}
-
-/* TEXTO */
-.intro-text{
-    position:absolute;
-    inset:0;
-    z-index:3;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    mix-blend-mode:screen; /* 🔥 CLAVE REAL */
-}
-
-.titulo{
-    font-size:clamp(42px,9vw,110px);
-    font-weight:900;
-    letter-spacing:-2px;
-    text-transform:uppercase;
-    white-space:nowrap;
-
-    opacity:0;
-
-    animation:fadeIn 1.2s ease forwards,
-              moveLeft 1.2s cubic-bezier(.76,0,.24,1) forwards;
-    animation-delay:.4s,1.7s;
-}
-
-.sub{
-    margin-top:10px;
-    font-size:12px;
-    letter-spacing:4px;
-
-    opacity:0;
-
-    animation:fadeIn 1.2s ease forwards,
-              moveLeft 1.2s cubic-bezier(.76,0,.24,1) forwards;
-    animation-delay:.4s,1.7s;
+    animation-delay:2.9s;
 }
 
 @keyframes fadeIn{to{opacity:1;}}
-@keyframes moveLeft{to{transform:translateX(-140%);}}
+@keyframes slideLeft{to{transform:translateX(-140%);}}
 @keyframes fadeOut{to{opacity:0;visibility:hidden;}}
 
-/* ================= HEADER ORIGINAL ================= */
+/* ================= HEADER (TU ORIGINAL) ================= */
 
 header {
     position: fixed;
@@ -112,25 +95,157 @@ header {
     margin-left: 25px;
 }
 
+/* ================= MEDIA ================= */
+
+.media{
+    width:100%;
+    background:#000;
+}
+
+.media video,
+.media img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* ================= TEXTOS ================= */
+
+.pie{
+    padding:20px 0 80px 0;
+    text-align:center;
+    background:#fff;
+}
+
+.pie h2{
+    font-size:1.4rem;
+    font-weight:300;
+    letter-spacing:5px;
+    text-transform:uppercase;
+}
+
+.pie p{
+    font-size:0.6rem;
+    letter-spacing:3px;
+    color:#999;
+    text-transform:uppercase;
+}
+
 </style>
+</head>
 
-<!-- INTRO NUEVO -->
-<div id="intro">
+<body>
 
-    <!-- VIDEO -->
-    <div class="intro-video">
-        <video autoplay muted loop playsinline>
-            <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
-        </video>
-    </div>
-
-    <!-- FONDO BLANCO -->
-    <div class="intro-white"></div>
-
-    <!-- TEXTO -->
-    <div class="intro-text">
-        <div class="titulo">GARABATO CINE</div>
-        <div class="sub">COLOMBIA</div>
-    </div>
-
+<!-- VIDEO FONDO -->
+<div class="hero">
+<video autoplay muted loop playsinline preload="auto">
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
+</video>
 </div>
+
+<!-- INTRO -->
+<div id="intro">
+<svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+
+<defs>
+<mask id="mask">
+
+<rect width="100%" height="100%" fill="white"/>
+
+<g class="mask-text" fill="black" text-anchor="middle">
+
+<text x="600" y="280"
+font-size="110"
+font-weight="900">
+GARABATO CINE
+</text>
+
+<text x="600" y="340"
+font-size="20"
+letter-spacing="4">
+COLOMBIA
+</text>
+
+</g>
+
+</mask>
+</defs>
+
+<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+<rect width="100%" height="100%" fill="white" class="white-bg"/>
+
+</svg>
+</div>
+
+<!-- HEADER -->
+<header>
+<div class="logo-txt">Garabato Cine</div>
+<div class="nav-derecha">
+<a href="#">About Us</a>
+<a href="#">Contact</a>
+<a href="https://www.instagram.com/garabatocine/" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+</div>
+</header>
+
+<!-- CONTENIDO -->
+
+<div class="media">
+<video autoplay muted loop playsinline>
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
+</video>
+</div>
+<div class="pie"><h2>La Frontera</h2><p>Largometraje</p></div>
+
+<div class="media">
+<video autoplay muted loop playsinline>
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-vida-de-colores.mp4">
+</video>
+</div>
+<div class="pie"><h2>Vida de Colores</h2><p>Serie</p></div>
+
+<div class="media"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Marimonda.jpg?raw=true"></div>
+<div class="pie"><h2>Marimonda</h2><p>Cortometraje</p></div>
+
+<div class="media"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Sabatico.jpg?raw=true"></div>
+<div class="pie"><h2>Año Sabático</h2><p>Cortometraje</p></div>
+
+<div class="media"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20El%20congo.jpg?raw=true"></div>
+<div class="pie"><h2>El Congo de Oro</h2><p>Cortometraje</p></div>
+
+<div class="media"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada-calaguala.jpg?raw=true"></div>
+<div class="pie"><h2>Calaguala</h2><p>Cortometraje</p></div>
+
+<div class="media"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20princesita.png?raw=true"></div>
+<div class="pie"><h2>La Princesita</h2><p>Cortometraje</p></div>
+
+<div class="media"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Fracturas.jpg?raw=true"></div>
+<div class="pie"><h2>Fracturas</h2><p>Cortometraje</p></div>
+
+<div class="media"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20tortuga.jpg?raw=true"></div>
+<div class="pie"><h2>La Tortuga</h2><p>Cortometraje</p></div>
+
+<script>
+
+// autoplay robusto
+document.querySelectorAll("video").forEach(v=>{
+    v.muted = true;
+    v.play().catch(()=>{});
+});
+
+// fix iOS
+document.addEventListener("touchstart", ()=>{
+    document.querySelectorAll("video").forEach(v=>v.play());
+},{once:true});
+
+// intro animación
+window.addEventListener("load", ()=>{
+    document.body.classList.add("play");
+    window.scrollTo(0,0);
+});
+
+</script>
+
+</body>
+</html>
