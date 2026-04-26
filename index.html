@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garabato Cine | Recreación Efecto Caviar</title>
+    <title>Garabato Cine</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -11,88 +11,132 @@
         body { 
             background-color: #fff; 
             font-family: 'Roboto', sans-serif;
-            overflow: hidden; /* Evita scroll durante la intro */
+            overflow-x: hidden;
         }
 
-        /* --- CAPA INTRO: EL EFECTO MÁSCARA Y MOVIMIENTO --- */
-        #capa-intro {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            background-color: #fff; /* Fondo blanco inicial */
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* El fondo blanco desaparece instantáneamente al final del movimiento del texto */
-            animation: deslizarTexto 2s cubic-bezier(0.85, 0, 0.15, 1) forwards, desaparecerFondo 0s linear forwards 2s; 
-        }
-
-        /* El SVG que hace el hoyo */
-        .svg-hoyo {
-            width: 90vw; /* Ocupa casi todo el ancho */
-            height: auto;
-            transform: translateX(100%); /* Comienza fuera de la pantalla a la derecha */
-        }
-
-        /* Animación para el movimiento del texto */
-        @keyframes deslizarTexto {
-            to { 
-                transform: translateX(-160%); /* El texto se desliza hacia la izquierda */
-            }
-        }
-
-        /* Animación para la desaparición instantánea del fondo blanco */
-        @keyframes desaparecerFondo {
-            to { 
-                visibility: hidden; 
-            }
-        }
-
-        /* --- EL CONTENIDO INICIAL DETRÁS DE LA INTRO --- */
-        .contenido-inicial {
+        /* --- INTRO EFECTO CAVIAR --- */
+        #intro-caviar {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            z-index: 1; /* Detrás de la intro */
+            z-index: 9999;
+            background-color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url('https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true');
-            background-size: cover;
-            background-position: center;
+            pointer-events: none;
+            /* Se queda quieto 1.5s y luego se va a la izquierda */
+            animation: salidaCaviar 1s cubic-bezier(0.85, 0, 0.15, 1) forwards;
+            animation-delay: 1.5s;
         }
 
-        .titular-web {
-            font-size: 2vw;
-            font-weight: 300;
-            letter-spacing: 5px;
-            color: #fff;
+        /* El truco del "Hoyo": Texto que recorta el fondo */
+        .texto-hoyo {
+            font-size: 10vw;
+            font-weight: 900;
+            letter-spacing: -5px;
             text-transform: uppercase;
-            background-color: rgba(0,0,0,0.5);
-            padding: 10px 20px;
+            text-align: center;
+            background: white; /* Color del fondo de la intro */
+            color: black; /* Esto no se verá por el modo de mezcla */
+            mix-blend-mode: screen; /* HACE QUE EL TEXTO SEA TRANSPARENTE */
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
         }
+
+        @keyframes salidaCaviar {
+            to { transform: translateX(-100%); }
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.6); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        .logo-txt { font-size: 0.9rem; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; }
+        .nav-derecha a { color: #222; text-decoration: none; font-size: 0.65rem; margin-left: 25px; text-transform: uppercase; }
+
+        /* --- PROYECTOS --- */
+        .contenedor-proyectos { width: 100%; }
+        .proyecto { width: 100%; display: flex; flex-direction: column; }
+        .imagen-full { width: 100%; height: 100vh; object-fit: cover; display: block; }
+        .pie-proyecto { padding: 20px 0 80px 0; text-align: center; background: #fff; }
+        .pie-proyecto h2 { font-size: 1.4rem; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; }
+        .pie-proyecto p { font-size: 0.6rem; letter-spacing: 3px; color: #999; text-transform: uppercase; }
 
     </style>
 </head>
 <body>
 
-    <div id="capa-intro">
-        <svg class="svg-hoyo" viewBox="0 0 1000 200">
-            <defs>
-                <mask id="maskCaviar">
-                    <rect width="100%" height="100%" fill="white" />
-                    <text x="50%" y="50%" text-anchor="middle" dy=".35em" 
-                          font-size="120" font-weight="900" fill="black" 
-                          style="letter-spacing: -4px;">GARABATO CINE</text>
-                </mask>
-            </defs>
-            <rect width="100%" height="100%" fill="white" mask="url(#maskCaviar)" />
-        </svg>
+    <script>
+        window.onbeforeunload = function () { window.scrollTo(0, 0); }
+        history.scrollRestoration = "manual";
+    </script>
+
+    <div id="intro-caviar">
+        <div class="texto-hoyo">GARABATO CINE</div>
     </div>
 
-    <div class="contenido-inicial">
-        <h2 class="titular-web">La Frontera</h2>
+    <header>
+        <div class="logo-txt">Garabato Cine</div>
+        <div class="nav-derecha">
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="https://www.instagram.com/garabatocine/" target="_blank">Instagram</a>
+        </div>
+    </header>
+
+    <div class="contenedor-proyectos">
+        <div class="proyecto">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" class="imagen-full">
+            <div class="pie-proyecto"><h2>La Frontera</h2><p>Largometraje</p></div>
+        </div>
+        <div class="proyecto">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Vida%20de%20colores.jpg?raw=true" class="imagen-full">
+            <div class="pie-proyecto"><h2>Vida de Colores</h2><p>Serie</p></div>
+        </div>
+        <div class="proyecto">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Marimonda.jpg?raw=true" class="imagen-full">
+            <div class="pie-proyecto"><h2>Marimonda</h2><p>Cortometraje</p></div>
+        </div>
+        <div class="proyecto">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Sabatico.jpg?raw=true" class="imagen-full">
+            <div class="pie-proyecto"><h2>Año Sabático</h2><p>Cortometraje</p></div>
+        </div>
+        <div class="proyecto">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20El%20congo.jpg?raw=true" class="imagen-full">
+            <div class="pie-proyecto"><h2>El Congo de Oro</h2><p>Cortometraje</p></div>
+        </div>
+        <div class="proyecto">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada-calaguala.jpg?raw=true" class="imagen-full">
+            <div class="pie-proyecto"><h2>Calaguala</h2><p>Cortometraje</p></div>
+        </div>
+        <div class="proyecto">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20princesita.png?raw=true" class="imagen-full">
+            <div class="pie-proyecto"><h2>La Princesita</h2><p>Cortometraje</p></div>
+        </div>
+        <div class="proyecto">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Fracturas.jpg?raw=true" class="imagen-full">
+            <div class="pie-proyecto"><h2>Fracturas</h2><p>Cortometraje</p></div>
+        </div>
+        <div class="proyecto">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20tortuga.jpg?raw=true" class="imagen-full">
+            <div class="pie-proyecto"><h2>La Tortuga</h2><p>Cortometraje</p></div>
+        </div>
     </div>
 
 </body>
