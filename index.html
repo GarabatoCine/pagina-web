@@ -10,109 +10,168 @@
         
         body { 
             background-color: #000; 
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Helvetica', 'Arial', sans-serif;
             overflow-x: hidden;
+            color: #fff;
         }
 
-        /* --- CONTENEDOR DE LA INTRO --- */
-        #intro-wrapper {
+        /* --- INTRO GARABATO (MÁSCARA INVISIBLE) --- */
+        #capa-intro {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             z-index: 9999;
-            background-color: #fff; /* Este es el fondo blanco de la intro */
+            background-color: #fff; 
             display: flex;
             justify-content: center;
             align-items: center;
             pointer-events: none;
-            
-            /* El fondo blanco desaparece suavemente al final */
             animation: fadeOutIntro 0.6s ease-in forwards;
             animation-delay: 4.5s;
         }
 
-        /* EL TEXTO COMO HUECO (MÁSCARA) */
-        .caviar-text {
-            width: 90%;
-            max-width: 1200px;
-            /* Esta animación hace que el 'hueco' esté quieto y luego corra a la izquierda */
-            animation: caviarMove 4.5s cubic-bezier(0.85, 0, 0.15, 1) forwards;
+        .svg-texto {
+            width: 95vw; /* Texto gigante */
+            height: auto;
+            animation: moverIzquierda 4.5s cubic-bezier(0.85, 0, 0.15, 1) forwards;
         }
 
-        @keyframes caviarMove {
+        @keyframes moverIzquierda {
             0% { opacity: 0; transform: translateX(0); }
             15% { opacity: 1; transform: translateX(0); } /* Quieto en el centro */
-            75% { transform: translateX(0); opacity: 1; } /* Pausa larga */
-            100% { transform: translateX(-160%); opacity: 0; } /* Salida rápida */
+            75% { transform: translateX(0); opacity: 1; } /* Pausa para ver el cine */
+            100% { transform: translateX(-180%); opacity: 0; } /* Sale a la izquierda */
         }
 
         @keyframes fadeOutIntro {
             to { opacity: 0; visibility: hidden; }
         }
 
-        /* --- ESTILO DEL HEADER --- */
+        /* --- MENÚ INFERIOR ESTILO QUIDDITY --- */
         header {
             position: fixed;
-            top: 0; width: 100%;
-            padding: 30px 5%;
+            bottom: 0; /* Menú abajo */
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
             z-index: 1000;
-            mix-blend-mode: difference;
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.8rem;
+            background: transparent;
         }
 
-        /* --- CONTENIDO DE FONDO --- */
-        .hero-project {
+        .marca-footer {
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav.menu-footer {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav.menu-footer a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        nav.menu-footer a:hover {
+            opacity: 1;
+        }
+
+        /* --- CONTENIDO VISUAL --- */
+        .contenedor-cine {
+            width: 100%;
+        }
+
+        .bloque-proyecto {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+
+        .imagen-principal {
+            width: 100%;
             height: 100vh;
+            object-fit: cover;
+        }
+
+        .info-proyecto {
+            padding: 40px 0 80px 0;
+            text-align: center;
             width: 100%;
             background: #000;
-            display: block;
         }
 
-        .hero-project img {
-            width: 100%; height: 100%; object-fit: cover;
+        .info-proyecto h2 {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
 
-        .project-info {
-            padding: 60px 0;
-            text-align: center;
-            background: white;
+        .info-proyecto p {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            color: #888;
+            text-transform: uppercase;
         }
-
-        .project-info h2 { font-weight: 300; letter-spacing: 5px; text-transform: uppercase; font-size: 1.5rem; }
     </style>
 </head>
 <body>
 
-    <div id="intro-wrapper">
-        <svg class="caviar-text" viewBox="0 0 800 200">
+    <div id="capa-intro">
+        <svg class="svg-texto" viewBox="0 0 1200 200">
             <defs>
-                <mask id="textMask">
+                <mask id="hoyoTexto">
                     <rect width="100%" height="100%" fill="white" />
                     <text x="50%" y="50%" text-anchor="middle" dy=".35em" 
-                          font-size="80" font-weight="900" fill="black">GARABATO CINE</text>
+                          font-size="140" font-weight="900" fill="black" 
+                          style="letter-spacing: -5px;">GARABATO CINE!</text>
                 </mask>
             </defs>
-            <rect width="100%" height="100%" fill="white" mask="url(#textMask)" />
+            <rect width="100%" height="100%" fill="white" mask="url(#hoyoTexto)" />
         </svg>
     </div>
 
     <header>
-        <div>Garabato Cine</div>
-        <div>About / Contact</div>
+        <div class="marca-footer">Garabato Cine</div>
+        <nav class="menu-footer">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="https://www.instagram.com/garabatocine/" target="_blank">Instagram</a>
+        </nav>
     </header>
 
-    <div class="hero-project">
-        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true">
-    </div>
+    <div class="contenedor-cine">
+        <div class="bloque-proyecto">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true" class="imagen-principal">
+            <div class="info-proyecto">
+                <h2>La Frontera</h2>
+                <p>Largometraje</p>
+            </div>
+        </div>
 
-    <div class="project-info">
-        <h2>La Frontera</h2>
-        <p style="color:#888; font-size:0.7rem; letter-spacing:2px; margin-top:10px;">LARGOMETRAJE</p>
+        <div class="bloque-proyecto">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Vida%20de%20colores.jpg?raw=true" class="imagen-principal">
+            <div class="info-proyecto">
+                <h2>Vida de Colores</h2>
+                <p>Serie</p>
+            </div>
+        </div>
     </div>
 
 </body>
