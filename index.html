@@ -14,34 +14,39 @@
             overflow-x: hidden;
         }
 
-        /* --- CAPA INTRO (CORTINA BLANCA) --- */
+        /* --- CAPA INTRO --- */
         #capa-intro {
             position: fixed;
             top: 0; left: 0;
             width: 100vw; 
             height: 100vh;
-            z-index: 9999;
             background-color: #fff;
+            z-index: 9999;
             display: flex;
             justify-content: center;
             align-items: center;
             pointer-events: none;
-            /* La cortina se desplaza después de 3 segundos de pausa */
             animation: deslizarCortina 1s cubic-bezier(0.85, 0, 0.15, 1) forwards;
             animation-delay: 3s; 
         }
 
-        /* El SVG que contiene el texto-hoyo */
-        .svg-hoyo {
-            width: 90%;
-            height: auto;
+        /* --- TEXTO HOYO --- */
+        .texto-hoyo {
+            width: 100%;
+            text-align: center;
+            font-size: 10vw;
+            font-weight: 900;
+            letter-spacing: -5px;
+            text-transform: uppercase;
+            color: black;
+            background: white;
+            mix-blend-mode: screen; 
             opacity: 0;
-            /* El texto aparece lentamente en 1.5 segundos */
-            animation: aparecerTexto 1.5s ease-in forwards;
+            animation: aparecerLento 1.2s ease-in forwards;
             animation-delay: 0.3s;
         }
 
-        @keyframes aparecerTexto {
+        @keyframes aparecerLento {
             to { opacity: 1; }
         }
 
@@ -65,17 +70,59 @@
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .logo-txt { font-size: 0.9rem; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; color: #222; }
-        .nav-derecha a { color: #222; text-decoration: none; font-size: 0.65rem; letter-spacing: 1.2px; text-transform: uppercase; margin-left: 25px; }
+        .logo-txt {
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #222; 
+        }
 
-        /* --- CONTENEDOR DE PROYECTOS --- */
+        .nav-derecha a {
+            color: #222;
+            text-decoration: none;
+            font-size: 0.65rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            margin-left: 25px;
+        }
+
+        /* --- PROYECTOS --- */
         .contenedor-proyectos { width: 100%; }
-        .proyecto { width: 100%; display: flex; flex-direction: column; }
-        .imagen-full { width: 100%; height: 100vh; object-fit: cover; display: block; }
-        .pie-proyecto { padding: 20px 0 80px 0; text-align: center; background: #fff; }
-        .pie-proyecto h2 { font-size: 1.4rem; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; color: #111; }
-        .pie-proyecto p { font-size: 0.6rem; letter-spacing: 3px; color: #999; text-transform: uppercase; }
 
+        .proyecto { 
+            width: 100%; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        .imagen-full {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            display: block;
+        }
+
+        .pie-proyecto {
+            padding: 20px 0 80px 0;
+            text-align: center;
+            background: #fff;
+        }
+
+        .pie-proyecto h2 {
+            font-size: 1.4rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #111;
+        }
+
+        .pie-proyecto p {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            color: #999;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
@@ -86,17 +133,7 @@
     </script>
 
     <div id="capa-intro">
-        <svg class="svg-hoyo" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid meet">
-            <defs>
-                <mask id="maskCaviar" x="0" y="0" width="1000" height="200">
-                    <rect x="0" y="0" width="1000" height="200" fill="white" />
-                    <text x="500" y="100" text-anchor="middle" alignment-baseline="middle" 
-                          font-size="110" font-weight="900" fill="black" 
-                          style="letter-spacing: -4px; font-family: 'Arial Black', sans-serif;">GARABATO CINE</text>
-                </mask>
-            </defs>
-            <rect x="0" y="0" width="1000" height="200" fill="white" mask="url(#maskCaviar)" />
-        </svg>
+        <div class="texto-hoyo">GARABATO CINE</div>
     </div>
 
     <header>
