@@ -25,7 +25,7 @@ html, body {
     background: white;
 }
 
-/* CONTENEDOR TEXTO */
+/* CONTENEDOR */
 .intro-wrap {
     position: absolute;
     top: 50%;
@@ -39,8 +39,9 @@ html, body {
     font-weight: 900;
     letter-spacing: -0.05em;
     text-transform: uppercase;
+    white-space: nowrap;
 
-    font-size: 10vw;
+    font-size: 9vw;
 
     background-image: url("https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20frontera.jpg?raw=true");
     background-size: cover;
@@ -55,8 +56,8 @@ html, body {
 
 /* SUBTITULO */
 .intro-sub {
-    margin-top: 10px;
-    font-size: 0.9rem;
+    margin-top: 12px;
+    font-size: 0.85rem;
     letter-spacing: 4px;
     text-transform: uppercase;
     color: #000;
@@ -65,13 +66,14 @@ html, body {
 
 /* RESPONSIVE */
 @media (max-width:1024px){
-    .intro-text{ font-size: 12vw; }
+    .intro-text{ font-size: 11vw; }
 }
 @media (max-width:600px){
-    .intro-text{ font-size: 14vw; }
+    .intro-text{ font-size: 13vw; }
 }
 
-/* 🎬 NUEVO TIMING */
+/* 🎬 TIMING FINAL PRO */
+
 .play .intro-text {
     animation:
         fadeIn 1.8s ease forwards,
@@ -80,23 +82,25 @@ html, body {
 }
 
 .play .intro-sub {
-    animation: fadeIn 1.5s ease forwards;
-    animation-delay: 1s;
+    animation: fadeIn 1.8s ease forwards;
+    animation-delay: 0.3s;
 }
 
 .play #intro {
-    animation: fadeOut 0.9s ease forwards;
-    animation-delay: 3.6s; /* empieza cuando ya salió el texto */
+    animation: fadeOut 0.5s ease forwards;
+    animation-delay: 3.6s;
 }
 
-/* KEYFRAMES */
+/* ANIMACIONES */
+
 @keyframes fadeIn {
     from { opacity:0; }
     to { opacity:1; }
 }
 
 @keyframes moveLeft {
-    to { transform: translate(-160%, -50%); }
+    from { transform: translateX(0); }
+    to { transform: translateX(-140%); }
 }
 
 @keyframes fadeOut {
@@ -144,6 +148,7 @@ header {
 .imagen-full {
     width:100%;
     height:auto;
+    display:block;
 }
 
 @media (min-width:1024px){
@@ -161,8 +166,8 @@ header {
 
 .pie-proyecto h2 {
     font-size:1.4rem;
-    font-weight:300; /* 👈 como antes */
-    letter-spacing:5px; /* 👈 como antes */
+    font-weight:300;
+    letter-spacing:5px;
     text-transform:uppercase;
 }
 
@@ -234,13 +239,16 @@ if ('scrollRestoration' in history) {
 window.scrollTo(0,0);
 
 window.addEventListener("load", () => {
+
     window.scrollTo(0,0);
+
     document.body.classList.add("play");
 
     setTimeout(() => {
         const intro = document.getElementById("intro");
         if (intro) intro.remove();
-    }, 4600);
+    }, 4200);
+
 });
 </script>
 
