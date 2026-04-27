@@ -11,14 +11,14 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#fff;font-family:'Roboto',sans-serif;overflow:hidden;}
 
-/* ===== VIDEO BASE (SIEMPRE DETRÁS, PROPORCIÓN REAL) ===== */
+/* ===== VIDEO BASE ===== */
 .video-base{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:#000;
+background:#fff;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -27,11 +27,11 @@ z-index:0;
 
 .video-base video{
 width:100%;
-height:auto; /* 🔥 mantiene proporción */
+height:auto;
 display:block;
 }
 
-/* ===== INTRO (CORTINA BLANCA) ===== */
+/* ===== INTRO ===== */
 #intro{
 position:fixed;
 inset:0;
@@ -40,35 +40,57 @@ z-index:10;
 overflow:hidden;
 }
 
-/* TEXTO QUE GENERA EL HUECO */
-.intro-text{
+/* CONTENEDOR TEXTO */
+.intro-wrap{
 position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
+text-align:center;
+}
+
+/* GARABATO CINE (HUECO) */
+.intro-main{
 font-size:10vw;
 font-weight:900;
 letter-spacing:-2px;
 white-space:nowrap;
 
-/* 🔥 TRANSPARENCIA REAL (HUECO) */
+/* 🔥 HUECO REAL */
 color:#000;
 mix-blend-mode:destination-out;
 
 opacity:0;
 }
 
-/* ===== ANIMACIÓN EXACTA ===== */
+/* COLOMBIA */
+.intro-sub{
+margin-top:10px;
+font-size:1.5vw;
+letter-spacing:4px;
 
-/* 1. fade in */
-.play .intro-text{
-animation:
-fadeIn 0.8s ease forwards,
-slideLeft 1.4s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:0.1s,1s;
+/* mismo efecto */
+color:#000;
+mix-blend-mode:destination-out;
+
+opacity:0;
 }
 
-/* 2. desaparecer cortina */
+/* ANIMACIÓN */
+
+.play .intro-main,
+.play .intro-sub{
+animation:fadeIn 0.8s ease forwards;
+animation-delay:0.1s;
+}
+
+/* movimiento conjunto */
+.play .intro-wrap{
+animation:slideLeft 1.4s cubic-bezier(.76,0,.24,1) forwards;
+animation-delay:1s;
+}
+
+/* cortina */
 .play #intro{
 animation:fadeOut 0.35s ease forwards;
 animation-delay:2.4s;
@@ -79,7 +101,7 @@ to{opacity:1;}
 }
 
 @keyframes slideLeft{
-to{transform:translate(-180%,-50%);} /* se va completamente */
+to{transform:translate(-180%,-50%);}
 }
 
 @keyframes fadeOut{
@@ -88,46 +110,58 @@ to{opacity:0;visibility:hidden;}
 
 /* RESPONSIVE */
 @media(max-width:768px){
-.intro-text{
+
+.intro-main{
 font-size:14vw;
 }
+
+.intro-sub{
+font-size:3vw;
 }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO (DEBAJO SIEMPRE) -->
+<!-- VIDEO -->
 <div class="video-base">
 <video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Gif%20principal%20Vida%20de%20colores.mp4">
 </video>
 </div>
 
-<!-- CORTINA -->
+<!-- INTRO -->
 <div id="intro">
-<div class="intro-text">GARABATO CINE</div>
+
+<div class="intro-wrap">
+<div class="intro-main">GARABATO CINE</div>
+<div class="intro-sub">COLOMBIA</div>
+</div>
+
 </div>
 
 <script>
 
-/* autoplay seguro */
+// autoplay seguro
 document.querySelectorAll("video").forEach(v=>{
 v.muted = true;
 v.play().catch(()=>{});
 });
 
-/* iOS fix */
+// iOS fix
 document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-/* activar animación */
+// animación
 window.addEventListener("load",()=>{
 document.body.classList.add("play");
 });
 
-/* failsafe */
+// failsafe
 setTimeout(()=>{
 const intro=document.getElementById("intro");
 if(intro) intro.style.display="none";
