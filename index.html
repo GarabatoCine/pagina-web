@@ -10,7 +10,7 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Roboto',sans-serif;background:#000;overflow-x:hidden;}
+body{font-family:'Roboto',sans-serif;background:#000;color:#fff;overflow-x:hidden;}
 
 /* ================= HEADER ================= */
 
@@ -18,41 +18,51 @@ header{
     position:fixed;
     top:0;
     width:100%;
-    height:100px;
+    height:90px;
     background:#fff;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:0 80px;
+    padding:0 60px;
     z-index:1000;
 }
 
-.logo-txt{
-    font-size:1.4rem;
-    letter-spacing:8px;
-    font-weight:300;
+.logo{
+    font-size:1.2rem;
+    letter-spacing:6px;
     text-transform:uppercase;
+    color:#000;
 }
 
-.nav-derecha a{
-    margin-left:40px;
-    font-size:1rem;
+.nav a{
+    margin-left:35px;
+    font-size:.9rem;
     letter-spacing:2px;
     text-decoration:none;
-    color:#222;
+    color:#000;
 }
 
-/* ================= HERO (PROPORCIÓN REAL) ================= */
+/* ================= VIDEO ================= */
 
 .hero{
-    margin-top:100px;
-    background:#000;
+    margin-top:90px;
+    height:calc(100vh - 90px);
+    position:relative;
+    overflow:hidden;
 }
 
 .hero video{
     width:100%;
-    height:auto; /* 🔥 clave: NO se deforma nunca */
-    display:block;
+    height:100%;
+    object-fit:cover;
+}
+
+/* overlay cine */
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.25);
 }
 
 /* ================= INTRO ================= */
@@ -60,92 +70,118 @@ header{
 #intro{
     position:fixed;
     inset:0;
-    background:#fff;
     z-index:9999;
-    display:flex;
-    justify-content:center;
-    align-items:center;
 }
 
-.contenido-intro{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    transform:translateY(0);
-}
-
-/* TEXTO */
-
-.titulo{
-    font-size:clamp(40px,9vw,120px);
-    font-weight:900;
-    letter-spacing:-2px;
-    text-transform:uppercase;
-    color:#111;
-    opacity:0;
-    white-space:nowrap;
-}
-
-.sub{
-    margin-top:10px;
-    font-size:14px;
-    letter-spacing:4px;
-    color:#444;
-    opacity:0;
-}
-
-/* ================= MEDIA ================= */
-
-.media video,
-.media img{
+/* SVG ocupa todo */
+#intro svg{
     width:100%;
-    height:auto;
-    display:block;
+    height:100%;
 }
 
-/* ================= FRANJA ================= */
+/* TEXTO MASK */
 
-.pie{
-    padding:40px 0 80px;
-    text-align:center;
-    background:#fff;
+.mask-text{
+    opacity:0;
 }
 
-.pie h2{
-    font-size:1.6rem;
-    font-weight:300;
-    letter-spacing:6px;
-    text-transform:uppercase;
+/* ANIMACIÓN */
+
+.play .mask-text{
+    animation:
+        fadeIn 1.3s ease forwards,
+        slideUp 1.6s cubic-bezier(.76,0,.24,1) forwards;
+    animation-delay:.5s,2s;
 }
 
-.pie p{
-    font-size:.7rem;
-    letter-spacing:3px;
-    color:#999;
+.play .bg{
+    animation:fadeOut .4s ease forwards;
+    animation-delay:3.6s;
 }
-
-/* ================= ANIMACIONES ================= */
 
 @keyframes fadeIn{to{opacity:1;}}
-@keyframes slideUp{to{transform:translateY(-250%);}}
+@keyframes slideUp{to{transform:translateY(-260%);}}
+@keyframes fadeOut{to{opacity:0;visibility:hidden;}}
+
+/* ================= LOG LINE ================= */
+
+.descripcion{
+    background:#000;
+    text-align:center;
+    padding:100px 20px;
+    opacity:0;
+    transform:translateY(30px);
+}
+
+.play .descripcion{
+    opacity:1;
+    transform:translateY(0);
+    transition:all 1.2s ease;
+    transition-delay:3.8s;
+}
+
+.descripcion p{
+    max-width:700px;
+    margin:auto;
+    font-size:1.2rem;
+    line-height:1.7;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    margin-top:40px;
+    display:inline-block;
+    text-decoration:none;
+    color:#fff;
+    letter-spacing:3px;
+    font-size:.8rem;
+    border-bottom:1px solid #fff;
+    padding-bottom:5px;
+    opacity:0;
+    transform:translateY(10px);
+}
+
+.play .cta{
+    opacity:1;
+    transform:translateY(0);
+    transition:all .8s ease;
+    transition-delay:4.2s;
+}
+
+/* ================= TRANSICIÓN ================= */
+
+.fade-out{
+    animation:fadePage .6s forwards;
+}
+
+@keyframes fadePage{
+    to{opacity:0;}
+}
 
 /* ================= RESPONSIVE ================= */
 
 @media(max-width:768px){
+
 header{
-    height:80px;
-    padding:0 30px;
+    height:70px;
+    padding:0 25px;
 }
+
 .hero{
-    margin-top:80px;
+    margin-top:70px;
+    height:calc(100vh - 70px);
 }
-.logo-txt{
+
+.logo{
     font-size:1rem;
 }
-.nav-derecha a{
-    font-size:.8rem;
+
+.nav a{
     margin-left:20px;
+    font-size:.75rem;
 }
+
 }
 
 </style>
@@ -155,105 +191,94 @@ header{
 
 <!-- HEADER -->
 <header>
-<div class="logo-txt">Garabato Cine</div>
-<div class="nav-derecha">
-<a href="#">About Us</a>
-<a href="#">Contact</a>
+<div class="logo">Garabato Cine</div>
+
+<div class="nav">
+<a href="proyectos.html">Proyectos</a>
+<a href="#">Nosotros</a>
 <a href="https://www.instagram.com/garabatocine/" target="_blank">
 <i class="fab fa-instagram"></i>
 </a>
 </div>
 </header>
 
-<!-- HERO -->
-<div class="hero">
+<!-- VIDEO REEL -->
+<section class="hero">
 <video autoplay muted loop playsinline>
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Gif%20principal%20Vida%20de%20colores.mp4">
 </video>
-</div>
+</section>
 
 <!-- INTRO -->
 <div id="intro">
-    <div class="contenido-intro">
-        <div class="titulo">GARABATO CINE</div>
-        <div class="sub">COLOMBIA</div>
-    </div>
+<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+
+<defs>
+<mask id="mask">
+<rect width="100%" height="100%" fill="white"/>
+
+<g class="mask-text" fill="black" text-anchor="middle">
+
+<text x="50" y="50" font-size="10" font-weight="900">
+GARABATO CINE
+</text>
+
+</g>
+
+</mask>
+</defs>
+
+<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+<rect width="100%" height="100%" fill="white" class="bg"/>
+
+</svg>
 </div>
 
-<!-- PROYECTOS -->
+<!-- LOG LINE -->
+<section class="descripcion">
+<p>
+Ficción con raíz local y mirada social, donde el realismo se quiebra en el imaginario vibrante del Caribe colombiano.
+</p>
 
-<div class="pie"><h2>La Frontera</h2><p>Largometraje</p></div>
-
-<div class="media">
-<video autoplay muted loop playsinline>
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-vida-de-colores.mp4">
-</video>
-</div>
-<div class="pie"><h2>Vida de Colores</h2><p>Serie</p></div>
-
-<div class="media"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Marimonda.jpg?raw=true"></div>
-<div class="pie"><h2>Marimonda</h2><p>Cortometraje</p></div>
-
-<div class="media"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Sabatico.jpg?raw=true"></div>
-<div class="pie"><h2>Año Sabático</h2><p>Cortometraje</p></div>
-
-<div class="media"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20El%20congo.jpg?raw=true"></div>
-<div class="pie"><h2>El Congo de Oro</h2><p>Cortometraje</p></div>
-
-<div class="media"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada-calaguala.jpg?raw=true"></div>
-<div class="pie"><h2>Calaguala</h2><p>Cortometraje</p></div>
-
-<div class="media"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20princesita.png?raw=true"></div>
-<div class="pie"><h2>La Princesita</h2><p>Cortometraje</p></div>
-
-<div class="media"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20Fracturas.jpg?raw=true"></div>
-<div class="pie"><h2>Fracturas</h2><p>Cortometraje</p></div>
-
-<div class="media"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/Portada%20La%20tortuga.jpg?raw=true"></div>
-<div class="pie"><h2>La Tortuga</h2><p>Cortometraje</p></div>
+<a href="proyectos.html" class="cta">VER PROYECTOS</a>
+</section>
 
 <script>
 
 // autoplay robusto
 document.querySelectorAll("video").forEach(v=>{
-    v.muted = true;
+    v.muted=true;
     v.play().catch(()=>{});
 });
 
 // iOS fix
-document.addEventListener("touchstart", ()=>{
+document.addEventListener("touchstart",()=>{
     document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-// INTRO CONTROL TOTAL
-window.addEventListener("load", ()=>{
-
+// intro
+window.addEventListener("load",()=>{
+    document.body.classList.add("play");
     window.scrollTo(0,0);
-
-    const titulo = document.querySelector(".titulo");
-    const sub = document.querySelector(".sub");
-    const grupo = document.querySelector(".contenido-intro");
-    const intro = document.getElementById("intro");
-
-    // fade in
-    setTimeout(()=>{
-        titulo.style.animation="fadeIn 1.2s forwards";
-        sub.style.animation="fadeIn 1.2s forwards";
-    },400);
-
-    // subir TODO
-    setTimeout(()=>{
-        grupo.style.animation="slideUp 1.4s forwards";
-    },1700);
-
-    // desaparecer fondo
-    setTimeout(()=>{
-        intro.style.transition="opacity .3s ease";
-        intro.style.opacity="0";
-        setTimeout(()=>intro.style.display="none",300);
-    },3100);
-
 });
+
+// transición suave entre páginas
+document.querySelectorAll("a[href]").forEach(link=>{
+    link.addEventListener("click",function(e){
+        const url=this.getAttribute("href");
+        if(url && !url.startsWith("http")){
+            e.preventDefault();
+            document.body.classList.add("fade-out");
+            setTimeout(()=>{window.location=url},600);
+        }
+    });
+});
+
+// failsafe
+setTimeout(()=>{
+    const intro=document.getElementById("intro");
+    if(intro) intro.style.display="none";
+},5000);
 
 </script>
 
