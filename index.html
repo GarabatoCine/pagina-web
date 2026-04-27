@@ -11,7 +11,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#fff;font-family:'Roboto',sans-serif;overflow:hidden;}
 
-/* ===== VIDEO BASE (PROPORCIÓN SEGURA) ===== */
+/* VIDEO BASE */
 .video-base{
 position:fixed;
 inset:0;
@@ -26,10 +26,10 @@ z-index:0;
 width:100%;
 height:auto;
 max-height:100%;
-object-fit:contain; /* 🔥 NUNCA se deforma */
+object-fit:contain;
 }
 
-/* ===== INTRO ===== */
+/* INTRO */
 #intro{
 position:fixed;
 inset:0;
@@ -38,76 +38,55 @@ z-index:10;
 overflow:hidden;
 }
 
-/* CONTENEDOR */
+/* TEXTO CONTENEDOR */
 .intro-wrap{
 position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
+width:100%;
 text-align:center;
+
+/* 🔥 TRANSPARENCIA REAL */
+mix-blend-mode:destination-out;
 }
 
-/* TEXTO (SE USA PARA LA MÁSCARA) */
-.intro-text{
+/* TEXTO PRINCIPAL */
+.intro-main{
+font-size:12vw; /* 🔥 ocupa toda la pantalla */
 font-weight:300;
 letter-spacing:2px;
 white-space:nowrap;
-}
-
-/* PRINCIPAL */
-.intro-main{
-font-size:10vw;
+color:#000;
+opacity:0;
 }
 
 /* COLOMBIA */
 .intro-sub{
 margin-top:10px;
-font-size:1.5vw;
+font-size:2vw;
 letter-spacing:4px;
-}
-
-/* ===== CAPA MÁSCARA (REAL, ESTABLE) ===== */
-.mask-layer{
-position:absolute;
-inset:0;
-background:#fff;
-
-/* máscara invertida */
--webkit-mask-image: 
-linear-gradient(black,black),
-url('data:image/svg+xml;utf8,\
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300">\
-<text x="50%" y="45%" text-anchor="middle" font-size="120" font-family="Roboto" font-weight="300">GARABATO CINE</text>\
-<text x="50%" y="75%" text-anchor="middle" font-size="30" font-family="Roboto" font-weight="300">COLOMBIA</text>\
-</svg>');
--webkit-mask-composite: destination-out;
--webkit-mask-repeat:no-repeat;
--webkit-mask-position:center;
--webkit-mask-size:80%;
-
-mask-image:
-linear-gradient(black,black),
-url('data:image/svg+xml;utf8,\
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300">\
-<text x="50%" y="45%" text-anchor="middle" font-size="120" font-family="Roboto" font-weight="300">GARABATO CINE</text>\
-<text x="50%" y="75%" text-anchor="middle" font-size="30" font-family="Roboto" font-weight="300">COLOMBIA</text>\
-</svg>');
-mask-composite: exclude;
-
+font-weight:300;
+color:#000;
 opacity:0;
 }
 
-/* ===== ANIMACIONES ===== */
+/* ANIMACIÓN */
 
-/* fade-in (3s como pediste) */
-.play .mask-layer{
-animation:
-fadeIn 3s ease forwards,
-slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:0.1s,3.2s;
+/* fade-in largo */
+.play .intro-main,
+.play .intro-sub{
+animation:fadeIn 3s ease forwards;
+animation-delay:0.2s;
 }
 
-/* desaparición */
+/* movimiento */
+.play .intro-wrap{
+animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
+animation-delay:3.2s;
+}
+
+/* cortina desaparece */
 .play #intro{
 animation:fadeOut 0.35s ease forwards;
 animation-delay:4.8s;
@@ -118,20 +97,24 @@ to{opacity:1;}
 }
 
 @keyframes slideLeft{
-to{transform:translateX(-120%);}
+to{transform:translate(-180%,-50%);}
 }
 
 @keyframes fadeOut{
 to{opacity:0;visibility:hidden;}
 }
 
-/* ===== RESPONSIVE ===== */
-
+/* RESPONSIVE */
 @media(max-width:768px){
-.mask-layer{
--webkit-mask-size:120%;
-mask-size:120%;
+
+.intro-main{
+font-size:16vw;
 }
+
+.intro-sub{
+font-size:3.5vw;
+}
+
 }
 
 </style>
@@ -146,9 +129,12 @@ mask-size:120%;
 </video>
 </div>
 
-<!-- INTRO -->
+<!-- CORTINA -->
 <div id="intro">
-<div class="mask-layer"></div>
+<div class="intro-wrap">
+<div class="intro-main">GARABATO CINE</div>
+<div class="intro-sub">COLOMBIA</div>
+</div>
 </div>
 
 <script>
@@ -165,12 +151,12 @@ document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-/* activar animación */
+/* animación */
 window.addEventListener("load",()=>{
 document.body.classList.add("play");
 });
 
-/* failsafe (evita bloqueos) */
+/* failsafe */
 setTimeout(()=>{
 const intro=document.getElementById("intro");
 if(intro) intro.style.display="none";
