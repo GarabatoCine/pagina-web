@@ -63,7 +63,7 @@ display:block;
 }
 
 /* ===================== */
-/* 🔥 FIX FLASH: SVG INVISIBLE POR DEFECTO */
+/* FIX FLASH SVG */
 /* ===================== */
 .mask-group{
 transform-box: fill-box;
@@ -73,10 +73,11 @@ opacity:0;
 
 .play .mask-group{
 opacity:1;
-animation:fadeIn 2.8s ease forwards;
+animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
+animation-delay:3s;
 }
 
-/* también evitamos flash en textos individuales */
+/* evita flash inicial */
 svg text{
 fill:black;
 opacity:0;
@@ -103,25 +104,20 @@ letter-spacing:2px;
 }
 
 /* ===================== */
-/* ANIMACIÓN */
+/* OCULTAR INTRO */
 /* ===================== */
-.play .mask-group{
-animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:3s;
-}
-
 #intro.hide{
 animation:fadeOut 0.2s ease forwards;
+}
+
+/* 🔥 NUEVO TIMING: 3.8s */
+.play #intro{
+animation-delay:3.8s;
 }
 
 /* ===================== */
 /* KEYFRAMES */
 /* ===================== */
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
-}
-
 @keyframes slideLeft{
 to{transform:translateX(-200%);}
 }
@@ -187,7 +183,7 @@ font-size: 10px;
 
 <body>
 
-<!-- FADE OVERLAY -->
+<!-- FADE -->
 <div id="fade"></div>
 
 <!-- VIDEO -->
@@ -249,7 +245,7 @@ window.addEventListener("load",()=>{
 
 document.body.classList.add("play");
 
-/* mobile cinematic mode */
+/* mobile mode */
 if(window.innerWidth <= 768){
 
 document.body.classList.add("mobile-fade");
@@ -261,7 +257,7 @@ document.body.classList.remove("mobile-fade");
 
 }
 
-/* 🔥 SINCRONIZACIÓN PERFECTA */
+/* SINCRONIZACIÓN REAL */
 const logo = document.getElementById("logoGroup");
 
 logo.addEventListener("animationend", (e)=>{
