@@ -5,14 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Garabato Cine</title>
 
-<!-- Tipografía gruesa como antes -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#fff;font-family:'Roboto',sans-serif;overflow:hidden;}
 
-/* ===== VIDEO BASE (DETRÁS, PROPORCIÓN REAL) ===== */
+/* VIDEO BASE */
 .video-base{
 position:fixed;
 inset:0;
@@ -22,121 +21,147 @@ align-items:center;
 justify-content:center;
 z-index:0;
 }
+
 .video-base video{
 width:100%;
 height:auto;
 max-height:100%;
-object-fit:contain; /* no se deforma */
-display:block;
+object-fit:contain;
 }
 
-/* ===== INTRO (CORTINA BLANCA) ===== */
+/* INTRO */
 #intro{
 position:fixed;
 inset:0;
+background:#fff;
 z-index:10;
 overflow:hidden;
 }
 
-/* CAPA BLANCA QUE SE PERFORA CON TEXTO (MÁSCARA REAL) */
-.white-layer{
+/* TEXTO (MÁSCARA REAL FUNCIONAL) */
+.intro-text{
 position:absolute;
-inset:0;
-background:#fff;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:100%;
+text-align:center;
+font-size:12vw;
+font-weight:900;
+white-space:nowrap;
 
-/* máscara: texto = hueco (se ve el video debajo) */
--webkit-mask-image: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 300'>\
-<rect width='100%' height='100%' fill='white'/>\
-<text x='50%' y='48%' text-anchor='middle' font-family='Roboto' font-weight='900' font-size='140' fill='black'>GARABATO CINE</text>\
-<text x='50%' y='75%' text-anchor='middle' font-family='Roboto' font-weight='900' font-size='36' fill='black'>COLOMBIA</text>\
-</svg>");
--webkit-mask-repeat:no-repeat;
--webkit-mask-position:center;
--webkit-mask-size:100% auto;
--webkit-mask-composite: xor; /* perfora el blanco */
+/* 🔥 CLAVE: transparencia real estable */
+background:transparent;
+color:transparent;
+-webkit-text-stroke:0 transparent;
 
-mask-image: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 300'>\
-<rect width='100%' height='100%' fill='white'/>\
-<text x='50%' y='48%' text-anchor='middle' font-family='Roboto' font-weight='900' font-size='140' fill='black'>GARABATO CINE</text>\
-<text x='50%' y='75%' text-anchor='middle' font-family='Roboto' font-weight='900' font-size='36' fill='black'>COLOMBIA</text>\
-</svg>");
-mask-repeat:no-repeat;
-mask-position:center;
-mask-size:100% auto;
-mask-composite: exclude;
+/* esto sí funciona cross-browser */
+background-clip:text;
+-webkit-background-clip:text;
+
+/* usamos el video como fondo del texto */
+background-image:url("https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif"); /* fallback */
+mix-blend-mode:multiply;
 
 opacity:0;
 }
 
-/* ===== ANIMACIÓN ===== */
+/* COLOMBIA */
+.intro-sub{
+position:absolute;
+top:65%;
+left:50%;
+transform:translateX(-50%);
+font-size:2vw;
+font-weight:900;
+letter-spacing:4px;
+color:transparent;
+opacity:0;
+}
 
-/* Fade-in lento (3s) del “hueco” */
-.play .white-layer{
+/* ANIMACIÓN */
+
+.play .intro-text,
+.play .intro-sub{
+animation:fadeIn 3s ease forwards;
+animation-delay:0.2s;
+}
+
+.play .intro-text{
 animation:
 fadeIn 3s ease forwards,
-slideLeft 1.5s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:0.05s,3.1s;
+slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
+animation-delay:0.2s,3.2s;
 }
 
-/* Desaparece la cortina blanca (no se mueve) */
+.play .intro-sub{
+animation:
+fadeIn 3s ease forwards,
+slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
+animation-delay:0.2s,3.2s;
+}
+
 .play #intro{
 animation:fadeOut 0.35s ease forwards;
-animation-delay:4.7s;
+animation-delay:4.8s;
 }
 
-@keyframes fadeIn{ to{opacity:1;} }
-@keyframes slideLeft{ to{transform:translateX(-120%);} }
-@keyframes fadeOut{ to{opacity:0;visibility:hidden;} }
+@keyframes fadeIn{to{opacity:1;}}
+@keyframes slideLeft{
+to{transform:translate(-180%,-50%);}
+}
+@keyframes fadeOut{
+to{opacity:0;visibility:hidden;}
+}
 
-/* ===== RESPONSIVE ===== */
-@media (max-width:768px){
-.white-layer{
--webkit-mask-size:130% auto;
-mask-size:130% auto;
+/* RESPONSIVE */
+@media(max-width:768px){
+.intro-text{font-size:16vw;}
+.intro-sub{font-size:4vw;}
 }
-}
+
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO (DEBAJO) -->
+<!-- VIDEO -->
 <div class="video-base">
-  <video autoplay muted loop playsinline>
-    <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Gif%20principal%20Vida%20de%20colores.mp4">
-  </video>
+<video autoplay muted loop playsinline>
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Gif%20principal%20Vida%20de%20colores.mp4">
+</video>
 </div>
 
-<!-- CORTINA -->
+<!-- INTRO -->
 <div id="intro">
-  <div class="white-layer"></div>
+<div class="intro-text">GARABATO CINE</div>
+<div class="intro-sub">COLOMBIA</div>
 </div>
 
 <script>
-// autoplay robusto
+
+// autoplay seguro
 document.querySelectorAll("video").forEach(v=>{
-  v.muted = true;
-  v.playsInline = true;
-  v.play().catch(()=>{});
+v.muted=true;
+v.play().catch(()=>{});
 });
 
 // iOS fix
 document.addEventListener("touchstart",()=>{
-  document.querySelectorAll("video").forEach(v=>v.play());
+document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-// iniciar animación
+// animación
 window.addEventListener("load",()=>{
-  document.body.classList.add("play");
+document.body.classList.add("play");
 });
 
 // failsafe
 setTimeout(()=>{
-  const intro=document.getElementById("intro");
-  if(intro) intro.style.display="none";
+const intro=document.getElementById("intro");
+if(intro) intro.style.display="none";
 },6000);
+
 </script>
 
 </body>
