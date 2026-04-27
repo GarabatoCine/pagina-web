@@ -36,7 +36,7 @@ transition: opacity 0.6s ease;
 }
 
 /* ===================== */
-/* FADE OVERLAY (cine transition) */
+/* FADE CINEMATOGRÁFICO MOBILE */
 /* ===================== */
 #fade{
 position:fixed;
@@ -112,25 +112,25 @@ to{opacity:0;visibility:hidden;}
 }
 
 /* ===================== */
-/* TABLET */
+/* TABLET FIX FINAL (AJUSTE DE ESCALA) */
 /* ===================== */
 @media (max-width: 1024px){
 
 text.big{
-font-size: clamp(24px, 6vw, 44px);
-transform: translateY(-2px);
+font-size: clamp(20px, 5vw, 38px);
+transform: translateY(-1px);
 }
 
 text.small{
-font-size: clamp(10px, 2.5vw, 13px);
-letter-spacing:1.5px;
-transform: translateY(-2px);
+font-size: clamp(9px, 2.2vw, 12px);
+letter-spacing:1.3px;
+transform: translateY(-1px);
 }
 
 }
 
 /* ===================== */
-/* MOBILE CINEMATIC TRANSITION */
+/* MOBILE CINEMATIC MODE */
 /* ===================== */
 @media (max-width: 768px){
 
@@ -144,6 +144,21 @@ object-fit: contain;
 
 body.mobile-fade #fade{
 opacity:1;
+}
+
+}
+
+/* ===================== */
+/* MOBILE SMALL TEXT */
+/* ===================== */
+@media (max-width: 380px){
+
+text.big{
+font-size: 24px;
+}
+
+text.small{
+font-size: 10px;
 }
 
 }
@@ -203,21 +218,21 @@ COLOMBIA
 
 /* autoplay */
 document.querySelectorAll("video").forEach(v=>{
-v.muted=true;
+v.muted = true;
 v.play().catch(()=>{});
 });
 
-/* iOS */
+/* iOS fix */
 document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-/* start animation */
+/* init */
 window.addEventListener("load",()=>{
 
 document.body.classList.add("play");
 
-/* MOBILE DETECTION + FADE TRANSITION */
+/* MOBILE TRANSITION (smooth cover → contain) */
 if(window.innerWidth <= 768){
 
 document.body.classList.add("mobile-fade");
@@ -233,7 +248,8 @@ document.body.classList.remove("mobile-fade");
 
 /* failsafe */
 setTimeout(()=>{
-document.getElementById("intro").style.display="none";
+const intro = document.getElementById("intro");
+if(intro) intro.style.display="none";
 },6500);
 
 </script>
