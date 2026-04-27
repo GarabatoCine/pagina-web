@@ -42,19 +42,17 @@ header{
     color:#222;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO (PROPORCIÓN REAL) ================= */
 
 .hero{
     margin-top:100px;
-    display:flex;
-    justify-content:center;
     background:#000;
 }
 
 .hero video{
     width:100%;
-    height:auto; /* 🔥 PROPORCIÓN REAL SIEMPRE */
-    max-height:calc(100vh - 100px);
+    height:auto; /* 🔥 clave: NO se deforma nunca */
+    display:block;
 }
 
 /* ================= INTRO ================= */
@@ -62,37 +60,39 @@ header{
 #intro{
     position:fixed;
     inset:0;
+    background:#fff;
     z-index:9999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-#intro svg{
-    width:100%;
-    height:100%;
+.contenido-intro{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    transform:translateY(0);
 }
 
 /* TEXTO */
 
-.mask-text{
+.titulo{
+    font-size:clamp(40px,9vw,120px);
+    font-weight:900;
+    letter-spacing:-2px;
+    text-transform:uppercase;
+    color:#111;
+    opacity:0;
+    white-space:nowrap;
+}
+
+.sub{
+    margin-top:10px;
+    font-size:14px;
+    letter-spacing:4px;
+    color:#444;
     opacity:0;
 }
-
-/* ANIMACIÓN */
-
-.play .mask-text{
-    animation:
-        fadeIn 1.2s ease forwards,
-        slideUp 1.4s cubic-bezier(.76,0,.24,1) forwards;
-    animation-delay:.4s,1.7s;
-}
-
-.play .bg{
-    animation:fadeOut .3s ease forwards;
-    animation-delay:3.1s;
-}
-
-@keyframes fadeIn{to{opacity:1;}}
-@keyframes slideUp{to{transform:translateY(-250%);}}
-@keyframes fadeOut{to{opacity:0;visibility:hidden;}}
 
 /* ================= MEDIA ================= */
 
@@ -124,11 +124,36 @@ header{
     color:#999;
 }
 
+/* ================= ANIMACIONES ================= */
+
+@keyframes fadeIn{to{opacity:1;}}
+@keyframes slideUp{to{transform:translateY(-250%);}}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+header{
+    height:80px;
+    padding:0 30px;
+}
+.hero{
+    margin-top:80px;
+}
+.logo-txt{
+    font-size:1rem;
+}
+.nav-derecha a{
+    font-size:.8rem;
+    margin-left:20px;
+}
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
 <div class="logo-txt">Garabato Cine</div>
 <div class="nav-derecha">
@@ -149,35 +174,10 @@ header{
 
 <!-- INTRO -->
 <div id="intro">
-<svg viewBox="0 0 100 100" preserveAspectRatio="none">
-
-<defs>
-<mask id="mask" maskUnits="objectBoundingBox">
-
-<rect width="1" height="1" fill="white"/>
-
-<g class="mask-text" fill="black" text-anchor="middle">
-
-<text x="0.5" y="0.45" font-size="0.12" font-weight="900">
-GARABATO CINE
-</text>
-
-<text x="0.5" y="0.55" font-size="0.03" letter-spacing="0.02">
-COLOMBIA
-</text>
-
-</g>
-
-</mask>
-</defs>
-
-<!-- blanco con hueco -->
-<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
-
-<!-- fade -->
-<rect width="100%" height="100%" fill="white" class="bg"/>
-
-</svg>
+    <div class="contenido-intro">
+        <div class="titulo">GARABATO CINE</div>
+        <div class="sub">COLOMBIA</div>
+    </div>
 </div>
 
 <!-- PROYECTOS -->
@@ -225,19 +225,35 @@ document.addEventListener("touchstart", ()=>{
     document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-// activar animación
+// INTRO CONTROL TOTAL
 window.addEventListener("load", ()=>{
-    document.body.classList.add("play");
-    window.scrollTo(0,0);
-});
 
-// FAILSAFE
-setTimeout(()=>{
+    window.scrollTo(0,0);
+
+    const titulo = document.querySelector(".titulo");
+    const sub = document.querySelector(".sub");
+    const grupo = document.querySelector(".contenido-intro");
     const intro = document.getElementById("intro");
-    if(intro){
-        intro.style.display="none";
-    }
-},5000);
+
+    // fade in
+    setTimeout(()=>{
+        titulo.style.animation="fadeIn 1.2s forwards";
+        sub.style.animation="fadeIn 1.2s forwards";
+    },400);
+
+    // subir TODO
+    setTimeout(()=>{
+        grupo.style.animation="slideUp 1.4s forwards";
+    },1700);
+
+    // desaparecer fondo
+    setTimeout(()=>{
+        intro.style.transition="opacity .3s ease";
+        intro.style.opacity="0";
+        setTimeout(()=>intro.style.display="none",300);
+    },3100);
+
+});
 
 </script>
 
