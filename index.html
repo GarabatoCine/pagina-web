@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Garabato Cine</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Roboto',sans-serif;background:#fff;overflow-x:hidden;}
 
-/* HEADER */
+/* HEADER (TIPOGRAFÍA DELGADA COMO ANTES) */
 
 header{
 position:fixed;
@@ -26,20 +26,31 @@ padding:0 60px;
 z-index:1000;
 }
 
-.logo{letter-spacing:6px;font-size:1.2rem;}
-.nav a{margin-left:30px;text-decoration:none;color:#000;font-size:.9rem;}
+.logo{
+font-weight:300;
+letter-spacing:6px;
+font-size:1.2rem;
+}
 
-/* VIDEO REAL (PROPORCIÓN CORRECTA) */
+.nav a{
+margin-left:30px;
+text-decoration:none;
+font-size:.9rem;
+letter-spacing:2px;
+color:#000;
+font-weight:300;
+}
+
+/* VIDEO (PROPORCIÓN REAL) */
 
 .hero{
 margin-top:90px;
-text-align:center;
 background:#fff;
 }
 
 .hero video{
 width:100%;
-height:auto; /* 🔥 NO SE DEFORMA */
+height:auto;
 display:block;
 }
 
@@ -48,59 +59,68 @@ display:block;
 #intro{
 position:fixed;
 inset:0;
-background:#fff;
 z-index:9999;
-overflow:hidden;
 }
 
-/* VIDEO DETRÁS (PROPORCIÓN REAL) */
+/* VIDEO DE FONDO (NO SE VE AL INICIO POR LA CORTINA) */
 
 .intro-video{
 position:absolute;
-top:90px; /* respeta header */
-left:0;
+top:90px;
 width:100%;
 height:auto;
 }
 
-/* TEXTO CON MÁSCARA REAL */
+/* CORTINA BLANCA CON HUECO */
 
-.intro-text{
+.mask-layer{
 position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-font-size:10vw;
-font-weight:900;
-letter-spacing:-2px;
-white-space:nowrap;
+inset:0;
+background:#fff;
 
-/* 🔥 TRANSPARENCIA REAL */
-color:black;
--webkit-mask-image: linear-gradient(black, black);
-mask-image: linear-gradient(black, black);
-mix-blend-mode:destination-out;
+/* 🔥 AQUÍ ESTÁ LA MAGIA REAL */
+-webkit-mask-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200">\
+<text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="120" font-family="Roboto" font-weight="900">GARABATO CINE</text>\
+</svg>');
+-webkit-mask-repeat:no-repeat;
+-webkit-mask-position:center;
+-webkit-mask-size:80%;
+
+mask-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200">\
+<text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="120" font-family="Roboto" font-weight="900">GARABATO CINE</text>\
+</svg>');
+mask-repeat:no-repeat;
+mask-position:center;
+mask-size:80%;
 
 opacity:0;
 }
 
-/* ANIMACIÓN */
+/* ANIMACIONES */
 
-.play .intro-text{
+.play .mask-layer{
 animation:
 fadeIn 1s forwards,
-moveUp 1.6s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:.3s,1.6s;
+slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
+animation-delay:.3s,1.8s;
 }
 
 .play #intro{
 animation:fadeOut .4s forwards;
-animation-delay:3.2s;
+animation-delay:3.4s;
 }
 
 @keyframes fadeIn{to{opacity:1;}}
-@keyframes moveUp{to{transform:translate(-50%,-250%);}}
-@keyframes fadeOut{to{opacity:0;visibility:hidden;}}
+
+@keyframes slideLeft{
+to{transform:translateX(-120%);}
+}
+
+@keyframes fadeOut{
+to{opacity:0;visibility:hidden;}
+}
 
 /* LOG LINE */
 
@@ -111,9 +131,10 @@ padding:60px 20px;
 }
 
 .descripcion p{
+font-weight:300;
+letter-spacing:1px;
 white-space:nowrap;
 font-size:1rem;
-color:#000;
 }
 
 /* RESPONSIVE */
@@ -138,6 +159,11 @@ top:70px;
 
 .descripcion p{
 font-size:.8rem;
+}
+
+.mask-layer{
+-webkit-mask-size:120%;
+mask-size:120%;
 }
 
 }
@@ -170,7 +196,7 @@ font-size:.8rem;
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Gif%20principal%20Vida%20de%20colores.mp4">
 </video>
 
-<div class="intro-text">GARABATO CINE</div>
+<div class="mask-layer"></div>
 
 </div>
 
@@ -194,7 +220,7 @@ document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-// activar animación
+// activar intro
 window.addEventListener("load",()=>{
 document.body.classList.add("play");
 });
