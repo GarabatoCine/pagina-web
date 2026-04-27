@@ -12,17 +12,45 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Roboto',sans-serif;background:#000;overflow-x:hidden;}
 
-/* ================= HERO VIDEO ================= */
+/* ================= HEADER ================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:70px;
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 40px;
+    z-index:1000;
+}
+
+.logo-txt{
+    font-size:0.9rem;
+    font-weight:300;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+.nav-derecha a{
+    margin-left:20px;
+    font-size:0.7rem;
+    text-decoration:none;
+    color:#222;
+}
+
+/* ================= HERO ================= */
 
 .hero{
-    position:fixed;
-    inset:0;
-    z-index:-1;
+    margin-top:70px;
 }
 
 .hero video{
     width:100%;
-    height:100%;
+    height:calc(100vh - 70px);
     object-fit:cover;
 }
 
@@ -37,7 +65,6 @@ body{font-family:'Roboto',sans-serif;background:#000;overflow-x:hidden;}
 #intro svg{
     width:100%;
     height:100%;
-    display:block;
 }
 
 .mask-text{
@@ -47,7 +74,7 @@ body{font-family:'Roboto',sans-serif;background:#000;overflow-x:hidden;}
 .play .mask-text{
     animation:
         fadeIn 1.2s ease forwards,
-        slideLeft 1.2s cubic-bezier(.76,0,.24,1) forwards;
+        slideUp 1.2s cubic-bezier(.76,0,.24,1) forwards;
     animation-delay:.4s,1.7s;
 }
 
@@ -57,50 +84,10 @@ body{font-family:'Roboto',sans-serif;background:#000;overflow-x:hidden;}
 }
 
 @keyframes fadeIn{to{opacity:1;}}
-@keyframes slideLeft{to{transform:translateX(-140%);}}
+@keyframes slideUp{to{transform:translateY(-140%);}}
 @keyframes fadeOut{to{opacity:0;visibility:hidden;}}
 
-/* ================= HEADER (TU ORIGINAL) ================= */
-
-header {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    padding: 15px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-
-    background-color: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.logo-txt {
-    font-size: 0.9rem;
-    font-weight: 300;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #222; 
-}
-
-.nav-derecha a {
-    color: #222;
-    text-decoration: none;
-    font-size: 0.65rem;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    margin-left: 25px;
-}
-
 /* ================= MEDIA ================= */
-
-.media{
-    width:100%;
-    background:#000;
-}
 
 .media video,
 .media img{
@@ -112,7 +99,7 @@ header {
 /* ================= TEXTOS ================= */
 
 .pie{
-    padding:20px 0 80px 0;
+    padding:20px 0 80px;
     text-align:center;
     background:#fff;
 }
@@ -128,7 +115,6 @@ header {
     font-size:0.6rem;
     letter-spacing:3px;
     color:#999;
-    text-transform:uppercase;
 }
 
 </style>
@@ -136,7 +122,19 @@ header {
 
 <body>
 
-<!-- VIDEO FONDO -->
+<!-- HEADER -->
+<header>
+<div class="logo-txt">Garabato Cine</div>
+<div class="nav-derecha">
+<a href="#">About Us</a>
+<a href="#">Contact</a>
+<a href="https://www.instagram.com/garabatocine/" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+</div>
+</header>
+
+<!-- HERO VIDEO -->
 <div class="hero">
 <video autoplay muted loop playsinline preload="auto">
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
@@ -154,15 +152,11 @@ header {
 
 <g class="mask-text" fill="black" text-anchor="middle">
 
-<text x="600" y="280"
-font-size="110"
-font-weight="900">
+<text x="600" y="280" font-size="110" font-weight="900">
 GARABATO CINE
 </text>
 
-<text x="600" y="340"
-font-size="20"
-letter-spacing="4">
+<text x="600" y="340" font-size="20" letter-spacing="4">
 COLOMBIA
 </text>
 
@@ -171,32 +165,16 @@ COLOMBIA
 </mask>
 </defs>
 
+<!-- hueco -->
 <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+
+<!-- fade blanco -->
 <rect width="100%" height="100%" fill="white" class="white-bg"/>
 
 </svg>
 </div>
 
-<!-- HEADER -->
-<header>
-<div class="logo-txt">Garabato Cine</div>
-<div class="nav-derecha">
-<a href="#">About Us</a>
-<a href="#">Contact</a>
-<a href="https://www.instagram.com/garabatocine/" target="_blank">
-<i class="fab fa-instagram"></i>
-</a>
-</div>
-</header>
-
-<!-- CONTENIDO -->
-
-<div class="media">
-<video autoplay muted loop playsinline>
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
-</video>
-</div>
-<div class="pie"><h2>La Frontera</h2><p>Largometraje</p></div>
+<!-- PROYECTOS -->
 
 <div class="media">
 <video autoplay muted loop playsinline>
@@ -234,12 +212,12 @@ document.querySelectorAll("video").forEach(v=>{
     v.play().catch(()=>{});
 });
 
-// fix iOS
+// iOS fix
 document.addEventListener("touchstart", ()=>{
     document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-// intro animación
+// intro
 window.addEventListener("load", ()=>{
     document.body.classList.add("play");
     window.scrollTo(0,0);
