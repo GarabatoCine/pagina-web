@@ -9,22 +9,19 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#fff;overflow:hidden;}
 
-/* VIDEO */
+/* VIDEO FULLSCREEN */
 .video{
 position:fixed;
 inset:0;
-display:flex;
-align-items:center;
-justify-content:center;
-background:#fff;
 z-index:0;
+overflow:hidden;
+background:#000;
 }
 
 .video video{
 width:100%;
-height:auto;
-max-height:100%;
-object-fit:contain;
+height:100%;
+object-fit:cover; /* 🔥 llena toda la pantalla */
 }
 
 /* INTRO */
@@ -34,26 +31,58 @@ inset:0;
 z-index:10;
 }
 
-/* SVG FULL */
+/* SVG */
 svg{
 width:100%;
 height:100%;
 display:block;
 }
 
-/* ANIMACIONES */
-.play .mask-group{
-animation:slide 1.6s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:3s;
+/* TIPOGRAFÍA */
+.main{
+font-family:Arial, Helvetica, sans-serif;
+font-weight:900;
 }
 
-.play #intro{
-animation:fadeOut 0.4s ease forwards;
-animation-delay:4.6s;
+.sub{
+font-family:Arial, Helvetica, sans-serif;
+font-weight:700;
+letter-spacing:0.25vw;
 }
 
+/* RESPONSIVE */
+@media (min-width:1200px){
+text.main{font-size:8vw;}
+text.sub{font-size:1.2vw;}
+}
+
+@media (max-width:1199px){
+text.main{font-size:10vw;}
+text.sub{font-size:1.8vw;}
+}
+
+@media (max-width:768px){
+text.main{font-size:12vw;}
+text.sub{font-size:2.5vw;}
+}
+
+/* ===== ANIMACIÓN CORREGIDA ===== */
+
+/* fade in */
 .play .fade{
 animation:fadeIn 3s ease forwards;
+}
+
+/* 🔥 AHORA SÍ: desplazamiento */
+.play .mask-group{
+animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
+animation-delay:3.1s;
+}
+
+/* desaparición cortina */
+.play #intro{
+animation:fadeOut 0.4s ease forwards;
+animation-delay:4.7s;
 }
 
 @keyframes fadeIn{
@@ -61,7 +90,7 @@ from{opacity:0;}
 to{opacity:1;}
 }
 
-@keyframes slide{
+@keyframes slideLeft{
 to{transform:translateX(-140%);}
 }
 
@@ -69,18 +98,12 @@ to{transform:translateX(-140%);}
 to{opacity:0;visibility:hidden;}
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-text.main{font-size:10vw;}
-text.sub{font-size:3vw;}
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO NUEVO -->
+<!-- VIDEO FULL -->
 <div class="video">
 <video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
@@ -93,30 +116,24 @@ text.sub{font-size:3vw;}
 <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
 
 <defs>
-<mask id="mask" x="0" y="0" width="100%" height="100%">
+<mask id="mask">
 <rect width="100%" height="100%" fill="white"/>
 
 <g class="mask-group fade">
 
-<!-- 🔥 TAMAÑO AJUSTADO -->
+<!-- GARABATO -->
 <text x="50" y="48"
 text-anchor="middle"
-font-size="8"
-font-family="Arial, Helvetica, sans-serif"
-font-weight="900"
-fill="black"
-class="main">
+class="main"
+fill="black">
 GARABATO CINE
 </text>
 
-<!-- 🔥 COLOMBIA MÁS PEQUEÑO -->
-<text x="50" y="60"
+<!-- COLOMBIA (pegado y pequeño) -->
+<text x="50" y="55"
 text-anchor="middle"
-font-size="2"
-font-family="Arial, Helvetica, sans-serif"
-font-weight="700"
-fill="black"
-class="sub">
+class="sub"
+fill="black">
 COLOMBIA
 </text>
 
@@ -145,7 +162,7 @@ document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-/* animación */
+/* iniciar animación */
 window.addEventListener("load",()=>{
 document.body.classList.add("play");
 });
