@@ -6,11 +6,10 @@
 <title>Garabato Cine</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Roboto',sans-serif;background:#000;color:#fff;overflow-x:hidden;}
+body{font-family:'Roboto',sans-serif;background:#000;}
 
 /* ================= HEADER ================= */
 
@@ -31,14 +30,13 @@ header{
     font-size:1.2rem;
     letter-spacing:6px;
     text-transform:uppercase;
-    color:#000;
 }
 
 .nav a{
-    margin-left:35px;
+    margin-left:30px;
+    text-decoration:none;
     font-size:.9rem;
     letter-spacing:2px;
-    text-decoration:none;
     color:#000;
 }
 
@@ -46,23 +44,14 @@ header{
 
 .hero{
     margin-top:90px;
-    height:calc(100vh - 90px);
-    position:relative;
-    overflow:hidden;
+    background:#000;
+    text-align:center;
 }
 
 .hero video{
     width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-/* overlay cine */
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.25);
+    height:auto; /* 🔥 PROPORCIÓN REAL */
+    display:block;
 }
 
 /* ================= INTRO ================= */
@@ -73,13 +62,12 @@ header{
     z-index:9999;
 }
 
-/* SVG ocupa todo */
 #intro svg{
     width:100%;
     height:100%;
 }
 
-/* TEXTO MASK */
+/* TEXTO */
 
 .mask-text{
     opacity:0;
@@ -89,34 +77,35 @@ header{
 
 .play .mask-text{
     animation:
-        fadeIn 1.3s ease forwards,
-        slideUp 1.6s cubic-bezier(.76,0,.24,1) forwards;
-    animation-delay:.5s,2s;
+        fadeIn 1.2s ease forwards,
+        slideUp 1.5s cubic-bezier(.76,0,.24,1) forwards;
+    animation-delay:.4s,1.7s;
 }
 
 .play .bg{
-    animation:fadeOut .4s ease forwards;
-    animation-delay:3.6s;
+    animation:fadeOut .35s ease forwards;
+    animation-delay:3.2s;
 }
 
 @keyframes fadeIn{to{opacity:1;}}
-@keyframes slideUp{to{transform:translateY(-260%);}}
+@keyframes slideUp{to{transform:translateY(-250%);}}
 @keyframes fadeOut{to{opacity:0;visibility:hidden;}}
 
 /* ================= LOG LINE ================= */
 
 .descripcion{
     background:#000;
+    color:#fff;
+    padding:80px 20px;
     text-align:center;
-    padding:100px 20px;
     opacity:0;
-    transform:translateY(30px);
+    transform:translateY(20px);
 }
 
 .play .descripcion{
     opacity:1;
     transform:translateY(0);
-    transition:all 1.2s ease;
+    transition:all 1s ease;
     transition-delay:3.8s;
 }
 
@@ -127,61 +116,23 @@ header{
     line-height:1.7;
 }
 
-/* ================= CTA ================= */
-
-.cta{
-    margin-top:40px;
-    display:inline-block;
-    text-decoration:none;
-    color:#fff;
-    letter-spacing:3px;
-    font-size:.8rem;
-    border-bottom:1px solid #fff;
-    padding-bottom:5px;
-    opacity:0;
-    transform:translateY(10px);
-}
-
-.play .cta{
-    opacity:1;
-    transform:translateY(0);
-    transition:all .8s ease;
-    transition-delay:4.2s;
-}
-
-/* ================= TRANSICIÓN ================= */
-
-.fade-out{
-    animation:fadePage .6s forwards;
-}
-
-@keyframes fadePage{
-    to{opacity:0;}
-}
-
 /* ================= RESPONSIVE ================= */
 
 @media(max-width:768px){
-
 header{
     height:70px;
     padding:0 25px;
 }
-
 .hero{
     margin-top:70px;
-    height:calc(100vh - 70px);
 }
-
 .logo{
     font-size:1rem;
 }
-
 .nav a{
-    margin-left:20px;
+    margin-left:15px;
     font-size:.75rem;
 }
-
 }
 
 </style>
@@ -192,22 +143,19 @@ header{
 <!-- HEADER -->
 <header>
 <div class="logo">Garabato Cine</div>
-
 <div class="nav">
 <a href="proyectos.html">Proyectos</a>
 <a href="#">Nosotros</a>
-<a href="https://www.instagram.com/garabatocine/" target="_blank">
-<i class="fab fa-instagram"></i>
-</a>
+<a href="https://www.instagram.com/garabatocine/" target="_blank">Instagram</a>
 </div>
 </header>
 
-<!-- VIDEO REEL -->
-<section class="hero">
+<!-- VIDEO -->
+<div class="hero">
 <video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Gif%20principal%20Vida%20de%20colores.mp4">
 </video>
-</section>
+</div>
 
 <!-- INTRO -->
 <div id="intro">
@@ -215,6 +163,7 @@ header{
 
 <defs>
 <mask id="mask">
+
 <rect width="100%" height="100%" fill="white"/>
 
 <g class="mask-text" fill="black" text-anchor="middle">
@@ -228,7 +177,10 @@ GARABATO CINE
 </mask>
 </defs>
 
+<!-- blanco con hueco -->
 <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+
+<!-- fade -->
 <rect width="100%" height="100%" fill="white" class="bg"/>
 
 </svg>
@@ -239,8 +191,6 @@ GARABATO CINE
 <p>
 Ficción con raíz local y mirada social, donde el realismo se quiebra en el imaginario vibrante del Caribe colombiano.
 </p>
-
-<a href="proyectos.html" class="cta">VER PROYECTOS</a>
 </section>
 
 <script>
@@ -256,22 +206,10 @@ document.addEventListener("touchstart",()=>{
     document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-// intro
+// activar animación
 window.addEventListener("load",()=>{
     document.body.classList.add("play");
     window.scrollTo(0,0);
-});
-
-// transición suave entre páginas
-document.querySelectorAll("a[href]").forEach(link=>{
-    link.addEventListener("click",function(e){
-        const url=this.getAttribute("href");
-        if(url && !url.startsWith("http")){
-            e.preventDefault();
-            document.body.classList.add("fade-out");
-            setTimeout(()=>{window.location=url},600);
-        }
-    });
 });
 
 // failsafe
