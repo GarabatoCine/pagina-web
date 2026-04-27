@@ -35,16 +35,14 @@ object-fit:cover;
 }
 
 /* ===================== */
-/* INTRO LAYER */
+/* INTRO */
 /* ===================== */
 #intro{
 position:fixed;
 inset:0;
 z-index:10;
-display:block;
 }
 
-/* SVG SIEMPRE FULL SCREEN REAL */
 svg{
 width:100vw;
 height:100vh;
@@ -52,12 +50,12 @@ display:block;
 }
 
 /* ===================== */
-/* TIPOGRAFÍA RESPONSIVE */
+/* TEXTO RESPONSIVE */
 /* ===================== */
 text.big{
 font-family: Arial, Helvetica, sans-serif;
 font-weight:900;
-font-size: clamp(26px, 6vw, 58px);
+font-size: clamp(28px, 6vw, 58px);
 }
 
 text.small{
@@ -68,7 +66,7 @@ letter-spacing:2px;
 }
 
 /* ===================== */
-/* ANIMACIÓN BASE */
+/* ANIMACIÓN */
 /* ===================== */
 .mask-group{
 transform-box: fill-box;
@@ -84,39 +82,10 @@ animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
 animation-delay:3s;
 }
 
-/* salida rápida y limpia */
+/* 🔥 BACKGROUND BLANCO CON TIMING ORIGINAL */
 .play #intro{
-animation:fadeOut 0.2s ease forwards;
-animation-delay:3.55s;
-}
-
-/* ===================== */
-/* RESPONSIVE CINEMATIC ADJUST */
-/* ===================== */
-
-/* Ultra wide (cine 21:9 y más) */
-@media (min-aspect-ratio: 21/9){
-svg{
-transform: scale(1.06);
-}
-}
-
-/* pantallas grandes */
-@media (min-width: 1800px){
-svg{
-transform: scale(1.03);
-}
-}
-
-/* móviles muy pequeños */
-@media (max-width: 380px){
-text.big{
-font-size: 24px;
-}
-
-text.small{
-font-size: 10px;
-}
+animation:fadeOut 0.25s ease forwards;
+animation-delay:4.6s;
 }
 
 /* ===================== */
@@ -133,6 +102,39 @@ to{transform:translateX(-200%);}
 
 @keyframes fadeOut{
 to{opacity:0;visibility:hidden;}
+}
+
+/* ===================== */
+/* TABLET FIX (SIN ROMPER PC) */
+/* ===================== */
+@media (max-width: 1024px){
+
+text.big{
+font-size: clamp(24px, 6vw, 44px);
+transform: translateY(-2px);
+}
+
+text.small{
+font-size: clamp(10px, 2.5vw, 13px);
+letter-spacing:1.5px;
+transform: translateY(-2px);
+}
+
+}
+
+/* ===================== */
+/* MOBILE PEQUEÑO */
+/* ===================== */
+@media (max-width: 380px){
+
+text.big{
+font-size: 24px;
+}
+
+text.small{
+font-size: 10px;
+}
+
 }
 
 </style>
@@ -187,21 +189,21 @@ COLOMBIA
 
 /* autoplay seguro */
 document.querySelectorAll("video").forEach(v=>{
-v.muted=true;
+v.muted = true;
 v.play().catch(()=>{});
 });
 
-/* iOS fallback */
+/* iOS fix */
 document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-/* start animation */
+/* iniciar animación */
 window.addEventListener("load",()=>{
 document.body.classList.add("play");
 });
 
-/* failsafe anti-freeze */
+/* failsafe */
 setTimeout(()=>{
 const intro = document.getElementById("intro");
 if(intro) intro.style.display="none";
