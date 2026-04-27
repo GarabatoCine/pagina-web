@@ -35,89 +35,73 @@ position:fixed;
 inset:0;
 background:#fff;
 z-index:10;
-overflow:hidden;
 }
 
-/* TEXTO (MÁSCARA REAL FUNCIONAL) */
-.intro-text{
+/* CAPA QUE PERFORA */
+.cutout{
 position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-width:100%;
-text-align:center;
+inset:0;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+/* 🔥 ESTO ES LO IMPORTANTE */
+mix-blend-mode:destination-out;
+}
+
+/* TEXTO */
+.main{
 font-size:12vw;
 font-weight:900;
 white-space:nowrap;
-
-/* 🔥 CLAVE: transparencia real estable */
-background:transparent;
-color:transparent;
--webkit-text-stroke:0 transparent;
-
-/* esto sí funciona cross-browser */
-background-clip:text;
--webkit-background-clip:text;
-
-/* usamos el video como fondo del texto */
-background-image:url("https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif"); /* fallback */
-mix-blend-mode:multiply;
-
+letter-spacing:-2px;
+color:#000;
 opacity:0;
 }
 
-/* COLOMBIA */
-.intro-sub{
-position:absolute;
-top:65%;
-left:50%;
-transform:translateX(-50%);
+.sub{
+margin-top:10px;
 font-size:2vw;
-font-weight:900;
 letter-spacing:4px;
-color:transparent;
+font-weight:900;
+color:#000;
 opacity:0;
 }
 
 /* ANIMACIÓN */
 
-.play .intro-text,
-.play .intro-sub{
+.play .main,
+.play .sub{
 animation:fadeIn 3s ease forwards;
-animation-delay:0.2s;
 }
 
-.play .intro-text{
-animation:
-fadeIn 3s ease forwards,
-slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:0.2s,3.2s;
-}
-
-.play .intro-sub{
-animation:
-fadeIn 3s ease forwards,
-slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:0.2s,3.2s;
+.play .cutout{
+animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
+animation-delay:3.2s;
 }
 
 .play #intro{
-animation:fadeOut 0.35s ease forwards;
+animation:fadeOut 0.4s ease forwards;
 animation-delay:4.8s;
 }
 
-@keyframes fadeIn{to{opacity:1;}}
-@keyframes slideLeft{
-to{transform:translate(-180%,-50%);}
+@keyframes fadeIn{
+to{opacity:1;}
 }
+
+@keyframes slideLeft{
+to{transform:translateX(-140%);}
+}
+
 @keyframes fadeOut{
 to{opacity:0;visibility:hidden;}
 }
 
 /* RESPONSIVE */
 @media(max-width:768px){
-.intro-text{font-size:16vw;}
-.intro-sub{font-size:4vw;}
+.main{font-size:16vw;}
+.sub{font-size:4vw;}
 }
 
 </style>
@@ -132,34 +116,35 @@ to{opacity:0;visibility:hidden;}
 </video>
 </div>
 
-<!-- INTRO -->
+<!-- CORTINA -->
 <div id="intro">
-<div class="intro-text">GARABATO CINE</div>
-<div class="intro-sub">COLOMBIA</div>
+<div class="cutout">
+<div class="main">GARABATO CINE</div>
+<div class="sub">COLOMBIA</div>
+</div>
 </div>
 
 <script>
 
-// autoplay seguro
+/* autoplay real */
 document.querySelectorAll("video").forEach(v=>{
 v.muted=true;
 v.play().catch(()=>{});
 });
 
-// iOS fix
+/* iOS fix */
 document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-// animación
+/* iniciar animación */
 window.addEventListener("load",()=>{
 document.body.classList.add("play");
 });
 
-// failsafe
+/* failsafe */
 setTimeout(()=>{
-const intro=document.getElementById("intro");
-if(intro) intro.style.display="none";
+document.getElementById("intro").style.display="none";
 },6000);
 
 </script>
