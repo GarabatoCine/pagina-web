@@ -18,25 +18,25 @@ header{
     position:fixed;
     top:0;
     width:100%;
-    height:90px;
+    height:100px;
     background:#fff;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:0 60px;
+    padding:0 80px;
     z-index:1000;
 }
 
 .logo-txt{
-    font-size:1.2rem;
-    letter-spacing:6px;
+    font-size:1.4rem;
+    letter-spacing:8px;
     font-weight:300;
     text-transform:uppercase;
 }
 
 .nav-derecha a{
-    margin-left:30px;
-    font-size:0.85rem;
+    margin-left:40px;
+    font-size:1rem;
     letter-spacing:2px;
     text-decoration:none;
     color:#222;
@@ -45,44 +45,57 @@ header{
 /* ================= HERO ================= */
 
 .hero{
-    margin-top:90px;
+    margin-top:100px;
 }
 
 .hero video{
     width:100%;
-    height:calc(100vh - 90px);
+    height:calc(100vh - 100px);
     object-fit:cover;
 }
 
-/* ================= INTRO ================= */
+@media(max-width:900px){
+.hero video{
+    height:auto;
+    object-fit:contain;
+}
+}
+
+/* ================= INTRO TRANSPARENTE ================= */
 
 #intro{
     position:fixed;
     inset:0;
-    background:#fff;
     z-index:9999;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
 }
 
-.titulo{
-    font-size:clamp(42px,9vw,110px);
-    font-weight:900;
-    letter-spacing:-2px;
-    text-transform:uppercase;
-    color:#111;
+#intro svg{
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+/* animación */
+
+.mask-group{
     opacity:0;
 }
 
-.sub{
-    margin-top:10px;
-    font-size:12px;
-    letter-spacing:4px;
-    color:#444;
-    opacity:0;
+.play .mask-group{
+    animation:
+        fadeIn 1.2s ease forwards,
+        slideUp 1.4s cubic-bezier(.76,0,.24,1) forwards;
+    animation-delay:.4s,1.7s;
 }
+
+.play .bg{
+    animation:fadeOut .3s ease forwards;
+    animation-delay:3.1s;
+}
+
+@keyframes fadeIn{to{opacity:1;}}
+@keyframes slideUp{to{transform:translateY(-250%);}}
+@keyframes fadeOut{to{opacity:0;visibility:hidden;}}
 
 /* ================= MEDIA ================= */
 
@@ -93,38 +106,32 @@ header{
     display:block;
 }
 
-/* ================= TEXTOS ================= */
+/* ================= FRANJA ================= */
 
 .pie{
-    padding:20px 0 80px;
+    padding:40px 0 80px;
     text-align:center;
     background:#fff;
 }
 
 .pie h2{
-    font-size:1.4rem;
+    font-size:1.6rem;
     font-weight:300;
-    letter-spacing:5px;
+    letter-spacing:6px;
     text-transform:uppercase;
 }
 
 .pie p{
-    font-size:0.6rem;
+    font-size:.7rem;
     letter-spacing:3px;
     color:#999;
 }
-
-/* ================= ANIMACIONES ================= */
-
-@keyframes fadeIn{to{opacity:1;}}
-@keyframes slideUp{to{transform:translateY(-140%);}}
 
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
 <div class="logo-txt">Garabato Cine</div>
 <div class="nav-derecha">
@@ -136,20 +143,51 @@ header{
 </div>
 </header>
 
-<!-- VIDEO PRINCIPAL -->
+<!-- HERO -->
 <div class="hero">
 <video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
 </video>
 </div>
 
-<!-- INTRO -->
+<!-- INTRO CON TRANSPARENCIA REAL -->
 <div id="intro">
-<div class="titulo">GARABATO CINE</div>
-<div class="sub">COLOMBIA</div>
+<svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+
+<defs>
+<mask id="mask">
+
+<!-- fondo visible -->
+<rect width="100%" height="100%" fill="white"/>
+
+<!-- TEXTO TRANSPARENTE -->
+<g class="mask-group" fill="black" text-anchor="middle">
+
+<text x="600" y="300" font-size="110" font-weight="900">
+GARABATO CINE
+</text>
+
+<text x="600" y="360" font-size="20" letter-spacing="4">
+COLOMBIA
+</text>
+
+</g>
+
+</mask>
+</defs>
+
+<!-- capa blanca con hueco -->
+<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+
+<!-- capa para fade -->
+<rect width="100%" height="100%" fill="white" class="bg"/>
+
+</svg>
 </div>
 
 <!-- PROYECTOS -->
+
+<div class="pie"><h2>La Frontera</h2><p>Largometraje</p></div>
 
 <div class="media">
 <video autoplay muted loop playsinline>
@@ -187,40 +225,24 @@ document.querySelectorAll("video").forEach(v=>{
     v.play().catch(()=>{});
 });
 
-// fix iOS
+// iOS fix
 document.addEventListener("touchstart", ()=>{
     document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-// intro animación CONTROLADA (NO FALLA)
+// activar animación
 window.addEventListener("load", ()=>{
-
+    document.body.classList.add("play");
     window.scrollTo(0,0);
-
-    const titulo = document.querySelector(".titulo");
-    const sub = document.querySelector(".sub");
-    const intro = document.getElementById("intro");
-
-    // fade in
-    setTimeout(()=>{
-        titulo.style.animation="fadeIn 1.2s forwards";
-        sub.style.animation="fadeIn 1.2s forwards";
-    },400);
-
-    // subir
-    setTimeout(()=>{
-        titulo.style.animation+=" , slideUp 1.2s forwards";
-        sub.style.animation+=" , slideUp 1.2s forwards";
-    },1700);
-
-    // desaparecer SIEMPRE
-    setTimeout(()=>{
-        intro.style.transition="opacity .4s ease";
-        intro.style.opacity="0";
-        setTimeout(()=>intro.style.display="none",400);
-    },3000);
-
 });
+
+// 🔥 FAILSAFE (nunca queda blanco)
+setTimeout(()=>{
+    const intro = document.getElementById("intro");
+    if(intro){
+        intro.style.display="none";
+    }
+},5000);
 
 </script>
 
