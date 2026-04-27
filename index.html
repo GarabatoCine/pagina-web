@@ -5,19 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Garabato Cine</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#fff;font-family:'Roboto',sans-serif;overflow:hidden;}
 
-/* ===== VIDEO BASE ===== */
+/* ===== VIDEO BASE (PROPORCIÓN SEGURA) ===== */
 .video-base{
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+inset:0;
 background:#fff;
 display:flex;
 align-items:center;
@@ -28,7 +25,8 @@ z-index:0;
 .video-base video{
 width:100%;
 height:auto;
-display:block;
+max-height:100%;
+object-fit:contain; /* 🔥 NUNCA se deforma */
 }
 
 /* ===== INTRO ===== */
@@ -40,7 +38,7 @@ z-index:10;
 overflow:hidden;
 }
 
-/* CONTENEDOR TEXTO */
+/* CONTENEDOR */
 .intro-wrap{
 position:absolute;
 top:50%;
@@ -49,18 +47,16 @@ transform:translate(-50%,-50%);
 text-align:center;
 }
 
-/* GARABATO CINE (HUECO) */
+/* TEXTO (SE USA PARA LA MÁSCARA) */
+.intro-text{
+font-weight:300;
+letter-spacing:2px;
+white-space:nowrap;
+}
+
+/* PRINCIPAL */
 .intro-main{
 font-size:10vw;
-font-weight:900;
-letter-spacing:-2px;
-white-space:nowrap;
-
-/* 🔥 HUECO REAL */
-color:#000;
-mix-blend-mode:destination-out;
-
-opacity:0;
 }
 
 /* COLOMBIA */
@@ -68,32 +64,53 @@ opacity:0;
 margin-top:10px;
 font-size:1.5vw;
 letter-spacing:4px;
+}
 
-/* mismo efecto */
-color:#000;
-mix-blend-mode:destination-out;
+/* ===== CAPA MÁSCARA (REAL, ESTABLE) ===== */
+.mask-layer{
+position:absolute;
+inset:0;
+background:#fff;
+
+/* máscara invertida */
+-webkit-mask-image: 
+linear-gradient(black,black),
+url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300">\
+<text x="50%" y="45%" text-anchor="middle" font-size="120" font-family="Roboto" font-weight="300">GARABATO CINE</text>\
+<text x="50%" y="75%" text-anchor="middle" font-size="30" font-family="Roboto" font-weight="300">COLOMBIA</text>\
+</svg>');
+-webkit-mask-composite: destination-out;
+-webkit-mask-repeat:no-repeat;
+-webkit-mask-position:center;
+-webkit-mask-size:80%;
+
+mask-image:
+linear-gradient(black,black),
+url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300">\
+<text x="50%" y="45%" text-anchor="middle" font-size="120" font-family="Roboto" font-weight="300">GARABATO CINE</text>\
+<text x="50%" y="75%" text-anchor="middle" font-size="30" font-family="Roboto" font-weight="300">COLOMBIA</text>\
+</svg>');
+mask-composite: exclude;
 
 opacity:0;
 }
 
-/* ANIMACIÓN */
+/* ===== ANIMACIONES ===== */
 
-.play .intro-main,
-.play .intro-sub{
-animation:fadeIn 0.8s ease forwards;
-animation-delay:0.1s;
+/* fade-in (3s como pediste) */
+.play .mask-layer{
+animation:
+fadeIn 3s ease forwards,
+slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
+animation-delay:0.1s,3.2s;
 }
 
-/* movimiento conjunto */
-.play .intro-wrap{
-animation:slideLeft 1.4s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:1s;
-}
-
-/* cortina */
+/* desaparición */
 .play #intro{
 animation:fadeOut 0.35s ease forwards;
-animation-delay:2.4s;
+animation-delay:4.8s;
 }
 
 @keyframes fadeIn{
@@ -101,24 +118,20 @@ to{opacity:1;}
 }
 
 @keyframes slideLeft{
-to{transform:translate(-180%,-50%);}
+to{transform:translateX(-120%);}
 }
 
 @keyframes fadeOut{
 to{opacity:0;visibility:hidden;}
 }
 
-/* RESPONSIVE */
+/* ===== RESPONSIVE ===== */
+
 @media(max-width:768px){
-
-.intro-main{
-font-size:14vw;
+.mask-layer{
+-webkit-mask-size:120%;
+mask-size:120%;
 }
-
-.intro-sub{
-font-size:3vw;
-}
-
 }
 
 </style>
@@ -135,37 +148,33 @@ font-size:3vw;
 
 <!-- INTRO -->
 <div id="intro">
-
-<div class="intro-wrap">
-<div class="intro-main">GARABATO CINE</div>
-<div class="intro-sub">COLOMBIA</div>
-</div>
-
+<div class="mask-layer"></div>
 </div>
 
 <script>
 
-// autoplay seguro
+/* autoplay robusto */
 document.querySelectorAll("video").forEach(v=>{
-v.muted = true;
+v.muted=true;
+v.playsInline=true;
 v.play().catch(()=>{});
 });
 
-// iOS fix
+/* iOS fix */
 document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-// animación
+/* activar animación */
 window.addEventListener("load",()=>{
 document.body.classList.add("play");
 });
 
-// failsafe
+/* failsafe (evita bloqueos) */
 setTimeout(()=>{
 const intro=document.getElementById("intro");
 if(intro) intro.style.display="none";
-},4000);
+},6000);
 
 </script>
 
