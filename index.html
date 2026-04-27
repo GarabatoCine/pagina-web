@@ -9,13 +9,12 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#fff;overflow:hidden;}
 
-/* VIDEO FULLSCREEN */
+/* VIDEO FULL */
 .video{
 position:fixed;
 inset:0;
 z-index:0;
 overflow:hidden;
-background:#000;
 }
 
 .video video{
@@ -37,47 +36,19 @@ height:100%;
 display:block;
 }
 
-/* TIPOGRAFÍA CONTROLADA */
-.main{
-font-family:Arial, Helvetica, sans-serif;
-font-weight:900;
-}
-
-.sub{
-font-family:Arial, Helvetica, sans-serif;
-font-weight:700;
-letter-spacing:0.25vw;
-}
-
-/* 🔥 CONTROL REAL DE TAMAÑO */
-@media (min-width:1200px){
-text.main{font-size:7vw;}
-text.sub{font-size:1vw;}
-}
-
-@media (max-width:1199px){
-text.main{font-size:9vw;}
-text.sub{font-size:1.6vw;}
-}
-
-@media (max-width:768px){
-text.main{font-size:11vw;}
-text.sub{font-size:2.2vw;}
-}
-
-/* ANIMACIONES */
-.play .fade{
-animation:fadeIn 3s ease forwards;
-}
-
+/* ANIMACIÓN */
 .play .mask-group{
 animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:3.1s;
+animation-delay:3s;
 }
 
 .play #intro{
 animation:fadeOut 0.4s ease forwards;
-animation-delay:4.7s;
+animation-delay:4.6s;
+}
+
+.play .fade{
+animation:fadeIn 3s ease forwards;
 }
 
 @keyframes fadeIn{
@@ -108,8 +79,8 @@ to{opacity:0;visibility:hidden;}
 <!-- INTRO -->
 <div id="intro">
 
-<!-- 🔥 CAMBIO CLAVE AQUÍ -->
-<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+<!-- 🔥 CLAVE: viewBox ancho real para controlar texto -->
+<svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet">
 
 <defs>
 <mask id="mask">
@@ -117,16 +88,22 @@ to{opacity:0;visibility:hidden;}
 
 <g class="mask-group fade">
 
-<text x="50" y="48"
+<!-- 🔥 TAMAÑO CONTROLADO AQUÍ (NO CSS) -->
+<text x="500" y="230"
 text-anchor="middle"
-class="main"
+font-size="110"
+font-family="Arial, Helvetica, sans-serif"
+font-weight="900"
 fill="black">
 GARABATO CINE
 </text>
 
-<text x="50" y="55"
+<text x="500" y="290"
 text-anchor="middle"
-class="sub"
+font-size="28"
+font-family="Arial, Helvetica, sans-serif"
+font-weight="700"
+letter-spacing="4"
 fill="black">
 COLOMBIA
 </text>
