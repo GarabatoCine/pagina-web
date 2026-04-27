@@ -6,15 +6,26 @@
 <title>Garabato Cine</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:#fff;overflow:hidden;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-/* VIDEO */
+html, body{
+width:100%;
+height:100%;
+background:#fff;
+overflow:hidden;
+}
+
+/* ===================== */
+/* VIDEO BACKGROUND */
+/* ===================== */
 .video{
 position:fixed;
 inset:0;
 z-index:0;
-overflow:hidden;
 }
 
 .video video{
@@ -23,43 +34,49 @@ height:100%;
 object-fit:cover;
 }
 
-/* INTRO */
+/* ===================== */
+/* INTRO LAYER */
+/* ===================== */
 #intro{
 position:fixed;
 inset:0;
 z-index:10;
-}
-
-svg{
-position:absolute;
-width:100%;
-height:100%;
 display:block;
 }
 
-/* TEXTO RESPONSIVE */
+/* SVG SIEMPRE FULL SCREEN REAL */
+svg{
+width:100vw;
+height:100vh;
+display:block;
+}
+
+/* ===================== */
+/* TIPOGRAFÍA RESPONSIVE */
+/* ===================== */
 text.big{
 font-family: Arial, Helvetica, sans-serif;
 font-weight:900;
-font-size: clamp(28px, 7vw, 55px);
+font-size: clamp(26px, 6vw, 58px);
 }
 
 text.small{
 font-family: Arial, Helvetica, sans-serif;
 font-weight:700;
-font-size: clamp(10px, 2.5vw, 14px);
+font-size: clamp(10px, 2vw, 14px);
 letter-spacing:2px;
 }
 
-/* CLAVE ANIMACIÓN */
+/* ===================== */
+/* ANIMACIÓN BASE */
+/* ===================== */
 .mask-group{
 transform-box: fill-box;
 transform-origin: center;
 }
 
-/* ANIMACIONES */
 .play .fade{
-animation:fadeIn 3s ease forwards;
+animation:fadeIn 2.8s ease forwards;
 }
 
 .play .mask-group{
@@ -67,12 +84,44 @@ animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
 animation-delay:3s;
 }
 
-/* 🔥 SALE MÁS RÁPIDO EL FONDO BLANCO */
+/* salida rápida y limpia */
 .play #intro{
-animation:fadeOut 0.25s ease forwards;
-animation-delay:3.6s;
+animation:fadeOut 0.2s ease forwards;
+animation-delay:3.55s;
 }
 
+/* ===================== */
+/* RESPONSIVE CINEMATIC ADJUST */
+/* ===================== */
+
+/* Ultra wide (cine 21:9 y más) */
+@media (min-aspect-ratio: 21/9){
+svg{
+transform: scale(1.06);
+}
+}
+
+/* pantallas grandes */
+@media (min-width: 1800px){
+svg{
+transform: scale(1.03);
+}
+}
+
+/* móviles muy pequeños */
+@media (max-width: 380px){
+text.big{
+font-size: 24px;
+}
+
+text.small{
+font-size: 10px;
+}
+}
+
+/* ===================== */
+/* KEYFRAMES */
+/* ===================== */
 @keyframes fadeIn{
 from{opacity:0;}
 to{opacity:1;}
@@ -91,15 +140,17 @@ to{opacity:0;visibility:hidden;}
 
 <body>
 
+<!-- VIDEO -->
 <div class="video">
 <video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
 </video>
 </div>
 
+<!-- INTRO -->
 <div id="intro">
 
-<svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid meet">
+<svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
 
 <defs>
 <mask id="mask">
@@ -114,7 +165,7 @@ fill="black">
 GARABATO CINE
 </text>
 
-<text x="700" y="280"
+<text x="700" y="285"
 text-anchor="middle"
 class="small"
 fill="black">
@@ -134,23 +185,27 @@ COLOMBIA
 
 <script>
 
+/* autoplay seguro */
 document.querySelectorAll("video").forEach(v=>{
 v.muted=true;
 v.play().catch(()=>{});
 });
 
+/* iOS fallback */
 document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
+/* start animation */
 window.addEventListener("load",()=>{
 document.body.classList.add("play");
 });
 
-/* failsafe */
+/* failsafe anti-freeze */
 setTimeout(()=>{
-document.getElementById("intro").style.display="none";
-},5500);
+const intro = document.getElementById("intro");
+if(intro) intro.style.display="none";
+},6000);
 
 </script>
 
