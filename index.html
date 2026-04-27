@@ -17,7 +17,6 @@ body{font-family:'Roboto',sans-serif;background:#000;overflow-x:hidden;}
 header{
     position:fixed;
     top:0;
-    left:0;
     width:100%;
     height:70px;
     background:#fff;
@@ -29,15 +28,14 @@ header{
 }
 
 .logo-txt{
-    font-size:0.9rem;
-    font-weight:300;
     letter-spacing:4px;
     text-transform:uppercase;
+    font-weight:300;
 }
 
 .nav-derecha a{
     margin-left:20px;
-    font-size:0.7rem;
+    font-size:.7rem;
     text-decoration:none;
     color:#222;
 }
@@ -59,28 +57,46 @@ header{
 #intro{
     position:fixed;
     inset:0;
+    background:#fff;
     z-index:9999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    animation:fadeOut .4s ease forwards;
+    animation-delay:3s;
 }
 
-#intro svg{
-    width:100%;
-    height:100%;
-}
+.titulo{
+    font-size:clamp(40px,9vw,110px);
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:-2px;
+    white-space:nowrap;
 
-.mask-text{
+    color:#000;
     opacity:0;
-}
 
-.play .mask-text{
     animation:
         fadeIn 1.2s ease forwards,
         slideUp 1.2s cubic-bezier(.76,0,.24,1) forwards;
-    animation-delay:.4s,1.7s;
+
+    animation-delay:.5s,1.7s;
 }
 
-.play .white-bg{
-    animation:fadeOut .35s ease forwards;
-    animation-delay:2.9s;
+.sub{
+    margin-top:10px;
+    font-size:12px;
+    letter-spacing:4px;
+    color:#000;
+    opacity:0;
+
+    animation:
+        fadeIn 1.2s ease forwards,
+        slideUp 1.2s cubic-bezier(.76,0,.24,1) forwards;
+
+    animation-delay:.5s,1.7s;
 }
 
 @keyframes fadeIn{to{opacity:1;}}
@@ -96,8 +112,6 @@ header{
     display:block;
 }
 
-/* ================= TEXTOS ================= */
-
 .pie{
     padding:20px 0 80px;
     text-align:center;
@@ -105,14 +119,13 @@ header{
 }
 
 .pie h2{
-    font-size:1.4rem;
     font-weight:300;
     letter-spacing:5px;
     text-transform:uppercase;
 }
 
 .pie p{
-    font-size:0.6rem;
+    font-size:.6rem;
     letter-spacing:3px;
     color:#999;
 }
@@ -134,44 +147,17 @@ header{
 </div>
 </header>
 
-<!-- HERO VIDEO -->
+<!-- VIDEO PRINCIPAL -->
 <div class="hero">
-<video autoplay muted loop playsinline preload="auto">
+<video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
 </video>
 </div>
 
 <!-- INTRO -->
 <div id="intro">
-<svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
-
-<defs>
-<mask id="mask">
-
-<rect width="100%" height="100%" fill="white"/>
-
-<g class="mask-text" fill="black" text-anchor="middle">
-
-<text x="600" y="280" font-size="110" font-weight="900">
-GARABATO CINE
-</text>
-
-<text x="600" y="340" font-size="20" letter-spacing="4">
-COLOMBIA
-</text>
-
-</g>
-
-</mask>
-</defs>
-
-<!-- hueco -->
-<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
-
-<!-- fade blanco -->
-<rect width="100%" height="100%" fill="white" class="white-bg"/>
-
-</svg>
+<div class="titulo">GARABATO CINE</div>
+<div class="sub">COLOMBIA</div>
 </div>
 
 <!-- PROYECTOS -->
@@ -212,16 +198,13 @@ document.querySelectorAll("video").forEach(v=>{
     v.play().catch(()=>{});
 });
 
-// iOS fix
+// fix iOS
 document.addEventListener("touchstart", ()=>{
     document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-// intro
-window.addEventListener("load", ()=>{
-    document.body.classList.add("play");
-    window.scrollTo(0,0);
-});
+// scroll top
+window.onload = ()=>window.scrollTo(0,0);
 
 </script>
 
