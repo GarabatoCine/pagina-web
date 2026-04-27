@@ -5,24 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Garabato Cine</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:#fff;font-family:'Roboto',sans-serif;overflow:hidden;}
+body{background:#fff;overflow:hidden;}
 
-/* VIDEO BASE */
-.video-base{
+/* VIDEO */
+.video{
 position:fixed;
 inset:0;
-background:#fff;
 display:flex;
 align-items:center;
 justify-content:center;
+background:#fff;
 z-index:0;
 }
 
-.video-base video{
+.video video{
 width:100%;
 height:auto;
 max-height:100%;
@@ -33,64 +31,37 @@ object-fit:contain;
 #intro{
 position:fixed;
 inset:0;
-background:#fff;
 z-index:10;
 }
 
-/* CAPA QUE PERFORA */
-.cutout{
-position:absolute;
-inset:0;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-
-/* 🔥 ESTO ES LO IMPORTANTE */
-mix-blend-mode:destination-out;
-}
-
-/* TEXTO */
-.main{
-font-size:12vw;
-font-weight:900;
-white-space:nowrap;
-letter-spacing:-2px;
-color:#000;
-opacity:0;
-}
-
-.sub{
-margin-top:10px;
-font-size:2vw;
-letter-spacing:4px;
-font-weight:900;
-color:#000;
-opacity:0;
+/* SVG ocupa toda la pantalla */
+svg{
+width:100%;
+height:100%;
+display:block;
 }
 
 /* ANIMACIÓN */
-
-.play .main,
-.play .sub{
-animation:fadeIn 3s ease forwards;
-}
-
-.play .cutout{
-animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:3.2s;
+.play .mask-group{
+animation:slide 1.6s cubic-bezier(.76,0,.24,1) forwards;
+animation-delay:3s;
 }
 
 .play #intro{
 animation:fadeOut 0.4s ease forwards;
-animation-delay:4.8s;
+animation-delay:4.6s;
+}
+
+.play .fade{
+animation:fadeIn 3s ease forwards;
 }
 
 @keyframes fadeIn{
+from{opacity:0;}
 to{opacity:1;}
 }
 
-@keyframes slideLeft{
+@keyframes slide{
 to{transform:translateX(-140%);}
 }
 
@@ -100,8 +71,8 @@ to{opacity:0;visibility:hidden;}
 
 /* RESPONSIVE */
 @media(max-width:768px){
-.main{font-size:16vw;}
-.sub{font-size:4vw;}
+text.main{font-size:14vw;}
+text.sub{font-size:4vw;}
 }
 
 </style>
@@ -110,39 +81,73 @@ to{opacity:0;visibility:hidden;}
 <body>
 
 <!-- VIDEO -->
-<div class="video-base">
+<div class="video">
 <video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Gif%20principal%20Vida%20de%20colores.mp4">
 </video>
 </div>
 
-<!-- CORTINA -->
+<!-- INTRO CON MÁSCARA REAL -->
 <div id="intro">
-<div class="cutout">
-<div class="main">GARABATO CINE</div>
-<div class="sub">COLOMBIA</div>
-</div>
+
+<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+
+<defs>
+<mask id="mask" x="0" y="0" width="100%" height="100%">
+<rect width="100%" height="100%" fill="white"/>
+
+<!-- TEXTO QUE PERFORA -->
+<g class="mask-group fade">
+<text x="50" y="48"
+text-anchor="middle"
+font-size="12"
+font-family="Arial, Helvetica, sans-serif"
+font-weight="900"
+fill="black"
+class="main">
+GARABATO CINE
+</text>
+
+<text x="50" y="60"
+text-anchor="middle"
+font-size="3"
+font-family="Arial, Helvetica, sans-serif"
+font-weight="700"
+fill="black"
+class="sub">
+COLOMBIA
+</text>
+</g>
+
+</mask>
+</defs>
+
+<!-- CORTINA BLANCA CON HUECO -->
+<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+
+</svg>
+
 </div>
 
 <script>
 
-/* autoplay real */
+// autoplay seguro
 document.querySelectorAll("video").forEach(v=>{
 v.muted=true;
 v.play().catch(()=>{});
 });
 
-/* iOS fix */
+// iOS fix
 document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-/* iniciar animación */
+// animación
 window.addEventListener("load",()=>{
 document.body.classList.add("play");
 });
 
-/* failsafe */
+// failsafe
 setTimeout(()=>{
 document.getElementById("intro").style.display="none";
 },6000);
