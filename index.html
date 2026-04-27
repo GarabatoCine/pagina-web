@@ -63,6 +63,30 @@ display:block;
 }
 
 /* ===================== */
+/* 🔥 FIX FLASH: SVG INVISIBLE POR DEFECTO */
+/* ===================== */
+.mask-group{
+transform-box: fill-box;
+transform-origin: center;
+opacity:0;
+}
+
+.play .mask-group{
+opacity:1;
+animation:fadeIn 2.8s ease forwards;
+}
+
+/* también evitamos flash en textos individuales */
+svg text{
+fill:black;
+opacity:0;
+}
+
+.play svg text{
+opacity:1;
+}
+
+/* ===================== */
 /* TEXTO */
 /* ===================== */
 text.big{
@@ -81,20 +105,11 @@ letter-spacing:2px;
 /* ===================== */
 /* ANIMACIÓN */
 /* ===================== */
-.mask-group{
-transform-box: fill-box;
-transform-origin: center;
-}
-
-.play .fade{
-animation:fadeIn 2.8s ease forwards;
-}
-
 .play .mask-group{
 animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
+animation-delay:3s;
 }
 
-/* intro oculto SOLO cuando JS lo decida */
 #intro.hide{
 animation:fadeOut 0.2s ease forwards;
 }
@@ -116,7 +131,7 @@ to{opacity:0;visibility:hidden;}
 }
 
 /* ===================== */
-/* TABLET */
+/* TABLET FIX */
 /* ===================== */
 @media (max-width: 1024px){
 
@@ -172,14 +187,17 @@ font-size: 10px;
 
 <body>
 
+<!-- FADE OVERLAY -->
 <div id="fade"></div>
 
+<!-- VIDEO -->
 <div class="video">
 <video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
 </video>
 </div>
 
+<!-- INTRO -->
 <div id="intro">
 
 <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
@@ -192,15 +210,13 @@ font-size: 10px;
 
 <text x="700" y="240"
 text-anchor="middle"
-class="big"
-fill="black">
+class="big">
 GARABATO CINE
 </text>
 
 <text x="700" y="285"
 text-anchor="middle"
-class="small"
-fill="black">
+class="small">
 COLOMBIA
 </text>
 
@@ -233,7 +249,7 @@ window.addEventListener("load",()=>{
 
 document.body.classList.add("play");
 
-/* MOBILE MODE */
+/* mobile cinematic mode */
 if(window.innerWidth <= 768){
 
 document.body.classList.add("mobile-fade");
@@ -245,17 +261,15 @@ document.body.classList.remove("mobile-fade");
 
 }
 
-/* 🔥 SINCRONIZACIÓN PERFECTA CON animationend */
+/* 🔥 SINCRONIZACIÓN PERFECTA */
 const logo = document.getElementById("logoGroup");
 
 logo.addEventListener("animationend", (e)=>{
 
 if(e.animationName === "slideLeft"){
 
-// ocultar intro justo cuando termina la animación real
 document.getElementById("intro").classList.add("hide");
 
-// opcional: limpiar después de fade
 setTimeout(()=>{
 document.getElementById("intro").style.display = "none";
 },250);
