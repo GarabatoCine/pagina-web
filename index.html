@@ -63,55 +63,34 @@ display:block;
 }
 
 /* ===================== */
-/* FIX ESTABLE SIN ROMPER VIDEO */
+/* FIX ESTABLE */
 /* ===================== */
-
-/* el grupo no se oculta agresivamente */
 .mask-group{
 transform-box: fill-box;
 transform-origin: center;
 }
 
-/* evitar flash negro inicial */
 svg text{
 fill:black;
 opacity:0;
 }
 
-/* aparece solo cuando inicia */
 .play svg text{
 opacity:1;
 }
 
-/* animación del logo */
 .play .mask-group{
 animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
 animation-delay:3s;
 }
 
-/* ocultar intro al final */
+/* 🔥 AJUSTE NUEVO: 3.3s */
+.play #intro{
+animation-delay:3.3s;
+}
+
 #intro.hide{
 animation:fadeOut 0.2s ease forwards;
-}
-
-.play #intro{
-animation-delay:3.8s;
-}
-
-/* ===================== */
-/* TEXTO */
-/* ===================== */
-text.big{
-font-family: Arial, Helvetica, sans-serif;
-font-weight:900;
-font-size: clamp(28px, 6vw, 58px);
-}
-
-text.small{
-font-family: Arial, Helvetica, sans-serif;
-font-weight:700;
-font-size: clamp(10px, 2vw, 14px);
-letter-spacing:2px;
 }
 
 /* ===================== */
@@ -126,7 +105,7 @@ to{opacity:0;visibility:hidden;}
 }
 
 /* ===================== */
-/* TABLET FIX */
+/* TABLET */
 /* ===================== */
 @media (max-width: 1024px){
 
@@ -182,17 +161,14 @@ font-size: 10px;
 
 <body>
 
-<!-- FADE -->
 <div id="fade"></div>
 
-<!-- VIDEO -->
 <div class="video">
 <video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
 </video>
 </div>
 
-<!-- INTRO -->
 <div id="intro">
 
 <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
@@ -228,23 +204,19 @@ COLOMBIA
 
 <script>
 
-/* autoplay video */
 document.querySelectorAll("video").forEach(v=>{
 v.muted = true;
 v.play().catch(()=>{});
 });
 
-/* iOS fix */
 document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-/* start */
 window.addEventListener("load",()=>{
 
 document.body.classList.add("play");
 
-/* mobile behavior */
 if(window.innerWidth <= 768){
 
 document.body.classList.add("mobile-fade");
@@ -256,7 +228,6 @@ document.body.classList.remove("mobile-fade");
 
 }
 
-/* sincronización real */
 const logo = document.getElementById("logoGroup");
 
 logo.addEventListener("animationend",(e)=>{
