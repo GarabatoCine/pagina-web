@@ -21,7 +21,7 @@ background:#000;
 .video video{
 width:100%;
 height:100%;
-object-fit:cover; /* 🔥 llena toda la pantalla */
+object-fit:cover;
 }
 
 /* INTRO */
@@ -31,14 +31,13 @@ inset:0;
 z-index:10;
 }
 
-/* SVG */
 svg{
 width:100%;
 height:100%;
 display:block;
 }
 
-/* TIPOGRAFÍA */
+/* TIPOGRAFÍA CONTROLADA */
 .main{
 font-family:Arial, Helvetica, sans-serif;
 font-weight:900;
@@ -50,36 +49,32 @@ font-weight:700;
 letter-spacing:0.25vw;
 }
 
-/* RESPONSIVE */
+/* 🔥 CONTROL REAL DE TAMAÑO */
 @media (min-width:1200px){
-text.main{font-size:8vw;}
-text.sub{font-size:1.2vw;}
+text.main{font-size:7vw;}
+text.sub{font-size:1vw;}
 }
 
 @media (max-width:1199px){
-text.main{font-size:10vw;}
-text.sub{font-size:1.8vw;}
+text.main{font-size:9vw;}
+text.sub{font-size:1.6vw;}
 }
 
 @media (max-width:768px){
-text.main{font-size:12vw;}
-text.sub{font-size:2.5vw;}
+text.main{font-size:11vw;}
+text.sub{font-size:2.2vw;}
 }
 
-/* ===== ANIMACIÓN CORREGIDA ===== */
-
-/* fade in */
+/* ANIMACIONES */
 .play .fade{
 animation:fadeIn 3s ease forwards;
 }
 
-/* 🔥 AHORA SÍ: desplazamiento */
 .play .mask-group{
 animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
 animation-delay:3.1s;
 }
 
-/* desaparición cortina */
 .play #intro{
 animation:fadeOut 0.4s ease forwards;
 animation-delay:4.7s;
@@ -103,7 +98,7 @@ to{opacity:0;visibility:hidden;}
 
 <body>
 
-<!-- VIDEO FULL -->
+<!-- VIDEO -->
 <div class="video">
 <video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
@@ -113,7 +108,8 @@ to{opacity:0;visibility:hidden;}
 <!-- INTRO -->
 <div id="intro">
 
-<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+<!-- 🔥 CAMBIO CLAVE AQUÍ -->
+<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
 
 <defs>
 <mask id="mask">
@@ -121,7 +117,6 @@ to{opacity:0;visibility:hidden;}
 
 <g class="mask-group fade">
 
-<!-- GARABATO -->
 <text x="50" y="48"
 text-anchor="middle"
 class="main"
@@ -129,7 +124,6 @@ fill="black">
 GARABATO CINE
 </text>
 
-<!-- COLOMBIA (pegado y pequeño) -->
 <text x="50" y="55"
 text-anchor="middle"
 class="sub"
@@ -142,7 +136,6 @@ COLOMBIA
 </mask>
 </defs>
 
-<!-- CORTINA -->
 <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
 
 </svg>
@@ -151,23 +144,19 @@ COLOMBIA
 
 <script>
 
-/* autoplay robusto */
 document.querySelectorAll("video").forEach(v=>{
 v.muted=true;
 v.play().catch(()=>{});
 });
 
-/* iOS fix */
 document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-/* iniciar animación */
 window.addEventListener("load",()=>{
 document.body.classList.add("play");
 });
 
-/* failsafe */
 setTimeout(()=>{
 document.getElementById("intro").style.display="none";
 },6000);
