@@ -37,29 +37,40 @@ height:100%;
 display:block;
 }
 
-/* CLAVE PARA ANIMAR SVG */
+/* TEXTO RESPONSIVE */
+text.big{
+font-family: Arial, Helvetica, sans-serif;
+font-weight:900;
+font-size: clamp(28px, 7vw, 55px);
+}
+
+text.small{
+font-family: Arial, Helvetica, sans-serif;
+font-weight:700;
+font-size: clamp(10px, 2.5vw, 14px);
+letter-spacing:2px;
+}
+
+/* CLAVE ANIMACIÓN */
 .mask-group{
 transform-box: fill-box;
 transform-origin: center;
 }
 
-/* ===== ANIMACIONES ===== */
-
-/* fade in */
+/* ANIMACIONES */
 .play .fade{
 animation:fadeIn 3s ease forwards;
 }
 
-/* slide */
 .play .mask-group{
 animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
 animation-delay:3s;
 }
 
-/* 🔥 DESAPARECE EXACTO AL FINAL */
+/* 🔥 SALE MÁS RÁPIDO EL FONDO BLANCO */
 .play #intro{
-animation:fadeOut 0.3s ease forwards;
-animation-delay:4.6s; /* mismo momento en que termina slide */
+animation:fadeOut 0.25s ease forwards;
+animation-delay:3.6s;
 }
 
 @keyframes fadeIn{
@@ -80,17 +91,15 @@ to{opacity:0;visibility:hidden;}
 
 <body>
 
-<!-- VIDEO -->
 <div class="video">
 <video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
 </video>
 </div>
 
-<!-- INTRO -->
 <div id="intro">
 
-<svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
+<svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid meet">
 
 <defs>
 <mask id="mask">
@@ -98,22 +107,16 @@ to{opacity:0;visibility:hidden;}
 
 <g class="mask-group fade">
 
-<!-- 🔥 TEXTO MÁS PEQUEÑO Y CONTROLADO -->
 <text x="700" y="240"
 text-anchor="middle"
-font-size="55"
-font-family="Arial, Helvetica, sans-serif"
-font-weight="900"
+class="big"
 fill="black">
 GARABATO CINE
 </text>
 
 <text x="700" y="280"
 text-anchor="middle"
-font-size="14"
-font-family="Arial, Helvetica, sans-serif"
-font-weight="700"
-letter-spacing="2"
+class="small"
 fill="black">
 COLOMBIA
 </text>
@@ -131,18 +134,15 @@ COLOMBIA
 
 <script>
 
-/* autoplay */
 document.querySelectorAll("video").forEach(v=>{
 v.muted=true;
 v.play().catch(()=>{});
 });
 
-/* iOS fix */
 document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-/* iniciar */
 window.addEventListener("load",()=>{
 document.body.classList.add("play");
 });
@@ -150,7 +150,7 @@ document.body.classList.add("play");
 /* failsafe */
 setTimeout(()=>{
 document.getElementById("intro").style.display="none";
-},6000);
+},5500);
 
 </script>
 
