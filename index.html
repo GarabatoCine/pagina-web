@@ -37,7 +37,7 @@ height:100%;
 display:block;
 }
 
-/* 🔥 CLAVE PARA QUE EL SVG SE PUEDA MOVER */
+/* CLAVE PARA MOVER SVG */
 .mask-group{
 transform-box: fill-box;
 transform-origin: center;
@@ -63,8 +63,9 @@ from{opacity:0;}
 to{opacity:1;}
 }
 
+/* 🔥 MÁS DESPLAZAMIENTO */
 @keyframes slideLeft{
-to{transform:translateX(-120%);}
+to{transform:translateX(-180%);}
 }
 
 @keyframes fadeOut{
@@ -86,8 +87,8 @@ to{opacity:0;visibility:hidden;}
 <!-- INTRO -->
 <div id="intro">
 
-<!-- 🔥 VIEWBOX MÁS AMPLIO = NO SE CORTA EN TABLET -->
-<svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
+<!-- 🔥 MÁS ANCHO = NO SE CORTA EN TABLET -->
+<svg viewBox="0 0 1800 500" preserveAspectRatio="xMidYMid slice">
 
 <defs>
 <mask id="mask">
@@ -95,19 +96,19 @@ to{opacity:0;visibility:hidden;}
 
 <g class="mask-group fade">
 
-<!-- TEXTO -->
-<text x="700" y="240"
+<!-- 🔥 TEXTO MÁS PEQUEÑO -->
+<text x="900" y="240"
 text-anchor="middle"
-font-size="70"
+font-size="60"
 font-family="Arial, Helvetica, sans-serif"
 font-weight="900"
 fill="black">
 GARABATO CINE
 </text>
 
-<text x="700" y="285"
+<text x="900" y="285"
 text-anchor="middle"
-font-size="18"
+font-size="16"
 font-family="Arial, Helvetica, sans-serif"
 font-weight="700"
 letter-spacing="3"
@@ -128,23 +129,19 @@ COLOMBIA
 
 <script>
 
-/* autoplay */
 document.querySelectorAll("video").forEach(v=>{
 v.muted=true;
 v.play().catch(()=>{});
 });
 
-/* iOS fix */
 document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-/* iniciar animación */
 window.addEventListener("load",()=>{
 document.body.classList.add("play");
 });
 
-/* failsafe */
 setTimeout(()=>{
 document.getElementById("intro").style.display="none";
 },6000);
