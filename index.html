@@ -35,7 +35,7 @@ object-fit:cover;
 }
 
 /* ===================== */
-/* INTRO */
+/* INTRO (RESTAURADO ORIGINAL) */
 /* ===================== */
 #intro{
 position:fixed;
@@ -110,34 +110,48 @@ align-items:center;
 color:white;
 text-decoration:none;
 pointer-events:auto;
+cursor:pointer;
 transition:opacity 0.3s ease;
-display:flex;
-align-items:center;
-gap:6px;
 }
 
 .nav a:hover{
 opacity:1;
 }
 
-/* CENTRO (MÁS GRANDE AHORA) */
+/* CENTRO */
 .logo{
 position:absolute;
 left:50%;
 transform:translateX(-50%);
 font-weight:900;
-font-size:20px; /* 🔥 más grande */
+font-size:14px;
 letter-spacing:3px;
 pointer-events:auto;
 cursor:pointer;
 }
 
-/* ICONOS */
-.icon{
-width:16px;
-height:16px;
-fill:white;
-opacity:0.9;
+/* ICONOS IDIOMA */
+.lang{
+display:flex;
+gap:10px;
+align-items:center;
+}
+
+/* ACTIVE STATE */
+.lang button{
+background:none;
+border:1px solid white;
+color:white;
+padding:4px 8px;
+font-size:10px;
+cursor:pointer;
+opacity:0.8;
+}
+
+.lang button.active{
+opacity:1;
+background:white;
+color:black;
 }
 
 /* ===================== */
@@ -155,10 +169,11 @@ font-size:10px;
 }
 
 .logo{
-font-size:16px;
+font-size:12px;
 }
 
 }
+
 </style>
 </head>
 
@@ -172,36 +187,22 @@ font-size:16px;
         <a href="#">PRÓXIMAMENTE</a>
     </div>
 
-    <!-- LOGO CLICKABLE (reinicia intro) -->
     <div class="logo" id="logoBtn">
         GARABATO CINE
     </div>
 
     <div class="nav right">
+        <a href="#">NOSOTROS</a>
+        <a href="#">CONTACTO</a>
 
-        <a href="#">
-            NOSOTROS
-        </a>
+        <!-- Instagram -->
+        <a href="https://instagram.com" target="_blank">📷</a>
 
-        <a href="#">
-            CONTACTO
-        </a>
-
-        <!-- Instagram icon -->
-        <a href="https://instagram.com" target="_blank">
-            <svg class="icon" viewBox="0 0 24 24">
-                <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10z"/>
-                <path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6z"/>
-            </svg>
-        </a>
-
-        <!-- Language flag -->
-        <a href="#">
-            <svg class="icon" viewBox="0 0 24 24">
-                <path d="M4 2v20h2v-7h12l-2-4 2-4H6V2H4z"/>
-            </svg>
-        </a>
-
+        <!-- LANGUAGE -->
+        <div class="lang">
+            <button id="esBtn" class="active">ES</button>
+            <button id="enBtn">EN</button>
+        </div>
     </div>
 
 </header>
@@ -213,7 +214,7 @@ font-size:16px;
     </video>
 </div>
 
-<!-- INTRO -->
+<!-- INTRO ORIGINAL RESTAURADO -->
 <div id="intro">
 
 <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
@@ -244,14 +245,16 @@ COLOMBIA
 
 <script>
 
-/* autoplay */
+/* VIDEO */
 document.querySelectorAll("video").forEach(v=>{
 v.muted = true;
 v.play().catch(()=>{});
 });
 
-/* restart intro */
-document.getElementById("logoBtn").addEventListener("click", ()=>{
+/* ===================== */
+/* INTRO INIT */
+/* ===================== */
+function startIntro(){
 
 const intro = document.getElementById("intro");
 
@@ -260,22 +263,13 @@ intro.style.opacity = "1";
 
 document.body.classList.remove("play");
 
-/* reinicia animación */
+/* reinicio animación SVG */
 setTimeout(()=>{
 document.body.classList.add("play");
 }, 50);
 
-});
-
-window.addEventListener("load", ()=>{
-
-document.body.classList.add("play");
-
-const intro = document.getElementById("intro");
-
-/* timing intro */
+/* timing original */
 setTimeout(()=>{
-
 intro.style.opacity = "0";
 
 setTimeout(()=>{
@@ -283,7 +277,32 @@ intro.style.display = "none";
 }, 120);
 
 }, 3550);
+}
 
+/* INIT */
+window.addEventListener("load", startIntro);
+
+/* CLICK LOGO REINICIA INTRO */
+document.getElementById("logoBtn").addEventListener("click", ()=>{
+startIntro();
+});
+
+/* ===================== */
+/* IDIOMA TOGGLE */
+/* ===================== */
+const esBtn = document.getElementById("esBtn");
+const enBtn = document.getElementById("enBtn");
+
+esBtn.addEventListener("click", ()=>{
+esBtn.classList.add("active");
+enBtn.classList.remove("active");
+document.documentElement.lang = "es";
+});
+
+enBtn.addEventListener("click", ()=>{
+enBtn.classList.add("active");
+esBtn.classList.remove("active");
+document.documentElement.lang = "en";
 });
 
 </script>
