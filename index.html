@@ -38,7 +38,7 @@ html, body{
     inset:0;
     z-index:1000;
     opacity:1;
-    pointer-events:none; /* Importante para no bloquear clics */
+    pointer-events:none;
 }
 
 svg{
@@ -50,7 +50,7 @@ svg{
 /* TEXTO: Ajuste de tamaño para iPad */
 text.big{
     font-weight:900;
-    font-size:clamp(30px, 6vw, 80px); /* Ajustado para evitar desborde */
+    font-size:clamp(30px, 6vw, 80px);
 }
 
 text.small{
@@ -71,7 +71,7 @@ text.small{
 }
 
 @keyframes slideLeft{
-    to{transform:translateX(-160vw);} /* Aumentado para iPads anchos */
+    to{transform:translateX(-160vw);}
 }
 
 .fade{
@@ -138,7 +138,7 @@ text.small{
     .nav{display:none;}
     .hamburger{display:flex;}
     .header{padding:25px 30px;}
-    text.big{ font-size: 55px; } /* Forzado para iPad */
+    text.big{ font-size: 55px; }
 }
 </style>
 </head>
@@ -157,12 +157,8 @@ text.small{
             <mask id="mask" style="mask-type:luminance;">
                 <rect width="100%" height="100%" fill="white"/>
                 <g class="mask-group">
-                    <text x="50%" y="48%" text-anchor="middle" class="big" fill="black">
-                        GARABATO CINE
-                    </text>
-                    <text x="50%" y="55%" text-anchor="middle" class="small" fill="black">
-                        COLOMBIA
-                    </text>
+                    <text x="50%" y="48%" text-anchor="middle" class="big" fill="black">GARABATO CINE</text>
+                    <text x="50%" y="55%" text-anchor="middle" class="small" fill="black">COLOMBIA</text>
                 </g>
             </mask>
         </defs>
@@ -193,14 +189,7 @@ const video = document.getElementById("bgVideo");
 
 function playVideo(){
     video.muted = true;
-    const attempt = video.play();
-    if (attempt !== undefined) {
-        attempt.catch(() => {
-            // Intento silencioso en caso de bloqueo
-            video.muted = true;
-            video.play();
-        });
-    }
+    video.play().catch(()=>{});
 }
 
 function startIntro(){
@@ -209,28 +198,25 @@ function startIntro(){
     intro.classList.remove("fade");
     document.body.classList.remove("play");
 
-    // Intentamos arrancar el video antes de la animación
     playVideo();
 
     setTimeout(()=>{
         document.body.classList.add("play");
-        // Segundo intento de play para iPad al iniciar movimiento
         playVideo(); 
     },100);
 
+    // CAMBIO SOLICITADO: De 2800 a 2000ms
     setTimeout(()=>{
         intro.classList.add("fade");
         setTimeout(()=>{
             intro.style.display="none";
         },400);
-    },2800);
+    }, 2000); 
 }
 
-// Eventos de carga
 window.addEventListener("load", startIntro);
 document.getElementById("logoBtn").addEventListener("click", startIntro);
 
-// Menú Hamburger
 const btn = document.getElementById("hambBtn");
 const menu = document.getElementById("menu");
 btn.addEventListener("click", (e)=>{
