@@ -35,7 +35,7 @@ html, body{
 }
 
 /* ===================== */
-/* INTRO (VERSIÓN DEFINITIVA ESTABLE) */
+/* INTRO (VERSIÓN SEGURA) */
 /* ===================== */
 #intro{
     position:fixed;
@@ -51,23 +51,25 @@ html, body{
     transition:opacity 0.05s linear;
 }
 
-/* TEXTO PRINCIPAL */
+/* 🔥 TÍTULO GRANDE (COMO EL QUE TENÍAS) */
 .intro-title{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:900;
 
-    /* tamaño estable real cross-device */
-    font-size: clamp(38px, 6vw, 92px);
+    /* tamaño grande estilo cine */
+    font-size: clamp(42px, 7vw, 96px);
 
     color:#000;
 
     opacity:0;
-    transform:translateX(0);
-    animation:introFade 0.6s ease forwards;
-    animation-delay:1.8s;
+    animation:fadeIn 0.4s ease forwards;
+    animation-delay:1.6s;
+
+    /* 🔥 efecto transparencia leve */
+    mix-blend-mode: multiply;
 }
 
-/* SUBTITULO */
+/* SUBTÍTULO */
 .intro-subtitle{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:700;
@@ -78,31 +80,33 @@ html, body{
     color:#000;
 
     opacity:0;
-    animation:introFade 0.6s ease forwards;
-    animation-delay:1.9s;
+    animation:fadeIn 0.4s ease forwards;
+    animation-delay:1.8s;
+
+    mix-blend-mode: multiply;
 }
 
-/* animación tipo cortinilla */
-@keyframes introSlide{
+/* entrada suave */
+@keyframes fadeIn{
+    to{ opacity:1; }
+}
+
+/* movimiento cortinilla */
+.play .intro-title,
+.play .intro-subtitle{
+    animation:slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
+    animation-delay:2s;
+}
+
+@keyframes slideLeft{
     to{
         transform:translateX(-180%);
     }
 }
 
-.play .intro-title,
-.play .intro-subtitle{
-    animation: introSlide 1.3s cubic-bezier(.76,0,.24,1) forwards;
-    animation-delay:2s;
-}
-
-/* fade control */
-@keyframes introFade{
-    to { opacity:1; }
-}
-
 /* salida intro */
-.hide-intro{
-    opacity:0 !important;
+.hide{
+    opacity:0;
     pointer-events:none;
 }
 
@@ -206,6 +210,7 @@ html, body{
     text-decoration:none;
     font-size:18px;
     letter-spacing:2px;
+
     opacity:0;
     transform:translateY(10px);
     transition:all 0.4s ease;
@@ -223,7 +228,7 @@ html, body{
 
 <!-- HEADER -->
 <header class="header">
-    <div class="brand" id="restartIntro">GARABATO CINE</div>
+    <div class="brand" id="restart">GARABATO CINE</div>
 
     <div class="hamburger" id="hambBtn">
         <span></span>
@@ -233,7 +238,7 @@ html, body{
 </header>
 
 <!-- OVERLAY -->
-<div class="cinema-overlay" id="cinemaMenu">
+<div class="cinema-overlay" id="menu">
     <div class="cinema-backdrop"></div>
 
     <div class="cinema-content">
@@ -262,7 +267,6 @@ html, body{
 
 <script>
 
-/* INTRO CONTROL */
 window.addEventListener("load", ()=>{
 
     document.body.classList.add("play");
@@ -270,7 +274,7 @@ window.addEventListener("load", ()=>{
     const intro = document.getElementById("intro");
 
     setTimeout(()=>{
-        intro.classList.add("hide-intro");
+        intro.classList.add("hide");
 
         setTimeout(()=>{
             intro.style.display="none";
@@ -279,14 +283,14 @@ window.addEventListener("load", ()=>{
     },3250);
 });
 
-/* REINICIAR INTRO */
-document.getElementById("restartIntro").addEventListener("click", ()=>{
+/* REINICIO INTRO */
+document.getElementById("restart").addEventListener("click", ()=>{
     location.reload();
 });
 
 /* MENU */
-const menu = document.getElementById("cinemaMenu");
 const btn = document.getElementById("hambBtn");
+const menu = document.getElementById("menu");
 
 btn.addEventListener("click", ()=>{
     menu.classList.toggle("active");
@@ -296,18 +300,6 @@ menu.addEventListener("click", (e)=>{
     if(e.target === menu){
         menu.classList.remove("active");
     }
-});
-
-document.addEventListener("keydown", (e)=>{
-    if(e.key === "Escape"){
-        menu.classList.remove("active");
-    }
-});
-
-document.querySelectorAll(".cinema-links a").forEach(a=>{
-    a.addEventListener("click", ()=>{
-        menu.classList.remove("active");
-    });
 });
 
 </script>
