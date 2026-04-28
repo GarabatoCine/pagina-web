@@ -143,12 +143,14 @@ text.small {
     opacity:1;
 }
 
+/* ICONO INSTAGRAM CORREGIDO */
 .icon{
     width:18px;
     height:18px;
     fill:white;
 }
 
+/* idioma */
 .lang-selector{
     font-size:10px;
     letter-spacing:1px;
@@ -160,7 +162,26 @@ text.small {
 }
 
 /* ===================== */
-/* RESPONSIVE */
+/* TABLET FIX (DESBORDES) */
+/* ===================== */
+@media (max-width:1024px){
+
+    text.big{
+        font-size: clamp(24px, 5vw, 48px);
+    }
+
+    text.small{
+        font-size: clamp(10px, 2vw, 12px);
+    }
+
+    svg{
+        transform: scale(0.95);
+        transform-origin: center;
+    }
+}
+
+/* ===================== */
+/* MOBILE */
 /* ===================== */
 @media (max-width:768px){
     .header{ padding:20px; }
@@ -181,9 +202,10 @@ text.small {
         <a href="#">NOSOTROS</a>
         <a href="#">PRÓXIMAMENTE</a>
 
+        <!-- INSTAGRAM CORRECTO -->
         <a href="https://instagram.com" target="_blank">
             <svg class="icon" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162z"/>
+                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 2H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm-5 3.5A4.5 4.5 0 1112 16a4.5 4.5 0 010-9zm0 2A2.5 2.5 0 1014.5 12 2.5 2.5 0 0012 9.5zM17.8 6.2a1 1 0 11-1 1 1 1 0 011-1z"/>
             </svg>
         </a>
 
@@ -223,7 +245,7 @@ document.querySelectorAll("video").forEach(v=>{
     v.play().catch(()=>{});
 });
 
-/* INTRO INICIAL */
+/* INTRO */
 function startIntro(){
     const intro = document.getElementById("intro");
 
@@ -248,9 +270,7 @@ function startIntro(){
 
 window.addEventListener("load", startIntro);
 
-/* ===================== */
 /* REINICIAR INTRO DESDE HEADER */
-/* ===================== */
 document.getElementById("restartIntro").addEventListener("click", ()=>{
 
     const intro = document.getElementById("intro");
