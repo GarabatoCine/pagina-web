@@ -39,11 +39,9 @@ html, body{
     left:0;
     width:100%;
     z-index:20;
-
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     padding:25px 40px;
     color:white;
     font-family:Arial, Helvetica, sans-serif;
@@ -76,10 +74,8 @@ html, body{
     position:fixed;
     inset:0;
     z-index:100;
-
     opacity:0;
     pointer-events:none;
-
     transition:opacity 0.5s ease;
 }
 
@@ -119,7 +115,6 @@ html, body{
     text-decoration:none;
     font-size:18px;
     letter-spacing:2px;
-
     opacity:0;
     transform:translateY(10px);
     transition:0.4s ease;
@@ -135,69 +130,6 @@ html, body{
 .cinema-overlay.active .cinema-links a:nth-child(3){transition-delay:0.2s;}
 .cinema-overlay.active .cinema-links a:nth-child(4){transition-delay:0.25s;}
 .cinema-overlay.active .cinema-links a:nth-child(5){transition-delay:0.3s;}
-
-/* ===================== */
-/* 🔥 INTRO AGREGADA SIN ROMPER TU BASE */
-/* ===================== */
-#intro{
-    position:fixed;
-    inset:0;
-    z-index:50;
-    background:white;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-}
-
-.intro-title{
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight:900;
-
-    font-size: clamp(44px, 7vw, 92px);
-    color:black;
-
-    opacity:0;
-    animation:fadeIn 0.4s ease forwards;
-    animation-delay:1.5s;
-}
-
-.intro-subtitle{
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight:700;
-
-    font-size: clamp(12px, 2vw, 16px);
-    letter-spacing:2px;
-    color:black;
-
-    opacity:0;
-    animation:fadeIn 0.4s ease forwards;
-    animation-delay:1.7s;
-}
-
-@keyframes fadeIn{
-    to{ opacity:1; }
-}
-
-/* 🔥 CAMBIO IMPORTANTE: salida hacia la IZQUIERDA */
-.play .intro-title,
-.play .intro-subtitle{
-    animation:slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
-    animation-delay:2s;
-}
-
-@keyframes slideLeft{
-    to{
-        transform:translateX(-120vw);
-    }
-}
-
-/* ocultar intro */
-.hide{
-    opacity:0;
-    pointer-events:none;
-}
 
 </style>
 </head>
@@ -237,15 +169,8 @@ html, body{
     </video>
 </div>
 
-<!-- INTRO -->
-<div id="intro">
-    <div class="intro-title">GARABATO CINE</div>
-    <div class="intro-subtitle">COLOMBIA</div>
-</div>
-
 <script>
-
-/* MENU (TU CÓDIGO ORIGINAL INTACTO) */
+/* ===== FIX CRÍTICO ===== */
 window.addEventListener("DOMContentLoaded", () => {
 
     const btn = document.getElementById("hambBtn");
@@ -269,26 +194,8 @@ window.addEventListener("DOMContentLoaded", () => {
         }
 
     });
+
 });
-
-/* INTRO START */
-window.addEventListener("DOMContentLoaded", ()=>{
-
-    document.body.classList.add("play");
-
-    const intro = document.getElementById("intro");
-
-    setTimeout(()=>{
-
-        intro.classList.add("hide");
-
-        setTimeout(()=>{
-            intro.style.display="none";
-        },120);
-
-    },3200);
-});
-
 </script>
 
 </body>
