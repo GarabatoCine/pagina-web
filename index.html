@@ -66,7 +66,8 @@ transform-origin:center;
 
 .play .mask-group{
 animation:slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:1s;
+/* 🔥 ANTES: 1s → AHORA 0s */
+animation-delay:0s;
 }
 
 @keyframes slideLeft{
@@ -109,8 +110,6 @@ text-decoration:none;
 opacity:0.85;
 }
 
-.nav a:hover{opacity:1;}
-
 .brand{
 font-weight:700;
 font-size:22px;
@@ -118,7 +117,6 @@ letter-spacing:2px;
 cursor:pointer;
 }
 
-/* INSTAGRAM */
 .icon{
 width:22px;
 height:22px;
@@ -127,7 +125,7 @@ fill:none;
 stroke-width:2;
 }
 
-/* 🔥 IDIOMA CORREGIDO */
+/* IDIOMA */
 .lang{
 display:flex;
 align-items:center;
@@ -135,13 +133,8 @@ gap:6px;
 font-size:12px;
 }
 
-.lang .active{
-opacity:0.4;
-}
-
-.lang .divider{
-opacity:0.4;
-}
+.lang .active{opacity:0.4;}
+.lang .divider{opacity:0.4;}
 
 .lang a{
 color:white;
@@ -202,7 +195,6 @@ letter-spacing:2px;
 
 /* RESPONSIVE */
 @media (max-width:1024px){
-
 .nav{display:none;}
 .hamburger{display:flex;}
 .header{padding:20px;}
@@ -213,7 +205,6 @@ font-size:clamp(36px, 8vw, 70px);
 }
 
 @media (max-width:768px){
-
 text.big{
 font-size:clamp(28px, 9vw, 55px);
 }
@@ -227,7 +218,6 @@ right:20px;
 top:65px;
 width:200px;
 }
-
 }
 
 </style>
@@ -261,7 +251,6 @@ COLOMBIA
 </div>
 
 <header class="header">
-
 <div class="brand" id="logoBtn">GARABATO CINE</div>
 
 <div class="nav">
@@ -278,7 +267,6 @@ COLOMBIA
 </svg>
 </a>
 
-<!-- 🔥 IDIOMA -->
 <div class="lang">
 <span class="active">ES</span>
 <span class="divider">|</span>
@@ -305,6 +293,7 @@ COLOMBIA
 </div>
 
 <script>
+
 document.querySelectorAll("video").forEach(v=>{
 v.muted = true;
 v.play().catch(()=>{});
@@ -317,18 +306,22 @@ intro.style.display="block";
 intro.style.opacity="1";
 document.body.classList.remove("play");
 
+/* 🔥 ANTES: 50ms → AHORA inmediato */
 setTimeout(()=>{
 document.body.classList.add("play");
-},50);
+},0);
 
+/* 🔥 ANTES: 2600ms → AHORA 1600ms */
 setTimeout(()=>{
 intro.classList.add("fade");
 
+/* 🔥 ANTES: 120ms → AHORA igual */
 setTimeout(()=>{
 intro.style.display="none";
 },120);
 
-},2600);
+},1600);
+
 }
 
 window.addEventListener("load", startIntro);
