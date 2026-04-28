@@ -8,11 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 html, body{
 width:100%;
@@ -50,17 +46,17 @@ height:100vh;
 display:block;
 }
 
-/* TEXTO */
+/* TEXTO CENTRADO REAL */
 text.big{
 font-weight:800;
-/* 🔥 AJUSTE PARA NO DESBORDAR */
-font-size:clamp(50px, 7vw, 110px);
+font-size:clamp(55px, 8vw, 120px);
 text-anchor:middle;
+dominant-baseline:middle;
 }
 
 text.small{
 font-weight:600;
-font-size:clamp(12px, 1.8vw, 16px);
+font-size:clamp(12px, 2vw, 16px);
 letter-spacing:3px;
 text-anchor:middle;
 }
@@ -70,7 +66,7 @@ text{
 fill:black;
 }
 
-/* ANIMACIÓN */
+/* ANIMACIÓN (VOLVEMOS A LA VELOCIDAD ANTERIOR) */
 .mask-group{
 transform-box:fill-box;
 transform-origin:center;
@@ -78,7 +74,7 @@ transform-origin:center;
 
 .play .mask-group{
 animation:slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:0s;
+animation-delay:1s; /* ← vuelve al timing correcto */
 }
 
 @keyframes slideLeft{
@@ -167,11 +163,19 @@ opacity:0.6;
 transform:translateY(-2px);
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE AJUSTADO (CLAVE PARA TABLET/MÓVIL) */
+@media (max-width:1024px){
+
+text.big{
+font-size:clamp(40px, 9vw, 90px);
+}
+
+}
+
 @media (max-width:768px){
 
 text.big{
-font-size:clamp(38px, 10vw, 70px);
+font-size:clamp(34px, 10vw, 70px);
 }
 
 text.small{
@@ -205,12 +209,8 @@ padding:20px;
 <rect width="100%" height="100%" fill="white"/>
 
 <g class="mask-group">
-<text x="50%" y="50%" dy="-10" class="big">
-GARABATO CINE
-</text>
-<text x="50%" y="60%" class="small">
-COLOMBIA
-</text>
+<text x="50%" y="50%" class="big">GARABATO CINE</text>
+<text x="50%" y="60%" class="small">COLOMBIA</text>
 </g>
 
 </mask>
@@ -261,15 +261,15 @@ setTimeout(()=>{
 document.body.classList.add("play");
 },50);
 
-/* 🔥 TODO MÁS RÁPIDO */
+/* TIEMPO ORIGINAL (MÁS NATURAL) */
 setTimeout(()=>{
 intro.classList.add("fade");
 
 setTimeout(()=>{
 intro.style.display="none";
-},100);
+},120);
 
-},1600);
+},2600);
 
 }
 
