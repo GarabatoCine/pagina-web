@@ -37,12 +37,14 @@ position:fixed;
 inset:0;
 z-index:1000;
 opacity:1;
+background:#fff; /* 🔥 FIX: evita fondo negro inicial */
 }
 
 svg{
 width:100vw;
 height:100vh;
 display:block;
+background:#fff; /* 🔥 DOBLE SEGURO */
 }
 
 /* CORTINILLA */
@@ -57,7 +59,7 @@ font-size:clamp(11px, 2vw, 15px);
 letter-spacing:3px;
 }
 
-/* ANIMACIÓN (NO TOCADA) */
+/* ANIMACIÓN */
 .mask-group{
 transform-box:fill-box;
 transform-origin:center;
@@ -163,13 +165,16 @@ background:rgba(0,0,0,0.95);
 backdrop-filter:blur(12px);
 border-radius:10px;
 padding:15px 20px;
+
 display:flex;
 flex-direction:column;
 gap:12px;
+
 opacity:0;
 transform:translateY(-10px);
 pointer-events:none;
 transition:0.3s ease;
+
 z-index:150;
 }
 
@@ -285,7 +290,6 @@ setTimeout(()=>{
 document.body.classList.add("play");
 },50);
 
-/* 🔥 SOLO ESTE CAMBIO: -1000ms */
 setTimeout(()=>{
 intro.classList.add("fade");
 
