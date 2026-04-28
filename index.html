@@ -37,24 +37,25 @@ object-fit:cover;
 position:fixed;
 inset:0;
 z-index:1000;
+background:#fff;
 opacity:1;
 }
 
 svg{
-width:100vw;
-height:100vh;
+width:100%;
+height:100%;
 display:block;
 }
 
 /* TEXTO */
 text.big{
 font-weight:900;
-font-size:clamp(24px, 5.5vw, 72px);
+font-size:clamp(24px, 5.5vw, 70px);
 }
 
 text.small{
 font-weight:700;
-font-size:clamp(10px, 1.5vw, 14px);
+font-size:clamp(10px, 1.4vw, 14px);
 letter-spacing:3px;
 }
 
@@ -62,6 +63,7 @@ letter-spacing:3px;
 .mask-group{
 transform-box:fill-box;
 transform-origin:center;
+transform:translateX(0);
 }
 
 .play .mask-group{
@@ -73,10 +75,11 @@ animation-delay:1s;
 to{transform:translateX(-130vw);}
 }
 
-/* FADE */
+/* FADE OUT INTRO */
 .fade{
 opacity:0;
-transition:opacity 0.1s linear;
+transition:opacity 0.2s ease;
+pointer-events:none;
 }
 
 /* HEADER */
@@ -107,38 +110,12 @@ color:white;
 text-decoration:none;
 opacity:0.85;
 font-weight:600;
-letter-spacing:1px;
 }
 
 .brand{
 font-weight:800;
 font-size:22px;
-letter-spacing:2px;
 cursor:pointer;
-}
-
-.icon{
-width:22px;
-height:22px;
-stroke:white;
-fill:none;
-stroke-width:2;
-}
-
-.lang{
-display:flex;
-align-items:center;
-gap:6px;
-font-size:12px;
-}
-
-.lang .active{opacity:0.4;}
-.lang .divider{opacity:0.4;}
-
-.lang a{
-color:white;
-text-decoration:none;
-font-weight:600;
 }
 
 /* HAMBURGER */
@@ -191,7 +168,6 @@ color:white;
 text-decoration:none;
 font-size:14px;
 font-weight:600;
-letter-spacing:0.5px;
 }
 
 /* RESPONSIVE */
@@ -199,7 +175,6 @@ letter-spacing:0.5px;
 .nav{display:none;}
 .hamburger{display:flex;}
 .header{padding:20px;}
-text.big{font-size:clamp(20px, 4.8vw, 55px);}
 }
 
 </style>
@@ -246,21 +221,6 @@ COLOMBIA
 <a href="#">NOSOTROS</a>
 <a href="#">PRÓXIMAMENTE</a>
 <a href="#">CONTACTO</a>
-
-<a href="https://www.instagram.com/garabatocine/" target="_blank" rel="noopener noreferrer">
-<svg class="icon" viewBox="0 0 24 24">
-<rect x="3" y="3" width="18" height="18" rx="5"></rect>
-<circle cx="12" cy="12" r="4"></circle>
-<circle cx="17" cy="7" r="1.5"></circle>
-</svg>
-</a>
-
-<div class="lang">
-<span class="active">ES</span>
-<span class="divider">|</span>
-<a href="#">EN</a>
-</div>
-
 </div>
 
 <div class="hamburger" id="hambBtn">
@@ -278,43 +238,45 @@ COLOMBIA
 
 <script>
 
-/* 🔥 SIMPLE AUTOPLAY (sin interferencias) */
 const video = document.getElementById("bgVideo");
 
+/* SIMPLE & STABLE PLAY */
 function playVideo(){
 video.muted = true;
 video.play().catch(()=>{});
 }
 
-window.addEventListener("load", playVideo);
-document.addEventListener("DOMContentLoaded", playVideo);
-
-/* INTRO */
+/* INTRO CONTROL */
 function startIntro(){
 const intro = document.getElementById("intro");
 
 intro.style.display="block";
 intro.style.opacity="1";
+
 document.body.classList.remove("play");
 
+/* 🔥 ESTO ES LO QUE TE FALTABA */
 setTimeout(()=>{
 document.body.classList.add("play");
 },50);
 
+/* salida cortina */
 setTimeout(()=>{
 intro.classList.add("fade");
 
 setTimeout(()=>{
 intro.style.display="none";
 playVideo();
-},120);
+},200);
 
 },1600);
 
 }
 
-window.addEventListener("load", startIntro);
-document.getElementById("logoBtn").addEventListener("click", startIntro);
+window.addEventListener("load", ()=>{
+playVideo();
+startIntro();
+});
 
 /* MENU */
 const btn = document.getElementById("hambBtn");
