@@ -32,7 +32,7 @@ height:100%;
 object-fit:cover;
 }
 
-/* INTRO */
+/* INTRO (CAMBIO A NEGRO) */
 #intro{
 position:fixed;
 inset:0;
@@ -51,12 +51,14 @@ display:block;
 text.big{
 font-weight:900;
 font-size:clamp(30px, 6vw, 80px);
+fill:white;
 }
 
 text.small{
 font-weight:700;
 font-size:clamp(10px, 1.5vw, 14px);
 letter-spacing:5px;
+fill:white;
 }
 
 /* ANIMACIÓN */
@@ -80,7 +82,7 @@ opacity:0;
 display:none;
 }
 
-/* HEADER */
+/* HEADER (CAMBIO A NEGRO) */
 .header{
 position:fixed;
 top:0;
@@ -91,7 +93,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:30px 50px;
-color:white;
+color:black;
 text-transform:uppercase;
 font-family:'Sora', sans-serif;
 }
@@ -104,7 +106,7 @@ font-size:14px;
 }
 
 .nav a{
-color:white;
+color:black;
 text-decoration:none;
 opacity:0.85;
 font-weight:600;
@@ -115,12 +117,13 @@ font-weight:800;
 font-size:22px;
 letter-spacing:2px;
 cursor:pointer;
+color:black;
 }
 
 .icon{
 width:22px;
 height:22px;
-stroke:white;
+stroke:black;
 fill:none;
 stroke-width:2;
 }
@@ -134,7 +137,7 @@ font-size:13px;
 }
 
 .lang a{
-color:white;
+color:black;
 text-decoration:none;
 opacity:0.85;
 }
@@ -155,7 +158,7 @@ cursor:pointer;
 
 .hamburger span{
 height:2px;
-background:white;
+background:black;
 width:100%;
 }
 
@@ -190,12 +193,6 @@ color:white !important;
 text-decoration:none;
 font-size:14px;
 font-weight:600;
-}
-
-.menu a:visited,
-.menu a:active,
-.menu a:focus{
-color:white !important;
 }
 
 /* LANG MOBILE */
@@ -245,18 +242,21 @@ font-size:26px;
 </video>
 </div>
 
+<!-- INTRO CON FONDO NEGRO -->
 <div id="intro">
 <svg viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice">
 <defs>
 <mask id="mask" style="mask-type:luminance;">
-<rect width="100%" height="100%" fill="white"/>
+<rect width="100%" height="100%" fill="black"/>
 <g class="mask-group">
-<text x="50%" y="48%" text-anchor="middle" class="big" fill="black">GARABATO CINE</text>
-<text x="50%" y="55%" text-anchor="middle" class="small" fill="black">COLOMBIA</text>
+<text x="50%" y="48%" text-anchor="middle" class="big">GARABATO CINE</text>
+<text x="50%" y="55%" text-anchor="middle" class="small">COLOMBIA</text>
 </g>
 </mask>
 </defs>
-<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+
+<!-- fondo negro -->
+<rect width="100%" height="100%" fill="black" mask="url(#mask)"/>
 </svg>
 </div>
 
@@ -266,9 +266,7 @@ font-size:26px;
 
 <div class="nav">
 
-<!-- ✔ SOLO UNO (CORREGIDO) -->
 <a href="catalogo.html">CATÁLOGO</a>
-
 <a href="#">NOSOTROS</a>
 <a href="#">PRÓXIMAMENTE</a>
 <a href="#">CONTACTO</a>
