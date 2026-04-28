@@ -159,7 +159,7 @@ background:white;
 width:100%;
 }
 
-/* MENU MOBILE */
+/* MENU */
 .menu{
 position:fixed;
 top:75px;
@@ -199,23 +199,23 @@ font-weight:600;
 color:white !important;
 }
 
-/* LANG MOBILE */
+/* LANG MOBILE (CORREGIDO) */
 .lang-mobile{
-display:flex;
-gap:6px;
-align-items:center;
-font-size:14px;
-font-weight:600;
-margin-top:5px;
+margin-top:10px;
 }
 
 .lang-mobile a{
+display:block;
 color:white !important;
 text-decoration:none;
+font-size:14px;
+font-weight:600;
+letter-spacing:1px;
+opacity:0.9;
 }
 
-.lang-mobile .active{
-opacity:0.4;
+.lang-mobile a:active{
+opacity:0.5;
 }
 
 /* RESPONSIVE */
@@ -310,9 +310,7 @@ INSTAGRAM
 </a>
 
 <div class="lang-mobile">
-<span class="active">ES</span>
-<span>|</span>
-<a href="#">EN</a>
+<a href="#">ENGLISH</a>
 </div>
 
 </div>
@@ -340,7 +338,7 @@ setTimeout(()=>{
 document.body.classList.add("play");
 },100);
 
-/* CORTE LIMPIO */
+/* corte limpio */
 setTimeout(()=>{
 intro.classList.add("fade");
 
