@@ -167,7 +167,6 @@ font-size: 10px;
 }
 
 }
-
 </style>
 </head>
 
@@ -190,7 +189,9 @@ font-size: 10px;
 
 <defs>
 <mask id="mask">
-<rect width="100%" height="100%" fill="white"/>
+
+<!-- 🔥 ESTE ES EL QUE GENERABA EL FLASH -->
+<rect id="maskRect" width="100%" height="100%" fill="white"/>
 
 <g class="mask-group" id="logoGroup">
 
@@ -237,27 +238,29 @@ document.body.classList.add("play");
 const logo = document.getElementById("logoGroup");
 const intro = document.getElementById("intro");
 const fade = document.getElementById("fade");
+const maskRect = document.getElementById("maskRect");
 
-/* 🔥 FIX REAL: corte anticipado del blanco */
-logo.addEventListener("animationstart",(e)=>{
+/* 🔥 FIX REAL DEL 0.5s BLANCO */
+logo.addEventListener("animationend",(e)=>{
 
 if(e.animationName === "slideLeft"){
 
-/* adelantamos la salida dentro de la animación */
-setTimeout(()=>{
+/* 1. eliminar blanco del mask INMEDIATO */
+maskRect.setAttribute("fill","transparent");
 
+/* 2. asegurar salida del fade */
 fade.style.opacity = "0";
 
+/* 3. ocultar intro sin bloquear frame del video */
 setTimeout(()=>{
+
 intro.classList.add("hide");
 
 setTimeout(()=>{
 intro.style.display = "none";
 }, 200);
 
-}, 50);
-
-}, 1400); // ajuste fino para eliminar el blanco solitario
+}, 0);
 
 }
 
