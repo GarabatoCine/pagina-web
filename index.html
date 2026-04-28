@@ -6,242 +6,189 @@
 <title>Garabato Cine</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+    *{margin:0;padding:0;box-sizing:border-box;}
 
-html, body{
-width:100%;
-height:100%;
-background:#000;
-overflow:hidden;
-font-family:Arial, Helvetica, sans-serif;
-}
+    html, body{
+        width:100%;
+        height:100%;
+        background:#000;
+        overflow:hidden;
+        font-family:Arial, Helvetica, sans-serif;
+    }
 
-/* ===================== */
-/* VIDEO */
-/* ===================== */
-.video{
-position:fixed;
-inset:0;
-z-index:0;
-}
+    /* ===================== */
+    /* VIDEO DE FONDO */
+    /* ===================== */
+    .video-container {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+    }
 
-.video video{
-width:100%;
-height:100%;
-object-fit:cover;
-}
+    .video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-/* ===================== */
-/* INTRO (LA QUE FUNCIONA) */
-/* ===================== */
-#intro{
-position:fixed;
-inset:0;
-z-index:100;
-opacity:1;
-background:#fff;
-}
+    /* ===================== */
+    /* INTRO SVG (MÁSCARA) */
+    /* ===================== */
+    #intro {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        background: transparent;
+        pointer-events: none;
+        transition: opacity 0.6s ease;
+    }
 
-svg{
-width:100vw;
-height:100vh;
-display:block;
-}
+    svg {
+        width: 100%;
+        height: 100%;
+    }
 
-/* TEXTO */
-text.big{
-font-weight:900;
-font-size: clamp(70px, 9vw, 140px);
-font-family:Arial, Helvetica, sans-serif;
-}
+    /* Estilos de Texto dentro del SVG */
+    .big {
+        font-weight: 900;
+        font-size: 120px; /* Ajustado para el viewBox */
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-text.small{
-font-weight:700;
-font-size: clamp(12px, 2vw, 16px);
-letter-spacing:2px;
-}
+    .small {
+        font-weight: 700;
+        font-size: 20px;
+        letter-spacing: 15px;
+        text-transform: uppercase;
+    }
 
-/* GRUPO */
-.mask-group{
-transform-box: fill-box;
-transform-origin:center;
-}
+    /* Animación de desplazamiento a la izquierda */
+    .play .mask-group {
+        animation: slideLeft 1.5s cubic-bezier(.76,0,.24,1) forwards;
+        animation-delay: 1.2s;
+    }
 
-/* 🔥 ANIMACIÓN (ANTES EMPIEZA) */
-.play .mask-group{
-animation:slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:1s; /* ← ANTES ERA 2s */
-}
+    @keyframes slideLeft {
+        to { transform: translateX(-150%); }
+    }
 
-@keyframes slideLeft{
-to{transform:translateX(-120vw);}
-}
+    /* ===================== */
+    /* HEADER & NAV */
+    /* ===================== */
+    .header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 200;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 50px;
+        color: white;
+        opacity: 0;
+        animation: fadeInHeader 0.5s ease forwards;
+        animation-delay: 2.2s;
+    }
 
-/* ===================== */
-/* HEADER */
-/* ===================== */
-.header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:200;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:25px 40px;
-color:white;
-}
+    @keyframes fadeInHeader {
+        to { opacity: 1; }
+    }
 
-.brand{
-font-weight:900;
-font-size:20px;
-cursor:pointer;
-}
+    .brand { font-weight: 900; font-size: 20px; cursor: pointer; }
 
-/* HAMBURGER */
-.hamburger{
-width:28px;
-height:18px;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-cursor:pointer;
-}
+    .hamburger {
+        width: 30px;
+        height: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+    }
 
-.hamburger span{
-height:2px;
-background:white;
-width:100%;
-}
+    .hamburger span { height: 2px; background: white; width: 100%; }
 
-/* MENU SIMPLE */
-.menu{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.9);
-z-index:150;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-opacity:0;
-pointer-events:none;
-transition:0.4s;
-}
+    .menu {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.95);
+        z-index: 300;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.5s;
+    }
 
-.menu.active{
-opacity:1;
-pointer-events:auto;
-}
-
-.menu a{
-color:white;
-text-decoration:none;
-font-size:20px;
-margin:10px 0;
-letter-spacing:2px;
-}
+    .menu.active { opacity: 1; pointer-events: auto; }
+    .menu a { color: white; text-decoration: none; font-size: 24px; font-weight: 700; }
 
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO -->
-<div class="video">
-<video autoplay muted loop playsinline>
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
-</video>
+<div class="video-container">
+    <video autoplay muted loop playsinline>
+        <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
+    </video>
 </div>
 
-<!-- INTRO -->
 <div id="intro">
-<svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice">
-<defs>
-<mask id="mask">
-<rect width="100%" height="100%" fill="white"/>
-
-<g class="mask-group">
-<text x="50%" y="50%" text-anchor="middle" dy="-10" class="big">
-GARABATO CINE
-</text>
-<text x="50%" y="58%" text-anchor="middle" class="small">
-COLOMBIA
-</text>
-</g>
-
-</mask>
-</defs>
-
-<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
-</svg>
+    <svg viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice">
+        <defs>
+            <mask id="myMask">
+                <rect width="100%" height="100%" fill="white"/>
+                <g class="mask-group">
+                    <text x="50%" y="45%" text-anchor="middle" fill="black" class="big">GARABATO CINE</text>
+                    <text x="50%" y="52%" text-anchor="middle" fill="black" class="small">COLOMBIA</text>
+                </g>
+            </mask>
+        </defs>
+        <rect width="100%" height="100%" fill="white" mask="url(#myMask)"/>
+    </svg>
 </div>
 
-<!-- HEADER -->
 <header class="header">
-<div class="brand" id="logoBtn">GARABATO CINE</div>
-
-<div class="hamburger" id="hambBtn">
-<span></span>
-<span></span>
-<span></span>
-</div>
+    <div class="brand" onclick="location.reload()">GARABATO CINE</div>
+    <div class="hamburger" id="hambBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </header>
 
-<!-- MENU -->
 <div class="menu" id="menu">
-<a href="#">CATÁLOGO</a>
-<a href="#">NOSOTROS</a>
-<a href="#">PRÓXIMAMENTE</a>
-<a href="#">INSTAGRAM</a>
+    <a href="#">CATÁLOGO</a>
+    <a href="#">NOSOTROS</a>
+    <a href="#">PRÓXIMAMENTE</a>
+    <a href="#">INSTAGRAM</a>
 </div>
 
 <script>
+    window.addEventListener("load", () => {
+        // Iniciamos animación de texto
+        document.body.classList.add("play");
 
-/* VIDEO */
-document.querySelectorAll("video").forEach(v=>{
-v.muted = true;
-v.play().catch(()=>{});
-});
+        const intro = document.getElementById("intro");
 
-/* INTRO (ESTABLE) */
-function startIntro(){
+        // Hacemos que la cortina desaparezca después de que el texto salga
+        setTimeout(() => {
+            intro.style.opacity = "0";
+            setTimeout(() => {
+                intro.style.display = "none";
+            }, 600);
+        }, 2800); 
+    });
 
-const intro = document.getElementById("intro");
+    // Menú
+    const btn = document.getElementById("hambBtn");
+    const menu = document.getElementById("menu");
 
-intro.style.display="block";
-intro.style.opacity="1";
-document.body.classList.remove("play");
-
-setTimeout(()=>{
-document.body.classList.add("play");
-},50);
-
-/* SALIDA */
-setTimeout(()=>{
-intro.style.opacity="0";
-
-setTimeout(()=>{
-intro.style.display="none";
-},100);
-
-},2500); /* ← AJUSTADO MÁS RÁPIDO */
-}
-
-window.addEventListener("load", startIntro);
-
-/* REINICIO LOGO */
-document.getElementById("logoBtn").addEventListener("click", startIntro);
-
-/* MENU */
-const btn = document.getElementById("hambBtn");
-const menu = document.getElementById("menu");
-
-btn.addEventListener("click", ()=>{
-menu.classList.toggle("active");
-});
-
+    btn.addEventListener("click", () => menu.classList.toggle("active"));
+    menu.addEventListener("click", () => menu.classList.remove("active"));
 </script>
 
 </body>
