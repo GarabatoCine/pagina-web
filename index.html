@@ -35,7 +35,7 @@ html, body{
 }
 
 /* ===================== */
-/* INTRO */
+/* INTRO (FIX REAL FULL COVER) */
 /* ===================== */
 #intro{
     position:fixed;
@@ -43,36 +43,64 @@ html, body{
     z-index:10;
     opacity:1;
     transition:opacity 0.05s linear;
-    background:transparent;
+}
+
+/* FIX CLAVE: evita “huecos” en tablets/móvil */
+#intro::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:#fff;
+    z-index:-1;
 }
 
 svg{
-    width:100vw;
-    height:100vh;
+    width:100%;
+    height:100%;
     display:block;
 }
 
-/* FIX TABLET REAL (sin romper escala) */
+/* ===================== */
+/* RESPONSIVE SVG CONTROL */
+/* ===================== */
 @media (max-width:1024px){
     svg{
-        transform:scale(0.98);
+        transform:scale(0.96);
     }
 }
 
-/* TEXTO */
+@media (max-width:768px){
+    svg{
+        transform:scale(0.92);
+    }
+}
+
+/* ===================== */
+/* TEXTO (FIX TABLET + MOBILE) */
+/* ===================== */
 text.big{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:900;
-    font-size: clamp(26px, 5.5vw, 58px);
+    font-size: clamp(20px, 5vw, 58px);
 }
 
 text.small{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:700;
-    font-size: clamp(10px, 2vw, 14px);
+    font-size: clamp(9px, 2vw, 14px);
     letter-spacing:2px;
 }
 
+/* extra ajuste móvil */
+@media (max-width:480px){
+    text.big{
+        font-size: clamp(18px, 6vw, 34px);
+    }
+}
+
+/* ===================== */
+/* ANIMACIÓN INTRO */
+/* ===================== */
 .mask-group{
     transform-box: fill-box;
     transform-origin:center;
@@ -249,7 +277,7 @@ text.small{
 
 <!-- INTRO -->
 <div id="intro">
-    <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
+    <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid meet">
         <defs>
             <mask id="mask">
                 <rect width="100%" height="100%" fill="white"/>
@@ -283,7 +311,7 @@ window.addEventListener("load", ()=>{
     },3250);
 });
 
-/* HAMBURGER */
+/* MENU */
 const btn = document.getElementById("hambBtn");
 const menu = document.getElementById("cinemaMenu");
 
@@ -291,21 +319,18 @@ btn.addEventListener("click", ()=>{
     menu.classList.toggle("active");
 });
 
-/* cerrar clic fuera */
 menu.addEventListener("click", (e)=>{
     if(e.target === menu){
         menu.classList.remove("active");
     }
 });
 
-/* ESC */
 document.addEventListener("keydown", (e)=>{
     if(e.key === "Escape"){
         menu.classList.remove("active");
     }
 });
 
-/* cerrar links */
 document.querySelectorAll(".cinema-links a").forEach(a=>{
     a.addEventListener("click", ()=>{
         menu.classList.remove("active");
