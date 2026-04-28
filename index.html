@@ -35,7 +35,7 @@ html, body{
 }
 
 /* ===================== */
-/* INTRO (TAMAÑOS RESTAURADOS) */
+/* INTRO */
 /* ===================== */
 #intro{
     position:fixed;
@@ -51,11 +51,10 @@ svg{
     display:block;
 }
 
-/* ESTILOS DE LETRA GIGANTE */
+/* TEXTO ORIGINAL */
 text.big {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 900;
-    /* Este es el tamaño grande que tenías antes */
     font-size: clamp(28px, 6vw, 58px);
 }
 
@@ -80,7 +79,7 @@ text.small {
     opacity:1;
 }
 
-/* Animación de salida */
+/* animación salida */
 .play .mask-group{
     animation: slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
     animation-delay: 2s;
@@ -91,7 +90,7 @@ text.small {
 }
 
 /* ===================== */
-/* HEADER SINTETIZADO */
+/* HEADER */
 /* ===================== */
 .header{
     position:fixed;
@@ -99,20 +98,23 @@ text.small {
     left:0;
     width:100%;
     z-index:20;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     padding:30px 50px;
+
     font-family: Arial, Helvetica, sans-serif;
     text-transform:uppercase;
     color:white;
-    /* Aparece después de la intro */
+
     opacity: 0;
     animation: fadeInHeader 0.5s ease forwards;
     animation-delay: 3.3s;
 }
 
-@keyframes fadeInHeader {
+@keyframes fadeInHeader{
     to { opacity: 1; }
 }
 
@@ -120,6 +122,7 @@ text.small {
     font-weight:900;
     font-size:22px;
     letter-spacing:2px;
+    cursor:pointer;
 }
 
 .nav{
@@ -127,27 +130,34 @@ text.small {
     gap:25px;
     align-items:center;
     font-size:11px;
-    font-weight: 700;
+    font-weight:700;
 }
 
 .nav a{
     color:white;
     text-decoration:none;
-    opacity: 0.8;
-    transition: opacity 0.3s;
+    opacity:0.8;
 }
 
-.nav a:hover { opacity: 1; }
-
-.icon{ width:18px; height:18px; fill:white; }
-
-/* Idioma súper concreto */
-.lang-selector {
-    font-size: 10px;
-    letter-spacing: 1px;
+.nav a:hover{
+    opacity:1;
 }
 
-.lang-selector span { opacity: 0.4; margin-right: 5px; }
+.icon{
+    width:18px;
+    height:18px;
+    fill:white;
+}
+
+.lang-selector{
+    font-size:10px;
+    letter-spacing:1px;
+}
+
+.lang-selector span{
+    opacity:0.4;
+    margin-right:5px;
+}
 
 /* ===================== */
 /* RESPONSIVE */
@@ -156,7 +166,7 @@ text.small {
     .header{ padding:20px; }
     .brand{ font-size:16px; }
     .nav{ gap:12px; }
-    .nav a:nth-child(3) { display: none; } /* Oculta Próximamente en móvil */
+    .nav a:nth-child(3){ display:none; }
 }
 </style>
 </head>
@@ -164,7 +174,7 @@ text.small {
 <body>
 
 <header class="header">
-    <div class="brand">GARABATO CINE</div>
+    <div class="brand" id="restartIntro">GARABATO CINE</div>
 
     <div class="nav">
         <a href="#">CATÁLOGO</a>
@@ -173,7 +183,7 @@ text.small {
 
         <a href="https://instagram.com" target="_blank">
             <svg class="icon" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z"/>
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162z"/>
             </svg>
         </a>
 
@@ -200,44 +210,75 @@ text.small {
                 </g>
             </mask>
         </defs>
+
         <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
     </svg>
 </div>
 
 <script>
-/* VIDEO Autoplay */
+
+/* VIDEO */
 document.querySelectorAll("video").forEach(v=>{
     v.muted = true;
     v.play().catch(()=>{});
 });
 
-/* LÓGICA DE TIEMPOS CORREGIDA */
+/* INTRO INICIAL */
 function startIntro(){
     const intro = document.getElementById("intro");
-    
-    // Reset inicial
+
     intro.style.display = "block";
     intro.style.opacity = "1";
+
     document.body.classList.remove("play");
 
-    // Pequeño delay para asegurar que el navegador registre la clase y empiece la animación
     setTimeout(()=>{
         document.body.classList.add("play");
     }, 50);
 
-    /* AJUSTE DE CORTE:
-       La animación dura 1.3s y empieza a los 2s (Total 3.3s).
-       Si queremos que el blanco desaparezca justo cuando la 'E' sale:
-    */
     setTimeout(()=>{
         intro.style.opacity = "0";
+
         setTimeout(()=>{
             intro.style.display = "none";
-        }, 100);
-    }, 3250); // Ajuste fino para evitar el residuo blanco
+        }, 120);
+
+    }, 3250);
 }
 
 window.addEventListener("load", startIntro);
+
+/* ===================== */
+/* REINICIAR INTRO DESDE HEADER */
+/* ===================== */
+document.getElementById("restartIntro").addEventListener("click", ()=>{
+
+    const intro = document.getElementById("intro");
+
+    intro.style.display = "block";
+    intro.style.opacity = "1";
+
+    document.body.classList.remove("play");
+
+    const logo = document.getElementById("logoGroup");
+    logo.style.animation = "none";
+    void logo.offsetWidth;
+    logo.style.animation = "";
+
+    setTimeout(()=>{
+        document.body.classList.add("play");
+    }, 50);
+
+    setTimeout(()=>{
+        intro.style.opacity = "0";
+
+        setTimeout(()=>{
+            intro.style.display = "none";
+        }, 120);
+
+    }, 3250);
+});
+
 </script>
 
 </body>
