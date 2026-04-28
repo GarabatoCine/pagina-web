@@ -6,22 +6,18 @@
 <title>Garabato Cine</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 html, body{
 width:100%;
 height:100%;
 background:#000;
 overflow:hidden;
-font-family: Arial, Helvetica, sans-serif;
+font-family:Arial, Helvetica, sans-serif;
 }
 
 /* ===================== */
-/* VIDEO FONDO */
+/* VIDEO */
 /* ===================== */
 .video{
 position:fixed;
@@ -36,64 +32,115 @@ object-fit:cover;
 }
 
 /* ===================== */
-/* INTRO */
+/* INTRO (LA QUE FUNCIONA) */
 /* ===================== */
 #intro{
 position:fixed;
 inset:0;
-z-index:10;
+z-index:100;
+opacity:1;
 background:#fff;
+}
+
+svg{
+width:100vw;
+height:100vh;
+display:block;
+}
+
+/* TEXTO */
+text.big{
+font-weight:900;
+font-size: clamp(70px, 9vw, 140px);
+font-family:Arial, Helvetica, sans-serif;
+}
+
+text.small{
+font-weight:700;
+font-size: clamp(12px, 2vw, 16px);
+letter-spacing:2px;
+}
+
+/* GRUPO */
+.mask-group{
+transform-box: fill-box;
+transform-origin:center;
+}
+
+/* 🔥 ANIMACIÓN (ANTES EMPIEZA) */
+.play .mask-group{
+animation:slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
+animation-delay:1s; /* ← ANTES ERA 2s */
+}
+
+@keyframes slideLeft{
+to{transform:translateX(-120vw);}
+}
+
+/* ===================== */
+/* HEADER */
+/* ===================== */
+.header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:200;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 40px;
+color:white;
+}
+
+.brand{
+font-weight:900;
+font-size:20px;
+cursor:pointer;
+}
+
+/* HAMBURGER */
+.hamburger{
+width:28px;
+height:18px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+cursor:pointer;
+}
+
+.hamburger span{
+height:2px;
+background:white;
+width:100%;
+}
+
+/* MENU SIMPLE */
+.menu{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.9);
+z-index:150;
 display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-overflow:hidden;
-}
-
-/* ===================== */
-/* TEXTO TRANSPARENTE REAL */
-/* ===================== */
-.intro-title{
-font-weight:900;
-font-size: clamp(70px, 9vw, 140px);
-
-/* 🔥 VIDEO DENTRO DEL TEXTO */
-background: url("https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4");
-background-size: cover;
-background-position: center;
-
--webkit-background-clip: text;
-background-clip: text;
-
-color: transparent;
--webkit-text-fill-color: transparent;
-}
-
-/* SUB */
-.intro-sub{
-font-weight:700;
-font-size: clamp(12px, 2vw, 16px);
-letter-spacing:3px;
-margin-top:10px;
-}
-
-/* ===================== */
-/* ANIMACIÓN */
-/* ===================== */
-.move{
-animation: slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
-}
-
-@keyframes slideLeft{
-to{
-transform:translateX(-120vw);
-}
-}
-
-/* DESAPARECER */
-.fade{
 opacity:0;
-transition:opacity 0.1s linear;
+pointer-events:none;
+transition:0.4s;
+}
+
+.menu.active{
+opacity:1;
+pointer-events:auto;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-size:20px;
+margin:10px 0;
+letter-spacing:2px;
 }
 
 </style>
@@ -110,37 +157,90 @@ transition:opacity 0.1s linear;
 
 <!-- INTRO -->
 <div id="intro">
-<div class="intro-title">GARABATO CINE</div>
-<div class="intro-sub">COLOMBIA</div>
+<svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice">
+<defs>
+<mask id="mask">
+<rect width="100%" height="100%" fill="white"/>
+
+<g class="mask-group">
+<text x="50%" y="50%" text-anchor="middle" dy="-10" class="big">
+GARABATO CINE
+</text>
+<text x="50%" y="58%" text-anchor="middle" class="small">
+COLOMBIA
+</text>
+</g>
+
+</mask>
+</defs>
+
+<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+</svg>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+<div class="brand" id="logoBtn">GARABATO CINE</div>
+
+<div class="hamburger" id="hambBtn">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</header>
+
+<!-- MENU -->
+<div class="menu" id="menu">
+<a href="#">CATÁLOGO</a>
+<a href="#">NOSOTROS</a>
+<a href="#">PRÓXIMAMENTE</a>
+<a href="#">INSTAGRAM</a>
 </div>
 
 <script>
 
+/* VIDEO */
+document.querySelectorAll("video").forEach(v=>{
+v.muted = true;
+v.play().catch(()=>{});
+});
+
+/* INTRO (ESTABLE) */
 function startIntro(){
 
 const intro = document.getElementById("intro");
-const title = document.querySelector(".intro-title");
-const sub = document.querySelector(".intro-sub");
 
-/* 🔥 EMPIEZA 1 SEGUNDO ANTES (ANTES ERA 2000) */
-setTimeout(()=>{
-title.classList.add("move");
-sub.classList.add("move");
-},1000);
+intro.style.display="block";
+intro.style.opacity="1";
+document.body.classList.remove("play");
 
-/* DESAPARECER */
 setTimeout(()=>{
-intro.classList.add("fade");
+document.body.classList.add("play");
+},50);
+
+/* SALIDA */
+setTimeout(()=>{
+intro.style.opacity="0";
 
 setTimeout(()=>{
 intro.style.display="none";
-},120);
+},100);
 
-},3000);
-
+},2500); /* ← AJUSTADO MÁS RÁPIDO */
 }
 
 window.addEventListener("load", startIntro);
+
+/* REINICIO LOGO */
+document.getElementById("logoBtn").addEventListener("click", startIntro);
+
+/* MENU */
+const btn = document.getElementById("hambBtn");
+const menu = document.getElementById("menu");
+
+btn.addEventListener("click", ()=>{
+menu.classList.toggle("active");
+});
 
 </script>
 
