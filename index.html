@@ -38,8 +38,7 @@ position:fixed;
 inset:0;
 z-index:1000;
 opacity:1;
-background: transparent;
-pointer-events: none;
+pointer-events:none;
 }
 
 svg{
@@ -52,14 +51,14 @@ text.big{
 font-weight:900;
 font-size: clamp(40px, 8vw, 85px); 
 font-family:Arial, Helvetica, sans-serif;
-fill: black;
+fill:black;
 }
 
 text.small{
 font-weight:700;
 font-size: clamp(10px, 2vw, 14px);
 letter-spacing:5px;
-fill: black;
+fill:black;
 }
 
 .mask-group{
@@ -102,7 +101,6 @@ display:flex;
 gap:26px;
 align-items:center;
 font-size:14px;
-font-weight:500;
 }
 
 .nav a{
@@ -173,7 +171,6 @@ pointer-events:auto;
 color:white;
 text-decoration:none;
 font-size:14px;
-letter-spacing:1px;
 }
 
 /* RESPONSIVE */
@@ -196,101 +193,93 @@ text.big { font-size: 32px; }
 <body>
 
 <div class="video">
-    <!-- 🔥 IMPORTANTE: atributos reforzados -->
-    <video id="bgVideo" muted loop playsinline webkit-playsinline preload="auto">
-        <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4" type="video/mp4">
-    </video>
+<video id="bgVideo" muted loop playsinline webkit-playsinline preload="auto">
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4" type="video/mp4">
+</video>
 </div>
 
 <div id="intro">
-    <svg viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice">
-        <defs>
-            <mask id="mask">
-                <rect width="100%" height="100%" fill="white"/>
-                <g class="mask-group">
-                    <text x="50%" y="48%" text-anchor="middle" class="big">GARABATO CINE</text>
-                    <text x="50%" y="55%" text-anchor="middle" class="small">COLOMBIA</text>
-                </g>
-            </mask>
-        </defs>
-        <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
-    </svg>
+<svg viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice">
+<defs>
+<mask id="mask">
+<rect width="100%" height="100%" fill="white"/>
+<g class="mask-group">
+<text x="50%" y="48%" text-anchor="middle" class="big">GARABATO CINE</text>
+<text x="50%" y="55%" text-anchor="middle" class="small">COLOMBIA</text>
+</g>
+</mask>
+</defs>
+<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+</svg>
 </div>
 
 <header class="header">
-    <div class="brand" id="logoBtn">GARABATO CINE</div>
+<div class="brand" id="logoBtn">GARABATO CINE</div>
 
-    <div class="nav">
-        <a href="#">CATÁLOGO</a>
-        <a href="#">NOSOTROS</a>
-        <a href="#">PRÓXIMAMENTE</a>
-        <a href="#">CONTACTO</a>
-        <a href="https://instagram.com" target="_blank">
-            <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17" cy="7" r="1.5"></circle></svg>
-        </a>
-    </div>
+<div class="nav">
+<a href="#">CATÁLOGO</a>
+<a href="#">NOSOTROS</a>
+<a href="#">PRÓXIMAMENTE</a>
+<a href="#">CONTACTO</a>
+<a href="https://instagram.com" target="_blank">
+<svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17" cy="7" r="1.5"></circle></svg>
+</a>
+</div>
 
-    <div class="hamburger" id="hambBtn">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+<div class="hamburger" id="hambBtn">
+<span></span><span></span><span></span>
+</div>
 </header>
 
 <div class="menu" id="menu">
-    <a href="#">CATÁLOGO</a>
-    <a href="#">NOSOTROS</a>
-    <a href="#">PRÓXIMAMENTE</a>
-    <a href="#">CONTACTO</a>
-    <a href="#">INSTAGRAM</a>
+<a href="#">CATÁLOGO</a>
+<a href="#">NOSOTROS</a>
+<a href="#">PRÓXIMAMENTE</a>
+<a href="#">CONTACTO</a>
+<a href="#">INSTAGRAM</a>
 </div>
 
 <script>
-
-/* 🔥 FIX REAL AUTOPLAY iPAD / SAFARI */
 const video = document.getElementById('bgVideo');
 
+/* 🔥 AUTOPLAY REAL */
 function forcePlay(){
-    video.muted = true;
-    video.setAttribute("muted", "");
-    video.play().catch(()=>{});
+video.muted = true;
+video.setAttribute("muted","");
+video.play().catch(()=>{});
 }
 
-/* 1. Intento inmediato */
+/* múltiples intentos reales */
 window.addEventListener("load", forcePlay);
+video.addEventListener("loadeddata", forcePlay);
+setTimeout(forcePlay, 500);
+setTimeout(forcePlay, 1500);
 
-/* 2. Intento cuando el video esté listo */
-video.addEventListener("canplay", forcePlay);
-
-/* 3. Intento tras interacción mínima (clave en iOS) */
-document.addEventListener("touchstart", forcePlay, { once:true });
-
-/* INTRO */
+/* INTRO — 🔥 FIX Safari (ya no se queda pegado) */
 function startIntro(){
-    const intro = document.getElementById("intro");
 
-    document.body.classList.remove("play");
-    intro.style.display="block";
-    intro.classList.remove("fade");
+const intro = document.getElementById("intro");
 
-    setTimeout(()=>{
-        document.body.classList.add("play");
-    }, 100);
+document.body.classList.remove("play");
 
-    setTimeout(()=>{
-        intro.classList.add("fade");
+setTimeout(()=>{
+document.body.classList.add("play");
+},100);
 
-        setTimeout(()=>{
-            intro.style.display="none";
-            forcePlay(); // 🔥 asegura play al final
-        }, 350);
+/* 🔥 FORZAR SALIDA SIEMPRE */
+setTimeout(()=>{
+intro.classList.add("fade");
 
-    }, 2800);
+setTimeout(()=>{
+intro.style.display="none";
+forcePlay();
+},400);
+
+},2800);
+
 }
 
 window.addEventListener("load", startIntro);
-
-/* LOGO */
 document.getElementById("logoBtn").addEventListener("click", startIntro);
 
 /* MENU */
@@ -298,14 +287,13 @@ const btn = document.getElementById("hambBtn");
 const menu = document.getElementById("menu");
 
 btn.addEventListener("click", (e)=>{
-    e.stopPropagation();
-    menu.classList.toggle("active");
+e.stopPropagation();
+menu.classList.toggle("active");
 });
 
-document.addEventListener("click", () => {
-    menu.classList.remove("active");
+document.addEventListener("click", ()=>{
+menu.classList.remove("active");
 });
-
 </script>
 
 </body>
