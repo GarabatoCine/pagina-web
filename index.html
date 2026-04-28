@@ -35,66 +35,75 @@ html, body{
 }
 
 /* ===================== */
-/* INTRO FIX REAL (SIN FALLOS DE RENDER) */
+/* INTRO (VERSIÓN DEFINITIVA ESTABLE) */
 /* ===================== */
 #intro{
     position:fixed;
     inset:0;
     z-index:10;
     background:#fff;
-    opacity:1;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
     transition:opacity 0.05s linear;
 }
 
-/* IMPORTANTE: evita “desaparición” en Safari/iPad */
-svg{
-    width:100%;
-    height:100%;
-    display:block;
-}
-
-/* RESPONSIVE SAFE */
-@media (max-width:1024px){
-    svg{
-        transform:scale(0.97);
-    }
-}
-
-@media (max-width:768px){
-    svg{
-        transform:scale(0.94);
-    }
-}
-
-/* TEXTO (FIJO Y SEGURO) */
-text.big{
+/* TEXTO PRINCIPAL */
+.intro-title{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:900;
-    font-size: clamp(22px, 5.5vw, 58px);
-    fill:#000;
+
+    /* tamaño estable real cross-device */
+    font-size: clamp(38px, 6vw, 92px);
+
+    color:#000;
+
+    opacity:0;
+    transform:translateX(0);
+    animation:introFade 0.6s ease forwards;
+    animation-delay:1.8s;
 }
 
-text.small{
+/* SUBTITULO */
+.intro-subtitle{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:700;
-    font-size: clamp(10px, 2vw, 14px);
+
+    font-size: clamp(12px, 2vw, 16px);
     letter-spacing:2px;
-    fill:#000;
+
+    color:#000;
+
+    opacity:0;
+    animation:introFade 0.6s ease forwards;
+    animation-delay:1.9s;
 }
 
-/* ANIMACIÓN SOLO DEL GRUPO */
-.mask-group{
-    transform-box: fill-box;
-    transform-origin:center;
+/* animación tipo cortinilla */
+@keyframes introSlide{
+    to{
+        transform:translateX(-180%);
+    }
 }
 
-.play .mask-group{
-    animation: slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
+.play .intro-title,
+.play .intro-subtitle{
+    animation: introSlide 1.3s cubic-bezier(.76,0,.24,1) forwards;
     animation-delay:2s;
 }
 
-@keyframes slideLeft{
-    to { transform: translateX(-180%); }
+/* fade control */
+@keyframes introFade{
+    to { opacity:1; }
+}
+
+/* salida intro */
+.hide-intro{
+    opacity:0 !important;
+    pointer-events:none;
 }
 
 /* ===================== */
@@ -119,7 +128,7 @@ text.small{
 
     opacity:0;
     animation:fadeInHeader 0.5s ease forwards;
-    animation-delay:3.3s;
+    animation-delay:3.2s;
 }
 
 @keyframes fadeInHeader{
@@ -149,7 +158,7 @@ text.small{
 }
 
 /* ===================== */
-/* OVERLAY */
+/* OVERLAY MENU */
 /* ===================== */
 .cinema-overlay{
     position:fixed;
@@ -158,7 +167,6 @@ text.small{
 
     opacity:0;
     pointer-events:none;
-
     transition:opacity 0.5s ease;
 }
 
@@ -198,7 +206,6 @@ text.small{
     text-decoration:none;
     font-size:18px;
     letter-spacing:2px;
-
     opacity:0;
     transform:translateY(10px);
     transition:all 0.4s ease;
@@ -209,12 +216,6 @@ text.small{
     transform:translateY(0);
 }
 
-.cinema-overlay.active .cinema-links a:nth-child(1){ transition-delay:0.1s; }
-.cinema-overlay.active .cinema-links a:nth-child(2){ transition-delay:0.15s; }
-.cinema-overlay.active .cinema-links a:nth-child(3){ transition-delay:0.2s; }
-.cinema-overlay.active .cinema-links a:nth-child(4){ transition-delay:0.25s; }
-.cinema-overlay.active .cinema-links a:nth-child(5){ transition-delay:0.3s; }
-
 </style>
 </head>
 
@@ -222,7 +223,7 @@ text.small{
 
 <!-- HEADER -->
 <header class="header">
-    <div class="brand">GARABATO CINE</div>
+    <div class="brand" id="restartIntro">GARABATO CINE</div>
 
     <div class="hamburger" id="hambBtn">
         <span></span>
@@ -253,24 +254,15 @@ text.small{
     </video>
 </div>
 
-<!-- INTRO (FIX DEFINITIVO SIN MÁSCARA PROBLEMÁTICA) -->
+<!-- INTRO -->
 <div id="intro">
-    <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid meet">
-
-        <!-- fondo blanco estable -->
-        <rect width="100%" height="100%" fill="white"/>
-
-        <g class="mask-group" id="logoGroup">
-            <text x="700" y="240" text-anchor="middle" class="big">GARABATO CINE</text>
-            <text x="700" y="285" text-anchor="middle" class="small">COLOMBIA</text>
-        </g>
-
-    </svg>
+    <div class="intro-title">GARABATO CINE</div>
+    <div class="intro-subtitle">COLOMBIA</div>
 </div>
 
 <script>
 
-/* INTRO */
+/* INTRO CONTROL */
 window.addEventListener("load", ()=>{
 
     document.body.classList.add("play");
@@ -278,19 +270,23 @@ window.addEventListener("load", ()=>{
     const intro = document.getElementById("intro");
 
     setTimeout(()=>{
-
-        intro.style.opacity = "0";
+        intro.classList.add("hide-intro");
 
         setTimeout(()=>{
-            intro.style.display = "none";
+            intro.style.display="none";
         },120);
 
     },3250);
 });
 
+/* REINICIAR INTRO */
+document.getElementById("restartIntro").addEventListener("click", ()=>{
+    location.reload();
+});
+
 /* MENU */
-const btn = document.getElementById("hambBtn");
 const menu = document.getElementById("cinemaMenu");
+const btn = document.getElementById("hambBtn");
 
 btn.addEventListener("click", ()=>{
     menu.classList.toggle("active");
