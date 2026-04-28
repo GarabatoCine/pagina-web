@@ -19,7 +19,9 @@ html, body{
     overflow:hidden;
 }
 
+/* ===================== */
 /* VIDEO */
+/* ===================== */
 .video{
     position:fixed;
     inset:0;
@@ -32,160 +34,62 @@ html, body{
     object-fit:cover;
 }
 
-/* HEADER */
-.header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:20;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:25px 40px;
-    color:white;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
-.brand{
-    font-weight:900;
-    font-size:20px;
-    cursor:pointer;
-}
-
-/* HAMBURGER */
-.hamburger{
-    width:28px;
-    height:18px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    cursor:pointer;
-}
-
-.hamburger span{
-    height:2px;
-    background:white;
-    width:100%;
-}
-
-/* OVERLAY (tu menú, intacto) */
-.cinema-overlay{
-    position:fixed;
-    inset:0;
-    z-index:100;
-    opacity:0;
-    pointer-events:none;
-    transition:opacity 0.5s ease;
-}
-
-.cinema-overlay.active{
-    opacity:1;
-    pointer-events:auto;
-}
-
-.cinema-backdrop{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.75);
-    backdrop-filter:blur(14px);
-}
-
-.cinema-content{
-    position:relative;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.cinema-links{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-    text-align:center;
-    font-family:Arial;
-    text-transform:uppercase;
-}
-
-.cinema-links a{
-    color:white;
-    text-decoration:none;
-    font-size:18px;
-    letter-spacing:2px;
-    opacity:0;
-    transform:translateY(10px);
-    transition:0.4s ease;
-}
-
-.cinema-overlay.active .cinema-links a{
-    opacity:1;
-    transform:translateY(0);
-}
-
 /* ===================== */
-/* 🎬 INTRO (LA CORTINILLA QUE TE FALTA) */
+/* INTRO */
 /* ===================== */
 #intro{
     position:fixed;
     inset:0;
-    z-index:50;
+    z-index:1000;
     background:#fff;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    overflow:hidden;
 }
 
-/* TEXTO GRANDE */
-.intro-title{
+/* SVG FULLSCREEN (SOLUCIONA TABLET + BORDES) */
+svg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    display:block;
+}
+
+/* TEXTO GRANDE (TAMAÑO REAL QUE NECESITAS) */
+.big{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:900;
-    font-size: clamp(48px, 8vw, 110px);
-
-    color:#000;
-
-    opacity:0;
-    animation:fadeIn 0.4s ease forwards;
-    animation-delay:1.2s;
+    font-size: clamp(80px, 10vw, 160px);
 }
 
-/* SUBTITULO */
-.intro-subtitle{
+.small{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:700;
-    font-size: clamp(12px, 2vw, 16px);
-    letter-spacing:2px;
-
-    color:#000;
-
-    opacity:0;
-    animation:fadeIn 0.4s ease forwards;
-    animation-delay:1.4s;
+    font-size: clamp(14px, 2vw, 18px);
+    letter-spacing:3px;
 }
 
-@keyframes fadeIn{
-    to{ opacity:1; }
+/* ANIMACIÓN */
+.mask-group{
+    transform-box: fill-box;
+    transform-origin: center;
 }
 
-/* 🔥 SALIDA HACIA LA IZQUIERDA */
-.play .intro-title,
-.play .intro-subtitle{
+.play .mask-group{
     animation:slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
     animation-delay:2s;
 }
 
+/* 🔥 IZQUIERDA */
 @keyframes slideLeft{
     to{
         transform:translateX(-120vw);
     }
 }
 
-/* ocultar cortina */
-.hide{
+/* DESAPARICIÓN BLANCO */
+.fadeOut{
     opacity:0;
-    pointer-events:none;
     transition:opacity 0.1s linear;
 }
 
@@ -194,32 +98,6 @@ html, body{
 
 <body>
 
-<!-- HEADER -->
-<header class="header">
-    <div class="brand">GARABATO CINE</div>
-
-    <div class="hamburger" id="hambBtn">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</header>
-
-<!-- OVERLAY -->
-<div class="cinema-overlay" id="cinemaMenu">
-    <div class="cinema-backdrop"></div>
-
-    <div class="cinema-content">
-        <div class="cinema-links">
-            <a href="#">CATÁLOGO</a>
-            <a href="#">NOSOTROS</a>
-            <a href="#">PRÓXIMAMENTE</a>
-            <a href="#">CONTACTO</a>
-            <a href="#">INSTAGRAM</a>
-        </div>
-    </div>
-</div>
-
 <!-- VIDEO -->
 <div class="video">
     <video autoplay muted loop playsinline>
@@ -227,56 +105,62 @@ html, body{
     </video>
 </div>
 
-<!-- 🎬 INTRO -->
+<!-- INTRO -->
 <div id="intro">
-    <div class="intro-title">GARABATO CINE</div>
-    <div class="intro-subtitle">COLOMBIA</div>
+    <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice">
+
+        <defs>
+            <mask id="mask">
+                <rect width="100%" height="100%" fill="white"/>
+
+                <g class="mask-group">
+                    <!-- TEXTO TRANSPARENTE -->
+                    <text x="50%" y="50%" text-anchor="middle" dy="-10" class="big">
+                        GARABATO CINE
+                    </text>
+
+                    <text x="50%" y="58%" text-anchor="middle" class="small">
+                        COLOMBIA
+                    </text>
+                </g>
+            </mask>
+        </defs>
+
+        <!-- BLANCO CON HUECOS (TRANSPARENCIA REAL) -->
+        <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+
+    </svg>
 </div>
 
 <script>
 
-/* MENU (igual que el tuyo) */
-window.addEventListener("DOMContentLoaded", () => {
-
-    const btn = document.getElementById("hambBtn");
-    const menu = document.getElementById("cinemaMenu");
-
-    const sound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-fast-swoosh-transition-1497.mp3");
-    sound.volume = 0.2;
-
-    let open = false;
-
-    btn.addEventListener("click", () => {
-
-        open = !open;
-
-        if(open){
-            menu.classList.add("active");
-            sound.currentTime = 0;
-            sound.play().catch(()=>{});
-        } else {
-            menu.classList.remove("active");
-        }
-
-    });
-});
-
-/* 🎬 INTRO FUNCIONANDO */
-window.addEventListener("DOMContentLoaded", ()=>{
-
-    document.body.classList.add("play");
+/* 🎬 INTRO DEFINITIVA */
+function startIntro(){
 
     const intro = document.getElementById("intro");
 
+    // RESET
+    intro.style.display = "block";
+    intro.style.opacity = "1";
+    document.body.classList.remove("play");
+
     setTimeout(()=>{
-        intro.classList.add("hide");
+        document.body.classList.add("play");
+    },50);
+
+    /* TIMING EXACTO */
+    setTimeout(()=>{
+        intro.classList.add("fadeOut");
 
         setTimeout(()=>{
-            intro.style.display="none";
+            intro.style.display = "none";
+            intro.classList.remove("fadeOut");
         },120);
 
     },3200);
-});
+}
+
+window.addEventListener("load", startIntro);
 
 </script>
 
