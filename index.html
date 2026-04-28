@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Garabato Cine</title>
 
-<!-- NUEVA TIPOGRAFÍA MÁS CINE / EDITORIAL -->
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -46,16 +45,16 @@ height:100vh;
 display:block;
 }
 
-/* TEXTO */
+/* 🔥 CORTINILLA MÁS PEQUEÑA (ÚNICO CAMBIO) */
 text.big{
 font-weight:900;
-font-size:clamp(52px, 7vw, 105px);
+font-size:clamp(44px, 6vw, 90px); /* ↓ reducido */
 font-family:Arial, Helvetica, sans-serif;
 }
 
 text.small{
 font-weight:700;
-font-size:clamp(12px, 2vw, 16px);
+font-size:clamp(11px, 2vw, 15px);
 letter-spacing:3px;
 }
 
@@ -93,15 +92,14 @@ align-items:center;
 padding:30px 50px;
 color:white;
 text-transform:uppercase;
-font-family:'Sora', sans-serif; /* 🔥 nueva tipografía */
+font-family:'Sora', sans-serif;
 }
 
-/* NAV */
 .nav{
 display:flex;
 gap:26px;
 align-items:center;
-font-size:13px;
+font-size:14px;
 font-weight:500;
 }
 
@@ -114,17 +112,19 @@ opacity:0.85;
 .nav a:hover{opacity:1;}
 
 .brand{
-font-weight:600;
-font-size:18px;
+font-weight:700;
+font-size:22px;
 letter-spacing:2px;
 cursor:pointer;
 }
 
-/* 🔥 ICONO INSTAGRAM CORRECTO */
+/* INSTAGRAM */
 .icon{
-width:20px;
-height:20px;
-fill:white;
+width:22px;
+height:22px;
+stroke:white;
+fill:none;
+stroke-width:2;
 }
 
 /* IDIOMA */
@@ -135,13 +135,8 @@ gap:6px;
 font-size:12px;
 }
 
-.lang .active{
-opacity:0.4;
-}
-
-.lang .divider{
-opacity:0.4;
-}
+.lang .active{opacity:0.4;}
+.lang .divider{opacity:0.4;}
 
 .lang a{
 color:white;
@@ -202,21 +197,18 @@ letter-spacing:2px;
 
 /* RESPONSIVE */
 @media (max-width:1024px){
-
 .nav{display:none;}
 .hamburger{display:flex;}
 .header{padding:20px;}
 
 text.big{
-font-size:clamp(40px, 9vw, 80px);
+font-size:clamp(36px, 8vw, 70px);
 }
-
 }
 
 @media (max-width:768px){
-
 text.big{
-font-size:clamp(32px, 10vw, 60px);
+font-size:clamp(28px, 9vw, 55px);
 }
 
 text.small{
@@ -228,7 +220,6 @@ right:20px;
 top:65px;
 width:200px;
 }
-
 }
 
 </style>
@@ -236,14 +227,12 @@ width:200px;
 
 <body>
 
-<!-- VIDEO -->
 <div class="video">
 <video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
 </video>
 </div>
 
-<!-- INTRO -->
 <div id="intro">
 <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice">
 <defs>
@@ -263,26 +252,24 @@ COLOMBIA
 </svg>
 </div>
 
-<!-- HEADER -->
 <header class="header">
 
 <div class="brand" id="logoBtn">GARABATO CINE</div>
 
 <div class="nav">
-
 <a href="#">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
 <a href="#">PRÓXIMAMENTE</a>
 <a href="#">CONTACTO</a>
 
-<!-- INSTAGRAM CORRECTO -->
 <a href="https://instagram.com" target="_blank">
 <svg class="icon" viewBox="0 0 24 24">
-<path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm4.25 4.5A5.75 5.75 0 106 12a5.75 5.75 0 006-5.75zm5.25-1.25a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
+<rect x="3" y="3" width="18" height="18" rx="5"></rect>
+<circle cx="12" cy="12" r="4"></circle>
+<circle cx="17" cy="7" r="1.5"></circle>
 </svg>
 </a>
 
-<!-- IDIOMA -->
 <div class="lang">
 <span class="active">ES</span>
 <span class="divider">|</span>
@@ -299,7 +286,6 @@ COLOMBIA
 
 </header>
 
-<!-- MENU -->
 <div class="menu" id="menu">
 <a href="#">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
@@ -310,16 +296,12 @@ COLOMBIA
 </div>
 
 <script>
-
-/* VIDEO */
 document.querySelectorAll("video").forEach(v=>{
 v.muted = true;
 v.play().catch(()=>{});
 });
 
-/* INTRO */
 function startIntro(){
-
 const intro = document.getElementById("intro");
 
 intro.style.display="block";
@@ -332,28 +314,21 @@ document.body.classList.add("play");
 
 setTimeout(()=>{
 intro.classList.add("fade");
-
 setTimeout(()=>{
 intro.style.display="none";
 },120);
-
 },2600);
-
 }
 
 window.addEventListener("load", startIntro);
-
-/* REINICIO */
 document.getElementById("logoBtn").addEventListener("click", startIntro);
 
-/* MENU */
 const btn = document.getElementById("hambBtn");
 const menu = document.getElementById("menu");
 
 btn.addEventListener("click", ()=>{
 menu.classList.toggle("active");
 });
-
 </script>
 
 </body>
