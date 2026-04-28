@@ -20,7 +20,7 @@ html, body{
 }
 
 /* ===================== */
-/* VIDEO DUAL */
+/* VIDEO */
 /* ===================== */
 .video{
     position:fixed;
@@ -29,17 +29,9 @@ html, body{
 }
 
 .video video{
-    position:absolute;
     width:100%;
     height:100%;
     object-fit:cover;
-}
-
-.video-mobile{ display:none; }
-
-@media (max-width:768px){
-    .video-desktop{ display:none; }
-    .video-mobile{ display:block; }
 }
 
 /* ===================== */
@@ -89,16 +81,8 @@ text.small{
     to { transform: translateX(-200%); }
 }
 
-/* rect cover FIX */
-#intro rect{
-    x:-5;
-    y:-5;
-    width:1410;
-    height:510;
-}
-
 /* ===================== */
-/* HEADER */
+/* HEADER MINIMAL (SOLO LOGO + HAMBURGER) */
 /* ===================== */
 .header{
     position:fixed;
@@ -133,34 +117,9 @@ text.small{
     cursor:pointer;
 }
 
-.nav{
-    display:flex;
-    gap:25px;
-    align-items:center;
-    font-size:13px;
-    font-weight:700;
-}
-
-.nav a{
-    color:white;
-    text-decoration:none;
-    opacity:0.8;
-}
-
-.nav a:hover{
-    opacity:1;
-}
-
-/* instagram */
-.icon{
-    width:18px;
-    height:18px;
-    fill:white;
-}
-
-/* hamburger */
+/* HAMBURGER SIEMPRE VISIBLE */
 .hamburger{
-    display:none;
+    display:flex;
     flex-direction:column;
     justify-content:space-between;
     width:26px;
@@ -175,7 +134,7 @@ text.small{
 }
 
 /* ===================== */
-/* CINEMA OVERLAY MENU */
+/* OVERLAY MENU CINEMATOGRÁFICO */
 /* ===================== */
 .cinema-overlay{
     position:fixed;
@@ -210,10 +169,10 @@ text.small{
     display:flex;
     flex-direction:column;
     gap:25px;
-    text-align:center;
 
     font-family: Arial, Helvetica, sans-serif;
     text-transform:uppercase;
+    text-align:center;
 }
 
 .cinema-links a{
@@ -243,10 +202,17 @@ text.small{
 .cinema-overlay.active .cinema-links a:nth-child(4){ transition-delay:0.25s; }
 .cinema-overlay.active .cinema-links a:nth-child(5){ transition-delay:0.3s; }
 
-/* MOBILE */
+/* ===================== */
+/* RESPONSIVE (todo sigue hamburguesa igual) */
+/* ===================== */
 @media (max-width:768px){
-    .nav{ display:none; }
-    .hamburger{ display:flex; }
+    .header{
+        padding:20px;
+    }
+
+    .brand{
+        font-size:18px;
+    }
 }
 </style>
 </head>
@@ -256,19 +222,7 @@ text.small{
 <!-- HEADER -->
 <header class="header">
 
-    <div class="brand" id="restartIntro">GARABATO CINE</div>
-
-    <div class="nav">
-        <a href="#">CATÁLOGO</a>
-        <a href="#">NOSOTROS</a>
-        <a href="#">PRÓXIMAMENTE</a>
-
-        <a href="https://instagram.com" target="_blank">
-            <svg class="icon" viewBox="0 0 24 24">
-                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 2H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm-5 3.5A4.5 4.5 0 1112 16a4.5 4.5 0 010-9z"/>
-            </svg>
-        </a>
-    </div>
+    <div class="brand">GARABATO CINE</div>
 
     <div class="hamburger" id="hambBtn">
         <span></span>
@@ -278,7 +232,7 @@ text.small{
 
 </header>
 
-<!-- CINEMA MENU -->
+<!-- OVERLAY MENU -->
 <div class="cinema-overlay" id="cinemaMenu">
     <div class="cinema-backdrop"></div>
 
@@ -295,12 +249,8 @@ text.small{
 
 <!-- VIDEO -->
 <div class="video">
-    <video class="video-desktop" autoplay muted loop playsinline>
+    <video autoplay muted loop playsinline>
         <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
-    </video>
-
-    <video class="video-mobile" autoplay muted loop playsinline>
-        <source src="video-vertical.mp4">
     </video>
 </div>
 
@@ -341,32 +291,7 @@ window.addEventListener("load", ()=>{
     },3250);
 });
 
-/* RESTART INTRO */
-document.getElementById("restartIntro").addEventListener("click", ()=>{
-
-    const intro = document.getElementById("intro");
-
-    intro.style.display = "block";
-    intro.style.opacity = "1";
-
-    document.body.classList.remove("play");
-
-    const logo = document.getElementById("logoGroup");
-    logo.style.animation = "none";
-    void logo.offsetWidth;
-    logo.style.animation = "";
-
-    setTimeout(()=>{
-        document.body.classList.add("play");
-    },50);
-
-    setTimeout(()=>{
-        intro.style.opacity="0";
-        setTimeout(()=> intro.style.display="none",120);
-    },3250);
-});
-
-/* HAMB + MENU CINEMA */
+/* HAMBURGER MENU */
 const btn = document.getElementById("hambBtn");
 const menu = document.getElementById("cinemaMenu");
 
