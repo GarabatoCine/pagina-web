@@ -7,90 +7,77 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html, body{
-    width:100%;
-    height:100%;
-    background:#000;
-    overflow:hidden;
+width:100%;
+height:100%;
+background:#000;
+overflow:hidden;
+font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ===================== */
 /* VIDEO */
-/* ===================== */
 .video{
-    position:fixed;
-    inset:0;
-    z-index:0;
+position:fixed;
+inset:0;
+z-index:0;
 }
 
 .video video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
-/* ===================== */
 /* INTRO */
-/* ===================== */
 #intro{
-    position:fixed;
-    inset:0;
-    z-index:1000;
-    background:#fff;
-    overflow:hidden;
+position:fixed;
+inset:0;
+z-index:10;
+background:white;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+overflow:hidden;
 }
 
-/* SVG FULLSCREEN (SOLUCIONA TABLET + BORDES) */
-svg{
-    position:absolute;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    display:block;
+/* TEXTO GRANDE */
+.intro-title{
+font-weight:900;
+font-size: clamp(60px, 8vw, 120px);
+color:black;
+
+/* 🔥 EFECTO “FALSO TRANSPARENTE” */
+mix-blend-mode: multiply;
 }
 
-/* TEXTO GRANDE (TAMAÑO REAL QUE NECESITAS) */
-.big{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight:900;
-    font-size: clamp(80px, 10vw, 160px);
+.intro-sub{
+font-weight:700;
+font-size: clamp(12px, 2vw, 16px);
+letter-spacing:3px;
+margin-top:10px;
 }
 
-.small{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight:700;
-    font-size: clamp(14px, 2vw, 18px);
-    letter-spacing:3px;
+/* ANIMACIÓN IZQUIERDA */
+.move{
+animation: slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
 }
 
-/* ANIMACIÓN */
-.mask-group{
-    transform-box: fill-box;
-    transform-origin: center;
-}
-
-.play .mask-group{
-    animation:slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
-    animation-delay:2s;
-}
-
-/* 🔥 IZQUIERDA */
 @keyframes slideLeft{
-    to{
-        transform:translateX(-120vw);
-    }
+to{
+transform:translateX(-120vw);
+}
 }
 
-/* DESAPARICIÓN BLANCO */
-.fadeOut{
-    opacity:0;
-    transition:opacity 0.1s linear;
+/* DESAPARECER */
+.fade{
+opacity:0;
+transition:opacity 0.1s linear;
 }
 
 </style>
@@ -100,64 +87,42 @@ svg{
 
 <!-- VIDEO -->
 <div class="video">
-    <video autoplay muted loop playsinline>
-        <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
-    </video>
+<video autoplay muted loop playsinline>
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
+</video>
 </div>
 
 <!-- INTRO -->
 <div id="intro">
-    <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice">
-
-        <defs>
-            <mask id="mask">
-                <rect width="100%" height="100%" fill="white"/>
-
-                <g class="mask-group">
-                    <!-- TEXTO TRANSPARENTE -->
-                    <text x="50%" y="50%" text-anchor="middle" dy="-10" class="big">
-                        GARABATO CINE
-                    </text>
-
-                    <text x="50%" y="58%" text-anchor="middle" class="small">
-                        COLOMBIA
-                    </text>
-                </g>
-            </mask>
-        </defs>
-
-        <!-- BLANCO CON HUECOS (TRANSPARENCIA REAL) -->
-        <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
-
-    </svg>
+<div class="intro-title">GARABATO CINE</div>
+<div class="intro-sub">COLOMBIA</div>
 </div>
 
 <script>
 
-/* 🎬 INTRO DEFINITIVA */
+/* INTRO ROBUSTA */
 function startIntro(){
 
-    const intro = document.getElementById("intro");
+const intro = document.getElementById("intro");
+const title = document.querySelector(".intro-title");
+const sub = document.querySelector(".intro-sub");
 
-    // RESET
-    intro.style.display = "block";
-    intro.style.opacity = "1";
-    document.body.classList.remove("play");
+/* TIEMPO DE ESPERA */
+setTimeout(()=>{
+title.classList.add("move");
+sub.classList.add("move");
+},2000);
 
-    setTimeout(()=>{
-        document.body.classList.add("play");
-    },50);
+/* DESAPARECER */
+setTimeout(()=>{
+intro.classList.add("fade");
 
-    /* TIMING EXACTO */
-    setTimeout(()=>{
-        intro.classList.add("fadeOut");
+setTimeout(()=>{
+intro.style.display="none";
+},120);
 
-        setTimeout(()=>{
-            intro.style.display = "none";
-            intro.classList.remove("fadeOut");
-        },120);
+},3200);
 
-    },3200);
 }
 
 window.addEventListener("load", startIntro);
