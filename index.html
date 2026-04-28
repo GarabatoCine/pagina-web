@@ -20,7 +20,9 @@ overflow:hidden;
 font-family: Arial, Helvetica, sans-serif;
 }
 
-/* VIDEO */
+/* ===================== */
+/* VIDEO FONDO */
+/* ===================== */
 .video{
 position:fixed;
 inset:0;
@@ -33,12 +35,14 @@ height:100%;
 object-fit:cover;
 }
 
+/* ===================== */
 /* INTRO */
+/* ===================== */
 #intro{
 position:fixed;
 inset:0;
 z-index:10;
-background:white;
+background:#fff;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -46,16 +50,26 @@ flex-direction:column;
 overflow:hidden;
 }
 
-/* TEXTO GRANDE */
+/* ===================== */
+/* TEXTO TRANSPARENTE REAL */
+/* ===================== */
 .intro-title{
 font-weight:900;
-font-size: clamp(60px, 8vw, 120px);
-color:black;
+font-size: clamp(70px, 9vw, 140px);
 
-/* 🔥 EFECTO “FALSO TRANSPARENTE” */
-mix-blend-mode: multiply;
+/* 🔥 VIDEO DENTRO DEL TEXTO */
+background: url("https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4");
+background-size: cover;
+background-position: center;
+
+-webkit-background-clip: text;
+background-clip: text;
+
+color: transparent;
+-webkit-text-fill-color: transparent;
 }
 
+/* SUB */
 .intro-sub{
 font-weight:700;
 font-size: clamp(12px, 2vw, 16px);
@@ -63,7 +77,9 @@ letter-spacing:3px;
 margin-top:10px;
 }
 
-/* ANIMACIÓN IZQUIERDA */
+/* ===================== */
+/* ANIMACIÓN */
+/* ===================== */
 .move{
 animation: slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
 }
@@ -100,18 +116,17 @@ transition:opacity 0.1s linear;
 
 <script>
 
-/* INTRO ROBUSTA */
 function startIntro(){
 
 const intro = document.getElementById("intro");
 const title = document.querySelector(".intro-title");
 const sub = document.querySelector(".intro-sub");
 
-/* TIEMPO DE ESPERA */
+/* 🔥 EMPIEZA 1 SEGUNDO ANTES (ANTES ERA 2000) */
 setTimeout(()=>{
 title.classList.add("move");
 sub.classList.add("move");
-},2000);
+},1000);
 
 /* DESAPARECER */
 setTimeout(()=>{
@@ -121,7 +136,7 @@ setTimeout(()=>{
 intro.style.display="none";
 },120);
 
-},3200);
+},3000);
 
 }
 
