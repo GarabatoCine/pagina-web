@@ -19,9 +19,7 @@ html, body{
     overflow:hidden;
 }
 
-/* ===================== */
 /* VIDEO */
-/* ===================== */
 .video{
     position:fixed;
     inset:0;
@@ -34,9 +32,7 @@ html, body{
     object-fit:cover;
 }
 
-/* ===================== */
 /* HEADER */
-/* ===================== */
 .header{
     position:fixed;
     top:0;
@@ -75,9 +71,7 @@ html, body{
     width:100%;
 }
 
-/* ===================== */
 /* OVERLAY */
-/* ===================== */
 .cinema-overlay{
     position:fixed;
     inset:0;
@@ -94,6 +88,7 @@ html, body{
     pointer-events:auto;
 }
 
+/* BACKDROP BLUR */
 .cinema-backdrop{
     position:absolute;
     inset:0;
@@ -101,6 +96,7 @@ html, body{
     backdrop-filter:blur(14px);
 }
 
+/* CONTENT */
 .cinema-content{
     position:relative;
     height:100%;
@@ -134,61 +130,57 @@ html, body{
     transform:translateY(0);
 }
 
+.cinema-overlay.active .cinema-links a:nth-child(1){transition-delay:0.1s;}
+.cinema-overlay.active .cinema-links a:nth-child(2){transition-delay:0.15s;}
+.cinema-overlay.active .cinema-links a:nth-child(3){transition-delay:0.2s;}
+.cinema-overlay.active .cinema-links a:nth-child(4){transition-delay:0.25s;}
+.cinema-overlay.active .cinema-links a:nth-child(5){transition-delay:0.3s;}
+
 /* ===================== */
-/* INTRO (TU VERSIÓN RESTAURADA) */
+/* 🔥 INTRO AGREGADA SIN ROMPER TU BASE */
 /* ===================== */
 #intro{
     position:fixed;
     inset:0;
     z-index:50;
-    background:#fff;
+    background:white;
 
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-
-    transition:opacity 0.05s linear;
 }
 
 .intro-title{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     font-weight:900;
 
     font-size: clamp(44px, 7vw, 92px);
-    color:#000;
+    color:black;
 
     opacity:0;
     animation:fadeIn 0.4s ease forwards;
     animation-delay:1.5s;
-
-    mix-blend-mode:multiply;
 }
 
 .intro-subtitle{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     font-weight:700;
 
     font-size: clamp(12px, 2vw, 16px);
     letter-spacing:2px;
-
-    color:#000;
+    color:black;
 
     opacity:0;
     animation:fadeIn 0.4s ease forwards;
     animation-delay:1.7s;
-
-    mix-blend-mode:multiply;
 }
 
-/* entrada */
 @keyframes fadeIn{
     to{ opacity:1; }
 }
 
-/* ===================== */
-/* 🔥 CAMBIO ÚNICO: SALIDA HACIA LA IZQUIERDA */
-/* ===================== */
+/* 🔥 CAMBIO IMPORTANTE: salida hacia la IZQUIERDA */
 .play .intro-title,
 .play .intro-subtitle{
     animation:slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
@@ -253,6 +245,33 @@ html, body{
 
 <script>
 
+/* MENU (TU CÓDIGO ORIGINAL INTACTO) */
+window.addEventListener("DOMContentLoaded", () => {
+
+    const btn = document.getElementById("hambBtn");
+    const menu = document.getElementById("cinemaMenu");
+
+    const sound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-fast-swoosh-transition-1497.mp3");
+    sound.volume = 0.2;
+
+    let open = false;
+
+    btn.addEventListener("click", () => {
+
+        open = !open;
+
+        if(open){
+            menu.classList.add("active");
+            sound.currentTime = 0;
+            sound.play().catch(()=>{});
+        } else {
+            menu.classList.remove("active");
+        }
+
+    });
+});
+
+/* INTRO START */
 window.addEventListener("DOMContentLoaded", ()=>{
 
     document.body.classList.add("play");
@@ -268,29 +287,6 @@ window.addEventListener("DOMContentLoaded", ()=>{
         },120);
 
     },3200);
-});
-
-/* MENU */
-const btn = document.getElementById("hambBtn");
-const menu = document.getElementById("cinemaMenu");
-
-const sound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-fast-swoosh-transition-1497.mp3");
-sound.volume = 0.2;
-
-let open = false;
-
-btn.addEventListener("click", ()=>{
-
-    open = !open;
-
-    if(open){
-        menu.classList.add("active");
-        sound.currentTime = 0;
-        sound.play().catch(()=>{});
-    } else {
-        menu.classList.remove("active");
-    }
-
 });
 
 </script>
