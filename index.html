@@ -6,19 +6,17 @@
 <title>Garabato Cine</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 html, body{
 width:100%;
 height:100%;
 background:#000;
 overflow:hidden;
+font-family:Arial, Helvetica, sans-serif;
 }
 
+/* VIDEO */
 .video{
 position:fixed;
 inset:0;
@@ -31,6 +29,7 @@ height:100%;
 object-fit:cover;
 }
 
+/* INTRO */
 #intro{
 position:fixed;
 inset:0;
@@ -44,15 +43,16 @@ height:100vh;
 display:block;
 }
 
+/* TEXTO */
 text.big{
 font-weight:900;
-font-size:clamp(80px, 10vw, 150px);
+font-size:clamp(60px, 8vw, 120px);
 font-family:Arial, Helvetica, sans-serif;
 }
 
 text.small{
 font-weight:700;
-font-size:clamp(14px, 2vw, 18px);
+font-size:clamp(12px, 2vw, 16px);
 letter-spacing:3px;
 }
 
@@ -68,15 +68,142 @@ animation-delay:1s;
 }
 
 @keyframes slideLeft{
-to{
-transform:translateX(-130vw);
-}
+to{transform:translateX(-130vw);}
 }
 
-/* OCULTAR */
+/* FADE */
 .fade{
 opacity:0;
 transition:opacity 0.1s linear;
+}
+
+/* HEADER */
+.header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:200;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:30px 50px;
+color:white;
+text-transform:uppercase;
+}
+
+.brand{
+font-weight:900;
+font-size:20px;
+letter-spacing:2px;
+cursor:pointer;
+}
+
+/* NAV PC */
+.nav{
+display:flex;
+gap:25px;
+align-items:center;
+font-size:12px;
+font-weight:700;
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+opacity:0.8;
+}
+
+.nav a:hover{opacity:1;}
+
+/* ICON */
+.icon{
+width:18px;
+height:18px;
+fill:white;
+}
+
+/* HAMBURGER */
+.hamburger{
+display:none;
+width:28px;
+height:18px;
+flex-direction:column;
+justify-content:space-between;
+cursor:pointer;
+}
+
+.hamburger span{
+height:2px;
+background:white;
+width:100%;
+}
+
+/* 🔥 MENU DROPDOWN PEQUEÑO */
+.menu{
+position:fixed;
+top:70px;
+right:30px;
+width:220px;
+background:rgba(0,0,0,0.95);
+backdrop-filter:blur(12px);
+border-radius:10px;
+padding:15px 20px;
+
+display:flex;
+flex-direction:column;
+gap:12px;
+
+opacity:0;
+transform:translateY(-10px);
+pointer-events:none;
+transition:0.3s ease;
+
+z-index:150;
+}
+
+.menu.active{
+opacity:1;
+transform:translateY(0);
+pointer-events:auto;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-size:14px;
+letter-spacing:2px;
+}
+
+/* RESPONSIVE */
+@media (max-width:1024px){
+
+.nav{display:none;}
+.hamburger{display:flex;}
+.header{padding:20px;}
+
+text.big{
+font-size:clamp(40px, 9vw, 80px);
+}
+
+}
+
+@media (max-width:768px){
+
+text.big{
+font-size:clamp(32px, 10vw, 60px);
+}
+
+text.small{
+font-size:clamp(10px, 3vw, 14px);
+}
+
+.menu{
+right:20px;
+top:65px;
+width:200px;
+}
+
 }
 
 </style>
@@ -84,40 +211,78 @@ transition:opacity 0.1s linear;
 
 <body>
 
+<!-- VIDEO -->
 <div class="video">
 <video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
 </video>
 </div>
 
+<!-- INTRO -->
 <div id="intro">
 <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice">
-
 <defs>
 <mask id="mask">
 <rect width="100%" height="100%" fill="white"/>
-
 <g class="mask-group">
-<text x="50%" y="50%" text-anchor="middle" dy="-20" class="big">
-GARABATO CINE
-</text>
-<text x="50%" y="60%" text-anchor="middle" class="small">
-COLOMBIA
-</text>
+<text x="50%" y="50%" text-anchor="middle" dy="-10" class="big">GARABATO CINE</text>
+<text x="50%" y="60%" text-anchor="middle" class="small">COLOMBIA</text>
 </g>
-
 </mask>
 </defs>
-
 <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
-
 </svg>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+
+<div class="brand" id="logoBtn">GARABATO CINE</div>
+
+<div class="nav">
+<a href="#">CATÁLOGO</a>
+<a href="#">NOSOTROS</a>
+<a href="#">PRÓXIMAMENTE</a>
+<a href="#">CONTACTO</a>
+
+<a href="#">
+<svg class="icon" viewBox="0 0 24 24">
+<path d="M12 2.163c3.204 0 3.584.012 4.85.07..."/>
+</svg>
+</a>
+
+<a href="#">ES</a>
+<a href="#">EN</a>
+</div>
+
+<div class="hamburger" id="hambBtn">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+</header>
+
+<!-- MENU PEQUEÑO -->
+<div class="menu" id="menu">
+<a href="#">CATÁLOGO</a>
+<a href="#">NOSOTROS</a>
+<a href="#">PRÓXIMAMENTE</a>
+<a href="#">CONTACTO</a>
+<a href="#">INSTAGRAM</a>
+<a href="#">ES / EN</a>
 </div>
 
 <script>
 
-function startIntro(){
+/* VIDEO */
+document.querySelectorAll("video").forEach(v=>{
+v.muted = true;
+v.play().catch(()=>{});
+});
 
+/* INTRO */
+function startIntro(){
 const intro = document.getElementById("intro");
 
 intro.style.display="block";
@@ -136,10 +301,20 @@ intro.style.display="none";
 },120);
 
 },2600);
-
 }
 
 window.addEventListener("load", startIntro);
+
+/* REINICIO */
+document.getElementById("logoBtn").addEventListener("click", startIntro);
+
+/* MENU */
+const btn = document.getElementById("hambBtn");
+const menu = document.getElementById("menu");
+
+btn.addEventListener("click", ()=>{
+menu.classList.toggle("active");
+});
 
 </script>
 
