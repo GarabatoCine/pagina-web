@@ -37,19 +37,13 @@ html, body{
 /* ===================== */
 /* INTRO */
 /* ===================== */
-#whiteCover{
-    position:fixed;
-    inset:0;
-    background:#fff;
-    z-index:9;
-}
-
 #intro{
     position:fixed;
     inset:0;
     z-index:10;
     opacity:1;
     transition:opacity 0.05s linear;
+    background:transparent;
 }
 
 svg{
@@ -58,12 +52,14 @@ svg{
     display:block;
 }
 
+/* FIX TABLET REAL (sin romper escala) */
 @media (max-width:1024px){
     svg{
         transform:scale(0.98);
     }
 }
 
+/* TEXTO */
 text.big{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:900;
@@ -129,6 +125,7 @@ text.small{
     cursor:pointer;
 }
 
+/* HAMBURGER */
 .hamburger{
     width:28px;
     height:18px;
@@ -145,7 +142,7 @@ text.small{
 }
 
 /* ===================== */
-/* OVERLAY MENU */
+/* OVERLAY */
 /* ===================== */
 .cinema-overlay{
     position:fixed;
@@ -217,9 +214,6 @@ text.small{
 
 <body>
 
-<!-- FIX WHITE COVER -->
-<div id="whiteCover"></div>
-
 <!-- HEADER -->
 <header class="header">
     <div class="brand">GARABATO CINE</div>
@@ -256,11 +250,10 @@ text.small{
 <!-- INTRO -->
 <div id="intro">
     <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
-
         <defs>
             <mask id="mask">
                 <rect width="100%" height="100%" fill="white"/>
-                <g class="mask-group" id="logoGroup">
+                <g class="mask-group">
                     <text x="700" y="240" text-anchor="middle" class="big">GARABATO CINE</text>
                     <text x="700" y="285" text-anchor="middle" class="small">COLOMBIA</text>
                 </g>
@@ -273,19 +266,18 @@ text.small{
 
 <script>
 
+/* INTRO */
 window.addEventListener("load", ()=>{
 
     document.body.classList.add("play");
 
     const intro = document.getElementById("intro");
-    const white = document.getElementById("whiteCover");
 
     setTimeout(()=>{
         intro.style.opacity = "0";
 
         setTimeout(()=>{
             intro.style.display = "none";
-            white.style.display = "none";
         },120);
 
     },3250);
@@ -299,19 +291,21 @@ btn.addEventListener("click", ()=>{
     menu.classList.toggle("active");
 });
 
-/* cerrar overlay */
+/* cerrar clic fuera */
 menu.addEventListener("click", (e)=>{
     if(e.target === menu){
         menu.classList.remove("active");
     }
 });
 
+/* ESC */
 document.addEventListener("keydown", (e)=>{
     if(e.key === "Escape"){
         menu.classList.remove("active");
     }
 });
 
+/* cerrar links */
 document.querySelectorAll(".cinema-links a").forEach(a=>{
     a.addEventListener("click", ()=>{
         menu.classList.remove("active");
