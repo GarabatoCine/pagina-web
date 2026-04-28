@@ -49,12 +49,12 @@ display:block;
 /* TEXTO */
 text.big{
 font-weight:900;
-font-size:clamp(30px, 6vw, 78px);
+font-size:clamp(24px, 5.5vw, 72px);
 }
 
 text.small{
 font-weight:700;
-font-size:clamp(10px, 1.6vw, 14px);
+font-size:clamp(10px, 1.5vw, 14px);
 letter-spacing:3px;
 }
 
@@ -199,7 +199,7 @@ letter-spacing:0.5px;
 .nav{display:none;}
 .hamburger{display:flex;}
 .header{padding:20px;}
-text.big{font-size:clamp(24px, 5vw, 50px);}
+text.big{font-size:clamp(20px, 4.8vw, 55px);}
 }
 
 </style>
@@ -207,25 +207,29 @@ text.big{font-size:clamp(24px, 5vw, 50px);}
 
 <body>
 
+<!-- VIDEO -->
 <div class="video">
-<video id="bgVideo" autoplay muted loop playsinline webkit-playsinline preload="auto">
+<video id="bgVideo" autoplay muted loop playsinline webkit-playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4" type="video/mp4">
 </video>
 </div>
 
+<!-- INTRO -->
 <div id="intro">
 <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice">
 <defs>
 <mask id="mask" style="mask-type:luminance;">
 <rect width="100%" height="100%" fill="white"/>
+
 <g class="mask-group">
-<text x="50%" y="50%" text-anchor="middle" dy="-10" class="big" fill="white">
+<text x="50%" y="50%" text-anchor="middle" class="big" fill="white">
 GARABATO CINE
 </text>
 <text x="50%" y="60%" text-anchor="middle" class="small" fill="white">
 COLOMBIA
 </text>
 </g>
+
 </mask>
 </defs>
 
@@ -233,6 +237,7 @@ COLOMBIA
 </svg>
 </div>
 
+<!-- HEADER -->
 <header class="header">
 <div class="brand" id="logoBtn">GARABATO CINE</div>
 
@@ -263,6 +268,7 @@ COLOMBIA
 </div>
 </header>
 
+<!-- MENU -->
 <div class="menu" id="menu">
 <a href="#">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
@@ -272,17 +278,16 @@ COLOMBIA
 
 <script>
 
+/* 🔥 SIMPLE AUTOPLAY (sin interferencias) */
 const video = document.getElementById("bgVideo");
 
-function startVideo(){
+function playVideo(){
 video.muted = true;
-video.setAttribute("playsinline","");
-video.setAttribute("webkit-playsinline","");
 video.play().catch(()=>{});
 }
 
-window.addEventListener("load", startVideo);
-document.addEventListener("DOMContentLoaded", startVideo);
+window.addEventListener("load", playVideo);
+document.addEventListener("DOMContentLoaded", playVideo);
 
 /* INTRO */
 function startIntro(){
@@ -301,7 +306,7 @@ intro.classList.add("fade");
 
 setTimeout(()=>{
 intro.style.display="none";
-startVideo();
+playVideo();
 },120);
 
 },1600);
