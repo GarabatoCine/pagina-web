@@ -192,7 +192,6 @@ font-size:14px;
 font-weight:600;
 }
 
-/* FIX azul navegador */
 .menu a:visited,
 .menu a:active,
 .menu a:focus{
@@ -212,10 +211,6 @@ font-size:14px;
 font-weight:600;
 letter-spacing:1px;
 opacity:0.9;
-}
-
-.lang-mobile a:active{
-opacity:0.5;
 }
 
 /* RESPONSIVE */
@@ -271,12 +266,10 @@ font-size:26px;
 
 <div class="nav">
 
-<a href="#">CATÁLOGO</a>
-<a href="#">NOSOTROS</a>
-
-<!-- 🔥 CAMBIO -->
+<!-- ✔ SOLO UNO (CORREGIDO) -->
 <a href="catalogo.html">CATÁLOGO</a>
 
+<a href="#">NOSOTROS</a>
 <a href="#">PRÓXIMAMENTE</a>
 <a href="#">CONTACTO</a>
 
@@ -304,12 +297,8 @@ font-size:26px;
 
 <div class="menu" id="menu">
 
-<a href="#">CATÁLOGO</a>
-<a href="#">NOSOTROS</a>
-
-<!-- 🔥 CAMBIO -->
 <a href="catalogo.html">CATÁLOGO</a>
-
+<a href="#">NOSOTROS</a>
 <a href="#">PRÓXIMAMENTE</a>
 <a href="#">CONTACTO</a>
 
@@ -348,11 +337,9 @@ document.body.classList.add("play");
 
 setTimeout(()=>{
 intro.classList.add("fade");
-
 requestAnimationFrame(()=>{
 intro.style.display="none";
 });
-
 },2000);
 
 }
