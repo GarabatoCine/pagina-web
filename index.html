@@ -20,7 +20,7 @@ html, body{
 }
 
 /* ===================== */
-/* VIDEO */
+/* VIDEO DUAL */
 /* ===================== */
 .video{
     position:fixed;
@@ -29,9 +29,20 @@ html, body{
 }
 
 .video video{
+    position:absolute;
     width:100%;
     height:100%;
     object-fit:cover;
+}
+
+/* desktop / mobile switch */
+.video-mobile{
+    display:none;
+}
+
+@media (max-width:768px){
+    .video-desktop{ display:none; }
+    .video-mobile{ display:block; }
 }
 
 /* ===================== */
@@ -51,7 +62,7 @@ svg{
     display:block;
 }
 
-/* TEXTO */
+/* TEXTO ORIGINAL */
 text.big {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 900;
@@ -65,21 +76,14 @@ text.small {
     letter-spacing: 2px;
 }
 
-/* máscara */
 .mask-group{
     transform-box: fill-box;
     transform-origin: center;
 }
 
-.mask-group text{
-    opacity:0;
-}
+.mask-group text{ opacity:0; }
+.play .mask-group text{ opacity:1; }
 
-.play .mask-group text{
-    opacity:1;
-}
-
-/* animación */
 .play .mask-group{
     animation: slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
     animation-delay: 2s;
@@ -115,7 +119,7 @@ text.small {
 }
 
 @keyframes fadeInHeader{
-    to { opacity: 1; }
+    to { opacity:1; }
 }
 
 .brand{
@@ -125,11 +129,12 @@ text.small {
     cursor:pointer;
 }
 
+/* MENÚ MÁS GRANDE */
 .nav{
     display:flex;
     gap:25px;
     align-items:center;
-    font-size:11px;
+    font-size:13px;
     font-weight:700;
 }
 
@@ -143,6 +148,7 @@ text.small {
     opacity:1;
 }
 
+/* ICONO INSTAGRAM */
 .icon{
     width:18px;
     height:18px;
@@ -160,10 +166,53 @@ text.small {
 }
 
 /* ===================== */
-/* TABLET FIX VISUAL */
+/* HAMBURGUESA */
+/* ===================== */
+.hamburger{
+    display:none;
+    flex-direction:column;
+    justify-content:space-between;
+    width:26px;
+    height:18px;
+    cursor:pointer;
+}
+
+.hamburger span{
+    height:2px;
+    background:white;
+    width:100%;
+}
+
+/* MENU MOBILE */
+.mobile-menu{
+    position:fixed;
+    inset:0;
+    background:black;
+    z-index:50;
+
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+
+    font-size:18px;
+    text-transform:uppercase;
+}
+
+.mobile-menu a{
+    color:white;
+    text-decoration:none;
+}
+
+.mobile-menu.active{
+    display:flex;
+}
+
+/* ===================== */
+/* TABLET FIX */
 /* ===================== */
 @media (max-width:1024px){
-
     text.big{
         font-size: clamp(24px, 5vw, 48px);
     }
@@ -172,12 +221,27 @@ text.small {
         font-size: clamp(10px, 2vw, 12px);
     }
 }
+
+/* ===================== */
+/* MOBILE HEADER SWITCH */
+/* ===================== */
+@media (max-width:768px){
+
+    .nav{
+        display:none;
+    }
+
+    .hamburger{
+        display:flex;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <header class="header">
+
     <div class="brand" id="restartIntro">GARABATO CINE</div>
 
     <div class="nav">
@@ -187,7 +251,7 @@ text.small {
 
         <a href="https://instagram.com" target="_blank">
             <svg class="icon" viewBox="0 0 24 24">
-                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 2H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm-5 3.5A4.5 4.5 0 1112 16a4.5 4.5 0 010-9z"/>
+                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 2H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3z"/>
             </svg>
         </a>
 
@@ -195,21 +259,41 @@ text.small {
             <span>ES</span><a href="#">EN</a>
         </div>
     </div>
+
+    <div class="hamburger" id="hambBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
 </header>
 
+<!-- MENU MOBILE -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#">CATÁLOGO</a>
+    <a href="#">NOSOTROS</a>
+    <a href="#">PRÓXIMAMENTE</a>
+    <a href="#">INSTAGRAM</a>
+    <a href="#">ES / EN</a>
+</div>
+
+<!-- VIDEO DUAL -->
 <div class="video">
-    <video autoplay muted loop playsinline>
+    <video class="video-desktop" autoplay muted loop playsinline>
         <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
+    </video>
+
+    <video class="video-mobile" autoplay muted loop playsinline>
+        <source src="video-vertical.mp4">
     </video>
 </div>
 
+<!-- INTRO -->
 <div id="intro">
     <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
-
         <defs>
             <mask id="mask">
-                <rect width="100%" height="100%" fill="white"/>
-
+                <rect x="-5" y="-5" width="1410" height="510" fill="white"/>
                 <g class="mask-group" id="logoGroup">
                     <text x="700" y="240" text-anchor="middle" class="big">GARABATO CINE</text>
                     <text x="700" y="285" text-anchor="middle" class="small">COLOMBIA</text>
@@ -217,9 +301,7 @@ text.small {
             </mask>
         </defs>
 
-        <!-- FIX REAL DE ESQUINAS (SIN FUGAS EN TABLET) -->
         <rect x="-5" y="-5" width="1410" height="510" fill="white" mask="url(#mask)"/>
-
     </svg>
 </div>
 
@@ -283,6 +365,14 @@ document.getElementById("restartIntro").addEventListener("click", ()=>{
         }, 120);
 
     }, 3250);
+});
+
+/* HAMBURGUESA */
+const btn = document.getElementById("hambBtn");
+const menu = document.getElementById("mobileMenu");
+
+btn.addEventListener("click", ()=>{
+    menu.classList.toggle("active");
 });
 
 </script>
