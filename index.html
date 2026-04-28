@@ -7,265 +7,237 @@
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html, body{
-width:100%;
-height:100%;
-background:#000;
-overflow:hidden;
+    width:100%;
+    height:100%;
+    background:#000;
+    overflow:hidden;
 }
 
+/* ===================== */
 /* VIDEO */
+/* ===================== */
 .video{
-position:fixed;
-inset:0;
-z-index:0;
+    position:fixed;
+    inset:0;
+    z-index:0;
 }
 
 .video video{
-width:100%;
-height:100%;
-object-fit:cover;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-/* INTRO */
+/* ===================== */
+/* INTRO (TAMAÑOS RESTAURADOS) */
+/* ===================== */
 #intro{
-position:fixed;
-inset:0;
-z-index:10;
-opacity:1;
-transition: opacity 0.05s linear;
+    position:fixed;
+    inset:0;
+    z-index:10;
+    opacity:1;
+    transition: opacity 0.05s linear;
 }
 
 svg{
-width:100vw;
-height:100vh;
-display:block;
+    width:100vw;
+    height:100vh;
+    display:block;
 }
 
-/* ===================== */
-/* 🔥 SOLO RESTAURAR TAMAÑO ORIGINAL */
-/* ===================== */
-svg text{
-font-family: Arial, Helvetica, sans-serif;
-font-weight:900;
+/* ESTILOS DE LETRA GIGANTE */
+text.big {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    /* Este es el tamaño grande que tenías antes */
+    font-size: clamp(28px, 6vw, 58px);
 }
 
-/* ESTE ES EL PUNTO CLAVE (ANTES FALTABA Y POR ESO SE VEÍA PEQUEÑO) */
-text.big{
-font-size:72px;
-}
-
-text.small{
-font-size:22px;
-letter-spacing:2px;
+text.small {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: clamp(10px, 2vw, 14px);
+    letter-spacing: 2px;
 }
 
 /* máscara */
 .mask-group{
-transform-box: fill-box;
-transform-origin: center;
+    transform-box: fill-box;
+    transform-origin: center;
 }
 
 .mask-group text{
-opacity:0;
+    opacity:0;
 }
 
 .play .mask-group text{
-opacity:1;
+    opacity:1;
 }
 
-/* animación */
+/* Animación de salida */
 .play .mask-group{
-animation: slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay: 2s;
-}
-
-#intro.hide{
-opacity:0;
-pointer-events:none;
+    animation: slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
+    animation-delay: 2s;
 }
 
 @keyframes slideLeft{
-to { transform: translateX(-200%); }
+    to { transform: translateX(-200%); }
 }
 
-/* HEADER (SIN CAMBIOS) */
+/* ===================== */
+/* HEADER SINTETIZADO */
+/* ===================== */
 .header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:20;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:20;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:30px 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform:uppercase;
+    color:white;
+    /* Aparece después de la intro */
+    opacity: 0;
+    animation: fadeInHeader 0.5s ease forwards;
+    animation-delay: 3.3s;
+}
 
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-padding:30px 50px;
-
-font-family: Arial, Helvetica, sans-serif;
-text-transform:uppercase;
-letter-spacing:2px;
-
-color:white;
+@keyframes fadeInHeader {
+    to { opacity: 1; }
 }
 
 .brand{
-font-weight:900;
-font-size:28px;
+    font-weight:900;
+    font-size:22px;
+    letter-spacing:2px;
 }
 
 .nav{
-display:flex;
-gap:25px;
-font-size:12px;
+    display:flex;
+    gap:25px;
+    align-items:center;
+    font-size:11px;
+    font-weight: 700;
 }
 
 .nav a{
-color:white;
-text-decoration:none;
+    color:white;
+    text-decoration:none;
+    opacity: 0.8;
+    transition: opacity 0.3s;
 }
 
-.icon{
-width:18px;
-height:18px;
-fill:white;
+.nav a:hover { opacity: 1; }
+
+.icon{ width:18px; height:18px; fill:white; }
+
+/* Idioma súper concreto */
+.lang-selector {
+    font-size: 10px;
+    letter-spacing: 1px;
 }
 
-.lang a{
-color:white;
-text-decoration:none;
-font-size:10px;
-border:1px solid white;
-padding:4px 8px;
-}
+.lang-selector span { opacity: 0.4; margin-right: 5px; }
 
+/* ===================== */
 /* RESPONSIVE */
+/* ===================== */
 @media (max-width:768px){
-
-.header{
-padding:20px;
-}
-
-.brand{
-font-size:18px;
-}
-
-.nav{
-gap:15px;
-font-size:10px;
-}
-
-text.big{ font-size:52px; }
-text.small{ font-size:18px; }
-
+    .header{ padding:20px; }
+    .brand{ font-size:16px; }
+    .nav{ gap:12px; }
+    .nav a:nth-child(3) { display: none; } /* Oculta Próximamente en móvil */
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header class="header">
+    <div class="brand">GARABATO CINE</div>
 
-<div class="brand">GARABATO CINE</div>
+    <div class="nav">
+        <a href="#">CATÁLOGO</a>
+        <a href="#">NOSOTROS</a>
+        <a href="#">PRÓXIMAMENTE</a>
 
-<div class="nav">
+        <a href="https://instagram.com" target="_blank">
+            <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z"/>
+            </svg>
+        </a>
 
-<a href="#">CATÁLOGO</a>
-<a href="#">NOSOTROS</a>
-<a href="#">PRÓXIMAMENTE</a>
-
-<a href="https://instagram.com" target="_blank">
-<svg class="icon" viewBox="0 0 24 24">
-<path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10z"/>
-<path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6z"/>
-</svg>
-</a>
-
-<div class="lang">
-<a href="#">English</a>
-</div>
-
-</div>
-
+        <div class="lang-selector">
+            <span>ES</span><a href="#">EN</a>
+        </div>
+    </div>
 </header>
 
-<!-- VIDEO -->
 <div class="video">
-<video autoplay muted loop playsinline>
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
-</video>
+    <video autoplay muted loop playsinline>
+        <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
+    </video>
 </div>
 
-<!-- INTRO -->
 <div id="intro">
-
-<svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
-
-<defs>
-<mask id="mask">
-<rect width="100%" height="100%" fill="white"/>
-
-<g class="mask-group">
-
-<text x="700" y="240" text-anchor="middle" class="big">
-GARABATO CINE
-</text>
-
-<text x="700" y="285" text-anchor="middle" class="small">
-COLOMBIA
-</text>
-
-</g>
-</mask>
-</defs>
-
-<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
-
-</svg>
-
+    <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
+        <defs>
+            <mask id="mask">
+                <rect width="100%" height="100%" fill="white"/>
+                <g class="mask-group" id="logoGroup">
+                    <text x="700" y="240" text-anchor="middle" class="big">GARABATO CINE</text>
+                    <text x="700" y="285" text-anchor="middle" class="small">COLOMBIA</text>
+                </g>
+            </mask>
+        </defs>
+        <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+    </svg>
 </div>
 
 <script>
-
+/* VIDEO Autoplay */
 document.querySelectorAll("video").forEach(v=>{
-v.muted = true;
-v.play().catch(()=>{});
+    v.muted = true;
+    v.play().catch(()=>{});
 });
 
+/* LÓGICA DE TIEMPOS CORREGIDA */
 function startIntro(){
+    const intro = document.getElementById("intro");
+    
+    // Reset inicial
+    intro.style.display = "block";
+    intro.style.opacity = "1";
+    document.body.classList.remove("play");
 
-const intro = document.getElementById("intro");
+    // Pequeño delay para asegurar que el navegador registre la clase y empiece la animación
+    setTimeout(()=>{
+        document.body.classList.add("play");
+    }, 50);
 
-intro.style.display = "block";
-intro.style.opacity = "1";
-
-document.body.classList.remove("play");
-
-setTimeout(()=>{
-document.body.classList.add("play");
-}, 50);
-
-setTimeout(()=>{
-
-intro.style.opacity = "0";
-
-setTimeout(()=>{
-intro.style.display = "none";
-}, 120);
-
-}, 3300);
-
+    /* AJUSTE DE CORTE:
+       La animación dura 1.3s y empieza a los 2s (Total 3.3s).
+       Si queremos que el blanco desaparezca justo cuando la 'E' sale:
+    */
+    setTimeout(()=>{
+        intro.style.opacity = "0";
+        setTimeout(()=>{
+            intro.style.display = "none";
+        }, 100);
+    }, 3250); // Ajuste fino para evitar el residuo blanco
 }
 
 window.addEventListener("load", startIntro);
-
 </script>
 
 </body>
