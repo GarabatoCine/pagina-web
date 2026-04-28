@@ -14,7 +14,6 @@ html, body{
 width:100%;
 height:100%;
 background:#000;
-/* Evita que el usuario haga scroll mientras está la intro */
 overflow:hidden; 
 font-family:Arial, Helvetica, sans-serif;
 }
@@ -49,13 +48,11 @@ height:100%;
 display:block;
 }
 
-/* CORTINILLA - Ajuste de tamaño para evitar desbordamiento */
 text.big{
 font-weight:900;
-/* Bajamos un poco el tamaño máximo para tablets */
 font-size: clamp(40px, 8vw, 85px); 
 font-family:Arial, Helvetica, sans-serif;
-fill: black; /* Importante para la máscara */
+fill: black;
 }
 
 text.small{
@@ -65,7 +62,6 @@ letter-spacing:5px;
 fill: black;
 }
 
-/* ANIMACIÓN */
 .mask-group{
 transform-box:fill-box;
 transform-origin:center;
@@ -77,11 +73,9 @@ animation-delay:1.2s;
 }
 
 @keyframes slideLeft{
-/* Desplazamiento más largo para asegurar que salga de pantallas anchas */
 to{transform:translateX(-150vw);} 
 }
 
-/* FADE */
 .fade{
 opacity:0;
 transition:opacity 0.3s ease-out;
@@ -182,20 +176,18 @@ font-size:14px;
 letter-spacing:1px;
 }
 
-/* RESPONSIVE TABLET Y MÓVIL */
+/* RESPONSIVE */
 @media (max-width:1024px){
-    .nav{display:none;}
-    .hamburger{display:flex;}
-    .header{padding:25px 30px;}
-    
-    /* Ajuste extra para que el texto no se vea gigante en tablet horizontal */
-    text.big { font-size: clamp(35px, 7vw, 65px); }
+.nav{display:none;}
+.hamburger{display:flex;}
+.header{padding:25px 30px;}
+text.big { font-size: clamp(35px, 7vw, 65px); }
 }
 
 @media (max-width:480px){
-    .header{padding:20px;}
-    .brand{font-size: 18px;}
-    text.big { font-size: 32px; }
+.header{padding:20px;}
+.brand{font-size: 18px;}
+text.big { font-size: 32px; }
 }
 
 </style>
@@ -204,7 +196,8 @@ letter-spacing:1px;
 <body>
 
 <div class="video">
-    <video id="bgVideo" autoplay muted loop playsinline preload="auto">
+    <!-- 🔥 IMPORTANTE: atributos reforzados -->
+    <video id="bgVideo" muted loop playsinline webkit-playsinline preload="auto">
         <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4" type="video/mp4">
     </video>
 </div>
@@ -253,23 +246,29 @@ letter-spacing:1px;
 </div>
 
 <script>
-// Forzar el inicio del video (Especial para tablets)
+
+/* 🔥 FIX REAL AUTOPLAY iPAD / SAFARI */
 const video = document.getElementById('bgVideo');
 
-function playVideo() {
-    video.play().catch(e => {
-        console.log("El video requiere interacción o está en ahorro de energía");
-    });
+function forcePlay(){
+    video.muted = true;
+    video.setAttribute("muted", "");
+    video.play().catch(()=>{});
 }
 
-// Ejecutar cuando cargue la página
-window.addEventListener("load", () => {
-    playVideo();
-    startIntro();
-});
+/* 1. Intento inmediato */
+window.addEventListener("load", forcePlay);
 
+/* 2. Intento cuando el video esté listo */
+video.addEventListener("canplay", forcePlay);
+
+/* 3. Intento tras interacción mínima (clave en iOS) */
+document.addEventListener("touchstart", forcePlay, { once:true });
+
+/* INTRO */
 function startIntro(){
     const intro = document.getElementById("intro");
+
     document.body.classList.remove("play");
     intro.style.display="block";
     intro.classList.remove("fade");
@@ -278,19 +277,23 @@ function startIntro(){
         document.body.classList.add("play");
     }, 100);
 
-    // Salida suave de la intro
     setTimeout(()=>{
         intro.classList.add("fade");
+
         setTimeout(()=>{
             intro.style.display="none";
+            forcePlay(); // 🔥 asegura play al final
         }, 350);
+
     }, 2800);
 }
 
-// Botón de reinicio (Logo)
+window.addEventListener("load", startIntro);
+
+/* LOGO */
 document.getElementById("logoBtn").addEventListener("click", startIntro);
 
-// Menú Hamburger
+/* MENU */
 const btn = document.getElementById("hambBtn");
 const menu = document.getElementById("menu");
 
@@ -299,10 +302,10 @@ btn.addEventListener("click", (e)=>{
     menu.classList.toggle("active");
 });
 
-// Cerrar menú si se hace clic fuera
 document.addEventListener("click", () => {
     menu.classList.remove("active");
 });
+
 </script>
 
 </body>
