@@ -7,267 +7,154 @@
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html, body{
-width:100%;
-height:100%;
-background:#000;
-overflow:hidden;
+    width:100%;
+    height:100%;
+    background:#000;
+    overflow:hidden;
 }
 
 /* ===================== */
 /* VIDEO */
 /* ===================== */
 .video{
-position:fixed;
-inset:0;
-z-index:0;
+    position:fixed;
+    inset:0;
+    z-index:0;
 }
 
 .video video{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-/* ===================== */
-/* FADE MOBILE */
-/* ===================== */
-#fade{
-position:fixed;
-inset:0;
-background:#000;
-z-index:5;
-opacity:0;
-pointer-events:none;
-transition: opacity 0.6s ease;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 /* ===================== */
 /* INTRO */
 /* ===================== */
 #intro{
-position:fixed;
-inset:0;
-z-index:10;
+    position:fixed;
+    inset:0;
+    z-index:10;
+    background: transparent; /* Aseguramos que el fondo no sea sólido aquí */
 }
 
 svg{
-width:100vw;
-height:100vh;
-display:block;
+    width:100vw;
+    height:100vh;
+    display:block;
 }
 
-/* ===================== */
-/* FIX SVG ESTABLE */
-/* ===================== */
 .mask-group{
-transform-box: fill-box;
-transform-origin: center;
+    transform-box: fill-box;
+    transform-origin: center;
 }
 
 .mask-group text{
-opacity:0;
+    opacity:0;
 }
 
 .play .mask-group text{
-opacity:1;
+    opacity:1;
 }
 
-/* animación del logo */
+/* AJUSTE: Reducimos el tiempo de slideLeft de 1.6s a 1.1s 
+   para ganar esos 0.5s de rapidez al final.
+*/
 .play .mask-group{
-animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:2.5s;
+    animation: slideLeft 1.1s cubic-bezier(.76,0,.24,1) forwards;
+    animation-delay: 2.5s;
 }
 
-/* ocultado del intro */
-#intro.hide{
-animation:fadeOut 0.2s ease forwards;
+/* Ocultado inmediato */
+#intro.hide {
+    display: none !important;
 }
 
 /* ===================== */
 /* TEXTO */
 /* ===================== */
 text.big{
-font-family: Arial, Helvetica, sans-serif;
-font-weight:900;
-font-size: clamp(28px, 6vw, 58px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:900;
+    font-size: clamp(28px, 6vw, 58px);
 }
 
 text.small{
-font-family: Arial, Helvetica, sans-serif;
-font-weight:700;
-font-size: clamp(10px, 2vw, 14px);
-letter-spacing:2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:700;
+    font-size: clamp(10px, 2vw, 14px);
+    letter-spacing:2px;
 }
 
 /* ===================== */
 /* KEYFRAMES */
 /* ===================== */
 @keyframes slideLeft{
-to{transform:translateX(-200%);}
-}
-
-@keyframes fadeOut{
-to{opacity:0;visibility:hidden;}
+    to { transform: translateX(-150%); } /* Ajustado para que no viaje más de lo necesario */
 }
 
 /* ===================== */
-/* TABLET */
+/* RESPONSIVE */
 /* ===================== */
 @media (max-width: 1024px){
-
-text.big{
-font-size: clamp(20px, 5vw, 38px);
-transform: translateY(-1px);
-}
-
-text.small{
-font-size: clamp(9px, 2.2vw, 12px);
-letter-spacing:1.3px;
-transform: translateY(-1px);
-}
-
-}
-
-/* ===================== */
-/* MOBILE VIDEO MODE */
-/* ===================== */
-@media (max-width: 768px){
-
-.video video{
-object-fit: cover;
-}
-
-body.mobile-contain .video video{
-object-fit: contain;
-}
-
-body.mobile-fade #fade{
-opacity:1;
-}
-
-}
-
-/* ===================== */
-/* SMALL MOBILE */
-/* ===================== */
-@media (max-width: 380px){
-
-text.big{
-font-size: 24px;
-}
-
-text.small{
-font-size: 10px;
-}
-
+    text.big{ font-size: clamp(20px, 5vw, 38px); }
+    text.small{ font-size: clamp(9px, 2.2vw, 12px); }
 }
 </style>
 </head>
 
 <body>
 
-<!-- FADE -->
-<div id="fade"></div>
-
-<!-- VIDEO -->
 <div class="video">
-<video autoplay muted loop playsinline>
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
-</video>
+    <video autoplay muted loop playsinline>
+        <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
+    </video>
 </div>
 
-<!-- INTRO -->
 <div id="intro">
-
-<svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
-
-<defs>
-<mask id="mask">
-
-<!-- 🔥 ESTE ES EL QUE GENERABA EL FLASH -->
-<rect id="maskRect" width="100%" height="100%" fill="white"/>
-
-<g class="mask-group" id="logoGroup">
-
-<text x="700" y="240"
-text-anchor="middle"
-class="big">
-GARABATO CINE
-</text>
-
-<text x="700" y="285"
-text-anchor="middle"
-class="small">
-COLOMBIA
-</text>
-
-</g>
-
-</mask>
-</defs>
-
-<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
-
-</svg>
-
+    <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
+        <defs>
+            <mask id="mask">
+                <rect id="maskRect" width="100%" height="100%" fill="white"/>
+                <g class="mask-group" id="logoGroup">
+                    <text x="700" y="240" text-anchor="middle" class="big">GARABATO CINE</text>
+                    <text x="700" y="285" text-anchor="middle" class="small">COLOMBIA</text>
+                </g>
+            </mask>
+        </defs>
+        <rect id="whiteBackground" width="100%" height="100%" fill="white" mask="url(#mask)"/>
+    </svg>
 </div>
 
 <script>
-
-/* autoplay */
-document.querySelectorAll("video").forEach(v=>{
-v.muted = true;
-v.play().catch(()=>{});
+/* Autoplay Fix */
+document.querySelectorAll("video").forEach(v => {
+    v.muted = true;
+    v.play().catch(() => {});
 });
 
-/* iOS fix */
-document.addEventListener("touchstart",()=>{
-document.querySelectorAll("video").forEach(v=>v.play());
-},{once:true});
+window.addEventListener("load", () => {
+    document.body.classList.add("play");
 
-window.addEventListener("load",()=>{
+    const logo = document.getElementById("logoGroup");
+    const intro = document.getElementById("intro");
+    const whiteBg = document.getElementById("whiteBackground");
 
-document.body.classList.add("play");
-
-const logo = document.getElementById("logoGroup");
-const intro = document.getElementById("intro");
-const fade = document.getElementById("fade");
-const maskRect = document.getElementById("maskRect");
-
-/* 🔥 FIX REAL DEL 0.5s BLANCO */
-logo.addEventListener("animationend",(e)=>{
-
-if(e.animationName === "slideLeft"){
-
-/* 1. eliminar blanco del mask INMEDIATO */
-maskRect.setAttribute("fill","transparent");
-
-/* 2. asegurar salida del fade */
-fade.style.opacity = "0";
-
-/* 3. ocultar intro sin bloquear frame del video */
-setTimeout(()=>{
-
-intro.classList.add("hide");
-
-setTimeout(()=>{
-intro.style.display = "none";
-}, 200);
-
-}, 0);
-
-}
-
+    logo.addEventListener("animationend", (e) => {
+        if (e.animationName === "slideLeft") {
+            // ELIMINACIÓN INSTANTÁNEA
+            // Quitamos el fondo blanco y el contenedor de inmediato
+            whiteBg.style.display = "none";
+            intro.classList.add("hide");
+        }
+    });
 });
-
-});
-
 </script>
 
 </body>
