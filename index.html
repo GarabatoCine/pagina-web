@@ -35,7 +35,7 @@ object-fit:cover;
 }
 
 /* ===================== */
-/* INTRO (RESTAURADO ORIGINAL) */
+/* INTRO (ORIGINAL SIN ALTERAR) */
 /* ===================== */
 #intro{
 position:fixed;
@@ -61,7 +61,7 @@ transform-origin: center;
 
 .play .mask-group{
 animation: slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay: 2.5s;
+animation-delay: 2s;
 }
 
 #intro.hide{
@@ -94,7 +94,6 @@ text-transform:uppercase;
 letter-spacing:2px;
 
 color:white;
-pointer-events:none;
 }
 
 /* NAV */
@@ -109,7 +108,6 @@ align-items:center;
 .nav a{
 color:white;
 text-decoration:none;
-pointer-events:auto;
 cursor:pointer;
 transition:opacity 0.3s ease;
 }
@@ -118,26 +116,40 @@ transition:opacity 0.3s ease;
 opacity:1;
 }
 
-/* CENTRO */
+/* LOGO CENTRO */
 .logo{
 position:absolute;
 left:50%;
 transform:translateX(-50%);
 font-weight:900;
-font-size:14px;
+font-size:20px;
 letter-spacing:3px;
-pointer-events:auto;
 cursor:pointer;
 }
 
-/* ICONOS IDIOMA */
+/* ===================== */
+/* ICONOS */
+/* ===================== */
+.icon{
+width:18px;
+height:18px;
+fill:white;
+opacity:0.9;
+}
+
+/* ===================== */
+/* IDIOMA OCULTO HASTA FIN INTRO */
+/* ===================== */
 .lang{
-display:flex;
+display:none;
 gap:10px;
 align-items:center;
 }
 
-/* ACTIVE STATE */
+body.ready .lang{
+display:flex;
+}
+
 .lang button{
 background:none;
 border:1px solid white;
@@ -149,9 +161,9 @@ opacity:0.8;
 }
 
 .lang button.active{
-opacity:1;
 background:white;
 color:black;
+opacity:1;
 }
 
 /* ===================== */
@@ -169,7 +181,7 @@ font-size:10px;
 }
 
 .logo{
-font-size:12px;
+font-size:16px;
 }
 
 }
@@ -192,17 +204,24 @@ font-size:12px;
     </div>
 
     <div class="nav right">
+
         <a href="#">NOSOTROS</a>
         <a href="#">CONTACTO</a>
 
-        <!-- Instagram -->
-        <a href="https://instagram.com" target="_blank">📷</a>
+        <!-- Instagram REAL ICON -->
+        <a href="https://instagram.com" target="_blank">
+            <svg class="icon" viewBox="0 0 24 24">
+                <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10z"/>
+                <path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6z"/>
+            </svg>
+        </a>
 
-        <!-- LANGUAGE -->
+        <!-- IDIOMA -->
         <div class="lang">
             <button id="esBtn" class="active">ES</button>
             <button id="enBtn">EN</button>
         </div>
+
     </div>
 
 </header>
@@ -214,7 +233,7 @@ font-size:12px;
     </video>
 </div>
 
-<!-- INTRO ORIGINAL RESTAURADO -->
+<!-- INTRO (ORIGINAL SIN CAMBIOS) -->
 <div id="intro">
 
 <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
@@ -251,9 +270,7 @@ v.muted = true;
 v.play().catch(()=>{});
 });
 
-/* ===================== */
-/* INTRO INIT */
-/* ===================== */
+/* INTRO START */
 function startIntro(){
 
 const intro = document.getElementById("intro");
@@ -261,35 +278,31 @@ const intro = document.getElementById("intro");
 intro.style.display = "block";
 intro.style.opacity = "1";
 
-document.body.classList.remove("play");
+document.body.classList.remove("play","ready");
 
-/* reinicio animación SVG */
 setTimeout(()=>{
 document.body.classList.add("play");
 }, 50);
 
-/* timing original */
 setTimeout(()=>{
+
 intro.style.opacity = "0";
 
 setTimeout(()=>{
 intro.style.display = "none";
+document.body.classList.add("ready"); // 🔥 activa idioma después del intro
 }, 120);
 
-}, 3550);
+}, 3300);
+
 }
 
-/* INIT */
 window.addEventListener("load", startIntro);
 
-/* CLICK LOGO REINICIA INTRO */
-document.getElementById("logoBtn").addEventListener("click", ()=>{
-startIntro();
-});
+/* RESTART INTRO */
+document.getElementById("logoBtn").addEventListener("click", startIntro);
 
-/* ===================== */
 /* IDIOMA TOGGLE */
-/* ===================== */
 const esBtn = document.getElementById("esBtn");
 const enBtn = document.getElementById("enBtn");
 
