@@ -125,22 +125,6 @@ fill:none;
 stroke-width:2;
 }
 
-.lang{
-display:flex;
-align-items:center;
-gap:6px;
-font-size:12px;
-}
-
-.lang .active{opacity:0.4;}
-.lang .divider{opacity:0.4;}
-
-.lang a{
-color:white;
-text-decoration:none;
-font-weight:600;
-}
-
 /* HAMBURGER */
 .hamburger{
 display:none;
@@ -191,7 +175,6 @@ color:white;
 text-decoration:none;
 font-size:14px;
 font-weight:600;
-letter-spacing:0.5px;
 }
 
 /* RESPONSIVE */
@@ -207,12 +190,14 @@ text.big{font-size:clamp(20px, 4.8vw, 55px);}
 
 <body>
 
+<!-- VIDEO -->
 <div class="video">
 <video id="bgVideo" autoplay muted loop playsinline webkit-playsinline preload="auto">
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4" type="video/mp4">
 </video>
 </div>
 
+<!-- INTRO -->
 <div id="intro">
 <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice">
 <defs>
@@ -252,12 +237,6 @@ COLOMBIA
 </svg>
 </a>
 
-<div class="lang">
-<span class="active">ES</span>
-<span class="divider">|</span>
-<a href="#">EN</a>
-</div>
-
 </div>
 
 <div class="hamburger" id="hambBtn">
@@ -282,7 +261,6 @@ video.play().catch(()=>{});
 }
 
 window.addEventListener("load", playVideo);
-document.addEventListener("DOMContentLoaded", playVideo);
 
 /* INTRO */
 function startIntro(){
