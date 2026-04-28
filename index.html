@@ -33,7 +33,7 @@ html, body{
 }
 
 /* ===================== */
-/* INTRO RESTAURADA (CORTINILLA REAL) */
+/* INTRO */
 /* ===================== */
 #intro{
     position:fixed;
@@ -49,7 +49,7 @@ html, body{
     transition:opacity 0.05s linear;
 }
 
-/* TEXTO GRANDE (ESTILO ORIGINAL) */
+/* TEXTO GRANDE */
 .intro-title{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:900;
@@ -62,10 +62,10 @@ html, body{
     animation:fadeIn 0.4s ease forwards;
     animation-delay:1.5s;
 
-    /* efecto transparencia tipo cortina */
     mix-blend-mode:multiply;
 }
 
+/* SUBTITULO */
 .intro-subtitle{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:700;
@@ -87,7 +87,7 @@ html, body{
     to{ opacity:1; }
 }
 
-/* salida tipo cortina */
+/* 🔥 CORTINILLA HACIA LA IZQUIERDA (CORREGIDO) */
 .play .intro-title,
 .play .intro-subtitle{
     animation:slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
@@ -96,7 +96,7 @@ html, body{
 
 @keyframes slideLeft{
     to{
-        transform:translateX(-180%);
+        transform:translateX(-120vw);
     }
 }
 
@@ -162,7 +162,7 @@ html, body{
     pointer-events:auto;
 }
 
-/* BACKDROP BLUR */
+/* BACKDROP */
 .cinema-backdrop{
     position:absolute;
     inset:0;
@@ -242,7 +242,7 @@ html, body{
     </video>
 </div>
 
-<!-- INTRO RESTAURADA -->
+<!-- INTRO -->
 <div id="intro">
     <div class="intro-title">GARABATO CINE</div>
     <div class="intro-subtitle">COLOMBIA</div>
@@ -250,23 +250,24 @@ html, body{
 
 <script>
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", ()=>{
 
     document.body.classList.add("play");
 
     const intro = document.getElementById("intro");
 
-    setTimeout(() => {
+    setTimeout(()=>{
+
         intro.classList.add("hide");
 
-        setTimeout(() => {
-            intro.style.display = "none";
-        }, 120);
+        setTimeout(()=>{
+            intro.style.display="none";
+        },120);
 
-    }, 3200);
+    },3200);
 });
 
-/* MENU (TU CÓDIGO ORIGINAL + IGUAL) */
+/* MENU */
 const btn = document.getElementById("hambBtn");
 const menu = document.getElementById("cinemaMenu");
 
@@ -275,7 +276,7 @@ sound.volume = 0.2;
 
 let open = false;
 
-btn.addEventListener("click", () => {
+btn.addEventListener("click", ()=>{
 
     open = !open;
 
