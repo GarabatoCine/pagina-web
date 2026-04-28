@@ -8,233 +8,335 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box;}
 
-    html, body{
-        width:100%;
-        height:100%;
-        background:#000;
-        overflow:hidden;
-        font-family:Arial, Helvetica, sans-serif;
-    }
+html, body{
+width:100%;
+height:100%;
+background:#000;
+overflow:hidden;
+font-family:Arial, Helvetica, sans-serif;
+}
 
-    /* VIDEO */
-    .video{
-        position:fixed;
-        inset:0;
-        z-index:0;
-        background:#000;
-    }
+/* VIDEO */
+.video{
+position:fixed;
+inset:0;
+z-index:0;
+background:#000;
+}
 
-    .video video{
-        width:100%;
-        height:100%;
-        object-fit:cover;
-    }
+.video video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
 
-    /* INTRO */
-    #intro{
-        position:fixed;
-        inset:0;
-        z-index:1000;
-        opacity:1;
-        pointer-events:none;
-    }
+/* INTRO */
+#intro{
+position:fixed;
+inset:0;
+z-index:1000;
+opacity:1;
+pointer-events:none;
+}
 
-    svg{
-        width:100vw;
-        height:100vh;
-        display:block;
-    }
+svg{
+width:100vw;
+height:100vh;
+display:block;
+}
 
-    /* TEXTO: Ajuste para iPad y escritorio */
-    text.big{
-        font-weight:900;
-        font-size:clamp(30px, 6vw, 80px);
-    }
+/* TEXTO */
+text.big{
+font-weight:900;
+font-size:clamp(30px, 6vw, 80px);
+}
 
-    text.small{
-        font-weight:700;
-        font-size:clamp(10px, 1.5vw, 14px);
-        letter-spacing:5px;
-    }
+text.small{
+font-weight:700;
+font-size:clamp(10px, 1.5vw, 14px);
+letter-spacing:5px;
+}
 
-    /* ANIMACIÓN DE SALIDA */
-    .mask-group{
-        transform-box:fill-box;
-        transform-origin:center;
-    }
+/* ANIMACIÓN */
+.mask-group{
+transform-box:fill-box;
+transform-origin:center;
+}
 
-    .play .mask-group{
-        /* Dura 1.4s e inicia a los 1.1s */
-        animation:slideLeft 1.4s cubic-bezier(.76,0,.24,1) forwards;
-        animation-delay:1.1s;
-    }
+.play .mask-group{
+animation:slideLeft 1.4s cubic-bezier(.76,0,.24,1) forwards;
+animation-delay:1.1s;
+}
 
-    @keyframes slideLeft{
-        to{transform:translateX(-165vw);}
-    }
+@keyframes slideLeft{
+to{transform:translateX(-165vw);}
+}
 
-    /* CORTE LIMPIO: Sin transición para que sea inmediato */
-    .fade{
-        opacity:0;
-        display: none;
-    }
+/* CORTE LIMPIO */
+.fade{
+opacity:0;
+display:none;
+}
 
-    /* HEADER */
-    .header{
-        position:fixed;
-        top:0;
-        left:0;
-        width:100%;
-        z-index:200;
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        padding:30px 50px;
-        color:white;
-        text-transform:uppercase;
-        font-family:'Sora', sans-serif;
-    }
+/* HEADER */
+.header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:200;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:30px 50px;
+color:white;
+text-transform:uppercase;
+font-family:'Sora', sans-serif;
+}
 
-    .nav{ display:flex; gap:26px; align-items:center; font-size:14px; }
-    .nav a{ color:white; text-decoration:none; opacity:0.85; font-weight:600; }
-    .brand{ font-weight:800; font-size:22px; letter-spacing:2px; cursor:pointer; }
-    .icon{ width:22px; height:22px; stroke:white; fill:none; stroke-width:2; }
+.nav{
+display:flex;
+gap:26px;
+align-items:center;
+font-size:14px;
+}
 
-    /* HAMBURGER (iPad/Mobile) */
-    .hamburger{
-        display:none;
-        width:28px;
-        height:18px;
-        flex-direction:column;
-        justify-content:space-between;
-        cursor:pointer;
-    }
+.nav a{
+color:white;
+text-decoration:none;
+opacity:0.85;
+font-weight:600;
+}
 
-    .hamburger span{ height:2px; background:white; width:100%; }
+/* LOGO */
+.brand{
+font-weight:800;
+font-size:22px;
+letter-spacing:2px;
+cursor:pointer;
+}
 
-    /* MENU */
-    .menu{
-        position:fixed;
-        top:75px;
-        right:25px;
-        width:220px;
-        background:rgba(0,0,0,0.95);
-        backdrop-filter:blur(12px);
-        border-radius:10px;
-        padding:20px;
-        display:flex;
-        flex-direction:column;
-        gap:12px;
-        opacity:0;
-        transform:translateY(-10px);
-        pointer-events:none;
-        transition:0.3s ease;
-        z-index:150;
-    }
+/* ICONO IG */
+.icon{
+width:22px;
+height:22px;
+stroke:white;
+fill:none;
+stroke-width:2;
+}
 
-    .menu.active{ opacity:1; transform:translateY(0); pointer-events:auto; }
+/* LANG SWITCH */
+.lang{
+display:flex;
+align-items:center;
+gap:6px;
+font-size:13px;
+}
 
-    @media (max-width:1024px){
-        .nav{display:none;}
-        .hamburger{display:flex;}
-        .header{padding:25px 30px;}
-        text.big{ font-size: 55px; } /* Tamaño fijo para iPad */
-    }
+.lang a{
+color:white;
+text-decoration:none;
+opacity:0.85;
+}
+
+.lang .active{
+opacity:0.4;
+}
+
+/* HAMBURGER */
+.hamburger{
+display:none;
+width:28px;
+height:18px;
+flex-direction:column;
+justify-content:space-between;
+cursor:pointer;
+}
+
+.hamburger span{
+height:2px;
+background:white;
+width:100%;
+}
+
+/* MENU */
+.menu{
+position:fixed;
+top:75px;
+right:25px;
+width:220px;
+background:rgba(0,0,0,0.95);
+backdrop-filter:blur(12px);
+border-radius:10px;
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:12px;
+opacity:0;
+transform:translateY(-10px);
+pointer-events:none;
+transition:0.3s ease;
+z-index:150;
+}
+
+.menu.active{
+opacity:1;
+transform:translateY(0);
+pointer-events:auto;
+}
+
+.menu a{
+color:white !important;
+text-decoration:none;
+font-size:14px;
+font-weight:600;
+}
+
+/* FIX AZUL DEFAULT LINKS */
+.menu a:visited,
+.menu a:active,
+.menu a:focus{
+color:white !important;
+}
+
+/* RESPONSIVE */
+@media (max-width:1024px){
+.nav{display:none;}
+.hamburger{display:flex;}
+.header{padding:25px 30px;}
+
+text.big{
+font-size: clamp(22px, 7vw, 55px);
+}
+
+text.small{
+font-size:11px;
+letter-spacing:3px;
+}
+}
+
+@media (max-width:480px){
+text.big{
+font-size:26px;
+}
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="video">
-    <video id="bgVideo" autoplay muted loop playsinline webkit-playsinline preload="auto">
-        <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4" type="video/mp4">
-    </video>
+<video id="bgVideo" autoplay muted loop playsinline webkit-playsinline preload="auto">
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4" type="video/mp4">
+</video>
 </div>
 
 <div id="intro">
-    <svg viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice">
-        <defs>
-            <mask id="mask" style="mask-type:luminance;">
-                <rect width="100%" height="100%" fill="white"/>
-                <g class="mask-group">
-                    <text x="50%" y="48%" text-anchor="middle" class="big" fill="black">GARABATO CINE</text>
-                    <text x="50%" y="55%" text-anchor="middle" class="small" fill="black">COLOMBIA</text>
-                </g>
-            </mask>
-        </defs>
-        <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
-    </svg>
+<svg viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice">
+<defs>
+<mask id="mask" style="mask-type:luminance;">
+<rect width="100%" height="100%" fill="white"/>
+<g class="mask-group">
+<text x="50%" y="48%" text-anchor="middle" class="big" fill="black">GARABATO CINE</text>
+<text x="50%" y="55%" text-anchor="middle" class="small" fill="black">COLOMBIA</text>
+</g>
+</mask>
+</defs>
+<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+</svg>
 </div>
 
 <header class="header">
-    <div class="brand" id="logoBtn">GARABATO CINE</div>
-    <div class="nav">
-        <a href="#">CATÁLOGO</a>
-        <a href="#">NOSOTROS</a>
-        <a href="#">PRÓXIMAMENTE</a>
-        <a href="#">CONTACTO</a>
-        <a href="https://www.instagram.com/garabatocine/" target="_blank">
-            <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17" cy="7" r="1.5"></circle></svg>
-        </a>
-    </div>
-    <div class="hamburger" id="hambBtn"><span></span><span></span><span></span></div>
+
+<div class="brand" id="logoBtn">GARABATO CINE</div>
+
+<div class="nav">
+<a href="#">CATÁLOGO</a>
+<a href="#">NOSOTROS</a>
+<a href="#">PRÓXIMAMENTE</a>
+<a href="#">CONTACTO</a>
+
+<a href="https://www.instagram.com/garabatocine/" target="_blank">
+<svg class="icon" viewBox="0 0 24 24">
+<rect x="3" y="3" width="18" height="18" rx="5"></rect>
+<circle cx="12" cy="12" r="4"></circle>
+<circle cx="17" cy="7" r="1.5"></circle>
+</svg>
+</a>
+
+<div class="lang">
+<span class="active">ES</span>
+<span>|</span>
+<a href="#">EN</a>
+</div>
+
+</div>
+
+<div class="hamburger" id="hambBtn">
+<span></span><span></span><span></span>
+</div>
+
 </header>
 
 <div class="menu" id="menu">
-    <a href="#">CATÁLOGO</a><a href="#">NOSOTROS</a><a href="#">PRÓXIMAMENTE</a><a href="#">CONTACTO</a>
+<a href="#">CATÁLOGO</a>
+<a href="#">NOSOTROS</a>
+<a href="#">PRÓXIMAMENTE</a>
+<a href="#">CONTACTO</a>
 </div>
 
 <script>
+
 const video = document.getElementById("bgVideo");
 
 function playVideo(){
-    video.muted = true;
-    video.play().catch(()=>{
-        // Si el iPad es terco, intentamos de nuevo al primer toque
-        document.addEventListener('touchstart', () => { video.play(); }, {once: true});
-    });
+video.muted = true;
+video.play().catch(()=>{});
 }
 
 function startIntro(){
-    const intro = document.getElementById("intro");
-    intro.style.display="block";
-    intro.classList.remove("fade");
-    document.body.classList.remove("play");
+const intro = document.getElementById("intro");
 
-    playVideo();
+intro.style.display="block";
+intro.classList.remove("fade");
 
-    setTimeout(()=>{
-        document.body.classList.add("play");
-        playVideo(); 
-    },100);
+document.body.classList.remove("play");
 
-    // SINCRONIZACIÓN DE CORTE:
-    // 1.1s (espera) + 1.4s (vuelo de letras) = 2.5s (2500ms)
-    setTimeout(()=>{
-        intro.classList.add("fade"); 
-        // Eliminamos el elemento inmediatamente
-        setTimeout(()=>{
-            intro.style.display="none";
-        }, 20);
-    }, 2500); 
+playVideo();
+
+setTimeout(()=>{
+document.body.classList.add("play");
+},100);
+
+/* CORTE LIMPIO REAL */
+setTimeout(()=>{
+intro.classList.add("fade");
+
+requestAnimationFrame(()=>{
+intro.style.display="none";
+});
+
+},2500);
+
 }
 
-// Iniciar al cargar todo
 window.addEventListener("load", startIntro);
 
-// Reinicio con el logo
 document.getElementById("logoBtn").addEventListener("click", startIntro);
 
-// Menú Hamburger
 const btn = document.getElementById("hambBtn");
 const menu = document.getElementById("menu");
-btn.addEventListener("click", (e)=>{
-    e.stopPropagation();
-    menu.classList.toggle("active");
+
+btn.addEventListener("click",(e)=>{
+e.stopPropagation();
+menu.classList.toggle("active");
 });
-document.addEventListener("click", () => menu.classList.remove("active"));
+
+document.addEventListener("click",()=>menu.classList.remove("active"));
+
 </script>
 
 </body>
