@@ -38,6 +38,7 @@ position:fixed;
 inset:0;
 z-index:1000;
 opacity:1;
+background:#fff;
 }
 
 svg{
@@ -62,6 +63,7 @@ letter-spacing:3px;
 .mask-group{
 transform-box:fill-box;
 transform-origin:center;
+transform:translateX(0);
 }
 
 .play .mask-group{
@@ -73,10 +75,11 @@ animation-delay:1s;
 to{transform:translateX(-130vw);}
 }
 
-/* FADE */
+/* FADE OUT INTRO */
 .fade{
 opacity:0;
-transition:opacity 0.1s linear;
+transition:opacity 0.2s ease;
+pointer-events:none;
 }
 
 /* HEADER */
@@ -107,13 +110,11 @@ color:white;
 text-decoration:none;
 opacity:0.85;
 font-weight:600;
-letter-spacing:1px;
 }
 
 .brand{
 font-weight:800;
 font-size:22px;
-letter-spacing:2px;
 cursor:pointer;
 }
 
@@ -220,6 +221,7 @@ COLOMBIA
 </svg>
 </div>
 
+<!-- HEADER -->
 <header class="header">
 <div class="brand" id="logoBtn">GARABATO CINE</div>
 
@@ -244,6 +246,7 @@ COLOMBIA
 </div>
 </header>
 
+<!-- MENU -->
 <div class="menu" id="menu">
 <a href="#">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
@@ -254,40 +257,45 @@ COLOMBIA
 <script>
 
 const video = document.getElementById("bgVideo");
+const intro = document.getElementById("intro");
 
+/* VIDEO SIMPLE Y ESTABLE */
 function playVideo(){
 video.muted = true;
 video.play().catch(()=>{});
 }
 
-window.addEventListener("load", playVideo);
-
-/* INTRO */
+/* SECUENCIA CORRECTA */
 function startIntro(){
-const intro = document.getElementById("intro");
 
-intro.style.display="block";
-intro.style.opacity="1";
+intro.style.display = "block";
+intro.style.opacity = "1";
+
 document.body.classList.remove("play");
 
-setTimeout(()=>{
-document.body.classList.add("play");
-},50);
+/* fuerza render del intro */
+requestAnimationFrame(() => {
 
-setTimeout(()=>{
+setTimeout(() => {
+document.body.classList.add("play");
+}, 50);
+
+/* salida de cortinilla */
+setTimeout(() => {
 intro.classList.add("fade");
 
-setTimeout(()=>{
-intro.style.display="none";
+setTimeout(() => {
+intro.style.display = "none";
 playVideo();
-},120);
+}, 200);
 
-},1600);
+}, 1600);
+
+});
 
 }
 
 window.addEventListener("load", startIntro);
-document.getElementById("logoBtn").addEventListener("click", startIntro);
 
 /* MENU */
 const btn = document.getElementById("hambBtn");
