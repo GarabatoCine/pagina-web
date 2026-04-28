@@ -129,6 +129,27 @@ fill:none;
 stroke-width:2;
 }
 
+/* 🔥 IDIOMA */
+.lang{
+display:flex;
+align-items:center;
+gap:6px;
+font-size:12px;
+}
+
+.lang .active{
+opacity:0.4;
+}
+
+.lang .divider{
+opacity:0.4;
+}
+
+.lang a{
+color:white;
+text-decoration:none;
+}
+
 /* HAMBURGER */
 .hamburger{
 display:none;
@@ -220,6 +241,7 @@ text.big { font-size: 32px; }
 </div>
 
 <header class="header">
+
 <div class="brand" id="logoBtn">GARABATO CINE</div>
 
 <div class="nav">
@@ -227,6 +249,7 @@ text.big { font-size: 32px; }
 <a href="#">NOSOTROS</a>
 <a href="#">PRÓXIMAMENTE</a>
 <a href="#">CONTACTO</a>
+
 <a href="https://instagram.com" target="_blank">
 <svg class="icon" viewBox="0 0 24 24">
 <rect x="3" y="3" width="18" height="18" rx="5"></rect>
@@ -234,6 +257,14 @@ text.big { font-size: 32px; }
 <circle cx="17" cy="7" r="1.5"></circle>
 </svg>
 </a>
+
+<!-- 🔥 IDIOMA -->
+<div class="lang">
+<span class="active">ES</span>
+<span class="divider">|</span>
+<a href="#">EN</a>
+</div>
+
 </div>
 
 <div class="hamburger" id="hambBtn">
@@ -241,6 +272,7 @@ text.big { font-size: 32px; }
 <span></span>
 <span></span>
 </div>
+
 </header>
 
 <div class="menu" id="menu">
@@ -249,11 +281,12 @@ text.big { font-size: 32px; }
 <a href="#">PRÓXIMAMENTE</a>
 <a href="#">CONTACTO</a>
 <a href="#">INSTAGRAM</a>
+<a href="#">ES / EN</a>
 </div>
 
 <script>
 
-/* 🔥 AUTOPLAY iPAD */
+/* AUTOPLAY */
 const video = document.getElementById('bgVideo');
 
 function forcePlay(){
@@ -290,7 +323,6 @@ forcePlay();
 }
 
 window.addEventListener("load", startIntro);
-
 document.getElementById("logoBtn").addEventListener("click", startIntro);
 
 /* MENU */
