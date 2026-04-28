@@ -167,6 +167,7 @@ font-size: 10px;
 }
 
 }
+
 </style>
 </head>
 
@@ -237,15 +238,16 @@ const logo = document.getElementById("logoGroup");
 const intro = document.getElementById("intro");
 const fade = document.getElementById("fade");
 
-/* FIX REAL: sincronización correcta del fade */
-logo.addEventListener("animationend",(e)=>{
+/* 🔥 FIX REAL: corte anticipado del blanco */
+logo.addEventListener("animationstart",(e)=>{
 
 if(e.animationName === "slideLeft"){
 
-/* 1. liberar overlay inmediatamente */
+/* adelantamos la salida dentro de la animación */
+setTimeout(()=>{
+
 fade.style.opacity = "0";
 
-/* 2. ocultar intro sin bloquear video */
 setTimeout(()=>{
 intro.classList.add("hide");
 
@@ -254,6 +256,8 @@ intro.style.display = "none";
 }, 200);
 
 }, 50);
+
+}, 1400); // ajuste fino para eliminar el blanco solitario
 
 }
 
