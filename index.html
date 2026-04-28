@@ -35,7 +35,7 @@ object-fit:cover;
 }
 
 /* ===================== */
-/* FADE MOBILE (BLANCO/NEGRO OVERLAY) */
+/* FADE MOBILE */
 /* ===================== */
 #fade{
 position:fixed;
@@ -135,7 +135,7 @@ transform: translateY(-1px);
 }
 
 /* ===================== */
-/* MOBILE */
+/* MOBILE VIDEO MODE */
 /* ===================== */
 @media (max-width: 768px){
 
@@ -234,16 +234,26 @@ window.addEventListener("load",()=>{
 document.body.classList.add("play");
 
 const logo = document.getElementById("logoGroup");
+const intro = document.getElementById("intro");
 const fade = document.getElementById("fade");
 
-logo.addEventListener("animationstart",(e)=>{
+/* FIX REAL: sincronización correcta del fade */
+logo.addEventListener("animationend",(e)=>{
 
 if(e.animationName === "slideLeft"){
 
-/* 🔥 CLAVE: adelantamos el fade 0.5s antes */
-setTimeout(()=>{
+/* 1. liberar overlay inmediatamente */
 fade.style.opacity = "0";
-}, 200); // ajuste fino para eliminar el hueco blanco
+
+/* 2. ocultar intro sin bloquear video */
+setTimeout(()=>{
+intro.classList.add("hide");
+
+setTimeout(()=>{
+intro.style.display = "none";
+}, 200);
+
+}, 50);
 
 }
 
