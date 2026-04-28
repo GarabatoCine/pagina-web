@@ -125,7 +125,7 @@ fill:none;
 stroke-width:2;
 }
 
-/* LANG */
+/* LANG DESKTOP */
 .lang{
 display:flex;
 align-items:center;
@@ -159,7 +159,7 @@ background:white;
 width:100%;
 }
 
-/* MENU */
+/* MENU MOBILE */
 .menu{
 position:fixed;
 top:75px;
@@ -192,11 +192,30 @@ font-size:14px;
 font-weight:600;
 }
 
-/* FIX AZUL */
+/* FIX azul navegador */
 .menu a:visited,
 .menu a:active,
 .menu a:focus{
 color:white !important;
+}
+
+/* LANG MOBILE */
+.lang-mobile{
+display:flex;
+gap:6px;
+align-items:center;
+font-size:14px;
+font-weight:600;
+margin-top:5px;
+}
+
+.lang-mobile a{
+color:white !important;
+text-decoration:none;
+}
+
+.lang-mobile .active{
+opacity:0.4;
 }
 
 /* RESPONSIVE */
@@ -280,10 +299,22 @@ font-size:26px;
 </header>
 
 <div class="menu" id="menu">
+
 <a href="#">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
 <a href="#">PRÓXIMAMENTE</a>
 <a href="#">CONTACTO</a>
+
+<a href="https://www.instagram.com/garabatocine/" target="_blank" rel="noopener noreferrer">
+INSTAGRAM
+</a>
+
+<div class="lang-mobile">
+<span class="active">ES</span>
+<span>|</span>
+<a href="#">EN</a>
+</div>
+
 </div>
 
 <script>
@@ -309,7 +340,7 @@ setTimeout(()=>{
 document.body.classList.add("play");
 },100);
 
-/* 🔥 CORTE AJUSTADO: 0.5s más rápido */
+/* CORTE LIMPIO */
 setTimeout(()=>{
 intro.classList.add("fade");
 
