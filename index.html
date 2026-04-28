@@ -15,8 +15,8 @@ box-sizing:border-box;
 html, body{
 width:100%;
 height:100%;
-background:#000;
 overflow:hidden;
+background:#000;
 }
 
 /* ===================== */
@@ -35,63 +35,43 @@ object-fit:cover;
 }
 
 /* ===================== */
-/* FADE MOBILE */
+/* 🔥 NUEVO: FONDO BLANCO REAL (CONTROL TOTAL) */
 /* ===================== */
-#fade{
+.white-bg{
 position:fixed;
 inset:0;
-background:#000;
+background:white;
 z-index:5;
-opacity:0;
-pointer-events:none;
-transition: opacity 0.6s ease;
+opacity:1;
+animation: fadeOut 0.5s ease 2.3s forwards;
 }
 
 /* ===================== */
-/* INTRO */
+/* INTRO (LOGO SOLO) */
 /* ===================== */
 #intro{
 position:fixed;
 inset:0;
 z-index:10;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 svg{
-width:100vw;
-height:100vh;
-display:block;
+width:100%;
+height:auto;
+max-width:900px;
 }
 
 /* ===================== */
-/* FIX SVG ESTABLE */
+/* LOGO ANIMACIÓN */
 /* ===================== */
 .mask-group{
 transform-box: fill-box;
 transform-origin: center;
-}
-
-.mask-group text{
-opacity:0;
-}
-
-.play .mask-group text{
-opacity:1;
-}
-
-/* animación del logo */
-.play .mask-group{
-animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
+animation: slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
 animation-delay:2.5s;
-}
-
-/* ocultado del intro */
-#intro.hide{
-animation:fadeOut 0.2s ease forwards;
-}
-
-/* mismo timing base */
-.play #intro{
-animation-delay:1.8s;
 }
 
 /* ===================== */
@@ -118,7 +98,10 @@ to{transform:translateX(-200%);}
 }
 
 @keyframes fadeOut{
-to{opacity:0;visibility:hidden;}
+to{
+opacity:0;
+visibility:hidden;
+}
 }
 
 /* ===================== */
@@ -128,47 +111,22 @@ to{opacity:0;visibility:hidden;}
 
 text.big{
 font-size: clamp(20px, 5vw, 38px);
-transform: translateY(-1px);
 }
 
 text.small{
 font-size: clamp(9px, 2.2vw, 12px);
 letter-spacing:1.3px;
-transform: translateY(-1px);
 }
 
 }
 
 /* ===================== */
-/* MOBILE VIDEO MODE */
+/* MOBILE */
 /* ===================== */
 @media (max-width: 768px){
 
-.video video{
-object-fit: cover;
-}
-
-body.mobile-contain .video video{
-object-fit: contain;
-}
-
-body.mobile-fade #fade{
-opacity:1;
-}
-
-}
-
-/* ===================== */
-/* SMALL MOBILE */
-/* ===================== */
-@media (max-width: 380px){
-
-text.big{
-font-size: 24px;
-}
-
-text.small{
-font-size: 10px;
+svg{
+max-width: 90%;
 }
 
 }
@@ -178,9 +136,6 @@ font-size: 10px;
 
 <body>
 
-<!-- FADE -->
-<div id="fade"></div>
-
 <!-- VIDEO -->
 <div class="video">
 <video autoplay muted loop playsinline>
@@ -188,16 +143,15 @@ font-size: 10px;
 </video>
 </div>
 
+<!-- 🔥 FONDO BLANCO REAL -->
+<div class="white-bg"></div>
+
 <!-- INTRO -->
 <div id="intro">
 
-<svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
+<svg viewBox="0 0 1400 500">
 
-<defs>
-<mask id="mask">
-<rect width="100%" height="100%" fill="white"/>
-
-<g class="mask-group" id="logoGroup">
+<g class="mask-group">
 
 <text x="700" y="240"
 text-anchor="middle"
@@ -212,11 +166,6 @@ COLOMBIA
 </text>
 
 </g>
-
-</mask>
-</defs>
-
-<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
 
 </svg>
 
@@ -234,42 +183,6 @@ v.play().catch(()=>{});
 document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
-
-/* start */
-window.addEventListener("load",()=>{
-
-document.body.classList.add("play");
-
-/* mobile mode */
-if(window.innerWidth <= 768){
-
-document.body.classList.add("mobile-fade");
-
-setTimeout(()=>{
-document.body.classList.add("mobile-contain");
-document.body.classList.remove("mobile-fade");
-},600);
-
-}
-
-/* sincronización real */
-const logo = document.getElementById("logoGroup");
-
-logo.addEventListener("animationend",(e)=>{
-
-if(e.animationName === "slideLeft"){
-
-document.getElementById("intro").classList.add("hide");
-
-setTimeout(()=>{
-document.getElementById("intro").style.display="none";
-},250);
-
-}
-
-});
-
-});
 
 </script>
 
