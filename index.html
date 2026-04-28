@@ -37,6 +37,13 @@ html, body{
 /* ===================== */
 /* INTRO */
 /* ===================== */
+#whiteCover{
+    position:fixed;
+    inset:0;
+    background:#fff;
+    z-index:9;
+}
+
 #intro{
     position:fixed;
     inset:0;
@@ -51,19 +58,16 @@ svg{
     display:block;
 }
 
-/* FIX REAL TABLET */
 @media (max-width:1024px){
     svg{
-        transform: scale(0.97);
+        transform:scale(0.98);
     }
 }
 
-/* SVG SAFE MODE */
 text.big{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:900;
     font-size: clamp(26px, 5.5vw, 58px);
-    dominant-baseline: middle;
 }
 
 text.small{
@@ -71,7 +75,6 @@ text.small{
     font-weight:700;
     font-size: clamp(10px, 2vw, 14px);
     letter-spacing:2px;
-    dominant-baseline: middle;
 }
 
 .mask-group{
@@ -126,7 +129,6 @@ text.small{
     cursor:pointer;
 }
 
-/* HAMBURGER */
 .hamburger{
     width:28px;
     height:18px;
@@ -183,7 +185,6 @@ text.small{
     display:flex;
     flex-direction:column;
     gap:22px;
-
     text-align:center;
     font-family: Arial, Helvetica, sans-serif;
     text-transform:uppercase;
@@ -205,7 +206,6 @@ text.small{
     transform:translateY(0);
 }
 
-/* stagger */
 .cinema-overlay.active .cinema-links a:nth-child(1){ transition-delay:0.1s; }
 .cinema-overlay.active .cinema-links a:nth-child(2){ transition-delay:0.15s; }
 .cinema-overlay.active .cinema-links a:nth-child(3){ transition-delay:0.2s; }
@@ -216,6 +216,9 @@ text.small{
 </head>
 
 <body>
+
+<!-- FIX WHITE COVER -->
+<div id="whiteCover"></div>
 
 <!-- HEADER -->
 <header class="header">
@@ -270,19 +273,25 @@ text.small{
 
 <script>
 
-/* INTRO */
 window.addEventListener("load", ()=>{
+
     document.body.classList.add("play");
 
     const intro = document.getElementById("intro");
+    const white = document.getElementById("whiteCover");
 
     setTimeout(()=>{
         intro.style.opacity = "0";
-        setTimeout(()=> intro.style.display="none",120);
+
+        setTimeout(()=>{
+            intro.style.display = "none";
+            white.style.display = "none";
+        },120);
+
     },3250);
 });
 
-/* HAMBURGER TOGGLE */
+/* HAMBURGER */
 const btn = document.getElementById("hambBtn");
 const menu = document.getElementById("cinemaMenu");
 
@@ -290,21 +299,19 @@ btn.addEventListener("click", ()=>{
     menu.classList.toggle("active");
 });
 
-/* CERRAR CLICK FUERA */
+/* cerrar overlay */
 menu.addEventListener("click", (e)=>{
     if(e.target === menu){
         menu.classList.remove("active");
     }
 });
 
-/* CERRAR CON ESC */
 document.addEventListener("keydown", (e)=>{
     if(e.key === "Escape"){
         menu.classList.remove("active");
     }
 });
 
-/* CERRAR AL HACER CLICK EN LINKS */
 document.querySelectorAll(".cinema-links a").forEach(a=>{
     a.addEventListener("click", ()=>{
         menu.classList.remove("active");
