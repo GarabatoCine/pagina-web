@@ -63,9 +63,8 @@ display:block;
 }
 
 /* ===================== */
-/* FIX SEGURO SVG (SIN ROMPER RENDER) */
+/* FIX SVG ESTABLE */
 /* ===================== */
-
 .mask-group{
 transform-box: fill-box;
 transform-origin: center;
@@ -82,16 +81,27 @@ opacity:1;
 /* animación del logo */
 .play .mask-group{
 animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:3s;
-}
-
-/* ocultado del intro */
-#intro.hide{
-animation:fadeOut 0.2s ease forwards;
-}
-
-.play #intro{
 animation-delay:2.5s;
+}
+
+/* ===================== */
+/* 🔥 NUEVO TIMING DEL FONDO */
+/* ===================== */
+#intro{
+animation:fadeOut 0.8s ease forwards;
+animation-delay:1.5s;
+}
+
+/* ===================== */
+/* KEYFRAMES */
+/* ===================== */
+@keyframes slideLeft{
+to{transform:translateX(-200%);}
+}
+
+@keyframes fadeOut{
+from{opacity:1;}
+to{opacity:0;visibility:hidden;}
 }
 
 /* ===================== */
@@ -108,17 +118,6 @@ font-family: Arial, Helvetica, sans-serif;
 font-weight:700;
 font-size: clamp(10px, 2vw, 14px);
 letter-spacing:2px;
-}
-
-/* ===================== */
-/* KEYFRAMES */
-/* ===================== */
-@keyframes slideLeft{
-to{transform:translateX(-200%);}
-}
-
-@keyframes fadeOut{
-to{opacity:0;visibility:hidden;}
 }
 
 /* ===================== */
@@ -224,7 +223,7 @@ COLOMBIA
 
 <script>
 
-/* autoplay video */
+/* autoplay */
 document.querySelectorAll("video").forEach(v=>{
 v.muted = true;
 v.play().catch(()=>{});
@@ -251,23 +250,6 @@ document.body.classList.remove("mobile-fade");
 },600);
 
 }
-
-/* sincronización real */
-const logo = document.getElementById("logoGroup");
-
-logo.addEventListener("animationend",(e)=>{
-
-if(e.animationName === "slideLeft"){
-
-document.getElementById("intro").classList.add("hide");
-
-setTimeout(()=>{
-document.getElementById("intro").style.display="none";
-},250);
-
-}
-
-});
 
 });
 
