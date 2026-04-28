@@ -35,7 +35,7 @@ object-fit:cover;
 }
 
 /* ===================== */
-/* INTRO (CORTINILLA RESTAURADA) */
+/* INTRO (RESTO ORIGINAL LIMPIO) */
 /* ===================== */
 #intro{
 position:fixed;
@@ -51,23 +51,27 @@ height:100vh;
 display:block;
 }
 
-/* 🔥 RESTAURA FUERZA VISUAL DE LAS LETRAS */
+/* SOLO FUENTE (SIN TOCAR TAMAÑO) */
+svg text{
+font-family: Arial, Helvetica, sans-serif !important;
+font-weight:900;
+}
+
+/* máscara */
 .mask-group{
 transform-box: fill-box;
 transform-origin: center;
-transform: scale(1.35);
 }
 
 .mask-group text{
 opacity:0;
-font-family: Arial, Helvetica, sans-serif;
 }
 
 .play .mask-group text{
 opacity:1;
 }
 
-/* ANIMACIÓN */
+/* animación original */
 .play .mask-group{
 animation: slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
 animation-delay: 2s;
@@ -79,7 +83,7 @@ pointer-events:none;
 }
 
 @keyframes slideLeft{
-to { transform: translateX(-200%) scale(1.35); }
+to { transform: translateX(-200%); }
 }
 
 /* ===================== */
@@ -168,9 +172,7 @@ font-size:10px;
 <!-- HEADER -->
 <header class="header">
 
-    <div class="brand">
-        GARABATO CINE
-    </div>
+    <div class="brand">GARABATO CINE</div>
 
     <div class="nav">
 
@@ -178,7 +180,6 @@ font-size:10px;
         <a href="#">NOSOTROS</a>
         <a href="#">PRÓXIMAMENTE</a>
 
-        <!-- Instagram -->
         <a href="https://instagram.com" target="_blank">
             <svg class="icon" viewBox="0 0 24 24">
                 <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10z"/>
@@ -201,7 +202,7 @@ font-size:10px;
     </video>
 </div>
 
-<!-- INTRO -->
+<!-- INTRO ORIGINAL RESTAURADO -->
 <div id="intro">
 
 <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
