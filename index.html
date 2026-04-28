@@ -42,7 +42,7 @@ html, body{
     inset:0;
     z-index:10;
     opacity:1;
-    transition: opacity 0.05s linear;
+    transition:opacity 0.05s linear;
 }
 
 svg{
@@ -51,10 +51,19 @@ svg{
     display:block;
 }
 
+/* FIX REAL TABLET */
+@media (max-width:1024px){
+    svg{
+        transform: scale(0.97);
+    }
+}
+
+/* SVG SAFE MODE */
 text.big{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:900;
-    font-size: clamp(28px, 6vw, 58px);
+    font-size: clamp(26px, 5.5vw, 58px);
+    dominant-baseline: middle;
 }
 
 text.small{
@@ -62,6 +71,7 @@ text.small{
     font-weight:700;
     font-size: clamp(10px, 2vw, 14px);
     letter-spacing:2px;
+    dominant-baseline: middle;
 }
 
 .mask-group{
@@ -82,7 +92,7 @@ text.small{
 }
 
 /* ===================== */
-/* HEADER MINIMAL (SOLO LOGO + HAMBURGER) */
+/* HEADER */
 /* ===================== */
 .header{
     position:fixed;
@@ -95,11 +105,11 @@ text.small{
     justify-content:space-between;
     align-items:center;
 
-    padding:30px 50px;
+    padding:25px 40px;
 
     font-family: Arial, Helvetica, sans-serif;
-    text-transform:uppercase;
     color:white;
+    text-transform:uppercase;
 
     opacity:0;
     animation:fadeInHeader 0.5s ease forwards;
@@ -112,18 +122,17 @@ text.small{
 
 .brand{
     font-weight:900;
-    font-size:22px;
-    letter-spacing:2px;
+    font-size:20px;
     cursor:pointer;
 }
 
-/* HAMBURGER SIEMPRE VISIBLE */
+/* HAMBURGER */
 .hamburger{
+    width:28px;
+    height:18px;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
-    width:26px;
-    height:18px;
     cursor:pointer;
 }
 
@@ -134,7 +143,7 @@ text.small{
 }
 
 /* ===================== */
-/* OVERLAY MENU CINEMATOGRÁFICO */
+/* OVERLAY MENU */
 /* ===================== */
 .cinema-overlay{
     position:fixed;
@@ -144,7 +153,12 @@ text.small{
     opacity:0;
     pointer-events:none;
 
-    transition:opacity 0.6s ease;
+    transition:opacity 0.5s ease;
+}
+
+.cinema-overlay.active{
+    opacity:1;
+    pointer-events:auto;
 }
 
 .cinema-backdrop{
@@ -168,11 +182,11 @@ text.small{
 .cinema-links{
     display:flex;
     flex-direction:column;
-    gap:25px;
+    gap:22px;
 
+    text-align:center;
     font-family: Arial, Helvetica, sans-serif;
     text-transform:uppercase;
-    text-align:center;
 }
 
 .cinema-links a{
@@ -186,34 +200,18 @@ text.small{
     transition:all 0.4s ease;
 }
 
-.cinema-overlay.active{
-    opacity:1;
-    pointer-events:auto;
-}
-
 .cinema-overlay.active .cinema-links a{
     opacity:1;
     transform:translateY(0);
 }
 
+/* stagger */
 .cinema-overlay.active .cinema-links a:nth-child(1){ transition-delay:0.1s; }
 .cinema-overlay.active .cinema-links a:nth-child(2){ transition-delay:0.15s; }
 .cinema-overlay.active .cinema-links a:nth-child(3){ transition-delay:0.2s; }
 .cinema-overlay.active .cinema-links a:nth-child(4){ transition-delay:0.25s; }
 .cinema-overlay.active .cinema-links a:nth-child(5){ transition-delay:0.3s; }
 
-/* ===================== */
-/* RESPONSIVE (todo sigue hamburguesa igual) */
-/* ===================== */
-@media (max-width:768px){
-    .header{
-        padding:20px;
-    }
-
-    .brand{
-        font-size:18px;
-    }
-}
 </style>
 </head>
 
@@ -221,7 +219,6 @@ text.small{
 
 <!-- HEADER -->
 <header class="header">
-
     <div class="brand">GARABATO CINE</div>
 
     <div class="hamburger" id="hambBtn">
@@ -229,10 +226,9 @@ text.small{
         <span></span>
         <span></span>
     </div>
-
 </header>
 
-<!-- OVERLAY MENU -->
+<!-- OVERLAY -->
 <div class="cinema-overlay" id="cinemaMenu">
     <div class="cinema-backdrop"></div>
 
@@ -257,6 +253,7 @@ text.small{
 <!-- INTRO -->
 <div id="intro">
     <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
+
         <defs>
             <mask id="mask">
                 <rect width="100%" height="100%" fill="white"/>
@@ -273,12 +270,6 @@ text.small{
 
 <script>
 
-/* VIDEO */
-document.querySelectorAll("video").forEach(v=>{
-    v.muted = true;
-    v.play().catch(()=>{});
-});
-
 /* INTRO */
 window.addEventListener("load", ()=>{
     document.body.classList.add("play");
@@ -291,20 +282,33 @@ window.addEventListener("load", ()=>{
     },3250);
 });
 
-/* HAMBURGER MENU */
+/* HAMBURGER TOGGLE */
 const btn = document.getElementById("hambBtn");
 const menu = document.getElementById("cinemaMenu");
 
-const sound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-fast-swoosh-transition-1497.mp3");
-sound.volume = 0.2;
-
 btn.addEventListener("click", ()=>{
     menu.classList.toggle("active");
+});
 
-    if(menu.classList.contains("active")){
-        sound.currentTime = 0;
-        sound.play().catch(()=>{});
+/* CERRAR CLICK FUERA */
+menu.addEventListener("click", (e)=>{
+    if(e.target === menu){
+        menu.classList.remove("active");
     }
+});
+
+/* CERRAR CON ESC */
+document.addEventListener("keydown", (e)=>{
+    if(e.key === "Escape"){
+        menu.classList.remove("active");
+    }
+});
+
+/* CERRAR AL HACER CLICK EN LINKS */
+document.querySelectorAll(".cinema-links a").forEach(a=>{
+    a.addEventListener("click", ()=>{
+        menu.classList.remove("active");
+    });
 });
 
 </script>
