@@ -23,6 +23,7 @@ font-family:Arial, Helvetica, sans-serif;
 position:fixed;
 inset:0;
 z-index:0;
+background:#000;
 }
 
 .video video{
@@ -109,7 +110,6 @@ font-weight:600;
 letter-spacing:1px;
 }
 
-/* LOGO */
 .brand{
 font-weight:800;
 font-size:22px;
@@ -117,7 +117,6 @@ letter-spacing:2px;
 cursor:pointer;
 }
 
-/* ICONO IG */
 .icon{
 width:22px;
 height:22px;
@@ -126,7 +125,6 @@ fill:none;
 stroke-width:2;
 }
 
-/* IDIOMA */
 .lang{
 display:flex;
 align-items:center;
@@ -201,6 +199,7 @@ letter-spacing:0.5px;
 .nav{display:none;}
 .hamburger{display:flex;}
 .header{padding:20px;}
+text.big{font-size:clamp(24px, 5vw, 50px);}
 }
 
 </style>
@@ -208,12 +207,23 @@ letter-spacing:0.5px;
 
 <body>
 
+<!-- VIDEO -->
 <div class="video">
-<video id="bgVideo" autoplay muted loop playsinline webkit-playsinline preload="auto">
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
+<video
+id="bgVideo"
+muted
+autoplay
+loop
+playsinline
+webkit-playsinline
+preload="auto"
+poster="data:image/gif;base64,R0lGODlhAQABAAAAACw="
+>
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4" type="video/mp4">
 </video>
 </div>
 
+<!-- INTRO -->
 <div id="intro">
 <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice">
 <defs>
@@ -234,6 +244,7 @@ COLOMBIA
 </svg>
 </div>
 
+<!-- HEADER -->
 <header class="header">
 <div class="brand" id="logoBtn">GARABATO CINE</div>
 
@@ -243,7 +254,7 @@ COLOMBIA
 <a href="#">PRÓXIMAMENTE</a>
 <a href="#">CONTACTO</a>
 
-<!-- 🔥 INSTAGRAM CORREGIDO -->
+<!-- INSTAGRAM -->
 <a href="https://www.instagram.com/garabatocine/" target="_blank" rel="noopener noreferrer">
 <svg class="icon" viewBox="0 0 24 24">
 <rect x="3" y="3" width="18" height="18" rx="5"></rect>
@@ -252,6 +263,7 @@ COLOMBIA
 </svg>
 </a>
 
+<!-- IDIOMA -->
 <div class="lang">
 <span class="active">ES</span>
 <span class="divider">|</span>
@@ -265,6 +277,7 @@ COLOMBIA
 </div>
 </header>
 
+<!-- MENU MOBILE -->
 <div class="menu" id="menu">
 <a href="#">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
@@ -276,23 +289,43 @@ COLOMBIA
 
 const video = document.getElementById("bgVideo");
 
-function forcePlay(){
+/* 🚀 PREBUFFER PRO REAL iOS */
+function primeVideo() {
+
 video.muted = true;
-video.setAttribute("muted","");
-video.setAttribute("playsinline","");
-video.play().catch(()=>{});
+video.setAttribute("muted", "");
+video.setAttribute("playsinline", "");
+video.setAttribute("webkit-playsinline", "");
+video.setAttribute("preload", "auto");
+
+try {
+video.currentTime = 0.01; // fuerza decodificación primer frame
+} catch(e) {}
+
+const p = video.play();
+
+if (p !== undefined) {
+p.catch(() => {
+const unlock = () => {
+video.play();
+document.removeEventListener("touchstart", unlock);
+};
+document.addEventListener("touchstart", unlock, {once:true});
+});
+}
 }
 
-window.addEventListener("load", forcePlay);
-document.addEventListener("DOMContentLoaded", forcePlay);
-video.addEventListener("loadeddata", forcePlay);
-video.addEventListener("canplaythrough", forcePlay);
+/* 🔥 ARRANQUE ANTICIPADO */
+document.addEventListener("DOMContentLoaded", primeVideo);
+window.addEventListener("load", primeVideo);
+video.addEventListener("loadeddata", primeVideo);
+video.addEventListener("canplay", primeVideo);
 
-document.addEventListener("touchstart", forcePlay, {once:true});
-document.addEventListener("visibilitychange", ()=>{
-if(!document.hidden) forcePlay();
+document.addEventListener("visibilitychange", () => {
+if (!document.hidden) primeVideo();
 });
 
+/* INTRO */
 function startIntro(){
 const intro = document.getElementById("intro");
 
@@ -309,7 +342,7 @@ intro.classList.add("fade");
 
 setTimeout(()=>{
 intro.style.display="none";
-forcePlay();
+primeVideo();
 },120);
 
 },1600);
@@ -319,6 +352,7 @@ forcePlay();
 window.addEventListener("load", startIntro);
 document.getElementById("logoBtn").addEventListener("click", startIntro);
 
+/* MENU */
 const btn = document.getElementById("hambBtn");
 const menu = document.getElementById("menu");
 
