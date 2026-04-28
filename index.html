@@ -1,262 +1,253 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Garabato Cine</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garabato Cine</title>
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-html, body{
-  width:100%;
-  height:100%;
-  background:#000;
-  overflow:hidden;
-}
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            overflow: hidden;
+        }
 
-/* VIDEO */
-.video{
-  position:fixed;
-  inset:0;
-  z-index:0;
-}
+        /* ===================== */
+        /* VIDEO DE FONDO */
+        /* ===================== */
+        .video-background {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+        }
 
-.video video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-/* INTRO */
-#intro{
-  position:fixed;
-  inset:0;
-  z-index:10;
-  background:#fff;
+        /* ===================== */
+        /* INTRO / CORTINILLA */
+        /* ===================== */
+        #intro {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: #fff; /* Fondo blanco inicial */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            /* Esta propiedad hace que el texto negro sea transparente hacia el video */
+            mix-blend-mode: screen; 
+            
+            transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1);
+        }
 
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-}
+        .intro-title {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 900;
+            font-size: clamp(42px, 8vw, 110px);
+            color: #000; /* Negro = Transparente con 'screen' */
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+            animation-delay: 0.5s;
+        }
 
-/* TEXTO PRINCIPAL (GRANDE Y ESTABLE) */
-.title{
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight:900;
+        .intro-subtitle {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            font-size: clamp(12px, 2vw, 18px);
+            letter-spacing: 4px;
+            color: #000;
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+            animation-delay: 0.8s;
+        }
 
-  /* tamaño estable en TODOS los dispositivos */
-  font-size: clamp(40px, 8vw, 110px);
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
 
-  color:#000;
+        /* Clase para retirar la cortina */
+        .hide-intro {
+            transform: translateY(-100%);
+        }
 
-  opacity:0;
-  transform:translateX(0);
+        /* ===================== */
+        /* HEADER */
+        /* ===================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 20;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 40px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            text-transform: uppercase;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.8s ease;
+        }
 
-  animation:fadeIn 0.4s ease forwards;
-  animation-delay:1.6s;
-}
+        .header.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
-/* SUBTITULO */
-.subtitle{
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight:700;
-  font-size: clamp(12px, 2vw, 16px);
-  letter-spacing:2px;
+        .brand {
+            font-weight: 900;
+            font-size: 20px;
+            cursor: pointer;
+        }
 
-  color:#000;
+        .hamburger {
+            width: 28px;
+            height: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
 
-  opacity:0;
-  animation:fadeIn 0.4s ease forwards;
-  animation-delay:1.8s;
-}
+        .hamburger span {
+            height: 2px;
+            background: white;
+            width: 100%;
+        }
 
-/* entrada */
-@keyframes fadeIn{
-  to{ opacity:1; }
-}
+        /* ===================== */
+        /* MENU OVERLAY */
+        /* ===================== */
+        .cinema-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
 
-/* movimiento tipo cortinilla */
-.play .title,
-.play .subtitle{
-  animation:slide 1.3s cubic-bezier(.76,0,.24,1) forwards;
-  animation-delay:2s;
-}
+        .cinema-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
-@keyframes slide{
-  to{
-    transform:translateX(-180%);
-  }
-}
+        .cinema-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(15px);
+        }
 
-/* salida intro */
-.hide{
-  opacity:0;
-  pointer-events:none;
-}
+        .cinema-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-/* HEADER */
-.header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:20;
+        .cinema-links {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+        .cinema-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
 
-  padding:25px 40px;
+        .cinema-links a:hover {
+            opacity: 0.6;
+        }
 
-  color:#fff;
-  font-family:Arial;
-  text-transform:uppercase;
-
-  opacity:0;
-  animation:fadeInHeader 0.5s ease forwards;
-  animation-delay:3.2s;
-}
-
-@keyframes fadeInHeader{
-  to{ opacity:1; }
-}
-
-.brand{
-  font-weight:900;
-  font-size:20px;
-  cursor:pointer;
-}
-
-/* MENU */
-.menu-btn{
-  width:28px;
-  height:18px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  cursor:pointer;
-}
-
-.menu-btn span{
-  height:2px;
-  background:#fff;
-  width:100%;
-}
-
-/* OVERLAY */
-.overlay{
-  position:fixed;
-  inset:0;
-  z-index:100;
-
-  background:rgba(0,0,0,0.75);
-  backdrop-filter:blur(12px);
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  opacity:0;
-  pointer-events:none;
-
-  transition:0.4s;
-}
-
-.overlay.active{
-  opacity:1;
-  pointer-events:auto;
-}
-
-.overlay a{
-  display:block;
-  color:#fff;
-  font-family:Arial;
-  text-decoration:none;
-  font-size:18px;
-  margin:10px 0;
-  text-align:center;
-}
-
-</style>
+    </style>
 </head>
-
 <body>
 
-<header class="header">
-  <div class="brand" id="restart">GARABATO CINE</div>
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4" type="video/mp4">
+        </video>
+    </div>
 
-  <div class="menu-btn" id="btn">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</header>
+    <div id="intro">
+        <div class="intro-title">GARABATO CINE</div>
+        <div class="intro-subtitle">COLOMBIA</div>
+    </div>
 
-<div class="overlay" id="overlay">
-  <div>
-    <a href="#">CATÁLOGO</a>
-    <a href="#">NOSOTROS</a>
-    <a href="#">PRÓXIMAMENTE</a>
-    <a href="#">CONTACTO</a>
-    <a href="#">INSTAGRAM</a>
-  </div>
-</div>
+    <header class="header" id="mainHeader">
+        <div class="brand" onclick="location.reload()">GARABATO CINE</div>
+        <div class="hamburger" id="hambBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
 
-<div class="video">
-  <video autoplay muted loop playsinline>
-    <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
-  </video>
-</div>
+    <div class="cinema-overlay" id="menu">
+        <div class="cinema-backdrop"></div>
+        <div class="cinema-content">
+            <nav class="cinema-links">
+                <a href="#">CATÁLOGO</a>
+                <a href="#">NOSOTROS</a>
+                <a href="#">PRÓXIMAMENTE</a>
+                <a href="#">CONTACTO</a>
+                <a href="#">INSTAGRAM</a>
+            </nav>
+        </div>
+    </div>
 
-<div id="intro">
-  <div class="title">GARABATO CINE</div>
-  <div class="subtitle">COLOMBIA</div>
-</div>
+    <script>
+        window.addEventListener("load", () => {
+            const intro = document.getElementById("intro");
+            const header = document.getElementById("mainHeader");
 
-<script>
+            // 1. Mostrar la intro (el video se verá a través del texto negro)
+            // 2. Después de 3 segundos, deslizar la cortina hacia arriba
+            setTimeout(() => {
+                intro.classList.add("hide-intro");
+                header.classList.add("show");
+            }, 3000);
+        });
 
-window.addEventListener("load", ()=>{
+        // Lógica del Menú
+        const btn = document.getElementById("hambBtn");
+        const menu = document.getElementById("menu");
 
-  document.body.classList.add("play");
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
 
-  const intro = document.getElementById("intro");
-
-  setTimeout(()=>{
-    intro.classList.add("hide");
-
-    setTimeout(()=>{
-      intro.style.display="none";
-    },100);
-
-  },3200);
-});
-
-/* REINICIO INTRO */
-document.getElementById("restart").addEventListener("click", ()=>{
-  location.reload();
-});
-
-/* MENU */
-const btn = document.getElementById("btn");
-const overlay = document.getElementById("overlay");
-
-btn.addEventListener("click", ()=>{
-  overlay.classList.toggle("active");
-});
-
-overlay.addEventListener("click", (e)=>{
-  if(e.target === overlay){
-    overlay.classList.remove("active");
-  }
-});
-
-</script>
+        menu.addEventListener("click", (e) => {
+            if (e.target.classList.contains('cinema-backdrop')) {
+                menu.classList.remove("active");
+            }
+        });
+    </script>
 
 </body>
 </html>
