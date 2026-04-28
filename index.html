@@ -35,7 +35,6 @@ html, body{
     object-fit:cover;
 }
 
-/* desktop / mobile switch */
 .video-mobile{
     display:none;
 }
@@ -62,14 +61,13 @@ svg{
     display:block;
 }
 
-/* TEXTO ORIGINAL */
-text.big {
+text.big{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 900;
     font-size: clamp(28px, 6vw, 58px);
 }
 
-text.small {
+text.small{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: clamp(10px, 2vw, 14px);
@@ -129,7 +127,6 @@ text.small {
     cursor:pointer;
 }
 
-/* MENÚ MÁS GRANDE */
 .nav{
     display:flex;
     gap:25px;
@@ -148,7 +145,7 @@ text.small {
     opacity:1;
 }
 
-/* ICONO INSTAGRAM */
+/* ICONO INSTAGRAM CORREGIDO */
 .icon{
     width:18px;
     height:18px;
@@ -183,7 +180,7 @@ text.small {
     width:100%;
 }
 
-/* MENU MOBILE */
+/* MOBILE MENU */
 .mobile-menu{
     position:fixed;
     inset:0;
@@ -209,9 +206,7 @@ text.small {
     display:flex;
 }
 
-/* ===================== */
 /* TABLET FIX */
-/* ===================== */
 @media (max-width:1024px){
     text.big{
         font-size: clamp(24px, 5vw, 48px);
@@ -222,18 +217,10 @@ text.small {
     }
 }
 
-/* ===================== */
-/* MOBILE HEADER SWITCH */
-/* ===================== */
+/* MOBILE SWITCH */
 @media (max-width:768px){
-
-    .nav{
-        display:none;
-    }
-
-    .hamburger{
-        display:flex;
-    }
+    .nav{ display:none; }
+    .hamburger{ display:flex; }
 }
 </style>
 </head>
@@ -249,9 +236,10 @@ text.small {
         <a href="#">NOSOTROS</a>
         <a href="#">PRÓXIMAMENTE</a>
 
+        <!-- INSTAGRAM CORREGIDO -->
         <a href="https://instagram.com" target="_blank">
             <svg class="icon" viewBox="0 0 24 24">
-                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 2H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3z"/>
+                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 2H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm-5 3.5A4.5 4.5 0 1112 16a4.5 4.5 0 010-9zm0 2A2.5 2.5 0 1014.5 12 2.5 2.5 0 0012 9.5zM17.8 6.2a1 1 0 11-1 1 1 1 0 011-1z"/>
             </svg>
         </a>
 
@@ -268,7 +256,7 @@ text.small {
 
 </header>
 
-<!-- MENU MOBILE -->
+<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
     <a href="#">CATÁLOGO</a>
     <a href="#">NOSOTROS</a>
@@ -277,7 +265,7 @@ text.small {
     <a href="#">ES / EN</a>
 </div>
 
-<!-- VIDEO DUAL -->
+<!-- VIDEO -->
 <div class="video">
     <video class="video-desktop" autoplay muted loop playsinline>
         <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
@@ -291,9 +279,11 @@ text.small {
 <!-- INTRO -->
 <div id="intro">
     <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
+
         <defs>
             <mask id="mask">
                 <rect x="-5" y="-5" width="1410" height="510" fill="white"/>
+
                 <g class="mask-group" id="logoGroup">
                     <text x="700" y="240" text-anchor="middle" class="big">GARABATO CINE</text>
                     <text x="700" y="285" text-anchor="middle" class="small">COLOMBIA</text>
