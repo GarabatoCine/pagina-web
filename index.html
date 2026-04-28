@@ -35,9 +35,7 @@ html, body{
     object-fit:cover;
 }
 
-.video-mobile{
-    display:none;
-}
+.video-mobile{ display:none; }
 
 @media (max-width:768px){
     .video-desktop{ display:none; }
@@ -63,20 +61,20 @@ svg{
 
 text.big{
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 900;
+    font-weight:900;
     font-size: clamp(28px, 6vw, 58px);
 }
 
 text.small{
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 700;
+    font-weight:700;
     font-size: clamp(10px, 2vw, 14px);
-    letter-spacing: 2px;
+    letter-spacing:2px;
 }
 
 .mask-group{
     transform-box: fill-box;
-    transform-origin: center;
+    transform-origin:center;
 }
 
 .mask-group text{ opacity:0; }
@@ -84,11 +82,19 @@ text.small{
 
 .play .mask-group{
     animation: slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
-    animation-delay: 2s;
+    animation-delay:2s;
 }
 
 @keyframes slideLeft{
     to { transform: translateX(-200%); }
+}
+
+/* rect cover FIX */
+#intro rect{
+    x:-5;
+    y:-5;
+    width:1410;
+    height:510;
 }
 
 /* ===================== */
@@ -111,9 +117,9 @@ text.small{
     text-transform:uppercase;
     color:white;
 
-    opacity: 0;
-    animation: fadeInHeader 0.5s ease forwards;
-    animation-delay: 3.3s;
+    opacity:0;
+    animation:fadeInHeader 0.5s ease forwards;
+    animation-delay:3.3s;
 }
 
 @keyframes fadeInHeader{
@@ -145,26 +151,14 @@ text.small{
     opacity:1;
 }
 
-/* ICONO INSTAGRAM CORREGIDO */
+/* instagram */
 .icon{
     width:18px;
     height:18px;
     fill:white;
 }
 
-.lang-selector{
-    font-size:10px;
-    letter-spacing:1px;
-}
-
-.lang-selector span{
-    opacity:0.4;
-    margin-right:5px;
-}
-
-/* ===================== */
-/* HAMBURGUESA */
-/* ===================== */
+/* hamburger */
 .hamburger{
     display:none;
     flex-direction:column;
@@ -180,44 +174,76 @@ text.small{
     width:100%;
 }
 
-/* MOBILE MENU */
-.mobile-menu{
+/* ===================== */
+/* CINEMA OVERLAY MENU */
+/* ===================== */
+.cinema-overlay{
     position:fixed;
     inset:0;
-    background:black;
-    z-index:50;
+    z-index:100;
 
-    display:none;
-    flex-direction:column;
+    opacity:0;
+    pointer-events:none;
+
+    transition:opacity 0.6s ease;
+}
+
+.cinema-backdrop{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.75);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+}
+
+.cinema-content{
+    position:relative;
+    width:100%;
+    height:100%;
+
+    display:flex;
     justify-content:center;
     align-items:center;
-    gap:30px;
+}
 
-    font-size:18px;
+.cinema-links{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+    text-align:center;
+
+    font-family: Arial, Helvetica, sans-serif;
     text-transform:uppercase;
 }
 
-.mobile-menu a{
+.cinema-links a{
     color:white;
     text-decoration:none;
+    font-size:18px;
+    letter-spacing:2px;
+
+    opacity:0;
+    transform:translateY(10px);
+    transition:all 0.4s ease;
 }
 
-.mobile-menu.active{
-    display:flex;
+.cinema-overlay.active{
+    opacity:1;
+    pointer-events:auto;
 }
 
-/* TABLET FIX */
-@media (max-width:1024px){
-    text.big{
-        font-size: clamp(24px, 5vw, 48px);
-    }
-
-    text.small{
-        font-size: clamp(10px, 2vw, 12px);
-    }
+.cinema-overlay.active .cinema-links a{
+    opacity:1;
+    transform:translateY(0);
 }
 
-/* MOBILE SWITCH */
+.cinema-overlay.active .cinema-links a:nth-child(1){ transition-delay:0.1s; }
+.cinema-overlay.active .cinema-links a:nth-child(2){ transition-delay:0.15s; }
+.cinema-overlay.active .cinema-links a:nth-child(3){ transition-delay:0.2s; }
+.cinema-overlay.active .cinema-links a:nth-child(4){ transition-delay:0.25s; }
+.cinema-overlay.active .cinema-links a:nth-child(5){ transition-delay:0.3s; }
+
+/* MOBILE */
 @media (max-width:768px){
     .nav{ display:none; }
     .hamburger{ display:flex; }
@@ -227,6 +253,7 @@ text.small{
 
 <body>
 
+<!-- HEADER -->
 <header class="header">
 
     <div class="brand" id="restartIntro">GARABATO CINE</div>
@@ -236,16 +263,11 @@ text.small{
         <a href="#">NOSOTROS</a>
         <a href="#">PRÓXIMAMENTE</a>
 
-        <!-- INSTAGRAM CORREGIDO -->
         <a href="https://instagram.com" target="_blank">
             <svg class="icon" viewBox="0 0 24 24">
-                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 2H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm-5 3.5A4.5 4.5 0 1112 16a4.5 4.5 0 010-9zm0 2A2.5 2.5 0 1014.5 12 2.5 2.5 0 0012 9.5zM17.8 6.2a1 1 0 11-1 1 1 1 0 011-1z"/>
+                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 2H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm-5 3.5A4.5 4.5 0 1112 16a4.5 4.5 0 010-9z"/>
             </svg>
         </a>
-
-        <div class="lang-selector">
-            <span>ES</span><a href="#">EN</a>
-        </div>
     </div>
 
     <div class="hamburger" id="hambBtn">
@@ -256,13 +278,19 @@ text.small{
 
 </header>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-    <a href="#">CATÁLOGO</a>
-    <a href="#">NOSOTROS</a>
-    <a href="#">PRÓXIMAMENTE</a>
-    <a href="#">INSTAGRAM</a>
-    <a href="#">ES / EN</a>
+<!-- CINEMA MENU -->
+<div class="cinema-overlay" id="cinemaMenu">
+    <div class="cinema-backdrop"></div>
+
+    <div class="cinema-content">
+        <div class="cinema-links">
+            <a href="#">CATÁLOGO</a>
+            <a href="#">NOSOTROS</a>
+            <a href="#">PRÓXIMAMENTE</a>
+            <a href="#">CONTACTO</a>
+            <a href="#">INSTAGRAM</a>
+        </div>
+    </div>
 </div>
 
 <!-- VIDEO -->
@@ -279,11 +307,9 @@ text.small{
 <!-- INTRO -->
 <div id="intro">
     <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
-
         <defs>
             <mask id="mask">
-                <rect x="-5" y="-5" width="1410" height="510" fill="white"/>
-
+                <rect width="100%" height="100%" fill="white"/>
                 <g class="mask-group" id="logoGroup">
                     <text x="700" y="240" text-anchor="middle" class="big">GARABATO CINE</text>
                     <text x="700" y="285" text-anchor="middle" class="small">COLOMBIA</text>
@@ -291,7 +317,7 @@ text.small{
             </mask>
         </defs>
 
-        <rect x="-5" y="-5" width="1410" height="510" fill="white" mask="url(#mask)"/>
+        <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
     </svg>
 </div>
 
@@ -304,31 +330,18 @@ document.querySelectorAll("video").forEach(v=>{
 });
 
 /* INTRO */
-function startIntro(){
+window.addEventListener("load", ()=>{
+    document.body.classList.add("play");
+
     const intro = document.getElementById("intro");
-
-    intro.style.display = "block";
-    intro.style.opacity = "1";
-
-    document.body.classList.remove("play");
-
-    setTimeout(()=>{
-        document.body.classList.add("play");
-    }, 50);
 
     setTimeout(()=>{
         intro.style.opacity = "0";
+        setTimeout(()=> intro.style.display="none",120);
+    },3250);
+});
 
-        setTimeout(()=>{
-            intro.style.display = "none";
-        }, 120);
-
-    }, 3250);
-}
-
-window.addEventListener("load", startIntro);
-
-/* REINICIO INTRO */
+/* RESTART INTRO */
 document.getElementById("restartIntro").addEventListener("click", ()=>{
 
     const intro = document.getElementById("intro");
@@ -345,24 +358,28 @@ document.getElementById("restartIntro").addEventListener("click", ()=>{
 
     setTimeout(()=>{
         document.body.classList.add("play");
-    }, 50);
+    },50);
 
     setTimeout(()=>{
-        intro.style.opacity = "0";
-
-        setTimeout(()=>{
-            intro.style.display = "none";
-        }, 120);
-
-    }, 3250);
+        intro.style.opacity="0";
+        setTimeout(()=> intro.style.display="none",120);
+    },3250);
 });
 
-/* HAMBURGUESA */
+/* HAMB + MENU CINEMA */
 const btn = document.getElementById("hambBtn");
-const menu = document.getElementById("mobileMenu");
+const menu = document.getElementById("cinemaMenu");
+
+const sound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-fast-swoosh-transition-1497.mp3");
+sound.volume = 0.2;
 
 btn.addEventListener("click", ()=>{
     menu.classList.toggle("active");
+
+    if(menu.classList.contains("active")){
+        sound.currentTime = 0;
+        sound.play().catch(()=>{});
+    }
 });
 
 </script>
