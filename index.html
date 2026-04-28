@@ -6,11 +6,7 @@
 <title>Garabato Cine</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{ margin:0; padding:0; box-sizing:border-box; }
 
 html, body{
     width:100%;
@@ -19,9 +15,7 @@ html, body{
     overflow:hidden;
 }
 
-/* ===================== */
-/* VIDEO DE FONDO */
-/* ===================== */
+/* VIDEO */
 .video{
     position:fixed;
     inset:0;
@@ -34,14 +28,14 @@ html, body{
     object-fit:cover;
 }
 
-/* ===================== */
-/* INTRO / MÁSCARA */
-/* ===================== */
+/* INTRO */
 #intro{
     position:fixed;
     inset:0;
     z-index:10;
-    transition: opacity 0.1s ease; /* Transición casi instantánea */
+    opacity: 1;
+    /* Transición ultra rápida para que no se sienta el cambio */
+    transition: opacity 0.05s linear; 
 }
 
 svg{
@@ -55,32 +49,22 @@ svg{
     transform-origin: center;
 }
 
-.mask-group text{
-    opacity:0;
-}
+.mask-group text{ opacity:0; }
+.play .mask-group text{ opacity:1; }
 
-.play .mask-group text{
-    opacity:1;
-}
-
-/* ANIMACIÓN: 
-   - Duración 1.3s para que sea ágil.
-   - Delay de 2.5s para que se alcance a leer.
-*/
+/* ANIMACIÓN */
 .play .mask-group{
+    /* Mantenemos 1.3s pero el JS cortará el blanco antes */
     animation: slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
     animation-delay: 2.5s;
 }
 
-/* Clase para desaparecer el fondo blanco */
 #intro.hide{
     opacity:0;
     pointer-events:none;
 }
 
-/* ===================== */
-/* TEXTO (ESTILOS) */
-/* ===================== */
+/* TEXTO */
 text.big{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:900;
@@ -94,19 +78,10 @@ text.small{
     letter-spacing:2px;
 }
 
-/* ===================== */
-/* KEYFRAMES */
-/* ===================== */
 @keyframes slideLeft{
-    to {
-        /* -300% asegura que la 'E' cruce toda la pantalla hacia la izquierda */
-        transform: translateX(-300%);
-    }
+    to { transform: translateX(-200%); } 
 }
 
-/* ===================== */
-/* RESPONSIVE */
-/* ===================== */
 @media (max-width: 1024px){
     text.big{ font-size: clamp(20px, 5vw, 38px); }
     text.small{ font-size: clamp(9px, 2.2vw, 12px); }
@@ -127,48 +102,40 @@ text.small{
         <defs>
             <mask id="mask">
                 <rect width="100%" height="100%" fill="white"/>
-                
                 <g class="mask-group" id="logoGroup">
-                    <text x="700" y="240" text-anchor="middle" class="big">
-                        GARABATO CINE
-                    </text>
-                    <text x="700" y="285" text-anchor="middle" class="small">
-                        COLOMBIA
-                    </text>
+                    <text x="700" y="240" text-anchor="middle" class="big">GARABATO CINE</text>
+                    <text x="700" y="285" text-anchor="middle" class="small">COLOMBIA</text>
                 </g>
             </mask>
         </defs>
-
-        <rect id="whiteBg" width="100%" height="100%" fill="white" mask="url(#mask)"/>
+        <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
     </svg>
 </div>
 
 <script>
-    /* Autoplay Fix para navegadores */
     document.querySelectorAll("video").forEach(v => {
         v.muted = true;
         v.play().catch(() => {});
     });
 
     window.addEventListener("load", () => {
-        // Inicia la secuencia
         document.body.classList.add("play");
-
-        const logo = document.getElementById("logoGroup");
         const intro = document.getElementById("intro");
 
-        // Escucha exactamente cuando termina el movimiento de la letra
-        logo.addEventListener("animationend", (e) => {
-            if (e.animationName === "slideLeft") {
-                // 1. Desaparece el intro de inmediato
-                intro.classList.add("hide");
-
-                // 2. Lo quita del DOM a la milésima para que no estorbe
-                setTimeout(() => {
-                    intro.style.display = "none";
-                }, 100);
-            }
-        });
+        /* CÁLCULO MATEMÁTICO PARA EL CORTE:
+           Delay (2.5s) + Duración (1.3s) = 3.8s total.
+           Si queremos adelantar 0.25s la desaparición:
+           3.8s - 0.25s = 3.55s (3550 milisegundos).
+        */
+        setTimeout(() => {
+            intro.classList.add("hide");
+            
+            // Eliminar del flujo para optimizar
+            setTimeout(() => {
+                intro.style.display = "none";
+            }, 100);
+            
+        }, 3550); // <--- Este es el disparador exacto
     });
 </script>
 
