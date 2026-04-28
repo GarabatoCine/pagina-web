@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Garabato Cine</title>
 
-<!-- NUEVA TIPOGRAFÍA -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<!-- TIPOGRAFÍA MÁS CINE -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -16,7 +16,7 @@ width:100%;
 height:100%;
 background:#000;
 overflow:hidden;
-font-family:'Inter', sans-serif;
+font-family:'Manrope', sans-serif;
 }
 
 /* VIDEO */
@@ -38,31 +38,34 @@ position:fixed;
 inset:0;
 z-index:1000;
 opacity:1;
+background:white; /* 🔥 evita cualquier fuga */
 }
 
 svg{
-width:100vw;
-height:100vh;
+width:100%;
+height:100%;
 display:block;
 }
 
-/* TEXTO AJUSTADO */
+/* TEXTO (ANTI-DESBORDE REAL) */
 text.big{
 font-weight:800;
-font-size:clamp(50px, 7vw, 110px);
+font-size:clamp(42px, 6.5vw, 95px); /* 🔥 bajado para evitar overflow real */
 text-anchor:middle;
+dominant-baseline:middle;
 }
 
 text.small{
 font-weight:600;
-font-size:clamp(12px, 1.8vw, 16px);
+font-size:clamp(11px, 1.6vw, 14px);
 letter-spacing:3px;
 text-anchor:middle;
 }
 
-/* 🔥 TRANSPARENCIA REAL (SIN FLASH) */
-text{
+/* 🔥 TRANSPARENCIA SIN FLASH */
+.mask-group text{
 fill:black;
+opacity:1;
 }
 
 /* ANIMACIÓN */
@@ -77,13 +80,15 @@ animation-delay:1s;
 }
 
 @keyframes slideLeft{
-to{transform:translateX(-130vw);}
+to{
+transform:translateX(-120vw); /* 🔥 evita que “jale” texto fuera del viewport */
+}
 }
 
-/* FADE */
+/* FADE MÁS RÁPIDO */
 .fade{
 opacity:0;
-transition:opacity 0.1s linear;
+transition:opacity 0.08s linear;
 }
 
 /* HEADER */
@@ -114,7 +119,7 @@ cursor:pointer;
 display:flex;
 gap:28px;
 align-items:center;
-font-size:13px;
+font-size:14px;
 font-weight:600;
 }
 
@@ -126,7 +131,7 @@ opacity:0.85;
 
 .nav a:hover{opacity:1;}
 
-/* INSTAGRAM ICON CORRECTO */
+/* INSTAGRAM */
 .icon{
 width:20px;
 height:20px;
@@ -137,7 +142,7 @@ fill:white;
 .lang{
 display:flex;
 align-items:center;
-gap:8px;
+gap:6px;
 font-size:12px;
 }
 
@@ -166,14 +171,14 @@ background:white;
 width:100%;
 }
 
-/* MENU DROPDOWN */
+/* MENU */
 .menu{
 position:fixed;
 top:70px;
 right:30px;
 width:220px;
 background:rgba(0,0,0,0.95);
-backdrop-filter:blur(12px);
+backdrop-filter:blur(10px);
 border-radius:10px;
 padding:15px 20px;
 
@@ -184,7 +189,7 @@ gap:12px;
 opacity:0;
 transform:translateY(-10px);
 pointer-events:none;
-transition:0.3s ease;
+transition:0.25s ease;
 
 z-index:150;
 }
@@ -210,7 +215,7 @@ letter-spacing:2px;
 .header{padding:20px;}
 
 text.big{
-font-size:clamp(38px, 9vw, 80px);
+font-size:clamp(34px, 8vw, 70px); /* 🔥 tablet fix */
 }
 
 }
@@ -218,11 +223,11 @@ font-size:clamp(38px, 9vw, 80px);
 @media (max-width:768px){
 
 text.big{
-font-size:clamp(30px, 10vw, 60px);
+font-size:clamp(28px, 9vw, 55px); /* 🔥 móvil fix definitivo */
 }
 
 text.small{
-font-size:clamp(10px, 3vw, 14px);
+font-size:clamp(10px, 3vw, 13px);
 }
 
 .menu{
@@ -248,16 +253,21 @@ width:200px;
 <!-- INTRO -->
 <div id="intro">
 <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice">
+
 <defs>
 <mask id="mask">
 <rect width="100%" height="100%" fill="white"/>
+
 <g class="mask-group">
 <text x="50%" y="50%" class="big">GARABATO CINE</text>
 <text x="50%" y="60%" class="small">COLOMBIA</text>
 </g>
+
 </mask>
 </defs>
+
 <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+
 </svg>
 </div>
 
@@ -273,14 +283,12 @@ width:200px;
 <a href="#">PRÓXIMAMENTE</a>
 <a href="#">CONTACTO</a>
 
-<!-- INSTAGRAM -->
 <a href="https://instagram.com" target="_blank">
 <svg class="icon" viewBox="0 0 24 24">
-<path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 2h8.5A3.75 3.75 0 0120 7.75v8.5A3.75 3.75 0 0116.25 20h-8.5A3.75 3.75 0 014 16.25v-8.5A3.75 3.75 0 017.75 4zm4.25 2.5A5.75 5.75 0 106 12a5.75 5.75 0 006-5.75zm0 2A3.75 3.75 0 118.25 12 3.75 3.75 0 0112 8.5zm5.25-.88a1.12 1.12 0 11-2.24 0 1.12 1.12 0 012.24 0z"/>
+<path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm4.25 4.5A5.75 5.75 0 106 12a5.75 5.75 0 006-5.75z"/>
 </svg>
 </a>
 
-<!-- IDIOMA -->
 <div class="lang">
 <span>ES</span>
 <span>|</span>
@@ -289,7 +297,6 @@ width:200px;
 
 </div>
 
-<!-- HAMBURGER -->
 <div class="hamburger" id="hambBtn">
 <span></span>
 <span></span>
@@ -298,7 +305,7 @@ width:200px;
 
 </header>
 
-<!-- MENU MOBILE -->
+<!-- MENU -->
 <div class="menu" id="menu">
 <a href="#">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
@@ -318,6 +325,7 @@ v.play().catch(()=>{});
 
 /* INTRO */
 function startIntro(){
+
 const intro = document.getElementById("intro");
 
 intro.style.display="block";
@@ -328,14 +336,16 @@ setTimeout(()=>{
 document.body.classList.add("play");
 },50);
 
+/* 🔥 0.5s ANTES (CORTE LIMPIO) */
 setTimeout(()=>{
 intro.classList.add("fade");
 
 setTimeout(()=>{
 intro.style.display="none";
-},120);
+},80);
 
-},2600);
+},2100);
+
 }
 
 window.addEventListener("load", startIntro);
