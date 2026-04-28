@@ -15,8 +15,8 @@ box-sizing:border-box;
 html, body{
 width:100%;
 height:100%;
-background:#000;
 overflow:hidden;
+background:#000;
 }
 
 /* ===================== */
@@ -35,16 +35,21 @@ object-fit:cover;
 }
 
 /* ===================== */
-/* FADE MOBILE */
+/* BLANCO (CONTROL REAL) */
 /* ===================== */
-#fade{
+.white-bg{
 position:fixed;
 inset:0;
-background:#000;
+background:white;
 z-index:5;
-opacity:0;
-pointer-events:none;
-transition: opacity 0.6s ease;
+opacity:1;
+will-change:opacity;
+backface-visibility:hidden;
+}
+
+/* fade controlado por JS */
+.white-bg.fade{
+animation: fadeOut 0.5s ease forwards;
 }
 
 /* ===================== */
@@ -57,40 +62,18 @@ z-index:10;
 }
 
 svg{
-width:100vw;
-height:100vh;
+width:100%;
+height:100%;
 display:block;
 }
 
 /* ===================== */
-/* FIX SVG ESTABLE */
+/* LOGO */
 /* ===================== */
 .mask-group{
 transform-box: fill-box;
 transform-origin: center;
-}
-
-.mask-group text{
-opacity:0;
-}
-
-.play .mask-group text{
-opacity:1;
-}
-
-/* animación del logo */
-.play .mask-group{
-animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
-animation-delay:2.5s;
-}
-
-/* ocultado del intro */
-#intro.hide{
-animation:fadeOut 0.2s ease forwards;
-}
-
-/* mismo timing base */
-.play #intro{
+animation: slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
 animation-delay:2.5s;
 }
 
@@ -114,72 +97,22 @@ letter-spacing:2px;
 /* KEYFRAMES */
 /* ===================== */
 @keyframes slideLeft{
-to{transform:translateX(-200%);}
+to{
+transform:translateX(-200%);
+}
 }
 
 @keyframes fadeOut{
-to{opacity:0;visibility:hidden;}
+to{
+opacity:0;
+visibility:hidden;
 }
-
-/* ===================== */
-/* TABLET */
-/* ===================== */
-@media (max-width: 1024px){
-
-text.big{
-font-size: clamp(20px, 5vw, 38px);
-transform: translateY(-1px);
-}
-
-text.small{
-font-size: clamp(9px, 2.2vw, 12px);
-letter-spacing:1.3px;
-transform: translateY(-1px);
-}
-
-}
-
-/* ===================== */
-/* MOBILE VIDEO MODE */
-/* ===================== */
-@media (max-width: 768px){
-
-.video video{
-object-fit: cover;
-}
-
-body.mobile-contain .video video{
-object-fit: contain;
-}
-
-body.mobile-fade #fade{
-opacity:1;
-}
-
-}
-
-/* ===================== */
-/* SMALL MOBILE */
-/* ===================== */
-@media (max-width: 380px){
-
-text.big{
-font-size: 24px;
-}
-
-text.small{
-font-size: 10px;
-}
-
 }
 
 </style>
 </head>
 
 <body>
-
-<!-- FADE -->
-<div id="fade"></div>
 
 <!-- VIDEO -->
 <div class="video">
@@ -188,14 +121,13 @@ font-size: 10px;
 </video>
 </div>
 
+<!-- BLANCO -->
+<div class="white-bg"></div>
+
 <!-- INTRO -->
 <div id="intro">
 
 <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
-
-<defs>
-<mask id="mask">
-<rect width="100%" height="100%" fill="white"/>
 
 <g class="mask-group" id="logoGroup">
 
@@ -213,18 +145,13 @@ COLOMBIA
 
 </g>
 
-</mask>
-</defs>
-
-<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
-
 </svg>
 
 </div>
 
 <script>
 
-/* autoplay */
+/* video autoplay */
 document.querySelectorAll("video").forEach(v=>{
 v.muted = true;
 v.play().catch(()=>{});
@@ -235,35 +162,27 @@ document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-/* start */
+/* ===================== */
+/* 🔥 SINCRONIZACIÓN CINEMATOGRÁFICA */
+/* ===================== */
+
+const logo = document.getElementById("logoGroup");
+const white = document.querySelector(".white-bg");
+
 window.addEventListener("load",()=>{
 
 document.body.classList.add("play");
 
-/* mobile mode */
-if(window.innerWidth <= 768){
-
-document.body.classList.add("mobile-fade");
-
-setTimeout(()=>{
-document.body.classList.add("mobile-contain");
-document.body.classList.remove("mobile-fade");
-},600);
-
-}
-
-/* sincronización real */
-const logo = document.getElementById("logoGroup");
-
-logo.addEventListener("animationend",(e)=>{
+/* cuando empieza el movimiento del logo */
+logo.addEventListener("animationstart",(e)=>{
 
 if(e.animationName === "slideLeft"){
 
-document.getElementById("intro").classList.add("hide");
-
+/* 🔥 aquí ocurre la magia:
+   apagamos el blanco ligeramente antes del movimiento perceptual */
 setTimeout(()=>{
-document.getElementById("intro").style.display="none";
-},250);
+white.classList.add("fade");
+}, 200); // micro ajuste cinematográfico estable
 
 }
 
