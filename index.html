@@ -15,8 +15,8 @@ box-sizing:border-box;
 html, body{
 width:100%;
 height:100%;
-overflow:hidden;
 background:#000;
+overflow:hidden;
 }
 
 /* ===================== */
@@ -35,21 +35,16 @@ object-fit:cover;
 }
 
 /* ===================== */
-/* BLANCO (CONTROL REAL) */
+/* FONDO BLANCO (CONTROL REAL) */
 /* ===================== */
-.white-bg{
+#fade{
 position:fixed;
 inset:0;
-background:white;
+background:#ffffff;
 z-index:5;
 opacity:1;
-will-change:opacity;
-backface-visibility:hidden;
-}
-
-/* fade controlado por JS */
-.white-bg.fade{
-animation: fadeOut 0.5s ease forwards;
+pointer-events:none;
+transition: opacity 0.5s ease;
 }
 
 /* ===================== */
@@ -62,19 +57,36 @@ z-index:10;
 }
 
 svg{
-width:100%;
-height:100%;
+width:100vw;
+height:100vh;
 display:block;
 }
 
 /* ===================== */
-/* LOGO */
+/* FIX SVG ESTABLE */
 /* ===================== */
 .mask-group{
 transform-box: fill-box;
 transform-origin: center;
-animation: slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
+}
+
+.mask-group text{
+opacity:0;
+}
+
+.play .mask-group text{
+opacity:1;
+}
+
+/* animación del logo */
+.play .mask-group{
+animation:slideLeft 1.6s cubic-bezier(.76,0,.24,1) forwards;
 animation-delay:2.5s;
+}
+
+/* ocultado del intro */
+#intro.hide{
+animation:fadeOut 0.2s ease forwards;
 }
 
 /* ===================== */
@@ -109,10 +121,65 @@ visibility:hidden;
 }
 }
 
+/* ===================== */
+/* TABLET */
+/* ===================== */
+@media (max-width: 1024px){
+
+text.big{
+font-size: clamp(20px, 5vw, 38px);
+transform: translateY(-1px);
+}
+
+text.small{
+font-size: clamp(9px, 2.2vw, 12px);
+letter-spacing:1.3px;
+transform: translateY(-1px);
+}
+
+}
+
+/* ===================== */
+/* MOBILE VIDEO MODE */
+/* ===================== */
+@media (max-width: 768px){
+
+.video video{
+object-fit: cover;
+}
+
+body.mobile-contain .video video{
+object-fit: contain;
+}
+
+body.mobile-fade #fade{
+opacity:1;
+}
+
+}
+
+/* ===================== */
+/* SMALL MOBILE */
+/* ===================== */
+@media (max-width: 380px){
+
+text.big{
+font-size: 24px;
+}
+
+text.small{
+font-size: 10px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
+
+<!-- FONDO BLANCO -->
+<div id="fade"></div>
 
 <!-- VIDEO -->
 <div class="video">
@@ -121,13 +188,14 @@ visibility:hidden;
 </video>
 </div>
 
-<!-- BLANCO -->
-<div class="white-bg"></div>
-
 <!-- INTRO -->
 <div id="intro">
 
 <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
+
+<defs>
+<mask id="mask">
+<rect width="100%" height="100%" fill="white"/>
 
 <g class="mask-group" id="logoGroup">
 
@@ -145,13 +213,18 @@ COLOMBIA
 
 </g>
 
+</mask>
+</defs>
+
+<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+
 </svg>
 
 </div>
 
 <script>
 
-/* video autoplay */
+/* autoplay */
 document.querySelectorAll("video").forEach(v=>{
 v.muted = true;
 v.play().catch(()=>{});
@@ -163,30 +236,40 @@ document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
 /* ===================== */
-/* 🔥 SINCRONIZACIÓN CINEMATOGRÁFICA */
+/* SINCRONIZACIÓN PERFECTA */
 /* ===================== */
-
-const logo = document.getElementById("logoGroup");
-const white = document.querySelector(".white-bg");
-
 window.addEventListener("load",()=>{
 
 document.body.classList.add("play");
+
+const logo = document.getElementById("logoGroup");
+const white = document.getElementById("fade");
 
 /* cuando empieza el movimiento del logo */
 logo.addEventListener("animationstart",(e)=>{
 
 if(e.animationName === "slideLeft"){
 
-/* 🔥 aquí ocurre la magia:
-   apagamos el blanco ligeramente antes del movimiento perceptual */
+/* 🔥 adelanto de 0.5s del corte del blanco */
 setTimeout(()=>{
-white.classList.add("fade");
-}, 200); // micro ajuste cinematográfico estable
+white.style.opacity = "0";
+}, 500);
 
 }
 
 });
+
+/* mobile mode */
+if(window.innerWidth <= 768){
+
+document.body.classList.add("mobile-fade");
+
+setTimeout(()=>{
+document.body.classList.add("mobile-contain");
+document.body.classList.remove("mobile-fade");
+},600);
+
+}
 
 });
 
