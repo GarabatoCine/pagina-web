@@ -35,79 +35,58 @@ html, body{
 }
 
 /* ===================== */
-/* INTRO (FIX REAL FULL COVER) */
+/* INTRO FIX REAL (SIN FALLOS DE RENDER) */
 /* ===================== */
 #intro{
     position:fixed;
     inset:0;
     z-index:10;
+    background:#fff;
     opacity:1;
     transition:opacity 0.05s linear;
 }
 
-/* FIX CLAVE: evita “huecos” en tablets/móvil */
-#intro::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:#fff;
-    z-index:-1;
-}
-
+/* IMPORTANTE: evita “desaparición” en Safari/iPad */
 svg{
     width:100%;
     height:100%;
     display:block;
 }
 
-/* ===================== */
-/* RESPONSIVE SVG CONTROL */
-/* ===================== */
+/* RESPONSIVE SAFE */
 @media (max-width:1024px){
     svg{
-        transform:scale(0.96);
+        transform:scale(0.97);
     }
 }
 
 @media (max-width:768px){
     svg{
-        transform:scale(0.92);
+        transform:scale(0.94);
     }
 }
 
-/* ===================== */
-/* TEXTO (FIX TABLET + MOBILE) */
-/* ===================== */
+/* TEXTO (FIJO Y SEGURO) */
 text.big{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:900;
-    font-size: clamp(20px, 5vw, 58px);
+    font-size: clamp(22px, 5.5vw, 58px);
+    fill:#000;
 }
 
 text.small{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:700;
-    font-size: clamp(9px, 2vw, 14px);
+    font-size: clamp(10px, 2vw, 14px);
     letter-spacing:2px;
+    fill:#000;
 }
 
-/* extra ajuste móvil */
-@media (max-width:480px){
-    text.big{
-        font-size: clamp(18px, 6vw, 34px);
-    }
-}
-
-/* ===================== */
-/* ANIMACIÓN INTRO */
-/* ===================== */
+/* ANIMACIÓN SOLO DEL GRUPO */
 .mask-group{
     transform-box: fill-box;
     transform-origin:center;
 }
-
-.mask-group text{ opacity:0; }
-.play .mask-group text{ opacity:1; }
 
 .play .mask-group{
     animation: slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
@@ -115,7 +94,7 @@ text.small{
 }
 
 @keyframes slideLeft{
-    to { transform: translateX(-200%); }
+    to { transform: translateX(-180%); }
 }
 
 /* ===================== */
@@ -193,7 +172,6 @@ text.small{
     inset:0;
     background:rgba(0,0,0,0.75);
     backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
 }
 
 .cinema-content{
@@ -275,20 +253,18 @@ text.small{
     </video>
 </div>
 
-<!-- INTRO -->
+<!-- INTRO (FIX DEFINITIVO SIN MÁSCARA PROBLEMÁTICA) -->
 <div id="intro">
     <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid meet">
-        <defs>
-            <mask id="mask">
-                <rect width="100%" height="100%" fill="white"/>
-                <g class="mask-group">
-                    <text x="700" y="240" text-anchor="middle" class="big">GARABATO CINE</text>
-                    <text x="700" y="285" text-anchor="middle" class="small">COLOMBIA</text>
-                </g>
-            </mask>
-        </defs>
 
-        <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+        <!-- fondo blanco estable -->
+        <rect width="100%" height="100%" fill="white"/>
+
+        <g class="mask-group" id="logoGroup">
+            <text x="700" y="240" text-anchor="middle" class="big">GARABATO CINE</text>
+            <text x="700" y="285" text-anchor="middle" class="small">COLOMBIA</text>
+        </g>
+
     </svg>
 </div>
 
@@ -302,6 +278,7 @@ window.addEventListener("load", ()=>{
     const intro = document.getElementById("intro");
 
     setTimeout(()=>{
+
         intro.style.opacity = "0";
 
         setTimeout(()=>{
