@@ -35,16 +35,16 @@ object-fit:cover;
 }
 
 /* ===================== */
-/* FONDO BLANCO (CONTROL REAL) */
+/* FADE MOBILE (BLANCO/NEGRO OVERLAY) */
 /* ===================== */
 #fade{
 position:fixed;
 inset:0;
-background:#ffffff;
+background:#000;
 z-index:5;
-opacity:1;
+opacity:0;
 pointer-events:none;
-transition: opacity 0.5s ease;
+transition: opacity 0.6s ease;
 }
 
 /* ===================== */
@@ -109,16 +109,11 @@ letter-spacing:2px;
 /* KEYFRAMES */
 /* ===================== */
 @keyframes slideLeft{
-to{
-transform:translateX(-200%);
-}
+to{transform:translateX(-200%);}
 }
 
 @keyframes fadeOut{
-to{
-opacity:0;
-visibility:hidden;
-}
+to{opacity:0;visibility:hidden;}
 }
 
 /* ===================== */
@@ -140,7 +135,7 @@ transform: translateY(-1px);
 }
 
 /* ===================== */
-/* MOBILE VIDEO MODE */
+/* MOBILE */
 /* ===================== */
 @media (max-width: 768px){
 
@@ -172,13 +167,12 @@ font-size: 10px;
 }
 
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- FONDO BLANCO -->
+<!-- FADE -->
 <div id="fade"></div>
 
 <!-- VIDEO -->
@@ -235,41 +229,25 @@ document.addEventListener("touchstart",()=>{
 document.querySelectorAll("video").forEach(v=>v.play());
 },{once:true});
 
-/* ===================== */
-/* SINCRONIZACIÓN PERFECTA */
-/* ===================== */
 window.addEventListener("load",()=>{
 
 document.body.classList.add("play");
 
 const logo = document.getElementById("logoGroup");
-const white = document.getElementById("fade");
+const fade = document.getElementById("fade");
 
-/* cuando empieza el movimiento del logo */
 logo.addEventListener("animationstart",(e)=>{
 
 if(e.animationName === "slideLeft"){
 
-/* 🔥 adelanto de 0.5s del corte del blanco */
+/* 🔥 CLAVE: adelantamos el fade 0.5s antes */
 setTimeout(()=>{
-white.style.opacity = "0";
-}, 500);
+fade.style.opacity = "0";
+}, 200); // ajuste fino para eliminar el hueco blanco
 
 }
 
 });
-
-/* mobile mode */
-if(window.innerWidth <= 768){
-
-document.body.classList.add("mobile-fade");
-
-setTimeout(()=>{
-document.body.classList.add("mobile-contain");
-document.body.classList.remove("mobile-fade");
-},600);
-
-}
 
 });
 
