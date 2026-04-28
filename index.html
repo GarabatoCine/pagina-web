@@ -15,8 +15,8 @@ box-sizing:border-box;
 html, body{
 width:100%;
 height:100%;
-overflow:hidden;
 background:#000;
+overflow:hidden;
 }
 
 /* ===================== */
@@ -35,7 +35,7 @@ object-fit:cover;
 }
 
 /* ===================== */
-/* 🔥 NUEVO: FONDO BLANCO REAL (CONTROL TOTAL) */
+/* FONDO BLANCO (CONTROL REAL) */
 /* ===================== */
 .white-bg{
 position:fixed;
@@ -47,25 +47,22 @@ animation: fadeOut 0.5s ease 2.3s forwards;
 }
 
 /* ===================== */
-/* INTRO (LOGO SOLO) */
+/* INTRO SVG (RESTO ORIGINAL FUNCIONAL) */
 /* ===================== */
 #intro{
 position:fixed;
 inset:0;
 z-index:10;
-display:flex;
-align-items:center;
-justify-content:center;
 }
 
 svg{
 width:100%;
-height:auto;
-max-width:900px;
+height:100%;
+display:block;
 }
 
 /* ===================== */
-/* LOGO ANIMACIÓN */
+/* LOGO */
 /* ===================== */
 .mask-group{
 transform-box: fill-box;
@@ -126,7 +123,8 @@ letter-spacing:1.3px;
 @media (max-width: 768px){
 
 svg{
-max-width: 90%;
+width:100%;
+height:100%;
 }
 
 }
@@ -143,13 +141,17 @@ max-width: 90%;
 </video>
 </div>
 
-<!-- 🔥 FONDO BLANCO REAL -->
+<!-- FONDO BLANCO CONTROLADO -->
 <div class="white-bg"></div>
 
 <!-- INTRO -->
 <div id="intro">
 
-<svg viewBox="0 0 1400 500">
+<svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
+
+<defs>
+<mask id="mask">
+<rect width="100%" height="100%" fill="white"/>
 
 <g class="mask-group">
 
@@ -166,6 +168,11 @@ COLOMBIA
 </text>
 
 </g>
+
+</mask>
+</defs>
+
+<rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
 
 </svg>
 
