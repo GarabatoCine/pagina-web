@@ -51,7 +51,7 @@ svg{
     display:block;
 }
 
-/* TEXTO ORIGINAL */
+/* TEXTO */
 text.big {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 900;
@@ -79,7 +79,7 @@ text.small {
     opacity:1;
 }
 
-/* animación salida */
+/* animación */
 .play .mask-group{
     animation: slideLeft 1.3s cubic-bezier(.76,0,.24,1) forwards;
     animation-delay: 2s;
@@ -143,14 +143,12 @@ text.small {
     opacity:1;
 }
 
-/* ICONO INSTAGRAM CORREGIDO */
 .icon{
     width:18px;
     height:18px;
     fill:white;
 }
 
-/* idioma */
 .lang-selector{
     font-size:10px;
     letter-spacing:1px;
@@ -162,7 +160,7 @@ text.small {
 }
 
 /* ===================== */
-/* TABLET FIX (DESBORDES) */
+/* TABLET FIX VISUAL */
 /* ===================== */
 @media (max-width:1024px){
 
@@ -173,21 +171,6 @@ text.small {
     text.small{
         font-size: clamp(10px, 2vw, 12px);
     }
-
-    svg{
-        transform: scale(0.95);
-        transform-origin: center;
-    }
-}
-
-/* ===================== */
-/* MOBILE */
-/* ===================== */
-@media (max-width:768px){
-    .header{ padding:20px; }
-    .brand{ font-size:16px; }
-    .nav{ gap:12px; }
-    .nav a:nth-child(3){ display:none; }
 }
 </style>
 </head>
@@ -202,10 +185,9 @@ text.small {
         <a href="#">NOSOTROS</a>
         <a href="#">PRÓXIMAMENTE</a>
 
-        <!-- INSTAGRAM CORRECTO -->
         <a href="https://instagram.com" target="_blank">
             <svg class="icon" viewBox="0 0 24 24">
-                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 2H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm-5 3.5A4.5 4.5 0 1112 16a4.5 4.5 0 010-9zm0 2A2.5 2.5 0 1014.5 12 2.5 2.5 0 0012 9.5zM17.8 6.2a1 1 0 11-1 1 1 1 0 011-1z"/>
+                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 2H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm-5 3.5A4.5 4.5 0 1112 16a4.5 4.5 0 010-9z"/>
             </svg>
         </a>
 
@@ -223,9 +205,11 @@ text.small {
 
 <div id="intro">
     <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
+
         <defs>
             <mask id="mask">
                 <rect width="100%" height="100%" fill="white"/>
+
                 <g class="mask-group" id="logoGroup">
                     <text x="700" y="240" text-anchor="middle" class="big">GARABATO CINE</text>
                     <text x="700" y="285" text-anchor="middle" class="small">COLOMBIA</text>
@@ -233,7 +217,9 @@ text.small {
             </mask>
         </defs>
 
-        <rect width="100%" height="100%" fill="white" mask="url(#mask)"/>
+        <!-- FIX REAL DE ESQUINAS (SIN FUGAS EN TABLET) -->
+        <rect x="-5" y="-5" width="1410" height="510" fill="white" mask="url(#mask)"/>
+
     </svg>
 </div>
 
@@ -270,7 +256,7 @@ function startIntro(){
 
 window.addEventListener("load", startIntro);
 
-/* REINICIAR INTRO DESDE HEADER */
+/* REINICIO INTRO */
 document.getElementById("restartIntro").addEventListener("click", ()=>{
 
     const intro = document.getElementById("intro");
