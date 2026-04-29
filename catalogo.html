@@ -17,7 +17,10 @@ background:#fff;
 color:#999999;
 }
 
+/* ========================= */
 /* HEADER */
+/* ========================= */
+
 .header{
 position:fixed;
 top:0;
@@ -42,7 +45,7 @@ color:#555555;
 text-decoration:none;
 }
 
-/* NAV */
+/* NAV DESKTOP */
 .nav{
 display:flex;
 align-items:center;
@@ -56,6 +59,7 @@ text-decoration:none;
 font-weight:600;
 }
 
+/* LANG */
 .lang span{
 color:#999999;
 opacity:0.6;
@@ -78,7 +82,57 @@ margin-left:10px;
 }
 
 /* ========================= */
-/* 🎬 VIDEOS */
+/* HAMBURGUESA */
+/* ========================= */
+
+.hamburger{
+display:none;
+flex-direction:column;
+gap:4px;
+cursor:pointer;
+}
+
+.hamburger span{
+width:24px;
+height:2px;
+background:#999999;
+}
+
+/* MENU MOBILE */
+.mobile-menu{
+position:fixed;
+top:70px;
+right:20px;
+background:#fff;
+border:1px solid #eee;
+padding:18px;
+display:flex;
+flex-direction:column;
+gap:14px;
+width:200px;
+z-index:999;
+opacity:0;
+transform:translateY(-10px);
+pointer-events:none;
+transition:0.25s ease;
+}
+
+.mobile-menu a{
+color:#999999;
+text-decoration:none;
+font-weight:600;
+text-transform:uppercase;
+font-size:13px;
+}
+
+.mobile-menu.active{
+opacity:1;
+transform:translateY(0);
+pointer-events:auto;
+}
+
+/* ========================= */
+/* VIDEOS */
 /* ========================= */
 
 .video-block{
@@ -90,25 +144,22 @@ margin-top:90px;
 width:100%;
 height:auto;
 display:block;
-
-/* 🔥 FIX BORDES BLANCOS */
 object-fit:cover;
 transform:scale(1.02);
 }
 
-/* TEXTO VIDEO */
 .video-title{
 padding:15px 20px 40px 20px;
 text-align:center;
 }
 
-/* 🔥 MÁS ESPACIO DESPUÉS DE VIDA DE COLORES */
+/* ESPACIO ORIGINAL */
 .video-block:nth-of-type(2){
-margin-bottom:110px; /* casi el doble del anterior */
+margin-bottom:110px;
 }
 
 /* ========================= */
-/* 📷 IMÁGENES */
+/* IMÁGENES */
 /* ========================= */
 
 .block{
@@ -145,6 +196,18 @@ color:#999999;
 text-align:center;
 }
 
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media(max-width:900px){
+
+.nav{display:none;}
+
+.hamburger{display:flex;}
+
+}
+
 </style>
 </head>
 
@@ -178,6 +241,27 @@ text-align:center;
 </a>
 
 </div>
+
+<!-- HAMBURGER -->
+<div class="hamburger" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+</div>
+
+<!-- MENU MOBILE -->
+<div class="mobile-menu" id="mobileMenu">
+
+<a href="#">CATÁLOGO</a>
+<a href="#">NOSOTROS</a>
+<a href="#">CONTACTO</a>
+
+<a href="#">ES / EN</a>
+
+<a href="https://www.instagram.com/garabatocine/" target="_blank">INSTAGRAM</a>
+
 </div>
 
 <!-- 🎬 LA FRONTERA -->
@@ -264,6 +348,13 @@ text-align:center;
 <div class="subtitle">Cortometraje</div>
 </div>
 </div>
+
+<script>
+function toggleMenu(){
+const menu = document.getElementById("mobileMenu");
+menu.classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
