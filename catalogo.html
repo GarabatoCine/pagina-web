@@ -111,13 +111,12 @@ margin-top:4px;
 color:#999999;
 }
 
-/* ESPACIO ORIGINAL */
 .video-block:nth-of-type(2){
 margin-bottom:110px;
 }
 
 /* ========================= */
-/* CORTOMETRAJES TITULO SECCION */
+/* CORTOMETRAJES */
 /* ========================= */
 
 .section-title{
@@ -127,10 +126,6 @@ font-weight:900;
 color:#555555;
 text-transform:none;
 }
-
-/* ========================= */
-/* IMÁGENES */
-/* ========================= */
 
 .block{
 width:100%;
@@ -147,7 +142,6 @@ height:auto;
 display:block;
 }
 
-/* TITULO OVERLAY */
 .overlay{
 position:absolute;
 bottom:0;
@@ -165,24 +159,55 @@ font-weight:900;
 }
 
 /* ========================= */
-/* 📱 AJUSTE MÓVIL */
+/* 📱 MÓVIL */
 /* ========================= */
 
 @media(max-width:768px){
 
 .overlay .title{
 font-size:15px;
-line-height:1.2;
 }
 
 .video-title .title{
 font-size:22px;
 }
 
-.section-title{
-font-size:24px;
 }
 
+/* ========================= */
+/* 🔻 FOOTER */
+/* ========================= */
+
+.footer{
+margin-top:80px;
+padding:60px 20px;
+text-align:center;
+border-top:1px solid #eee;
+color:#999999;
+}
+
+.footer .brand{
+font-size:16px;
+font-weight:900;
+letter-spacing:2px;
+color:#555555;
+}
+
+.footer .year{
+font-size:13px;
+margin-top:6px;
+font-weight:300;
+}
+
+.footer .tagline{
+font-size:12px;
+margin-top:10px;
+opacity:0.7;
+}
+
+/* smooth scroll reset fix */
+html{
+scroll-behavior:smooth;
 }
 
 </style>
@@ -242,64 +267,64 @@ font-size:24px;
 </div>
 </div>
 
-<!-- 🔥 CORTOMETRAJES -->
+<!-- CORTOMETRAJES -->
 <div class="section-title">Cortometrajes</div>
 
-<!-- 📷 MARIMONDA -->
+<!-- MARIMONDA -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Marimonda-tirita.png">
-<div class="overlay">
-<div class="title">Marimonda</div>
-</div>
+<div class="overlay"><div class="title">Marimonda</div></div>
 </div>
 
-<!-- 📷 AÑO SABÁTICO -->
+<!-- AÑO SABÁTICO -->
 <div class="block">
 <img class="full-img" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Ano-sabatico.Tirita.png">
-<div class="overlay">
-<div class="title">Año Sabático</div>
-</div>
+<div class="overlay"><div class="title">Año Sabático</div></div>
 </div>
 
-<!-- 📷 CALAGUALA -->
+<!-- CALAGUALA -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Calaguala-tirita.png">
-<div class="overlay">
-<div class="title">Calaguala</div>
-</div>
+<div class="overlay"><div class="title">Calaguala</div></div>
 </div>
 
-<!-- 📷 EL CONGO DE ORO -->
+<!-- CONGO -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/El-congo-de-oro-tirita.png">
-<div class="overlay">
-<div class="title">El Congo de Oro</div>
-</div>
+<div class="overlay"><div class="title">El Congo de Oro</div></div>
 </div>
 
-<!-- 📷 FRACTURAS -->
+<!-- FRACTURAS -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Fracturas-tirita.png">
-<div class="overlay">
-<div class="title">Fracturas</div>
-</div>
+<div class="overlay"><div class="title">Fracturas</div></div>
 </div>
 
-<!-- 📷 LA PRINCESITA -->
+<!-- PRINCESITA -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-princesita-tirita.png">
-<div class="overlay">
-<div class="title">La Princesita</div>
-</div>
+<div class="overlay"><div class="title">La Princesita</div></div>
 </div>
 
-<!-- 📷 LA TORTUGA -->
+<!-- TORTUGA -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-tortuga-tirita.png">
-<div class="overlay">
-<div class="title">La Tortuga</div>
+<div class="overlay"><div class="title">La Tortuga</div></div>
 </div>
+
+<!-- 🔻 FOOTER -->
+<div class="footer">
+<div class="brand">GARABATO CINE</div>
+<div class="year">2026</div>
+<div class="tagline">Cine · Narrativas · Producción audiovisual desde Colombia</div>
 </div>
+
+<!-- 🔥 SCROLL RESET -->
+<script>
+window.onload = function () {
+window.scrollTo(0, 0);
+};
+</script>
 
 </body>
 </html>
