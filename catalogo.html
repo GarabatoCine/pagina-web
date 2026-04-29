@@ -33,10 +33,13 @@ text-transform:uppercase;
 border-bottom:1px solid #eee;
 }
 
-.logo{
+/* 🔥 LOGO CLICKABLE */
+.logo a{
 font-size:24px;
 font-weight:900;
 letter-spacing:2px;
+color:#000;
+text-decoration:none;
 }
 
 .nav{
@@ -71,20 +74,53 @@ stroke-width:2;
 margin-left:10px;
 }
 
-/* BLOQUES */
-.block{
+/* ========================= */
+/* 🎬 VIDEOS INICIALES */
+/* ========================= */
+
+.video-block{
 width:100%;
+position:relative;
 margin-top:90px;
 }
 
-/* 🔥 IMÁGENES FULL WIDTH SIN DEFORMAR */
+.video-block video{
+width:100%;
+height:auto;
+display:block;
+}
+
+.video-title{
+padding:15px 20px 40px 20px;
+}
+
+.video-title h2{
+font-size:28px;
+font-weight:900;
+}
+
+.video-title p{
+font-size:13px;
+font-weight:300;
+opacity:0.7;
+text-transform:uppercase;
+margin-top:4px;
+}
+
+/* ========================= */
+/* 📷 IMÁGENES TIRITA */
+/* ========================= */
+
+.block{
+width:100%;
+}
+
 .full-img{
 width:100%;
 display:block;
 height:auto;
 }
 
-/* TEXTO */
 .text{
 width:100%;
 padding:15px 20px 40px 20px;
@@ -100,7 +136,6 @@ font-size:13px;
 font-weight:300;
 opacity:0.7;
 text-transform:uppercase;
-letter-spacing:1px;
 margin-top:4px;
 }
 
@@ -112,7 +147,9 @@ margin-top:4px;
 <!-- HEADER -->
 <div class="header">
 
-<div class="logo">GARABATO CINE</div>
+<div class="logo">
+<a href="index.html">GARABATO CINE</a>
+</div>
 
 <div class="nav">
 
@@ -137,7 +174,29 @@ margin-top:4px;
 </div>
 </div>
 
-<!-- 🎬 MARIMONDA -->
+<!-- 🎬 LA FRONTERA -->
+<div class="video-block">
+<video autoplay muted loop playsinline>
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
+</video>
+<div class="video-title">
+<h2>La Frontera</h2>
+<p>Largometraje</p>
+</div>
+</div>
+
+<!-- 🎬 VIDA DE COLORES -->
+<div class="video-block">
+<video autoplay muted loop playsinline>
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-vida-de-colores.mp4">
+</video>
+<div class="video-title">
+<h2>Vida de Colores</h2>
+<p>Serie</p>
+</div>
+</div>
+
+<!-- 📷 MARIMONDA -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Marimonda-tirita.png">
 <div class="text">
@@ -146,7 +205,7 @@ margin-top:4px;
 </div>
 </div>
 
-<!-- 🎬 AÑO SABÁTICO -->
+<!-- 📷 AÑO SABÁTICO -->
 <div class="block">
 <img class="full-img" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Ano-sabatico.Tirita.png">
 <div class="text">
@@ -155,7 +214,7 @@ margin-top:4px;
 </div>
 </div>
 
-<!-- 🎬 CALAGUALA -->
+<!-- 📷 CALAGUALA -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Calaguala-tirita.png">
 <div class="text">
@@ -164,7 +223,7 @@ margin-top:4px;
 </div>
 </div>
 
-<!-- 🎬 EL CONGO DE ORO -->
+<!-- 📷 EL CONGO DE ORO -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/El-congo-de-oro-tirita.png">
 <div class="text">
@@ -173,7 +232,7 @@ margin-top:4px;
 </div>
 </div>
 
-<!-- 🎬 FRACTURAS -->
+<!-- 📷 FRACTURAS -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Fracturas-tirita.png">
 <div class="text">
@@ -182,7 +241,7 @@ margin-top:4px;
 </div>
 </div>
 
-<!-- 🎬 LA PRINCESITA -->
+<!-- 📷 LA PRINCESITA -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-princesita-tirita.png">
 <div class="text">
@@ -191,7 +250,7 @@ margin-top:4px;
 </div>
 </div>
 
-<!-- 🎬 LA TORTUGA -->
+<!-- 📷 LA TORTUGA -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-tortuga-tirita.png">
 <div class="text">
