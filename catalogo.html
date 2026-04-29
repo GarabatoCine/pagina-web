@@ -75,7 +75,7 @@ margin-left:10px;
 }
 
 /* ========================= */
-/* VIDEOS */
+/* 🎬 VIDEOS (RESTAURADO ORIGINAL) */
 /* ========================= */
 
 .video-block{
@@ -91,18 +91,34 @@ object-fit:cover;
 transform:scale(1.02);
 }
 
+/* TEXTO VIDEO ORIGINAL */
 .video-title{
 padding:15px 20px 40px 20px;
 text-align:center;
 }
 
-/* VIDA DE COLORES → MARIMONDA */
+.video-title .title{
+font-size:28px;
+font-weight:900;
+color:#555555;
+}
+
+.video-title .subtitle{
+font-size:13px;
+font-weight:300;
+opacity:0.85;
+text-transform:uppercase;
+margin-top:4px;
+color:#999999;
+}
+
+/* ESPACIO ORIGINAL */
 .video-block:nth-of-type(2){
 margin-bottom:110px;
 }
 
 /* ========================= */
-/* IMÁGENES */
+/* 📷 IMÁGENES */
 /* ========================= */
 
 .block{
@@ -110,12 +126,10 @@ width:100%;
 position:relative;
 }
 
-/* 🔥 ESPACIO MÍNIMO DESDE MARIMONDA EN ADELANTE */
 .block + .block{
 margin-top:6px;
 }
 
-/* IMAGEN */
 .full-img{
 width:100%;
 height:auto;
@@ -123,7 +137,7 @@ display:block;
 }
 
 /* ========================= */
-/* 🔥 TITULOS DENTRO DE IMAGEN */
+/* 🔥 TITULOS CORTOS (IZQUIERDA + SOLO NOMBRE) */
 /* ========================= */
 
 .overlay{
@@ -133,26 +147,23 @@ left:0;
 width:100%;
 padding:18px 22px;
 background:linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+text-align:left;
 color:#fff;
-text-align:center;
 }
 
 .overlay .title{
-font-size:22px;
+font-size:20px;
 font-weight:900;
 }
 
+/* subtitle eliminado visualmente */
 .overlay .subtitle{
-font-size:12px;
-font-weight:300;
-opacity:0.85;
-text-transform:uppercase;
-margin-top:4px;
+display:none;
 }
 
 /* RESPONSIVE */
 @media(max-width:768px){
-.overlay .title{font-size:18px;}
+.overlay .title{font-size:17px;}
 }
 
 </style>
@@ -217,7 +228,6 @@ margin-top:4px;
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Marimonda-tirita.png">
 <div class="overlay">
 <div class="title">Marimonda</div>
-<div class="subtitle">Cortometraje</div>
 </div>
 </div>
 
@@ -226,7 +236,6 @@ margin-top:4px;
 <img class="full-img" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Ano-sabatico.Tirita.png">
 <div class="overlay">
 <div class="title">Año Sabático</div>
-<div class="subtitle">Cortometraje</div>
 </div>
 </div>
 
@@ -235,7 +244,6 @@ margin-top:4px;
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Calaguala-tirita.png">
 <div class="overlay">
 <div class="title">Calaguala</div>
-<div class="subtitle">Cortometraje</div>
 </div>
 </div>
 
@@ -244,7 +252,6 @@ margin-top:4px;
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/El-congo-de-oro-tirita.png">
 <div class="overlay">
 <div class="title">El Congo de Oro</div>
-<div class="subtitle">Cortometraje</div>
 </div>
 </div>
 
@@ -253,7 +260,6 @@ margin-top:4px;
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Fracturas-tirita.png">
 <div class="overlay">
 <div class="title">Fracturas</div>
-<div class="subtitle">Cortometraje</div>
 </div>
 </div>
 
@@ -262,7 +268,6 @@ margin-top:4px;
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-princesita-tirita.png">
 <div class="overlay">
 <div class="title">La Princesita</div>
-<div class="subtitle">Cortometraje</div>
 </div>
 </div>
 
@@ -271,7 +276,6 @@ margin-top:4px;
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-tortuga-tirita.png">
 <div class="overlay">
 <div class="title">La Tortuga</div>
-<div class="subtitle">Cortometraje</div>
 </div>
 </div>
 
