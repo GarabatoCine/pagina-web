@@ -75,7 +75,7 @@ margin-left:10px;
 }
 
 /* ========================= */
-/* 🎬 VIDEOS (RESTAURADO ORIGINAL) */
+/* VIDEOS */
 /* ========================= */
 
 .video-block{
@@ -91,10 +91,10 @@ object-fit:cover;
 transform:scale(1.02);
 }
 
-/* TEXTO VIDEO ORIGINAL */
+/* 🔥 TITULOS VIDEOS AL LADO DERECHO */
 .video-title{
-padding:15px 20px 40px 20px;
-text-align:center;
+padding:15px 40px 40px 20px;
+text-align:right;
 }
 
 .video-title .title{
@@ -118,7 +118,20 @@ margin-bottom:110px;
 }
 
 /* ========================= */
-/* 📷 IMÁGENES */
+/* CORTOMETRAJES LABEL */
+/* ========================= */
+
+.section-label{
+padding:30px 20px 10px 20px;
+font-size:13px;
+font-weight:700;
+letter-spacing:2px;
+text-transform:uppercase;
+color:#999999;
+}
+
+/* ========================= */
+/* IMÁGENES */
 /* ========================= */
 
 .block{
@@ -130,16 +143,18 @@ position:relative;
 margin-top:6px;
 }
 
+/* 🔥 ESPACIO DUPLICADO ENTRE VIDA Y MARIMONDA */
+.spacer{
+margin-top:220px;
+}
+
 .full-img{
 width:100%;
 height:auto;
 display:block;
 }
 
-/* ========================= */
-/* 🔥 TITULOS CORTOS (IZQUIERDA + SOLO NOMBRE) */
-/* ========================= */
-
+/* TITULO OVERLAY */
 .overlay{
 position:absolute;
 bottom:0;
@@ -156,14 +171,18 @@ font-size:20px;
 font-weight:900;
 }
 
-/* subtitle eliminado visualmente */
-.overlay .subtitle{
-display:none;
-}
-
 /* RESPONSIVE */
 @media(max-width:768px){
-.overlay .title{font-size:17px;}
+
+.video-title{
+text-align:right;
+padding-right:20px;
+}
+
+.overlay .title{
+font-size:17px;
+}
+
 }
 
 </style>
@@ -222,6 +241,12 @@ display:none;
 <div class="subtitle">Serie</div>
 </div>
 </div>
+
+<!-- 🔥 ESPACIO GRANDE -->
+<div class="spacer"></div>
+
+<!-- 📌 LABEL -->
+<div class="section-label">Cortometrajes</div>
 
 <!-- 📷 MARIMONDA -->
 <div class="block">
