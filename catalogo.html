@@ -17,10 +17,7 @@ background:#fff;
 color:#999999;
 }
 
-/* ========================= */
 /* HEADER */
-/* ========================= */
-
 .header{
 position:fixed;
 top:0;
@@ -36,7 +33,6 @@ text-transform:uppercase;
 border-bottom:1px solid #eee;
 }
 
-/* LOGO */
 .logo a{
 font-size:24px;
 font-weight:900;
@@ -45,7 +41,6 @@ color:#555555;
 text-decoration:none;
 }
 
-/* NAV DESKTOP */
 .nav{
 display:flex;
 align-items:center;
@@ -59,7 +54,6 @@ text-decoration:none;
 font-weight:600;
 }
 
-/* LANG */
 .lang span{
 color:#999999;
 opacity:0.6;
@@ -71,7 +65,6 @@ font-weight:700;
 color:#555555;
 }
 
-/* ICON IG */
 .icon{
 width:18px;
 height:18px;
@@ -79,56 +72,6 @@ stroke:#999999;
 fill:none;
 stroke-width:2;
 margin-left:10px;
-}
-
-/* ========================= */
-/* HAMBURGUESA */
-/* ========================= */
-
-.hamburger{
-display:none;
-flex-direction:column;
-gap:4px;
-cursor:pointer;
-}
-
-.hamburger span{
-width:24px;
-height:2px;
-background:#999999;
-}
-
-/* MENU MOBILE */
-.mobile-menu{
-position:fixed;
-top:70px;
-right:20px;
-background:#fff;
-border:1px solid #eee;
-padding:18px;
-display:flex;
-flex-direction:column;
-gap:14px;
-width:200px;
-z-index:999;
-opacity:0;
-transform:translateY(-10px);
-pointer-events:none;
-transition:0.25s ease;
-}
-
-.mobile-menu a{
-color:#999999;
-text-decoration:none;
-font-weight:600;
-text-transform:uppercase;
-font-size:13px;
-}
-
-.mobile-menu.active{
-opacity:1;
-transform:translateY(0);
-pointer-events:auto;
 }
 
 /* ========================= */
@@ -153,7 +96,7 @@ padding:15px 20px 40px 20px;
 text-align:center;
 }
 
-/* ESPACIO ORIGINAL */
+/* VIDA DE COLORES → MARIMONDA */
 .video-block:nth-of-type(2){
 margin-bottom:110px;
 }
@@ -164,48 +107,52 @@ margin-bottom:110px;
 
 .block{
 width:100%;
-margin-top:90px;
+position:relative;
 }
 
+/* 🔥 ESPACIO MÍNIMO DESDE MARIMONDA EN ADELANTE */
+.block + .block{
+margin-top:6px;
+}
+
+/* IMAGEN */
 .full-img{
 width:100%;
 height:auto;
 display:block;
 }
 
-.text{
-padding:15px 20px 40px 20px;
+/* ========================= */
+/* 🔥 TITULOS DENTRO DE IMAGEN */
+/* ========================= */
+
+.overlay{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:18px 22px;
+background:linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+color:#fff;
 text-align:center;
 }
 
-/* TITULOS */
-.title{
-font-size:28px;
+.overlay .title{
+font-size:22px;
 font-weight:900;
-color:#555555;
-text-align:center;
 }
 
-.subtitle{
-font-size:13px;
+.overlay .subtitle{
+font-size:12px;
 font-weight:300;
 opacity:0.85;
 text-transform:uppercase;
 margin-top:4px;
-color:#999999;
-text-align:center;
 }
 
-/* ========================= */
 /* RESPONSIVE */
-/* ========================= */
-
-@media(max-width:900px){
-
-.nav{display:none;}
-
-.hamburger{display:flex;}
-
+@media(max-width:768px){
+.overlay .title{font-size:18px;}
 }
 
 </style>
@@ -241,27 +188,6 @@ text-align:center;
 </a>
 
 </div>
-
-<!-- HAMBURGER -->
-<div class="hamburger" onclick="toggleMenu()">
-<span></span>
-<span></span>
-<span></span>
-</div>
-
-</div>
-
-<!-- MENU MOBILE -->
-<div class="mobile-menu" id="mobileMenu">
-
-<a href="#">CATÁLOGO</a>
-<a href="#">NOSOTROS</a>
-<a href="#">CONTACTO</a>
-
-<a href="#">ES / EN</a>
-
-<a href="https://www.instagram.com/garabatocine/" target="_blank">INSTAGRAM</a>
-
 </div>
 
 <!-- 🎬 LA FRONTERA -->
@@ -289,7 +215,7 @@ text-align:center;
 <!-- 📷 MARIMONDA -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Marimonda-tirita.png">
-<div class="text">
+<div class="overlay">
 <div class="title">Marimonda</div>
 <div class="subtitle">Cortometraje</div>
 </div>
@@ -298,7 +224,7 @@ text-align:center;
 <!-- 📷 AÑO SABÁTICO -->
 <div class="block">
 <img class="full-img" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Ano-sabatico.Tirita.png">
-<div class="text">
+<div class="overlay">
 <div class="title">Año Sabático</div>
 <div class="subtitle">Cortometraje</div>
 </div>
@@ -307,7 +233,7 @@ text-align:center;
 <!-- 📷 CALAGUALA -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Calaguala-tirita.png">
-<div class="text">
+<div class="overlay">
 <div class="title">Calaguala</div>
 <div class="subtitle">Cortometraje</div>
 </div>
@@ -316,7 +242,7 @@ text-align:center;
 <!-- 📷 EL CONGO DE ORO -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/El-congo-de-oro-tirita.png">
-<div class="text">
+<div class="overlay">
 <div class="title">El Congo de Oro</div>
 <div class="subtitle">Cortometraje</div>
 </div>
@@ -325,7 +251,7 @@ text-align:center;
 <!-- 📷 FRACTURAS -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Fracturas-tirita.png">
-<div class="text">
+<div class="overlay">
 <div class="title">Fracturas</div>
 <div class="subtitle">Cortometraje</div>
 </div>
@@ -334,7 +260,7 @@ text-align:center;
 <!-- 📷 LA PRINCESITA -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-princesita-tirita.png">
-<div class="text">
+<div class="overlay">
 <div class="title">La Princesita</div>
 <div class="subtitle">Cortometraje</div>
 </div>
@@ -343,18 +269,11 @@ text-align:center;
 <!-- 📷 LA TORTUGA -->
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-tortuga-tirita.png">
-<div class="text">
+<div class="overlay">
 <div class="title">La Tortuga</div>
 <div class="subtitle">Cortometraje</div>
 </div>
 </div>
-
-<script>
-function toggleMenu(){
-const menu = document.getElementById("mobileMenu");
-menu.classList.toggle("active");
-}
-</script>
 
 </body>
 </html>
