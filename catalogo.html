@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catálogo - Garabato Cine</title>
 
-<!-- ROBOTO -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
 
 <style>
@@ -50,10 +49,9 @@ font-size:13px;
 .nav a{
 color:#000;
 text-decoration:none;
-font-weight:500;
+font-weight:600;
 }
 
-/* IDIOMAS */
 .lang{
 display:flex;
 gap:6px;
@@ -61,16 +59,9 @@ font-size:12px;
 margin-left:10px;
 }
 
-.lang span{
-opacity:0.5;
-}
+.lang span{opacity:0.5;}
+.lang .active{opacity:1;font-weight:700;}
 
-.lang .active{
-opacity:1;
-font-weight:700;
-}
-
-/* ICON IG */
 .icon{
 width:18px;
 height:18px;
@@ -80,55 +71,37 @@ stroke-width:2;
 margin-left:10px;
 }
 
-/* SECCIONES */
-.section{
-width:100%;
-background:#fff;
-}
-
-/* VIDEO */
-.video-wrap video{
-width:100%;
-height:auto;
-display:block;
-}
-
-/* IMAGEN */
-.image-wrap img{
-width:100%;
-height:auto;
-display:block;
-}
-
-/* BLOQUE GENERAL */
+/* BLOQUES */
 .block{
 width:100%;
-padding:40px 0;
-display:flex;
-justify-content:center;
+margin-top:90px;
 }
 
-/* CONTENIDO */
-.content{
-width:92%;
-max-width:1100px;
+/* 🔥 IMÁGENES FULL WIDTH SIN DEFORMAR */
+.full-img{
+width:100%;
+display:block;
+height:auto;
 }
 
-/* TEXTO TITULO */
+/* TEXTO */
+.text{
+width:100%;
+padding:15px 20px 40px 20px;
+}
+
 .title{
 font-size:28px;
 font-weight:900;
-margin-top:12px;
 }
 
-/* SUBTITULO */
 .subtitle{
-font-size:14px;
+font-size:13px;
 font-weight:300;
-margin-top:4px;
 opacity:0.7;
 text-transform:uppercase;
 letter-spacing:1px;
+margin-top:4px;
 }
 
 </style>
@@ -162,122 +135,68 @@ letter-spacing:1px;
 </a>
 
 </div>
-
 </div>
 
-<!-- 🎬 LA FRONTERA -->
+<!-- 🎬 MARIMONDA -->
 <div class="block">
-<div class="content">
-
-<div class="video-wrap">
-<video autoplay muted loop playsinline>
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
-</video>
-</div>
-
-<div class="title">La Frontera</div>
-<div class="subtitle">Largometraje</div>
-
-</div>
-</div>
-
-<!-- 🎬 VIDA DE COLORES -->
-<div class="block">
-<div class="content">
-
-<div class="video-wrap">
-<video autoplay muted loop playsinline>
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-vida-de-colores.mp4">
-</video>
-</div>
-
-<div class="title">Vida de Colores</div>
-<div class="subtitle">Serie</div>
-
-</div>
-</div>
-
-<!-- 📷 MARIMONDA -->
-<div class="block">
-<div class="content">
-
-<img src="https://github.com/GarabatoCine/pagina-web/raw/main/Marimonda.Tira.png">
-
+<img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Marimonda-tirita.png">
+<div class="text">
 <div class="title">Marimonda</div>
 <div class="subtitle">Cortometraje</div>
-
 </div>
 </div>
 
-<!-- 📷 AÑO SABÁTICO -->
+<!-- 🎬 AÑO SABÁTICO -->
 <div class="block">
-<div class="content">
-
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Ano-sabatico.Tira.png">
-
+<img class="full-img" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Ano-sabatico.Tirita.png">
+<div class="text">
 <div class="title">Año Sabático</div>
 <div class="subtitle">Cortometraje</div>
-
 </div>
 </div>
 
-<!-- 📷 EL CONGO DE ORO -->
+<!-- 🎬 CALAGUALA -->
 <div class="block">
-<div class="content">
-
-<img src="https://github.com/GarabatoCine/pagina-web/raw/main/El%20congo%20de%20oro.Tira.png">
-
-<div class="title">El Congo de Oro</div>
-<div class="subtitle">Cortometraje</div>
-
-</div>
-</div>
-
-<!-- 📷 CALAGUALA -->
-<div class="block">
-<div class="content">
-
-<img src="https://github.com/GarabatoCine/pagina-web/raw/main/Calaguala.Tira.png">
-
+<img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Calaguala-tirita.png">
+<div class="text">
 <div class="title">Calaguala</div>
 <div class="subtitle">Cortometraje</div>
-
 </div>
 </div>
 
-<!-- 📷 LA PRINCESITA -->
+<!-- 🎬 EL CONGO DE ORO -->
 <div class="block">
-<div class="content">
-
-<img src="https://github.com/GarabatoCine/pagina-web/raw/main/La%20princesita.Tira.png">
-
-<div class="title">La Princesita</div>
+<img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/El-congo-de-oro-tirita.png">
+<div class="text">
+<div class="title">El Congo de Oro</div>
 <div class="subtitle">Cortometraje</div>
-
 </div>
 </div>
 
-<!-- 📷 FRACTURAS -->
+<!-- 🎬 FRACTURAS -->
 <div class="block">
-<div class="content">
-
-<img src="https://github.com/GarabatoCine/pagina-web/raw/main/Fracturas.Tira.png">
-
+<img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Fracturas-tirita.png">
+<div class="text">
 <div class="title">Fracturas</div>
 <div class="subtitle">Cortometraje</div>
-
 </div>
 </div>
 
-<!-- 📷 LA TORTUGA -->
+<!-- 🎬 LA PRINCESITA -->
 <div class="block">
-<div class="content">
+<img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-princesita-tirita.png">
+<div class="text">
+<div class="title">La Princesita</div>
+<div class="subtitle">Cortometraje</div>
+</div>
+</div>
 
-<img src="https://github.com/GarabatoCine/pagina-web/raw/main/La%20tortuga.Tira.png">
-
+<!-- 🎬 LA TORTUGA -->
+<div class="block">
+<img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-tortuga-tirita.png">
+<div class="text">
 <div class="title">La Tortuga</div>
 <div class="subtitle">Cortometraje</div>
-
 </div>
 </div>
 
