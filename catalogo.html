@@ -28,78 +28,104 @@ color:black;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 40px;
+padding:16px 40px;
 z-index:1000;
 text-transform:uppercase;
-font-size:14px;
+}
+
+.logo{
+font-size:22px;
+font-weight:800;
+letter-spacing:2px;
+}
+
+.nav{
+display:flex;
+align-items:center;
+gap:18px;
+font-size:13px;
+}
+
+.nav a{
+color:black;
+text-decoration:none;
 font-weight:600;
 }
 
-.header a{
-color:black;
-text-decoration:none;
-margin:0 12px;
+/* IDIOMAS */
+.lang{
+display:flex;
+gap:6px;
+font-size:12px;
+margin-left:10px;
 }
 
-/* CONTENEDOR GENERAL */
+.lang span{
+opacity:0.6;
+}
+
+.lang .active{
+opacity:1;
+font-weight:700;
+}
+
+/* ICONO IG */
+.icon{
+width:18px;
+height:18px;
+stroke:black;
+fill:none;
+stroke-width:2;
+margin-left:10px;
+}
+
+/* SECCIONES */
 .section{
 width:100%;
-position:relative;
-}
-
-/* 🔥 TIRAS DE VIDEO (CLAVE DEL CAMBIO) */
-.video-section{
-width:100%;
-background:black;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:60px 0; /* aire arriba y abajo */
-}
-
-.video-wrapper{
-width:100%;
-max-width:1200px; /* controla el tamaño tipo “tira” */
-aspect-ratio: 16 / 9; /* mantiene proporción real */
-position:relative;
-}
-
-.video-wrapper video{
-width:100%;
-height:100%;
-object-fit:contain; /* 🔥 NO DEFORMA */
 background:black;
 }
 
-/* TITULO */
+/* 🎬 VIDEOS FULL WIDTH PROPORCIONAL */
+.section video{
+width:100%;
+height:auto;
+display:block;
+}
+
+/* OVERLAY VIDEO */
 .overlay-title{
 position:absolute;
-bottom:15px;
+bottom:20px;
 left:20px;
 font-size:20px;
 font-weight:700;
 text-transform:uppercase;
-letter-spacing:1px;
 background:rgba(0,0,0,0.5);
 padding:6px 10px;
 }
 
-/* IMAGENES (ya en formato tira) */
-.image-section{
+/* WRAPPER VIDEO */
+.video-wrap{
+position:relative;
+width:100%;
+}
+
+/* 📷 IMÁGENES (tamaño controlado) */
+.image-wrap{
 width:100%;
 display:flex;
 justify-content:center;
-padding:40px 0;
+padding:35px 0;
 background:black;
 }
 
-.image-wrapper{
-width:100%;
-max-width:1200px;
+.image-inner{
+width:92%;
+max-width:1100px;
 position:relative;
 }
 
-.image-wrapper img{
+.image-inner img{
 width:100%;
 height:auto;
 display:block;
@@ -124,86 +150,99 @@ text-transform:uppercase;
 
 <!-- HEADER -->
 <div class="header">
-<div>GARABATO CINE</div>
 
-<div>
+<div class="logo">GARABATO CINE</div>
+
+<div class="nav">
+
 <a href="#">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
 <a href="#">CONTACTO</a>
+
+<div class="lang">
+<span class="active">ES</span>
+<span>|</span>
+<span>EN</span>
+</div>
+
+<a href="https://www.instagram.com/garabatocine/" target="_blank">
+<svg class="icon" viewBox="0 0 24 24">
+<rect x="3" y="3" width="18" height="18" rx="5"></rect>
+<circle cx="12" cy="12" r="4"></circle>
+<circle cx="17" cy="7" r="1.5"></circle>
+</svg>
+</a>
+
 </div>
 </div>
 
-<!-- 🎬 VIDEO 1 -->
-<div class="section video-section">
-<div class="video-wrapper">
+<!-- 🎬 LA FRONTERA -->
+<div class="section video-wrap">
 <video autoplay muted loop playsinline>
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4" type="video/mp4">
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
 </video>
 <div class="overlay-title">La Frontera — Largometraje</div>
 </div>
-</div>
 
-<!-- 🎬 VIDEO 2 -->
-<div class="section video-section">
-<div class="video-wrapper">
+<!-- 🎬 VIDA DE COLORES -->
+<div class="section video-wrap">
 <video autoplay muted loop playsinline>
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-vida-de-colores.mp4" type="video/mp4">
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-vida-de-colores.mp4">
 </video>
 <div class="overlay-title">Vida de Colores</div>
 </div>
-</div>
 
 <!-- 📷 MARIMONDA -->
-<div class="section image-section">
-<div class="image-wrapper">
+<div class="image-wrap">
+<div class="image-inner">
 <img src="https://github.com/GarabatoCine/pagina-web/raw/main/Marimonda.Tira.png">
 <div class="image-title">Marimonda — Cortometraje</div>
 </div>
 </div>
 
-<!-- 📷 AÑOS SABÁTICOS -->
-<div class="section image-section">
-<div class="image-wrapper">
-<img src="https://github.com/GarabatoCine/pagina-web/raw/main/Anos-sabaticos.Tira.png">
+<!-- 📷 AÑOS SABÁTICOS (CORREGIDO) -->
+<div class="image-wrap">
+<div class="image-inner">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/An%C3%B1o%20sabatico.Tira.png">
 <div class="image-title">Años Sabáticos — Cortometraje</div>
 </div>
 </div>
 
 <!-- 📷 EL CONGO DE ORO -->
-<div class="section image-section">
-<div class="image-wrapper">
+<div class="image-wrap">
+<div class="image-inner">
 <img src="https://github.com/GarabatoCine/pagina-web/raw/main/El%20congo%20de%20oro.Tira.png">
 <div class="image-title">El Congo de Oro — Cortometraje</div>
 </div>
 </div>
 
 <!-- 📷 CALAGUALA -->
-<div class="section image-section">
-<div class="image-wrapper">
+<div class="image-wrap">
+<div class="image-inner">
 <img src="https://github.com/GarabatoCine/pagina-web/raw/main/Calaguala.Tira.png">
 <div class="image-title">Calaguala — Cortometraje</div>
 </div>
 </div>
 
 <!-- 📷 LA PRINCESITA -->
-<div class="section image-section">
-<div class="image-wrapper">
+<div class="image-wrap">
+<div class="image-inner">
 <img src="https://github.com/GarabatoCine/pagina-web/raw/main/La%20princesita.Tira.png">
 <div class="image-title">La Princesita — Cortometraje</div>
 </div>
 </div>
 
 <!-- 📷 FRACTURAS -->
-<div class="section image-section">
-<div class="image-wrapper">
+<div class="image-wrap">
+<div class="image-inner">
 <img src="https://github.com/GarabatoCine/pagina-web/raw/main/Fracturas.Tira.png">
 <div class="image-title">Fracturas — Cortometraje</div>
 </div>
 </div>
 
 <!-- 📷 LA TORTUGA -->
-<div class="section image-section">
-<div class="image-wrapper">
+<div class="image-wrap">
+<div class="image-inner">
 <img src="https://github.com/GarabatoCine/pagina-web/raw/main/La%20tortuga.Tira.png">
 <div class="image-title">La Tortuga — Cortometraje</div>
 </div>
