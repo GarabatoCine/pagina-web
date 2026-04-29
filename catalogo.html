@@ -14,7 +14,7 @@
 body{
 font-family:'Roboto', sans-serif;
 background:#fff;
-color:#000;
+color:#666666;
 }
 
 /* HEADER */
@@ -33,12 +33,12 @@ text-transform:uppercase;
 border-bottom:1px solid #eee;
 }
 
-/* 🔥 LOGO CLICK → HOME REAL */
+/* LOGO */
 .logo a{
 font-size:24px;
 font-weight:900;
 letter-spacing:2px;
-color:#000;
+color:#444444;
 text-decoration:none;
 }
 
@@ -51,7 +51,7 @@ font-size:13px;
 }
 
 .nav a{
-color:#000;
+color:#666666;
 text-decoration:none;
 font-weight:600;
 }
@@ -63,19 +63,31 @@ font-size:12px;
 margin-left:10px;
 }
 
-.lang span{opacity:0.5;}
-.lang .active{opacity:1;font-weight:700;}
+.lang span{
+color:#666666;
+opacity:0.6;
+}
 
+.lang .active{
+opacity:1;
+font-weight:700;
+color:#444444;
+}
+
+/* ICON IG */
 .icon{
 width:18px;
 height:18px;
-stroke:#000;
+stroke:#666666;
 fill:none;
 stroke-width:2;
 margin-left:10px;
 }
 
-/* VIDEOS */
+/* ========================= */
+/* 🎬 VIDEOS */
+/* ========================= */
+
 .video-block{
 width:100%;
 margin-top:90px;
@@ -89,22 +101,13 @@ display:block;
 
 .video-title{
 padding:15px 20px 40px 20px;
+text-align:center; /* 🔥 CENTRADO */
 }
 
-.title{
-font-size:28px;
-font-weight:900;
-}
+/* ========================= */
+/* 📷 IMÁGENES */
+/* ========================= */
 
-.subtitle{
-font-size:13px;
-font-weight:300;
-opacity:0.7;
-text-transform:uppercase;
-margin-top:4px;
-}
-
-/* IMÁGENES */
 .block{
 width:100%;
 }
@@ -115,8 +118,29 @@ height:auto;
 display:block;
 }
 
+/* TEXTO CENTRADO */
 .text{
 padding:15px 20px 40px 20px;
+text-align:center; /* 🔥 CENTRADO */
+}
+
+/* TITULOS */
+.title{
+font-size:28px;
+font-weight:900;
+color:#444444;
+text-align:center;
+}
+
+/* SUBTITULO */
+.subtitle{
+font-size:13px;
+font-weight:300;
+opacity:0.8;
+text-transform:uppercase;
+margin-top:4px;
+color:#666666;
+text-align:center;
 }
 
 </style>
@@ -127,7 +151,6 @@ padding:15px 20px 40px 20px;
 <!-- HEADER -->
 <div class="header">
 
-<!-- 🔥 AQUÍ ESTÁ LA SOLUCIÓN REAL -->
 <div class="logo">
 <a href="https://garabatocine.github.io/pagina-web/">GARABATO CINE</a>
 </div>
