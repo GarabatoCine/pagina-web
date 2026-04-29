@@ -14,7 +14,7 @@
 body{
 font-family:'Roboto', sans-serif;
 background:#fff;
-color:#666666;
+color:#999999;
 }
 
 /* HEADER */
@@ -38,7 +38,7 @@ border-bottom:1px solid #eee;
 font-size:24px;
 font-weight:900;
 letter-spacing:2px;
-color:#444444;
+color:#555555;
 text-decoration:none;
 }
 
@@ -51,34 +51,27 @@ font-size:13px;
 }
 
 .nav a{
-color:#666666;
+color:#999999;
 text-decoration:none;
 font-weight:600;
 }
 
-.lang{
-display:flex;
-gap:6px;
-font-size:12px;
-margin-left:10px;
-}
-
 .lang span{
-color:#666666;
+color:#999999;
 opacity:0.6;
 }
 
 .lang .active{
 opacity:1;
 font-weight:700;
-color:#444444;
+color:#555555;
 }
 
 /* ICON IG */
 .icon{
 width:18px;
 height:18px;
-stroke:#666666;
+stroke:#999999;
 fill:none;
 stroke-width:2;
 margin-left:10px;
@@ -97,11 +90,21 @@ margin-top:90px;
 width:100%;
 height:auto;
 display:block;
+
+/* 🔥 FIX BORDES BLANCOS */
+object-fit:cover;
+transform:scale(1.02);
 }
 
+/* TEXTO VIDEO */
 .video-title{
 padding:15px 20px 40px 20px;
-text-align:center; /* 🔥 CENTRADO */
+text-align:center;
+}
+
+/* 🔥 MÁS ESPACIO DESPUÉS DE VIDA DE COLORES */
+.video-block:nth-of-type(2){
+margin-bottom:110px; /* casi el doble del anterior */
 }
 
 /* ========================= */
@@ -110,6 +113,7 @@ text-align:center; /* 🔥 CENTRADO */
 
 .block{
 width:100%;
+margin-top:90px;
 }
 
 .full-img{
@@ -118,28 +122,26 @@ height:auto;
 display:block;
 }
 
-/* TEXTO CENTRADO */
 .text{
 padding:15px 20px 40px 20px;
-text-align:center; /* 🔥 CENTRADO */
+text-align:center;
 }
 
 /* TITULOS */
 .title{
 font-size:28px;
 font-weight:900;
-color:#444444;
+color:#555555;
 text-align:center;
 }
 
-/* SUBTITULO */
 .subtitle{
 font-size:13px;
 font-weight:300;
-opacity:0.8;
+opacity:0.85;
 text-transform:uppercase;
 margin-top:4px;
-color:#666666;
+color:#999999;
 text-align:center;
 }
 
