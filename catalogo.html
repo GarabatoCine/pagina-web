@@ -33,7 +33,7 @@ text-transform:uppercase;
 border-bottom:1px solid #eee;
 }
 
-/* 🔥 LOGO CLICKABLE */
+/* 🔥 LOGO CLICK → HOME REAL */
 .logo a{
 font-size:24px;
 font-weight:900;
@@ -42,6 +42,7 @@ color:#000;
 text-decoration:none;
 }
 
+/* NAV */
 .nav{
 display:flex;
 align-items:center;
@@ -74,13 +75,9 @@ stroke-width:2;
 margin-left:10px;
 }
 
-/* ========================= */
-/* 🎬 VIDEOS INICIALES */
-/* ========================= */
-
+/* VIDEOS */
 .video-block{
 width:100%;
-position:relative;
 margin-top:90px;
 }
 
@@ -91,38 +88,6 @@ display:block;
 }
 
 .video-title{
-padding:15px 20px 40px 20px;
-}
-
-.video-title h2{
-font-size:28px;
-font-weight:900;
-}
-
-.video-title p{
-font-size:13px;
-font-weight:300;
-opacity:0.7;
-text-transform:uppercase;
-margin-top:4px;
-}
-
-/* ========================= */
-/* 📷 IMÁGENES TIRITA */
-/* ========================= */
-
-.block{
-width:100%;
-}
-
-.full-img{
-width:100%;
-display:block;
-height:auto;
-}
-
-.text{
-width:100%;
 padding:15px 20px 40px 20px;
 }
 
@@ -139,6 +104,21 @@ text-transform:uppercase;
 margin-top:4px;
 }
 
+/* IMÁGENES */
+.block{
+width:100%;
+}
+
+.full-img{
+width:100%;
+height:auto;
+display:block;
+}
+
+.text{
+padding:15px 20px 40px 20px;
+}
+
 </style>
 </head>
 
@@ -147,8 +127,9 @@ margin-top:4px;
 <!-- HEADER -->
 <div class="header">
 
+<!-- 🔥 AQUÍ ESTÁ LA SOLUCIÓN REAL -->
 <div class="logo">
-<a href="index.html">GARABATO CINE</a>
+<a href="https://garabatocine.github.io/pagina-web/">GARABATO CINE</a>
 </div>
 
 <div class="nav">
@@ -180,8 +161,8 @@ margin-top:4px;
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
 </video>
 <div class="video-title">
-<h2>La Frontera</h2>
-<p>Largometraje</p>
+<div class="title">La Frontera</div>
+<div class="subtitle">Largometraje</div>
 </div>
 </div>
 
@@ -191,8 +172,8 @@ margin-top:4px;
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-vida-de-colores.mp4">
 </video>
 <div class="video-title">
-<h2>Vida de Colores</h2>
-<p>Serie</p>
+<div class="title">Vida de Colores</div>
+<div class="subtitle">Serie</div>
 </div>
 </div>
 
