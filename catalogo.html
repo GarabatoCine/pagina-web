@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catálogo - Garabato Cine</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -14,7 +14,7 @@
 body{
 font-family:'Roboto', sans-serif;
 background:#fff;
-color:#999999;
+color:#999;
 }
 
 /* HEADER */
@@ -29,51 +29,43 @@ justify-content:space-between;
 align-items:center;
 padding:16px 40px;
 z-index:1000;
-text-transform:uppercase;
 border-bottom:1px solid #eee;
 }
 
 .logo a{
-font-size:24px;
-font-weight:900;
+font-size:22px;
+font-weight:700;
 letter-spacing:2px;
 color:#555;
 text-decoration:none;
 }
 
-.nav{
-display:flex;
-gap:18px;
-font-size:13px;
-}
-
 .nav a{
+margin-left:20px;
+font-size:13px;
 color:#999;
 text-decoration:none;
-font-weight:600;
 }
 
 /* VIDEO */
 .video-block{
-width:100%;
 margin-top:90px;
 }
 
 .video-block video{
 width:100%;
-display:block;
 object-fit:cover;
 transform:scale(1.02);
 }
 
 .video-title{
-padding:15px 20px 40px;
 text-align:center;
+padding:15px 20px 40px;
 }
 
 .video-title .title{
 font-size:28px;
-font-weight:900;
+font-weight:500;
 color:#555;
 }
 
@@ -83,7 +75,6 @@ font-weight:300;
 margin-top:4px;
 }
 
-/* ESPACIO ENTRE VIDEOS */
 .video-block:nth-of-type(2){
 margin-bottom:110px;
 }
@@ -91,8 +82,8 @@ margin-bottom:110px;
 /* CORTOS */
 .section-title{
 padding:30px 20px 10px;
-font-size:28px;
-font-weight:900;
+font-size:26px;
+font-weight:500;
 color:#555;
 }
 
@@ -117,106 +108,102 @@ width:100%;
 padding:18px;
 background:linear-gradient(to top, rgba(0,0,0,0.6), transparent);
 color:#fff;
-}
-
-.overlay .title{
-font-size:20px;
-font-weight:900;
+font-weight:400;
 }
 
 /* ========================= */
-/* 🔳 FOOTER */
+/* ESPACIO ANTES DEL FOOTER */
 /* ========================= */
 
-/* FRANJA GRIS */
+.footer-space{
+height:120px;
+background:#fff;
+}
+
+/* ========================= */
+/* FOOTER GRIS */
+/* ========================= */
+
 .footer-top{
-background:#555555;
+background:#555;
 color:#fff;
-padding:60px 40px;
+padding:50px 40px;
 display:flex;
 justify-content:space-between;
-flex-wrap:wrap;
-}
-
-.footer-col{
-max-width:300px;
-}
-
-.footer-brand{
-font-size:20px;
-font-weight:900;
-letter-spacing:2px;
-margin-bottom:10px;
-}
-
-.footer-title{
-font-size:13px;
-font-weight:700;
-margin-bottom:10px;
-text-transform:uppercase;
+font-weight:300;
 }
 
 .footer-top a{
-display:block;
 color:#fff;
-text-decoration:none;
-font-size:13px;
-margin-bottom:6px;
-opacity:0.8;
+text-decoration:underline;
+font-size:14px;
 }
 
-.footer-top a:hover{
-opacity:1;
-}
+/* ========================= */
+/* FOOTER BLANCO */
+/* ========================= */
 
-/* PARTE BLANCA */
 .footer-bottom{
 background:#fff;
-padding:20px 40px;
+padding:25px 40px;
 display:flex;
 justify-content:space-between;
-flex-wrap:wrap;
-font-size:12px;
-color:#999;
-border-top:1px solid #eee;
+align-items:flex-start;
+font-size:13px;
 }
 
+/* IZQUIERDA */
 .footer-left a{
-margin-right:15px;
+display:block;
+margin-bottom:6px;
 color:#999;
 text-decoration:none;
 }
 
+/* DERECHA */
 .footer-right{
 text-align:right;
 }
 
-.footer-right a{
-margin-left:10px;
+.footer-right-title{
+margin-bottom:8px;
 color:#999;
-text-decoration:none;
 }
 
-.footer-right a:hover{
-color:#555;
+/* ICONOS */
+.icon{
+width:18px;
+height:18px;
+margin:6px 0;
+stroke:#999;
+fill:none;
+stroke-width:2;
+display:block;
+margin-left:auto;
+}
+
+/* COPYRIGHT */
+.footer-copy{
+margin-top:10px;
+font-size:12px;
+color:#999;
 }
 
 /* RESPONSIVE */
 @media(max-width:768px){
 
-.footer-top{
-flex-direction:column;
-gap:30px;
-}
-
+.footer-top,
 .footer-bottom{
 flex-direction:column;
-gap:10px;
-text-align:center;
+gap:20px;
 }
 
 .footer-right{
-text-align:center;
+text-align:left;
+}
+
+.icon{
+margin-left:0;
 }
 
 }
@@ -238,7 +225,7 @@ text-align:center;
 </div>
 </div>
 
-<!-- LA FRONTERA -->
+<!-- VIDEOS -->
 <div class="video-block">
 <video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4">
@@ -249,7 +236,6 @@ text-align:center;
 </div>
 </div>
 
-<!-- VIDA DE COLORES -->
 <div class="video-block">
 <video autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-vida-de-colores.mp4">
@@ -265,66 +251,48 @@ text-align:center;
 
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Marimonda-tirita.png">
-<div class="overlay"><div class="title">Marimonda</div></div>
+<div class="overlay">Marimonda</div>
 </div>
 
 <div class="block">
 <img class="full-img" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Ano-sabatico.Tirita.png">
-<div class="overlay"><div class="title">Año Sabático</div></div>
+<div class="overlay">Año Sabático</div>
 </div>
 
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Calaguala-tirita.png">
-<div class="overlay"><div class="title">Calaguala</div></div>
+<div class="overlay">Calaguala</div>
 </div>
 
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/El-congo-de-oro-tirita.png">
-<div class="overlay"><div class="title">El Congo de Oro</div></div>
+<div class="overlay">El Congo de Oro</div>
 </div>
 
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Fracturas-tirita.png">
-<div class="overlay"><div class="title">Fracturas</div></div>
+<div class="overlay">Fracturas</div>
 </div>
 
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-princesita-tirita.png">
-<div class="overlay"><div class="title">La Princesita</div></div>
+<div class="overlay">La Princesita</div>
 </div>
 
 <div class="block">
 <img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-tortuga-tirita.png">
-<div class="overlay"><div class="title">La Tortuga</div></div>
+<div class="overlay">La Tortuga</div>
 </div>
 
-<!-- 🔳 FOOTER -->
-<footer>
+<!-- ESPACIO -->
+<div class="footer-space"></div>
 
-<!-- FRANJA GRIS -->
+<!-- FOOTER GRIS -->
 <div class="footer-top">
-
-<div class="footer-col">
-<div class="footer-brand">GARABATO CINE</div>
-<p>Producción audiovisual desde Colombia</p>
+<a href="#top">Contact</a>
 </div>
 
-<div class="footer-col">
-<div class="footer-title">Navegación</div>
-<a href="#">Catálogo</a>
-<a href="#">Nosotros</a>
-<a href="#">Contacto</a>
-</div>
-
-<div class="footer-col">
-<div class="footer-title">Contacto</div>
-<a href="#">info@garabatocine.com</a>
-<a href="#">Colombia</a>
-</div>
-
-</div>
-
-<!-- PARTE BLANCA -->
+<!-- FOOTER BLANCO -->
 <div class="footer-bottom">
 
 <div class="footer-left">
@@ -333,17 +301,34 @@ text-align:center;
 </div>
 
 <div class="footer-right">
-<span>Follow us:</span>
-<a href="https://www.instagram.com/garabatocine/" target="_blank">Instagram</a>
-<a href="#">YouTube</a>
-<a href="#">Facebook</a>
-<br>
-<span>© 2026 Garabato Cine</span>
+
+<div class="footer-right-title">Follow us</div>
+
+<!-- Instagram -->
+<svg class="icon" viewBox="0 0 24 24">
+<rect x="3" y="3" width="18" height="18" rx="5"></rect>
+<circle cx="12" cy="12" r="4"></circle>
+<circle cx="17" cy="7" r="1.5"></circle>
+</svg>
+
+<!-- Facebook -->
+<svg class="icon" viewBox="0 0 24 24">
+<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+</svg>
+
+<!-- YouTube -->
+<svg class="icon" viewBox="0 0 24 24">
+<path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
+<polygon points="10 15 15 12 10 9 10 15"></polygon>
+</svg>
+
+<div class="footer-copy">
+© 2026 Garabato Cine. All rights reserved.
 </div>
 
 </div>
 
-</footer>
+</div>
 
 </body>
 </html>
