@@ -119,7 +119,7 @@ height:160px;
 }
 
 .footer{
-background:#000; /* 🔥 CAMBIO APLICADO */
+background:#000;
 color:white;
 padding:70px 160px;
 font-family:'Century Gothic', sans-serif;
@@ -206,7 +206,6 @@ gap:20px;
 }
 
 .footer-bottom-right{text-align:left;}
-
 }
 
 </style>
@@ -339,6 +338,17 @@ Cortometrajes
 </div>
 
 </footer>
+
+<!-- 🔥 SCROLL TO TOP ON REFRESH -->
+<script>
+window.onbeforeunload = function () {
+window.scrollTo(0, 0);
+};
+
+window.addEventListener("load", function () {
+window.scrollTo(0, 0);
+});
+</script>
 
 </body>
 </html>
