@@ -73,16 +73,11 @@ opacity:1;
 color:#555;
 }
 
-/* ================= VIDEO BLOCK ================= */
+/* ================= VIDEO BLOCKS ================= */
 
 .video-block{
 position:relative;
-margin-top:18px; /* 🔥 separación entre videos */
-cursor:default;
-}
-
-.video-block.clickable{
-cursor:pointer;
+margin-top:18px; /* espacio entre bloques */
 }
 
 .video-block video{
@@ -92,7 +87,7 @@ object-fit:cover;
 transform:scale(1.01);
 }
 
-/* ================= TITULO + SUBTITULO ================= */
+/* ================= TITULO SOBRE VIDEO ================= */
 
 .video-title-overlay{
 position:absolute;
@@ -105,10 +100,16 @@ z-index:2;
 }
 
 .video-title-overlay span{
-font-size:14px; /* +1 tamaño */
+font-size:14px;
 font-weight:300;
 opacity:0.95;
 margin-left:8px;
+}
+
+/* ================= CLICKABLE ================= */
+
+.video-block.clickable{
+cursor:pointer;
 }
 
 /* ================= FOOTER ================= */
@@ -262,7 +263,7 @@ Vida de Colores <span>(Serie)</span>
 
 </div>
 
-<!-- ================= CORTOMETRAJES (CLICKABLE) ================= -->
+<!-- ================= CORTOMETRAJES ================= -->
 <div class="video-block clickable" onclick="window.location.href='cortometrajes.html'">
 
 <video autoplay muted loop playsinline>
@@ -331,6 +332,17 @@ Cortometrajes
 </div>
 
 </footer>
+
+<!-- ================= SCROLL RESET ================= -->
+<script>
+window.onbeforeunload = function () {
+window.scrollTo(0, 0);
+};
+
+window.onload = function () {
+window.scrollTo(0, 0);
+};
+</script>
 
 </body>
 </html>
