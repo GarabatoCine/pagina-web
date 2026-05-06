@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catálogo - Garabato Cine</title>
 
-<!-- FUENTES -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -57,16 +55,9 @@ text-decoration:none;
 font-weight:500;
 }
 
-.lang span{
-opacity:0.6;
-}
+.lang span{opacity:0.6;}
+.lang .active{opacity:1;color:#555;}
 
-.lang .active{
-opacity:1;
-color:#555;
-}
-
-/* ICON */
 .icon{
 width:18px;
 height:18px;
@@ -77,9 +68,7 @@ stroke-width:2;
 
 /* ================= CONTENIDO ================= */
 
-.video-block{
-margin-top:100px;
-}
+.video-block{margin-top:100px;}
 
 .video-block video{
 width:100%;
@@ -114,13 +103,8 @@ font-weight:500;
 color:#555;
 }
 
-.block{
-position:relative;
-}
-
-.block + .block{
-margin-top:6px;
-}
+.block{position:relative;}
+.block + .block{margin-top:6px;}
 
 .full-img{
 width:100%;
@@ -140,23 +124,20 @@ font-size:18px;
 
 /* ================= FOOTER ================= */
 
-.footer-space{
-height:140px;
-}
+.footer-space{height:160px;}
 
 .footer{
 background:#434343;
 color:white;
-padding:60px 40px;
-font-weight:300;
-font-size:14px;
+padding:70px 80px;
+font-family:'Century Gothic', sans-serif;
+font-size:15px;
 }
 
 .footer-line{
-width:100%;
 height:1px;
 background:rgba(255,255,255,0.4);
-margin:40px 0;
+margin:50px 0;
 }
 
 .footer-row{
@@ -165,27 +146,25 @@ justify-content:space-between;
 align-items:flex-start;
 }
 
-/* CONTACT */
 .footer-left a{
-font-family:'Montserrat', sans-serif;
-font-size:16px;
-letter-spacing:0.5px;
 text-decoration:underline;
 color:white;
+font-size:17px;
 }
 
-/* FOLLOW */
+.footer-right{
+text-align:right;
+}
+
 .footer-follow{
-font-family:'Montserrat', sans-serif;
-font-size:16px;
-letter-spacing:0.5px;
+font-size:17px;
 margin-bottom:15px;
 }
 
-/* ICONOS */
 .footer-icons{
 display:flex;
-gap:15px;
+gap:18px;
+justify-content:flex-end;
 }
 
 .footer-icons svg{
@@ -196,18 +175,28 @@ fill:none;
 stroke-width:1.5;
 }
 
+/* FACEBOOK CÍRCULO */
+.fb-circle{
+stroke:white;
+fill:none;
+}
+.fb-f{
+fill:white;
+stroke:none;
+}
+
 /* BOTTOM */
 .footer-bottom{
 display:flex;
 justify-content:space-between;
-margin-top:20px;
+margin-top:30px;
 }
 
 .footer-bottom-left a{
 display:block;
 text-decoration:underline;
 color:white;
-margin-bottom:6px;
+margin-bottom:8px;
 }
 
 .footer-bottom-right{
@@ -216,19 +205,31 @@ text-align:right;
 
 /* RESPONSIVE */
 @media(max-width:768px){
+
+.footer{padding:50px 30px;}
+
 .footer-row{
 flex-direction:column;
 gap:30px;
 }
 
+.footer-right{
+text-align:left;
+}
+
+.footer-icons{
+justify-content:flex-start;
+}
+
 .footer-bottom{
 flex-direction:column;
-gap:15px;
+gap:20px;
 }
 
 .footer-bottom-right{
 text-align:left;
 }
+
 }
 
 </style>
@@ -291,42 +292,14 @@ text-align:left;
 <!-- CORTOS -->
 <div class="section-title">Cortometrajes</div>
 
-<div class="block">
-<img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Marimonda-tirita.png">
-<div class="overlay">Marimonda</div>
-</div>
+<div class="block"><img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Marimonda-tirita.png"><div class="overlay">Marimonda</div></div>
+<div class="block"><img class="full-img" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Ano-sabatico.Tirita.png"><div class="overlay">Año Sabático</div></div>
+<div class="block"><img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Calaguala-tirita.png"><div class="overlay">Calaguala</div></div>
+<div class="block"><img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/El-congo-de-oro-tirita.png"><div class="overlay">El Congo de Oro</div></div>
+<div class="block"><img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Fracturas-tirita.png"><div class="overlay">Fracturas</div></div>
+<div class="block"><img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-princesita-tirita.png"><div class="overlay">La Princesita</div></div>
+<div class="block"><img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-tortuga-tirita.png"><div class="overlay">La Tortuga</div></div>
 
-<div class="block">
-<img class="full-img" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Ano-sabatico.Tirita.png">
-<div class="overlay">Año Sabático</div>
-</div>
-
-<div class="block">
-<img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Calaguala-tirita.png">
-<div class="overlay">Calaguala</div>
-</div>
-
-<div class="block">
-<img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/El-congo-de-oro-tirita.png">
-<div class="overlay">El Congo de Oro</div>
-</div>
-
-<div class="block">
-<img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/Fracturas-tirita.png">
-<div class="overlay">Fracturas</div>
-</div>
-
-<div class="block">
-<img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-princesita-tirita.png">
-<div class="overlay">La Princesita</div>
-</div>
-
-<div class="block">
-<img class="full-img" src="https://github.com/GarabatoCine/pagina-web/raw/main/La-tortuga-tirita.png">
-<div class="overlay">La Tortuga</div>
-</div>
-
-<!-- FOOTER SPACE -->
 <div class="footer-space"></div>
 
 <!-- FOOTER -->
@@ -340,11 +313,12 @@ text-align:left;
 <a href="#top">Contact</a>
 </div>
 
-<div>
+<div class="footer-right">
 <div class="footer-follow">Follow us</div>
 
 <div class="footer-icons">
 
+<!-- INSTAGRAM -->
 <a href="https://www.instagram.com/garabatocine/" target="_blank">
 <svg viewBox="0 0 24 24">
 <rect x="3" y="3" width="18" height="18" rx="5"></rect>
@@ -353,13 +327,16 @@ text-align:left;
 </svg>
 </a>
 
-<a href="#">
+<!-- FACEBOOK CIRCULAR -->
+<a href="https://web.facebook.com/garabatocine" target="_blank">
 <svg viewBox="0 0 24 24">
-<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+<circle cx="12" cy="12" r="10" class="fb-circle"></circle>
+<path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z" class="fb-f"/>
 </svg>
 </a>
 
-<a href="#">
+<!-- YOUTUBE -->
+<a href="https://www.youtube.com/@garabatocine" target="_blank">
 <svg viewBox="0 0 24 24">
 <path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
 <polygon points="10 15 15 12 10 9"></polygon>
