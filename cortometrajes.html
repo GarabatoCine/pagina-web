@@ -175,11 +175,9 @@ margin-bottom:8px;
 /* ================= TABLET FIX ================= */
 
 @media(max-width:1024px){
-
 .block:first-of-type{
 margin-top:90px;
 }
-
 }
 
 /* ================= RESPONSIVE ================= */
@@ -344,6 +342,17 @@ gap:20px;
 </div>
 
 </footer>
+
+<!-- SCROLL TO TOP ON REFRESH -->
+<script>
+window.onbeforeunload = function () {
+window.scrollTo(0, 0);
+};
+
+window.addEventListener("load", function () {
+window.scrollTo(0, 0);
+});
+</script>
 
 </body>
 </html>
