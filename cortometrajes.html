@@ -19,6 +19,9 @@ body{
 font-family:'Roboto', sans-serif;
 background:#fff;
 color:#999;
+
+/* 🔥 FIX REAL: espacio para header fijo */
+padding-top:72px;
 }
 
 /* ================= HEADER ================= */
@@ -172,17 +175,18 @@ margin-bottom:8px;
 
 .footer-bottom-right{text-align:right;}
 
-/* ================= TABLET FIX ================= */
+/* ================= RESPONSIVE FIX ================= */
 
 @media(max-width:1024px){
-.block:first-of-type{
-margin-top:90px;
+body{
+padding-top:88px; /* tablet */
 }
 }
-
-/* ================= RESPONSIVE ================= */
 
 @media(max-width:768px){
+body{
+padding-top:92px; /* móvil */
+}
 
 .footer{
 padding:50px 40px;
@@ -203,7 +207,6 @@ gap:20px;
 }
 
 .footer-bottom-right{text-align:left;}
-
 }
 
 </style>
@@ -343,7 +346,7 @@ gap:20px;
 
 </footer>
 
-<!-- SCROLL TO TOP ON REFRESH -->
+<!-- SCROLL RESET -->
 <script>
 window.onbeforeunload = function () {
 window.scrollTo(0, 0);
