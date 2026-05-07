@@ -38,11 +38,18 @@ border-bottom:1px solid #eee;
 text-transform:uppercase;
 }
 
+/* 🔥 TODOS LOS TEXTOS NEGROS */
+.logo a,
+.nav a,
+.lang span,
+.lang a{
+color:#000;
+}
+
 .logo a{
 font-size:24px;
 font-weight:500;
 letter-spacing:2px;
-color:#555;
 text-decoration:none;
 }
 
@@ -54,23 +61,41 @@ font-size:13px;
 }
 
 .nav a{
-color:#999;
 text-decoration:none;
 font-weight:500;
 }
 
-.lang span{opacity:0.6;}
-.lang .active{opacity:1;color:#555;}
+.lang span{
+opacity:0.6;
+}
+
+.lang .active{
+opacity:1;
+}
 
 .lang a{
 opacity:0.6;
 text-decoration:none;
-color:#999;
 }
 
 .lang a:hover{
 opacity:1;
-color:#555;
+}
+
+/* ================= HAMBURGUESA ================= */
+
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:4px;
+cursor:pointer;
+}
+
+.menu-toggle span{
+width:22px;
+height:2px;
+background:#000;
+display:block;
 }
 
 /* ================= VIDEO BLOCKS ================= */
@@ -145,7 +170,9 @@ font-size:19px;
 font-weight:100;
 }
 
-.footer-right{text-align:right;}
+.footer-right{
+text-align:right;
+}
 
 .footer-follow{
 font-size:19px;
@@ -181,11 +208,66 @@ color:white;
 margin-bottom:8px;
 }
 
-.footer-bottom-right{text-align:right;}
+.footer-bottom-right{
+text-align:right;
+}
 
-/* ================= RESPONSIVE ================= */
+/* ================= TABLET ================= */
+
+@media(max-width:1024px){
+
+.nav{
+display:none;
+position:absolute;
+top:70px;
+right:20px;
+background:#fff;
+padding:20px;
+flex-direction:column;
+align-items:flex-start;
+border:1px solid #eee;
+gap:14px;
+}
+
+.nav.active{
+display:flex;
+}
+
+.menu-toggle{
+display:flex;
+}
+
+/* 🔥 TITULOS MÁS PEQUEÑOS */
+.video-title-overlay{
+font-size:22px;
+}
+
+.video-title-overlay span{
+font-size:12px;
+}
+
+}
+
+/* ================= MOBILE ================= */
 
 @media(max-width:768px){
+
+.header{
+padding:16px 22px;
+}
+
+/* 🔥 TITULOS RESPONSIVE */
+.video-title-overlay{
+font-size:18px;
+bottom:14px;
+left:14px;
+}
+
+.video-title-overlay span{
+font-size:11px;
+}
+
+/* FOOTER */
 
 .footer{
 padding:50px 40px;
@@ -196,16 +278,23 @@ flex-direction:column;
 gap:30px;
 }
 
-.footer-right{text-align:left;}
+.footer-right{
+text-align:left;
+}
 
-.footer-icons{justify-content:flex-start;}
+.footer-icons{
+justify-content:flex-start;
+}
 
 .footer-bottom{
 flex-direction:column;
 gap:20px;
 }
 
-.footer-bottom-right{text-align:left;}
+.footer-bottom-right{
+text-align:left;
+}
+
 }
 
 </style>
@@ -220,7 +309,14 @@ gap:20px;
 <a href="https://garabatocine.github.io/pagina-web/">GARABATO CINE</a>
 </div>
 
-<div class="nav">
+<!-- MENU HAMBURGUESA -->
+<div class="menu-toggle" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<div class="nav" id="mobileMenu">
 
 <a href="#">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
@@ -339,8 +435,15 @@ Cortometrajes
 
 </footer>
 
-<!-- 🔥 SCROLL TO TOP ON REFRESH -->
+<!-- MENU SCRIPT -->
 <script>
+
+function toggleMenu() {
+document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+/* 🔥 SCROLL TO TOP */
+
 window.onbeforeunload = function () {
 window.scrollTo(0, 0);
 };
@@ -348,6 +451,7 @@ window.scrollTo(0, 0);
 window.addEventListener("load", function () {
 window.scrollTo(0, 0);
 });
+
 </script>
 
 </body>
