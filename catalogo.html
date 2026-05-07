@@ -19,6 +19,9 @@ body{
 font-family:'Roboto', sans-serif;
 background:#fff;
 color:#999;
+
+/* 🔥 FIX HEADER TAPANDO VIDEO */
+padding-top:74px;
 }
 
 /* ================= HEADER ================= */
@@ -38,7 +41,7 @@ border-bottom:1px solid #eee;
 text-transform:uppercase;
 }
 
-/* 🔥 TODOS LOS TEXTOS NEGROS */
+/* 🔥 TODOS NEGROS */
 .logo a,
 .nav a,
 .lang span,
@@ -65,21 +68,18 @@ text-decoration:none;
 font-weight:500;
 }
 
-.lang span{
-opacity:0.6;
-}
-
+/* 🔥 IDIOMA CORRECTO */
 .lang .active{
-opacity:1;
+opacity:0.45; /* ES gris */
 }
 
 .lang a{
-opacity:0.6;
+opacity:1; /* EN negro */
 text-decoration:none;
 }
 
 .lang a:hover{
-opacity:1;
+opacity:0.7;
 }
 
 /* ================= HAMBURGUESA ================= */
@@ -103,6 +103,10 @@ display:block;
 .video-block{
 position:relative;
 margin-top:18px;
+}
+
+.video-block:first-of-type{
+margin-top:0;
 }
 
 .video-block video{
@@ -140,7 +144,7 @@ cursor:pointer;
 /* ================= FOOTER ================= */
 
 .footer-space{
-height:160px;
+height:18px; /* 🔥 MISMO ESPACIO ENTRE VIDEOS */
 }
 
 .footer{
@@ -216,6 +220,10 @@ text-align:right;
 
 @media(max-width:1024px){
 
+body{
+padding-top:86px;
+}
+
 .nav{
 display:none;
 position:absolute;
@@ -252,6 +260,10 @@ font-size:12px;
 
 @media(max-width:768px){
 
+body{
+padding-top:82px;
+}
+
 .header{
 padding:16px 22px;
 }
@@ -265,6 +277,11 @@ left:14px;
 
 .video-title-overlay span{
 font-size:11px;
+}
+
+/* 🔥 QUITAR ESPACIO BLANCO EN MOBILE */
+.footer-space{
+height:18px;
 }
 
 /* FOOTER */
@@ -435,14 +452,13 @@ Cortometrajes
 
 </footer>
 
-<!-- MENU SCRIPT -->
 <script>
 
 function toggleMenu() {
 document.getElementById("mobileMenu").classList.toggle("active");
 }
 
-/* 🔥 SCROLL TO TOP */
+/* 🔥 SIEMPRE VOLVER ARRIBA */
 
 window.onbeforeunload = function () {
 window.scrollTo(0, 0);
