@@ -19,9 +19,7 @@ body{
 font-family:'Roboto', sans-serif;
 background:#fff;
 color:#999;
-
-/* FIX IMPORTANTE HEADER */
-padding-top:74px;
+padding-top:72px;
 }
 
 /* ================= HEADER ================= */
@@ -77,30 +75,12 @@ color:#000;
 
 .lang a:hover{opacity:1;}
 
-/* ================= HAMBURGUESA ================= */
-
-.menu-toggle{
-display:none;
-flex-direction:column;
-gap:4px;
-cursor:pointer;
-}
-
-.menu-toggle span{
-width:22px;
-height:2px;
-background:#000;
-display:block;
-}
-
 /* ================= GALERÍA ================= */
 
 .block{
 position:relative;
 width:100vw;
 margin-left:calc(-50vw + 50%);
-
-/* 🔥 FIX IMPORTANTE: mismo espacio entre fotos */
 margin-bottom:6px;
 }
 
@@ -118,12 +98,6 @@ padding:18px;
 background:linear-gradient(to top, rgba(0,0,0,0.6), transparent);
 color:#fff;
 font-size:18px;
-}
-
-/* ================= FOOTER SPACE (CORREGIDO) ================= */
-
-.footer-space{
-height:60px; /* antes estaba exagerado */
 }
 
 /* ================= FOOTER ================= */
@@ -199,22 +173,38 @@ text-align:right;
 line-height:1.6;
 }
 
+/* ================= HAMBURGUESA ================= */
+
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:4px;
+cursor:pointer;
+}
+
+.menu-toggle span{
+width:22px;
+height:2px;
+background:#000;
+display:block;
+}
+
 /* ================= RESPONSIVE ================= */
+
+@media(max-width:1024px){
+body{
+padding-top:88px;
+}
+}
 
 @media(max-width:768px){
 
-/* FIX HEADER TAPANDO IMAGEN */
 body{
-padding-top:92px;
+padding-top:92px; /* FIX HEADER NO TAPAR IMAGEN */
 }
 
 .header{
 padding:16px 22px;
-}
-
-/* HAMBURGUESA REAL */
-.menu-toggle{
-display:flex;
 }
 
 .nav{
@@ -226,19 +216,17 @@ background:#fff;
 padding:20px;
 flex-direction:column;
 border:1px solid #eee;
-gap:14px;
 }
 
 .nav.active{
 display:flex;
 }
 
-/* GALERÍA */
-.block{
-margin-bottom:6px;
+.menu-toggle{
+display:flex;
 }
 
-/* FOOTER */
+/* FOOTER MOBILE */
 .footer{
 padding:50px 40px;
 }
@@ -257,7 +245,6 @@ gap:10px;
 }
 
 .footer-bottom-right{text-align:left;}
-
 }
 
 </style>
@@ -283,7 +270,7 @@ gap:10px;
 <a href="catalogo.html">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
 <a href="#">PRÓXIMAMENTE</a>
-<a href="contacto.html">CONTACTO</a>
+<a href="#">CONTACTO</a>
 
 <div class="lang">
 <span class="active">ES</span>
@@ -329,8 +316,6 @@ gap:10px;
 <img src="https://github.com/GarabatoCine/pagina-web/raw/main/La-tortuga-tirita.png">
 <div class="overlay">La Tortuga</div>
 </div>
-
-<div class="footer-space"></div>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -387,8 +372,8 @@ gap:10px;
 </div>
 
 <div class="footer-bottom-right">
-<div>© 2026 Garabato Cine</div>
-<div>Todos los derechos reservados</div>
+<div>GARABATO CINE</div>
+<div>Todos los derechos reservados © 2026</div>
 </div>
 
 </div>
