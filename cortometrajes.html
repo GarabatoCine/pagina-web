@@ -124,16 +124,21 @@ margin:50px 0;
 .footer-row{
 display:flex;
 justify-content:space-between;
+align-items:flex-start;
 }
 
 .footer-left a{
-text-decoration:underline;
-color:white;
 font-size:19px;
 font-weight:100;
+text-decoration:underline;
+text-decoration-thickness:0.5px;
+text-underline-offset:2px;
+color:white;
 }
 
-.footer-right{text-align:right;}
+.footer-right{
+text-align:right;
+}
 
 .footer-follow{
 font-size:19px;
@@ -167,9 +172,14 @@ display:block;
 text-decoration:underline;
 color:white;
 margin-bottom:8px;
+text-decoration-thickness:0.5px;
+text-underline-offset:2px;
 }
 
-.footer-bottom-right{text-align:right;}
+.footer-bottom-right{
+text-align:right;
+line-height:1.8;
+}
 
 /* ================= RESPONSIVE ================= */
 
@@ -268,7 +278,7 @@ gap:20px;
 
 <div class="footer-space"></div>
 
-<!-- FOOTER FINAL -->
+<!-- FOOTER FINAL (VERSIÓN CORRECTA) -->
 <footer class="footer">
 
 <div class="footer-line"></div>
@@ -281,7 +291,9 @@ gap:20px;
 
 <div class="footer-right">
 
-<div class="footer-follow">Síguenos</div>
+<div class="footer-follow">
+Síguenos
+</div>
 
 <div class="footer-icons">
 
@@ -314,7 +326,6 @@ gap:20px;
 
 <a href="cookies.html">Política de Cookies</a>
 <a href="politicadeprivacidad.html">Política de Privacidad</a>
-<a href="contacto.html">Contacto</a>
 
 </div>
 
