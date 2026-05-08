@@ -23,20 +23,20 @@ color:#111;
 padding-top:74px;
 }
 
-/* ================= HEADER ================= */
+/* ================= HEADER INVERTIDO ================= */
 
 .header{
 position:fixed;
 top:0;
 left:0;
 width:100%;
-background:#fff;
+background:#000;   /* NEGRO */
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:18px 40px;
 z-index:1000;
-border-bottom:1px solid #eee;
+border-bottom:1px solid rgba(255,255,255,0.15);
 text-transform:uppercase;
 }
 
@@ -44,7 +44,7 @@ text-transform:uppercase;
 font-size:24px;
 font-weight:600;
 text-decoration:none;
-color:#000;
+color:#fff;  /* BLANCO */
 letter-spacing:2px;
 }
 
@@ -58,10 +58,9 @@ align-items:center;
 .nav a{
 text-decoration:none;
 font-weight:500;
-color:#000;
+color:#fff; /* BLANCO */
 }
 
-/* CONTACTO SIN SUBRAYADO */
 .nav a.active{
 text-decoration:none;
 }
@@ -80,13 +79,12 @@ gap:80px;
 /* ================= LEFT ================= */
 
 .left h1{
-font-size:64px;
+font-size:110px;   /* +70% aprox */
 font-weight:600;
-letter-spacing:-1px;
+letter-spacing:-2px;
 margin-bottom:20px;
 }
 
-/* UBICACIÓN */
 .location{
 font-size:14px;
 color:#666;
@@ -99,16 +97,23 @@ gap:8px;
 /* ================= RIGHT ================= */
 
 .right h2{
-font-size:34px;   /* MÁS GRANDE */
-font-weight:700;  /* MÁS NEGRITA */
+font-size:60px;   /* +80% aprox */
+font-weight:700;
 margin-bottom:20px;
-letter-spacing:-0.5px;
+letter-spacing:-1px;
 }
 
 form{
 display:flex;
 flex-direction:column;
 gap:14px;
+}
+
+/* GRID nombre/apellido */
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
 }
 
 input, textarea{
@@ -134,13 +139,13 @@ background:#fff;
 /* ================= BOTÓN ================= */
 
 button{
-width:auto;
-padding:8px 14px;     /* MÁS PEQUEÑO */
-background:#d60000;   /* ROJO */
+width:25%;           /* MÁS CORTO (¼ del ancho) */
+padding:8px 14px;
+background:#d60000;
 color:#fff;
 border:none;
 cursor:pointer;
-font-size:12px;       /* MÁS PEQUEÑO */
+font-size:12px;
 font-weight:500;
 margin-top:10px;
 border-radius:2px;
@@ -164,18 +169,6 @@ font-family:'Inter', sans-serif;
 height:1px;
 background:rgba(255,255,255,0.3);
 margin:50px 0;
-}
-
-.footer-row{
-display:flex;
-justify-content:space-between;
-}
-
-.footer-left a{
-color:#fff;
-font-size:18px;
-text-decoration:underline;
-text-underline-offset:4px;
 }
 
 .footer-bottom{
@@ -202,7 +195,15 @@ gap:50px;
 }
 
 .left h1{
-font-size:42px;
+font-size:72px;
+}
+
+.right h2{
+font-size:38px;
+}
+
+button{
+width:50%;
 }
 
 .footer{
@@ -221,7 +222,7 @@ gap:10px;
 
 <body>
 
-<!-- HEADER -->
+<!-- HEADER INVERTIDO -->
 <div class="header">
 
 <div class="logo">
@@ -256,9 +257,13 @@ gap:10px;
 
 <form action="mailto:garabatocine@gmail.com" method="post" enctype="text/plain">
 
+<div class="row">
 <input type="text" name="nombre" placeholder="Nombre">
 <input type="text" name="apellido" placeholder="Apellido">
+</div>
+
 <input type="text" name="telefono" placeholder="Teléfono">
+
 <input type="email" name="correo" placeholder="Correo electrónico *" required>
 
 <textarea name="mensaje" placeholder="Mensaje *" required></textarea>
