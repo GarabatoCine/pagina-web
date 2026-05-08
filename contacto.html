@@ -42,7 +42,7 @@ text-transform:uppercase;
 
 .logo a{
 font-size:24px;
-font-weight:500;
+font-weight:700; /* 🔥 FIX: bold real */
 text-decoration:none;
 color:#000;
 letter-spacing:2px;
@@ -57,36 +57,23 @@ align-items:center;
 
 .nav a{
 text-decoration:none;
-font-weight:500;
+font-weight:600;
 color:#000;
 }
 
 /* ================= BANNER ================= */
-
-.banner{
-width:100%;
-height:auto;
-}
 
 .banner img{
 width:100%;
 display:block;
 }
 
-/* ================= TITLE ================= */
-
-.page-title{
-padding:30px 40px 10px;
-font-size:36px;
-font-weight:700;
-}
-
-/* ================= 2 COLUMN LAYOUT ================= */
+/* ================= LAYOUT ================= */
 
 .container{
 display:flex;
 gap:80px;
-padding:40px;
+padding:10px 40px 40px; /* 🔥 más pegado al banner */
 }
 
 /* LEFT */
@@ -95,25 +82,38 @@ padding:40px;
 width:40%;
 }
 
+/* 🔥 CONTACTO PRINCIPAL (AJUSTADO) */
 .left h2{
-font-size:38px;
+font-size:110px; /* +200% aprox */
 font-weight:700;
-margin-bottom:20px;
-}
-
-.location{
 margin-top:20px;
-font-size:16px;
+margin-bottom:40px;
+margin-left:40px; /* corrido hacia la derecha estilo Ciudad Lunar */
 }
 
-/* RIGHT */
+/* UBICACIÓN */
+.location{
+font-size:16px;
+margin-left:40px;
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+/* ICONO UBICACIÓN */
+.location svg{
+width:16px;
+height:16px;
+}
+
+/* ================= RIGHT ================= */
 
 .right{
 width:60%;
 }
 
 .right h2{
-font-size:38px;
+font-size:42px;
 font-weight:700;
 margin-bottom:20px;
 }
@@ -153,7 +153,7 @@ cursor:pointer;
 font-size:13px;
 }
 
-/* ================= FOOTER (SIN CAMBIOS) ================= */
+/* ================= FOOTER ================= */
 
 .footer{
 background:#000;
@@ -162,7 +162,7 @@ padding:70px 160px;
 font-family:'Century Gothic', sans-serif;
 font-weight:100;
 font-size:15px;
-margin-top:80px;
+margin-top:60px;
 }
 
 .footer-line{
@@ -198,6 +198,7 @@ gap:12px;
 justify-content:flex-end;
 }
 
+/* 🔥 FIX FACEBOOK ICON */
 .footer-icons svg{
 width:24px;
 height:24px;
@@ -205,6 +206,8 @@ stroke:white;
 fill:none;
 stroke-width:1.2;
 }
+
+/* FOOTER BOTTOM */
 
 .footer-bottom{
 display:flex;
@@ -223,7 +226,7 @@ text-decoration:underline;
 text-align:right;
 }
 
-/* ================= MOBILE ================= */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:900px){
 
@@ -235,6 +238,15 @@ flex-direction:column;
 width:100%;
 }
 
+.left h2{
+font-size:70px;
+margin-left:0;
+}
+
+.location{
+margin-left:0;
+}
+
 }
 
 </style>
@@ -242,7 +254,7 @@ width:100%;
 
 <body>
 
-<!-- HEADER (sin contacto) -->
+<!-- HEADER -->
 <div class="header">
 
 <div class="logo">
@@ -262,11 +274,6 @@ width:100%;
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/Marimonda-tirita.png?raw=true">
 </div>
 
-<!-- TITLE -->
-<div class="page-title">
-Contacto
-</div>
-
 <!-- CONTENT -->
 <div class="container">
 
@@ -276,6 +283,10 @@ Contacto
 <h2>Contacto</h2>
 
 <div class="location">
+<svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
+<path d="M12 21s6-5.686 6-10a6 6 0 10-12 0c0 4.314 6 10 6 10z"/>
+<circle cx="12" cy="11" r="2"/>
+</svg>
 Valledupar, Colombia
 </div>
 
@@ -286,7 +297,7 @@ Valledupar, Colombia
 
 <h2>Déjanos tu mensaje</h2>
 
-<form action="mailto:garabatocine@gmail.com" method="post">
+<form action="mailto:garabatocine@gmail.com">
 
 <div class="row">
 <input type="text" placeholder="Nombre">
@@ -297,7 +308,7 @@ Valledupar, Colombia
 <input type="text" placeholder="Teléfono">
 <textarea placeholder="Mensaje *" required></textarea>
 
-<button type="submit">Enviar</button>
+<button>Enviar</button>
 
 </form>
 
@@ -305,7 +316,7 @@ Valledupar, Colombia
 
 </div>
 
-<!-- FOOTER (igual al anterior) -->
+<!-- FOOTER -->
 <footer class="footer">
 
 <div class="footer-line"></div>
@@ -322,6 +333,7 @@ Valledupar, Colombia
 
 <div class="footer-icons">
 
+<!-- Instagram -->
 <a href="https://www.instagram.com/garabatocine/" target="_blank">
 <svg viewBox="0 0 24 24">
 <rect x="3" y="3" width="18" height="18" rx="5"></rect>
@@ -330,12 +342,14 @@ Valledupar, Colombia
 </svg>
 </a>
 
+<!-- Facebook FIXED -->
 <a href="https://web.facebook.com/garabatocine" target="_blank">
 <svg viewBox="0 0 24 24">
-<circle cx="12" cy="12" r="10"></circle>
+<path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z" fill="white"/>
 </svg>
 </a>
 
+<!-- YouTube -->
 <a href="https://www.youtube.com/@garabatocine" target="_blank">
 <svg viewBox="0 0 24 24">
 <path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
