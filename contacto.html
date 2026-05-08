@@ -19,7 +19,7 @@ body{
 font-family:'Roboto', sans-serif;
 background:#fff;
 color:#111;
-padding:80px 20px;
+padding:100px 40px;
 }
 
 /* ================= HEADER ================= */
@@ -35,6 +35,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 40px;
+z-index:1000;
 }
 
 .logo a{
@@ -45,62 +46,71 @@ letter-spacing:2px;
 text-transform:uppercase;
 }
 
-/* ================= CONTENIDO ================= */
+/* ================= LAYOUT ================= */
 
 .container{
-max-width:720px;
+max-width:1100px;
 margin:0 auto;
-padding-top:60px;
+display:flex;
+justify-content:space-between;
+gap:80px;
 }
 
-.title{
-font-size:22px;
+/* ================= COLUMNA IZQUIERDA ================= */
+
+.left{
+flex:1;
+}
+
+.left h1{
+font-size:72px;
 font-weight:500;
-text-decoration:underline;
-text-underline-offset:4px;
-margin-bottom:10px;
+letter-spacing:-1px;
+line-height:1;
+margin-bottom:20px;
 }
-
-.subtitle{
-font-size:16px;
-color:#444;
-margin-bottom:35px;
-}
-
-/* ================= UBICACIÓN ================= */
 
 .location{
+font-size:14px;
+color:#555;
 display:flex;
 align-items:center;
 gap:10px;
-font-size:14px;
-color:#444;
-margin-bottom:40px;
+margin-top:10px;
 }
 
 .location svg{
-width:18px;
-height:18px;
-stroke:#444;
+width:16px;
+height:16px;
+stroke:#555;
 fill:none;
 stroke-width:1.5;
 }
 
-/* ================= FORMULARIO ================= */
+/* ================= COLUMNA DERECHA ================= */
+
+.right{
+flex:1;
+}
+
+.right h2{
+font-size:36px;
+font-weight:500;
+margin-bottom:25px;
+}
+
+/* FORM */
 
 form{
 display:flex;
 flex-direction:column;
-gap:16px;
+gap:14px;
 }
-
-/* cajas visibles */
 
 input, textarea{
 width:100%;
 padding:12px 14px;
 border:1px solid #ddd;
-border-radius:4px;
 font-size:14px;
 font-family:inherit;
 outline:none;
@@ -111,19 +121,18 @@ input:focus, textarea:focus{
 border-color:#999;
 }
 
-/* textarea mensaje */
-
 textarea{
 min-height:140px;
 resize:none;
 }
 
-/* botón bermellón */
+/* BOTÓN PEQUEÑO NEGRO */
 
 button{
-margin-top:10px;
-padding:14px;
-background:#b11226;
+width:auto;
+align-self:flex-start;
+padding:10px 22px;
+background:#000;
 color:#fff;
 border:none;
 font-size:13px;
@@ -139,13 +148,25 @@ opacity:0.85;
 
 /* ================= RESPONSIVE ================= */
 
-@media(max-width:600px){
-.header{
-padding:16px 20px;
-}
+@media(max-width:900px){
+
 .container{
-padding-top:40px;
+flex-direction:column;
+gap:50px;
 }
+
+.left h1{
+font-size:48px;
+}
+
+.right h2{
+font-size:28px;
+}
+
+body{
+padding:90px 20px;
+}
+
 }
 
 </style>
@@ -163,13 +184,11 @@ padding-top:40px;
 <!-- CONTENIDO -->
 <div class="container">
 
-<div class="title">Contacto</div>
+<!-- IZQUIERDA -->
+<div class="left">
 
-<div class="subtitle">
-Déjanos tu mensaje
-</div>
+<h1>Contacto</h1>
 
-<!-- UBICACIÓN -->
 <div class="location">
 <svg viewBox="0 0 24 24">
 <path d="M12 21s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"></path>
@@ -178,7 +197,13 @@ Déjanos tu mensaje
 Valledupar, Colombia
 </div>
 
-<!-- FORMULARIO -->
+</div>
+
+<!-- DERECHA -->
+<div class="right">
+
+<h2>Déjanos tu mensaje</h2>
+
 <form action="https://formspree.io/f/xojrkwkj" method="POST">
 
 <input type="text" name="nombre" placeholder="Nombre">
@@ -191,9 +216,11 @@ Valledupar, Colombia
 
 <textarea name="mensaje" placeholder="Mensaje *" required></textarea>
 
-<button type="submit">Enviar mensaje</button>
+<button type="submit">Enviar</button>
 
 </form>
+
+</div>
 
 </div>
 
