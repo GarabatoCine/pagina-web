@@ -19,7 +19,9 @@ body{
 font-family:'Roboto', sans-serif;
 background:#fff;
 color:#999;
-padding-top:72px;
+
+/* FIX IMPORTANTE HEADER */
+padding-top:74px;
 }
 
 /* ================= HEADER ================= */
@@ -75,12 +77,30 @@ color:#000;
 
 .lang a:hover{opacity:1;}
 
+/* ================= HAMBURGUESA ================= */
+
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:4px;
+cursor:pointer;
+}
+
+.menu-toggle span{
+width:22px;
+height:2px;
+background:#000;
+display:block;
+}
+
 /* ================= GALERÍA ================= */
 
 .block{
 position:relative;
 width:100vw;
 margin-left:calc(-50vw + 50%);
+
+/* 🔥 FIX IMPORTANTE: mismo espacio entre fotos */
 margin-bottom:6px;
 }
 
@@ -100,11 +120,13 @@ color:#fff;
 font-size:18px;
 }
 
-/* ================= FOOTER ================= */
+/* ================= FOOTER SPACE (CORREGIDO) ================= */
 
 .footer-space{
-height:160px;
+height:60px; /* antes estaba exagerado */
 }
+
+/* ================= FOOTER ================= */
 
 .footer{
 background:#000;
@@ -135,9 +157,7 @@ text-decoration-thickness:0.5px;
 text-underline-offset:2px;
 }
 
-.footer-right{
-text-align:right;
-}
+.footer-right{text-align:right;}
 
 .footer-follow{
 font-size:19px;
@@ -183,6 +203,42 @@ line-height:1.6;
 
 @media(max-width:768px){
 
+/* FIX HEADER TAPANDO IMAGEN */
+body{
+padding-top:92px;
+}
+
+.header{
+padding:16px 22px;
+}
+
+/* HAMBURGUESA REAL */
+.menu-toggle{
+display:flex;
+}
+
+.nav{
+display:none;
+position:absolute;
+top:70px;
+right:20px;
+background:#fff;
+padding:20px;
+flex-direction:column;
+border:1px solid #eee;
+gap:14px;
+}
+
+.nav.active{
+display:flex;
+}
+
+/* GALERÍA */
+.block{
+margin-bottom:6px;
+}
+
+/* FOOTER */
 .footer{
 padding:50px 40px;
 }
@@ -209,19 +265,25 @@ gap:10px;
 
 <body id="top">
 
-<!-- HEADER (SIN CAMBIOS) -->
+<!-- HEADER -->
 <div class="header">
 
 <div class="logo">
 <a href="https://garabatocine.github.io/pagina-web/">GARABATO CINE</a>
 </div>
 
-<div class="nav">
+<div class="menu-toggle" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<div class="nav" id="mobileMenu">
 
 <a href="catalogo.html">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
 <a href="#">PRÓXIMAMENTE</a>
-<a href="#">CONTACTO</a>
+<a href="contacto.html">CONTACTO</a>
 
 <div class="lang">
 <span class="active">ES</span>
@@ -270,7 +332,7 @@ gap:10px;
 
 <div class="footer-space"></div>
 
-<!-- FOOTER FINAL -->
+<!-- FOOTER -->
 <footer class="footer">
 
 <div class="footer-line"></div>
@@ -332,6 +394,12 @@ gap:10px;
 </div>
 
 </footer>
+
+<script>
+function toggleMenu(){
+document.getElementById("mobileMenu").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
