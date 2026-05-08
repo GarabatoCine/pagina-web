@@ -1,3 +1,5 @@
+<!-- REEMPLAZA TODO EL CONTENIDO DE contacto.html CON ESTE ARCHIVO COMPLETO -->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contacto - Garabato Cine</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -21,9 +23,10 @@ overflow-x:hidden;
 
 body{
 font-family:'Roboto', sans-serif;
-background:#000;
-color:#fff;
+background:#fff;
+color:#222;
 padding-top:74px;
+line-height:1.6;
 }
 
 /* ================= HEADER ================= */
@@ -64,90 +67,93 @@ gap:18px;
 font-size:13px;
 }
 
+.lang .active{
+opacity:0.45;
+}
+
+.lang a{
+opacity:1;
+}
+
 /* ================= BANNER ================= */
 
 .banner img{
 width:100%;
+display:block;
 height:320px;
 object-fit:cover;
-display:block;
 }
 
 /* ================= CONTACT SECTION ================= */
 
 .contact-section{
-display:flex;
-justify-content:space-between;
+display:grid;
+grid-template-columns:40% 60%;
 gap:80px;
-padding:80px 140px;
-background:#000;
-color:#fff;
+padding:90px 140px;
+background:#fff;
 }
 
 .contact-left{
-width:40%;
-padding-left:90px;
+padding-left:120px;
 }
-
-.contact-right{
-width:60%;
-}
-
-/* ================= LEFT COLUMN ================= */
 
 .contact-title{
 font-family:'Inter', sans-serif;
-font-size:58px;
+font-size:52px;
 font-weight:700;
+color:#000;
+margin-bottom:8px;
 display:inline-block;
-margin-bottom:0;
 }
 
 .contact-underline{
 width:100%;
-max-width:245px;
-height:4px;
-background:#fff;
-margin-top:10px;
+max-width:165px;
+height:3px;
+background:#000;
 margin-bottom:55px;
 }
 
 .follow-title{
-font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+font-family:'Century Gothic', sans-serif;
 font-size:21px;
-font-weight:700;
+font-weight:100;
+color:#000;
 margin-bottom:18px;
-color:#fff;
 }
 
-.contact-social-vertical{
+.contact-social{
 display:flex;
 flex-direction:column;
 gap:18px;
 }
 
-.contact-social-vertical a{
+.contact-social a{
 display:inline-flex;
 width:fit-content;
 }
 
-.contact-social-vertical svg{
+.contact-social svg{
 width:36px;
 height:36px;
-stroke:#fff;
+stroke:#000;
 fill:none;
 stroke-width:1.2;
 }
 
-/* ================= RIGHT COLUMN ================= */
+.contact-right{
+padding-right:40px;
+}
 
 .form-title{
 font-family:'Inter', sans-serif;
 font-size:48px;
 font-weight:700;
+color:#000;
 margin-bottom:30px;
 margin-top:8px;
-color:#fff;
+white-space:nowrap;
 }
 
 .contact-form{
@@ -169,8 +175,8 @@ input,
 textarea{
 width:100%;
 padding:12px 14px;
-background:#fff;
 border:1px solid #ccc;
+background:#fff;
 color:#000;
 font-size:14px;
 font-family:'Roboto', sans-serif;
@@ -291,15 +297,17 @@ height:220px;
 }
 
 .contact-section{
-flex-direction:column;
+grid-template-columns:1fr;
 gap:50px;
 padding:50px 24px;
 }
 
-.contact-left,
-.contact-right{
-width:100%;
+.contact-left{
 padding-left:0;
+}
+
+.contact-right{
+padding-right:0;
 }
 
 .contact-title{
@@ -307,11 +315,13 @@ font-size:42px;
 }
 
 .contact-underline{
-max-width:180px;
+max-width:135px;
+margin-bottom:40px;
 }
 
 .form-title{
 font-size:34px;
+white-space:normal;
 margin-top:0;
 }
 
@@ -321,10 +331,6 @@ flex-direction:column;
 
 .two-columns input{
 width:100%;
-}
-
-button{
-align-self:flex-end;
 }
 
 .footer{
@@ -352,7 +358,6 @@ gap:20px;
 .footer-bottom-right{
 text-align:left;
 }
-
 }
 </style>
 </head>
@@ -370,6 +375,12 @@ text-align:left;
 <a href="catalogo.html">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
 <a href="#">PRÓXIMAMENTE</a>
+
+<div class="lang">
+<span class="active">ES</span>
+<span>|</span>
+<a href="#">EN</a>
+</div>
 </div>
 
 </div>
@@ -384,14 +395,14 @@ text-align:left;
 
 <div class="contact-left">
 
-<h1 class="contact-title">Contacto</h1>
+<div class="contact-title">Contacto</div>
 <div class="contact-underline"></div>
 
 <div class="follow-title">Síguenos</div>
 
-<div class="contact-social-vertical">
+<div class="contact-social">
 
-<a href="https://www.instagram.com/garabatocine/" target="_blank" aria-label="Instagram">
+<a href="https://www.instagram.com/garabatocine/" target="_blank">
 <svg viewBox="0 0 24 24">
 <rect x="3" y="3" width="18" height="18" rx="5"></rect>
 <circle cx="12" cy="12" r="4"></circle>
@@ -399,17 +410,17 @@ text-align:left;
 </svg>
 </a>
 
-<a href="https://web.facebook.com/garabatocine" target="_blank" aria-label="Facebook">
+<a href="https://web.facebook.com/garabatocine" target="_blank">
 <svg viewBox="0 0 24 24">
 <circle cx="12" cy="12" r="10"></circle>
-<path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z" fill="white"/>
+<path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z" fill="black"/>
 </svg>
 </a>
 
-<a href="https://www.youtube.com/@garabatocine" target="_blank" aria-label="YouTube">
+<a href="https://www.youtube.com/@garabatocine" target="_blank">
 <svg viewBox="0 0 24 24">
 <path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
-<polygon points="10 15 15 12 10 9" fill="white"></polygon>
+<polygon points="10 15 15 12 10 9" fill="black"></polygon>
 </svg>
 </a>
 
@@ -419,13 +430,9 @@ text-align:left;
 
 <div class="contact-right">
 
-<h2 class="form-title">Déjanos tu mensaje</h2>
+<div class="form-title">Déjanos tu mensaje</div>
 
-<form
-  class="contact-form"
-  action="https://formspree.io/f/xojrkwkj"
-  method="POST"
->
+<form class="contact-form" action="https://formspree.io/f/xojrkwkj" method="POST">
 
 <div class="two-columns">
 <input type="text" name="nombre" placeholder="Nombre">
@@ -434,18 +441,9 @@ text-align:left;
 
 <input type="tel" name="telefono" placeholder="Teléfono">
 
-<input
-  type="email"
-  name="email"
-  placeholder="Correo electrónico*"
-  required
->
+<input type="email" name="email" placeholder="Correo electrónico*" required>
 
-<textarea
-  name="mensaje"
-  placeholder="Mensaje*"
-  required
-></textarea>
+<textarea name="mensaje" placeholder="Mensaje*" required></textarea>
 
 <button type="submit">Enviar</button>
 
@@ -472,7 +470,7 @@ text-align:left;
 
 <div class="footer-icons">
 
-<a href="https://www.instagram.com/garabatocine/" target="_blank" aria-label="Instagram">
+<a href="https://www.instagram.com/garabatocine/" target="_blank">
 <svg viewBox="0 0 24 24">
 <rect x="3" y="3" width="18" height="18" rx="5"></rect>
 <circle cx="12" cy="12" r="4"></circle>
@@ -480,14 +478,14 @@ text-align:left;
 </svg>
 </a>
 
-<a href="https://web.facebook.com/garabatocine" target="_blank" aria-label="Facebook">
+<a href="https://web.facebook.com/garabatocine" target="_blank">
 <svg viewBox="0 0 24 24">
 <circle cx="12" cy="12" r="10"></circle>
 <path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z" fill="white"/>
 </svg>
 </a>
 
-<a href="https://www.youtube.com/@garabatocine" target="_blank" aria-label="YouTube">
+<a href="https://www.youtube.com/@garabatocine" target="_blank">
 <svg viewBox="0 0 24 24">
 <path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
 <polygon points="10 15 15 12 10 9"></polygon>
