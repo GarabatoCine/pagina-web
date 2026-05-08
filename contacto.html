@@ -50,9 +50,9 @@ letter-spacing:2px;
 
 .nav{
 display:flex;
-align-items:center;
 gap:18px;
 font-size:13px;
+align-items:center;
 }
 
 .nav a{
@@ -61,9 +61,9 @@ font-weight:500;
 color:#000;
 }
 
+/* CONTACTO SIN SUBRAYADO */
 .nav a.active{
-text-decoration:underline;
-text-underline-offset:4px;
+text-decoration:none;
 }
 
 /* ================= LAYOUT ================= */
@@ -86,6 +86,7 @@ letter-spacing:-1px;
 margin-bottom:20px;
 }
 
+/* UBICACIÓN */
 .location{
 font-size:14px;
 color:#666;
@@ -98,9 +99,10 @@ gap:8px;
 /* ================= RIGHT ================= */
 
 .right h2{
-font-size:28px;
-font-weight:600;
+font-size:34px;   /* MÁS GRANDE */
+font-weight:700;  /* MÁS NEGRITA */
 margin-bottom:20px;
+letter-spacing:-0.5px;
 }
 
 form{
@@ -111,12 +113,12 @@ gap:14px;
 
 input, textarea{
 width:100%;
-padding:14px 14px;
+padding:14px;
 border:1px solid #ddd;
 font-family:'Inter', sans-serif;
 font-size:14px;
-outline:none;
 background:#fafafa;
+outline:none;
 }
 
 textarea{
@@ -129,18 +131,19 @@ border-color:#000;
 background:#fff;
 }
 
-/* ================= BUTTON ================= */
+/* ================= BOTÓN ================= */
 
 button{
 width:auto;
-padding:10px 18px;
-background:#000;
+padding:8px 14px;     /* MÁS PEQUEÑO */
+background:#d60000;   /* ROJO */
 color:#fff;
 border:none;
 cursor:pointer;
-font-size:13px;
+font-size:12px;       /* MÁS PEQUEÑO */
 font-weight:500;
 margin-top:10px;
+border-radius:2px;
 }
 
 button:hover{
@@ -239,7 +242,7 @@ gap:10px;
 
 <!-- LEFT -->
 <div class="left">
-<h1>CONTACTO</h1>
+<h1>Contacto</h1>
 
 <div class="location">
 📍 Valledupar, Colombia
@@ -273,14 +276,6 @@ gap:10px;
 
 <div class="footer-line"></div>
 
-<div class="footer-row">
-
-<div class="footer-left">
-<a href="contacto.html">Contacto</a>
-</div>
-
-</div>
-
 <div class="footer-bottom">
 
 <div class="footer-bottom-left">
@@ -289,7 +284,7 @@ gap:10px;
 </div>
 
 <div>
-<div>GARABATO CINE</div>
+<div>Garabato Cine</div>
 <div>Todos los derechos reservados</div>
 </div>
 
