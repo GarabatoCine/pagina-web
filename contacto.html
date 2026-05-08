@@ -6,7 +6,7 @@
 
 <title>Contacto — Garabato Cine</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,34 +17,34 @@ box-sizing:border-box;
 }
 
 body{
-font-family:'Inter', sans-serif;
+font-family:'Roboto', sans-serif;
 background:#fff;
 color:#111;
 padding-top:74px;
 }
 
-/* ================= HEADER INVERTIDO ================= */
+/* ================= HEADER (ORIGINAL) ================= */
 
 .header{
 position:fixed;
 top:0;
 left:0;
 width:100%;
-background:#000;   /* NEGRO */
+background:#fff;
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:18px 40px;
 z-index:1000;
-border-bottom:1px solid rgba(255,255,255,0.15);
+border-bottom:1px solid #eee;
 text-transform:uppercase;
 }
 
 .logo a{
 font-size:24px;
-font-weight:600;
+font-weight:500;
 text-decoration:none;
-color:#fff;  /* BLANCO */
+color:#000;
 letter-spacing:2px;
 }
 
@@ -58,11 +58,7 @@ align-items:center;
 .nav a{
 text-decoration:none;
 font-weight:500;
-color:#fff; /* BLANCO */
-}
-
-.nav a.active{
-text-decoration:none;
+color:#000;
 }
 
 /* ================= LAYOUT ================= */
@@ -79,28 +75,43 @@ gap:80px;
 /* ================= LEFT ================= */
 
 .left h1{
-font-size:110px;   /* +70% aprox */
-font-weight:600;
+font-size:88px; /* -20% aprox */
+font-weight:900;
+font-family:'Arial Black', Arial, sans-serif;
 letter-spacing:-2px;
 margin-bottom:20px;
 }
 
+/* ICONOS debajo de CONTACTO */
+.social-icons{
+display:flex;
+gap:12px;
+margin-top:10px;
+}
+
+.social-icons a svg{
+width:22px;
+height:22px;
+stroke:#000;
+fill:none;
+stroke-width:1.5;
+}
+
+/* ubicación */
 .location{
 font-size:14px;
 color:#666;
-margin-top:10px;
-display:flex;
-align-items:center;
-gap:8px;
+margin-top:20px;
 }
 
 /* ================= RIGHT ================= */
 
 .right h2{
-font-size:60px;   /* +80% aprox */
-font-weight:700;
+font-size:52px;
+font-weight:900;
+font-family:'Arial Black', Arial, sans-serif;
+white-space:nowrap; /* UNA SOLA LÍNEA */
 margin-bottom:20px;
-letter-spacing:-1px;
 }
 
 form{
@@ -109,7 +120,6 @@ flex-direction:column;
 gap:14px;
 }
 
-/* GRID nombre/apellido */
 .row{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -120,7 +130,7 @@ input, textarea{
 width:100%;
 padding:14px;
 border:1px solid #ddd;
-font-family:'Inter', sans-serif;
+font-family:'Roboto', sans-serif;
 font-size:14px;
 background:#fafafa;
 outline:none;
@@ -128,18 +138,12 @@ outline:none;
 
 textarea{
 min-height:140px;
-resize:none;
-}
-
-input:focus, textarea:focus{
-border-color:#000;
-background:#fff;
 }
 
 /* ================= BOTÓN ================= */
 
 button{
-width:25%;           /* MÁS CORTO (¼ del ancho) */
+width:25%;
 padding:8px 14px;
 background:#d60000;
 color:#fff;
@@ -147,12 +151,6 @@ border:none;
 cursor:pointer;
 font-size:12px;
 font-weight:500;
-margin-top:10px;
-border-radius:2px;
-}
-
-button:hover{
-opacity:0.85;
 }
 
 /* ================= FOOTER ================= */
@@ -162,13 +160,45 @@ background:#000;
 color:#fff;
 padding:70px 160px;
 margin-top:120px;
-font-family:'Inter', sans-serif;
 }
 
 .footer-line{
 height:1px;
 background:rgba(255,255,255,0.3);
 margin:50px 0;
+}
+
+.footer-row{
+display:flex;
+justify-content:space-between;
+}
+
+.footer-left a{
+color:#fff;
+text-decoration:underline;
+font-size:18px;
+}
+
+.footer-right{
+text-align:right;
+}
+
+.footer-follow{
+margin-bottom:15px;
+}
+
+.footer-icons{
+display:flex;
+gap:12px;
+justify-content:flex-end;
+}
+
+.footer-icons svg{
+width:22px;
+height:22px;
+stroke:#fff;
+fill:none;
+stroke-width:1.5;
 }
 
 .footer-bottom{
@@ -181,8 +211,8 @@ font-size:13px;
 .footer-bottom-left a{
 display:block;
 color:#fff;
-margin-bottom:6px;
 text-decoration:underline;
+margin-bottom:6px;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -195,11 +225,12 @@ gap:50px;
 }
 
 .left h1{
-font-size:72px;
+font-size:64px;
 }
 
 .right h2{
-font-size:38px;
+font-size:34px;
+white-space:normal;
 }
 
 button{
@@ -222,7 +253,7 @@ gap:10px;
 
 <body>
 
-<!-- HEADER INVERTIDO -->
+<!-- HEADER -->
 <div class="header">
 
 <div class="logo">
@@ -233,7 +264,7 @@ gap:10px;
 <a href="catalogo.html">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
 <a href="#">PRÓXIMAMENTE</a>
-<a href="contacto.html" class="active">CONTACTO</a>
+<a href="contacto.html">CONTACTO</a>
 </div>
 
 </div>
@@ -243,11 +274,40 @@ gap:10px;
 
 <!-- LEFT -->
 <div class="left">
+
 <h1>Contacto</h1>
+
+<!-- ICONOS -->
+<div class="social-icons">
+
+<a href="https://www.instagram.com/garabatocine/" target="_blank">
+<svg viewBox="0 0 24 24">
+<rect x="3" y="3" width="18" height="18" rx="5"></rect>
+<circle cx="12" cy="12" r="4"></circle>
+<circle cx="17" cy="7" r="1.5"></circle>
+</svg>
+</a>
+
+<a href="https://web.facebook.com/garabatocine" target="_blank">
+<svg viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1"></path>
+</svg>
+</a>
+
+<a href="https://www.youtube.com/@garabatocine" target="_blank">
+<svg viewBox="0 0 24 24">
+<path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
+<polygon points="10 15 15 12 10 9"></polygon>
+</svg>
+</a>
+
+</div>
 
 <div class="location">
 📍 Valledupar, Colombia
 </div>
+
 </div>
 
 <!-- RIGHT -->
@@ -255,18 +315,16 @@ gap:10px;
 
 <h2>Dejanos tu mensaje</h2>
 
-<form action="mailto:garabatocine@gmail.com" method="post" enctype="text/plain">
+<form action="mailto:garabatocine@gmail.com" method="post">
 
 <div class="row">
-<input type="text" name="nombre" placeholder="Nombre">
-<input type="text" name="apellido" placeholder="Apellido">
+<input type="text" placeholder="Nombre">
+<input type="text" placeholder="Apellido">
 </div>
 
-<input type="text" name="telefono" placeholder="Teléfono">
-
-<input type="email" name="correo" placeholder="Correo electrónico *" required>
-
-<textarea name="mensaje" placeholder="Mensaje *" required></textarea>
+<input type="text" placeholder="Teléfono">
+<input type="email" placeholder="Correo electrónico *" required>
+<textarea placeholder="Mensaje *" required></textarea>
 
 <button type="submit">Enviar</button>
 
@@ -281,17 +339,48 @@ gap:10px;
 
 <div class="footer-line"></div>
 
-<div class="footer-bottom">
+<div class="footer-row">
 
-<div class="footer-bottom-left">
+<div class="footer-left">
 <a href="cookies.html">Política de Cookies</a>
 <a href="politicadeprivacidad.html">Política de Privacidad</a>
 </div>
 
-<div>
+<div class="footer-right">
+
+<div class="footer-follow">Síguenos</div>
+
+<div class="footer-icons">
+
+<a href="https://www.instagram.com/garabatocine/" target="_blank">
+<svg viewBox="0 0 24 24">
+<rect x="3" y="3"></rect>
+<circle cx="12" cy="12" r="4"></circle>
+</svg>
+</a>
+
+<a href="https://web.facebook.com/garabatocine" target="_blank">
+<svg viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+</svg>
+</a>
+
+<a href="https://www.youtube.com/@garabatocine" target="_blank">
+<svg viewBox="0 0 24 24">
+<path d="M22 12s0-4-1-5"></path>
+</svg>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
 <div>Garabato Cine</div>
 <div>Todos los derechos reservados</div>
-</div>
 
 </div>
 
