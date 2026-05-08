@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidad — Garabato Cine</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html, body{
+width:100%;
+overflow-x:hidden;
+}
+
+body{
+font-family:'Roboto', sans-serif;
+background:#fff;
+color:#222;
+padding-top:74px;
+line-height:1.75;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+z-index:1000;
+border-bottom:1px solid #eee;
+text-transform:uppercase;
+}
+
+.logo a,
+.nav a,
+.lang span,
+.lang a{
+color:#000;
+}
+
+.logo a{
+font-size:24px;
+font-weight:500;
+letter-spacing:2px;
+text-decoration:none;
+}
+
+.nav{
+display:flex;
+align-items:center;
+gap:18px;
+font-size:13px;
+}
+
+.nav a{
+text-decoration:none;
+font-weight:500;
+}
+
+.lang .active{
+opacity:0.45;
+}
+
+.lang a{
+opacity:1;
+text-decoration:none;
+}
+
+.lang a:hover{
+opacity:0.7;
+}
+
+/* ================= HAMBURGUESA ================= */
+
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:4px;
+cursor:pointer;
+}
+
+.menu-toggle span{
+width:22px;
+height:2px;
+background:#000;
+display:block;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+width:100%;
+background:#000;
+color:#fff;
+padding:120px 40px 90px;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero h1{
+font-size:42px;
+font-weight:500;
+letter-spacing:1px;
+max-width:1000px;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+max-width:1050px;
+margin:80px auto;
+padding:0 40px;
+}
+
+.content h2{
+font-size:28px;
+font-weight:500;
+margin-top:70px;
+margin-bottom:20px;
+color:#000;
+}
+
+.content p{
+font-size:17px;
+font-weight:300;
+margin-bottom:24px;
+color:#444;
+}
+
+.content ul{
+margin-bottom:24px;
+padding-left:22px;
+}
+
+.content li{
+margin-bottom:14px;
+font-size:17px;
+font-weight:300;
+color:#444;
+}
+
+.content a{
+color:#000;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+background:#000;
+color:white;
+width:100%;
+margin:0;
+padding:70px 160px;
+font-family:'Century Gothic', sans-serif;
+font-weight:100;
+font-size:15px;
+}
+
+.footer a{
+color:white;
+}
+
+.footer-line{
+height:1px;
+background:rgba(255,255,255,0.4);
+margin:50px 0;
+}
+
+.footer-row{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+}
+
+.footer-left a{
+font-size:19px;
+font-weight:100;
+text-decoration:underline;
+text-decoration-thickness:0.5px;
+text-underline-offset:2px;
+}
+
+.footer-right{
+text-align:right;
+}
+
+.footer-follow{
+font-size:19px;
+margin-bottom:15px;
+font-weight:100;
+}
+
+.footer-icons{
+display:flex;
+gap:12px;
+justify-content:flex-end;
+}
+
+.footer-icons svg{
+width:24px;
+height:24px;
+stroke:white;
+fill:none;
+stroke-width:1.2;
+}
+
+.footer-bottom{
+display:flex;
+justify-content:space-between;
+margin-top:30px;
+font-weight:100;
+}
+
+.footer-bottom-left a{
+display:block;
+margin-bottom:8px;
+text-decoration:underline;
+text-decoration-thickness:0.5px;
+text-underline-offset:2px;
+}
+
+.footer-bottom-right{
+text-align:right;
+line-height:1.8;
+}
+
+/* ================= TABLET ================= */
+
+@media(max-width:1024px){
+
+body{
+padding-top:86px;
+}
+
+.nav{
+display:none;
+position:absolute;
+top:70px;
+right:20px;
+background:#fff;
+padding:20px;
+flex-direction:column;
+align-items:flex-start;
+border:1px solid #eee;
+gap:14px;
+}
+
+.nav.active{
+display:flex;
+}
+
+.menu-toggle{
+display:flex;
+}
+
+.hero h1{
+font-size:34px;
+}
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+body{
+padding-top:82px;
+}
+
+.header{
+padding:16px 22px;
+}
+
+.hero{
+padding:90px 25px 70px;
+}
+
+.hero h1{
+font-size:28px;
+line-height:1.3;
+}
+
+.content{
+padding:0 24px;
+margin:60px auto;
+}
+
+.content h2{
+font-size:24px;
+margin-top:50px;
+}
+
+.content p,
+.content li{
+font-size:16px;
+}
+
+.footer{
+padding:50px 40px;
+}
+
+.footer-row{
+flex-direction:column;
+gap:30px;
+}
+
+.footer-right{
+text-align:left;
+}
+
+.footer-icons{
+justify-content:flex-start;
+}
+
+.footer-bottom{
+flex-direction:column;
+gap:20px;
+}
+
+.footer-bottom-right{
+text-align:left;
+}
+
+}
+
+</style>
+</head>
+
+<body id="top">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="logo">
+<a href="https://garabatocine.com">GARABATO CINE</a>
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<div class="nav" id="mobileMenu">
+
+<a href="catalogo.html">CATÁLOGO</a>
+<a href="#">NOSOTROS</a>
+<a href="#">PRÓXIMAMENTE</a>
+<a href="contacto.html">CONTACTO</a>
+
+<div class="lang">
+<span class="active">ES</span>
+<span>|</span>
+<a href="#">EN</a>
+</div>
+
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>
+Política de Privacidad y Tratamiento de Datos Personales
+</h1>
+
+</section>
+
+<!-- CONTENT -->
+
+<section class="content">
+
+<p><strong>Última actualización:</strong> Mayo de 2026</p>
+
+<h2>Responsable del tratamiento</h2>
+
+<p>
+Garabato Cine<br>
+Domicilio en Colombia<br>
+Sitio web: https://garabatocine.com
+</p>
+
+<p>
+Para cualquier solicitud relacionada con datos personales, los usuarios podrán comunicarse mediante el formulario de contacto disponible en el sitio web.
+</p>
+
+<h2>Marco normativo</h2>
+
+<p>
+La presente Política de Privacidad y Tratamiento de Datos Personales se desarrolla conforme a la Ley 1581 de 2012, el Decreto 1377 de 2013 y demás normas que las modifiquen, complementen o sustituyan.
+</p>
+
+<p>
+Garabato Cine se compromete a proteger la privacidad de los usuarios y a tratar sus datos personales de manera responsable, transparente y segura.
+</p>
+
+<h2>Datos que recopilamos</h2>
+
+<ul>
+<li>Nombre y apellido</li>
+<li>Correo electrónico proporcionado mediante formularios de contacto</li>
+<li>Número telefónico cuando el usuario decida facilitarlo</li>
+<li>Información enviada a través de formularios de contacto</li>
+<li>Datos técnicos como dirección IP, navegador, dispositivo y cookies</li>
+<li>Información de navegación y comportamiento dentro del sitio</li>
+<li>Ubicación aproximada derivada de la dirección IP</li>
+</ul>
+
+<p>
+No recopilamos datos sensibles salvo autorización previa, expresa e informada del titular.
+</p>
+
+<h2>Finalidad del tratamiento</h2>
+
+<ul>
+<li>Atender consultas y solicitudes enviadas mediante el formulario de contacto</li>
+<li>Gestionar comunicaciones relacionadas con proyectos y actividades audiovisuales</li>
+<li>Compartir información sobre contenidos, estrenos y actividades</li>
+<li>Mejorar la experiencia de navegación y funcionamiento del sitio</li>
+<li>Realizar análisis estadísticos internos</li>
+<li>Cumplir obligaciones legales aplicables</li>
+</ul>
+
+<p>
+Garabato Cine no venderá datos personales a terceros para fines comerciales sin autorización del titular.
+</p>
+
+<h2>Derechos de los titulares</h2>
+
+<ul>
+<li>Conocer, actualizar y rectificar sus datos personales</li>
+<li>Solicitar prueba de la autorización otorgada</li>
+<li>Solicitar la supresión de sus datos cuando proceda</li>
+<li>Revocar la autorización otorgada</li>
+<li>Presentar consultas o reclamos relacionados con el uso de sus datos</li>
+<li>Presentar quejas ante la Superintendencia de Industria y Comercio (SIC)</li>
+</ul>
+
+<h2>Procedimiento para ejercer derechos</h2>
+
+<p>
+Las solicitudes relacionadas con datos personales podrán realizarse mediante el formulario de contacto disponible en:
+</p>
+
+<p>
+https://garabatocine.com/contacto
+</p>
+
+<h2>Seguridad de la información</h2>
+
+<p>
+Garabato Cine adopta medidas técnicas, organizativas y administrativas razonables para proteger la información personal contra pérdida, acceso no autorizado, alteración, divulgación o destrucción.
+</p>
+
+<h2>Cookies y tecnologías similares</h2>
+
+<p>
+Este sitio puede utilizar cookies y tecnologías similares para analizar tráfico, recordar preferencias de navegación y mejorar la experiencia del usuario.
+</p>
+
+<p>
+El usuario puede gestionar o deshabilitar las cookies desde la configuración de su navegador.
+</p>
+
+<h2>Plataformas externas</h2>
+
+<p>
+El sitio puede incorporar contenido embebido desde plataformas externas como YouTube o Vimeo. Estas plataformas pueden recopilar información de navegación conforme a sus propias políticas de privacidad.
+</p>
+
+<h2>Transferencias internacionales</h2>
+
+<p>
+En caso de realizarse transferencias internacionales de datos, Garabato Cine adoptará medidas razonables para garantizar un nivel adecuado de protección conforme a la normativa aplicable.
+</p>
+
+<h2>Vigencia y modificaciones</h2>
+
+<p>
+Garabato Cine podrá actualizar esta Política de Privacidad en cualquier momento. Las modificaciones entrarán en vigencia desde su publicación en el sitio web.
+</p>
+
+<h2>Contacto</h2>
+
+<p>
+Para cualquier inquietud relacionada con esta Política de Privacidad o el tratamiento de datos personales, los usuarios podrán comunicarse mediante el formulario de contacto disponible en:
+</p>
+
+<p>
+https://garabatocine.com/contacto
+</p>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<div class="footer-line"></div>
+
+<div class="footer-row">
+
+<div class="footer-left">
+<a href="#top">Contacto</a>
+</div>
+
+<div class="footer-right">
+
+<div class="footer-follow">
+Síguenos
+</div>
+
+<div class="footer-icons">
+
+<a href="https://www.instagram.com/garabatocine/" target="_blank">
+<svg viewBox="0 0 24 24">
+<rect x="3" y="3" width="18" height="18" rx="5"></rect>
+<circle cx="12" cy="12" r="4"></circle>
+<circle cx="17" cy="7" r="1.5"></circle>
+</svg>
+</a>
+
+<a href="https://web.facebook.com/garabatocine" target="_blank">
+<svg viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z" fill="white"/>
+</svg>
+</a>
+
+<a href="https://www.youtube.com/@garabatocine" target="_blank">
+<svg viewBox="0 0 24 24">
+<path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
+<polygon points="10 15 15 12 10 9"></polygon>
+</svg>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-line"></div>
+
+<div class="footer-bottom">
+
+<div class="footer-bottom-left">
+<a href="#">Política de Cookies</a>
+<a href="#">Política de Privacidad</a>
+</div>
+
+<div class="footer-bottom-right">
+<div>© 2026 Garabato Cine</div>
+<div>Todos los derechos reservados</div>
+</div>
+
+</div>
+
+</footer>
+
+<script>
+
+function toggleMenu() {
+document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+window.onbeforeunload = function () {
+window.scrollTo(0, 0);
+};
+
+window.addEventListener("load", function () {
+window.scrollTo(0, 0);
+});
+
+</script>
+
+</body>
+</html>
