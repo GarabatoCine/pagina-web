@@ -1,5 +1,387 @@
-<!-- FOOTER -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Cookies — Garabato Cine</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html, body{
+width:100%;
+overflow-x:hidden;
+}
+
+body{
+font-family:'Roboto', sans-serif;
+background:#fff;
+color:#222;
+padding-top:74px;
+line-height:1.75;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+z-index:1000;
+border-bottom:1px solid #eee;
+text-transform:uppercase;
+}
+
+.logo a,
+.nav a,
+.lang span,
+.lang a{
+color:#000;
+}
+
+.logo a{
+font-size:24px;
+font-weight:500;
+letter-spacing:2px;
+text-decoration:none;
+}
+
+.nav{
+display:flex;
+align-items:center;
+gap:18px;
+font-size:13px;
+}
+
+.nav a{
+text-decoration:none;
+font-weight:500;
+}
+
+.lang .active{
+opacity:0.45;
+}
+
+.lang a{
+opacity:1;
+text-decoration:none;
+}
+
+.lang a:hover{
+opacity:0.7;
+}
+
+/* ================= HAMBURGUESA ================= */
+
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:4px;
+cursor:pointer;
+}
+
+.menu-toggle span{
+width:22px;
+height:2px;
+background:#000;
+display:block;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+width:100%;
+background:#000;
+color:#fff;
+padding:85px 40px 60px;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero h1{
+font-size:42px;
+font-weight:500;
+letter-spacing:1px;
+line-height:1.2;
+max-width:1000px;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+max-width:1050px;
+margin:80px auto;
+padding:0 40px;
+}
+
+.content h2{
+font-size:28px;
+font-weight:500;
+margin-top:70px;
+margin-bottom:20px;
+color:#000;
+}
+
+.content p{
+font-size:17px;
+font-weight:300;
+margin-bottom:24px;
+color:#444;
+}
+
+.content ul{
+margin-bottom:24px;
+padding-left:22px;
+}
+
+.content li{
+margin-bottom:14px;
+font-size:17px;
+font-weight:300;
+color:#444;
+}
+
+.content a{
+color:#000;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+background:#000;
+color:white;
+width:100%;
+margin:0;
+padding:70px 160px;
+font-family:'Century Gothic', sans-serif;
+font-weight:100;
+font-size:15px;
+}
+
+.footer a{
+color:white;
+}
+
+.footer-line{
+height:1px;
+background:rgba(255,255,255,0.4);
+margin:50px 0;
+}
+
+.footer-row{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+}
+
+.footer-left a{
+font-size:19px;
+font-weight:100;
+text-decoration:underline;
+text-decoration-thickness:0.5px;
+text-underline-offset:2px;
+}
+
+.footer-right{
+text-align:right;
+}
+
+.footer-follow{
+font-size:19px;
+margin-bottom:15px;
+font-weight:100;
+}
+
+.footer-icons{
+display:flex;
+gap:12px;
+justify-content:flex-end;
+}
+
+.footer-icons svg{
+width:24px;
+height:24px;
+stroke:white;
+fill:none;
+stroke-width:1.2;
+}
+
+.footer-bottom{
+display:flex;
+justify-content:space-between;
+margin-top:30px;
+font-weight:100;
+}
+
+.footer-bottom-left a{
+display:block;
+margin-bottom:8px;
+text-decoration:underline;
+text-decoration-thickness:0.5px;
+text-underline-offset:2px;
+}
+
+.footer-bottom-right{
+text-align:right;
+line-height:1.8;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+body{
+padding-top:82px;
+}
+
+.header{
+padding:16px 22px;
+}
+
+.hero{
+padding:70px 25px 50px;
+}
+
+.hero h1{
+font-size:28px;
+}
+
+.content{
+padding:0 24px;
+margin:60px auto;
+}
+
+.footer{
+padding:50px 40px;
+}
+
+.footer-row{
+flex-direction:column;
+gap:30px;
+}
+
+.footer-right{
+text-align:left;
+}
+
+.footer-icons{
+justify-content:flex-start;
+}
+
+.footer-bottom{
+flex-direction:column;
+gap:20px;
+}
+
+.footer-bottom-right{
+text-align:left;
+}
+
+}
+
+</style>
+</head>
+
+<body id="top">
+
+<!-- HEADER -->
+<div class="header">
+
+<div class="logo">
+<a href="index.html">GARABATO CINE</a>
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<div class="nav" id="mobileMenu">
+
+<a href="catalogo.html">CATÁLOGO</a>
+<a href="#">NOSOTROS</a>
+<a href="#">PRÓXIMAMENTE</a>
+<a href="contacto.html">CONTACTO</a>
+
+<div class="lang">
+<span class="active">ES</span>
+<span>|</span>
+<a href="#">EN</a>
+</div>
+
+</div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+<h1>Política de Cookies</h1>
+</section>
+
+<!-- CONTENT -->
+<section class="content">
+
+<p><strong>Última actualización:</strong> Mayo de 2026</p>
+
+<p>
+En Garabato Cine utilizamos cookies y tecnologías similares para mejorar la experiencia de navegación, analizar el uso del sitio y optimizar nuestros contenidos audiovisuales.
+</p>
+
+<h2>¿Qué son las cookies?</h2>
+
+<p>
+Las cookies son pequeños archivos que se almacenan en tu navegador cuando visitas un sitio web.
+</p>
+
+<p>
+Permiten recordar preferencias, mejorar el funcionamiento del sitio y recopilar información estadística anónima.
+</p>
+
+<h2>Tipos de cookies</h2>
+
+<p><strong>Esenciales:</strong> necesarias para el funcionamiento del sitio.</p>
+<p><strong>Analíticas:</strong> permiten medir el uso del sitio.</p>
+<p><strong>Funcionales:</strong> recuerdan preferencias del usuario.</p>
+<p><strong>Terceros:</strong> servicios como YouTube o redes sociales pueden instalar cookies.</p>
+
+<h2>Gestión de cookies</h2>
+
+<p>
+Puedes gestionar o eliminar cookies desde la configuración de tu navegador.
+</p>
+
+<p>
+Desactivarlas puede afectar algunas funciones del sitio.
+</p>
+
+<h2>Contacto</h2>
+
+<p>
+Las consultas deben realizarse a través del formulario de contacto del sitio:
+</p>
+
+<p>
+https://garabatocine.com/contacto
+</p>
+
+</section>
+
+<!-- FOOTER -->
 <footer class="footer">
 
 <div class="footer-line"></div>
@@ -51,15 +433,8 @@ Síguenos
 <div class="footer-bottom">
 
 <div class="footer-bottom-left">
-
-<a href="cookies.html">
-Política de Cookies
-</a>
-
-<a href="politicadeprivacidad.html">
-Política de Privacidad
-</a>
-
+<a href="cookies.html">Política de Cookies</a>
+<a href="politicadeprivacidad.html">Política de Privacidad</a>
 </div>
 
 <div class="footer-bottom-right">
@@ -70,3 +445,20 @@ Política de Privacidad
 </div>
 
 </footer>
+
+<script>
+function toggleMenu(){
+document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+window.onbeforeunload = function(){
+window.scrollTo(0,0);
+};
+
+window.addEventListener("load", function(){
+window.scrollTo(0,0);
+});
+</script>
+
+</body>
+</html>
