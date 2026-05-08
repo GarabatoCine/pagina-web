@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contacto - Garabato Cine</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -16,11 +16,13 @@ box-sizing:border-box;
 }
 
 body{
-font-family:'Inter', sans-serif;
-overflow-x:hidden;
+font-family:'Roboto', sans-serif;
+background:#000;
+color:#fff;
+padding-top:74px;
 }
 
-/* ================= HEADER ================= */
+/* ================= HEADER (SIN CAMBIOS) ================= */
 
 .header{
 position:fixed;
@@ -37,148 +39,143 @@ border-bottom:1px solid #eee;
 text-transform:uppercase;
 }
 
+.logo a,
+.nav a,
+.lang span,
+.lang a{
+color:#000;
+font-weight:700;
+text-decoration:none;
+}
+
 .logo a{
-font-weight:700; /* 🔥 más negrita */
 font-size:24px;
 letter-spacing:2px;
-text-decoration:none;
-color:#000;
 }
 
 .nav{
 display:flex;
+align-items:center;
 gap:18px;
 font-size:13px;
 }
 
-.nav a{
-text-decoration:none;
-font-weight:500;
-color:#000;
+.menu-toggle{
+display:none;
 }
 
-.lang span{opacity:0.5;}
-.lang a{color:#000; text-decoration:none; opacity:0.7;}
+/* ================= HERO BANNER ================= */
 
-/* ================= BANNER ================= */
+.banner{
+width:100%;
+height:320px;
+overflow:hidden;
+}
 
 .banner img{
 width:100%;
-display:block;
+height:100%;
+object-fit:cover;
 }
 
-/* ================= LAYOUT 2 COLUMNAS ================= */
+/* ================= LAYOUT ================= */
 
 .container{
 display:flex;
-min-height:100vh;
+justify-content:space-between;
+gap:80px;
+padding:80px 140px;
 }
+
+/* ================= LEFT ================= */
 
 .left{
 width:40%;
-background:#fff;
-padding:80px 70px;
 }
 
-.right{
-width:60%;
-background:#000;
-color:#fff;
-padding:80px 70px;
-}
-
-/* ================= TITULOS ================= */
-
-.title-contact{
-font-size:48px;
-font-weight:600;
-color:#000;
-margin-left:120px; /* 🔥 más desplazado */
-margin-bottom:10px;
+.contact-title{
+font-size:54px; /* +30% */
+font-weight:700;
 position:relative;
+margin-bottom:30px;
 }
 
-/* línea fina en vez de subrayado real */
-.title-contact::after{
+.contact-title::after{
 content:"";
 display:block;
-width:120px;
-height:1px;
-background:#000;
-margin-top:6px;
-opacity:0.6;
+width:100%;
+height:4px;
+background:#fff;
+margin-top:10px;
 }
 
 .location{
-margin-left:120px;
-margin-top:20px;
-font-size:14px;
-color:#333;
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:30px;
+font-size:16px;
 }
 
-/* ================= REDES ================= */
+.location svg{
+width:18px;
+height:18px;
+stroke:#fff;
+fill:none;
+}
+
+/* SOCIAL */
 
 .social-title{
-margin-top:60px;
-margin-left:120px;
+margin-top:50px;
 font-size:14px;
-font-family:Arial, sans-serif;
+font-weight:400;
+opacity:0.8;
 }
 
 .social-icons{
 display:flex;
-gap:14px;
-margin-left:120px;
-margin-top:12px;
+gap:15px;
+margin-top:15px;
 }
 
 .social-icons svg{
-width:32px;   /* 🔥 más grandes */
-height:32px;
-stroke:#000;
+width:26px;
+height:26px;
+stroke:#fff;
 fill:none;
-stroke-width:1.2;
 }
 
-/* ================= LINKS LEGAL ================= */
+/* ================= RIGHT ================= */
 
-.legal{
-margin-left:120px;
-margin-top:50px;
-font-size:13px;
+.right{
+width:60%;
 }
 
-.legal a{
-display:block;
-color:#000;
-text-decoration:underline;
-margin-bottom:8px;
-}
-
-/* ================= FORM ================= */
-
-.form-title{
-font-size:42px;
-font-weight:600;
-margin-bottom:40px;
+.right h2{
+font-size:48px;
+font-weight:700;
+margin-bottom:30px;
 }
 
 form{
 display:flex;
 flex-direction:column;
-gap:14px;
+gap:15px;
 }
 
 .row{
 display:flex;
-gap:12px;
+gap:15px;
 }
 
 input, textarea{
+width:100%;
 padding:12px;
-border:1px solid #ccc;
+background:transparent;
+border:1px solid #555;
+color:#fff;
 font-size:14px;
-font-family:inherit;
 }
 
 textarea{
@@ -189,21 +186,23 @@ resize:none;
 button{
 width:140px;
 padding:10px;
-background:#000;
-color:#fff;
+background:#fff;
+color:#000;
 border:none;
 cursor:pointer;
-font-size:13px;
+font-weight:700;
 margin-top:10px;
 }
 
-/* ================= FOOTER (SIN CAMBIOS) ================= */
+/* ================= FOOTER (IGUAL ORIGINAL) ================= */
 
 .footer{
 background:#000;
-color:#fff;
+color:white;
+width:100%;
 padding:70px 160px;
 font-family:'Century Gothic', sans-serif;
+font-weight:100;
 font-size:15px;
 }
 
@@ -219,13 +218,32 @@ justify-content:space-between;
 }
 
 .footer-left a{
-color:#fff;
+font-size:19px;
+color:white;
 text-decoration:underline;
+}
+
+.footer-right{
+text-align:right;
+}
+
+.footer-follow{
+font-size:19px;
+margin-bottom:15px;
 }
 
 .footer-icons{
 display:flex;
 gap:12px;
+justify-content:flex-end;
+}
+
+.footer-icons svg{
+width:24px;
+height:24px;
+stroke:white;
+fill:none;
+stroke-width:1.2;
 }
 
 .footer-bottom{
@@ -236,9 +254,54 @@ margin-top:30px;
 
 .footer-bottom-left a{
 display:block;
-color:#fff;
-text-decoration:underline;
+color:white;
 margin-bottom:8px;
+text-decoration:underline;
+}
+
+.footer-bottom-right{
+text-align:right;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.container{
+flex-direction:column;
+padding:40px 25px;
+}
+
+.left, .right{
+width:100%;
+}
+
+.footer{
+padding:50px 40px;
+}
+
+.footer-row{
+flex-direction:column;
+gap:30px;
+}
+
+.footer-right{
+text-align:left;
+}
+
+.footer-icons{
+justify-content:flex-start;
+}
+
+.footer-bottom{
+flex-direction:column;
+gap:20px;
+}
+
+.footer-bottom-right{
+text-align:left;
+}
+
 }
 
 </style>
@@ -272,15 +335,21 @@ margin-bottom:8px;
 <!-- IZQUIERDA -->
 <div class="left">
 
-<div class="title-contact">Contacto</div>
+<div class="contact-title">Contacto</div>
 
-<div class="location">Valledupar, Colombia</div>
+<div class="location">
+<svg viewBox="0 0 24 24">
+<path d="M12 22s7-5.2 7-11a7 7 0 10-14 0c0 5.8 7 11 7 11z"></path>
+<circle cx="12" cy="11" r="2"></circle>
+</svg>
+Valledupar, Colombia
+</div>
 
 <div class="social-title">Síguenos</div>
 
 <div class="social-icons">
 
-<a href="https://www.instagram.com/garabatocine/" target="_blank">
+<a href="https://www.instagram.com/garabatocine/">
 <svg viewBox="0 0 24 24">
 <rect x="3" y="3" width="18" height="18" rx="5"></rect>
 <circle cx="12" cy="12" r="4"></circle>
@@ -288,14 +357,14 @@ margin-bottom:8px;
 </svg>
 </a>
 
-<a href="https://web.facebook.com/garabatocine" target="_blank">
+<a href="https://web.facebook.com/garabatocine">
 <svg viewBox="0 0 24 24">
 <circle cx="12" cy="12" r="10"></circle>
 <path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z"></path>
 </svg>
 </a>
 
-<a href="https://www.youtube.com/@garabatocine" target="_blank">
+<a href="https://www.youtube.com/@garabatocine">
 <svg viewBox="0 0 24 24">
 <path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
 <polygon points="10 15 15 12 10 9"></polygon>
@@ -304,28 +373,23 @@ margin-bottom:8px;
 
 </div>
 
-<div class="legal">
-<a href="cookies.html">Política de Cookies</a>
-<a href="politicadeprivacidad.html">Política de Privacidad</a>
-</div>
-
 </div>
 
 <!-- DERECHA -->
 <div class="right">
 
-<div class="form-title">Déjanos tu mensaje</div>
+<h2>Déjanos tu mensaje</h2>
 
 <form>
 <div class="row">
-<input type="text" placeholder="Nombre">
+<input type="text" placeholder="Nombre" required>
 <input type="text" placeholder="Apellido">
 </div>
 
-<input type="email" placeholder="Correo electrónico *" required>
+<input type="email" placeholder="Correo electrónico" required>
 <input type="text" placeholder="Teléfono">
 
-<textarea placeholder="Mensaje *" required></textarea>
+<textarea placeholder="Mensaje" required></textarea>
 
 <button type="submit">Enviar</button>
 </form>
@@ -340,22 +404,54 @@ margin-bottom:8px;
 <div class="footer-line"></div>
 
 <div class="footer-row">
+
 <div class="footer-left">
-<a href="contacto.html">Contacto</a>
-</div>
-
-<div class="footer-icons">
-<!-- icons igual que ya tenías -->
-</div>
-</div>
-
-<div class="footer-bottom">
-<div class="footer-bottom-left">
 <a href="cookies.html">Política de Cookies</a>
 <a href="politicadeprivacidad.html">Política de Privacidad</a>
 </div>
 
-<div>© 2026 Garabato Cine</div>
+<div class="footer-right">
+
+<div class="footer-follow">Síguenos</div>
+
+<div class="footer-icons">
+
+<a href="https://www.instagram.com/garabatocine/">
+<svg viewBox="0 0 24 24">
+<rect x="3" y="3" width="18" height="18" rx="5"></rect>
+<circle cx="12" cy="12" r="4"></circle>
+<circle cx="17" cy="7" r="1.5"></circle>
+</svg>
+</a>
+
+<a href="https://web.facebook.com/garabatocine">
+<svg viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z"></path>
+</svg>
+</a>
+
+<a href="https://www.youtube.com/@garabatocine">
+<svg viewBox="0 0 24 24">
+<path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
+<polygon points="10 15 15 12 10 9"></polygon>
+</svg>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<div class="footer-bottom-left"></div>
+
+<div class="footer-bottom-right">
+© 2026 Garabato Cine. Todos los derechos reservados
+</div>
+
 </div>
 
 </footer>
