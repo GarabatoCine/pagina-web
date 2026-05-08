@@ -155,7 +155,6 @@ font-size:15px;
 }
 
 .footer a{
-text-decoration:none !important;
 color:white;
 }
 
@@ -174,6 +173,9 @@ align-items:flex-start;
 .footer-left a{
 font-size:19px;
 font-weight:100;
+text-decoration:underline;
+text-decoration-thickness:0.5px;
+text-underline-offset:2px;
 }
 
 .footer-right{
@@ -210,10 +212,14 @@ font-weight:100;
 .footer-bottom-left a{
 display:block;
 margin-bottom:8px;
+text-decoration:underline;
+text-decoration-thickness:0.5px;
+text-underline-offset:2px;
 }
 
 .footer-bottom-right{
 text-align:right;
+line-height:1.8;
 }
 
 /* ================= TABLET ================= */
@@ -438,7 +444,8 @@ Síguenos
 </div>
 
 <div class="footer-bottom-right">
-© 2026 Garabato Cine. Todos los derechos reservados.
+<div>© 2026 Garabato Cine.</div>
+<div>Todos los derechos reservados.</div>
 </div>
 
 </div>
