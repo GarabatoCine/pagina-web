@@ -117,7 +117,7 @@ grid-template-columns:1fr 1fr;
 gap:120px;
 max-width:1600px;
 margin:0 auto;
-padding:90px 180px 120px;
+padding:50px 180px 80px;
 }
 
 /* LEFT COLUMN */
@@ -132,7 +132,7 @@ font-size:60px;
 font-weight:700;
 line-height:1;
 display:inline-block;
-margin-bottom:50px;
+margin-bottom:35px;
 }
 
 .contact-underline{
@@ -151,8 +151,9 @@ margin-bottom:18px;
 
 .contact-social{
 display:flex;
-flex-direction:column;
-gap:16px;
+flex-direction:row;
+gap:18px;
+align-items:center;
 }
 
 .contact-social a{
@@ -179,25 +180,25 @@ font-family:'Inter', sans-serif;
 font-size:36px;
 font-weight:700;
 line-height:1.1;
-margin:10px 0 35px;
+margin:0 0 25px;
 }
 
 .contact-form{
 display:flex;
 flex-direction:column;
-gap:18px;
+gap:12px;
 }
 
 .form-row{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:18px;
+gap:12px;
 }
 
 input,
 textarea{
 width:100%;
-padding:16px 18px;
+padding:12px 16px;
 border:none;
 outline:none;
 background:#fff;
@@ -207,7 +208,7 @@ font-size:15px;
 }
 
 textarea{
-min-height:180px;
+min-height:110px;
 resize:vertical;
 }
 
@@ -215,8 +216,8 @@ button{
 background:#16a34a;
 color:#fff;
 border:none;
-padding:12px 34px;
-font-size:15px;
+padding:10px 28px;
+font-size:14px;
 font-weight:500;
 cursor:pointer;
 align-self:flex-end;
@@ -302,7 +303,7 @@ text-align:right;
 line-height:1.8;
 }
 
-/* ===== EN ESCRITORIO OCULTAR CONTACTO, SÍGUENOS Y REDES ===== */
+/* EN ESCRITORIO: ocultar Contacto, Síguenos y redes del footer */
 @media (min-width:1025px){
 .footer-left{
 display:none;
@@ -349,8 +350,8 @@ height:260px;
 
 .contact-wrapper{
 grid-template-columns:1fr;
-gap:60px;
-padding:70px 60px 90px;
+gap:50px;
+padding:45px 60px 70px;
 }
 
 .contact-left,
@@ -374,8 +375,16 @@ margin-top:0;
 margin-bottom:28px;
 }
 
+.contact-form{
+gap:14px;
+}
+
 .form-row{
 grid-template-columns:1fr;
+}
+
+textarea{
+min-height:140px;
 }
 
 .footer{
@@ -428,8 +437,8 @@ height:220px;
 }
 
 .contact-wrapper{
-padding:50px 24px 70px;
-gap:40px;
+padding:35px 24px 60px;
+gap:35px;
 }
 
 .contact-title{
@@ -449,7 +458,7 @@ font-size:15px;
 }
 
 textarea{
-min-height:150px;
+min-height:130px;
 }
 
 button{
@@ -543,7 +552,7 @@ Contacto
 
 <div class="contact-social">
 
-<a href="https://www.instagram.com/garabatocine/" target="_blank">
+<a href="https://www.instagram.com/garabatocine/" target="_blank" aria-label="Instagram">
 <svg viewBox="0 0 24 24">
 <rect x="3" y="3" width="18" height="18" rx="5"></rect>
 <circle cx="12" cy="12" r="4"></circle>
@@ -551,14 +560,14 @@ Contacto
 </svg>
 </a>
 
-<a href="https://web.facebook.com/garabatocine" target="_blank">
+<a href="https://web.facebook.com/garabatocine" target="_blank" aria-label="Facebook">
 <svg viewBox="0 0 24 24">
 <circle cx="12" cy="12" r="10"></circle>
 <path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z" fill="white"/>
 </svg>
 </a>
 
-<a href="https://www.youtube.com/@garabatocine" target="_blank">
+<a href="https://www.youtube.com/@garabatocine" target="_blank" aria-label="YouTube">
 <svg viewBox="0 0 24 24">
 <path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
 <polygon points="10 15 15 12 10 9"></polygon>
@@ -574,7 +583,9 @@ Contacto
 
 <div class="form-title">Déjanos tu mensaje</div>
 
-<form class="contact-form" action="https://formspree.io/f/xojrkwkj" method="POST">
+<form class="contact-form"
+      action="https://formspree.io/f/xojrkwkj"
+      method="POST">
 
 <div class="form-row">
 <input type="text" name="nombre" placeholder="Nombre">
@@ -614,7 +625,7 @@ Contacto
 
 <div class="footer-icons">
 
-<a href="https://www.instagram.com/garabatocine/" target="_blank">
+<a href="https://www.instagram.com/garabatocine/" target="_blank" aria-label="Instagram">
 <svg viewBox="0 0 24 24">
 <rect x="3" y="3" width="18" height="18" rx="5"></rect>
 <circle cx="12" cy="12" r="4"></circle>
@@ -622,14 +633,14 @@ Contacto
 </svg>
 </a>
 
-<a href="https://web.facebook.com/garabatocine" target="_blank">
+<a href="https://web.facebook.com/garabatocine" target="_blank" aria-label="Facebook">
 <svg viewBox="0 0 24 24">
 <circle cx="12" cy="12" r="10"></circle>
 <path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z" fill="white"/>
 </svg>
 </a>
 
-<a href="https://www.youtube.com/@garabatocine" target="_blank">
+<a href="https://www.youtube.com/@garabatocine" target="_blank" aria-label="YouTube">
 <svg viewBox="0 0 24 24">
 <path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
 <polygon points="10 15 15 12 10 9"></polygon>
