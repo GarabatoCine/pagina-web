@@ -192,12 +192,6 @@ font-size:14px;
 font-weight:600;
 }
 
-.menu a:visited,
-.menu a:active,
-.menu a:focus{
-color:white !important;
-}
-
 /* LANG MOBILE */
 .lang-mobile{
 margin-top:10px;
@@ -218,29 +212,15 @@ opacity:0.9;
 .nav{display:none;}
 .hamburger{display:flex;}
 .header{padding:25px 30px;}
-
-text.big{
-font-size: clamp(22px, 7vw, 55px);
 }
 
-text.small{
-font-size:11px;
-letter-spacing:3px;
-}
-}
-
-@media (max-width:480px){
-text.big{
-font-size:26px;
-}
-}
 </style>
 </head>
 
 <body>
 
 <div class="video">
-<video id="bgVideo" autoplay muted loop playsinline webkit-playsinline preload="auto">
+<video id="bgVideo" autoplay muted loop playsinline>
 <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-la-frontera.mp4" type="video/mp4">
 </video>
 </div>
@@ -269,7 +249,9 @@ font-size:26px;
 <a href="catalogo.html">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
 <a href="#">PRÓXIMAMENTE</a>
-<a href="#">CONTACTO</a>
+
+<!-- ✅ AQUÍ CORREGIDO -->
+<a href="contacto.html">CONTACTO</a>
 
 <a href="https://www.instagram.com/garabatocine/" target="_blank">
 <svg class="icon" viewBox="0 0 24 24">
@@ -298,7 +280,9 @@ font-size:26px;
 <a href="catalogo.html">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
 <a href="#">PRÓXIMAMENTE</a>
-<a href="#">CONTACTO</a>
+
+<!-- ✅ AQUÍ CORREGIDO -->
+<a href="contacto.html">CONTACTO</a>
 
 <a href="https://www.instagram.com/garabatocine/" target="_blank">
 INSTAGRAM
