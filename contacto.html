@@ -128,7 +128,7 @@ padding-left:60px;
 
 .contact-title{
 font-family:'Inter', sans-serif;
-font-size:82px;
+font-size:78px;
 font-weight:700;
 line-height:1;
 display:inline-block;
@@ -176,7 +176,7 @@ padding-right:60px;
 
 .form-title{
 font-family:'Inter', sans-serif;
-font-size:50px;
+font-size:46px;
 font-weight:700;
 line-height:1.1;
 margin:10px 0 40px;
@@ -302,9 +302,13 @@ text-align:right;
 line-height:1.8;
 }
 
-/* OCULTAR "CONTACTO" DEL FOOTER SOLO EN ESCRITORIO */
+/* ===== EN ESCRITORIO OCULTAR CONTACTO, SÍGUENOS Y REDES ===== */
 @media (min-width:1025px){
 .footer-left{
+display:none;
+}
+
+.footer-right{
 display:none;
 }
 }
@@ -388,6 +392,7 @@ gap:30px;
 }
 
 .footer-right{
+display:block;
 text-align:left;
 }
 
@@ -466,6 +471,7 @@ gap:30px;
 }
 
 .footer-right{
+display:block;
 text-align:left;
 }
 
@@ -584,6 +590,7 @@ Contacto
 <textarea name="mensaje" placeholder="Mensaje *" required></textarea>
 
 <button type="submit">Enviar</button>
+
 </form>
 
 </div>
@@ -657,14 +664,14 @@ Contacto
 
 <script>
 function toggleMenu() {
-document.getElementById("mobileMenu").classList.toggle("active");
+document.getElementById('mobileMenu').classList.toggle('active');
 }
 
 window.onbeforeunload = function () {
 window.scrollTo(0, 0);
 };
 
-window.addEventListener("load", function () {
+window.addEventListener('load', function () {
 window.scrollTo(0, 0);
 });
 </script>
