@@ -1,18 +1,27 @@
-<!-- REEMPLAZA ESTAS REGLAS EN TU CÓDIGO -->
+<!-- ================= CONTACT SECTION ================= -->
+
+<div class="contact-title">
+Contacto
+<div class="contact-underline"></div>
+</div>
+
+<div class="follow-title">Síguenos</div>
+
+<!-- ================= CSS CORREGIDO ================= -->
 
 <style>
-/* ================= CONTACT SECTION ================= */
 
-/* Left column */
+/* TÍTULO CONTACTO */
 .contact-title{
 font-family:'Inter', sans-serif;
-font-size:82px; /* antes 84px */
+font-size:82px; /* reducido 2 puntos */
 font-weight:700;
 line-height:1;
 display:inline-block;
 margin-bottom:60px;
 }
 
+/* SUBRAYADO */
 .contact-underline{
 width:100%;
 height:4px;
@@ -20,38 +29,47 @@ background:#fff;
 margin-top:8px;
 }
 
+/* SÍGUENOS (misma fuente del footer) */
 .follow-title{
-font-family:'Century Gothic', sans-serif; /* igual al footer */
+font-family:'Century Gothic', sans-serif;
 font-weight:100;
 font-size:19px;
 margin-bottom:18px;
 }
 
-/* Right column */
+/* TÍTULO DÉJANOS TU MENSAJE */
 .form-title{
 font-family:'Inter', sans-serif;
-font-size:50px; /* antes 52px */
+font-size:50px; /* reducido 2 puntos */
 font-weight:700;
 line-height:1.1;
 margin:10px 0 40px;
 }
 
-/* ================= TABLET ================= */
+/* ================= FOOTER ================= */
 
+/* Ocultar "Contacto" del footer en PC */
+@media (min-width:1025px){
+.footer-left{
+display:none;
+}
+}
+
+/* ================= TABLET ================= */
 @media (max-width:1024px){
 
 .contact-title{
-font-size:54px; /* antes 56px */
+font-size:54px;
 margin-bottom:10px;
 }
 
 .form-title{
-font-size:32px; /* antes 34px */
+font-size:32px;
 margin-top:0;
 margin-bottom:30px;
 }
 
-/* En tablet se sigue ocultando el bloque izquierdo del footer */
+/* En tablet el footer vuelve a mostrar "Síguenos" */
 .footer-left{
 display:none;
 }
@@ -59,32 +77,23 @@ display:none;
 }
 
 /* ================= MOBILE ================= */
-
 @media (max-width:768px){
 
 .contact-title{
-font-size:42px; /* antes 44px */
+font-size:42px;
 margin-bottom:10px;
 }
 
 .form-title{
-font-size:28px; /* antes 30px */
+font-size:28px;
 margin-bottom:28px;
 }
 
-/* En móvil también permanece oculto */
+/* En móvil también ocultar "Contacto" del footer */
 .footer-left{
 display:none;
 }
 
 }
 
-/* ================= PC ================= */
-
-/* En escritorio ocultar "Contacto" del footer */
-@media (min-width:1025px){
-.footer-left{
-display:none;
-}
-}
 </style>
