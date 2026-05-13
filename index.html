@@ -62,6 +62,10 @@ font-size:13px;
 .nav a{
 text-decoration:none;
 font-weight:500;
+}
+
+/* CONTACTO YA ACTIVADO COMO LINK REAL */
+.nav a{
 color:#000;
 }
 
@@ -85,8 +89,7 @@ margin-left:calc(-50vw + 50%);
 margin-bottom:6px;
 }
 
-.block img,
-.block video{
+.block img{
 width:100%;
 display:block;
 }
@@ -133,9 +136,7 @@ text-decoration-thickness:0.5px;
 text-underline-offset:2px;
 }
 
-.footer-right{
-text-align:right;
-}
+.footer-right{text-align:right;}
 
 .footer-follow{
 font-size:19px;
@@ -240,22 +241,15 @@ flex-direction:column;
 gap:30px;
 }
 
-.footer-right{
-text-align:left;
-}
-
-.footer-icons{
-justify-content:flex-start;
-}
+.footer-right{text-align:left;}
+.footer-icons{justify-content:flex-start;}
 
 .footer-bottom{
 flex-direction:column;
 gap:10px;
 }
 
-.footer-bottom-right{
-text-align:left;
-}
+.footer-bottom-right{text-align:left;}
 }
 
 </style>
@@ -281,6 +275,8 @@ text-align:left;
 <a href="catalogo.html">CATÁLOGO</a>
 <a href="#">NOSOTROS</a>
 <a href="#">PRÓXIMAMENTE</a>
+
+<!-- CONTACTO YA ACTIVADO -->
 <a href="contacto.html">CONTACTO</a>
 
 <div class="lang">
@@ -292,14 +288,12 @@ text-align:left;
 </div>
 </div>
 
-<!-- BANNER DE CORTOMETRAJES -->
+<!-- GALERÍA -->
 <div class="block">
-<video autoplay muted loop playsinline>
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/Banner-cortometrajes.mp4" type="video/mp4">
-</video>
+<img src="https://github.com/GarabatoCine/pagina-web/raw/main/Marimonda-tirita.png">
+<div class="overlay">Marimonda</div>
 </div>
 
-<!-- GALERÍA -->
 <div class="block">
 <img src="https://github.com/GarabatoCine/pagina-web/raw/main/Ano-sabatico.Tirita.png">
 <div class="overlay">Año Sabático</div>
