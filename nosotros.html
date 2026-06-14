@@ -1,3 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosotros - Garabato Cine</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter', sans-serif;
+background:#fff;
+color:#111;
+}
+
+/* ================= HEADER (CATÁLOGO EXACTO) ================= */
+
+.header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+border-bottom:1px solid #eee;
+z-index:1000;
+text-transform:uppercase;
+}
+
+.logo a{
+text-decoration:none;
+color:#000;
+font-size:24px;
+font-weight:500;
+letter-spacing:2px;
+}
+
+.nav{
+display:flex;
+gap:18px;
+font-size:13px;
+align-items:center;
+}
+
+.nav a{
+text-decoration:none;
+color:#000;
+font-weight:500;
+}
+
+/* ================= CONTENIDO ================= */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:120px 20px;
+}
+
+/* INTRO */
+.intro{
+text-align:center;
+margin-bottom:60px;
+}
+
+.intro p{
+font-size:20px;
+line-height:1.6;
+max-width:780px;
+margin:auto;
+font-weight:300;
+}
+
+/* BANNER */
+.hero img{
+width:100%;
+display:block;
+}
+
+/* ================= FESTIVALES ================= */
+
+.fest-grid{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:20px;
+margin:70px 0;
+align-items:center;
+}
+
+.fest-grid img{
+width:100%;
+height:45px;
+object-fit:contain;
+}
+
+.big-berlinale{
+transform:scale(1.25);
+}
+
+.big-bogoshorts{
+transform:scale(1.15);
+}
+
+/* ================= PERSONAS ================= */
+
+.people{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+margin:80px 0;
+}
+
+.person{
+text-align:center;
+}
+
+.person img{
+width:100%;
+height:520px;
+object-fit:cover;
+}
+
+.person h3{
+margin-top:15px;
+font-size:20px;
+font-weight:500;
+}
+
+.person p{
+margin-top:10px;
+font-weight:300;
+line-height:1.6;
+max-width:420px;
+margin-left:auto;
+margin-right:auto;
+}
+
+/* ================= BTS ================= */
+
+.bts{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:15px;
+margin-top:80px;
+}
+
+.bts img{
+width:100%;
+object-fit:cover;
+}
+
+/* ================= FOOTER (CATÁLOGO EXACTO) ================= */
+
+.footer{
+background:#000;
+color:#fff;
+width:100%;
+margin-top:80px;
+padding:70px 160px;
+font-family:'Century Gothic', sans-serif;
+font-weight:100;
+}
+
+.footer-line{
+height:1px;
+background:rgba(255,255,255,0.4);
+margin:50px 0;
+}
+
+.footer-row{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+}
+
+.footer-left a{
+display:block;
+margin-bottom:10px;
+color:#fff;
+text-decoration:underline;
+text-decoration-thickness:0.5px;
+text-underline-offset:2px;
+font-size:18px;
+}
+
+.footer-follow{
+font-size:18px;
+margin-bottom:10px;
+}
+
+.footer-icons{
+display:flex;
+gap:12px;
+justify-content:flex-end;
+}
+
+.footer-icons svg{
+width:22px;
+height:22px;
+stroke:#fff;
+fill:none;
+stroke-width:1.2;
+}
+
+.footer-bottom{
+display:flex;
+justify-content:space-between;
+margin-top:25px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+.people{
+grid-template-columns:1fr;
+}
+
+.fest-grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+.bts{
+grid-template-columns:1fr;
+}
+
+.footer{
+padding:50px 30px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+
+<div class="logo">
+<a href="index.html">GARABATO CINE</a>
+</div>
+
+<div class="nav">
+<a href="catalogo.html">CATÁLOGO</a>
+<a href="contacto.html">CONTACTO</a>
+<span>ES | EN</span>
+</div>
+
+</div>
+
+<!-- CONTENIDO -->
+<div class="container">
+
+<!-- INTRO -->
+<div class="intro">
+<p>
+Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrealismo se cruzan para crear relatos profundamente humanos, con identidad propia y vocación internacional.
+</p>
+</div>
+
+<!-- BANNER -->
+<div class="hero">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/banner-afiche.jpg">
+</div>
+
+<!-- FESTIVALES -->
+<div class="fest-grid">
+
+<img class="big-berlinale" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/berlinale.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/san-sebastian.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/slamdance.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/seriesmania.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/cairo.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/ficci.png">
+
+<img class="big-bogoshorts" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/bogoshorts.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/fantasporto.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/goa.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/macondo.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/vancouver.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/sanfic.svg">
+
+</div>
+
+<!-- PERSONAS -->
+<div class="people">
+
+<div class="person">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/david.jpg">
+<h3>DAVID</h3>
+<p>
+Guionista, director y productor. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se desarrolla desde el Caribe colombiano con proyección internacional y una voz autoral sólida.
+</p>
+</div>
+
+<div class="person">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/caro.jpg">
+<h3>CAROLINA</h3>
+<p>
+Productora ejecutiva en Garabato Cine, especializada en desarrollo y producción de ficción. Combina sensibilidad creativa con rigor técnico y visión internacional.
+</p>
+</div>
+
+</div>
+
+<!-- BTS -->
+<div class="bts">
+
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/bst-ms2.jpg">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/bst-ms1.jpg">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/bst-pl.jpg">
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
 <footer class="footer">
 
 <div class="footer-line"></div>
@@ -5,68 +334,29 @@
 <div class="footer-row">
 
 <div class="footer-left">
-<a href="contacto.html">
-Contacto
-</a>
-</div>
-
-<div class="footer-right">
-
-<div class="footer-follow">
-Síguenos
+<a href="contacto.html">Contacto</a>
+<a href="cookies.html">Cookies</a>
+<a href="politicadeprivacidad.html">Privacidad</a>
 </div>
 
 <div class="footer-icons">
 
-<a href="https://www.instagram.com/garabatocine/" target="_blank">
-<svg viewBox="0 0 24 24">
-<rect x="3" y="3" width="18" height="18" rx="5"></rect>
-<circle cx="12" cy="12" r="4"></circle>
-<circle cx="17" cy="7" r="1.5"></circle>
-</svg>
-</a>
+<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.5"/></svg>
 
-<a href="https://web.facebook.com/garabatocine" target="_blank">
-<svg viewBox="0 0 24 24">
-<circle cx="12" cy="12" r="10"></circle>
-<path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z" fill="white"/>
-</svg>
-</a>
+<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z" fill="white"/></svg>
 
-<a href="https://www.youtube.com/@garabatocine" target="_blank">
-<svg viewBox="0 0 24 24">
-<path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
-<polygon points="10 15 15 12 10 9"></polygon>
-</svg>
-</a>
+<svg viewBox="0 0 24 24"><path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"/><polygon points="10 15 15 12 10 9"/></svg>
 
 </div>
 
 </div>
-
-</div>
-
-<div class="footer-line"></div>
 
 <div class="footer-bottom">
-
-<div class="footer-bottom-left">
-
-<a href="cookies.html">
-Política de Cookies
-</a>
-
-<a href="politicadeprivacidad.html">
-Política de Privacidad
-</a>
-
-</div>
-
-<div class="footer-bottom-right">
 <div>© 2026 Garabato Cine</div>
 <div>Todos los derechos reservados</div>
 </div>
 
-</div>
-
 </footer>
+
+</body>
+</html>
