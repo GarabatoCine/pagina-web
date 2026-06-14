@@ -22,7 +22,7 @@ background:#fff;
 color:#111;
 }
 
-/* ================= HEADER (ARREGLADO A LA DERECHA) ================= */
+/* ================= HEADER (COPIA EXACTA CATÁLOGO) ================= */
 .header{
 position:fixed;
 top:0;
@@ -38,11 +38,19 @@ z-index:1000;
 text-transform:uppercase;
 }
 
+.logo a{
+text-decoration:none;
+color:#000;
+font-size:24px;
+font-weight:500;
+letter-spacing:2px;
+}
+
 .nav{
 display:flex;
-gap:20px;
+gap:18px;
 font-size:13px;
-margin-left:auto;
+align-items:center;
 }
 
 .nav a{
@@ -51,23 +59,26 @@ color:#000;
 font-weight:500;
 }
 
-/* ================= CONTENIDO ================= */
+/* ================= CONTENEDOR ================= */
 .container{
 max-width:1100px;
 margin:auto;
 padding:120px 20px;
 }
 
-/* ================= INTRO (MISMA TIPOGRAFÍA ORIGINAL) ================= */
+/* ================= INTRO (MISMA IDEA “CAVIAR”) ================= */
 .intro{
 text-align:center;
 margin-bottom:60px;
 }
 
 .intro p{
-font-size:18px;
+font-size:20px;
 line-height:1.6;
 font-weight:300;
+max-width:760px;
+margin:auto;
+font-family:'Roboto', sans-serif;
 }
 
 /* ================= BANNER ================= */
@@ -79,21 +90,23 @@ display:block;
 
 /* ================= FESTIVALES ================= */
 .fest-feature{
-margin:60px 0 20px;
 display:flex;
 justify-content:center;
+margin:60px 0 20px;
 }
 
 .fest-feature img{
-height:90px;
+height:95px;
 object-fit:contain;
 }
 
+/* GRID LOGOS */
 .fest-grid{
 display:grid;
 grid-template-columns:repeat(6,1fr);
 gap:25px;
 margin-bottom:60px;
+align-items:center;
 }
 
 .fest-grid img{
@@ -108,13 +121,17 @@ opacity:0.9;
 .people{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:40px;
+gap:50px;
 margin:80px 0;
+}
+
+.person{
+text-align:center;
 }
 
 .person img{
 width:100%;
-height:520px;
+height:500px;
 object-fit:cover;
 }
 
@@ -128,9 +145,12 @@ font-weight:500;
 margin-top:10px;
 line-height:1.6;
 font-weight:300;
+max-width:420px;
+margin-left:auto;
+margin-right:auto;
 }
 
-/* ================= BTS (PROPORCIÓN CORREGIDA) ================= */
+/* ================= BTS ================= */
 .bts{
 display:grid;
 grid-template-columns:2fr 1fr 1fr;
@@ -141,7 +161,6 @@ margin-top:80px;
 .bts img{
 width:100%;
 height:auto;
-aspect-ratio:16/9;
 object-fit:cover;
 }
 
@@ -149,12 +168,22 @@ object-fit:cover;
 aspect-ratio:16/9;
 }
 
-/* ================= FOOTER (RESTORED EXACTO CATÁLOGO) ================= */
+/* ================= FOOTER (EXACTO CATÁLOGO) ================= */
 .footer{
 background:#000;
 color:#fff;
-padding:70px 120px;
-margin-top:120px;
+width:100%;
+margin:0;
+padding:70px 160px;
+font-family:'Century Gothic', sans-serif;
+font-weight:100;
+font-size:15px;
+}
+
+.footer-line{
+height:1px;
+background:rgba(255,255,255,0.4);
+margin:50px 0;
 }
 
 .footer-row{
@@ -164,15 +193,20 @@ align-items:flex-start;
 }
 
 .footer-left a{
-display:block;
-color:#fff;
+font-size:19px;
+font-weight:100;
 text-decoration:underline;
+text-decoration-thickness:0.5px;
+text-underline-offset:2px;
+display:block;
 margin-bottom:8px;
+color:white;
 }
 
 .footer-icons{
 display:flex;
 gap:12px;
+justify-content:flex-end;
 }
 
 .footer-icons svg{
@@ -187,7 +221,7 @@ stroke-width:1.2;
 display:flex;
 justify-content:space-between;
 margin-top:30px;
-font-size:13px;
+font-weight:100;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -205,6 +239,10 @@ grid-template-columns:repeat(3,1fr);
 grid-template-columns:1fr;
 }
 
+.footer{
+padding:50px 40px;
+}
+
 }
 
 </style>
@@ -212,7 +250,7 @@ grid-template-columns:1fr;
 
 <body>
 
-<!-- HEADER -->
+<!-- HEADER CATÁLOGO (SIN CAMBIOS) -->
 <div class="header">
 
 <div class="logo">
@@ -221,32 +259,32 @@ grid-template-columns:1fr;
 
 <div class="nav">
 <a href="catalogo.html">CATÁLOGO</a>
-<a href="nosotros.html">NOSOTROS</a>
 <a href="contacto.html">CONTACTO</a>
 </div>
 
 </div>
 
+<!-- CONTENIDO -->
 <div class="container">
 
 <!-- INTRO -->
 <div class="intro">
 <p>
-Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrealismo se cruzan para crear relatos profundamente humanos.
+Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrealismo se cruzan para crear relatos profundamente humanos, con identidad propia y vocación internacional.
 </p>
 </div>
 
-<!-- HERO -->
+<!-- BANNER -->
 <div class="hero">
 <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/banner-afiche.jpg">
 </div>
 
-<!-- FESTIVAL FEATURE -->
+<!-- FESTIVALES FEATURE -->
 <div class="fest-feature">
 <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/berlinale.png">
 </div>
 
-<!-- FESTIVALES TOP -->
+<!-- FESTIVALES -->
 <div class="fest-grid">
 
 <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/san-sebastian.png">
@@ -255,9 +293,10 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/seriesmania.png">
 <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/cairo.png">
 
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/vancouver.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/bogoshorts.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/fantasporto.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/sanfic.png">
 <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/goa.png">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/macondo.png">
 
 </div>
 
@@ -267,13 +306,17 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 <div class="person">
 <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/david.jpg">
 <h3>DAVID</h3>
-<p>Guionista, director y fundador de Garabato Cine.</p>
+<p>
+Guionista, director y productor. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se mueve entre el drama de ficción y el surrealismo, construida desde el Caribe colombiano como territorio creativo y emocional. Ha sido reconocido en festivales de cine de primer nivel internacional.
+</p>
 </div>
 
 <div class="person">
 <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/caro.jpg">
 <h3>CAROLINA</h3>
-<p>Productora ejecutiva especializada en desarrollo de ficción.</p>
+<p>
+Productora ejecutiva en Garabato Cine, especializada en el desarrollo y producción de ficción. Su enfoque combina rigor técnico, sensibilidad creativa y una comprensión profunda del proceso autoral.
+</p>
 </div>
 
 </div>
@@ -284,11 +327,16 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 <img class="big" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/bst-ms2.jpg">
 <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/bst-ac.jpg">
 <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/bst-pl.jpg">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/bst-ms1.jpg">
 
 </div>
 
-<!-- FOOTER -->
+</div>
+
+<!-- FOOTER CATÁLOGO (EXACTO) -->
 <footer class="footer">
+
+<div class="footer-line"></div>
 
 <div class="footer-row">
 
