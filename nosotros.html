@@ -5,97 +5,145 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nosotros - Garabato Cine</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
 
-body{
+*{
 margin:0;
-font-family:Arial, sans-serif;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Roboto', sans-serif;
 background:#fff;
 color:#111;
-line-height:1.6;
 }
 
-/* CONTENEDOR */
 .container{
 max-width:1100px;
-margin:auto;
-padding:80px 20px;
+margin:0 auto;
+padding:120px 20px 60px;
 }
 
-/* TITULO */
-h1{
-font-size:42px;
-font-weight:300;
+/* HEADER */
+.header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+border-bottom:1px solid #eee;
+z-index:1000;
+text-transform:uppercase;
+}
+
+.logo a{
+text-decoration:none;
+color:#000;
+font-weight:600;
 letter-spacing:2px;
-margin-bottom:20px;
 }
 
-/* TEXTO */
-p{
-font-size:16px;
-color:#444;
-max-width:800px;
+.nav a{
+margin-left:18px;
+text-decoration:none;
+color:#000;
+font-size:13px;
 }
 
 /* HERO */
 .hero img{
 width:100%;
-margin-top:40px;
-display:block;
+height:420px;
+object-fit:cover;
+margin-bottom:40px;
+}
+
+/* TEXTOS */
+h1{
+font-size:28px;
+margin-bottom:15px;
+}
+
+p{
+line-height:1.6;
+color:#444;
+margin-bottom:50px;
+}
+
+/* LOGOS FESTIVALES */
+.festivales{
+display:grid;
+grid-template-columns:repeat(6, 1fr);
+gap:25px;
+align-items:center;
+margin:40px 0 70px;
+}
+
+.festivales img{
+width:100%;
+max-height:55px;
+object-fit:contain;
 }
 
 /* PERSONAS */
-.person{
+.persona{
 display:flex;
 gap:40px;
+margin-bottom:80px;
 align-items:center;
-margin-top:80px;
-flex-wrap:wrap;
 }
 
-.person img{
-width:320px;
-max-width:100%;
-display:block;
+.persona img{
+width:300px;
+height:350px;
+object-fit:cover;
 }
 
-.person .text{
-flex:1;
-min-width:260px;
-}
-
-.person h2{
-font-size:26px;
+.persona h2{
 margin-bottom:10px;
-font-weight:400;
 }
 
-/* BACKSTAGE */
-.grid{
+.persona p{
+margin-bottom:0;
+}
+
+/* BTS */
+.bts{
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-margin-top:80px;
+grid-template-columns:repeat(3, 1fr);
+gap:15px;
 }
 
-.grid img{
+.bts img{
 width:100%;
-display:block;
+height:220px;
+object-fit:cover;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 @media(max-width:768px){
 
-.person{
+.persona{
 flex-direction:column;
 }
 
-.grid{
+.festivales{
+grid-template-columns:repeat(3, 1fr);
+}
+
+.bts{
 grid-template-columns:1fr;
 }
 
-h1{
-font-size:30px;
+.hero img{
+height:260px;
 }
 
 }
@@ -105,55 +153,80 @@ font-size:30px;
 
 <body>
 
+<!-- HEADER -->
+<div class="header">
+<div class="logo">
+<a href="index.html">GARABATO CINE</a>
+</div>
+
+<div class="nav">
+<a href="catalogo.html">Catálogo</a>
+<a href="nosotros.html">Nosotros</a>
+<a href="contacto.html">Contacto</a>
+</div>
+</div>
+
 <div class="container">
 
 <!-- INTRO -->
 <h1>GARABATO CINE</h1>
 
 <p>
-Garabato Cine es una productora colombiana fundada en 2011 y basada en el Caribe. Desarrolla y produce ficción de autor con una identidad profundamente territorial y una mirada contemporánea sobre el mundo. Su trabajo se caracteriza por una sensibilidad estética particular, una escritura cinematográfica sólida y una vocación internacional que ha llevado sus proyectos a circular en algunos de los festivales y mercados más relevantes de la industria cinematográfica mundial.
+Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrealismo se cruzan para crear relatos profundamente humanos, con identidad propia y vocación internacional.
 </p>
 
 <!-- BANNER -->
 <div class="hero">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/banner-afiche.jpg">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/banner-afiche.jpg">
+</div>
+
+<!-- FESTIVALES -->
+<div class="festivales">
+
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/berlinale.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/san-sebastian.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/cairo.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/seriemania.svg">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/slamdance.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/fantaspoto.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/sanfic.svg">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/goa.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/bogoshorts.svg">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/macondo.png">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/vlaff.png">
+
 </div>
 
 <!-- DAVID -->
-<div class="person">
+<div class="persona">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/david.jpg">
 
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/david.jpg">
-
-<div class="text">
+<div>
 <h2>DAVID</h2>
 <p>
-Guionista, director y productor. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se mueve entre el drama de ficción y el surrealismo, construida desde el Caribe colombiano como territorio creativo y emocional. Ha sido reconocido en festivales de cine de primer nivel internacional y respaldado por importantes fondos y entidades de fomento audiovisual.
+Guionista, director y productor. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se mueve entre el drama de ficción y el surrealismo, construida desde el Caribe colombiano como territorio creativo y emocional.
 </p>
 </div>
-
 </div>
 
 <!-- CAROLINA -->
-<div class="person">
+<div class="persona">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/caro.jpg">
 
-<div class="text">
+<div>
 <h2>CAROLINA</h2>
 <p>
-Productora ejecutiva en Garabato Cine, especializada en el desarrollo y producción de ficción. Su enfoque combina rigor técnico, sensibilidad creativa y una comprensión profunda del proceso autoral. Ha fortalecido su trayectoria en espacios de industria de alto nivel internacional.
+Productora ejecutiva en Garabato Cine, especializada en desarrollo y producción de ficción. Su enfoque combina rigor técnico, sensibilidad creativa y una comprensión profunda del proceso autoral.
 </p>
 </div>
-
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/caro.jpg">
-
 </div>
 
-<!-- BACKSTAGE -->
-<div class="grid">
+<!-- BTS -->
+<div class="bts">
 
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/bst-ac.jpg">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/bst-ms1.jpg">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/bst-ms2.jpg">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/bst-pl.jpg">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/bst-ac.jpg">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/bst-ms1.jpg">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/Nosotros/bst-ms2.jpg">
 
 </div>
 
