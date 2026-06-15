@@ -203,6 +203,37 @@ margin:0 auto;
 color:#666;
 }
 
+/* ================= GALERÍA ================= */
+
+.gallery{
+max-width:1400px;
+margin:80px auto;
+padding:0 40px;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(12,1fr);
+gap:10px;
+}
+
+.gallery-item{
+width:100%;
+overflow:hidden;
+}
+
+.gallery-item img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+/* tamaños */
+.large{grid-column:span 4; height:320px;}
+.medium{grid-column:span 3; height:260px;}
+.small{grid-column:span 2; height:200px;}
+
 /* ================= FOOTER ================= */
 
 .footer-space{
@@ -308,6 +339,14 @@ gap:25px;
 grid-template-columns:1fr;
 }
 
+.gallery-grid{
+grid-template-columns:repeat(6,1fr);
+}
+
+.large{grid-column:span 6;}
+.medium{grid-column:span 3;}
+.small{grid-column:span 2;}
+
 .footer{
 padding:50px 40px;
 }
@@ -404,6 +443,34 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 <h3>CAROLINA DAVID</h3>
 <p>Productora ejecutiva de Garabato Cine, enfocada en el desarrollo de proyectos con perspectiva de género, identidad cultural y vocación de impacto social. Su trabajo articula una mirada estratégica y creativa para impulsar relatos sensibles que conectan con públicos diversos desde lo emocional y territorial. Ha participado en espacios de industria internacionales.</p>
 </div>
+
+</div>
+
+<!-- GALERÍA -->
+<div class="gallery">
+
+<div class="gallery-grid">
+
+<!-- GRANDES -->
+<div class="gallery-item large"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/1grande-seriesmania.jpg?raw=true"></div>
+<div class="gallery-item large"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/2grande-bst-ms2.jpg?raw=true"></div>
+<div class="gallery-item large"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/3grande-macondo1.jpg?raw=true"></div>
+<div class="gallery-item large"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/4grande-bst-pl.jpg?raw=true"></div>
+<div class="gallery-item large"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/5grande-cairo1.jpg?raw=true"></div>
+
+<!-- MIX ALEATORIO -->
+<div class="gallery-item medium"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale1.jpg?raw=true"></div>
+<div class="gallery-item small"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale3.jpg?raw=true"></div>
+<div class="gallery-item medium"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ac.jpg?raw=true"></div>
+<div class="gallery-item small"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-lafrontera2.jpg?raw=true"></div>
+<div class="gallery-item medium"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-lafrontera7.jpg?raw=true"></div>
+<div class="gallery-item small"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-marimonda1.jpg?raw=true"></div>
+<div class="gallery-item medium"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms1.jpg?raw=true"></div>
+<div class="gallery-item small"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms3.jpg?raw=true"></div>
+<div class="gallery-item medium"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo.jpg?raw=true"></div>
+<div class="gallery-item small"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/carolina1.jpg?raw=true"></div>
+<div class="gallery-item medium"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/goa.jpg?raw=true"></div>
+<div class="gallery-item small"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo2.jpg?raw=true"></div>
 
 </div>
 
