@@ -71,9 +71,13 @@ text-decoration:none;
 font-weight:500;
 }
 
+/* ================= LANGUAGES ================= */
+
 .lang .active{opacity:0.45;}
 .lang a{opacity:1;text-decoration:none;}
 .lang a:hover{opacity:0.7;}
+
+/* ================= HAMBURGUESA ================= */
 
 .menu-toggle{
 display:none;
@@ -106,47 +110,6 @@ line-height:1.6;
 color:#666;
 font-weight:400;
 }
-
-/* ================= PERSONAS ================= */
-
-.people{
-max-width:1100px;
-margin:60px auto;
-padding:0 40px;
-display:flex;
-gap:50px;
-justify-content:space-between;
-}
-
-.person{
-flex:1;
-text-align:justify;
-}
-
-.person img{
-width:100%;
-aspect-ratio:1/1;
-object-fit:cover;
-display:block;
-margin-bottom:20px;
-}
-
-.person h2{
-font-size:18px;
-font-weight:500;
-margin-bottom:10px;
-color:#000;
-text-transform:uppercase;
-letter-spacing:1px;
-}
-
-.person p{
-font-size:15px;
-line-height:1.7;
-color:#666;
-}
-
-/* ================= BANNER ================= */
 
 .banner{
 max-width:1400px;
@@ -184,19 +147,52 @@ display:block;
 margin:auto;
 }
 
-.logo-berlinale{max-height:92px !important;}
-.logo-ciff{max-height:92px !important;}
-.logo-bogoshorts{max-height:72px !important;}
-.logo-sanfic{max-height:48px !important;}
-.logo-vancouver{max-height:48px !important;}
-.logo-goa{max-height:48px !important;}
-.logo-slamdance{max-height:52px !important;}
-.logo-macondo{max-height:52px !important;}
-.logo-ficci{max-height:52px !important;}
+/* ================= PERSONAS (NUEVO) ================= */
+
+.people{
+max-width:1100px;
+margin:80px auto 80px auto;
+padding:0 40px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:60px;
+}
+
+.person{
+text-align:center;
+}
+
+.person img{
+width:100%;
+max-width:420px;
+height:420px;
+object-fit:cover;
+margin:0 auto 20px auto;
+display:block;
+border-radius:0;
+box-shadow:none;
+}
+
+.person h3{
+font-family:'Playfair Display', serif;
+font-size:20px;
+font-weight:500;
+color:#111;
+margin-bottom:10px;
+}
+
+.person p{
+font-family:'Playfair Display', serif;
+font-size:16px;
+line-height:1.6;
+color:#666;
+}
 
 /* ================= FOOTER ================= */
 
-.footer-space{height:18px;}
+.footer-space{
+height:18px;
+}
 
 .footer{
 background:#000;
@@ -279,11 +275,6 @@ body{padding-top:82px;}
 
 .header{padding:16px 22px;}
 
-.people{
-flex-direction:column;
-gap:40px;
-}
-
 .intro-text{
 font-size:18px;
 padding:0 25px;
@@ -296,6 +287,16 @@ padding:0 25px;
 .festival-row{
 grid-template-columns:repeat(3,1fr);
 gap:25px;
+}
+
+/* personas */
+.people{
+grid-template-columns:1fr;
+gap:40px;
+}
+
+.person img{
+height:320px;
 }
 
 .footer{
@@ -348,30 +349,6 @@ gap:20px;
 Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrealismo se cruzan para crear relatos profundamente humanos, con identidad propia y vocación internacional.
 </div>
 
-<!-- PERSONAS (NUEVO BLOQUE) -->
-<div class="people">
-
-<!-- DAVID -->
-<div class="person">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/daviddavid.jpg?raw=true" alt="David David">
-<h2>DAVID DAVID</h2>
-<p>
-Guionista, director y productor barranquillero. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se mueve entre el drama de ficción con tintes de surrealismo, enmarcada en el colorido contexto del Caribe colombiano como territorio creativo y emocional. Ha sido reconocido en festivales de cine de primer nivel internacional y respaldado por importantes fondos y entidades de fomento audiovisual. Su cine se distingue por una voz autoral clara, profundamente arraigada en la identidad y con proyección global.
-</p>
-</div>
-
-<!-- CAROLINA -->
-<div class="person">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/carodavid.jpg?raw=true" alt="Carolina David">
-<h2>CAROLINA DAVID</h2>
-<p>
-Productora ejecutiva de Garabato Cine, enfocada en el desarrollo de proyectos con perspectiva de género, identidad cultural y vocación de impacto social. Su trabajo articula una mirada estratégica y creativa para impulsar relatos sensibles que conectan con públicos diversos desde lo emocional, lo simbólico y lo territorial. Ha participado en espacios de industria internacionales, consolidando una línea de producción orientada a la circulación.
-</p>
-</div>
-
-</div>
-
-<!-- BANNER -->
 <div class="banner">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/banner-afiche.jpg?raw=true">
 </div>
@@ -380,30 +357,53 @@ Productora ejecutiva de Garabato Cine, enfocada en el desarrollo de proyectos co
 <div class="festivals">
 
 <div class="festival-row">
-<img class="logo-berlinale" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/san-sebastian.png?raw=true">
-<img class="logo-slamdance" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/slamdance.png?raw=true">
-<img class="logo-ficci" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ficci.png?raw=true">
-<img class="logo-ciff" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ciff.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/slamdance.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ficci.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ciff.png?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/seriesmania.png?raw=true">
 </div>
 
 <div class="festival-row">
-<img class="logo-macondo" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/macondo.png?raw=true">
-<img class="logo-bogoshorts" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/bogoshorts.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/macondo.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/bogoshorts.png?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/fantasporto.png?raw=true">
-<img class="logo-sanfic" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/sanfic.png?raw=true">
-<img class="logo-vancouver" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/vancouver.png?raw=true">
-<img class="logo-goa" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/goa.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/sanfic.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/vancouver.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/goa.png?raw=true">
+</div>
+
+</div>
+
+<!-- PERSONAS (DESPUÉS DE FESTIVALES) -->
+<div class="people">
+
+<!-- DAVID -->
+<div class="person">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/daviddavid.jpg?raw=true">
+<h3>DAVID DAVID</h3>
+<p>
+Guionista, director y productor barranquillero. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se mueve entre el drama de ficción con tintes de surrealismo, enmarcada en el colorido contexto del Caribe colombiano como territorio creativo y emocional. Ha sido reconocido en festivales de cine de primer nivel internacional y respaldado por importantes fondos y entidades de fomento audiovisual. Su cine se distingue por una voz autoral clara, profundamente arraigada en la identidad y con proyección global.
+</p>
+</div>
+
+<!-- CAROLINA -->
+<div class="person">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/carodavid.jpg?raw=true">
+<h3>CAROLINA DAVID</h3>
+<p>
+Productora ejecutiva de Garabato Cine, enfocada en el desarrollo de proyectos con perspectiva de género, identidad cultural y vocación de impacto social. Su trabajo articula una mirada estratégica y creativa para impulsar relatos sensibles que conectan con públicos diversos desde lo emocional, lo simbólico y lo territorial. Ha participado en espacios de industria internacionales, consolidando una línea de producción orientada a la circulación.
+</p>
 </div>
 
 </div>
 
 </div>
-
-<div class="footer-space"></div>
 
 <!-- FOOTER -->
+<div class="footer-space"></div>
+
 <footer class="footer">
 
 <div class="footer-line"></div>
@@ -419,7 +419,6 @@ Productora ejecutiva de Garabato Cine, enfocada en el desarrollo de proyectos co
 <div class="footer-follow">Síguenos</div>
 
 <div class="footer-icons">
-
 <a href="https://www.instagram.com/garabatocine/" target="_blank">
 <svg viewBox="0 0 24 24">
 <rect x="3" y="3" width="18" height="18" rx="5"></rect>
@@ -441,7 +440,6 @@ Productora ejecutiva de Garabato Cine, enfocada en el desarrollo de proyectos co
 <polygon points="10 15 15 12 10 9"></polygon>
 </svg>
 </a>
-
 </div>
 
 </div>
