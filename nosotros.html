@@ -193,7 +193,7 @@ margin:0 auto;
 color:#666;
 }
 
-/* ================= GALERÍA (SIN CORTES) ================= */
+/* ================= GALERÍA ================= */
 
 .gallery{
 max-width:1400px;
@@ -212,10 +212,9 @@ break-inside:avoid;
 object-fit:contain;
 }
 
-/* leves variaciones visuales sin recortar */
-.gallery img.big{transform:scale(1.02);}
+.gallery img.big{transform:scale(1.03);}
 .gallery img.medium{transform:scale(1);}
-.gallery img.small{transform:scale(0.98);}
+.gallery img.small{transform:scale(0.97);}
 
 /* ================= FOOTER ================= */
 
@@ -307,22 +306,13 @@ body{padding-top:82px;}
 
 .festivals{padding:0 20px;}
 
-.people{
-grid-template-columns:1fr;
-}
+.people{grid-template-columns:1fr;}
 
-.gallery{
-columns:1;
-}
+.gallery{columns:1;}
 
-.footer{
-padding:50px 40px;
-}
+.footer{padding:50px 40px;}
 
-.footer-row{
-flex-direction:column;
-gap:30px;
-}
+.footer-row{flex-direction:column;gap:30px;}
 
 .footer-right{text-align:left;}
 
@@ -370,6 +360,7 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 
 <!-- FESTIVALES -->
 <div class="festivals">
+
 <div class="festival-row">
 <img class="logo-berlinale" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/san-sebastian.png?raw=true">
@@ -387,6 +378,7 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 <img class="logo-vancouver" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/vancouver.png?raw=true">
 <img class="logo-goa" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/goa.png?raw=true">
 </div>
+
 </div>
 
 <!-- PERSONAS -->
@@ -395,13 +387,13 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 <div class="person">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/daviddavid.jpg?raw=true">
 <h3>DAVID DAVID</h3>
-<p>Guionista, director y productor barranquillero. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se mueve entre el drama de ficción con tintes de surrealismo, enmarcada en el Caribe colombiano como territorio creativo y emocional. Ha sido reconocido en festivales internacionales y respaldado por fondos de cine. Su cine se distingue por una voz autoral clara y con proyección global.</p>
+<p>Guionista, director y productor barranquillero...</p>
 </div>
 
 <div class="person">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/carodavid.jpg?raw=true">
 <h3>CAROLINA DAVID</h3>
-<p>Productora ejecutiva de Garabato Cine, enfocada en el desarrollo de proyectos con perspectiva de género, identidad cultural y vocación de impacto social. Su trabajo articula una mirada estratégica y creativa para impulsar relatos sensibles que conectan con públicos diversos desde lo emocional y territorial. Ha participado en espacios de industria internacionales.</p>
+<p>Productora ejecutiva de Garabato Cine...</p>
 </div>
 
 </div>
@@ -409,27 +401,42 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 <!-- GALERÍA -->
 <div class="gallery">
 
+<!-- DESTACADA ARRIBA -->
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/2grande-bst-ms2.jpg?raw=true">
+
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera1.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera2.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera3.jpg?raw=true">
+
 <img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/1grande-seriesmania.jpg?raw=true">
-<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms1.jpg?raw=true">
+
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera5.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera7.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera8.jpg?raw=true">
+
 <img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale1.jpg?raw=true">
-<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/5grande-cairo1.jpg?raw=true">
-<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo2.jpg?raw=true">
-<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-pl1.jpg?raw=true">
-<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-marimonda1.jpg?raw=true">
-<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo2.jpg?raw=true">
-<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/3grande-macondo1.jpg?raw=true">
-<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/goa.jpg?raw=true">
-<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-lafrontera2.jpg?raw=true">
-<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms3.jpg?raw=true">
-<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/2grande-bst-ms2.jpg?raw=true">
 <img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale3.jpg?raw=true">
+
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/5grande-cairo1.jpg?raw=true">
+
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo2.jpg?raw=true">
+
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo2.jpg?raw=true">
 <img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo3.jpg?raw=true">
-<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/4grande-bst-pl.jpg?raw=true">
-<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms4.jpg?raw=true">
-<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale4.jpg?raw=true">
 <img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo4.jpg?raw=true">
-<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ac.jpg?raw=true">
-<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo.jpg?raw=true">
+
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/3grande-macondo1.jpg?raw=true">
+
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms1.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms3.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms4.jpg?raw=true">
+
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/goa.jpg?raw=true">
+
+<!-- NUEVAS -->
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/madresemilla1.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/profeleda1.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/vidadecolores1.jpg?raw=true">
 
 </div>
 
@@ -502,9 +509,6 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 function toggleMenu(){
 document.getElementById("mobileMenu").classList.toggle("active");
 }
-
-window.onbeforeunload=function(){window.scrollTo(0,0);}
-window.addEventListener("load",function(){window.scrollTo(0,0);});
 </script>
 
 </body>
