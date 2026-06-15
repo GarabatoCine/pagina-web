@@ -9,20 +9,16 @@
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:'Roboto', sans-serif;
 background:#fff;
-color:#111;
 overflow-x:hidden;
+color:#111;
 }
 
-/* ================= HEADER (IGUAL CATÁLOGO) ================= */
+/* ================= HEADER (CLON CATÁLOGO) ================= */
 
 .header{
 position:fixed;
@@ -34,17 +30,17 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:18px 40px;
-z-index:1000;
 border-bottom:1px solid #eee;
+z-index:1000;
 text-transform:uppercase;
 }
 
 .logo a{
 font-size:24px;
 font-weight:500;
-letter-spacing:2px;
 text-decoration:none;
 color:#000;
+letter-spacing:2px;
 }
 
 .nav{
@@ -57,20 +53,6 @@ font-size:13px;
 text-decoration:none;
 color:#000;
 font-weight:500;
-}
-
-.menu-toggle{
-display:none;
-flex-direction:column;
-gap:4px;
-cursor:pointer;
-}
-
-.menu-toggle span{
-width:22px;
-height:2px;
-background:#000;
-display:block;
 }
 
 /* ================= HERO ================= */
@@ -86,53 +68,54 @@ object-fit:cover;
 display:block;
 }
 
-/* ================= TEXTO PRINCIPAL ================= */
+/* ================= TEXTO (TIPO CAVIAR) ================= */
 
-.about-text{
+.about{
 max-width:900px;
-margin:60px auto;
+margin:60px auto 40px auto;
 text-align:center;
 padding:0 20px;
 }
 
-.about-text p{
+.about p{
 font-family:'Playfair Display', serif;
 font-size:18px;
 line-height:1.6;
 }
 
-/* ================= FESTIVALES ================= */
+/* ================= LOGOS ================= */
 
-.festivales{
+.logos{
 max-width:1100px;
-margin:60px auto;
+margin:40px auto 80px auto;
 padding:0 20px;
-display:flex;
-flex-wrap:wrap;
-justify-content:space-between;
-gap:30px;
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:25px;
 align-items:center;
+justify-items:center;
 }
 
-.festivales img{
-height:42px;
+.logos img{
+max-width:100%;
+height:38px;
 object-fit:contain;
-opacity:0.9;
 }
 
-.festivales .big{
-height:60px;
+/* destacados */
+.big{
+height:62px !important;
 }
 
 /* ================= PERSONAS ================= */
 
 .people{
 max-width:1100px;
-margin:80px auto;
+margin:0 auto 80px auto;
 padding:0 20px;
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:40px;
+gap:50px;
 }
 
 .person img{
@@ -149,8 +132,8 @@ font-size:22px;
 
 .person p{
 margin-top:10px;
-line-height:1.5;
 font-size:14px;
+line-height:1.5;
 color:#444;
 }
 
@@ -158,7 +141,7 @@ color:#444;
 
 .gallery{
 max-width:1200px;
-margin:80px auto;
+margin:60px auto;
 padding:0 20px;
 column-count:3;
 column-gap:15px;
@@ -169,31 +152,25 @@ width:100%;
 margin-bottom:15px;
 break-inside:avoid;
 display:block;
-object-fit:cover;
 }
 
-/* grandes */
-.g1{height:420px;}
-.g2{height:380px;}
-.g3{height:360px;}
-.g4{height:400px;}
-.g5{height:390px;}
+/* grandes sin recorte */
+.g1{height:420px;object-fit:cover;}
+.g2{height:380px;object-fit:cover;}
+.g3{height:360px;object-fit:cover;}
+.g4{height:400px;object-fit:cover;}
+.g5{height:390px;object-fit:cover;}
 
-/* ================= FOOTER (IGUAL CATÁLOGO) ================= */
-
-.footer-space{height:18px;}
+/* ================= FOOTER (COPIA CATÁLOGO) ================= */
 
 .footer{
 background:#000;
-color:white;
-width:100%;
+color:#fff;
 padding:70px 160px;
 font-family:'Century Gothic', sans-serif;
 font-weight:100;
 font-size:15px;
 }
-
-.footer a{color:white;}
 
 .footer-line{
 height:1px;
@@ -207,8 +184,9 @@ justify-content:space-between;
 }
 
 .footer-left a{
-font-size:19px;
+color:#fff;
 text-decoration:underline;
+font-size:19px;
 }
 
 .footer-follow{
@@ -221,13 +199,6 @@ display:flex;
 gap:12px;
 }
 
-.footer-icons svg{
-width:24px;
-height:24px;
-stroke:white;
-fill:none;
-}
-
 .footer-bottom{
 display:flex;
 justify-content:space-between;
@@ -237,6 +208,7 @@ margin-top:30px;
 .footer-bottom-left a{
 display:block;
 margin-bottom:8px;
+color:#fff;
 text-decoration:underline;
 }
 
@@ -247,13 +219,14 @@ text-align:right;
 /* ================= RESPONSIVE ================= */
 
 @media(max-width:900px){
+.logos{grid-template-columns:repeat(3,1fr);}
 .people{grid-template-columns:1fr;}
 .gallery{column-count:2;}
 }
 
 @media(max-width:600px){
+.logos{grid-template-columns:repeat(2,1fr);}
 .gallery{column-count:1;}
-.hero img{height:320px;}
 .footer{padding:50px 40px;}
 }
 
@@ -265,16 +238,10 @@ text-align:right;
 <!-- HEADER -->
 <div class="header">
 <div class="logo"><a href="index.html">GARABATO CINE</a></div>
-
-<div class="menu-toggle">
-<span></span><span></span><span></span>
-</div>
-
 <div class="nav">
 <a href="catalogo.html">CATÁLOGO</a>
 <a href="contacto.html">CONTACTO</a>
-
-<div style="color:#000;">ES | EN</div>
+<div>ES | EN</div>
 </div>
 </div>
 
@@ -284,23 +251,25 @@ text-align:right;
 </div>
 
 <!-- TEXTO -->
-<div class="about-text">
+<div class="about">
 <p>
 Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrealismo se cruzan para crear relatos profundamente humanos, con identidad propia y vocación internacional.
 </p>
 </div>
 
-<!-- FESTIVALES -->
-<div class="festivales">
+<!-- LOGOS (6 + 6) -->
+<div class="logos">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true" class="big">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/cairo.png?raw=true" class="big">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/seriesmania.png?raw=true" class="big">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/macondo.png?raw=true" class="big">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/san-sebastian.png?raw=true" class="big">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/slamdance.png?raw=true" class="big">
+<!-- FILA 1 -->
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true">
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/san-sebastian.png?raw=true">
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/slamdance.png?raw=true">
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ficci.png?raw=true">
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/cairo.png?raw=true">
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/seriesmania.png?raw=true">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ficci.png?raw=true">
+<!-- FILA 2 -->
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/macondo.png?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/goa.png?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/fantasporto.png?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/bogoshorts.png?raw=true">
@@ -309,19 +278,19 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 
 </div>
 
-<!-- PEOPLE -->
+<!-- PERSONAS -->
 <div class="people">
 
 <div class="person">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/david.jpg?raw=true">
 <h3>David</h3>
-<p>Guionista, director y productor. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se construye desde el Caribe colombiano como territorio creativo y emocional, con proyección internacional.</p>
+<p>Guionista, director y productor. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se mueve entre el drama de ficción y el surrealismo, con identidad caribeña y proyección internacional.</p>
 </div>
 
 <div class="person">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/caro.jpg?raw=true">
 <h3>Carolina</h3>
-<p>Productora ejecutiva en Garabato Cine, especializada en desarrollo y producción de ficción. Acompaña proyectos desde su origen hasta su circulación internacional.</p>
+<p>Productora ejecutiva especializada en desarrollo y producción de ficción. Acompaña proyectos desde su origen hasta su circulación en circuitos internacionales.</p>
 </div>
 
 </div>
@@ -329,29 +298,24 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 <!-- GALERÍA -->
 <div class="gallery">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/1grande-seriesmania.jpg?raw=true" class="g1">
+<img class="g1" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/1grande-seriesmania.jpg?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms1.jpg?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ac.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/2grande-bst-ms2.jpg?raw=true" class="g2">
+
+<img class="g2" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/2grande-bst-ms2.jpg?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-marimonda1.jpg?raw=true">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/3grande-macondo1.jpg?raw=true" class="g3">
+<img class="g3" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/3grande-macondo1.jpg?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-lafrontera2.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-elcongo1.jpg?raw=true">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/4grande-bst-pl.jpg?raw=true" class="g4">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms3.jpg?raw=true">
+<img class="g4" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/4grande-bst-pl.jpg?raw=true">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/5grande-cairo1.jpg?raw=true" class="g5">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/caro.jpg?raw=true">
+<img class="g5" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/5grande-cairo1.jpg?raw=true">
 
 </div>
 
 <!-- FOOTER -->
-<div class="footer-space"></div>
-
-<footer class="footer">
+<div class="footer">
 
 <div class="footer-line"></div>
 
@@ -360,13 +324,9 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 
 <div class="footer-right">
 <div class="footer-follow">Síguenos</div>
-
 <div class="footer-icons">
-<!-- IG -->
-<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><circle cx="12" cy="12" r="4"/></svg>
-<!-- FB -->
+<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/></svg>
 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
-<!-- YT -->
 <svg viewBox="0 0 24 24"><polygon points="10,8 16,12 10,16"/></svg>
 </div>
 </div>
@@ -386,7 +346,7 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 </div>
 </div>
 
-</footer>
+</div>
 
 </body>
 </html>
