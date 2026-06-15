@@ -15,105 +15,117 @@ padding:0;
 box-sizing:border-box;
 }
 
+html, body{
+width:100%;
+overflow-x:hidden;
+}
+
 body{
 font-family:'Roboto', sans-serif;
 background:#fff;
-padding-top:80px;
-color:#111;
+color:#999;
+padding-top:74px;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 .header{
 position:fixed;
 top:0;
 left:0;
 width:100%;
+background:#fff;
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:18px 40px;
-background:#fff;
-border-bottom:1px solid #eee;
 z-index:1000;
+border-bottom:1px solid #eee;
 text-transform:uppercase;
 }
 
-.logo a{
-text-decoration:none;
+.logo a,
+.nav a,
+.lang span,
+.lang a{
 color:#000;
-font-size:22px;
+}
+
+.logo a{
+font-size:24px;
+font-weight:500;
+letter-spacing:2px;
+text-decoration:none;
 }
 
 .nav{
 display:flex;
+align-items:center;
 gap:18px;
 font-size:13px;
 }
 
 .nav a{
 text-decoration:none;
-color:#000;
+font-weight:500;
 }
 
-/* TEXTO INTRO (NO TOCAR TIPOGRAFÍA) */
-.hero{
-max-width:900px;
-margin:40px auto;
-text-align:center;
-line-height:1.6;
+/* ================= LANGUAGES ================= */
+
+.lang .active{
+opacity:0.45;
 }
 
-/* BANNER */
-.banner img{
-width:100%;
+.lang a{
+opacity:1;
+text-decoration:none;
+}
+
+.lang a:hover{
+opacity:0.7;
+}
+
+/* ================= HAMBURGUESA ================= */
+
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:4px;
+cursor:pointer;
+}
+
+.menu-toggle span{
+width:22px;
+height:2px;
+background:#000;
 display:block;
 }
 
-/* LOGOS */
-.logo-grid{
-display:flex;
-flex-wrap:wrap;
-justify-content:space-between;
-align-items:center;
-gap:25px;
-max-width:1200px;
-margin:50px auto;
+/* ================= CONTENIDO VACÍO ================= */
+
+.page-content{
+min-height:1000px;
 }
 
-.logo-grid img{
-max-height:60px;
-object-fit:contain;
+/* ================= FOOTER ================= */
+
+.footer-space{
+height:18px;
 }
 
-/* PERSONAS */
-.people{
-max-width:1200px;
-margin:60px auto;
-display:flex;
-gap:40px;
-}
-
-.person{
-flex:1;
-}
-
-.person img{
-width:100%;
-display:block;
-margin-bottom:15px;
-}
-
-.person p{
-text-align:justify;
-line-height:1.5;
-}
-
-/* FOOTER (CATÁLOGO ORIGINAL ESTILO) */
 .footer{
 background:#000;
-color:#fff;
+color:white;
+width:100%;
+margin:0;
 padding:70px 160px;
 font-family:'Century Gothic', sans-serif;
+font-weight:100;
+font-size:15px;
+}
+
+.footer a{
+color:white;
 }
 
 .footer-line{
@@ -125,115 +137,262 @@ margin:50px 0;
 .footer-row{
 display:flex;
 justify-content:space-between;
+align-items:flex-start;
 }
 
-.footer a{
-color:#fff;
-text-decoration:none;
+.footer-left a{
+font-size:19px;
+font-weight:100;
+text-decoration:underline;
+text-decoration-thickness:0.5px;
+text-underline-offset:2px;
+}
+
+.footer-right{
+text-align:right;
+}
+
+.footer-follow{
+font-size:19px;
+margin-bottom:15px;
+font-weight:100;
 }
 
 .footer-icons{
 display:flex;
 gap:12px;
+justify-content:flex-end;
 }
 
 .footer-icons svg{
 width:24px;
 height:24px;
-stroke:#fff;
+stroke:white;
 fill:none;
+stroke-width:1.2;
 }
 
-/* RESPONSIVE */
+.footer-bottom{
+display:flex;
+justify-content:space-between;
+margin-top:30px;
+font-weight:100;
+}
+
+.footer-bottom-left a{
+display:block;
+margin-bottom:8px;
+text-decoration:underline;
+text-decoration-thickness:0.5px;
+text-underline-offset:2px;
+}
+
+.footer-bottom-right{
+text-align:right;
+line-height:1.8;
+}
+
+/* ================= TABLET ================= */
+
+@media(max-width:1024px){
+
+body{
+padding-top:86px;
+}
+
+.nav{
+display:none;
+position:absolute;
+top:70px;
+right:20px;
+background:#fff;
+padding:20px;
+flex-direction:column;
+align-items:flex-start;
+border:1px solid #eee;
+gap:14px;
+}
+
+.nav.active{
+display:flex;
+}
+
+.menu-toggle{
+display:flex;
+}
+
+}
+
+/* ================= MOBILE ================= */
+
 @media(max-width:768px){
-.people{flex-direction:column;}
-.footer{padding:50px 40px;}
+
+body{
+padding-top:82px;
+}
+
+.header{
+padding:16px 22px;
+}
+
+.footer{
+padding:50px 40px;
+}
+
+.footer-row{
+flex-direction:column;
+gap:30px;
+}
+
+.footer-right{
+text-align:left;
+}
+
+.footer-icons{
+justify-content:flex-start;
+}
+
+.footer-bottom{
+flex-direction:column;
+gap:20px;
+}
+
+.footer-bottom-right{
+text-align:left;
+}
+
 }
 
 </style>
 </head>
 
-<body>
+<body id="top">
 
-<!-- HEADER (SIN NOSOTROS) -->
+<!-- HEADER -->
+
 <div class="header">
-<div class="logo"><a href="index.html">GARABATO CINE</a></div>
-<div class="nav">
+
+<div class="logo">
+<a href="index.html">GARABATO CINE</a>
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<div class="nav" id="mobileMenu">
+
 <a href="catalogo.html">CATÁLOGO</a>
 <a href="contacto.html">CONTACTO</a>
-<span>ES</span>
-<span>EN</span>
-</div>
-</div>
 
-<!-- TEXTO -->
-<div class="hero">
-Hacemos cine desde el Caribe colombiano, donde el drama, la ficción y el surrealismo se cruzan para crear relatos profundamente humanos con identidad propia y vocación internacional.
-</div>
-
-<!-- BANNER -->
-<div class="banner">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/banner-afiche.jpg?raw=true">
-</div>
-
-<!-- LOGOS -->
-<div class="logo-grid">
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ciff.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/san-sebastian.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/cairo.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ficci.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/slamdance.png?raw=true">
-
-</div>
-
-<div class="logo-grid">
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/seriesmania.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/macondo.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/fantasporto.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/sanfic.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/bogoshorts.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/vancouver.png?raw=true">
-
-</div>
-
-<!-- PERSONAS -->
-<div class="people">
-
-<div class="person">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/david.jpg?raw=true">
-<p>
-Guionista, director y productor. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se mueve entre el drama de ficción y el surrealismo desde el Caribe colombiano.
-</p>
-</div>
-
-<div class="person">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/caro.jpg?raw=true">
-<p>
-Productora ejecutiva de Garabato Cine, enfocada en el desarrollo de proyectos con identidad cultural y vocación de impacto social. Su trabajo articula una mirada estratégica y creativa para impulsar relatos sensibles que conectan con públicos diversos desde lo emocional, lo simbólico y lo territorial. Se ha especializado en la estructuración integral y sostenibilidad de proyectos audiovisuales. Ha participado en espacios de industria internacionales, consolidando una línea de producción orientada a la circulación.
-</p>
+<div class="lang">
+<span class="active">ES</span>
+<span>|</span>
+<a href="#">EN</a>
 </div>
 
 </div>
+
+</div>
+
+<!-- CONTENIDO VACÍO -->
+
+<div class="page-content"></div>
+
+<div class="footer-space"></div>
 
 <!-- FOOTER -->
+
 <footer class="footer">
 
 <div class="footer-line"></div>
 
 <div class="footer-row">
-<div><a href="contacto.html">Contacto</a></div>
+
+<div class="footer-left">
+<a href="contacto.html">
+Contacto
+</a>
+</div>
+
+<div class="footer-right">
+
+<div class="footer-follow">
+Síguenos
+</div>
 
 <div class="footer-icons">
-<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
-<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/></svg>
-<svg viewBox="0 0 24 24"><polygon points="10 8 16 12 10 16"/></svg>
+
+<a href="https://www.instagram.com/garabatocine/" target="_blank">
+<svg viewBox="0 0 24 24">
+<rect x="3" y="3" width="18" height="18" rx="5"></rect>
+<circle cx="12" cy="12" r="4"></circle>
+<circle cx="17" cy="7" r="1.5"></circle>
+</svg>
+</a>
+
+<a href="https://web.facebook.com/garabatocine" target="_blank">
+<svg viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z" fill="white"/>
+</svg>
+</a>
+
+<a href="https://www.youtube.com/@garabatocine" target="_blank">
+<svg viewBox="0 0 24 24">
+<path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
+<polygon points="10 15 15 12 10 9"></polygon>
+</svg>
+</a>
+
 </div>
+
+</div>
+
+</div>
+
+<div class="footer-line"></div>
+
+<div class="footer-bottom">
+
+<div class="footer-bottom-left">
+
+<a href="cookies.html">
+Política de Cookies
+</a>
+
+<a href="politicadeprivacidad.html">
+Política de Privacidad
+</a>
+
+</div>
+
+<div class="footer-bottom-right">
+<div>© 2026 Garabato Cine</div>
+<div>Todos los derechos reservados</div>
+</div>
+
 </div>
 
 </footer>
+
+<script>
+
+function toggleMenu() {
+document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+window.onbeforeunload = function () {
+window.scrollTo(0, 0);
+};
+
+window.addEventListener("load", function () {
+window.scrollTo(0, 0);
+});
+
+</script>
 
 </body>
 </html>
