@@ -5,20 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nosotros - Garabato Cine</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html, body{
+width:100%;
+overflow-x:hidden;
+}
 
 body{
 font-family:'Roboto', sans-serif;
 background:#fff;
-overflow-x:hidden;
-color:#111;
+color:#999;
+padding-top:74px;
 }
 
-/* ================= HEADER (CLON CATÁLOGO) ================= */
+/* ================= HEADER ================= */
 
 .header{
 position:fixed;
@@ -30,147 +39,183 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:18px 40px;
-border-bottom:1px solid #eee;
 z-index:1000;
+border-bottom:1px solid #eee;
 text-transform:uppercase;
+}
+
+.logo a,
+.nav a,
+.lang span,
+.lang a{
+color:#000;
 }
 
 .logo a{
 font-size:24px;
 font-weight:500;
-text-decoration:none;
-color:#000;
 letter-spacing:2px;
+text-decoration:none;
 }
 
 .nav{
 display:flex;
+align-items:center;
 gap:18px;
 font-size:13px;
 }
 
 .nav a{
 text-decoration:none;
-color:#000;
 font-weight:500;
 }
 
-/* ================= HERO ================= */
+/* ================= LANG ================= */
 
-.hero{
-padding-top:110px;
+.lang .active{opacity:0.45;}
+.lang a{text-decoration:none;}
+.lang a:hover{opacity:0.7;}
+
+/* ================= HAMBURGUESA ================= */
+
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:4px;
+cursor:pointer;
 }
-
-.hero img{
-width:100%;
-height:520px;
-object-fit:cover;
+.menu-toggle span{
+width:22px;
+height:2px;
+background:#000;
 display:block;
 }
 
-/* ================= TEXTO (TIPO CAVIAR) ================= */
+/* ================= HERO TEXT ================= */
 
-.about{
+.hero-text{
 max-width:900px;
-margin:60px auto 40px auto;
+margin:60px auto 30px auto;
 text-align:center;
+font-size:16px;
+line-height:1.6;
+color:#444;
 padding:0 20px;
 }
 
-.about p{
-font-family:'Playfair Display', serif;
-font-size:18px;
-line-height:1.6;
+/* ================= BANNER ================= */
+
+.banner{
+width:100%;
+height:520px;
+overflow:hidden;
+margin-bottom:40px;
+}
+
+.banner img{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 /* ================= LOGOS ================= */
 
 .logos{
-max-width:1100px;
-margin:40px auto 80px auto;
-padding:0 20px;
-display:grid;
-grid-template-columns:repeat(6,1fr);
-gap:25px;
+padding:30px 40px;
+display:flex;
+flex-wrap:wrap;
+justify-content:space-between;
+gap:18px;
 align-items:center;
-justify-items:center;
 }
 
-.logos img{
+.logo-item{
+flex:1 0 14%;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.logo-item img{
 max-width:100%;
-height:38px;
+height:45px;
 object-fit:contain;
 }
 
-/* destacados */
-.big{
-height:62px !important;
+.logo-big img{
+height:75px;
 }
 
-/* ================= PERSONAS ================= */
+/* ================= TEAM ================= */
 
-.people{
-max-width:1100px;
-margin:0 auto 80px auto;
-padding:0 20px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px;
+.team{
+display:flex;
+gap:30px;
+padding:60px 40px 20px 40px;
+}
+
+.person{
+flex:1;
+text-align:center;
 }
 
 .person img{
 width:100%;
-height:520px;
+max-height:420px;
 object-fit:cover;
 }
 
 .person h3{
-font-family:'Playfair Display', serif;
 margin-top:15px;
-font-size:22px;
+color:#000;
+font-weight:500;
 }
 
 .person p{
 margin-top:10px;
-font-size:14px;
 line-height:1.5;
-color:#444;
+font-size:14px;
 }
 
-/* ================= GALERÍA ================= */
+/* ================= GALLERY ================= */
 
 .gallery{
-max-width:1200px;
-margin:60px auto;
-padding:0 20px;
-column-count:3;
-column-gap:15px;
+padding:40px;
+display:grid;
+grid-template-columns:repeat(4, 1fr);
+gap:10px;
 }
 
 .gallery img{
 width:100%;
-margin-bottom:15px;
-break-inside:avoid;
-display:block;
+height:220px;
+object-fit:cover;
 }
 
-/* grandes sin recorte */
-.g1{height:420px;object-fit:cover;}
-.g2{height:380px;object-fit:cover;}
-.g3{height:360px;object-fit:cover;}
-.g4{height:400px;object-fit:cover;}
-.g5{height:390px;object-fit:cover;}
+.big{
+grid-column:span 2;
+grid-row:span 2;
+height:100%;
+}
 
 /* ================= FOOTER (COPIA CATÁLOGO) ================= */
 
+.footer-space{
+height:18px;
+}
+
 .footer{
 background:#000;
-color:#fff;
+color:white;
+width:100%;
+margin:0;
 padding:70px 160px;
 font-family:'Century Gothic', sans-serif;
 font-weight:100;
 font-size:15px;
 }
+
+.footer a{color:white;}
 
 .footer-line{
 height:1px;
@@ -181,13 +226,15 @@ margin:50px 0;
 .footer-row{
 display:flex;
 justify-content:space-between;
+align-items:flex-start;
 }
 
 .footer-left a{
-color:#fff;
-text-decoration:underline;
 font-size:19px;
+text-decoration:underline;
 }
+
+.footer-right{text-align:right;}
 
 .footer-follow{
 font-size:19px;
@@ -197,6 +244,15 @@ margin-bottom:15px;
 .footer-icons{
 display:flex;
 gap:12px;
+justify-content:flex-end;
+}
+
+.footer-icons svg{
+width:24px;
+height:24px;
+stroke:white;
+fill:none;
+stroke-width:1.2;
 }
 
 .footer-bottom{
@@ -208,127 +264,145 @@ margin-top:30px;
 .footer-bottom-left a{
 display:block;
 margin-bottom:8px;
-color:#fff;
 text-decoration:underline;
 }
 
-.footer-bottom-right{
-text-align:right;
+.footer-bottom-right{text-align:right;line-height:1.8;}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.team{flex-direction:column;}
+
+.gallery{grid-template-columns:repeat(2,1fr);}
+
+.banner{height:320px;}
+
 }
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:900px){
-.logos{grid-template-columns:repeat(3,1fr);}
-.people{grid-template-columns:1fr;}
-.gallery{column-count:2;}
-}
-
-@media(max-width:600px){
-.logos{grid-template-columns:repeat(2,1fr);}
-.gallery{column-count:1;}
-.footer{padding:50px 40px;}
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- HEADER (CATÁLOGO BASE SIN NOSOTROS) -->
 <div class="header">
-<div class="logo"><a href="index.html">GARABATO CINE</a></div>
-<div class="nav">
+
+<div class="logo">
+<a href="index.html">GARABATO CINE</a>
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">
+<span></span><span></span><span></span>
+</div>
+
+<div class="nav" id="menu">
+
 <a href="catalogo.html">CATÁLOGO</a>
 <a href="contacto.html">CONTACTO</a>
-<div>ES | EN</div>
+
+<div class="lang">
+<span class="active">ES</span> | <a href="#">EN</a>
+</div>
+
 </div>
 </div>
 
-<!-- HERO -->
-<div class="hero">
+<!-- TEXTO HERO -->
+<div class="hero-text">
+Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrealismo se cruzan para crear relatos profundamente humanos, con identidad propia y vocación internacional.
+</div>
+
+<!-- BANNER -->
+<div class="banner">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/banner-afiche.jpg?raw=true">
 </div>
 
-<!-- TEXTO -->
-<div class="about">
-<p>
-Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrealismo se cruzan para crear relatos profundamente humanos, con identidad propia y vocación internacional.
-</p>
-</div>
-
-<!-- LOGOS (6 + 6) -->
+<!-- LOGOS FESTIVALES -->
 <div class="logos">
 
-<!-- FILA 1 -->
-<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true">
-<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/san-sebastian.png?raw=true">
-<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/slamdance.png?raw=true">
-<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ficci.png?raw=true">
-<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/cairo.png?raw=true">
-<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/seriesmania.png?raw=true">
+<div class="logo-item logo-big"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true"></div>
+<div class="logo-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/sansebastian.png?raw=true"></div>
+<div class="logo-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/slamdance.png?raw=true"></div>
+<div class="logo-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ficci.png?raw=true"></div>
+<div class="logo-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/cairo.png?raw=true"></div>
+<div class="logo-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/seriesmania.png?raw=true"></div>
 
-<!-- FILA 2 -->
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/macondo.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/goa.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/fantasporto.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/bogoshorts.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ciff.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/sanfic.png?raw=true">
+<div class="logo-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/macondo.png?raw=true"></div>
+<div class="logo-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/goa.png?raw=true"></div>
+<div class="logo-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/fantasporto.png?raw=true"></div>
+<div class="logo-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/bogoshorts.png?raw=true"></div>
+<div class="logo-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/vancouver.png?raw=true"></div>
+<div class="logo-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/sanfic.png?raw=true"></div>
 
 </div>
 
-<!-- PERSONAS -->
-<div class="people">
+<!-- TEAM -->
+<div class="team">
 
 <div class="person">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/david.jpg?raw=true">
-<h3>David</h3>
-<p>Guionista, director y productor. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se mueve entre el drama de ficción y el surrealismo, con identidad caribeña y proyección internacional.</p>
+<h3>DAVID DAVID</h3>
+<p>Guionista, director y productor. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se mueve entre el drama de ficción y el surrealismo...</p>
 </div>
 
 <div class="person">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/caro.jpg?raw=true">
-<h3>Carolina</h3>
-<p>Productora ejecutiva especializada en desarrollo y producción de ficción. Acompaña proyectos desde su origen hasta su circulación en circuitos internacionales.</p>
+<h3>CAROLINA DAVID</h3>
+<p>Productora ejecutiva en Garabato Cine, especializada en desarrollo y producción de ficción...</p>
 </div>
 
 </div>
 
-<!-- GALERÍA -->
+<!-- GALLERY -->
 <div class="gallery">
 
-<img class="g1" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/1grande-seriesmania.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms1.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/1grande-seriesmania.jpg?raw=true" class="big">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/2grande-bst-ms2.jpg?raw=true" class="big">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/3grande-macondo1.jpg?raw=true" class="big">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/4grande-bst-pl.jpg?raw=true" class="big">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/5grande-cairo1.jpg?raw=true" class="big">
+
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ac.jpg?raw=true">
-
-<img class="g2" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/2grande-bst-ms2.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-marimonda1.jpg?raw=true">
-
-<img class="g3" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/3grande-macondo1.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-elcongo1.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-elcongo2.jpg?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-lafrontera2.jpg?raw=true">
-
-<img class="g4" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/4grande-bst-pl.jpg?raw=true">
-
-<img class="g5" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/5grande-cairo1.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-lafrontera4.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-marimonda1.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms1.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms3.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms4.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-pl1.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-pl2.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-pl3.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-pl4.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo2.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/carolina1.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/goa.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo2.jpg?raw=true">
 
 </div>
 
 <!-- FOOTER -->
-<div class="footer">
+<footer class="footer">
 
 <div class="footer-line"></div>
 
 <div class="footer-row">
-<div class="footer-left"><a href="contacto.html">Contacto</a></div>
+<div class="footer-left">
+<a href="contacto.html">Contacto</a>
+</div>
 
 <div class="footer-right">
 <div class="footer-follow">Síguenos</div>
+
 <div class="footer-icons">
-<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/></svg>
-<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
-<svg viewBox="0 0 24 24"><polygon points="10,8 16,12 10,16"/></svg>
+<a href="#"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg></a>
+<a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg></a>
+<a href="#"><svg viewBox="0 0 24 24"><polygon points="10 9 15 12 10 15"></polygon></svg></a>
 </div>
+
 </div>
 </div>
 
@@ -336,8 +410,8 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 
 <div class="footer-bottom">
 <div class="footer-bottom-left">
-<a href="cookies.html">Política de Cookies</a>
-<a href="politicadeprivacidad.html">Política de Privacidad</a>
+<a href="#">Cookies</a>
+<a href="#">Privacidad</a>
 </div>
 
 <div class="footer-bottom-right">
@@ -346,7 +420,13 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 </div>
 </div>
 
-</div>
+</footer>
+
+<script>
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
