@@ -9,6 +9,7 @@
 
 <style>
 
+/* RESET */
 *{
 margin:0;
 padding:0;
@@ -81,7 +82,8 @@ margin:auto;
 font-weight:300;
 }
 
-/* BANNER */
+/* ================= BANNER ================= */
+
 .hero img{
 width:100%;
 display:block;
@@ -93,7 +95,7 @@ display:block;
 display:grid;
 grid-template-columns:repeat(6,1fr);
 gap:20px;
-margin:70px 0;
+margin:60px 0;
 align-items:center;
 }
 
@@ -103,12 +105,8 @@ height:45px;
 object-fit:contain;
 }
 
-.big-berlinale{
+.big{
 transform:scale(1.25);
-}
-
-.big-bogoshorts{
-transform:scale(1.15);
 }
 
 /* ================= PERSONAS ================= */
@@ -141,22 +139,28 @@ margin-top:10px;
 font-weight:300;
 line-height:1.6;
 max-width:420px;
-margin-left:auto;
-margin-right:auto;
+margin:auto;
 }
 
-/* ================= BTS ================= */
+/* ================= GALERÍA BTS ================= */
 
 .bts{
 display:grid;
-grid-template-columns:2fr 1fr 1fr;
-gap:15px;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
 margin-top:80px;
 }
 
 .bts img{
 width:100%;
+height:100%;
 object-fit:cover;
+}
+
+/* GRANDES */
+.big-photo{
+grid-column:span 2;
+grid-row:span 2;
 }
 
 /* ================= FOOTER (CATÁLOGO EXACTO) ================= */
@@ -218,7 +222,7 @@ justify-content:space-between;
 margin-top:25px;
 }
 
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 
 @media(max-width:768px){
 
@@ -238,6 +242,11 @@ grid-template-columns:1fr;
 padding:50px 30px;
 }
 
+.big-photo{
+grid-column:span 1;
+grid-row:span 1;
+}
+
 }
 
 </style>
@@ -247,17 +256,12 @@ padding:50px 30px;
 
 <!-- HEADER -->
 <div class="header">
-
-<div class="logo">
-<a href="index.html">GARABATO CINE</a>
-</div>
-
+<div class="logo"><a href="index.html">GARABATO CINE</a></div>
 <div class="nav">
 <a href="catalogo.html">CATÁLOGO</a>
 <a href="contacto.html">CONTACTO</a>
 <span>ES | EN</span>
 </div>
-
 </div>
 
 <!-- CONTENIDO -->
@@ -272,25 +276,25 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 
 <!-- BANNER -->
 <div class="hero">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/banner-afiche.jpg">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/banner-afiche.jpg?raw=true">
 </div>
 
 <!-- FESTIVALES -->
 <div class="fest-grid">
 
-<img class="big-berlinale" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/berlinale.png">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/san-sebastian.png">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/slamdance.png">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/seriesmania.png">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/cairo.png">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/ficci.png">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true" class="big">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/san-sebastian.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/slamdance.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/seriesmania.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/cairo.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ficci.png?raw=true">
 
-<img class="big-bogoshorts" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/bogoshorts.png">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/fantasporto.png">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/goa.png">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/macondo.png">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/vancouver.png">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/festivales/sanfic.svg">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/macondo.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/bogoshorts.png?raw=true" class="big">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/fantasporto.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/goa.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/vancouver.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/sanfic.png?raw=true">
 
 </div>
 
@@ -298,29 +302,31 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 <div class="people">
 
 <div class="person">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/david.jpg">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/carolina.jpg?raw=true">
 <h3>DAVID</h3>
-<p>
-Guionista, director y productor. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se desarrolla desde el Caribe colombiano con proyección internacional y una voz autoral sólida.
-</p>
+<p>Guionista, director y productor. Fundador de Garabato Cine.</p>
 </div>
 
 <div class="person">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/caro.jpg">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/carolina1.jpg?raw=true">
 <h3>CAROLINA</h3>
-<p>
-Productora ejecutiva en Garabato Cine, especializada en desarrollo y producción de ficción. Combina sensibilidad creativa con rigor técnico y visión internacional.
-</p>
+<p>Productora ejecutiva en Garabato Cine.</p>
 </div>
 
 </div>
 
-<!-- BTS -->
+<!-- GALERÍA -->
 <div class="bts">
 
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/bst-ms2.jpg">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/bst-ms1.jpg">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/nosotros/bst-pl.jpg">
+<img class="big-photo" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/1grande-seriesmania.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms1.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms3.jpg?raw=true">
+<img class="big-photo" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/2grande-bst-ms2.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms4.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ac.jpg?raw=true">
+<img class="big-photo" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/4grande-bst-pl.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-lafrontera2.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-marimonda1.jpg?raw=true">
 
 </div>
 
