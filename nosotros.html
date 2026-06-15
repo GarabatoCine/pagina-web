@@ -71,12 +71,22 @@ text-decoration:none;
 font-weight:500;
 }
 
-/* ================= LANG ================= */
+/* ================= LANGUAGES ================= */
 
-.lang .active{opacity:0.45;}
-.lang a{text-decoration:none;}
+.lang .active{
+opacity:0.45;
+}
 
-/* ================= MENU ================= */
+.lang a{
+opacity:1;
+text-decoration:none;
+}
+
+.lang a:hover{
+opacity:0.7;
+}
+
+/* ================= HAMBURGUESA ================= */
 
 .menu-toggle{
 display:none;
@@ -90,6 +100,25 @@ width:22px;
 height:2px;
 background:#000;
 display:block;
+}
+
+/* ================= CONTENIDO ================= */
+
+.page-content{
+width:100%;
+}
+
+.intro-text{
+max-width:1100px;
+margin:70px auto 50px auto;
+padding:0 20px;
+text-align:center;
+font-family:'Playfair Display', serif;
+font-size:18px;
+line-height:1.6;
+color:#666;
+font-weight:400;
+letter-spacing:0;
 }
 
 /* ================= BANNER ================= */
@@ -110,16 +139,16 @@ display:block;
 
 .festivals{
 max-width:1400px;
-margin:70px auto;
+margin:70px auto 20px auto;
 padding:0 40px;
 }
 
 .festival-row{
 display:grid;
 grid-template-columns:repeat(6,1fr);
-gap:35px;
+gap:40px;
 align-items:center;
-margin-bottom:50px;
+margin-bottom:55px;
 }
 
 .festival-row img{
@@ -130,22 +159,289 @@ display:block;
 margin:auto;
 }
 
-/* ================= PERSONAS ================= */
+/* AJUSTES FINALES DE LOGOS */
+.logo-berlinale{max-height:92px !important;}
+.logo-ciff{max-height:92px !important;}
 
+.logo-bogoshorts{max-height:72px !important;}
+
+.logo-slamdance{max-height:52px !important;}
+.logo-ficci{max-height:52px !important;}
+.logo-macondo{max-height:52px !important;}
+
+.logo-sanfic{max-height:48px !important;}
+.logo-vancouver{max-height:48px !important;}
+.logo-goa{max-height:48px !important;}
+
+/* ================= FOOTER ================= */
+
+.footer-space{
+height:18px;
+}
+
+.footer{
+background:#000;
+color:white;
+width:100%;
+margin:0;
+padding:70px 160px;
+font-family:'Century Gothic', sans-serif;
+font-weight:100;
+font-size:15px;
+}
+
+.footer a{
+color:white;
+}
+
+.footer-line{
+height:1px;
+background:rgba(255,255,255,0.4);
+margin:50px 0;
+}
+
+.footer-row{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+}
+
+.footer-left a{
+font-size:19px;
+font-weight:100;
+text-decoration:underline;
+text-decoration-thickness:0.5px;
+text-underline-offset:2px;
+}
+
+.footer-right{
+text-align:right;
+}
+
+.footer-follow{
+font-size:19px;
+margin-bottom:15px;
+font-weight:100;
+}
+
+.footer-icons{
+display:flex;
+gap:12px;
+justify-content:flex-end;
+}
+
+.footer-icons svg{
+width:24px;
+height:24px;
+stroke:white;
+fill:none;
+stroke-width:1.2;
+}
+
+.footer-bottom{
+display:flex;
+justify-content:space-between;
+margin-top:30px;
+font-weight:100;
+}
+
+/* ================= TABLET ================= */
+
+@media(max-width:1024px){
+
+body{padding-top:86px;}
+
+.nav{
+display:none;
+position:absolute;
+top:70px;
+right:20px;
+background:#fff;
+padding:20px;
+flex-direction:column;
+align-items:flex-start;
+border:1px solid #eee;
+gap:14px;
+}
+
+.nav.active{display:flex;}
+
+.menu-toggle{display:flex;}
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+body{padding-top:82px;}
+
+.header{padding:16px 22px;}
+
+.intro-text{
+font-size:18px;
+padding:0 25px;
+margin:50px auto 40px auto;
+}
+
+.banner{padding:0 20px;}
+
+.festivals{
+padding:0 20px;
+margin-top:40px;
+}
+
+.festival-row{
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+margin-bottom:30px;
+}
+
+.footer{padding:50px 40px;}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+<div class="logo"><a href="index.html">GARABATO CINE</a></div>
+
+<div class="menu-toggle" onclick="toggleMenu()">
+<span></span><span></span><span></span>
+</div>
+
+<div class="nav" id="mobileMenu">
+<a href="catalogo.html">CATÁLOGO</a>
+<a href="contacto.html">CONTACTO</a>
+<div class="lang">
+<span class="active">ES</span>
+<span>|</span>
+<a href="#">EN</a>
+</div>
+</div>
+</div>
+
+<!-- CONTENIDO -->
+<div class="page-content">
+
+<div class="intro-text">
+Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrealismo se cruzan para crear relatos profundamente humanos, con identidad propia y vocación internacional.
+</div>
+
+<div class="banner">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/banner-afiche.jpg?raw=true">
+</div>
+
+<div class="festivals">
+
+<div class="festival-row">
+<img class="logo-berlinale" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/san-sebastian.png?raw=true">
+<img class="logo-slamdance" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/slamdance.png?raw=true">
+<img class="logo-ficci" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ficci.png?raw=true">
+<img class="logo-ciff" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ciff.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/seriesmania.png?raw=true">
+</div>
+
+<div class="festival-row">
+<img class="logo-macondo" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/macondo.png?raw=true">
+<img class="logo-bogoshorts" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/bogoshorts.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/fantasporto.png?raw=true">
+<img class="logo-sanfic" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/sanfic.png?raw=true">
+<img class="logo-vancouver" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/vancouver.png?raw=true">
+<img class="logo-goa" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/goa.png?raw=true">
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer-space"></div>
+
+<footer class="footer">
+<div class="footer-line"></div>
+
+<div class="footer-row">
+<div class="footer-left">
+<a href="contacto.html">Contacto</a>
+</div>
+
+<div class="footer-right">
+<div class="footer-follow">Síguenos</div>
+<div class="footer-icons">
+<a href="https://www.instagram.com/garabatocine/" target="_blank">IG</a>
+<a href="#">FB</a>
+<a href="#">YT</a>
+</div>
+</div>
+</div>
+
+<div class="footer-line"></div>
+
+<div class="footer-bottom">
+<div>© 2026 Garabato Cine</div>
+<div>Todos los derechos reservados</div>
+</div>
+
+</footer>
+
+<script>
+function toggleMenu(){
+document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+window.onbeforeunload = function () {
+window.scrollTo(0,0);
+};
+
+window.addEventListener("load", function () {
+window.scrollTo(0,0);
+});
+</script>
+
+</body>
+</html>
+<!-- DESPUÉS DE FESTIVALES (SOLO SE AGREGA ESTO) -->
+
+<div class="people">
+
+<div class="person">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/david.jpg?raw=true">
+<h3>DAVID</h3>
+<p>
+Guionista, director y productor barranquillero. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se mueve entre el drama de ficción con tintes de surrealismo, enmarcada en el Caribe colombiano como territorio creativo y emocional. Ha sido reconocido en festivales internacionales y respaldado por fondos de desarrollo audiovisual.
+</p>
+</div>
+
+<div class="person">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/caro.jpg?raw=true">
+<h3>CAROLINA</h3>
+<p>
+Productora ejecutiva de Garabato Cine, enfocada en el desarrollo de proyectos con perspectiva cultural y social. Su trabajo articula una mirada estratégica y creativa para impulsar relatos sensibles con impacto internacional y circulación global.
+</p>
+</div>
+
+</div>
+
+<style>
 .people{
 max-width:1100px;
 margin:90px auto;
 padding:0 40px;
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:50px;
+gap:60px;
 }
 
 .person img{
 width:100%;
 height:520px;
 object-fit:cover;
-margin-bottom:20px;
+margin-bottom:18px;
 }
 
 .person h3{
@@ -164,116 +460,12 @@ text-align:justify;
 color:#555;
 }
 
-/* ================= FOOTER ================= */
-
-.footer{
-background:#000;
-color:white;
-padding:70px 160px;
-font-family:'Century Gothic', sans-serif;
-font-weight:100;
-font-size:15px;
-}
-
-.footer-line{
-height:1px;
-background:rgba(255,255,255,0.4);
-margin:50px 0;
-}
-
-.footer-row{
-display:flex;
-justify-content:space-between;
-}
-
-.footer a{color:white;}
-
-.footer-bottom{
-display:flex;
-justify-content:space-between;
-margin-top:30px;
-}
-
-/* ================= RESPONSIVE ================= */
-
 @media(max-width:768px){
-
-.festival-row{
-grid-template-columns:repeat(3,1fr);
-}
-
 .people{
 grid-template-columns:1fr;
 }
-
 .person img{
 height:420px;
 }
-
 }
-
 </style>
-</head>
-
-<body>
-
-<!-- HEADER -->
-<div class="header">
-
-<div class="logo">
-<a href="index.html">GARABATO CINE</a>
-</div>
-
-</div>
-
-<!-- BANNER -->
-<div class="banner">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/banner-afiche.jpg?raw=true">
-</div>
-
-<!-- FESTIVALES -->
-<div class="festivals">
-
-<div class="festival-row">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/san-sebastian.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/slamdance.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ficci.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ciff.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/seriesmania.png?raw=true">
-</div>
-
-<div class="festival-row">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/macondo.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/bogoshorts.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/fantasporto.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/sanfic.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/vancouver.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/goa.png?raw=true">
-</div>
-
-</div>
-
-<!-- PERSONAS -->
-<div class="people">
-
-<div class="person">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/david.jpg?raw=true">
-<h3>DAVID</h3>
-<p>
-Guionista, director y productor barranquillero. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se mueve entre el drama de ficción con tintes de surrealismo, enmarcada en el Caribe colombiano como territorio creativo y emocional.
-</p>
-</div>
-
-<div class="person">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/caro.jpg?raw=true">
-<h3>CAROLINA</h3>
-<p>
-Productora ejecutiva de Garabato Cine, enfocada en desarrollo de proyectos con perspectiva cultural y social. Su trabajo articula una mirada estratégica y creativa para impulsar relatos sensibles con impacto internacional.
-</p>
-</div>
-
-</div>
-
-</body>
-</html>
