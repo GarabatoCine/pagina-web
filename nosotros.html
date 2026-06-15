@@ -107,6 +107,47 @@ color:#666;
 font-weight:400;
 }
 
+/* ================= PERSONAS ================= */
+
+.people{
+max-width:1100px;
+margin:60px auto;
+padding:0 40px;
+display:flex;
+gap:50px;
+justify-content:space-between;
+}
+
+.person{
+flex:1;
+text-align:justify;
+}
+
+.person img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+display:block;
+margin-bottom:20px;
+}
+
+.person h2{
+font-size:18px;
+font-weight:500;
+margin-bottom:10px;
+color:#000;
+text-transform:uppercase;
+letter-spacing:1px;
+}
+
+.person p{
+font-size:15px;
+line-height:1.7;
+color:#666;
+}
+
+/* ================= BANNER ================= */
+
 .banner{
 max-width:1400px;
 margin:0 auto;
@@ -155,9 +196,7 @@ margin:auto;
 
 /* ================= FOOTER ================= */
 
-.footer-space{
-height:18px;
-}
+.footer-space{height:18px;}
 
 .footer{
 background:#000;
@@ -170,9 +209,7 @@ font-weight:100;
 font-size:15px;
 }
 
-.footer a{
-color:white;
-}
+.footer a{color:white;}
 
 .footer-line{
 height:1px;
@@ -193,9 +230,7 @@ text-decoration:underline;
 text-underline-offset:2px;
 }
 
-.footer-right{
-text-align:right;
-}
+.footer-right{text-align:right;}
 
 .footer-follow{
 font-size:19px;
@@ -244,6 +279,11 @@ body{padding-top:82px;}
 
 .header{padding:16px 22px;}
 
+.people{
+flex-direction:column;
+gap:40px;
+}
+
 .intro-text{
 font-size:18px;
 padding:0 25px;
@@ -251,9 +291,7 @@ padding:0 25px;
 
 .banner{padding:0 20px;}
 
-.festivals{
-padding:0 20px;
-}
+.festivals{padding:0 20px;}
 
 .festival-row{
 grid-template-columns:repeat(3,1fr);
@@ -310,11 +348,35 @@ gap:20px;
 Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrealismo se cruzan para crear relatos profundamente humanos, con identidad propia y vocación internacional.
 </div>
 
+<!-- PERSONAS (NUEVO BLOQUE) -->
+<div class="people">
+
+<!-- DAVID -->
+<div class="person">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/daviddavid.jpg?raw=true" alt="David David">
+<h2>DAVID DAVID</h2>
+<p>
+Guionista, director y productor barranquillero. Fundador de Garabato Cine y creador de su universo narrativo. Su obra se mueve entre el drama de ficción con tintes de surrealismo, enmarcada en el colorido contexto del Caribe colombiano como territorio creativo y emocional. Ha sido reconocido en festivales de cine de primer nivel internacional y respaldado por importantes fondos y entidades de fomento audiovisual. Su cine se distingue por una voz autoral clara, profundamente arraigada en la identidad y con proyección global.
+</p>
+</div>
+
+<!-- CAROLINA -->
+<div class="person">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/carodavid.jpg?raw=true" alt="Carolina David">
+<h2>CAROLINA DAVID</h2>
+<p>
+Productora ejecutiva de Garabato Cine, enfocada en el desarrollo de proyectos con perspectiva de género, identidad cultural y vocación de impacto social. Su trabajo articula una mirada estratégica y creativa para impulsar relatos sensibles que conectan con públicos diversos desde lo emocional, lo simbólico y lo territorial. Ha participado en espacios de industria internacionales, consolidando una línea de producción orientada a la circulación.
+</p>
+</div>
+
+</div>
+
+<!-- BANNER -->
 <div class="banner">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/banner-afiche.jpg?raw=true">
 </div>
 
-<!-- FESTIVALES (RESTORED) -->
+<!-- FESTIVALES -->
 <div class="festivals">
 
 <div class="festival-row">
@@ -341,7 +403,7 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 
 <div class="footer-space"></div>
 
-<!-- FOOTER FIXED -->
+<!-- FOOTER -->
 <footer class="footer">
 
 <div class="footer-line"></div>
