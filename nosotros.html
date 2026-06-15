@@ -9,7 +9,6 @@
 
 <style>
 
-/* ================= RESET ================= */
 *{
 margin:0;
 padding:0;
@@ -19,11 +18,11 @@ box-sizing:border-box;
 body{
 font-family:'Roboto', sans-serif;
 background:#fff;
-color:#111;
 padding-top:80px;
+color:#111;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 .header{
 position:fixed;
 top:0;
@@ -43,7 +42,6 @@ text-transform:uppercase;
 text-decoration:none;
 color:#000;
 font-size:22px;
-letter-spacing:1px;
 }
 
 .nav{
@@ -57,22 +55,21 @@ text-decoration:none;
 color:#000;
 }
 
-/* ================= TEXTO INTRO ================= */
+/* TEXTO INTRO (NO TOCAR TIPOGRAFÍA) */
 .hero{
 max-width:900px;
 margin:40px auto;
 text-align:center;
 line-height:1.6;
-font-size:16px;
 }
 
-/* ================= BANNER ================= */
+/* BANNER */
 .banner img{
 width:100%;
 display:block;
 }
 
-/* ================= LOGOS ================= */
+/* LOGOS */
 .logo-grid{
 display:flex;
 flex-wrap:wrap;
@@ -84,23 +81,16 @@ margin:50px auto;
 }
 
 .logo-grid img{
-max-height:65px;
+max-height:60px;
 object-fit:contain;
 }
 
-/* ESCALAS ESPECIALES */
-.berlinale{max-height:130px;}   /* MÁS GRANDE */
-.ciff{max-height:150px;}        /* MÁS GRANDE */
-.vancouver{max-height:40px;}    /* MÁS PEQUEÑO */
-.goa{max-height:38px;}          /* MÁS PEQUEÑO */
-
-/* ================= PERSONAS ================= */
+/* PERSONAS */
 .people{
 max-width:1200px;
 margin:60px auto;
 display:flex;
 gap:40px;
-align-items:flex-start;
 }
 
 .person{
@@ -109,7 +99,6 @@ flex:1;
 
 .person img{
 width:100%;
-height:auto;
 display:block;
 margin-bottom:15px;
 }
@@ -117,20 +106,14 @@ margin-bottom:15px;
 .person p{
 text-align:justify;
 line-height:1.5;
-font-size:14px;
 }
 
-/* ================= FOOTER (CATALOGO STYLE) ================= */
+/* FOOTER (CATÁLOGO ORIGINAL ESTILO) */
 .footer{
 background:#000;
 color:#fff;
 padding:70px 160px;
 font-family:'Century Gothic', sans-serif;
-}
-
-.footer a{
-color:#fff;
-text-decoration:none;
 }
 
 .footer-line{
@@ -142,7 +125,11 @@ margin:50px 0;
 .footer-row{
 display:flex;
 justify-content:space-between;
-align-items:flex-start;
+}
+
+.footer a{
+color:#fff;
+text-decoration:none;
 }
 
 .footer-icons{
@@ -157,14 +144,10 @@ stroke:#fff;
 fill:none;
 }
 
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 @media(max-width:768px){
-.footer{
-padding:50px 40px;
-}
-.people{
-flex-direction:column;
-}
+.people{flex-direction:column;}
+.footer{padding:50px 40px;}
 }
 
 </style>
@@ -172,13 +155,14 @@ flex-direction:column;
 
 <body>
 
-<!-- HEADER -->
+<!-- HEADER (SIN NOSOTROS) -->
 <div class="header">
 <div class="logo"><a href="index.html">GARABATO CINE</a></div>
 <div class="nav">
 <a href="catalogo.html">CATÁLOGO</a>
-<a href="nosotros.html">NOSOTROS</a>
 <a href="contacto.html">CONTACTO</a>
+<span>ES</span>
+<span>EN</span>
 </div>
 </div>
 
@@ -195,16 +179,11 @@ Hacemos cine desde el Caribe colombiano, donde el drama, la ficción y el surrea
 <!-- LOGOS -->
 <div class="logo-grid">
 
-<img class="berlinale" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true">
-
-<img class="ciff" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ciff.png?raw=true">
-
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ciff.png?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/san-sebastian.png?raw=true">
-
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/cairo.png?raw=true">
-
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ficci.png?raw=true">
-
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/slamdance.png?raw=true">
 
 </div>
@@ -212,18 +191,11 @@ Hacemos cine desde el Caribe colombiano, donde el drama, la ficción y el surrea
 <div class="logo-grid">
 
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/seriesmania.png?raw=true">
-
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/macondo.png?raw=true">
-
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/fantasporto.png?raw=true">
-
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/sanfic.png?raw=true">
-
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/bogoshorts.png?raw=true">
-
-<img class="vancouver" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/vancouver.png?raw=true">
-
-<img class="goa" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/goa.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/vancouver.png?raw=true">
 
 </div>
 
@@ -252,37 +224,16 @@ Productora ejecutiva de Garabato Cine, enfocada en el desarrollo de proyectos co
 <div class="footer-line"></div>
 
 <div class="footer-row">
-<div>
-<a href="contacto.html">Contacto</a>
-</div>
+<div><a href="contacto.html">Contacto</a></div>
 
 <div class="footer-icons">
 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
 <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/></svg>
-<svg viewBox="0 0 24 24"><polygon points="10,8 16,12 10,16"/></svg>
-</div>
-</div>
-
-<div class="footer-line"></div>
-
-<div style="display:flex;justify-content:space-between;">
-<div>
-<a href="#">Cookies</a><br>
-<a href="#">Privacidad</a>
-</div>
-
-<div>
-© 2026 Garabato Cine
+<svg viewBox="0 0 24 24"><polygon points="10 8 16 12 10 16"/></svg>
 </div>
 </div>
 
 </footer>
-
-<!-- SCROLL ARRIBA -->
-<script>
-window.onbeforeunload = () => window.scrollTo(0,0);
-window.onload = () => window.scrollTo(0,0);
-</script>
 
 </body>
 </html>
