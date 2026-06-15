@@ -116,18 +116,6 @@ line-height:1.6;
 color:#666;
 }
 
-.banner{
-max-width:1400px;
-margin:0 auto;
-padding:0 40px;
-}
-
-.banner img{
-width:100%;
-height:auto;
-display:block;
-}
-
 /* ================= FESTIVALES ================= */
 
 .festivals{
@@ -209,20 +197,13 @@ color:#666;
 max-width:1400px;
 margin:80px auto;
 padding:0 40px;
-}
-
-.gallery-grid{
 display:grid;
-grid-template-columns:repeat(12,1fr);
-gap:10px;
+grid-template-columns:repeat(6,1fr);
+grid-auto-rows:220px;
+gap:18px;
 }
 
-.gallery-item{
-width:100%;
-overflow:hidden;
-}
-
-.gallery-item img{
+.gallery img{
 width:100%;
 height:100%;
 object-fit:cover;
@@ -230,9 +211,9 @@ display:block;
 }
 
 /* tamaños */
-.large{grid-column:span 4; height:320px;}
-.medium{grid-column:span 3; height:260px;}
-.small{grid-column:span 2; height:200px;}
+.big{grid-column:span 3; grid-row:span 2;}
+.medium{grid-column:span 2; grid-row:span 1;}
+.small{grid-column:span 1; grid-row:span 1;}
 
 /* ================= FOOTER ================= */
 
@@ -326,26 +307,16 @@ font-size:18px;
 padding:0 25px;
 }
 
-.banner{padding:0 20px;}
-
 .festivals{padding:0 20px;}
-
-.festival-row{
-grid-template-columns:repeat(3,1fr);
-gap:25px;
-}
 
 .people{
 grid-template-columns:1fr;
 }
 
-.gallery-grid{
-grid-template-columns:repeat(6,1fr);
+.gallery{
+grid-template-columns:repeat(2,1fr);
+grid-auto-rows:180px;
 }
-
-.large{grid-column:span 6;}
-.medium{grid-column:span 3;}
-.small{grid-column:span 2;}
 
 .footer{
 padding:50px 40px;
@@ -365,6 +336,7 @@ flex-direction:column;
 gap:20px;
 }
 }
+
 </style>
 </head>
 
@@ -372,26 +344,18 @@ gap:20px;
 
 <!-- HEADER -->
 <div class="header">
-
-<div class="logo">
-<a href="index.html">GARABATO CINE</a>
-</div>
+<div class="logo"><a href="index.html">GARABATO CINE</a></div>
 
 <div class="menu-toggle" onclick="toggleMenu()">
 <span></span><span></span><span></span>
 </div>
 
 <div class="nav" id="mobileMenu">
-
 <a href="catalogo.html">CATÁLOGO</a>
 <a href="contacto.html">CONTACTO</a>
-
 <div class="lang">
-<span class="active">ES</span>
-<span>|</span>
-<a href="#">EN</a>
+<span class="active">ES</span> | <a href="#">EN</a>
 </div>
-
 </div>
 </div>
 
@@ -400,10 +364,6 @@ gap:20px;
 
 <div class="intro-text">
 Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrealismo se cruzan para crear relatos profundamente humanos, con identidad propia y vocación internacional.
-</div>
-
-<div class="banner">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/banner-afiche.jpg?raw=true">
 </div>
 
 <!-- FESTIVALES -->
@@ -449,28 +409,34 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 <!-- GALERÍA -->
 <div class="gallery">
 
-<div class="gallery-grid">
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/1grande-seriesmania.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale1.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms1.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo2.jpg?raw=true">
 
-<!-- GRANDES -->
-<div class="gallery-item large"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/1grande-seriesmania.jpg?raw=true"></div>
-<div class="gallery-item large"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/2grande-bst-ms2.jpg?raw=true"></div>
-<div class="gallery-item large"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/3grande-macondo1.jpg?raw=true"></div>
-<div class="gallery-item large"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/4grande-bst-pl.jpg?raw=true"></div>
-<div class="gallery-item large"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/5grande-cairo1.jpg?raw=true"></div>
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/2grande-bst-ms2.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-marimonda1.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo2.jpg?raw=true">
 
-<!-- MIX ALEATORIO -->
-<div class="gallery-item medium"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale1.jpg?raw=true"></div>
-<div class="gallery-item small"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale3.jpg?raw=true"></div>
-<div class="gallery-item medium"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ac.jpg?raw=true"></div>
-<div class="gallery-item small"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-lafrontera2.jpg?raw=true"></div>
-<div class="gallery-item medium"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-lafrontera7.jpg?raw=true"></div>
-<div class="gallery-item small"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-marimonda1.jpg?raw=true"></div>
-<div class="gallery-item medium"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms1.jpg?raw=true"></div>
-<div class="gallery-item small"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms3.jpg?raw=true"></div>
-<div class="gallery-item medium"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo.jpg?raw=true"></div>
-<div class="gallery-item small"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/carolina1.jpg?raw=true"></div>
-<div class="gallery-item medium"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/goa.jpg?raw=true"></div>
-<div class="gallery-item small"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo2.jpg?raw=true"></div>
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/3grande-macondo1.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-lafrontera7.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/goa.jpg?raw=true">
+
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/4grande-bst-pl.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale3.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo.jpg?raw=true">
+
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/5grande-cairo1.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ac.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo3.jpg?raw=true">
+
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale4.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-pl1.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms3.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms4.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-lafrontera2.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-marimonda2.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo4.jpg?raw=true">
 
 </div>
 
