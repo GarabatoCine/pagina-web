@@ -85,19 +85,10 @@ background:#000;
 display:block;
 }
 
-/* LANG SWITCH */
-.lang .active{
-opacity:0.45;
-}
-
-.lang a{
-opacity:1;
-text-decoration:none;
-}
-
-.lang a:hover{
-opacity:0.7;
-}
+/* LANG */
+.lang .active{opacity:0.45;}
+.lang a{opacity:1;text-decoration:none;}
+.lang a:hover{opacity:0.7;}
 
 /* ================= CONTENIDO ================= */
 
@@ -114,6 +105,18 @@ font-family:'Playfair Display', serif;
 font-size:20px;
 line-height:1.6;
 color:#666;
+}
+
+.banner{
+max-width:1400px;
+margin:0 auto;
+padding:0 40px;
+}
+
+.banner img{
+width:100%;
+height:auto;
+display:block;
 }
 
 /* ================= FESTIVALES ================= */
@@ -168,10 +171,9 @@ text-align:center;
 .person img{
 width:100%;
 max-width:420px;
-height:420px;
-object-fit:cover;
-margin:0 auto 20px;
+height:auto;
 display:block;
+margin:0 auto 20px;
 }
 
 .person h3{
@@ -191,29 +193,29 @@ margin:0 auto;
 color:#666;
 }
 
-/* ================= GALERÍA ================= */
+/* ================= GALERÍA (SIN CORTES) ================= */
 
 .gallery{
 max-width:1400px;
 margin:80px auto;
 padding:0 40px;
-display:grid;
-grid-template-columns:repeat(6,1fr);
-grid-auto-rows:220px;
-gap:18px;
+columns:3;
+column-gap:18px;
 }
 
 .gallery img{
 width:100%;
-height:100%;
-object-fit:cover;
+height:auto;
 display:block;
+margin-bottom:18px;
+break-inside:avoid;
+object-fit:contain;
 }
 
-/* tamaños */
-.big{grid-column:span 3; grid-row:span 2;}
-.medium{grid-column:span 2; grid-row:span 1;}
-.small{grid-column:span 1; grid-row:span 1;}
+/* leves variaciones visuales sin recortar */
+.gallery img.big{transform:scale(1.02);}
+.gallery img.medium{transform:scale(1);}
+.gallery img.small{transform:scale(0.98);}
 
 /* ================= FOOTER ================= */
 
@@ -248,7 +250,6 @@ align-items:flex-start;
 
 .footer-left a{
 font-size:19px;
-font-weight:100;
 text-decoration:underline;
 text-underline-offset:2px;
 }
@@ -258,7 +259,6 @@ text-underline-offset:2px;
 .footer-follow{
 font-size:19px;
 margin-bottom:15px;
-font-weight:100;
 }
 
 .footer-icons{
@@ -279,7 +279,6 @@ stroke-width:1.5;
 display:flex;
 justify-content:space-between;
 margin-top:30px;
-font-weight:100;
 }
 
 .footer-bottom-left a{
@@ -302,10 +301,9 @@ body{padding-top:82px;}
 
 .header{padding:16px 22px;}
 
-.intro-text{
-font-size:18px;
-padding:0 25px;
-}
+.intro-text{font-size:18px;padding:0 25px;}
+
+.banner{padding:0 20px;}
 
 .festivals{padding:0 20px;}
 
@@ -314,8 +312,7 @@ grid-template-columns:1fr;
 }
 
 .gallery{
-grid-template-columns:repeat(2,1fr);
-grid-auto-rows:180px;
+columns:1;
 }
 
 .footer{
@@ -353,6 +350,7 @@ gap:20px;
 <div class="nav" id="mobileMenu">
 <a href="catalogo.html">CATÁLOGO</a>
 <a href="contacto.html">CONTACTO</a>
+
 <div class="lang">
 <span class="active">ES</span> | <a href="#">EN</a>
 </div>
@@ -366,9 +364,12 @@ gap:20px;
 Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrealismo se cruzan para crear relatos profundamente humanos, con identidad propia y vocación internacional.
 </div>
 
+<div class="banner">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/banner-afiche.jpg?raw=true">
+</div>
+
 <!-- FESTIVALES -->
 <div class="festivals">
-
 <div class="festival-row">
 <img class="logo-berlinale" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/san-sebastian.png?raw=true">
@@ -386,7 +387,6 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 <img class="logo-vancouver" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/vancouver.png?raw=true">
 <img class="logo-goa" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/goa.png?raw=true">
 </div>
-
 </div>
 
 <!-- PERSONAS -->
@@ -410,35 +410,26 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 <div class="gallery">
 
 <img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/1grande-seriesmania.jpg?raw=true">
-<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale1.jpg?raw=true">
 <img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms1.jpg?raw=true">
-<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo2.jpg?raw=true">
-
-<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/2grande-bst-ms2.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale1.jpg?raw=true">
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/5grande-cairo1.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo2.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-pl1.jpg?raw=true">
 <img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-marimonda1.jpg?raw=true">
 <img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo2.jpg?raw=true">
-
 <img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/3grande-macondo1.jpg?raw=true">
-<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-lafrontera7.jpg?raw=true">
-<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/goa.jpg?raw=true">
-
-<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/4grande-bst-pl.jpg?raw=true">
-<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale3.jpg?raw=true">
-<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo.jpg?raw=true">
-
-<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/5grande-cairo1.jpg?raw=true">
-<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ac.jpg?raw=true">
-<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo3.jpg?raw=true">
-
-<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale4.jpg?raw=true">
-<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-pl1.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/goa.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-lafrontera2.jpg?raw=true">
 <img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms3.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/2grande-bst-ms2.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale3.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo3.jpg?raw=true">
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/4grande-bst-pl.jpg?raw=true">
 <img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms4.jpg?raw=true">
-<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-lafrontera2.jpg?raw=true">
-<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-marimonda2.jpg?raw=true">
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale4.jpg?raw=true">
 <img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo4.jpg?raw=true">
-
-</div>
+<img class="medium" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ac.jpg?raw=true">
+<img class="small" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo.jpg?raw=true">
 
 </div>
 
@@ -512,13 +503,8 @@ function toggleMenu(){
 document.getElementById("mobileMenu").classList.toggle("active");
 }
 
-window.onbeforeunload = function(){
-window.scrollTo(0,0);
-};
-
-window.addEventListener("load", function(){
-window.scrollTo(0,0);
-});
+window.onbeforeunload=function(){window.scrollTo(0,0);}
+window.addEventListener("load",function(){window.scrollTo(0,0);});
 </script>
 
 </body>
