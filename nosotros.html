@@ -5,24 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nosotros - Garabato Cine</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* RESET */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-font-family:'Inter', sans-serif;
+font-family:'Roboto', sans-serif;
 background:#fff;
 color:#111;
+padding-top:74px;
 }
 
-/* ================= HEADER (CATÁLOGO EXACTO) ================= */
+/* ================= HEADER (IGUAL CATÁLOGO) ================= */
 
 .header{
 position:fixed;
@@ -34,14 +30,20 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:18px 40px;
-border-bottom:1px solid #eee;
 z-index:1000;
+border-bottom:1px solid #eee;
 text-transform:uppercase;
 }
 
-.logo a{
-text-decoration:none;
+.logo a,
+.nav a,
+.lang span,
+.lang a{
 color:#000;
+text-decoration:none;
+}
+
+.logo a{
 font-size:24px;
 font-weight:500;
 letter-spacing:2px;
@@ -49,15 +51,23 @@ letter-spacing:2px;
 
 .nav{
 display:flex;
+align-items:center;
 gap:18px;
 font-size:13px;
-align-items:center;
+font-weight:500;
 }
 
-.nav a{
-text-decoration:none;
-color:#000;
-font-weight:500;
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:4px;
+cursor:pointer;
+}
+
+.menu-toggle span{
+width:22px;
+height:2px;
+background:#000;
 }
 
 /* ================= CONTENIDO ================= */
@@ -65,115 +75,115 @@ font-weight:500;
 .container{
 max-width:1200px;
 margin:auto;
-padding:120px 20px;
+padding:60px 20px;
 }
 
-/* INTRO */
+/* TEXTO PRINCIPAL */
 .intro{
+font-family:'Cormorant Garamond', serif;
 text-align:center;
+font-size:20px;
+line-height:1.6;
+max-width:900px;
+margin:0 auto 50px auto;
+}
+
+/* BANNER */
+.banner img{
+width:100%;
+height:420px;
+object-fit:cover;
 margin-bottom:60px;
 }
 
-.intro p{
-font-size:20px;
-line-height:1.6;
-max-width:780px;
-margin:auto;
-font-weight:300;
-}
-
-/* ================= BANNER ================= */
-
-.hero img{
-width:100%;
-display:block;
-}
-
-/* ================= FESTIVALES ================= */
-
-.fest-grid{
-display:grid;
-grid-template-columns:repeat(6,1fr);
+/* LOGOS FESTIVALES */
+.festivales{
+display:flex;
+flex-direction:column;
 gap:20px;
-margin:60px 0;
+margin-bottom:70px;
+}
+
+.fila{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
 align-items:center;
 }
 
-.fest-grid img{
-width:100%;
-height:45px;
+.fila img{
+height:40px;
 object-fit:contain;
+opacity:0.9;
 }
 
-.big{
-transform:scale(1.25);
+.fila .big{
+height:65px;
 }
 
-/* ================= PERSONAS ================= */
-
+/* PERSONAS */
 .people{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-margin:80px 0;
+display:flex;
+gap:40px;
+margin-bottom:50px;
 }
 
 .person{
+flex:1;
 text-align:center;
 }
 
 .person img{
 width:100%;
-height:520px;
+height:420px;
 object-fit:cover;
+margin-bottom:15px;
 }
 
 .person h3{
-margin-top:15px;
-font-size:20px;
-font-weight:500;
+font-family:'Cormorant Garamond', serif;
+font-size:26px;
+margin-bottom:10px;
 }
 
 .person p{
-margin-top:10px;
-font-weight:300;
-line-height:1.6;
-max-width:420px;
-margin:auto;
+font-family:'Cormorant Garamond', serif;
+font-size:18px;
+line-height:1.5;
 }
 
-/* ================= GALERÍA BTS ================= */
-
-.bts{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:12px;
-margin-top:80px;
+/* GALERÍA */
+.gallery{
+column-count:3;
+column-gap:15px;
 }
 
-.bts img{
+.gallery img{
 width:100%;
-height:100%;
-object-fit:cover;
+margin-bottom:15px;
+break-inside:avoid;
+border-radius:2px;
 }
 
-/* GRANDES */
-.big-photo{
-grid-column:span 2;
-grid-row:span 2;
-}
+/* ================= FOOTER (IGUAL CATÁLOGO) ================= */
 
-/* ================= FOOTER (CATÁLOGO EXACTO) ================= */
+.footer-space{
+height:18px;
+}
 
 .footer{
 background:#000;
-color:#fff;
+color:white;
 width:100%;
-margin-top:80px;
+margin:0;
 padding:70px 160px;
 font-family:'Century Gothic', sans-serif;
 font-weight:100;
+font-size:15px;
 }
+
+.footer a{color:white;}
 
 .footer-line{
 height:1px;
@@ -188,18 +198,8 @@ align-items:flex-start;
 }
 
 .footer-left a{
-display:block;
-margin-bottom:10px;
-color:#fff;
+font-size:19px;
 text-decoration:underline;
-text-decoration-thickness:0.5px;
-text-underline-offset:2px;
-font-size:18px;
-}
-
-.footer-follow{
-font-size:18px;
-margin-bottom:10px;
 }
 
 .footer-icons{
@@ -209,9 +209,9 @@ justify-content:flex-end;
 }
 
 .footer-icons svg{
-width:22px;
-height:22px;
-stroke:#fff;
+width:24px;
+height:24px;
+stroke:white;
 fill:none;
 stroke-width:1.2;
 }
@@ -219,32 +219,31 @@ stroke-width:1.2;
 .footer-bottom{
 display:flex;
 justify-content:space-between;
-margin-top:25px;
+margin-top:30px;
 }
 
-/* RESPONSIVE */
+/* ================= MOBILE ================= */
 
 @media(max-width:768px){
 
 .people{
-grid-template-columns:1fr;
+flex-direction:column;
 }
 
-.fest-grid{
-grid-template-columns:repeat(3,1fr);
+.gallery{
+column-count:1;
 }
 
-.bts{
-grid-template-columns:1fr;
+.banner img{
+height:260px;
 }
 
 .footer{
-padding:50px 30px;
+padding:50px 40px;
 }
 
-.big-photo{
-grid-column:span 1;
-grid-row:span 1;
+.nav{
+display:none;
 }
 
 }
@@ -257,44 +256,48 @@ grid-row:span 1;
 <!-- HEADER -->
 <div class="header">
 <div class="logo"><a href="index.html">GARABATO CINE</a></div>
-<div class="nav">
+
+<div class="menu-toggle" onclick="toggleMenu()">
+<span></span><span></span><span></span>
+</div>
+
+<div class="nav" id="menu">
 <a href="catalogo.html">CATÁLOGO</a>
 <a href="contacto.html">CONTACTO</a>
-<span>ES | EN</span>
+<div class="lang"><span>ES</span> | <a href="#">EN</a></div>
 </div>
 </div>
 
-<!-- CONTENIDO -->
 <div class="container">
 
 <!-- INTRO -->
 <div class="intro">
-<p>
 Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrealismo se cruzan para crear relatos profundamente humanos, con identidad propia y vocación internacional.
-</p>
 </div>
 
 <!-- BANNER -->
-<div class="hero">
+<div class="banner">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/banner-afiche.jpg?raw=true">
 </div>
 
 <!-- FESTIVALES -->
-<div class="fest-grid">
+<div class="festivales">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true" class="big">
+<div class="fila">
+<img class="big" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/berlinale.png?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/san-sebastian.png?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/slamdance.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ciff.png?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/seriesmania.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/cairo.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ficci.png?raw=true">
+</div>
 
+<div class="fila">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/macondo.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/bogoshorts.png?raw=true" class="big">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/fantasporto.png?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/goa.png?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/vancouver.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ficci.png?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/sanfic.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/bogoshorts.png?raw=true">
+</div>
 
 </div>
 
@@ -302,67 +305,72 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 <div class="people">
 
 <div class="person">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/carolina.jpg?raw=true">
-<h3>DAVID</h3>
-<p>Guionista, director y productor. Fundador de Garabato Cine.</p>
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/david.jpg?raw=true">
+<h3>David</h3>
+<p>Guionista, director y productor. Fundador de Garabato Cine y creador de su universo narrativo...</p>
 </div>
 
 <div class="person">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/carolina1.jpg?raw=true">
-<h3>CAROLINA</h3>
-<p>Productora ejecutiva en Garabato Cine.</p>
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/caro.jpg?raw=true">
+<h3>Carolina</h3>
+<p>Productora ejecutiva en Garabato Cine, especializada en desarrollo y producción de ficción...</p>
 </div>
 
 </div>
 
 <!-- GALERÍA -->
-<div class="bts">
+<div class="gallery">
 
-<img class="big-photo" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/1grande-seriesmania.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/1grande-seriesmania.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/2grande-bst-ms2.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/3grande-macondo1.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/4grande-bst-pl.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/5grande-cairo1.jpg?raw=true">
+
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms1.jpg?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms3.jpg?raw=true">
-<img class="big-photo" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/2grande-bst-ms2.jpg?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ms4.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-ac.jpg?raw=true">
-<img class="big-photo" src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/4grande-bst-pl.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-lafrontera2.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-marimonda1.jpg?raw=true">
+
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-pl1.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/bst-pl2.jpg?raw=true">
 
 </div>
 
 </div>
 
-<!-- FOOTER -->
+<!-- FOOTER IGUAL CATÁLOGO -->
 <footer class="footer">
-
 <div class="footer-line"></div>
 
 <div class="footer-row">
-
 <div class="footer-left">
 <a href="contacto.html">Contacto</a>
-<a href="cookies.html">Cookies</a>
-<a href="politicadeprivacidad.html">Privacidad</a>
 </div>
+
+<div class="footer-right">
+<div class="footer-follow">Síguenos</div>
 
 <div class="footer-icons">
-
-<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.5"/></svg>
-
-<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z" fill="white"/></svg>
-
-<svg viewBox="0 0 24 24"><path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"/><polygon points="10 15 15 12 10 9"/></svg>
-
+<a href="#"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg></a>
 </div>
-
+</div>
 </div>
 
 <div class="footer-bottom">
-<div>© 2026 Garabato Cine</div>
-<div>Todos los derechos reservados</div>
+<div>
+<a href="#">Política de Cookies</a><br>
+<a href="#">Privacidad</a>
 </div>
 
+<div>© 2026 Garabato Cine</div>
+</div>
 </footer>
+
+<script>
+function toggleMenu(){
+document.getElementById('menu').classList.toggle('active');
+}
+</script>
 
 </body>
 </html>
