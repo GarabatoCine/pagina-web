@@ -173,7 +173,7 @@ max-width:420px;
 margin:0 auto;
 color:#666;
 }
-/* ================= GALLERY (Escritorio - 3 Columnas originales) ================= */
+/* ================= GALLERY (Escritorio - 3 Columnas) ================= */
 .gallery{
 max-width:1400px;
 margin:60px auto;
@@ -305,25 +305,24 @@ gap:25px;
 grid-template-columns:1fr;
 }
 
-/* ================= SOLUCIÓN DEFINITIVA PARA LA GALERÍA MÓVIL ================= */
+/* ================= SOLUCIÓN DEFINITIVA DE GALERÍA EQUILIBRADA ================= */
 .gallery {
-display: flex;             /* Usamos Flexbox nativo, hipercompatible */
-flex-direction: row;       /* Ponemos las columnas una al lado de la otra */
-flex-wrap: wrap;           /* Permitimos que si no caben, bajen */
-justify-content: space-between; /* Deja espacio limpio al centro */
-gap: 15px 4%;              /* Espaciado vertical de 15px, horizontal de 4% */
+display: block;            /* Rompe el Grid de escritorio */
+columns: 2;                /* Fuerza 2 columnas equilibradas automáticamente */
+column-gap: 15px;          /* Espacio exacto horizontal entre columnas */
 padding: 0 20px;
 }
 .gallery-col {
-display: flex;
-flex-direction: column;    /* Cada columna apila sus fotos verticalmente */
-width: 48%;                /* Dos columnas perfectas por fila (48% + 48% + 4% de espacio = 100%) */
-gap: 15px;                 /* El espacio vertical entre fotos siempre será idéntico */
+display: block;            /* Convierte los contenedores en bloques normales */
+margin: 0;
+padding: 0;
 }
 .gallery img {
 width: 100%;
 height: auto;
 display: block;
+break-inside: avoid;       /* Crucial: Evita que las imágenes se corten a la mitad */
+margin-bottom: 15px;       /* Margen vertical idéntico para todas las fotos */
 }
 
 .footer{
@@ -401,99 +400,4 @@ Hacemos cine desde el Caribe Colombiano, donde el drama, la ficción y el surrea
 <div class="gallery-col">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo1.jpg?raw=true">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera8.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/marimonda1.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo1.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera9.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/madresemilla3.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo5.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/actocivico3.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/marimonda2.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera3.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/profeleda2.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/madresemilla4.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera5.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo3.jpeg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera2.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/seriesmania2.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/vidadecolores1.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/actocivico1.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale1.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera6.jpg?raw=true">
-</div>
-<div class="gallery-col">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/seriesmania1.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/madresemilla.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/goa1.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/profeleda4.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo2.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera7.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera11.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/seriesmania3.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/profeleda3.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/madresemilla2.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale2.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera10.jpg?raw=true">
-</div>
-<div class="gallery-col">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo3.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/madresemilla1.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo2.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale3.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/goa2.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/actocivico2.jpg?raw=true">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera4.jpg?raw=true">
-</div>
-</div>
-<div class="footer-space"></div>
-<footer class="footer">
-<div class="footer-line"></div>
-<div class="footer-row">
-<div class="footer-left">
-<a href="contacto.html">Contacto</a>
-</div>
-<div class="footer-right">
-<div class="footer-follow">Síguenos</div>
-<div class="footer-icons">
-<a href="https://www.instagram.com/garabatocine/" target="_blank">
-<svg viewBox="0 0 24 24">
-<rect x="3" y="3" width="18" height="18" rx="5"></rect>
-<circle cx="12" cy="12" r="4"></circle>
-<circle cx="17" cy="7" r="1.5"></circle>
-</svg>
-</a>
-<a href="https://web.facebook.com/garabatocine" target="_blank">
-<svg viewBox="0 0 24 24">
-<circle cx="12" cy="12" r="10"></circle>
-<path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z"></path>
-</svg>
-</a>
-<a href="https://www.youtube.com/@garabatocine" target="_blank">
-<svg viewBox="0 0 24 24">
-<path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
-<polygon points="10 15 15 12 10 9"></polygon>
-</svg>
-</a>
-</div>
-</div>
-</div>
-<div class="footer-line"></div>
-<div class="footer-bottom">
-<div class="footer-bottom-left">
-<a href="cookies.html">Política de Cookies</a>
-<a href="politicadeprivacidad.html">Política de Privacidad</a>
-</div>
-<div class="footer-bottom-right">
-<div>© 2026 Garabato Cine. Todos los derechos reservados.</div>
-</div>
-</div>
-</footer>
-
-<script>
-function toggleMenu() {
-  var menu = document.getElementById("mobileMenu");
-  menu.classList.toggle("active");
-}
-</script>
-</body>
-</html>
+<img src="
