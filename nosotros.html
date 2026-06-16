@@ -71,6 +71,8 @@ text-decoration:none;
 font-weight:500;
 }
 
+/* 🔧 HAMBURGUESA (MISMO COMPORTAMIENTO QUE CATÁLOGO) */
+
 .menu-toggle{
 display:none;
 flex-direction:column;
@@ -83,6 +85,11 @@ width:22px;
 height:2px;
 background:#000;
 display:block;
+}
+
+/* MENÚ MOBILE (SOLO SE ACTIVA CON JS) */
+.nav.active{
+display:flex;
 }
 
 /* LANG SWITCH */
@@ -315,7 +322,7 @@ line-height:1.8;
 
 @media(max-width:1024px){
 
-/* 🔧 AÑADIDO DEL CATÁLOGO (NECESARIO PARA HAMBURGUESA) */
+/* 🔧 AQUÍ SE ACTIVA EL MENÚ COMO EN CATÁLOGO */
 .nav{
 display:none;
 position:absolute;
@@ -329,14 +336,13 @@ border:1px solid #eee;
 gap:14px;
 }
 
-.nav.active{
-display:flex;
-}
-
 .menu-toggle{
 display:flex;
 }
+
 }
+
+/* ================= MOBILE SMALL ================= */
 
 @media(max-width:768px){
 
@@ -381,6 +387,11 @@ gap:30px;
 flex-direction:column;
 gap:20px;
 }
+
+.footer-bottom-right{
+text-align:left;
+}
+
 }
 
 </style>
