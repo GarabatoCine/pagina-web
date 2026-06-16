@@ -362,7 +362,26 @@ gap:20px;
 </head>
 
 <body>
+/* ACTIVAR HAMBURGUESA EN MÓVIL */
+.menu-toggle{
+display:flex;
+}
 
+.nav{
+display:none;
+flex-direction:column;
+position:absolute;
+top:74px;
+right:0;
+width:100%;
+background:#fff;
+padding:20px;
+border-bottom:1px solid #eee;
+}
+
+.nav.active{
+display:flex;
+}
 <!-- HEADER -->
 <div class="header">
 
