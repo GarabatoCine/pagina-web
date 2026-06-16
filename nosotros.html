@@ -10,6 +10,8 @@
 
 <style>
 
+/* ================= RESET ================= */
+
 *{
 margin:0;
 padding:0;
@@ -71,6 +73,8 @@ text-decoration:none;
 font-weight:500;
 }
 
+/* ================= HAMBURGUESA ================= */
+
 .menu-toggle{
 display:none;
 flex-direction:column;
@@ -85,18 +89,15 @@ background:#000;
 display:block;
 }
 
-/* LANG SWITCH */
-.lang .active{opacity:0.45;}
-.lang a{text-decoration:none;}
-.lang a:hover{opacity:0.7;}
-
 /* ================= CONTENIDO ================= */
 
-.page-content{width:100%;}
+.page-content{
+width:100%;
+}
 
 .intro-text{
 max-width:1100px;
-margin:70px auto 50px;
+margin:70px auto 50px auto;
 padding:0 40px;
 text-align:center;
 font-family:'Playfair Display', serif;
@@ -105,11 +106,22 @@ line-height:1.6;
 color:#666;
 }
 
+.banner{
+max-width:1400px;
+margin:0 auto;
+padding:0 40px;
+}
+
+.banner img{
+width:100%;
+display:block;
+}
+
 /* ================= FESTIVALES ================= */
 
 .festivals{
 max-width:1400px;
-margin:70px auto 20px;
+margin:70px auto 20px auto;
 padding:0 40px;
 }
 
@@ -140,7 +152,9 @@ grid-template-columns:repeat(2,1fr);
 gap:60px;
 }
 
-.person{text-align:center;}
+.person{
+text-align:center;
+}
 
 .person img{
 width:100%;
@@ -149,6 +163,23 @@ height:420px;
 object-fit:cover;
 margin:0 auto 20px;
 display:block;
+}
+
+.person h3{
+font-family:'Playfair Display', serif;
+font-size:20px;
+margin-bottom:10px;
+color:#111;
+}
+
+.person p{
+font-family:'Playfair Display', serif;
+font-size:16px;
+line-height:1.6;
+text-align:justify;
+max-width:420px;
+margin:0 auto;
+color:#666;
 }
 
 /* ================= GALLERY ================= */
@@ -168,58 +199,101 @@ flex-direction:column;
 gap:20px;
 }
 
+.gallery img{
+width:100%;
+height:auto;
+display:block;
+object-fit:contain;
+}
+
 /* ================= FOOTER ================= */
 
 .footer{
 background:#000;
-color:white;
+color:#fff;
 padding:70px 160px;
+}
+
+.footer a{
+color:#fff;
+}
+
+.footer-row{
+display:flex;
+justify-content:space-between;
+}
+
+.footer-bottom{
+display:flex;
+justify-content:space-between;
+margin-top:30px;
 }
 
 /* ================= MOBILE ================= */
 
 @media(max-width:768px){
 
-body{padding-top:82px;}
-
-.header{padding:16px 22px;}
-
-/* HAMBURGUESA CORRECTA */
-.menu-toggle{
-display:flex;
-flex-direction:column;
-gap:4px;
-cursor:pointer;
+body{
+padding-top:82px;
 }
 
-/* MENÚ OCULTO POR DEFECTO */
+.header{
+padding:16px 22px;
+}
+
+/* 👇 IMPORTANT: GALERÍA CORRECTA EN MÓVIL */
+.gallery{
+grid-template-columns:1fr;
+}
+
+/* 👇 PERSONAS EN COLUMNA (uno debajo del otro) */
+.people{
+grid-template-columns:1fr;
+}
+
+/* 👇 FESTIVALES MEJORADOS */
+.festival-row{
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+/* 👇 FOOTER MOBILE */
+.footer{
+padding:50px 40px;
+}
+
+.footer-row{
+flex-direction:column;
+gap:30px;
+}
+
+.footer-bottom{
+flex-direction:column;
+gap:20px;
+}
+
+/* ================= HAMBURGUESA CORRECTA ================= */
+
+.menu-toggle{
+display:flex;
+}
+
 .nav{
 display:none;
-flex-direction:column;
 position:absolute;
 top:74px;
 right:0;
-background:#fff;
 width:100%;
+background:#fff;
+flex-direction:column;
 padding:20px;
 border-top:1px solid #eee;
 }
 
-/* MENÚ ACTIVO */
 .nav.active{
 display:flex;
 }
 
-/* RESTO SIN CAMBIOS */
-.intro-text{font-size:18px;padding:0 25px;}
-
-.festivals{padding:0 20px;}
-
-.festival-row{grid-template-columns:repeat(3,1fr);gap:25px;}
-
-.people{grid-template-columns:1fr;}
-
-.footer{padding:50px 40px;}
 }
 
 </style>
@@ -227,6 +301,7 @@ display:flex;
 
 <body>
 
+<!-- HEADER -->
 <div class="header">
 
 <div class="logo">
@@ -238,19 +313,56 @@ display:flex;
 </div>
 
 <div class="nav" id="mobileMenu">
+
 <a href="catalogo.html">CATÁLOGO</a>
 <a href="contacto.html">CONTACTO</a>
 
-<div class="lang">
-<span class="active">ES</span>
-<span>|</span>
-<a href="#">EN</a>
 </div>
+</div>
+
+<!-- CONTENIDO -->
+<div class="page-content">
+
+<div class="intro-text">
+Hacemos cine desde el Caribe Colombiano...
+</div>
+
+<div class="banner">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/banner-afiche.jpg?raw=true">
+</div>
+
+<!-- FESTIVALES -->
+<div class="festivals">
+<div class="festival-row">
+<!-- logos -->
+</div>
+</div>
+
+<!-- PERSONAS -->
+<div class="people">
+
+<div class="person">
+<img src="...">
+<h3>DAVID DAVID</h3>
+<p>Texto...</p>
+</div>
+
+<div class="person">
+<img src="...">
+<h3>CAROLINA DAVID</h3>
+<p>Texto...</p>
 </div>
 
 </div>
 
-<!-- TODO LO DEMÁS QUEDA IGUAL -->
+<!-- GALERÍA -->
+<div class="gallery">
+<div class="gallery-col"></div>
+<div class="gallery-col"></div>
+<div class="gallery-col"></div>
+</div>
+
+</div>
 
 <script>
 function toggleMenu(){
