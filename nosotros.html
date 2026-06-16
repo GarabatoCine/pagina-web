@@ -274,32 +274,24 @@ gap:20px;
 
 /* ================= HAMBURGUESA CORRECTA ================= */
 
-.menu-toggle{
-display:flex;
-}
+<div class="menu-toggle" onclick="toggleMenu()">
+<span></span>
+<span></span>
+</div>
 
-.nav{
-display:none;
-position:absolute;
-top:74px;
-right:0;
-width:100%;
-background:#fff;
-flex-direction:column;
-padding:20px;
-border-top:1px solid #eee;
-}
+<div class="nav" id="mobileMenu">
 
-.nav.active{
-display:flex;
-}
+<a href="catalogo.html">CÁTALOGO</a>
+<a href="contacto.html">CONTACTO</a>
 
-}
+<div class="lang">
+<span class="active">ES</span>
+<span>|</span>
+<a href="#">EN</a>
+</div>
 
-</style>
-</head>
-
-<body>
+</div>
+</div>
 
 <!-- HEADER -->
 <div class="header">
