@@ -27,7 +27,7 @@
             color: white;
         }
 
-        /* HEADER */
+        /* HEADER (Sin texto de marca) */
         .header {
             position: absolute;
             top: 0;
@@ -36,15 +36,8 @@
             padding: 40px 60px;
             z-index: 100;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end; /* Alinea el menú a la derecha al no haber logo */
             align-items: center;
-        }
-
-        .logo {
-            font-family: 'Oswald', sans-serif;
-            font-weight: 500;
-            font-size: 22px;
-            letter-spacing: 2px;
         }
 
         .nav {
@@ -85,7 +78,7 @@
             z-index: 110;
         }
 
-        /* BANNER */
+        /* BANNER Y AJUSTES DE TEXTO SOLICITADOS */
         .banner-container {
             width: 100%;
             position: relative;
@@ -101,28 +94,39 @@
 
         .banner-text-overlay {
             position: absolute;
-            top: 45%;
+            bottom: 12%; /* Bajado de la mitad hacia la parte inferior del banner */
             left: 60px;
-            transform: translateY(-50%);
             z-index: 10;
             max-width: 700px;
         }
 
+        /* Título Próximamente más pequeño */
         .banner-text-overlay h1 {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(45px, 7vw, 100px);
+            font-size: clamp(30px, 4.5vw, 55px); 
             font-weight: 700;
-            line-height: 1.05;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
+            line-height: 1.1;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
             color: #FFF;
+            text-transform: uppercase;
         }
 
+        /* Subrayado exclusivo de las dos primeras letras */
+        .subrayado-amarillo {
+            border-bottom: 4px solid #C49A3A;
+            padding-bottom: 2px;
+            display: inline-block;
+            line-height: 0.9;
+        }
+
+        /* Subtexto con tamaño reducido */
         .banner-text-overlay p {
-            font-size: clamp(16px, 2.2vw, 22px);
+            font-size: clamp(13px, 1.4vw, 16px);
             line-height: 1.5;
             font-weight: 300;
-            color: #E2E2E2;
+            color: #CCCCCC;
+            letter-spacing: 0.5px;
         }
 
         /* CUERPO DE LA PÁGINA */
@@ -440,7 +444,6 @@
             margin-bottom: 6px;
         }
 
-        /* Letra responsiva dinámica para que quepa siempre en una sola línea */
         .columna-izquierda p {
             font-size: clamp(10px, 1.2vw, 13px);
             color: #888888;
@@ -475,14 +478,10 @@
             line-height: 1.6;
         }
 
-        /* RESPONSIVE DISPOSITIVOS (TABLETS ABAJO DE 1024px) */
+        /* RESPONSIVE DISPOSITIVOS (TABLETS) */
         @media(max-width: 1024px) {
-            /* Activamos Menú Hamburguesa para Tablets y Móviles */
             .header { 
                 padding: 30px 40px; 
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
             }
             
             .menu-toggle { 
@@ -509,24 +508,26 @@
                 display: flex; 
             }
 
+            .banner-text-overlay {
+                left: 40px;
+                bottom: 10%;
+            }
+
             .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
-            
-            /* Se mantienen firmes las dos columnas */
             .fila-dos-columnas { grid-template-columns: 1fr 1fr; gap: 30px; }
             .featured-project { grid-template-columns: 1.1fr 0.9fr; gap: 30px; }
             .card img { height: 340px; }
             .gallery-thumbs img { height: 80px; }
         }
 
-        /* RESPONSIVE EXCLUSIVO PARA MÓVILES CHICOS (Menos de 767px) */
+        /* RESPONSIVE EXCLUSIVO PARA MÓVILES CHICOS */
         @media(max-width: 767px) {
             .header { padding: 30px 25px; }
             .nav { right: 25px; }
 
-            .banner-text-overlay { left: 25px; bottom: 5%; top: auto; transform: none; }
+            .banner-text-overlay { left: 25px; bottom: 8%; }
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
             
-            /* Pasa a una columna solo en celulares muy pequeños */
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .featured-project { grid-template-columns: 1fr; }
             .card img { height: 240px; }
@@ -534,7 +535,6 @@
             .meta-info-grid { grid-template-columns: 1fr; gap: 15px; padding-top: 15px; }
             .meta-col { border-left: none; padding-left: 0; }
 
-            /* Footer se adapta en bloque vertical manteniendo la reducción de texto */
             .fila-tres-columnas {
                 flex-direction: column;
                 gap: 25px;
@@ -544,7 +544,7 @@
                 text-align: center;
             }
             .columna-izquierda p {
-                font-size: 11px; /* Fijado pequeño y legible en móvil */
+                font-size: 11px;
             }
         }
     </style>
@@ -552,8 +552,6 @@
 <body>
 
     <header class="header">
-        <div class="logo">GARABATO CINE</div>
-        
         <button class="menu-toggle" id="menuBtn">
             <i class="fa-solid fa-bars"></i>
         </button>
@@ -572,8 +570,8 @@
     <div class="banner-container">
         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/banner-proximamente1.png?raw=true" alt="Banner Principal">
         <div class="banner-text-overlay">
-            <h1>PRÓXIMAMENTE</h1>
-            <p>Nuevas historias en camino.<br>Desde el Caribe, para el mundo.</p>
+            <h1><span class="subrayado-amarillo">PR</span>ÓXIMAMENTE</h1>
+            <p>Nuevas historias en camino. Desde el Caribe, para el mundo.</p>
         </div>
     </div>
 
