@@ -229,25 +229,25 @@ align-self:flex-end;
 
 .sitio-footer {
 background-color: #000000;
-/* Ajustado para que coincida con el padding lateral de .contact-wrapper (180px) */
+/* Alinear exactamente con los 180px de padding lateral de .contact-wrapper */
 padding: 40px 180px;
 border-top: 1px solid #1a1a1a;
 width: 100%;
 }
 
 .fila-tres-columnas {
-/* Ajustado para que coincida con el max-width de .contact-wrapper (1600px menos los paddings laterales) */
 max-width: 1600px;
 margin: 0 auto;
 display: flex;
 justify-content: space-between;
 align-items: center;
+position: relative;
 }
 
 .columna-izquierda {
 text-align: left;
-flex: 1;
-/* Compensamos el padding interno de .contact-left (60px) para perfecta alineación */
+/* Anulamos el flex para controlar el ancho exacto y compensar los 60px de .contact-left */
+width: calc(50% - 60px); 
 padding-left: 60px;
 }
 
@@ -270,7 +270,9 @@ white-space: nowrap;
 display: flex;
 justify-content: center;
 gap: 25px;
-flex: 1;
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
 }
 
 .columna-central a {
@@ -285,8 +287,8 @@ color: #FFC601;
 
 .columna-derecha {
 text-align: right;
-flex: 1;
-/* Compensamos el padding interno de .contact-right (60px) para perfecta alineación */
+/* Anulamos el flex para controlar el ancho exacto y compensar los 60px de .contact-right */
+width: calc(50% - 60px);
 padding-right: 60px;
 }
 
@@ -411,19 +413,27 @@ font-size:14px;
 }
 
 .sitio-footer {
-padding: 40px 40px; /* En móviles/tablets se mantiene adaptable como lo tenías */
+padding: 40px 40px;
 }
 
 .fila-tres-columnas {
 flex-direction: column;
 gap: 25px;
 text-align: center;
+width: 100% !important;
 }
 
 .columna-izquierda, .columna-derecha {
 text-align: center;
-padding-left: 0;  /* Quitamos el offset de PC para que centre bien en móvil */
-padding-right: 0;
+padding-left: 0 !important;
+padding-right: 0 !important;
+width: 100% !important;
+}
+
+.columna-central {
+position: relative;
+left: auto;
+transform: none;
 }
 
 .columna-derecha {
@@ -498,12 +508,20 @@ padding: 40px 25px;
 flex-direction: column;
 gap: 25px;
 text-align: center;
+width: 100% !important;
 }
 
 .columna-izquierda, .columna-derecha {
 text-align: center;
-padding-left: 0;
-padding-right: 0;
+padding-left: 0 !important;
+padding-right: 0 !important;
+width: 100% !important;
+}
+
+.columna-central {
+position: relative;
+left: auto;
+transform: none;
 }
 
 .columna-derecha {
