@@ -263,8 +263,17 @@ white-space: nowrap;
 }
 
 .columna-central {
-/* Se mantiene el espacio equivalente o vacío para que la derecha e izquierda fluyan correctamente */
+display: flex;
+justify-content: center;
+gap: 25px;
 flex: 1;
+opacity: 0; /* Oculto en escritorio, pero manteniendo el espacio en flex */
+pointer-events: none;
+}
+
+.columna-central a {
+color: #ffffff;
+font-size: 18px;
 }
 
 .columna-derecha {
@@ -395,18 +404,37 @@ padding: 40px 40px;
 .fila-tres-columnas {
 flex-direction: column;
 gap: 25px;
-text-align: center;
+text-align: left; /* Alineado a la izquierda general en móviles para evitar que se rompa */
 }
 
+/* Revertimos el centrado en móvil y tablet, posicionando izquierda y derecha bien distribuidos */
 .columna-izquierda, .columna-derecha {
-text-align: center;
+text-align: left;
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
 }
 
 .columna-derecha {
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 5px;
+align-items: flex-start;
+}
+
+.columna-central {
+opacity: 1; /* Mostramos las redes sociales en el centro para móviles y tablets */
+pointer-events: auto;
+justify-content: flex-start; /* Alineado a la izquierda o centrado según el contenedor flex */
+margin: 5px 0;
+}
+
+.columna-central a {
+color: #ffffff;
+font-size: 20px;
+transition: color 0.3s ease;
+}
+
+.columna-central a:hover {
+color: #FFC601;
 }
 
 .columna-derecha .link-linea-1 {
@@ -473,18 +501,36 @@ padding: 40px 25px;
 .fila-tres-columnas {
 flex-direction: column;
 gap: 25px;
-text-align: center;
+text-align: left;
 }
 
 .columna-izquierda, .columna-derecha {
-text-align: center;
+text-align: left;
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
 }
 
 .columna-derecha {
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 5px;
+align-items: flex-start;
+}
+
+.columna-central {
+opacity: 1;
+pointer-events: auto;
+justify-content: flex-start;
+margin: 5px 0;
+}
+
+.columna-central a {
+color: #ffffff;
+font-size: 20px;
+transition: color 0.3s ease;
+}
+
+.columna-central a:hover {
+color: #FFC601;
 }
 
 .columna-derecha .link-linea-1 {
@@ -520,6 +566,7 @@ order: 3;
 <a href="catalogo.html">PROYECTOS</a>
 <a href="proximamente.html">PRÓXIMAMENTE</a>
 <a href="nosotros.html">NOSOTROS</a>
+<a href="contacto.html">CONTACTO</a>
   
 <div class="lang">
 <span class="active">ES</span>
@@ -609,7 +656,11 @@ Contacto
             <p>Cine hecho desde el Caribe colombiano.</p>
         </div>
         
-        <div class="columna-central"></div>
+        <div class="columna-central">
+            <a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="http://www.youtube.com/channel/UC4vuld7vS7GhKcBf2dv0fJw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        </div>
         
         <div class="columna-derecha">
             <p class="link-linea-1"><a href="privacidadycookies.html" class="footer-link-normal" target="_blank">Privacidad y cookies</a></p>
