@@ -61,13 +61,18 @@ text-decoration:none;
 .nav{
 display:flex;
 align-items:center;
-gap:18px;
+gap:25px; /* Ligeramente más espaciado para que se vea completo */
 font-size:13px;
 }
 
 .nav a{
 text-decoration:none;
 font-weight:500;
+}
+
+.lang{
+display:flex;
+gap: 6px;
 }
 
 .lang .active{
@@ -113,7 +118,6 @@ background:#000;
 color:#fff;
 }
 
-/* Contenedor principal restaurado a sus 180px originales */
 .contact-wrapper{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -189,7 +193,6 @@ margin:0 0 25px;
 .contact-form{
 display:flex;
 flex-direction:column;
-gap:120px; /* Separación interna restaurada */
 gap:12px;
 }
 
@@ -227,22 +230,27 @@ cursor:pointer;
 align-self:flex-end;
 }
 
-/* ================= FOOTER (SINCRONIZADO AL PIXEL CON EL CUERPO) ================= */
+/* ================= FOOTER (CONFIGURADO EN 240px PARA MONITORES) ================= */
 
 .sitio-footer {
 background-color: #000000;
 border-top: 1px solid #1a1a1a;
 width: 100%;
-padding: 40px 0; /* Eliminamos márgenes laterales por defecto */
+padding: 40px 0;
 }
 
 .fila-tres-columnas {
-max-width: 1600px; /* Hereda el mismo ancho máximo del formulario */
+max-width: 1600px;
 margin: 0 auto;
-padding: 0 240px; /* Fuerza el margen lateral exacto de 240px como .contact-wrapper */
 display: flex;
 justify-content: space-between;
 align-items: center;
+}
+
+@media (min-width: 1025px) {
+    .fila-tres-columnas {
+        padding: 0 240px; /* Ajuste manual confirmado por ti */
+    }
 }
 
 .columna-izquierda {
@@ -358,7 +366,7 @@ height:240px;
 .contact-wrapper{
 grid-template-columns:1fr;
 gap:35px;
-padding:30px 60px 50px; /* Padding de 60px en tablets */
+padding:30px 60px 50px;
 }
 
 .contact-left,
@@ -411,7 +419,7 @@ padding: 40px 0;
 }
 
 .fila-tres-columnas {
-padding: 0 60px; /* Sincronizado con los 60px de tablet */
+padding: 0 60px;
 flex-direction: column;
 gap: 25px;
 text-align: center;
@@ -457,7 +465,7 @@ height:220px;
 }
 
 .contact-wrapper{
-padding:35px 24px 60px; /* Padding de 24px en móviles */
+padding:35px 24px 60px;
 gap:35px;
 }
 
@@ -491,7 +499,7 @@ padding: 40px 0;
 }
 
 .fila-tres-columnas {
-padding: 0 24px; /* Sincronizado con los 24px de móvil */
+padding: 0 24px;
 flex-direction: column;
 gap: 25px;
 text-align: center;
@@ -528,26 +536,28 @@ order: 3;
 
 <div class="header">
 
-<div class="logo">
-<a href="index.html">GARABATO CINE</a>
-</div>
+    <div class="logo">
+        <a href="index.html">GARABATO CINE</a>
+    </div>
 
-<div class="menu-toggle" onclick="toggleMenu()">
-<span></span>
-<span></span>
-<span></span>
-</div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-<div class="nav" id="mobileMenu">
-<a href="catalogo.html">CATÁLOGO</a>
-<a href="contacto.html">CONTACTO</a>
-  
-<div class="lang">
-<span class="active">ES</span>
-<span>|</span>
-<a href="#">EN</a>
-</div>
-</div>
+    <div class="nav" id="mobileMenu">
+        <a href="proyectos.html">PROYECTOS</a>
+        <a href="proximamente.html">PRÓXIMAMENTE</a>
+        <a href="nosotros.html">NOSOTROS</a>
+        <a href="contacto.html">CONTACTO</a>
+      
+        <div class="lang">
+            <span class="active">ES</span>
+            <span>|</span>
+            <a href="#">EN</a>
+        </div>
+    </div>
 
 </div>
 
