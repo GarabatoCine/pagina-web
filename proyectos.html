@@ -26,7 +26,7 @@ body{
 font-family:'Roboto', sans-serif;
 background:#fff;
 color:#999;
-padding-top:74px; /* Ajuste preciso para eliminar el espacio superior */
+padding-top:74px; /* Mantiene la altura calculada del header */
 }
 
 /* ================= HEADER ================= */
@@ -174,11 +174,7 @@ opacity:0.45;
 
 .video-block{
 position:relative;
-margin-top:18px;
-}
-
-.video-block:first-of-type{
-margin-top:0;
+margin-top: 0px; /* AQUÍ SE QUITÓ EL ESPACIO PARA QUE PEGUE ARRIBA */
 }
 
 .video-block video{
@@ -339,7 +335,7 @@ color: #FFC601;
 @media(max-width:1024px){
 
 body{
-padding-top:86px;
+padding-top:86px; /* Ajuste para menú hamburguesa tablet */
 }
 
 .nav{
@@ -367,7 +363,7 @@ padding: 40px 40px;
 @media(max-width:768px){
 
 body{
-padding-top:82px;
+padding-top:82px; /* Ajuste para menú hamburguesa móvil */
 }
 
 .header{
