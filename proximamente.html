@@ -27,7 +27,7 @@
             color: white;
         }
 
-        /* HEADER (Con nombre de marca a la izquierda y menú intacto a la derecha) */
+        /* HEADER */
         .header {
             position: absolute;
             top: 0;
@@ -36,7 +36,7 @@
             padding: 40px 60px;
             z-index: 100;
             display: flex;
-            justify-content: space-between; /* Alinea marca a la izquierda y menú a la derecha */
+            justify-content: space-between;
             align-items: center;
         }
 
@@ -47,6 +47,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: white;
+            transition: all 0.3s ease;
         }
 
         .nav {
@@ -87,7 +88,7 @@
             z-index: 110;
         }
 
-        /* BANNER Y AJUSTES DE TEXTO SOLICITADOS */
+        /* BANNER */
         .banner-container {
             width: 100%;
             position: relative;
@@ -109,27 +110,24 @@
             max-width: 700px;
         }
 
-        /* Título Próximamente ajustado */
         .banner-text-overlay h1 {
             font-family: 'Oswald', sans-serif;
             font-size: clamp(32px, 5vw, 64px); 
             font-weight: 700;
             line-height: 1.1;
             letter-spacing: 2px;
-            margin-bottom: 25px; /* Más espacio respecto al subtexto */
+            margin-bottom: 25px;
             color: #FFF;
             text-transform: uppercase;
         }
 
-        /* Subrayado separado de la palabra */
         .subrayado-amarillo {
             border-bottom: 4px solid #C49A3A;
-            padding-bottom: 12px; /* Espacio separado solicitado */
+            padding-bottom: 12px;
             display: inline-block;
             line-height: 0.9;
         }
 
-        /* Subtexto con tamaño reducido */
         .banner-text-overlay p {
             font-size: clamp(14px, 1.5vw, 18px);
             line-height: 1.6;
@@ -490,7 +488,11 @@
         /* RESPONSIVE DISPOSITIVOS (TABLETS) */
         @media(max-width: 1024px) {
             .header { 
-                padding: 30px 40px; 
+                padding: 20px 40px; 
+            }
+
+            .brand-logo {
+                font-size: 18px; 
             }
             
             .menu-toggle { 
@@ -501,7 +503,7 @@
                 display: none; 
                 flex-direction: column;
                 position: absolute;
-                top: 90px;
+                top: 70px; 
                 right: 40px;
                 background: rgba(10, 10, 10, 0.98);
                 border: 1px solid #222;
@@ -517,9 +519,11 @@
                 display: flex; 
             }
 
+            /* Mantiene el texto abajo de la mitad del banner */
             .banner-text-overlay {
                 left: 40px;
                 bottom: 10%;
+                top: auto;
             }
 
             .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
@@ -531,10 +535,24 @@
 
         /* RESPONSIVE EXCLUSIVO PARA MÓVILES CHICOS */
         @media(max-width: 767px) {
-            .header { padding: 30px 25px; }
-            .nav { right: 25px; }
+            .header { 
+                padding: 15px 25px; 
+            }
 
-            .banner-text-overlay { left: 25px; bottom: 8%; }
+            .brand-logo {
+                font-size: 16px; 
+                letter-spacing: 1px;
+            }
+
+            .nav { right: 25px; top: 60px; }
+
+            /* Fuerza al título a quedarse estrictamente abajo de la mitad en pantallas verticales */
+            .banner-text-overlay { 
+                left: 25px; 
+                bottom: 8%; 
+                top: auto;
+            }
+            
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
             
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
@@ -561,7 +579,7 @@
 <body>
 
     <header class="header">
-        <div class="brand-logo">GRABATO CINE</div>
+        <div class="brand-logo">GARABATO CINE</div>
 
         <button class="menu-toggle" id="menuBtn">
             <i class="fa-solid fa-bars"></i>
@@ -582,7 +600,7 @@
         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/banner-proximamente1.png?raw=true" alt="Banner Principal">
         <div class="banner-text-overlay">
             <h1><span class="subrayado-amarillo">PR</span>ÓXIMAMENTE</h1>
-            <p>Nuevos proyectos en camino.<br>Historias que nacen desde el Caribe para dialogar con el mundo.</p>
+            <p>Nuevas proyectos en camino.<br>Historias que nacen desde el Caribe<br>para dialogar con el mundo.</p>
         </div>
     </div>
 
@@ -603,7 +621,7 @@
                     <div class="status-tag">PRÓXIMO ESTRENO</div>
                     <h2>MADRE SEMILLA</h2>
                     <div class="subtitle-yellow">Largometraje de ficción</div>
-                    <p class="synopsis">En lo profundo del Caribe, una mujer defiende su territorio y su herencia cuando la tierra que la vio crecer comienza a ser devorada.</p>
+                    <p class="synopsis">En lo profundo del Caribe, una mujer defiende su territory y su herencia cuando la tierra que la vio crecer comienza a ser devorada.</p>
 
                     <div class="meta-info-grid">
                         <div class="meta-col">
