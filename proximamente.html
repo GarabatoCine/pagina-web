@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Próximamente - Garabato Cine</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght=400;500;700&family=Roboto:wght=300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -102,14 +102,13 @@
             filter: brightness(0.65);
         }
 
-        /* El contenedor ahora empuja desde abajo hacia arriba */
-      .banner-text-overlay {
+        .banner-text-overlay {
             position: absolute;
             bottom: 0; /* Al ras del margen inferior del banner */
             left: 60px;
             z-index: 10;
             max-width: 700px;
-            padding-bottom: 25px; /* Espacio mínimo exacto entre el subtexto y el borde inferior */
+            padding-bottom: 25px; /* Espacio mínimo controlado respecto al fondo */
         }
 
         .banner-text-overlay h1 {
@@ -118,7 +117,7 @@
             font-weight: 700;
             line-height: 1.1;
             letter-spacing: 2px;
-            margin-bottom: 20px; /* Espacio controlado entre título y subtexto */
+            margin-bottom: 20px;
             color: #FFF;
             text-transform: uppercase;
         }
@@ -132,7 +131,7 @@
 
         .banner-text-overlay p {
             font-size: clamp(14px, 1.5vw, 18px);
-            line-height: 1.35; /* Interlineado comprimido de forma equilibrada */
+            line-height: 1.35; 
             font-weight: 300;
             color: #CCCCCC;
             letter-spacing: 0.5px;
@@ -521,10 +520,12 @@
                 display: flex; 
             }
 
+            /* Asegura que en tablets permanezca abajo de la mitad */
             .banner-text-overlay {
                 left: 40px;
-                bottom: 5%;
+                bottom: 0; /* Modificado para ajustar al ras inferior */
                 top: auto;
+                padding-bottom: 25px; /* Proporción limpia controlada */
             }
 
             .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
@@ -547,10 +548,12 @@
 
             .nav { right: 25px; top: 60px; }
 
+            /* Garantiza que el título y subtexto arranquen de la mitad hacia abajo en celulares */
             .banner-text-overlay { 
                 left: 25px; 
-                bottom: 5%; 
+                bottom: 0; /* Modificado para ajustar al ras inferior */
                 top: auto;
+                padding-bottom: 20px; /* Adaptación limpia a pantalla chica */
             }
             
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
