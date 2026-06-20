@@ -15,7 +15,7 @@ box-sizing:border-box;
 html, body{
 width:100%;
 overflow-x:hidden;
-scroll-behavior: smooth; /* Para un scroll suave al recargar */
+scroll-behavior: smooth;
 }
 body{
 font-family:'Roboto', sans-serif;
@@ -224,7 +224,7 @@ height:420px;
 object-fit:cover;
 margin:0 auto 20px;
 display:block;
-transition: transform 0.3s ease; /* Pequeño efecto suave al cargar */
+transition: transform 0.3s ease;
 }
 .person h3{
 font-family: 'Oswald', sans-serif;
@@ -329,16 +329,17 @@ body{padding-top:86px;}
 .festival-row{ grid-template-columns:repeat(3,1fr); gap:25px; }
 .people{ grid-template-columns:1fr; gap: 40px; }
 .person img { 
-    max-width: 75%; /* Ajuste de ancho para mantener proporción y margen */
-    height: auto; /* Altura automática para que no se corte la cabeza */
-    object-fit: contain; /* Asegura que la imagen quepa sin cortarse */
-    margin: 0 auto 20px; /* Centrada con margen */
+    max-width: 75%; 
+    height: auto; 
+    object-fit: contain; 
+    margin: 0 auto 20px; 
 }
 .person p { 
-    text-align: center; /* Alineación centrada para móvil como pediste, pero con buen margen */
-    padding: 0 40px; 
+    text-align: justify; /* Texto justificado para que no se vea desalineado */
+    padding: 0 40px; /* Márgenes laterales aumentados para que quede dentro del ancho de la foto */
     max-width: 100%;
     font-size: 16px; 
+    word-break: break-word;
 }
 .gallery { columns: 2; column-gap: 15px; padding: 0 20px; display: block;}
 .gallery img { break-inside: avoid; margin-bottom: 15px; width: 100%; display: block;}
@@ -515,13 +516,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById("mobileMenu");
 
     if (hambBtn && mobileMenu) {
-        // Toggle del menú al hacer clic en la hamburguesa
         hambBtn.addEventListener("click", (event) => {
-            event.stopPropagation(); // Evita que se cierre inmediatamente
+            event.stopPropagation(); 
             mobileMenu.classList.toggle("active");
         });
 
-        // Cierra el menú al hacer clic fuera de él
         document.addEventListener('click', (event) => {
             if (mobileMenu.classList.contains("active") && 
                 !mobileMenu.contains(event.target) && 
@@ -530,19 +529,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Evita que clics dentro del menú lo cierren
         mobileMenu.addEventListener('click', (event) => {
             event.stopPropagation();
         });
     }
 });
 
-// Forzar el scroll a la parte superior al recargar la página
 if (history.scrollRestoration) {
-    history.scrollRestoration = 'manual'; // Desactiva la restauración automática del scroll
+    history.scrollRestoration = 'manual'; 
 }
 window.onload = function() {
-    window.scrollTo(0, 0); // Desplaza al top al cargar
+    window.scrollTo(0, 0); 
 };
 </script>
 </body>
