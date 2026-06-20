@@ -125,7 +125,7 @@
             color: #E2E2E2;
         }
 
-        /* CUERPO DE LA PÁGINA (ESTRUCTURA DE DOS COLUMNAS DE EXTREMO A EXTREMO) */
+        /* CUERPO DE LA PÁGINA */
         .web-container {
             width: 100%;
         }
@@ -148,14 +148,12 @@
             text-transform: uppercase;
         }
 
-        /* Forzamos que se mantengan 2 columnas en PC y Tablets */
         .fila-dos-columnas {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
         }
 
-        /* Proporciones específicas para Madre Semilla */
         .featured-project {
             grid-template-columns: 1.1fr 0.9fr;
             gap: 50px;
@@ -413,12 +411,10 @@
             color: #000;
         }
 
-        /* ==========================================
-           DISTRIBUCIÓN HORIZONTAL ESTRICTA DEL FOOTER
-           ========================================== */
+        /* FOOTER BASE */
         .sitio-footer {
             background-color: #000000;
-            padding: 60px;
+            padding: 40px 60px;
             border-top: 1px solid #1a1a1a;
             width: 100%;
         }
@@ -444,9 +440,11 @@
             margin-bottom: 6px;
         }
 
+        /* Letra responsiva dinámica para que quepa siempre en una sola línea */
         .columna-izquierda p {
-            font-size: 13px;
+            font-size: clamp(10px, 1.2vw, 13px);
             color: #888888;
+            white-space: nowrap;
         }
 
         .columna-central {
@@ -477,49 +475,58 @@
             line-height: 1.6;
         }
 
-        /* RESPONSIVE PROTEGIDO PARA TABLETS Y PANTALLAS MEDIANAS (De 768px a 1024px) */
+        /* RESPONSIVE DISPOSITIVOS (TABLETS ABAJO DE 1024px) */
         @media(max-width: 1024px) {
-            .header { padding: 30px 40px; }
-            .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
-            /* Asegura las dos columnas en tablets */
-            .fila-dos-columnas { grid-template-columns: 1fr 1fr; gap: 30px; }
-            .featured-project { grid-template-columns: 1.1fr 0.9fr; gap: 30px; }
-            .card img { height: 340px; }
-            .gallery-thumbs img { height: 80px; }
-        }
-
-        /* RESPONSIVE ÚNICAMENTE PARA MÓVILES (Menos de 767px) */
-        @media(max-width: 767px) {
+            /* Activamos Menú Hamburguesa para Tablets y Móviles */
             .header { 
-                padding: 30px 25px; 
-                flex-direction: row; 
-                justify-content: flex-end; 
+                padding: 30px 40px; 
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
             
-            .logo { display: none; }
-            .menu-toggle { display: block; }
+            .menu-toggle { 
+                display: block; 
+            }
 
             .nav {
                 display: none; 
                 flex-direction: column;
                 position: absolute;
                 top: 90px;
-                right: 25px;
-                background: rgba(10, 10, 10, 0.95);
+                right: 40px;
+                background: rgba(10, 10, 10, 0.98);
                 border: 1px solid #222;
                 padding: 30px;
                 gap: 25px;
                 align-items: flex-start;
-                width: 200px;
-                box-shadow: 0px 10px 20px rgba(0,0,0,0.5);
+                width: 220px;
+                box-shadow: 0px 10px 30px rgba(0,0,0,0.7);
+                z-index: 200;
             }
 
-            .nav.open { display: flex; }
+            .nav.open { 
+                display: flex; 
+            }
+
+            .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
+            
+            /* Se mantienen firmes las dos columnas */
+            .fila-dos-columnas { grid-template-columns: 1fr 1fr; gap: 30px; }
+            .featured-project { grid-template-columns: 1.1fr 0.9fr; gap: 30px; }
+            .card img { height: 340px; }
+            .gallery-thumbs img { height: 80px; }
+        }
+
+        /* RESPONSIVE EXCLUSIVO PARA MÓVILES CHICOS (Menos de 767px) */
+        @media(max-width: 767px) {
+            .header { padding: 30px 25px; }
+            .nav { right: 25px; }
 
             .banner-text-overlay { left: 25px; bottom: 5%; top: auto; transform: none; }
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
             
-            /* Aquí, y solo aquí en móviles, baja a una sola columna */
+            /* Pasa a una columna solo en celulares muy pequeños */
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .featured-project { grid-template-columns: 1fr; }
             .card img { height: 240px; }
@@ -527,14 +534,17 @@
             .meta-info-grid { grid-template-columns: 1fr; gap: 15px; padding-top: 15px; }
             .meta-col { border-left: none; padding-left: 0; }
 
-            /* Footer se adapta vertical solo en celulares */
+            /* Footer se adapta en bloque vertical manteniendo la reducción de texto */
             .fila-tres-columnas {
                 flex-direction: column;
-                gap: 30px;
+                gap: 25px;
                 text-align: center;
             }
             .columna-izquierda, .columna-derecha {
                 text-align: center;
+            }
+            .columna-izquierda p {
+                font-size: 11px; /* Fijado pequeño y legible en móvil */
             }
         }
     </style>
