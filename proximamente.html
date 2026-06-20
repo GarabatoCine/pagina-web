@@ -485,18 +485,18 @@
             line-height: 1.6;
         }
         
-        /* Modificación Footer Izquierda (Parte de abajo) */
+        /* Enlaces footer normales (sin subrayado ni resaltados) */
         .footer-link-normal {
             display: inline-block;
-            margin-top: 6px;
+            margin-top: 0px;
             font-size: 13px;
-            color: inherit; /* Hereda el color gris 'normalito' del párrafo base */
-            text-decoration: none; /* Quita el subrayado */
+            color: inherit; 
+            text-decoration: none; 
             transition: color 0.3s ease;
         }
 
         .footer-link-normal:hover {
-            color: #C49A3A; /* Opcional: Se pone amarillo al pasar el mouse */
+            color: #C49A3A; 
         }
 
         /* RESPONSIVE DISPOSITIVOS (TABLETS) */
@@ -535,7 +535,7 @@
 
             .banner-text-overlay {
                 left: 40px;
-                bottom: 15px; /* Ajustado para quedar casi pegado abajo en tablets */
+                bottom: 15px; 
                 top: auto;
             }
 
@@ -561,7 +561,7 @@
 
             .banner-text-overlay { 
                 left: 25px; 
-                bottom: 15px; /* Ajustado para quedar casi pegado abajo en celulares */
+                bottom: 15px; 
                 top: auto;
             }
             
@@ -588,14 +588,17 @@
             .columna-derecha {
                 text-align: center;
             }
-            /* Asegura que el enlace mantenga el orden debajo en móviles */
+            
+            /* Corrección para que el footer móvil mantenga el flujo natural de las 3 líneas */
             .columna-derecha {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                gap: 5px;
             }
-            .footer-link-normal {
-                order: 3; 
+            
+            .columna-derecha p {
+                order: unset;
             }
         }
     </style>
