@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Próximamente - Garabato Cine</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght=400;500;700&family=Roboto:wght=300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -102,12 +102,15 @@
             filter: brightness(0.65);
         }
 
+        /* El contenedor ahora empuja desde abajo hacia arriba */
         .banner-text-overlay {
             position: absolute;
-            bottom: 12%; 
+            bottom: 5%; /* Subtexto pegado al margen inferior */
             left: 60px;
             z-index: 10;
             max-width: 700px;
+            display: flex;
+            flex-direction: column-reverse; /* El título se posiciona arriba del subtexto */
         }
 
         .banner-text-overlay h1 {
@@ -116,7 +119,7 @@
             font-weight: 700;
             line-height: 1.1;
             letter-spacing: 2px;
-            margin-bottom: 25px;
+            margin-bottom: 20px; /* Espacio controlado entre título y subtexto */
             color: #FFF;
             text-transform: uppercase;
         }
@@ -130,7 +133,7 @@
 
         .banner-text-overlay p {
             font-size: clamp(14px, 1.5vw, 18px);
-            line-height: 1.6;
+            line-height: 1.35; /* Interlineado comprimido de forma equilibrada */
             font-weight: 300;
             color: #CCCCCC;
             letter-spacing: 0.5px;
@@ -519,10 +522,9 @@
                 display: flex; 
             }
 
-            /* Mantiene el texto abajo de la mitad del banner */
             .banner-text-overlay {
                 left: 40px;
-                bottom: 10%;
+                bottom: 5%;
                 top: auto;
             }
 
@@ -546,10 +548,9 @@
 
             .nav { right: 25px; top: 60px; }
 
-            /* Fuerza al título a quedarse estrictamente abajo de la mitad en pantallas verticales */
             .banner-text-overlay { 
                 left: 25px; 
-                bottom: 8%; 
+                bottom: 5%; 
                 top: auto;
             }
             
