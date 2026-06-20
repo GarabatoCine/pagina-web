@@ -22,7 +22,7 @@
             overflow-x: hidden;
             position: relative;
             min-height: 100vh;
-            padding-bottom: 150px; /* Asegura que el contenido no quede oculto bajo el footer absoluto */
+            padding-bottom: 150px; /* Espacio para que el footer no tape el contenido principal */
         }
 
         a {
@@ -91,7 +91,7 @@
             z-index: 110;
         }
 
-        /* FOOTER DISTRIBUCIÓN */
+        /* FOOTER AJUSTADO */
         .site-footer {
             background-color: #000000;
             padding: 40px 60px;
@@ -113,6 +113,7 @@
 
         .footer-left {
             text-align: left;
+            flex: 1;
         }
 
         .footer-left h4 {
@@ -122,7 +123,6 @@
             letter-spacing: 2px;
             margin-bottom: 6px;
             text-transform: uppercase;
-            color: white;
         }
 
         .footer-left p {
@@ -130,24 +130,27 @@
             color: #888888;
         }
 
-        /* Centro - Redes Sociales */
+        /* CENTRO - REDES SOCIALES */
         .footer-center {
+            flex: 1;
             display: flex;
-            gap: 25px;
+            justify-content: center;
+            gap: 20px;
         }
 
         .footer-center a {
-            color: #ffffff;
+            color: #888888;
             font-size: 20px;
-            transition: opacity 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         .footer-center a:hover {
-            opacity: 0.7;
+            color: #FFC601; /* Color amarillo corporativo */
         }
 
-        /* Derecha - Textos legales */
+        /* DERECHA - PRIVACIDAD Y DERECHOS */
         .footer-right {
+            flex: 1;
             text-align: right;
         }
 
@@ -155,14 +158,18 @@
             font-size: 13px;
             color: #888888;
             line-height: 1.6;
+            transition: color 0.3s ease;
         }
 
         .footer-right a:hover {
             color: white;
-            text-decoration: underline;
         }
 
-        /* RESPONSIVE DISPOSITIVOS (TABLETS) */
+        .footer-links {
+            margin-bottom: 4px;
+        }
+
+        /* RESPONSIVE DISPOSITIVOS (TABLETS Y MÓVILES) */
         @media(max-width: 1024px) {
             .header { 
                 padding: 20px 40px; 
@@ -197,7 +204,6 @@
             }
         }
 
-        /* RESPONSIVE MÓVILES */
         @media(max-width: 767px) {
             .header { 
                 padding: 15px 25px; 
@@ -210,6 +216,7 @@
 
             .nav { right: 25px; top: 60px; }
 
+            /* Footer reorganizado en columna para móviles */
             .site-footer {
                 padding: 30px 20px;
             }
@@ -220,16 +227,15 @@
                 text-align: center;
             }
             
-            .footer-left, .footer-right {
+            .footer-left, 
+            .footer-center,
+            .footer-right {
                 text-align: center;
+                width: 100%;
             }
 
             .footer-right {
-                text-align: center; 
-            }
-
-            .footer-center {
-                justify-content: center; 
+                text-align: center;
             }
         }
     </style>
@@ -267,13 +273,15 @@
             </div>
             
             <div class="footer-center">
-                <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
 
             <div class="footer-right">
-                <p><a href="privacidad.html">Privacidad y cookies</a></p>
+                <div class="footer-links">
+                    <a href="privacidad.html">Privacidad y cookies</a>
+                </div>
                 <p>Todos los derechos reservados</p>
                 <p>© 2026 Garabato Cine</p>
             </div>
