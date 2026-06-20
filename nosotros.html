@@ -165,7 +165,8 @@ width:100%;
 .intro-text{
 max-width:1100px;
 margin:70px auto 50px auto;
-padding:0 40px;
+/* Ajuste de padding para forzar 2 líneas equilibradas en monitor/tablet */
+padding:0 80px; 
 text-align:center;
 font-family: 'Roboto', sans-serif;
 font-size: clamp(16px, 1.3vw, 20px); 
@@ -218,7 +219,7 @@ gap:60px;
 text-align:center;
 display: flex;
 flex-direction: column;
-align-items: center; /* Asegura el centrado del bloque */
+align-items: center;
 }
 .person img{
 width:100%;
@@ -241,8 +242,8 @@ text-transform: uppercase;
 font-family: 'Roboto', sans-serif;
 font-size: clamp(13px, 1.4vw, 17px);
 line-height: 1.4;
-text-align: justify; /* Justificado corregido */
-max-width: 420px; /* Ancho idéntico al de la foto en PC */
+text-align: justify; 
+max-width: 420px; /* Alineado al ancho de la foto */
 margin: 0 auto;
 color: #000000;
 opacity: 0.9;
@@ -328,8 +329,8 @@ body{padding-top:86px;}
 .nav { display: none; }
 .nav-mobile { top: 86px; right: 22px; }
 .intro-text{ 
-    font-size: clamp(15px, 1.6vw, 20px); /* Tamaño sutilmente reducido para móviles */
-    padding: 0 50px; /* Margen aumentado para forzar 2 líneas */
+    font-size: 18px; 
+    padding: 0 30px; /* Reducción de margen para móviles */
 }
 .festival-row{ grid-template-columns:repeat(3,1fr); gap:25px; }
 .people{ grid-template-columns:1fr; gap: 40px; }
@@ -341,8 +342,8 @@ body{padding-top:86px;}
 }
 .person p { 
     text-align: justify; 
-    max-width: 75%; /* Ancho idéntico al de la foto en móviles */
-    padding: 0; /* Elimina padding lateral para usar max-width */
+    max-width: 75%; /* Alineado al ancho de la foto en móvil */
+    padding: 0; 
     font-size: 16px; 
     word-break: break-word;
 }
