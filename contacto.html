@@ -140,7 +140,7 @@ margin-bottom:35px;
 .contact-underline{
 width:100%;
 height:4px;
-background:#ffc601; /* Amarillo solicitado */
+background:#ffc601;
 margin-top:8px;
 }
 
@@ -215,8 +215,8 @@ resize:vertical;
 }
 
 button{
-background:#ffc601; /* Fondo amarillo solicitado */
-color:#000; /* Letra negra solicitada */
+background:#ffc601;
+color:#000;
 border:none;
 padding:10px 28px;
 font-size:15px;
@@ -225,21 +225,27 @@ cursor:pointer;
 align-self:flex-end;
 }
 
-/* ================= FOOTER (AJUSTADO) ================= */
+/* ================= FOOTER (ALINEACIÓN EXACTA Y DEFINITIVA) ================= */
 
 .sitio-footer {
 background-color: #000000;
-padding: 40px 180px; /* Sincronizado con el padding lateral de contact-wrapper en PC */
 border-top: 1px solid #1a1a1a;
 width: 100%;
+padding: 40px 0; /* Sin espacios laterales para controlarlo con el contenedor interno */
 }
 
 .fila-tres-columnas {
-max-width: 1600px; /* Igualado al max-width de contact-wrapper */
+max-width: 1600px; /* Igual al del wrapper de contacto */
 margin: 0 auto;
 display: flex;
 justify-content: space-between;
 align-items: center;
+/* Hereda los mismos márgenes del cuerpo del correo para pantallas de PC, Tablets y Móviles */
+}
+
+/* Forzamos que el footer se acople a las mismas reglas de caja que contact-wrapper */
+@media (min-width: 1025px) {
+    .fila-tres-columnas { padding: 0 180px; }
 }
 
 .columna-izquierda {
@@ -310,7 +316,6 @@ color: #FFC601;
 /* ================= TABLET / MÓVIL (FOOTER ADAPTABLE) ================= */
 
 @media (min-width:1025px){
-  /* Ocultamos las redes sociales del footer solo en PC */
   .columna-central {
     display: none;
   }
@@ -404,12 +409,10 @@ padding:10px 28px;
 font-size:14px;
 }
 
-/* Padding y alineaciones móviles sincronizadas con padding de contact-wrapper */
-.sitio-footer {
-padding: 40px 60px; 
-}
-
+/* Margen móvil intermedio sincronizado con contact-wrapper (60px) */
+.sitio-footer { padding: 40px 0; }
 .fila-tres-columnas {
+padding: 0 60px;
 flex-direction: column;
 gap: 25px;
 text-align: center;
@@ -484,12 +487,10 @@ padding:10px 28px;
 font-size:14px;
 }
 
-/* Padding móvil pequeño sincronizado con contact-wrapper */
-.sitio-footer {
-padding: 40px 24px;
-}
-
+/* Margen móvil pequeño sincronizado con contact-wrapper (24px) */
+.sitio-footer { padding: 40px 0; }
 .fila-tres-columnas {
+padding: 0 24px;
 flex-direction: column;
 gap: 25px;
 text-align: center;
