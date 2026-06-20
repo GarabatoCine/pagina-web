@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nosotros - Garabato Cine</title>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
-html,
-body{
+html, body{
 width:100%;
 overflow-x:hidden;
+scroll-behavior: smooth; /* Para un scroll suave al recargar */
 }
 body{
 font-family:'Roboto', sans-serif;
@@ -38,10 +38,7 @@ z-index:1000;
 border-bottom:1px solid #eee;
 text-transform:uppercase;
 }
-.logo a,
-.nav a,
-.lang span,
-.lang a{
+.logo a, .nav a, .lang span, .lang a{
 color:#000;
 }
 .logo a{
@@ -81,7 +78,7 @@ width: 28px;
 background: none;
 border: none;
 padding: 4px 0;
-z-index: 3000;
+z-index: 1001;
 }
 .menu-toggle span{
 width:100%;
@@ -121,7 +118,7 @@ align-items:flex-start;
 gap:16px;
 border-radius:10px;
 box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
-z-index: 2500;
+z-index: 1500;
 display: none;
 font-family: 'Roboto', sans-serif;
 text-transform: uppercase;
@@ -171,7 +168,7 @@ margin:70px auto 50px auto;
 padding:0 40px;
 text-align:center;
 font-family: 'Roboto', sans-serif;
-font-size: clamp(16px, 1.3vw, 20px); /* Tamaño controlado para que quepa en 2 líneas en monitores */
+font-size: clamp(16px, 1.3vw, 20px); 
 font-weight: 300;
 color: #000000;
 opacity: 0.9;
@@ -227,6 +224,7 @@ height:420px;
 object-fit:cover;
 margin:0 auto 20px;
 display:block;
+transition: transform 0.3s ease; /* Pequeño efecto suave al cargar */
 }
 .person h3{
 font-family: 'Oswald', sans-serif;
@@ -330,10 +328,15 @@ body{padding-top:86px;}
 .intro-text{ font-size: 18px; padding:0 25px; }
 .festival-row{ grid-template-columns:repeat(3,1fr); gap:25px; }
 .people{ grid-template-columns:1fr; gap: 40px; }
-.person img { max-width: 100%; height: 350px; }
+.person img { 
+    max-width: 75%; /* Ajuste de ancho para mantener proporción y margen */
+    height: auto; /* Altura automática para que no se corte la cabeza */
+    object-fit: contain; /* Asegura que la imagen quepa sin cortarse */
+    margin: 0 auto 20px; /* Centrada con margen */
+}
 .person p { 
-    text-align: justify; 
-    padding: 0 20px; 
+    text-align: center; /* Alineación centrada para móvil como pediste, pero con buen margen */
+    padding: 0 40px; 
     max-width: 100%;
     font-size: 16px; 
 }
@@ -512,8 +515,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById("mobileMenu");
 
     if (hambBtn && mobileMenu) {
+        // Toggle del menú al hacer clic en la hamburguesa
         hambBtn.addEventListener("click", (event) => {
-            event.stopPropagation();
+            event.stopPropagation(); // Evita que se cierre inmediatamente
             mobileMenu.classList.toggle("active");
         });
 
@@ -526,12 +530,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Evita que clics dentro del menú lo cierren de inmediato
+        // Evita que clics dentro del menú lo cierren
         mobileMenu.addEventListener('click', (event) => {
             event.stopPropagation();
         });
     }
 });
+
+// Forzar el scroll a la parte superior al recargar la página
+if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual'; // Desactiva la restauración automática del scroll
+}
+window.onload = function() {
+    window.scrollTo(0, 0); // Desplaza al top al cargar
+};
 </script>
 </body>
 </html>
