@@ -75,6 +75,17 @@
             opacity: .5;
         }
 
+        /* Botón menú hamburguesa (Oculto por defecto en PC) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 110;
+        }
+
         /* BANNER (EXTREMO A EXTREMO SIN CORTES) */
         .banner-container {
             width: 100%;
@@ -84,7 +95,7 @@
 
         .banner-container img {
             width: 100%;
-            height: auto; /* Mantiene la proporción exacta sin recortar nada */
+            height: auto;
             display: block;
             filter: brightness(0.65);
         }
@@ -161,7 +172,7 @@
         }
 
         .project-details {
-            min-width: 0; /* Evita desbordamientos en pantallas pequeñas */
+            min-width: 0;
         }
 
         .project-details .status-tag {
@@ -174,7 +185,7 @@
 
         .project-details h2 {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(30px, 5vw, 75px); /* Reducido el mínimo para que encaje mejor en móvil */
+            font-size: clamp(30px, 5vw, 75px);
             font-weight: 700;
             line-height: 1;
             margin-bottom: 12px;
@@ -236,7 +247,6 @@
             margin-top: 2px;
         }
 
-        /* Logo Telepacífico Recreado */
         .logo-telepacific {
             display: flex;
             align-items: center;
@@ -288,7 +298,7 @@
 
         .card h3 {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(24px, 4vw, 40px); /* Ajuste responsivo para títulos */
+            font-size: clamp(24px, 4vw, 40px);
             font-weight: 500;
             margin-top: 25px;
             text-transform: uppercase;
@@ -308,7 +318,6 @@
             color: #CCCCCC;
         }
 
-        /* Contenedor de Laureles de Festival */
         .festival-laurels {
             margin-top: 30px;
             display: flex;
@@ -404,7 +413,7 @@
             color: #000;
         }
 
-        /* FOOTER DE TU PROGRAMA ORIGINAL */
+        /* FOOTER CORREGIDO */
         .footer {
             background: #000;
             padding: 90px 60px;
@@ -433,18 +442,34 @@
             color: #aaa;
         }
 
+        /* Columna central del Footer */
         .footer-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-center .label-siguenos {
+            font-family: 'Oswald', sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #C49A3A;
+            text-transform: uppercase;
+        }
+
+        .footer-icons {
             display: flex;
             gap: 25px;
             font-size: 20px;
         }
 
-        .footer-center a {
+        .footer-icons a {
             color: #FFF;
             transition: color 0.3s;
         }
 
-        .footer-center a:hover {
+        .footer-icons a:hover {
             color: #C49A3A;
         }
 
@@ -455,26 +480,62 @@
             line-height: 1.6;
         }
 
-        /* RESPONSIVE CORREGIDO - MANTIENE LAS DOS COLUMNAS EN TODO DISPOSITIVO */
+
+        /* RESPONSIVE GLOBAL */
         @media(max-width: 900px) {
-            .header { padding: 25px; flex-direction: column; gap: 20px; }
+            /* AJUSTES DEL HEADER EN MÓVIL/TABLET */
+            .header { 
+                padding: 30px 25px; 
+                flex-direction: row; /* Mantiene la alineación horizontal del botón */
+                justify-content: flex-end; /* Mueve el botón de hamburguesa a la derecha */
+            }
+            
+            .logo { 
+                display: none; /* Elimina "GARABATO CINE" a la izquierda para no pelear con el título */
+            }
+
+            .menu-toggle {
+                display: block; /* Muestra la hamburguesa */
+            }
+
+            /* Convierte el menú clásico en un menú desplegable responsive */
+            .nav {
+                display: none; 
+                flex-direction: column;
+                position: absolute;
+                top: 90px;
+                right: 25px;
+                background: rgba(10, 10, 10, 0.95);
+                border: 1px solid #222;
+                padding: 30px;
+                gap: 25px;
+                align-items: flex-start;
+                width: 200px;
+                box-shadow: 0px 10px 20px rgba(0,0,0,0.5);
+            }
+
+            /* Clase activa que se inyectará con JavaScript */
+            .nav.open {
+                display: flex;
+            }
+
             .banner-text-overlay { left: 25px; bottom: 5%; top: auto; transform: none; }
             .section { padding: 0 25px; margin: 60px auto; }
             
-            /* Eliminadas de la regla que forzaba el colapso a 1 columna */
-            .footer-row { flex-direction: column; gap: 40px; text-align: center; align-items: center; }
-            .footer-right { text-align: center; }
-
-            /* Ajustes estéticos menores para que los elementos respiren en móviles */
+            /* Ajustes del contenido principal de las dos columnas */
             .featured-project { gap: 25px; }
             .cards-grid { gap: 25px; }
-            .card img { height: 280px; } /* Reduce la altura de las portadas en móvil para mantener la estética */
+            .card img { height: 280px; }
             .gallery-thumbs img { height: 60px; }
             .meta-info-grid { gap: 10px; padding-top: 15px; margin-bottom: 25px; }
             .meta-col { padding-left: 10px; }
+
+            /* Ajustes del Footer en Tablet */
+            .footer { padding: 60px 25px; }
+            .footer-row { flex-direction: column; gap: 40px; text-align: center; align-items: center; }
+            .footer-right { text-align: center; }
         }
 
-        /* Ajuste extremo para pantallas muy pequeñas de smartphones */
         @media(max-width: 500px) {
             .section { padding: 0 15px; }
             .featured-project { gap: 15px; }
@@ -491,7 +552,12 @@
 
     <header class="header">
         <div class="logo">GARABATO CINE</div>
-        <div class="nav">
+        
+        <button class="menu-toggle" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="nav" id="navMenu">
             <a href="catalogo.html">CATÁLOGO</a>
             <a href="nosotros.html">NOSOTROS</a>
             <div class="lang">
@@ -665,17 +731,30 @@
                 <h4>GARABATO CINE</h4>
                 <p>Cine hecho desde el Caribe colombiano.</p>
             </div>
+            
             <div class="footer-center">
-                <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-vimeo-v"></i></a>
+                <span class="label-siguenos">Síguenos</span>
+                <div class="footer-icons">
+                    <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-vimeo-v"></i></a>
+                </div>
             </div>
+            
             <div class="footer-right">
-                <p>© 2024 Garabato Cine</p>
+                <p>© 2026 Garabato Cine</p>
                 <p>Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
