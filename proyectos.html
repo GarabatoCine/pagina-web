@@ -44,7 +44,6 @@ padding:18px 40px;
 z-index:1000;
 border-bottom:1px solid #eee;
 text-transform:uppercase;
-font-family:'Sora', sans-serif;
 }
 
 .logo a,
@@ -70,19 +69,17 @@ font-size:14px;
 
 .nav a{
 text-decoration:none;
-font-weight:600;
+font-weight:500; /* Restaurado a peso 500 original */
 opacity: 0.85;
 transition: color 0.3s, opacity 0.3s;
 }
 
-/* Enlace activo/actual en amarillo */
+/* Enlace activo/actual en gris tenue (igual al idioma activo) */
 .nav a.active-page {
-color: #FFC601;
-opacity: 1;
+opacity: 0.45;
 }
 
 .nav a:hover {
-color: #FFC601;
 opacity: 1;
 }
 
@@ -144,25 +141,19 @@ border-radius:10px;
 box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
 z-index:150;
 display:none;
-font-family:'Sora', sans-serif;
-}
-
-.nav-mobile.active{
-display:flex;
 }
 
 .nav-mobile a {
 color: #000 !important;
 text-decoration:none;
 font-size:14px;
-font-weight:600;
+font-weight:500;
 opacity:0.85;
 }
 
-/* Enlace activo/actual en amarillo para móvil */
+/* Enlace activo/actual en gris tenue para menú móvil */
 .nav-mobile a.active-page {
-color: #FFC601 !important;
-opacity: 1;
+opacity: 0.45;
 }
 
 .lang-mobile {
@@ -187,7 +178,12 @@ opacity:0.45;
 
 .video-block{
 position:relative;
-margin-top: 0px;
+margin-top: 0px; /* Pegado al header sin espacio inicial */
+margin-bottom: 18px; /* Espacio restaurado entre videos */
+}
+
+.video-block:last-of-type {
+margin-bottom: 0; /* Para el último bloque (Cortometrajes) */
 }
 
 .video-block video{
@@ -535,7 +531,6 @@ function toggleMenu() {
 document.getElementById("mobileMenu").classList.toggle("active");
 }
 
-// Cerrar menú si se hace clic fuera en responsive
 document.addEventListener('click', (event) => {
 const menu = document.getElementById("mobileMenu");
 const hambBtn = document.getElementById("hambBtn");
