@@ -171,7 +171,7 @@ border-radius:10px;
 padding:20px;
 display:flex;
 flex-direction:column;
-gap:12px;
+gap:16px;
 opacity:0;
 transform:translateY(-10px);
 pointer-events:none;
@@ -194,17 +194,22 @@ font-weight:600;
 
 /* LANG MOBILE */
 .lang-mobile{
-margin-top:10px;
+display: flex;
+gap: 6px;
+border-top: 1px solid rgba(255,255,255,0.15);
+padding-top: 8px;
 }
 
 .lang-mobile a{
-display:block;
 color:white !important;
 text-decoration:none;
 font-size:14px;
 font-weight:600;
-letter-spacing:1px;
-opacity:0.9;
+opacity:0.85;
+}
+
+.lang-mobile .active{
+opacity:0.4;
 }
 
 /* RESPONSIVE */
@@ -221,13 +226,13 @@ opacity:0.9;
 
 <div class="video">
 <video id="bgVideo" autoplay muted loop playsinline>
-<source
-src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/index/Banner%20inicio%20computador.mp4"
-type="video/mp4"
+<source 
+src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/index/Banner%20inicio%20computador.mp4" 
+type="video/mp4" 
 media="(min-width: 769px)">
-<source
-src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/index/Banner%20inicio%20celular.mp4"
-type="video/mp4"
+<source 
+src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/index/Banner%20inicio%20celular.mp4" 
+type="video/mp4" 
 media="(max-width: 768px)">
 </video>
 </div>
@@ -252,8 +257,8 @@ media="(max-width: 768px)">
 <div class="brand" id="logoBtn">GARABATO CINE</div>
 
 <div class="nav">
-
 <a href="proyectos.html">PROYECTOS</a>
+<a href="proximamente.html">PRÓXIMAMENTE</a>
 <a href="nosotros.html">NOSOTROS</a>
 
 <div class="lang">
@@ -261,7 +266,6 @@ media="(max-width: 768px)">
 <span>|</span>
 <a href="#">EN</a>
 </div>
-
 </div>
 
 <div class="hamburger" id="hambBtn">
@@ -271,12 +275,14 @@ media="(max-width: 768px)">
 </header>
 
 <div class="menu" id="menu">
-
 <a href="proyectos.html">PROYECTOS</a>
+<a href="proximamente.html">PRÓXIMAMENTE</a>
 <a href="nosotros.html">NOSOTROS</a>
 
 <div class="lang-mobile">
-<a href="#">ENGLISH</a>
+<a href="#" class="active">ES</a>
+<span>/</span>
+<a href="#">EN</a>
 </div>
 
 </div>
