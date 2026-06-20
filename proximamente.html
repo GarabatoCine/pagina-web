@@ -413,26 +413,30 @@
             color: #000;
         }
 
-        /* FOOTER RESTAURADO */
+        /* ==========================================
+           FOOTER RECONSTRUIDO DESDE CERO (CORREGIDO)
+           ========================================== */
         .footer {
             background: #000;
             padding: 90px 60px;
             color: white;
             font-family: 'Roboto', sans-serif;
             border-top: 1px solid #1a1a1a;
+            width: 100%;
         }
 
         .footer-row {
             max-width: 1300px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
         }
 
         .footer-left {
             flex: 1;
-            text-align: left;
+            text-align: left !important;
         }
 
         .footer-left h4 {
@@ -449,9 +453,9 @@
 
         .footer-center {
             flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
         }
 
         .footer-icons {
@@ -471,7 +475,7 @@
 
         .footer-right {
             flex: 1;
-            text-align: right;
+            text-align: right !important;
             font-size: 14px;
             color: #aaa;
             line-height: 1.6;
@@ -522,11 +526,11 @@
             .meta-info-grid { gap: 10px; padding-top: 15px; margin-bottom: 25px; }
             .meta-col { padding-left: 10px; }
 
-            /* Modo vertical adaptado para móviles */
+            /* Comportamiento vertical EXCLUSIVO para Móviles/Tablets */
             .footer { padding: 60px 25px; }
-            .footer-row { flex-direction: column; gap: 40px; }
-            .footer-left { text-align: center; }
-            .footer-right { text-align: center; }
+            .footer-row { flex-direction: column !important; gap: 40px !important; }
+            .footer-left { text-align: center !important; }
+            .footer-right { text-align: center !important; }
         }
 
         @media(max-width: 500px) {
