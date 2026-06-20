@@ -125,7 +125,7 @@
             color: #E2E2E2;
         }
 
-        /* CUERPO DE LA PÁGINA (AVANCES ACTUALES) */
+        /* CUERPO DE LA PÁGINA (ESTRUCTURA DE DOS COLUMNAS DE EXTREMO A EXTREMO) */
         .web-container {
             width: 100%;
         }
@@ -148,15 +148,17 @@
             text-transform: uppercase;
         }
 
+        /* Forzamos que se mantengan 2 columnas en PC y Tablets */
         .fila-dos-columnas {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 40px;
         }
 
+        /* Proporciones específicas para Madre Semilla */
         .featured-project {
             grid-template-columns: 1.1fr 0.9fr;
-            gap: 60px;
+            gap: 50px;
             align-items: start;
         }
 
@@ -412,7 +414,7 @@
         }
 
         /* ==========================================
-           ESTILOS PARA LA DISTRIBUCIÓN DEL FOOTER
+           DISTRIBUCIÓN HORIZONTAL ESTRICTA DEL FOOTER
            ========================================== */
         .sitio-footer {
             background-color: #000000;
@@ -421,7 +423,6 @@
             width: 100%;
         }
 
-        /* Usamos una fila de 3 columnas distribuidas de extremo a extremo */
         .fila-tres-columnas {
             max-width: 1300px;
             margin: 0 auto;
@@ -476,8 +477,19 @@
             line-height: 1.6;
         }
 
-        /* RESPONSIVE GLOBAL */
-        @media(max-width: 900px) {
+        /* RESPONSIVE PROTEGIDO PARA TABLETS Y PANTALLAS MEDIANAS (De 768px a 1024px) */
+        @media(max-width: 1024px) {
+            .header { padding: 30px 40px; }
+            .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
+            /* Asegura las dos columnas en tablets */
+            .fila-dos-columnas { grid-template-columns: 1fr 1fr; gap: 30px; }
+            .featured-project { grid-template-columns: 1.1fr 0.9fr; gap: 30px; }
+            .card img { height: 340px; }
+            .gallery-thumbs img { height: 80px; }
+        }
+
+        /* RESPONSIVE ÚNICAMENTE PARA MÓVILES (Menos de 767px) */
+        @media(max-width: 767px) {
             .header { 
                 padding: 30px 25px; 
                 flex-direction: row; 
@@ -507,30 +519,23 @@
             .banner-text-overlay { left: 25px; bottom: 5%; top: auto; transform: none; }
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
             
-            .fila-dos-columnas { grid-template-columns: 1fr; gap: 25px; }
+            /* Aquí, y solo aquí en móviles, baja a una sola columna */
+            .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .featured-project { grid-template-columns: 1fr; }
-            .card img { height: 280px; }
+            .card img { height: 240px; }
             .gallery-thumbs img { height: 60px; }
-            .meta-info-grid { gap: 10px; padding-top: 15px; margin-bottom: 25px; }
-            .meta-col { padding-left: 10px; }
+            .meta-info-grid { grid-template-columns: 1fr; gap: 15px; padding-top: 15px; }
+            .meta-col { border-left: none; padding-left: 0; }
 
-            /* Footer apilado solo en pantallas chicas */
+            /* Footer se adapta vertical solo en celulares */
             .fila-tres-columnas {
                 flex-direction: column;
                 gap: 30px;
+                text-align: center;
             }
             .columna-izquierda, .columna-derecha {
                 text-align: center;
             }
-        }
-
-        @media(max-width: 500px) {
-            .seccion-proyecto { padding: 0 15px; }
-            .card img { height: 190px; }
-            .dev-box { padding: 15px; gap: 12px; }
-            .meta-info-grid { grid-template-columns: 1fr; border-top: none; padding-top: 0; }
-            .meta-col { border-left: none; padding-left: 0; margin-bottom: 10px; }
-            .meta-col:first-child { border-bottom: 1px solid #222; padding-bottom: 10px; }
         }
     </style>
 </head>
@@ -685,7 +690,9 @@
             </div>
         </section>
 
-    </div> <div class="cta-banner">
+    </div>
+
+    <div class="cta-banner">
         <p>¿Te interesa conocer más sobre nuestros próximos proyectos?</p>
         <a href="contacto.html" class="cta-btn">Contáctanos</a>
     </div>
