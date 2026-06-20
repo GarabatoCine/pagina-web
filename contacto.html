@@ -1,663 +1,292 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contacto - Garabato Cine</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html, body{
-width:100%;
-overflow-x:hidden;
-}
-
-body{
-font-family:'Roboto', sans-serif;
-background:#fff;
-color:#222;
-padding-top:74px;
-}
-
-/* ================= HEADER ================= */
-
-.header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:#fff;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 40px;
-z-index:1000;
-border-bottom:1px solid #eee;
-text-transform:uppercase;
-}
-
-.logo a,
-.nav a,
-.lang span,
-.lang a{
-color:#000;
-}
-
-.logo a{
-font-size:24px;
-font-weight:500; /* Estilo menú Nosotros */
-letter-spacing:2px;
-text-decoration:none;
-}
-
-.nav{
-display:flex;
-align-items:center;
-gap:18px;
-font-size:13px;
-}
-
-.nav a{
-text-decoration:none;
-font-weight:500; /* Estilo menú Nosotros */
-}
-
-.lang .active{
-opacity:0.45;
-}
-
-.lang a{
-opacity:1;
-text-decoration:none;
-}
-
-.lang a:hover{
-opacity:0.7;
-}
-
-.menu-toggle{
-display:none;
-flex-direction:column;
-gap:4px;
-cursor:pointer;
-}
-
-.menu-toggle span{
-width:22px;
-height:2px;
-background:#000;
-display:block;
-}
-
-/* ================= BANNER ================= */
-
-.banner img{
-width:100%;
-height:420px;
-object-fit:cover;
-display:block;
-}
-
-/* ================= CONTACT SECTION ================= */
-
-.contact-section{
-background:#000;
-color:#fff;
-}
-
-.contact-wrapper{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:120px;
-max-width:1600px;
-margin:0 auto;
-padding:50px 180px 80px;
-}
-
-/* LEFT COLUMN */
-
-.contact-left{
-padding-left:60px;
-}
-
-.contact-title{
-font-family:'Inter', sans-serif;
-font-size:60px;
-font-weight:700;
-line-height:1;
-display:inline-block;
-margin-bottom:35px;
-}
-
-.contact-underline{
-width:100%;
-height:4px;
-background:#ffc601; /* Amarillo solicitado */
-margin-top:8px;
-}
-
-.follow-title{
-font-family:'Century Gothic', sans-serif;
-font-weight:100;
-font-size:19px;
-margin-bottom:18px;
-}
-
-.contact-social{
-display:flex;
-flex-direction:row;
-gap:18px;
-align-items:center;
-}
-
-.contact-social a{
-display:inline-flex;
-width:fit-content;
-}
-
-.contact-social svg{
-width:42px;
-height:42px;
-stroke:#fff;
-fill:none;
-stroke-width:1.2;
-}
-
-/* RIGHT COLUMN */
-
-.contact-right{
-padding-right:60px;
-}
-
-.form-title{
-font-family:'Inter', sans-serif;
-font-size:36px;
-font-weight:700;
-line-height:1.1;
-margin:0 0 25px;
-}
-
-.contact-form{
-display:flex;
-flex-direction:column;
-gap:12px;
-}
-
-.form-row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-}
-
-input,
-textarea{
-width:100%;
-padding:12px 16px;
-border:none;
-outline:none;
-background:#fff;
-color:#000;
-font-family:'Roboto', sans-serif;
-font-size:15px;
-}
-
-textarea{
-min-height:110px;
-resize:vertical;
-}
-
-button{
-background:#ffc601; /* Fondo amarillo solicitado */
-color:#000; /* Letra negra solicitada */
-border:none;
-padding:10px 28px;
-font-size:15px;
-font-weight:700;
-cursor:pointer;
-align-self:flex-end;
-}
-
-/* ================= FOOTER ================= */
-
-.sitio-footer {
-background-color: #000000;
-padding: 40px 60px;
-border-top: 1px solid #1a1a1a;
-width: 100%;
-}
-
-.fila-tres-columnas {
-max-width: 1300px;
-margin: 0 auto;
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
-
-.columna-izquierda {
-text-align: left;
-flex: 1;
-}
-
-.columna-izquierda h4 {
-font-family: 'Roboto', sans-serif; /* Alineado con el resto del footer */
-font-size: 22px;
-font-weight: 500;
-letter-spacing: normal; /* Sin forzar espaciado extraño */
-margin-bottom: 6px;
-color: #fff; 
-}
-
-.columna-izquierda p {
-font-size: clamp(10px, 1.2vw, 13px);
-color: #888888;
-white-space: nowrap;
-}
-
-.columna-central {
-display: flex;
-justify-content: center;
-gap: 25px;
-flex: 1;
-opacity: 0; /* Oculto en PC por defecto */
-pointer-events: none;
-}
-
-.columna-central a {
-color: #ffffff;
-font-size: 18px;
-transition: color 0.3s ease;
-}
-
-.columna-central a:hover {
-color: #FFC601;
-}
-
-.columna-derecha {
-text-align: right;
-flex: 1;
-}
-
-.columna-derecha p {
-font-size: 13px;
-color: #888888;
-line-height: 1.6;
-}
-
-.texto-chico {
-font-size: 11.5px !important;
-color: #888888;
-}
-
-.footer-link-normal {
-display: inline-block;
-font-size: 13px;
-color: inherit; 
-text-decoration: underline;
-transition: color 0.3s ease;
-}
-
-.footer-link-normal:hover {
-color: #FFC601;
-}
-
-/* ================= TABLET / MÓVIL (FOOTER ADAPTABLE) ================= */
-
-@media (min-width:1025px){
-}
-
-@media (max-width:1024px){
-
-body{
-padding-top:86px;
-}
-
-.nav{
-display:none;
-flex-direction:column;
-position:absolute;
-top:100%;
-left:0;
-width:100%;
-background:#fff;
-padding:20px;
-gap:20px; /* Estilo menú Nosotros en móvil */
-border-bottom:1px solid #eee;
-align-items:flex-start;
-z-index:1001;
-}
-
-.nav.active{
-display:flex;
-}
-
-.lang {
-margin-top: 10px; /* Estilo menú Nosotros en móvil */
-}
-
-.menu-toggle{
-display:flex;
-}
-
-.banner img{
-height:240px;
-}
-
-.contact-wrapper{
-grid-template-columns:1fr;
-gap:35px;
-padding:30px 60px 50px;
-}
-
-.contact-left,
-.contact-right{
-padding:0;
-}
-
-.contact-title{
-font-size:42px;
-margin-bottom:8px;
-}
-
-.follow-title,
-.contact-social{
-display:none;
-}
-
-.form-title{
-font-size:28px;
-margin:0 0 20px;
-}
-
-.contact-form{
-gap:10px;
-}
-
-.form-row{
-grid-template-columns:1fr;
-gap:10px;
-}
-
-input,
-textarea{
-padding:11px 14px;
-font-size:14px;
-}
-
-textarea{
-min-height:90px;
-resize:vertical;
-}
-
-button{
-padding:10px 28px;
-font-size:14px;
-}
-
-.sitio-footer {
-padding: 40px 40px;
-}
-
-.fila-tres-columnas {
-flex-direction: column;
-gap: 25px;
-text-align: center;
-}
-
-.columna-izquierda, .columna-derecha {
-text-align: center;
-}
-
-.columna-derecha {
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 5px;
-}
-
-.columna-derecha .link-linea-1 {
-order: 1;
-}
-
-.columna-derecha .texto-linea-2 {
-order: 2;
-}
-
-.columna-derecha .texto-linea-3 {
-order: 3;
-}
-}
-
-@media (max-width:768px){
-
-body{
-padding-top:82px;
-}
-
-.header{
-padding:16px 22px;
-}
-
-.banner img{
-height:220px;
-}
-
-.contact-wrapper{
-padding:35px 24px 60px;
-gap:35px;
-}
-
-.contact-title{
-font-size:34px;
-margin-bottom:10px;
-}
-
-.form-title{
-font-size:24px;
-margin-bottom:24px;
-}
-
-input,
-textarea{
-padding:14px 16px;
-font-size:15px;
-}
-
-textarea{
-min-height:130px;
-}
-
-button{
-padding:10px 28px;
-font-size:14px;
-}
-
-.sitio-footer {
-padding: 40px 25px;
-}
-
-.fila-tres-columnas {
-flex-direction: column;
-gap: 25px;
-text-align: center;
-}
-
-.columna-izquierda, .columna-derecha {
-text-align: center;
-}
-
-.columna-derecha {
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 5px;
-}
-
-.columna-derecha .link-linea-1 {
-order: 1;
-}
-
-.columna-derecha .texto-linea-2 {
-order: 2;
-}
-
-.columna-derecha .texto-linea-3 {
-order: 3;
-}
-}
-
-/* ================= AJUSTE RESPONSIVE ESPECÍFICO PARA REDES EN FOOTER ================= */
-@media (max-width: 1024px) {
-    /* Mostrar redes sociales en columna central para tablets y móviles */
-    .columna-central {
-        opacity: 1;
-        pointer-events: auto;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Garabato Cine</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0A0A0A;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            padding-bottom: 150px; /* Asegura que el contenido no quede oculto bajo el footer absoluto */
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* HEADER */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 60px;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .nav a {
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #FFC601;
+        }
+
+        .lang {
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang .active {
+            opacity: .5;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 110;
+        }
+
+        /* FOOTER DISTRIBUCIÓN */
+        .site-footer {
+            background-color: #000000;
+            padding: 40px 60px;
+            border-top: 1px solid #1a1a1a;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-left {
+            text-align: left;
+        }
+
+        .footer-left h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .footer-left p {
+            font-size: 13px;
+            color: #888888;
+        }
+
+        /* Centro - Redes Sociales */
+        .footer-center {
+            display: flex;
+            gap: 25px;
+        }
+
+        .footer-center a {
+            color: #ffffff;
+            font-size: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-center a:hover {
+            opacity: 0.7;
+        }
+
+        /* Derecha - Textos legales */
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-right p, .footer-right a {
+            font-size: 13px;
+            color: #888888;
+            line-height: 1.6;
+        }
+
+        .footer-right a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE DISPOSITIVOS (TABLETS) */
+        @media(max-width: 1024px) {
+            .header { 
+                padding: 20px 40px; 
+            }
+
+            .brand-logo {
+                font-size: 18px; 
+            }
+            
+            .menu-toggle { 
+                display: block; 
+            }
+
+            .nav {
+                display: none; 
+                flex-direction: column;
+                position: absolute;
+                top: 70px; 
+                right: 40px;
+                background: rgba(10, 10, 10, 0.98);
+                border: 1px solid #222;
+                padding: 30px;
+                gap: 25px;
+                align-items: flex-start;
+                width: 220px;
+                box-shadow: 0px 10px 30px rgba(0,0,0,0.7);
+                z-index: 200;
+            }
+
+            .nav.open { 
+                display: flex; 
+            }
+        }
+
+        /* RESPONSIVE MÓVILES */
+        @media(max-width: 767px) {
+            .header { 
+                padding: 15px 25px; 
+            }
+
+            .brand-logo {
+                font-size: 16px; 
+                letter-spacing: 1px;
+            }
+
+            .nav { right: 25px; top: 60px; }
+
+            .site-footer {
+                padding: 30px 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 25px;
+                text-align: center;
+            }
+            
+            .footer-left, .footer-right {
+                text-align: center;
+            }
+
+            .footer-right {
+                text-align: center; 
+            }
+
+            .footer-center {
+                justify-content: center; 
+            }
+        }
+    </style>
 </head>
+<body>
 
-<body id="top">
+    <header class="header">
+        <div class="brand-logo">GARABATO CINE</div>
 
-<div class="header">
+        <button class="menu-toggle" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
 
-<div class="logo">
-<a href="index.html">GARABATO CINE</a>
-</div>
-
-<div class="menu-toggle" onclick="toggleMenu()">
-<span></span>
-<span></span>
-<span></span>
-</div>
-
-<div class="nav" id="mobileMenu">
-<a href="catalogo.html">CATÁLOGO</a>
-<a href="contacto.html">CONTACTO</a>
-  
-<div class="lang">
-<span class="active">ES</span>
-<span>|</span>
-<a href="#">EN</a>
-</div>
-</div>
-
-</div>
-
-<section class="banner">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/cortometrajes/Marimonda-tirita.png?raw=true" alt="Banner Garabato Cine">
-</section>
-
-<section class="contact-section">
-
-<div class="contact-wrapper">
-
-<div class="contact-left">
-
-<div class="contact-title">
-Contacto
-<div class="contact-underline"></div>
-</div>
-
-<div class="follow-title">Síguenos</div>
-
-<div class="contact-social">
-
-<a href="https://www.instagram.com/garabatocine/" target="_blank" aria-label="Instagram">
-<svg viewBox="0 0 24 24">
-<rect x="3" y="3" width="18" height="18" rx="5"></rect>
-<circle cx="12" cy="12" r="4"></circle>
-<circle cx="17" cy="7" r="1.5"></circle>
-</svg>
-</a>
-
-<a href="https://web.facebook.com/garabatocine" target="_blank" aria-label="Facebook">
-<svg viewBox="0 0 24 24">
-<circle cx="12" cy="12" r="10"></circle>
-<path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z" fill="white"/>
-</svg>
-</a>
-
-<a href="https://www.youtube.com/@garabatocine" target="_blank" aria-label="YouTube">
-<svg viewBox="0 0 24 24">
-<path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
-<polygon points="10 15 15 12 10 9"></polygon>
-</svg>
-</a>
-
-</div>
-
-</div>
-
-<div class="contact-right">
-
-<div class="form-title">Déjanos tu mensaje</div>
-
-<form class="contact-form" action="https://formspree.io/f/xojrkwkj" method="POST">
-
-<div class="form-row">
-<input type="text" name="nombre" placeholder="Nombre">
-<input type="text" name="apellido" placeholder="Apellido">
-</div>
-
-<input type="tel" name="telefono" placeholder="Teléfono">
-
-<input type="email" name="email" placeholder="Correo electrónico *" required>
-
-<textarea name="mensaje" placeholder="Mensaje *" required></textarea>
-
-<button type="submit">Enviar</button>
-
-</form>
-
-</div>
-
-</div>
-
-</section>
-
-<footer class="sitio-footer">
-    <div class="fila-tres-columnas">
-        <div class="columna-izquierda">
-            <h4>GARABATO CINE</h4>
-            <p>Cine hecho desde el Caribe colombiano.</p>
+        <div class="nav" id="navMenu">
+            <a href="catalogo.html">CATÁLOGO</a>
+            <a href="nosotros.html">NOSOTROS</a>
+            <div class="lang">
+                <span class="active">ES</span>
+                <span>/</span>
+                <a href="#">EN</a>
+            </div>
         </div>
-        
-        <div class="columna-central">
-            <a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="http://www.youtube.com/channel/UC4vuld7vS7GhKcBf2dv0fJw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+    </header>
+
+    <main style="margin-top: 150px; padding: 0 60px; min-height: 50vh;">
+        <h1>Contacto</h1>
+        <p>Escríbenos para más información sobre nuestros proyectos.</p>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>GARABATO CINE</h4>
+                <p>Cine hecho desde el Caribe colombiano.</p>
+            </div>
+            
+            <div class="footer-center">
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+
+            <div class="footer-right">
+                <p><a href="privacidad.html">Privacidad y cookies</a></p>
+                <p>Todos los derechos reservados</p>
+                <p>© 2026 Garabato Cine</p>
+            </div>
         </div>
-        
-        <div class="columna-derecha">
-            <p class="link-linea-1"><a href="privacidadycookies.html" class="footer-link-normal" target="_blank">Privacidad y cookies</a></p>
-            <p class="texto-chico texto-linea-2">Todos los derechos reservados</p>
-            <p class="texto-chico texto-linea-3">© 2026 Garabato Cine</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
-<script>
-function toggleMenu() {
-document.getElementById('mobileMenu').classList.toggle('active');
-}
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenu = document.getElementById('navMenu');
 
-window.onbeforeunload = function () {
-window.scrollTo(0, 0);
-};
-
-window.addEventListener('load', function () {
-window.scrollTo(0, 0);
-});
-</script>
-
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
