@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cortometrajes - Garabato Cine</title>
+<title>Proyectos - Garabato Cine</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -137,14 +137,14 @@ font-size:18px;
 
 .cta-banner {
 border-top: 1px solid #222;
-padding: 45px 40px; /* Reducido para que la franja sea menos alta */
+padding: 45px 40px;
 text-align: center;
 background: #000;
 color: #fff;
 }
 
 .cta-banner p {
-font-size: 16px; /* Letra más pequeña y sutil */
+font-size: 16px;
 margin-bottom: 20px;
 font-weight: 300;
 letter-spacing: 0.5px;
@@ -394,7 +394,7 @@ order: 3;
 </div>
 
 <div class="cta-banner">
-<p>¿Te interesa conocer más sobre nosotros?</p>
+<p>¿Te interesa conocer más sobre nuestros próximos proyectos?</p>
 <a href="contacto.html" class="cta-btn">Contáctanos</a>
 </div>
 
@@ -420,12 +420,25 @@ order: 3;
 </footer>
 
 <script>
+// Funcionalidad del menú móvil
 const menuBtn = document.getElementById('menuBtn');
 const navMenu = document.getElementById('navMenu');
 
 menuBtn.addEventListener('click', () => {
 navMenu.classList.toggle('open');
 });
+
+// Forzar el scroll al inicio (Top) al recargar la página
+if (history.scrollRestoration) {
+history.scrollRestoration = 'manual';
+}
+
+window.onload = () => {
+window.scrollTo(0, 0);
+setTimeout(() => {
+window.scrollTo(0, 0);
+}, 100); // Se ejecuta un pequeño doble chequeo para navegadores quisquillosos
+};
 </script>
 
 </body>
