@@ -1,300 +1,243 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Garabato Cine</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Garabato Cine</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        body {
-            background: #0A0A0A;
-            color: white;
-            font-family: 'Roboto', sans-serif;
-            overflow-x: hidden;
-            position: relative;
-            min-height: 100vh;
-            padding-bottom: 150px; /* Espacio para que el footer no tape el contenido principal */
-        }
+        body {
+            background: #0A0A0A;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
 
-        a {
-            text-decoration: none;
-            color: white;
-        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
 
-        /* HEADER */
-        .header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 40px 60px;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        /* HEADER */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 60px;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        .brand-logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 24px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: white;
-            transition: all 0.3s ease;
-        }
+        .brand-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: white;
+            transition: all 0.3s ease;
+        }
 
-        .nav {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
+        .nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
 
-        .nav a {
-            color: white;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+        .nav a {
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-        .nav a:hover {
-            color: #FFC601;
-        }
+        .nav a:hover {
+            color: #FFC601;
+        }
 
-        .lang {
-            display: flex;
-            gap: 8px;
-        }
+        .lang {
+            display: flex;
+            gap: 8px;
+        }
 
-        .lang .active {
-            opacity: .5;
-        }
+        .lang .active {
+            opacity: .5;
+        }
 
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 110;
-        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 110;
+        }
 
-        /* FOOTER AJUSTADO */
-        .site-footer {
-            background-color: #000000;
-            padding: 40px 60px;
-            border-top: 1px solid #1a1a1a;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-        }
+        /* FOOTER ANTIGUO */
+        .site-footer {
+            background-color: #000000;
+            padding: 40px 60px;
+            border-top: 1px solid #1a1a1a;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
 
-        .footer-content {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        .footer-left {
-            text-align: left;
-            flex: 1;
-        }
+        .footer-left {
+            text-align: left;
+        }
 
-        .footer-left h4 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 22px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-        }
+        .footer-left h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
 
-        .footer-left p {
-            font-size: 13px;
-            color: #888888;
-        }
+        .footer-left p {
+            font-size: 13px;
+            color: #888888;
+        }
 
-        /* CENTRO - REDES SOCIALES */
-        .footer-center {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+        .footer-right {
+            text-align: right;
+        }
 
-        .footer-center a {
-            color: #888888;
-            font-size: 20px;
-            transition: color 0.3s ease;
-        }
+        .footer-right p {
+            font-size: 13px;
+            color: #888888;
+            line-height: 1.6;
+        }
 
-        .footer-center a:hover {
-            color: #FFC601; /* Color amarillo corporativo */
-        }
+        /* RESPONSIVE DISPOSITIVOS (TABLETS) */
+        @media(max-width: 1024px) {
+            .header { 
+                padding: 20px 40px; 
+            }
 
-        /* DERECHA - PRIVACIDAD Y DERECHOS */
-        .footer-right {
-            flex: 1;
-            text-align: right;
-        }
+            .brand-logo {
+                font-size: 18px; 
+            }
+            
+            .menu-toggle { 
+                display: block; 
+            }
 
-        .footer-right p, .footer-right a {
-            font-size: 13px;
-            color: #888888;
-            line-height: 1.6;
-            transition: color 0.3s ease;
-        }
+            .nav {
+                display: none; 
+                flex-direction: column;
+                position: absolute;
+                top: 70px; 
+                right: 40px;
+                background: rgba(10, 10, 10, 0.98);
+                border: 1px solid #222;
+                padding: 30px;
+                gap: 25px;
+                align-items: flex-start;
+                width: 220px;
+                box-shadow: 0px 10px 30px rgba(0,0,0,0.7);
+                z-index: 200;
+            }
 
-        .footer-right a:hover {
-            color: white;
-        }
+            .nav.open { 
+                display: flex; 
+            }
+        }
 
-        .footer-links {
-            margin-bottom: 4px;
-        }
+        /* RESPONSIVE MÓVILES */
+        @media(max-width: 767px) {
+            .header { 
+                padding: 15px 25px; 
+            }
 
-        /* RESPONSIVE DISPOSITIVOS (TABLETS Y MÓVILES) */
-        @media(max-width: 1024px) {
-            .header { 
-                padding: 20px 40px; 
-            }
+            .brand-logo {
+                font-size: 16px; 
+                letter-spacing: 1px;
+            }
 
-            .brand-logo {
-                font-size: 18px; 
-            }
-            
-            .menu-toggle { 
-                display: block; 
-            }
+            .nav { right: 25px; top: 60px; }
 
-            .nav {
-                display: none; 
-                flex-direction: column;
-                position: absolute;
-                top: 70px; 
-                right: 40px;
-                background: rgba(10, 10, 10, 0.98);
-                border: 1px solid #222;
-                padding: 30px;
-                gap: 25px;
-                align-items: flex-start;
-                width: 220px;
-                box-shadow: 0px 10px 30px rgba(0,0,0,0.7);
-                z-index: 200;
-            }
-
-            .nav.open { 
-                display: flex; 
-            }
-        }
-
-        @media(max-width: 767px) {
-            .header { 
-                padding: 15px 25px; 
-            }
-
-            .brand-logo {
-                font-size: 16px; 
-                letter-spacing: 1px;
-            }
-
-            .nav { right: 25px; top: 60px; }
-
-            /* Footer reorganizado en columna para móviles */
-            .site-footer {
-                padding: 30px 20px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 25px;
-                text-align: center;
-            }
-            
-            .footer-left, 
-            .footer-center,
-            .footer-right {
-                text-align: center;
-                width: 100%;
-            }
-
-            .footer-right {
-                text-align: center;
-            }
-        }
-    </style>
-</head>
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .footer-left, .footer-right {
+                text-align: center;
+            }
+        }
+    </style>
+    </head>
 <body>
 
-    <header class="header">
-        <div class="brand-logo">GARABATO CINE</div>
+    <header class="header">
+        <div class="brand-logo">GARABATO CINE</div>
 
-        <button class="menu-toggle" id="menuBtn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+        <button class="menu-toggle" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
 
-        <div class="nav" id="navMenu">
-            <a href="catalogo.html">CATÁLOGO</a>
-            <a href="nosotros.html">NOSOTROS</a>
-            <div class="lang">
-                <span class="active">ES</span>
-                <span>/</span>
-                <a href="#">EN</a>
-            </div>
-        </div>
-    </header>
+        <div class="nav" id="navMenu">
+            <a href="catalogo.html">CATÁLOGO</a>
+            <a href="nosotros.html">NOSOTROS</a>
+            <div class="lang">
+                <span class="active">ES</span>
+                <span>/</span>
+                <a href="#">EN</a>
+            </div>
+        </div>
+    </header>
 
-    <main style="margin-top: 150px; padding: 0 60px; min-height: 50vh;">
-        <h1>Contacto</h1>
-        <p>Escríbenos para más información sobre nuestros proyectos.</p>
-    </main>
+    <main style="margin-top: 150px; padding: 0 60px; min-height: 50vh;">
+        <h1>Contacto</h1>
+        <p>Escríbenos para más información sobre nuestros proyectos.</p>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>GARABATO CINE</h4>
+                <p>Cine hecho desde el Caribe colombiano.</p>
+            </div>
+            <div class="footer-right">
+                <p>Todos los derechos reservados</p>
+                <p>© 2026 Garabato Cine</p>
+            </div>
+        </div>
+    </footer>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-left">
-                <h4>GARABATO CINE</h4>
-                <p>Cine hecho desde el Caribe colombiano.</p>
-            </div>
-            
-            <div class="footer-center">
-                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-            </div>
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenu = document.getElementById('navMenu');
 
-            <div class="footer-right">
-                <div class="footer-links">
-                    <a href="privacidad.html">Privacidad y cookies</a>
-                </div>
-                <p>Todos los derechos reservados</p>
-                <p>© 2026 Garabato Cine</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const navMenu = document.getElementById('navMenu');
-
-        menuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
-        });
-    </script>
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
