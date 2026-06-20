@@ -160,6 +160,10 @@
             object-fit: cover;
         }
 
+        .project-details {
+            min-width: 0; /* Evita desbordamientos en pantallas pequeñas */
+        }
+
         .project-details .status-tag {
             font-family: 'Oswald', sans-serif;
             font-size: 14px;
@@ -170,7 +174,7 @@
 
         .project-details h2 {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(40px, 5vw, 75px);
+            font-size: clamp(30px, 5vw, 75px); /* Reducido el mínimo para que encaje mejor en móvil */
             font-weight: 700;
             line-height: 1;
             margin-bottom: 12px;
@@ -184,7 +188,7 @@
         }
 
         .project-details .synopsis {
-            font-size: 17px;
+            font-size: clamp(14px, 1.5vw, 17px);
             line-height: 1.7;
             color: #DCDCDC;
             margin-bottom: 45px;
@@ -202,6 +206,7 @@
         .meta-col {
             border-left: 1px solid rgba(196, 154, 58, 0.3);
             padding-left: 20px;
+            min-width: 0;
         }
 
         .meta-col:first-child {
@@ -213,14 +218,14 @@
 
         .meta-label {
             color: #C49A3A;
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 10px;
         }
 
         .meta-col p {
-            font-size: 14px;
+            font-size: 13px;
             color: #E0E0E0;
             line-height: 1.5;
         }
@@ -270,6 +275,10 @@
             gap: 50px;
         }
 
+        .card {
+            min-width: 0;
+        }
+
         .card img {
             width: 100%;
             height: 440px;
@@ -279,7 +288,7 @@
 
         .card h3 {
             font-family: 'Oswald', sans-serif;
-            font-size: 40px;
+            font-size: clamp(24px, 4vw, 40px); /* Ajuste responsivo para títulos */
             font-weight: 500;
             margin-top: 25px;
             text-transform: uppercase;
@@ -294,7 +303,7 @@
         }
 
         .card p.desc {
-            font-size: 17px;
+            font-size: clamp(14px, 1.5vw, 17px);
             line-height: 1.7;
             color: #CCCCCC;
         }
@@ -306,7 +315,7 @@
             align-items: center;
             gap: 20px;
             color: #E0E0E0;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.6;
         }
 
@@ -339,11 +348,12 @@
 
         .dev-inner-content {
             flex-grow: 1;
+            min-width: 0;
         }
 
         .dev-inner-content h3 {
             margin-top: 0;
-            font-size: 36px;
+            font-size: clamp(22px, 3.5vw, 36px);
         }
 
         .technical-sheet {
@@ -353,14 +363,14 @@
             margin-top: 25px;
             border-top: 1px solid #222;
             padding-top: 20px;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .technical-sheet div strong {
             color: #C49A3A;
             display: block;
             margin-bottom: 5px;
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -445,17 +455,35 @@
             line-height: 1.6;
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE CORREGIDO - MANTIENE LAS DOS COLUMNAS EN TODO DISPOSITIVO */
         @media(max-width: 900px) {
             .header { padding: 25px; flex-direction: column; gap: 20px; }
             .banner-text-overlay { left: 25px; bottom: 5%; top: auto; transform: none; }
             .section { padding: 0 25px; margin: 60px auto; }
-            .featured-project, .cards-grid, .dev-box { grid-template-columns: 1fr; flex-direction: column; }
-            .meta-info-grid { grid-template-columns: 1fr; gap: 25px; }
-            .meta-col { border-left: none; padding-left: 0; }
-            .gallery-thumbs { grid-template-columns: repeat(2, 1fr); }
+            
+            /* Eliminadas de la regla que forzaba el colapso a 1 columna */
             .footer-row { flex-direction: column; gap: 40px; text-align: center; align-items: center; }
             .footer-right { text-align: center; }
+
+            /* Ajustes estéticos menores para que los elementos respiren en móviles */
+            .featured-project { gap: 25px; }
+            .cards-grid { gap: 25px; }
+            .card img { height: 280px; } /* Reduce la altura de las portadas en móvil para mantener la estética */
+            .gallery-thumbs img { height: 60px; }
+            .meta-info-grid { gap: 10px; padding-top: 15px; margin-bottom: 25px; }
+            .meta-col { padding-left: 10px; }
+        }
+
+        /* Ajuste extremo para pantallas muy pequeñas de smartphones */
+        @media(max-width: 500px) {
+            .section { padding: 0 15px; }
+            .featured-project { gap: 15px; }
+            .cards-grid { gap: 15px; }
+            .card img { height: 190px; }
+            .dev-box { padding: 15px; gap: 12px; }
+            .meta-info-grid { grid-template-columns: 1fr; border-top: none; padding-top: 0; }
+            .meta-col { border-left: none; padding-left: 0; margin-bottom: 10px; }
+            .meta-col:first-child { border-bottom: 1px solid #222; padding-bottom: 10px; }
         }
     </style>
 </head>
