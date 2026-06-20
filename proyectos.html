@@ -69,7 +69,7 @@ font-size:14px;
 
 .nav a{
 text-decoration:none;
-font-weight:500; /* Restaurado a peso 500 original */
+font-weight:500;
 opacity: 0.85;
 transition: color 0.3s, opacity 0.3s;
 }
@@ -115,6 +115,7 @@ cursor:pointer;
 width: 28px;
 background: none;
 border: none;
+padding: 4px 0;
 }
 
 .menu-toggle span{
@@ -140,7 +141,13 @@ gap:16px;
 border-radius:10px;
 box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
 z-index:150;
-display:none;
+display:none; /* Aseguramos que inicie oculto */
+font-family: 'Roboto', sans-serif;
+text-transform: uppercase;
+}
+
+.nav-mobile.active{
+display:flex !important; /* Fuerza la visualización cuando tiene la clase active */
 }
 
 .nav-mobile a {
@@ -178,12 +185,12 @@ opacity:0.45;
 
 .video-block{
 position:relative;
-margin-top: 0px; /* Pegado al header sin espacio inicial */
-margin-bottom: 18px; /* Espacio restaurado entre videos */
+margin-top: 0px;
+margin-bottom: 18px;
 }
 
 .video-block:last-of-type {
-margin-bottom: 0; /* Para el último bloque (Cortometrajes) */
+margin-bottom: 0;
 }
 
 .video-block video{
@@ -218,7 +225,7 @@ margin-left:8px;
 cursor:pointer;
 }
 
-/* ================= CTA BANNER (Franja Cortometraje) ================= */
+/* ================= CTA BANNER ================= */
 
 .cta-banner {
 border-top: 1px solid #222;
@@ -255,7 +262,7 @@ background: #FFC601;
 color: #000;
 }
 
-/* ================= FOOTER BASE (Estilos de Cortometraje) ================= */
+/* ================= FOOTER BASE ================= */
 
 .sitio-footer {
 background-color: #000000;
@@ -527,16 +534,22 @@ Proyectos
 
 <script>
 
-function toggleMenu() {
-document.getElementById("mobileMenu").classList.toggle("active");
+function toggleMenu(event) {
+    // Evitamos que se propague el evento para que no sea interceptado por el listener de abajo de inmediato
+    if (event) event.stopPropagation();
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("active");
 }
 
+// Clic fuera del menú móvil para cerrarlo
 document.addEventListener('click', (event) => {
-const menu = document.getElementById("mobileMenu");
-const hambBtn = document.getElementById("hambBtn");
-if (!menu.contains(event.target) && !hambBtn.contains(event.target)) {
-menu.classList.remove("active");
-}
+    const menu = document.getElementById("mobileMenu");
+    const hambBtn = document.getElementById("hambBtn");
+    
+    // Si el menú está abierto y se hace clic fuera del menú y fuera del botón hamburguesa
+    if (menu.classList.contains("active") && !menu.contains(event.target) && !hambBtn.contains(event.target)) {
+        menu.classList.remove("active");
+    }
 });
 
 /* VOLVER AL TOP AL RECARGAR */
