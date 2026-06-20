@@ -75,7 +75,6 @@
             opacity: .5;
         }
 
-        /* Botón menú hamburguesa (Oculto en PC) */
         .menu-toggle {
             display: none;
             background: none;
@@ -86,7 +85,7 @@
             z-index: 110;
         }
 
-        /* BANNER (EXTREMO A EXTREMO SIN CORTES) */
+        /* BANNER */
         .banner-container {
             width: 100%;
             position: relative;
@@ -126,8 +125,12 @@
             color: #E2E2E2;
         }
 
-        /* SECCIONES COMPARTIDAS */
-        .section {
+        /* CUERPO DE LA PÁGINA (AVANCES ACTUALES) */
+        .web-container {
+            width: 100%;
+        }
+
+        .seccion-proyecto {
             max-width: 1300px;
             margin: 100px auto;
             padding: 0 60px;
@@ -145,9 +148,13 @@
             text-transform: uppercase;
         }
 
-        /* MADRE SEMILLA */
-        .featured-project {
+        .fila-dos-columnas {
             display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .featured-project {
             grid-template-columns: 1.1fr 0.9fr;
             gap: 60px;
             align-items: start;
@@ -278,13 +285,6 @@
             color: #000;
         }
 
-        /* GRID POSTPRODUCCIÓN & DESARROLLO */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-
         .card {
             min-width: 0;
         }
@@ -333,7 +333,6 @@
             flex-shrink: 0;
         }
 
-        /* DISEÑO DE DESARROLLO ESPECÍFICO */
         .dev-box {
             display: flex;
             gap: 25px;
@@ -384,7 +383,6 @@
             letter-spacing: 1px;
         }
 
-        /* CALL TO ACTION */
         .cta-banner {
             border-top: 1px solid #222;
             padding: 80px 0;
@@ -414,59 +412,68 @@
         }
 
         /* ==========================================
-           TU FOOTER ORIGINAL RESTAURADO POR COMPLETO
+           ESTILOS PARA LA DISTRIBUCIÓN DEL FOOTER
            ========================================== */
-        .footer {
+        .sitio-footer {
             background-color: #000000;
-            padding: 40px 60px;
+            padding: 60px;
+            border-top: 1px solid #1a1a1a;
+            width: 100%;
+        }
+
+        /* Usamos una fila de 3 columnas distribuidas de extremo a extremo */
+        .fila-tres-columnas {
+            max-width: 1300px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px solid #1a1a1a;
         }
 
-        .footer-left {
+        .columna-izquierda {
             text-align: left;
+            flex: 1;
         }
 
-        .footer-left h4 {
+        .columna-izquierda h4 {
             font-family: 'Oswald', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 22px;
+            font-weight: 500;
             letter-spacing: 2px;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
-        .footer-left p {
-            font-family: 'Roboto', sans-serif;
-            font-size: 12px;
+        .columna-izquierda p {
+            font-size: 13px;
             color: #888888;
         }
 
-        .footer-center {
+        .columna-central {
             display: flex;
-            gap: 20px;
+            justify-content: center;
+            gap: 25px;
+            flex: 1;
         }
 
-        .footer-center a {
+        .columna-central a {
             color: #ffffff;
             font-size: 18px;
             transition: color 0.3s ease;
         }
 
-        .footer-center a:hover {
+        .columna-central a:hover {
             color: #C49A3A;
         }
 
-        .footer-right {
+        .columna-derecha {
             text-align: right;
+            flex: 1;
         }
 
-        .footer-right p {
-            font-family: 'Roboto', sans-serif;
-            font-size: 12px;
+        .columna-derecha p {
+            font-size: 13px;
             color: #888888;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         /* RESPONSIVE GLOBAL */
@@ -477,13 +484,8 @@
                 justify-content: flex-end; 
             }
             
-            .logo { 
-                display: none; 
-            }
-
-            .menu-toggle {
-                display: block; 
-            }
+            .logo { display: none; }
+            .menu-toggle { display: block; }
 
             .nav {
                 display: none; 
@@ -500,36 +502,30 @@
                 box-shadow: 0px 10px 20px rgba(0,0,0,0.5);
             }
 
-            .nav.open {
-                display: flex;
-            }
+            .nav.open { display: flex; }
 
             .banner-text-overlay { left: 25px; bottom: 5%; top: auto; transform: none; }
-            .section { padding: 0 25px; margin: 60px auto; }
+            .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
             
-            .featured-project { gap: 25px; }
-            .cards-grid { gap: 25px; }
+            .fila-dos-columnas { grid-template-columns: 1fr; gap: 25px; }
+            .featured-project { grid-template-columns: 1fr; }
             .card img { height: 280px; }
             .gallery-thumbs img { height: 60px; }
             .meta-info-grid { gap: 10px; padding-top: 15px; margin-bottom: 25px; }
             .meta-col { padding-left: 10px; }
 
-            /* Adaptación móvil heredada */
-            .footer {
-                padding: 30px 20px;
+            /* Footer apilado solo en pantallas chicas */
+            .fila-tres-columnas {
                 flex-direction: column;
-                gap: 20px;
-                text-align: center;
+                gap: 30px;
             }
-            .footer-left, .footer-right {
+            .columna-izquierda, .columna-derecha {
                 text-align: center;
             }
         }
 
         @media(max-width: 500px) {
-            .section { padding: 0 15px; }
-            .featured-project { gap: 15px; }
-            .cards-grid { gap: 15px; }
+            .seccion-proyecto { padding: 0 15px; }
             .card img { height: 190px; }
             .dev-box { padding: 15px; gap: 12px; }
             .meta-info-grid { grid-template-columns: 1fr; border-top: none; padding-top: 0; }
@@ -566,168 +562,151 @@
         </div>
     </div>
 
-    <section class="section featured-project">
-        <div class="main-poster">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla-portada.png?raw=true" alt="Madre Semilla">
-            <div class="gallery-thumbs">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla2.png?raw=true" alt="Miniatura 1">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla1.jpg?raw=true" alt="Miniatura 2">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla2.png?raw=true" alt="Miniatura 3">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla1.jpg?raw=true" alt="Miniatura 4">
-            </div>
-        </div>
+    <div class="web-container">
 
-        <div class="project-details">
-            <div class="status-tag">PRÓXIMO ESTRENO</div>
-            <h2>MADRE SEMILLA</h2>
-            <div class="subtitle-yellow">Largometraje de ficción</div>
-            <p class="synopsis">En lo profundo del Caribe, una mujer defiende su territorio y su herencia cuando la tierra que la vio crecer comienza a ser devorada.</p>
-
-            <div class="meta-info-grid">
-                <div class="meta-col">
-                    <i class="fa-solid fa-star star-icon"></i>
-                    <div>
-                        <div class="meta-label">Protagonizada por</div>
-                        <p>Carmiña Martínez<br><em>(Pájaros de verano)</em></p>
+        <section class="seccion-proyecto">
+            <div class="fila-dos-columnas featured-project">
+                <div class="columna main-poster">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla-portada.png?raw=true" alt="Madre Semilla">
+                    <div class="gallery-thumbs">
+                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla2.png?raw=true" alt="Miniatura 1">
+                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla1.jpg?raw=true" alt="Miniatura 2">
+                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla2.png?raw=true" alt="Miniatura 3">
+                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla1.jpg?raw=true" alt="Miniatura 4">
                     </div>
                 </div>
-                <div class="meta-col">
-                    <div class="meta-label">Participó en:</div>
-                    <p>• Bolivia Lab<br>• SAPCINE</p>
+                <div class="columna project-details">
+                    <div class="status-tag">PRÓXIMO ESTRENO</div>
+                    <h2>MADRE SEMILLA</h2>
+                    <div class="subtitle-yellow">Largometraje de ficción</div>
+                    <p class="synopsis">En lo profundo del Caribe, una mujer defiende su territorio y su herencia cuando la tierra que la vio crecer comienza a ser devorada.</p>
+
+                    <div class="meta-info-grid">
+                        <div class="meta-col">
+                            <i class="fa-solid fa-star star-icon"></i>
+                            <div>
+                                <div class="meta-label">Protagonizada por</div>
+                                <p>Carmiña Martínez<br><em>(Pájaros de verano)</em></p>
+                            </div>
+                        </div>
+                        <div class="meta-col">
+                            <div class="meta-label">Participó en:</div>
+                            <p>• Bolivia Lab<br>• SAPCINE</p>
+                        </div>
+                        <div class="meta-col">
+                            <div class="meta-label">Coproducida con:</div>
+                            <div class="logo-telepacific">
+                                <svg viewBox="0 0 100 100" width="30" height="30" fill="#FFF">
+                                    <circle cx="50" cy="15" r="4"/><circle cx="75" cy="25" r="4"/><circle cx="85" cy="50" r="4"/>
+                                    <circle cx="75" cy="75" r="4"/><circle cx="50" cy="85" r="4"/><circle cx="25" cy="75" r="4"/>
+                                    <circle cx="15" cy="50" r="4"/><circle cx="25" cy="25" r="4"/><circle cx="50" cy="32" r="3"/>
+                                    <circle cx="63" cy="37" r="3"/><circle cx="68" cy="50" r="3"/><circle cx="63" cy="63" r="3"/>
+                                    <circle cx="50" cy="68" r="3"/><circle cx="37" cy="63" r="3"/><circle cx="32" cy="50" r="3"/>
+                                </svg>
+                                <span style="font-size:14px; font-weight:700; line-height:1.1; letter-spacing:0.5px;">telepacífico<br><small style="font-size:8px; opacity:0.6; display:block;">SOMOS NUESTRO CANAL</small></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="btn-teaser" href="https://www.youtube.com/watch?v=fCFGOoFDn1Q" target="_blank">
+                        <i class="fa-solid fa-play"></i> VER TEASER
+                    </a>
                 </div>
-                <div class="meta-col">
-                    <div class="meta-label">Coproducida con:</div>
-                    <div class="logo-telepacific">
-                        <svg viewBox="0 0 100 100" width="30" height="30" fill="#FFF">
-                            <circle cx="50" cy="15" r="4"/><circle cx="75" cy="25" r="4"/><circle cx="85" cy="50" r="4"/>
-                            <circle cx="75" cy="75" r="4"/><circle cx="50" cy="85" r="4"/><circle cx="25" cy="75" r="4"/>
-                            <circle cx="15" cy="50" r="4"/><circle cx="25" cy="25" r="4"/><circle cx="50" cy="32" r="3"/>
-                            <circle cx="63" cy="37" r="3"/><circle cx="68" cy="50" r="3"/><circle cx="63" cy="63" r="3"/>
-                            <circle cx="50" cy="68" r="3"/><circle cx="37" cy="63" r="3"/><circle cx="32" cy="50" r="3"/>
+            </div>
+        </section>
+
+        <section class="seccion-proyecto">
+            <div class="section-title">OTROS PROYECTOS EN POSTPRODUCCIÓN</div>
+            <div class="fila-dos-columnas">
+                <div class="columna card">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/actocivici-portada.JPG?raw=true" alt="Acto Cívico">
+                    <h3>Acto Cívico</h3>
+                    <div class="card-subtitle">Cortometraje de ficción</div>
+                    <p class="desc">Una ceremonia escolar se convierte en el escenario donde dos adolescentes cuestionan lo que significa pertenecer.</p>
+                    <div class="festival-laurels">
+                        <svg class="laurel-svg" viewBox="0 0 100 80" width="50" height="50">
+                            <path d="M15,45 Q25,25 45,20 Q35,35 20,50 Z"/><path d="M10,30 Q22,15 38,15 Q28,25 15,35 Z"/><path d="M20,60 Q30,42 50,35 Q40,52 25,68 Z"/>
+                            <path d="M85,45 Q75,25 55,20 Q65,35 80,50 Z"/><path d="M90,30 Q78,15 62,15 Q72,25 85,35 Z"/><path d="M80,60 Q70,42 50,35 Q60,52 75,68 Z"/><circle cx="50" cy="22" r="3"/>
                         </svg>
-                        <span style="font-size:14px; font-weight:700; line-height:1.1; letter-spacing:0.5px;">telepacífico<br><small style="font-size:8px; opacity:0.6; display:block;">SOMOS NUESTRO CANAL</small></span>
+                        <p>Proyecto ganador del<br>Fondo para el Desarrollo Cinematográfico – FDC</p>
+                    </div>
+                </div>
+                <div class="columna card">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
+                    <h3>Profesora Leda</h3>
+                    <div class="card-subtitle">Largometraje de ficción</div>
+                    <p class="desc">En un pueblo apartado, una profesora llega a cambiar el destino de sus estudiantes y también el suyo.</p>
+                    <div class="festival-laurels">
+                        <svg class="laurel-svg" viewBox="0 0 100 80" width="50" height="50">
+                            <path d="M15,45 Q25,25 45,20 Q35,35 20,50 Z"/><path d="M10,30 Q22,15 38,15 Q28,25 15,35 Z"/><path d="M20,60 Q30,42 50,35 Q40,52 25,68 Z"/>
+                            <path d="M85,45 Q75,25 55,20 Q65,35 80,50 Z"/><path d="M90,30 Q78,15 62,15 Q72,25 85,35 Z"/><path d="M80,60 Q70,42 50,35 Q60,52 75,68 Z"/><circle cx="50" cy="22" r="3"/>
+                        </svg>
+                        <p>Ganador Premio Churubusco a la<br>Construcción de Proyectos CINEQUANON</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <a class="btn-teaser" href="https://www.youtube.com/watch?v=fCFGOoFDn1Q" target="_blank">
-                <i class="fa-solid fa-play"></i> VER TEASER
-            </a>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="section-title">OTROS PROYECTOS EN POSTPRODUCCIÓN</div>
-        <div class="cards-grid">
-
-            <div class="card">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/actocivici-portada.JPG?raw=true" alt="Acto Cívico">
-                <h3>Acto Cívico</h3>
-                <div class="card-subtitle">Cortometraje de ficción</div>
-                <p class="desc">Una ceremonia escolar se convierte en el escenario donde dos adolescentes cuestionan lo que significa pertenecer.</p>
-                
-                <div class="festival-laurels">
-                    <svg class="laurel-svg" viewBox="0 0 100 80" width="50" height="50">
-                        <path d="M15,45 Q25,25 45,20 Q35,35 20,50 Z"/><path d="M10,30 Q22,15 38,15 Q28,25 15,35 Z"/><path d="M20,60 Q30,42 50,35 Q40,52 25,68 Z"/>
-                        <path d="M85,45 Q75,25 55,20 Q65,35 80,50 Z"/><path d="M90,30 Q78,15 62,15 Q72,25 85,35 Z"/><path d="M80,60 Q70,42 50,35 Q60,52 75,68 Z"/><circle cx="50" cy="22" r="3"/>
-                    </svg>
-                    <p>Proyecto ganador del<br>Fondo para el Desarrollo Cinematográfico – FDC</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
-                <h3>Profesora Leda</h3>
-                <div class="card-subtitle">Largometraje de ficción</div>
-                <p class="desc">En un pueblo apartado, una profesora llega a cambiar el destino de sus estudiantes y también el suyo.</p>
-                
-                <div class="festival-laurels">
-                    <svg class="laurel-svg" viewBox="0 0 100 80" width="50" height="50">
-                        <path d="M15,45 Q25,25 45,20 Q35,35 20,50 Z"/><path d="M10,30 Q22,15 38,15 Q28,25 15,35 Z"/><path d="M20,60 Q30,42 50,35 Q40,52 25,68 Z"/>
-                        <path d="M85,45 Q75,25 55,20 Q65,35 80,50 Z"/><path d="M90,30 Q78,15 62,15 Q72,25 85,35 Z"/><path d="M80,60 Q70,42 50,35 Q60,52 75,68 Z"/><circle cx="50" cy="22" r="3"/>
-                    </svg>
-                    <p>Ganador Premio Churubusco a la<br>Construcción de Proyectos CINEQUANON</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="section-title">PROYECTOS EN DESARROLLO</div>
-        <div class="cards-grid">
-
-            <div class="dev-box">
-                <div class="dev-circle-icon">
-                    <i class="fa-solid fa-water"></i>
-                </div>
-                <div class="dev-inner-content card">
-                    <h3>Ballenata</h3>
-                    <div class="card-subtitle">Serie</div>
-                    <p class="desc">Una exploración del Caribe contemporáneo a través de la música, el territorio y la identidad.</p>
-                    <div class="technical-sheet">
-                        <div>
-                            <strong>Estado Actual</strong>
-                            Desarrollo de guion
+        <section class="seccion-proyecto">
+            <div class="section-title">PROYECTOS EN DESARROLLO</div>
+            <div class="fila-dos-columnas">
+                <div class="columna dev-box">
+                    <div class="dev-circle-icon"><i class="fa-solid fa-water"></i></div>
+                    <div class="dev-inner-content card">
+                        <h3>Ballenata</h3>
+                        <div class="card-subtitle">Serie</div>
+                        <p class="desc">Una exploración del Caribe contemporáneo a través de la música, el territorio y la identidad.</p>
+                        <div class="technical-sheet">
+                            <div><strong>Estado Actual</strong>Desarrollo de guion</div>
+                            <div><strong>Género</strong>Drama</div>
                         </div>
-                        <div>
-                            <strong>Género</strong>
-                            Drama
+                    </div>
+                </div>
+                <div class="columna dev-box">
+                    <div class="dev-circle-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                    <div class="dev-inner-content card">
+                        <h3>Fuego en la Memoria</h3>
+                        <div class="card-subtitle">Largometraje</div>
+                        <p class="desc">Inspirada en hechos reales, una historia sobre la resistencia, el olvido y la fuerza de la memoria colectiva.</p>
+                        <div class="technical-sheet">
+                            <div><strong>Estado Actual</strong>Desarrollo de guion</div>
+                            <div><strong>Género</strong>Drama</div>
+                        </div>
+                        <div style="margin-top: 25px; border-top: 1px solid #222; padding-top: 20px;">
+                            <strong style="color: #C49A3A; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Reconocimientos</strong>
+                            <p style="font-size: 14px; color: #b5b5b5; line-height: 1.8; margin-top: 10px;">
+                                <i class="fa-regular fa-star" style="color:#C49A3A; font-size:12px; margin-right:5px;"></i> Premiado en el Concurso Nacional de Proyectos – FDC<br>
+                                <i class="fa-regular fa-star" style="color:#C49A3A; font-size:12px; margin-right:5px;"></i> Finalista – Laboratorio de Guion FDC<br>
+                                <i class="fa-regular fa-star" style="color:#C49A3A; font-size:12px; margin-right:5px;"></i> Selección – Bolivia Lab
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="dev-box">
-                <div class="dev-circle-icon">
-                    <i class="fa-solid fa-fire-flame-curved"></i>
-                </div>
-                <div class="dev-inner-content card">
-                    <h3>Fuego en la Memoria</h3>
-                    <div class="card-subtitle">Largometraje</div>
-                    <p class="desc">Inspirada en hechos reales, una historia sobre la resistencia, el olvido y la fuerza de la memoria colectiva.</p>
-                    <div class="technical-sheet">
-                        <div>
-                            <strong>Estado Actual</strong>
-                            Desarrollo de guion
-                        </div>
-                        <div>
-                            <strong>Género</strong>
-                            Drama
-                        </div>
-                    </div>
-                    <div style="margin-top: 25px; border-top: 1px solid #222; padding-top: 20px;">
-                        <strong style="color: #C49A3A; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Reconocimientos</strong>
-                        <p style="font-size: 14px; color: #b5b5b5; line-height: 1.8; margin-top: 10px;">
-                            <i class="fa-regular fa-star" style="color:#C49A3A; font-size:12px; margin-right:5px;"></i> Premiado en el Concurso Nacional de Proyectos – FDC<br>
-                            <i class="fa-regular fa-star" style="color:#C49A3A; font-size:12px; margin-right:5px;"></i> Finalista – Laboratorio de Guion FDC<br>
-                            <i class="fa-regular fa-star" style="color:#C49A3A; font-size:12px; margin-right:5px;"></i> Selección – Bolivia Lab
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <div class="cta-banner">
+    </div> <div class="cta-banner">
         <p>¿Te interesa conocer más sobre nuestros próximos proyectos?</p>
         <a href="contacto.html" class="cta-btn">Contáctanos</a>
     </div>
 
-    <footer class="footer">
-        <div class="footer-left">
-            <h4>GARABATO CINE</h4>
-            <p>Cine hecho desde el Caribe colombiano.</p>
-        </div>
-        <div class="footer-center">
-            <a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="http://www.youtube.com/channel/UC4vuld7vS7GhKcBf2dv0fJw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-        </div>
-        <div class="footer-right">
-            <p>© 2026 Garabato Cine</p>
-            <p>Todos los derechos reservados.</p>
+    <footer class="sitio-footer">
+        <div class="fila-tres-columnas">
+            <div class="columna-izquierda">
+                <h4>GARABATO CINE</h4>
+                <p>Cine hecho desde el Caribe colombiano.</p>
+            </div>
+            
+            <div class="columna-central">
+                <a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="http://www.youtube.com/channel/UC4vuld7vS7GhKcBf2dv0fJw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            
+            <div class="columna-derecha">
+                <p>© 2026 Garabato Cine</p>
+                <p>Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
 
