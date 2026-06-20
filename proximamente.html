@@ -75,7 +75,7 @@
             opacity: .5;
         }
 
-        /* Botón menú hamburguesa (Oculto por defecto en PC) */
+        /* Botón menú hamburguesa (Oculto en PC) */
         .menu-toggle {
             display: none;
             background: none;
@@ -413,7 +413,7 @@
             color: #000;
         }
 
-        /* FOOTER CORREGIDO */
+        /* FOOTER RESTAURADO AL DISEÑO ANTERIOR */
         .footer {
             background: #000;
             padding: 90px 60px;
@@ -427,7 +427,7 @@
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center; /* Alineación central perfecta para las 3 columnas */
         }
 
         .footer-left h4 {
@@ -442,7 +442,7 @@
             color: #aaa;
         }
 
-        /* Columna central del Footer */
+        /* Contenedor central con la palabra SÍGUENOS arriba de los iconos */
         .footer-center {
             display: flex;
             flex-direction: column;
@@ -486,19 +486,18 @@
             /* AJUSTES DEL HEADER EN MÓVIL/TABLET */
             .header { 
                 padding: 30px 25px; 
-                flex-direction: row; /* Mantiene la alineación horizontal del botón */
-                justify-content: flex-end; /* Mueve el botón de hamburguesa a la derecha */
+                flex-direction: row; 
+                justify-content: flex-end; 
             }
             
             .logo { 
-                display: none; /* Elimina "GARABATO CINE" a la izquierda para no pelear con el título */
+                display: none; /* Oculto para que no pelee con PRÓXIMAMENTE */
             }
 
             .menu-toggle {
-                display: block; /* Muestra la hamburguesa */
+                display: block; 
             }
 
-            /* Convierte el menú clásico en un menú desplegable responsive */
             .nav {
                 display: none; 
                 flex-direction: column;
@@ -514,7 +513,6 @@
                 box-shadow: 0px 10px 20px rgba(0,0,0,0.5);
             }
 
-            /* Clase activa que se inyectará con JavaScript */
             .nav.open {
                 display: flex;
             }
@@ -522,7 +520,6 @@
             .banner-text-overlay { left: 25px; bottom: 5%; top: auto; transform: none; }
             .section { padding: 0 25px; margin: 60px auto; }
             
-            /* Ajustes del contenido principal de las dos columnas */
             .featured-project { gap: 25px; }
             .cards-grid { gap: 25px; }
             .card img { height: 280px; }
@@ -530,7 +527,7 @@
             .meta-info-grid { gap: 10px; padding-top: 15px; margin-bottom: 25px; }
             .meta-col { padding-left: 10px; }
 
-            /* Ajustes del Footer en Tablet */
+            /* Ajustes del Footer en Tablet/Móvil */
             .footer { padding: 60px 25px; }
             .footer-row { flex-direction: column; gap: 40px; text-align: center; align-items: center; }
             .footer-right { text-align: center; }
