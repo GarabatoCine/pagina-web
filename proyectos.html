@@ -2,29 +2,30 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Catálogo - Garabato Cine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Proyectos - Garabato Cine</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
 
-html, body{
-width:100%;
-overflow-x:hidden;
-}
-
 body{
 font-family:'Roboto', sans-serif;
 background:#fff;
 color:#999;
-padding-top:74px;
+padding-top:72px;
+overflow-x:hidden;
+}
+
+a {
+text-decoration: none;
+color: inherit;
 }
 
 /* ================= HEADER ================= */
@@ -42,16 +43,16 @@ padding:18px 40px;
 z-index:1000;
 border-bottom:1px solid #eee;
 text-transform:uppercase;
+font-family: 'Oswald', sans-serif;
 }
 
-.logo a,
+.brand-logo,
 .nav a,
-.lang span,
-.lang a{
+.lang span{
 color:#000;
 }
 
-.logo a{
+.brand-logo{
 font-size:24px;
 font-weight:500;
 letter-spacing:2px;
@@ -61,261 +62,298 @@ text-decoration:none;
 .nav{
 display:flex;
 align-items:center;
-gap:18px;
+gap:40px;
 font-size:13px;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+font-family: 'Roboto', sans-serif;
 }
 
 .nav a{
 text-decoration:none;
 font-weight:500;
+color:#000;
+transition: color 0.3s;
 }
 
-/* ================= LANGUAGES ================= */
-
-.lang .active{
-opacity:0.45;
+.nav a:hover {
+color: #FFC601;
 }
+
+.lang {
+display: flex;
+gap: 8px;
+}
+
+.lang span{opacity:0.6;}
+.lang .active{opacity:1;}
 
 .lang a{
-opacity:1;
+opacity:0.6;
 text-decoration:none;
+color:#000;
 }
 
-.lang a:hover{
-opacity:0.7;
-}
+.lang a:hover{opacity:1;}
 
-/* ================= HAMBURGUESA ================= */
-
+/* HAMBURGER / MENU TOGGLE */
 .menu-toggle{
 display:none;
-flex-direction:column;
-gap:4px;
-cursor:pointer;
+background: none;
+border: none;
+color: #000;
+font-size: 24px;
+cursor: pointer;
+z-index: 110;
 }
 
-.menu-toggle span{
-width:22px;
-height:2px;
-background:#000;
-display:block;
+/* MENU MOBILE */
+.nav-mobile { 
+display: none; 
+flex-direction: column;
+position: absolute;
+top: 70px; 
+right: 22px;
+background: #fff;
+border: 1px solid #eee;
+padding: 30px;
+gap: 25px;
+align-items: flex-start;
+width: 220px;
+box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+z-index: 200;
+font-family: 'Roboto', sans-serif;
+font-size: 13px;
+letter-spacing: 1.5px;
+text-transform: uppercase;
 }
 
-/* ================= VIDEOS ================= */
-
-.video-block{
-position:relative;
-margin-top:18px;
+.nav-mobile.open { 
+display: flex; 
 }
 
-.video-block:first-of-type{
-margin-top:0;
-}
-
-.video-block video{
-width:100%;
-display:block;
-object-fit:cover;
-transform:scale(1.01);
-}
-
-/* ================= TITULOS ================= */
-
-.video-title-overlay{
-position:absolute;
-bottom:20px;
-left:20px;
-color:#fff;
-font-size:28px;
+.nav-mobile a {
+text-decoration:none;
 font-weight:500;
-z-index:2;
+color:#000;
 }
 
-.video-title-overlay span{
-font-size:14px;
-font-weight:300;
-opacity:0.95;
-margin-left:8px;
+.lang-mobile {
+display: flex;
+gap: 6px;
 }
 
-/* ================= CLICKABLE ================= */
+.lang-mobile span{opacity:0.6;}
+.lang-mobile .active{opacity:1;}
+.lang-mobile a{opacity:0.6; color:#000;}
+.lang-mobile a:hover{opacity:1;}
 
-.video-block.clickable{
-cursor:pointer;
+/* ================= GALERÍA ================= */
+
+.block{
+position:relative;
+width:100vw;
+margin-left:calc(-50vw + 50%);
+margin-bottom:6px;
 }
 
-/* ================= FOOTER ================= */
-
-.footer-space{
-height:18px;
-}
-
-.footer{
-background:#000;
-color:white;
+.block img{
 width:100%;
-margin:0;
-padding:70px 160px;
-font-family:'Century Gothic', sans-serif;
-font-weight:100;
-font-size:15px;
-}
-
-.footer a{
-color:white;
-}
-
-.footer-line{
-height:1px;
-background:rgba(255,255,255,0.4);
-margin:50px 0;
-}
-
-.footer-row{
-display:flex;
-justify-content:space-between;
-align-items:flex-start;
-}
-
-.footer-left a{
-font-size:19px;
-font-weight:100;
-text-decoration:underline;
-text-decoration-thickness:0.5px;
-text-underline-offset:2px;
-}
-
-.footer-right{
-text-align:right;
-}
-
-.footer-follow{
-font-size:19px;
-margin-bottom:15px;
-font-weight:100;
-}
-
-.footer-icons{
-display:flex;
-gap:12px;
-justify-content:flex-end;
-}
-
-.footer-icons svg{
-width:24px;
-height:24px;
-stroke:white;
-fill:none;
-stroke-width:1.2;
-}
-
-.footer-bottom{
-display:flex;
-justify-content:space-between;
-margin-top:30px;
-font-weight:100;
-}
-
-.footer-bottom-left a{
 display:block;
-margin-bottom:8px;
-text-decoration:underline;
-text-decoration-thickness:0.5px;
-text-underline-offset:2px;
 }
 
-.footer-bottom-right{
-text-align:right;
-line-height:1.8;
+.overlay{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:18px;
+background:linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+color:#fff;
+font-size:18px;
+font-family: 'Oswald', sans-serif;
+letter-spacing: 1px;
+text-transform: uppercase;
 }
 
-/* ================= TABLET ================= */
+/* ================= CTA BANNER ================= */
+
+.cta-banner {
+border-top: 1px solid #222;
+padding: 45px 40px;
+text-align: center;
+background: #000;
+color: #fff;
+}
+
+.cta-banner p {
+font-size: 16px;
+margin-bottom: 20px;
+font-weight: 300;
+letter-spacing: 0.5px;
+}
+
+.cta-btn {
+display: inline-block;
+padding: 12px 35px;
+border: 1px solid #FFC601;
+color: #FFC601;
+font-size: 13px;
+letter-spacing: 2px;
+text-transform: uppercase;
+transition: 0.3s;
+}
+
+.cta-btn:hover {
+background: #FFC601;
+color: #000;
+}
+
+/* ================= FOOTER BASE ================= */
+
+.sitio-footer {
+background-color: #000000;
+color: #ffffff;
+padding: 40px 60px;
+border-top: 1px solid #1a1a1a;
+width: 100%;
+font-family: 'Roboto', sans-serif;
+}
+
+.fila-tres-columnas {
+max-width: 1300px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.columna-izquierda {
+text-align: left;
+flex: 1;
+}
+
+.columna-izquierda h4 {
+font-family: 'Oswald', sans-serif;
+font-size: 22px;
+font-weight: 500;
+letter-spacing: 2px;
+margin-bottom: 6px;
+text-transform: uppercase;
+}
+
+.columna-izquierda p {
+font-size: clamp(10px, 1.2vw, 13px);
+color: #888888;
+white-space: nowrap;
+}
+
+.columna-central {
+display: flex;
+justify-content: center;
+gap: 25px;
+flex: 1;
+}
+
+.columna-central a {
+color: #ffffff;
+font-size: 18px;
+transition: color 0.3s ease;
+}
+
+.columna-central a:hover {
+color: #FFC601;
+}
+
+.columna-derecha {
+text-align: right;
+flex: 1;
+}
+
+.columna-derecha p {
+font-size: 13px;
+color: #888888;
+line-height: 1.6;
+}
+
+.texto-chico {
+font-size: 11.5px !important;
+color: #888888;
+}
+
+.footer-link-normal {
+display: inline-block;
+font-size: 13px;
+color: inherit; 
+text-decoration: underline; 
+transition: color 0.3s ease;
+}
+
+.footer-link-normal:hover {
+color: #FFC601;
+}
+
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:1024px){
-
 body{
-padding-top:86px;
-}
-
-.nav{
-display:none;
-position:absolute;
-top:70px;
-right:20px;
-background:#fff;
-padding:20px;
-flex-direction:column;
-align-items:flex-start;
-border:1px solid #eee;
-gap:14px;
-}
-
-.nav.active{
-display:flex;
-}
-
-.menu-toggle{
-display:flex;
-}
-
-.video-title-overlay{
-font-size:22px;
-}
-
-.video-title-overlay span{
-font-size:12px;
-}
-
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:768px){
-
-body{
-padding-top:82px;
+padding-top:88px;
 }
 
 .header{
 padding:16px 22px;
 }
 
-.video-title-overlay{
-font-size:18px;
-bottom:14px;
-left:14px;
+.nav { 
+display: none; 
 }
 
-.video-title-overlay span{
-font-size:11px;
+.menu-toggle { 
+display: block; 
 }
 
-.footer{
-padding:50px 40px;
+/* FOOTER TABLET */
+.sitio-footer {
+padding: 40px 40px;
+}
 }
 
-.footer-row{
-flex-direction:column;
-gap:30px;
+@media(max-width: 767px) {
+.header { 
+padding: 15px 25px; 
 }
 
-.footer-right{
-text-align:left;
+.nav-mobile { right: 25px; top: 60px; }
+
+.cta-banner { padding: 40px 25px; }
+.cta-banner p { font-size: 15px; }
+
+.fila-tres-columnas {
+flex-direction: column;
+gap: 25px;
+text-align: center;
+}
+.columna-izquierda, .columna-derecha {
+text-align: center;
+}
+.columna-derecha {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 5px;
 }
 
-.footer-icons{
-justify-content:flex-start;
+.columna-derecha .link-linea-1 {
+order: 1;
 }
 
-.footer-bottom{
-flex-direction:column;
-gap:20px;
+.columna-derecha .texto-linea-2 {
+order: 2;
 }
 
-.footer-bottom-right{
-text-align:left;
+.columna-derecha .texto-linea-3 {
+order: 3;
 }
-
 }
 
 </style>
@@ -323,165 +361,126 @@ text-align:left;
 
 <body id="top">
 
-<!-- HEADER -->
-<div class="header">
+<header class="header">
+<div class="brand-logo"><a href="https://garabatocine.github.io/pagina-web/">GARABATO CINE</a></div>
 
-<div class="logo">
-<a href="index.html">GARABATO CINE</a>
-</div>
+<button class="menu-toggle" id="menuBtn" aria-label="Abrir menú">
+<i class="fa-solid fa-bars"></i>
+</button>
 
-<!-- HAMBURGUESA -->
-<div class="menu-toggle" onclick="toggleMenu()">
-<span></span>
-<span></span>
-<span></span>
-</div>
-
-<div class="nav" id="mobileMenu">
-
+<nav class="nav">
+<a href="proyectos.html">PROYECTOS</a>
+<a href="proximamente.html">PRÓXIMAMENTE</a>
 <a href="nosotros.html">NOSOTROS</a>
-<a href="contacto.html">CONTACTO</a>
 
 <div class="lang">
 <span class="active">ES</span>
 <span>|</span>
 <a href="#">EN</a>
 </div>
+</nav>
 
+<nav class="nav-mobile" id="navMenu">
+<a href="proyectos.html">PROYECTOS</a>
+<a href="proximamente.html">PRÓXIMAMENTE</a>
+<a href="nosotros.html">NOSOTROS</a>
+
+<div class="lang-mobile">
+<span class="active">ES</span>
+<span>/</span>
+<a href="#">EN</a>
 </div>
-</div>
+</nav>
 
-<!-- LA FRONTERA -->
-<div class="video-block">
+</header>
 
-<video autoplay muted loop playsinline>
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/catalogo/Banner-la-frontera.mp4">
-</video>
-
-<div class="video-title-overlay">
-La Frontera <span>(Largometraje)</span>
-</div>
-
-</div>
-
-<!-- VIDA DE COLORES -->
-<div class="video-block">
-
-<video autoplay muted loop playsinline>
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/catalogo/Banner-vida-de-colores.mp4">
-</video>
-
-<div class="video-title-overlay">
-Vida de Colores <span>(Serie)</span>
+<div class="block">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/cortometrajes/Marimonda-tirita.png?raw=true" alt="Marimonda">
+<div class="overlay">Marimonda</div>
 </div>
 
+<div class="block">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/cortometrajes/Ano-sabatico.Tirita.png?raw=true" alt="Año Sabático">
+<div class="overlay">Año Sabático</div>
 </div>
 
-<!-- CORTOMETRAJES -->
-<div class="video-block clickable" onclick="window.location.href='cortometrajes.html'">
-
-<video autoplay muted loop playsinline>
-<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/catalogo/banner-cortometrajes.mp4">
-</video>
-
-<div class="video-title-overlay">
-Cortometrajes
+<div class="block">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/cortometrajes/Calaguala-tirita.png?raw=true" alt="Calaguala">
+<div class="overlay">Calaguala</div>
 </div>
 
+<div class="block">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/cortometrajes/El-congo-de-oro-tirita.png?raw=true" alt="El Congo de Oro">
+<div class="overlay">El Congo de Oro</div>
 </div>
 
-<div class="footer-space"></div>
-
-<!-- FOOTER -->
-<footer class="footer">
-
-<div class="footer-line"></div>
-
-<div class="footer-row">
-
-<div class="footer-left">
-<a href="contacto.html">
-Contacto
-</a>
+<div class="block">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/cortometrajes/Fracturas-tirita.png?raw=true" alt="Fracturas">
+<div class="overlay">Fracturas</div>
 </div>
 
-<div class="footer-right">
-
-<div class="footer-follow">
-Síguenos
+<div class="block">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/cortometrajes/La-princesita-tirita.png?raw=true" alt="La Princesita">
+<div class="overlay">La Princesita</div>
 </div>
 
-<div class="footer-icons">
-
-<a href="https://www.instagram.com/garabatocine/" target="_blank">
-<svg viewBox="0 0 24 24">
-<rect x="3" y="3" width="18" height="18" rx="5"></rect>
-<circle cx="12" cy="12" r="4"></circle>
-<circle cx="17" cy="7" r="1.5"></circle>
-</svg>
-</a>
-
-<a href="https://web.facebook.com/garabatocine" target="_blank">
-<svg viewBox="0 0 24 24">
-<circle cx="12" cy="12" r="10"></circle>
-<path d="M13 17v-4h2l.3-2H13V9.8c0-.6.2-1 1-1h1.3V7.1C14.8 7 14 7 13.2 7 11.6 7 10.5 8 10.5 10v1H9v2h1.5v4H13z" fill="white"/>
-</svg>
-</a>
-
-<a href="https://www.youtube.com/@garabatocine" target="_blank">
-<svg viewBox="0 0 24 24">
-<path d="M22 12s0-4-1-5-5-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 5 1 9 1 8 0 9-1 1-5 1-5z"></path>
-<polygon points="10 15 15 12 10 9"></polygon>
-</svg>
-</a>
-
+<div class="block">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/cortometrajes/La-tortuga-tirita.png?raw=true" alt="La Tortuga">
+<div class="overlay">La Tortuga</div>
 </div>
 
+<div class="cta-banner">
+<p>¿Te interesa conocer más sobre nuestros próximos proyectos?</p>
+<a href="contacto.html" class="cta-btn">Contáctanos</a>
 </div>
 
+<footer class="sitio-footer">
+<div class="fila-tres-columnas">
+<div class="columna-izquierda">
+<h4>GARABATO CINE</h4>
+<p>Cine hecho desde el Caribe colombiano.</p>
 </div>
 
-<div class="footer-line"></div>
-
-<div class="footer-bottom">
-
-<div class="footer-bottom-left">
-
-<a href="cookies.html">
-Política de Cookies
-</a>
-
-<a href="politicadeprivacidad.html">
-Política de Privacidad
-</a>
-
+<div class="columna-central">
+<a href="https://www.instagram.com/garabatocine/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+<a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="http://www.youtube.com/channel/UC4vuld7vS7GhKcBf2dv0fJw" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
 </div>
 
-<div class="footer-bottom-right">
-<div>© 2026 Garabato Cine</div>
-<div>Todos los derechos reservados</div>
+<div class="columna-derecha">
+<p class="link-linea-1"><a href="privacidadycookies.html" class="footer-link-normal" target="_blank">Privacidad y cookies</a></p>
+<p class="texto-chico texto-linea-2">Todos los derechos reservados</p>
+<p class="texto-chico texto-linea-3">© 2026 Garabato Cine</p>
 </div>
-
 </div>
-
 </footer>
 
 <script>
+// Funcionalidad del menú móvil hamburguesa
+const menuBtn = document.getElementById('menuBtn');
+const navMenu = document.getElementById('navMenu');
 
-function toggleMenu() {
-document.getElementById("mobileMenu").classList.toggle("active");
-}
-
-/* VOLVER AL TOP */
-
-window.onbeforeunload = function () {
-window.scrollTo(0, 0);
-};
-
-window.addEventListener("load", function () {
-window.scrollTo(0, 0);
+menuBtn.addEventListener('click', (e) => {
+e.stopPropagation();
+navMenu.classList.toggle('open');
 });
 
+// Cerrar el menú si se hace clic fuera de él en versión responsive
+document.addEventListener('click', () => {
+navMenu.classList.remove('open');
+});
+
+// Forzar el scroll al inicio (Top) al recargar la página
+if (history.scrollRestoration) {
+history.scrollRestoration = 'manual';
+}
+
+window.onload = () => {
+window.scrollTo(0, 0);
+setTimeout(() => {
+window.scrollTo(0, 0);
+}, 100);
+};
 </script>
 
 </body>
