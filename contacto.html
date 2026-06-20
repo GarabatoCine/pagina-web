@@ -106,21 +106,21 @@ object-fit:cover;
 display:block;
 }
 
-/* ================= CONTACT SECTION ================= */
+/* ================= CONTACT SECTION (MARGENES DESPLAZADOS) ================= */
 
 .contact-section{
 background:#000;
 color:#fff;
 }
 
-/* El grid principal que contiene el formulario y los textos */
 .contact-wrapper{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:120px;
 max-width:1600px;
 margin:0 auto;
-padding:50px 180px 80px;
+/* Ajuste definitivo: El padding lateral pasa de 180px a 60px para alinearse perfecto con el footer original */
+padding: 50px 60px 80px;
 }
 
 /* LEFT COLUMN */
@@ -226,31 +226,21 @@ cursor:pointer;
 align-self:flex-end;
 }
 
-/* ================= FOOTER (ALINEACIÓN EXACTA Y DEFINITIVA) ================= */
+/* ================= FOOTER (MANTIENE SU ESTILO ORIGINAL INTACTO) ================= */
 
 .sitio-footer {
 background-color: #000000;
+padding: 40px 60px;
 border-top: 1px solid #1a1a1a;
 width: 100%;
-padding: 40px 0;
 }
 
 .fila-tres-columnas {
-max-width: 1600px;
+max-width: 1300px;
 margin: 0 auto;
 display: flex;
 justify-content: space-between;
 align-items: center;
-}
-
-/* REGLA DEFINITIVA: 
-   El margen del cuerpo del correo está definido en .contact-wrapper con un max-width de 1600px y un padding lateral de 180px. 
-   Para que el footer coincida al píxel, aplicamos la misma distancia (180px) de padding horizontal.
-*/
-@media (min-width: 1025px) {
-    .fila-tres-columnas {
-        padding: 0 180px;
-    }
 }
 
 .columna-izquierda {
@@ -318,7 +308,7 @@ transition: color 0.3s ease;
 color: #FFC601;
 }
 
-/* ================= TABLET / MÓVIL (FOOTER ADAPTABLE) ================= */
+/* ================= TABLET / MÓVIL ================= */
 
 @media (min-width:1025px){
   .columna-central {
@@ -414,14 +404,14 @@ padding:10px 28px;
 font-size:14px;
 }
 
-/* Tablet / Móvil: Se empareja a 60px para coincidir con .contact-wrapper */
-.sitio-footer { padding: 40px 0; }
+.sitio-footer {
+padding: 40px 40px;
+}
+
 .fila-tres-columnas {
-padding: 0 60px;
 flex-direction: column;
 gap: 25px;
 text-align: center;
-max-width: 100%;
 }
 
 .columna-izquierda, .columna-derecha {
@@ -492,14 +482,14 @@ padding:10px 28px;
 font-size:14px;
 }
 
-/* Móvil pequeño: Se empareja a 24px para coincidir con .contact-wrapper */
-.sitio-footer { padding: 40px 0; }
+.sitio-footer {
+padding: 40px 25px;
+}
+
 .fila-tres-columnas {
-padding: 0 24px;
 flex-direction: column;
 gap: 25px;
 text-align: center;
-max-width: 100%;
 }
 
 .columna-izquierda, .columna-derecha {
