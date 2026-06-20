@@ -489,13 +489,13 @@
             display: inline-block;
             margin-top: 6px;
             font-size: 13px;
-            color: #C49A3A;
+            color: #ffffff; /* Color normal */
             text-decoration: underline;
             transition: color 0.3s ease;
         }
 
         .politicas-link:hover {
-            color: #ffffff;
+            color: #C49A3A; /* Se pone amarillo al pasar el mouse */
         }
 
         /* RESPONSIVE DISPOSITIVOS (TABLETS) */
@@ -586,6 +586,15 @@
             }
             .columna-derecha {
                 text-align: center;
+            }
+            /* Asegura que el enlace mantenga el orden debajo en móviles */
+            .columna-derecha {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .politicas-link {
+                order: 3; 
             }
         }
     </style>
