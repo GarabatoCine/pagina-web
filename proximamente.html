@@ -485,17 +485,18 @@
             line-height: 1.6;
         }
         
-        .politicas-link {
+        /* Modificación Footer Izquierda (Parte de abajo) */
+        .footer-link-normal {
             display: inline-block;
             margin-top: 6px;
             font-size: 13px;
-            color: #ffffff; /* Color normal */
-            text-decoration: underline;
+            color: inherit; /* Hereda el color gris 'normalito' del párrafo base */
+            text-decoration: none; /* Quita el subrayado */
             transition: color 0.3s ease;
         }
 
-        .politicas-link:hover {
-            color: #C49A3A; /* Se pone amarillo al pasar el mouse */
+        .footer-link-normal:hover {
+            color: #C49A3A; /* Opcional: Se pone amarillo al pasar el mouse */
         }
 
         /* RESPONSIVE DISPOSITIVOS (TABLETS) */
@@ -593,7 +594,7 @@
                 flex-direction: column;
                 align-items: center;
             }
-            .politicas-link {
+            .footer-link-normal {
                 order: 3; 
             }
         }
@@ -772,8 +773,8 @@
             
             <div class="columna-derecha">
                 <p>© 2026 Garabato Cine</p>
-                <p>Todos los derechos reservados.</p>
-                <a href="privacidadycookies.html" class="politicas-link" target="_blank">Privacidad y Cookies</a>
+                <p>Todos los derechos reservados</p>
+                <p><a href="privacidadycookies.html" class="footer-link-normal" target="_blank">Privacidad y cookies</a></p>
             </div>
         </div>
     </footer>
