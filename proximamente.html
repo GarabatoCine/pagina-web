@@ -484,6 +484,19 @@
             color: #888888;
             line-height: 1.6;
         }
+        
+        .politicas-link {
+            display: inline-block;
+            margin-top: 6px;
+            font-size: 13px;
+            color: #C49A3A;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .politicas-link:hover {
+            color: #ffffff;
+        }
 
         /* RESPONSIVE DISPOSITIVOS (TABLETS) */
         @media(max-width: 1024px) {
@@ -570,6 +583,9 @@
             }
             .columna-izquierda p {
                 font-size: 11px;
+            }
+            .columna-derecha {
+                text-align: center;
             }
         }
     </style>
@@ -748,6 +764,7 @@
             <div class="columna-derecha">
                 <p>© 2026 Garabato Cine</p>
                 <p>Todos los derechos reservados.</p>
+                <a href="https://github.com/GarabatoCine/pagina-web/commit/c57b33b423498d056274f0b4c598b8e62f4847f7" class="politicas-link" target="_blank">Privacidad y Cookies</a>
             </div>
         </div>
     </footer>
