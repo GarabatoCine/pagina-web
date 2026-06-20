@@ -140,7 +140,7 @@ margin-bottom:35px;
 .contact-underline{
 width:100%;
 height:4px;
-background:#ffc601;
+background:#ffc601; /* Amarillo solicitado */
 margin-top:8px;
 }
 
@@ -215,8 +215,8 @@ resize:vertical;
 }
 
 button{
-background:#ffc601;
-color:#000;
+background:#ffc601; /* Fondo amarillo solicitado */
+color:#000; /* Letra negra solicitada */
 border:none;
 padding:10px 28px;
 font-size:15px;
@@ -225,18 +225,17 @@ cursor:pointer;
 align-self:flex-end;
 }
 
-/* ================= FOOTER ================= */
+/* ================= FOOTER (AJUSTADO) ================= */
 
 .sitio-footer {
 background-color: #000000;
-/* Mismo max-width y padding lateral que .contact-wrapper (max-width: 1600px; padding: ... 180px;) */
-padding: 40px 180px;
+padding: 40px 180px; /* Sincronizado con el padding lateral de contact-wrapper en PC */
 border-top: 1px solid #1a1a1a;
 width: 100%;
 }
 
 .fila-tres-columnas {
-max-width: 1600px;
+max-width: 1600px; /* Igualado al max-width de contact-wrapper */
 margin: 0 auto;
 display: flex;
 justify-content: space-between;
@@ -245,9 +244,7 @@ align-items: center;
 
 .columna-izquierda {
 text-align: left;
-/* Anulamos el flex para que no empuje el contenido y le damos un ancho exacto considerando los 60px de padding interno del form */
-width: calc(50% - 60px);
-padding-left: 60px;
+flex: 1;
 }
 
 .columna-izquierda h4 {
@@ -269,7 +266,7 @@ white-space: nowrap;
 display: flex;
 justify-content: center;
 gap: 25px;
-width: 0; /* Ocultamos su influencia en el ancho para que los lados queden libres */
+flex: 1;
 }
 
 .columna-central a {
@@ -284,9 +281,7 @@ color: #FFC601;
 
 .columna-derecha {
 text-align: right;
-/* Anulamos el flex y alineamos exactamente restando los 60px del padding derecho del form */
-width: calc(50% - 60px);
-padding-right: 60px;
+flex: 1;
 }
 
 .columna-derecha p {
@@ -317,7 +312,7 @@ color: #FFC601;
 @media (min-width:1025px){
   /* Ocultamos las redes sociales del footer solo en PC */
   .columna-central {
-    display: none !important;
+    display: none;
   }
 }
 
@@ -409,26 +404,20 @@ padding:10px 28px;
 font-size:14px;
 }
 
+/* Padding y alineaciones móviles sincronizadas con padding de contact-wrapper */
 .sitio-footer {
-padding: 40px 40px;
+padding: 40px 60px; 
 }
 
 .fila-tres-columnas {
 flex-direction: column;
 gap: 25px;
 text-align: center;
-width: 100% !important;
+max-width: 100%;
 }
 
 .columna-izquierda, .columna-derecha {
 text-align: center;
-padding-left: 0 !important;
-padding-right: 0 !important;
-width: 100% !important;
-}
-
-.columna-central {
-width: auto; /* Restauramos su comportamiento en móvil */
 }
 
 .columna-derecha {
@@ -495,26 +484,20 @@ padding:10px 28px;
 font-size:14px;
 }
 
+/* Padding móvil pequeño sincronizado con contact-wrapper */
 .sitio-footer {
-padding: 40px 25px;
+padding: 40px 24px;
 }
 
 .fila-tres-columnas {
 flex-direction: column;
 gap: 25px;
 text-align: center;
-width: 100% !important;
+max-width: 100%;
 }
 
 .columna-izquierda, .columna-derecha {
 text-align: center;
-padding-left: 0 !important;
-padding-right: 0 !important;
-width: 100% !important;
-}
-
-.columna-central {
-width: auto;
 }
 
 .columna-derecha {
