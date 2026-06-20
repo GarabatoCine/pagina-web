@@ -103,14 +103,13 @@
         }
 
         /* El contenedor ahora empuja desde abajo hacia arriba */
-        .banner-text-overlay {
+      .banner-text-overlay {
             position: absolute;
-            bottom: 5%; /* Subtexto pegado al margen inferior */
+            bottom: 0; /* Al ras del margen inferior del banner */
             left: 60px;
             z-index: 10;
             max-width: 700px;
-            display: flex;
-            flex-direction: column-reverse; /* El título se posiciona arriba del subtexto */
+            padding-bottom: 25px; /* Espacio mínimo exacto entre el subtexto y el borde inferior */
         }
 
         .banner-text-overlay h1 {
