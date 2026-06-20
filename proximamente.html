@@ -104,11 +104,10 @@
 
         .banner-text-overlay {
             position: absolute;
-            bottom: 0; /* Al ras del margen inferior del banner */
+            bottom: 15px; /* Casi pegado al margen inferior del banner */
             left: 60px;
             z-index: 10;
             max-width: 700px;
-            padding-bottom: 25px; /* Espacio mínimo controlado respecto al fondo */
         }
 
         .banner-text-overlay h1 {
@@ -117,7 +116,7 @@
             font-weight: 700;
             line-height: 1.1;
             letter-spacing: 2px;
-            margin-bottom: 20px;
+            margin-bottom: 10px; /* Reducido para acortar la distancia entre título y subtexto */
             color: #FFF;
             text-transform: uppercase;
         }
@@ -520,12 +519,10 @@
                 display: flex; 
             }
 
-            /* Asegura que en tablets permanezca abajo de la mitad */
             .banner-text-overlay {
                 left: 40px;
-                bottom: 0; /* Modificado para ajustar al ras inferior */
+                bottom: 15px; /* Ajustado para quedar casi pegado abajo en tablets */
                 top: auto;
-                padding-bottom: 25px; /* Proporción limpia controlada */
             }
 
             .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
@@ -548,12 +545,10 @@
 
             .nav { right: 25px; top: 60px; }
 
-            /* Garantiza que el título y subtexto arranquen de la mitad hacia abajo en celulares */
             .banner-text-overlay { 
                 left: 25px; 
-                bottom: 0; /* Modificado para ajustar al ras inferior */
+                bottom: 15px; /* Ajustado para quedar casi pegado abajo en celulares */
                 top: auto;
-                padding-bottom: 20px; /* Adaptación limpia a pantalla chica */
             }
             
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
