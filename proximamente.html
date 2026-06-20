@@ -413,7 +413,7 @@
             color: #000;
         }
 
-        /* FOOTER */
+        /* FOOTER RESTAURADO */
         .footer {
             background: #000;
             padding: 90px 60px;
@@ -430,6 +430,11 @@
             align-items: center;
         }
 
+        .footer-left {
+            flex: 1;
+            text-align: left;
+        }
+
         .footer-left h4 {
             font-family: 'Oswald', sans-serif;
             font-size: 24px;
@@ -443,6 +448,7 @@
         }
 
         .footer-center {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -464,6 +470,7 @@
         }
 
         .footer-right {
+            flex: 1;
             text-align: right;
             font-size: 14px;
             color: #aaa;
@@ -515,8 +522,10 @@
             .meta-info-grid { gap: 10px; padding-top: 15px; margin-bottom: 25px; }
             .meta-col { padding-left: 10px; }
 
+            /* Modo vertical adaptado para móviles */
             .footer { padding: 60px 25px; }
-            .footer-row { flex-direction: column; gap: 40px; text-align: center; align-items: center; }
+            .footer-row { flex-direction: column; gap: 40px; }
+            .footer-left { text-align: center; }
             .footer-right { text-align: center; }
         }
 
@@ -575,7 +584,7 @@
             <div class="status-tag">PRÓXIMO ESTRENO</div>
             <h2>MADRE SEMILLA</h2>
             <div class="subtitle-yellow">Largometraje de ficción</div>
-            <p class="synopsis">En lo profundo del Caribe, una mujer defiende su territory y su herencia cuando la tierra que la vio crecer comienza a ser devorada.</p>
+            <p class="synopsis">En lo profundo del Caribe, una mujer defiende su territorio y su herencia cuando la tierra que la vio crecer comienza a ser devorada.</p>
 
             <div class="meta-info-grid">
                 <div class="meta-col">
