@@ -53,7 +53,7 @@ color:#000;
 
 .logo a{
 font-size:24px;
-font-weight:500; /* Estilo menú Nosotros */
+font-weight:500;
 letter-spacing:2px;
 text-decoration:none;
 }
@@ -67,7 +67,7 @@ font-size:13px;
 
 .nav a{
 text-decoration:none;
-font-weight:500; /* Estilo menú Nosotros */
+font-weight:500;
 }
 
 .lang .active{
@@ -140,7 +140,7 @@ margin-bottom:35px;
 .contact-underline{
 width:100%;
 height:4px;
-background:#ffc601; /* Amarillo solicitado */
+background:#ffc601;
 margin-top:8px;
 }
 
@@ -215,8 +215,8 @@ resize:vertical;
 }
 
 button{
-background:#ffc601; /* Fondo amarillo solicitado */
-color:#000; /* Letra negra solicitada */
+background:#ffc601;
+color:#000;
 border:none;
 padding:10px 28px;
 font-size:15px;
@@ -229,13 +229,15 @@ align-self:flex-end;
 
 .sitio-footer {
 background-color: #000000;
-padding: 40px 60px;
+/* Ajustado para que coincida con el padding lateral de .contact-wrapper (180px) */
+padding: 40px 180px;
 border-top: 1px solid #1a1a1a;
 width: 100%;
 }
 
 .fila-tres-columnas {
-max-width: 1300px;
+/* Ajustado para que coincida con el max-width de .contact-wrapper (1600px menos los paddings laterales) */
+max-width: 1600px;
 margin: 0 auto;
 display: flex;
 justify-content: space-between;
@@ -245,13 +247,15 @@ align-items: center;
 .columna-izquierda {
 text-align: left;
 flex: 1;
+/* Compensamos el padding interno de .contact-left (60px) para perfecta alineación */
+padding-left: 60px;
 }
 
 .columna-izquierda h4 {
-font-family: 'Roboto', sans-serif; /* Alineado con el resto del footer */
+font-family: 'Roboto', sans-serif;
 font-size: 22px;
 font-weight: 500;
-letter-spacing: normal; /* Sin forzar espaciado extraño */
+letter-spacing: normal;
 margin-bottom: 6px;
 color: #fff; 
 }
@@ -282,6 +286,8 @@ color: #FFC601;
 .columna-derecha {
 text-align: right;
 flex: 1;
+/* Compensamos el padding interno de .contact-right (60px) para perfecta alineación */
+padding-right: 60px;
 }
 
 .columna-derecha p {
@@ -331,7 +337,7 @@ left:0;
 width:100%;
 background:#fff;
 padding:20px;
-gap:20px; /* Estilo menú Nosotros en móvil */
+gap:20px;
 border-bottom:1px solid #eee;
 align-items:flex-start;
 z-index:1001;
@@ -342,7 +348,7 @@ display:flex;
 }
 
 .lang {
-margin-top: 10px; /* Estilo menú Nosotros en móvil */
+margin-top: 10px;
 }
 
 .menu-toggle{
@@ -405,7 +411,7 @@ font-size:14px;
 }
 
 .sitio-footer {
-padding: 40px 40px;
+padding: 40px 40px; /* En móviles/tablets se mantiene adaptable como lo tenías */
 }
 
 .fila-tres-columnas {
@@ -416,6 +422,8 @@ text-align: center;
 
 .columna-izquierda, .columna-derecha {
 text-align: center;
+padding-left: 0;  /* Quitamos el offset de PC para que centre bien en móvil */
+padding-right: 0;
 }
 
 .columna-derecha {
@@ -494,6 +502,8 @@ text-align: center;
 
 .columna-izquierda, .columna-derecha {
 text-align: center;
+padding-left: 0;
+padding-right: 0;
 }
 
 .columna-derecha {
