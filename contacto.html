@@ -267,6 +267,8 @@ display: flex;
 justify-content: center;
 gap: 25px;
 flex: 1;
+opacity: 0; /* Oculto en PC por defecto */
+pointer-events: none;
 }
 
 .columna-central a {
@@ -510,6 +512,15 @@ order: 2;
 .columna-derecha .texto-linea-3 {
 order: 3;
 }
+}
+
+/* ================= AJUSTE RESPONSIVE ESPECÍFICO PARA REDES EN FOOTER ================= */
+@media (max-width: 1024px) {
+    /* Mostrar redes sociales en columna central para tablets y móviles */
+    .columna-central {
+        opacity: 1;
+        pointer-events: auto;
+    }
 }
 </style>
 </head>
