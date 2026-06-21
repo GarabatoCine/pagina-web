@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -157,7 +156,6 @@
             padding: 0 60px;
         }
 
-        /* TÍTULOS CON LÍNEA DINÁMICA */
         .section-title {
             display: flex;
             align-items: center;
@@ -230,7 +228,7 @@
 
         .project-details h2 {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(29px, 4.8vw, 74px);
+            font-size: clamp(28px, 4.2vw, 54.6px);
             font-weight: 700;
             line-height: 1;
             margin-bottom: 12px;
@@ -334,10 +332,9 @@
             margin-bottom: 25px;
         }
 
-        /* Contenedor que alinea los títulos */
         .card-header-group {
             padding: 0 25px;
-            min-height: 130px; 
+            min-height: 100px; /* Ajustado */
         }
 
         .card-body-group {
@@ -359,7 +356,7 @@
             color: #FFC601;
             font-size: 14px;
             letter-spacing: 1px;
-            margin: 10px 0 20px;
+            margin: 5px 0 5px; /* Ajustado para reducir espacio */
             text-transform: lowercase;
         }
         
@@ -368,35 +365,44 @@
         }
 
         .card p.desc {
-            font-size: clamp(14px, 1.5vw, 17px);
-            line-height: 1.7;
+            font-size: 15px;
+            line-height: 1.6;
             color: #CCCCCC;
+            margin-top: 0; /* Ajustado para reducir espacio */
             margin-bottom: 20px;
+            text-align: justify;
         }
 
-        /* CONTENEDOR DE LAURELES */
-        .card-footer-laureles {
+        /* CONTENEDOR DE LAURELES (BLOQUE COMPACTO HORIZONTAL) */
+        .laureles-wrapper {
             padding: 0 25px;
             display: flex;
-            align-items: center;
-            gap: 15px;
-            width: 50%;
+            flex-wrap: wrap; /* Permitir que salten si es necesario */
+            gap: 20px;
         }
 
-        .card-footer-laureles img {
-            width: 70px; 
+        .laurel-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1 1 200px; /* Se alinean horizontalmente */
+        }
+
+        .laurel-item img {
+            width: 40px; 
             height: auto;
             margin-bottom: 0;
             flex-shrink: 0;
         }
 
         .laurel-text {
-            font-size: 10px;
+            font-size: 11px;
             color: #FFFFFF;
-            line-height: 1.6;
-            letter-spacing: 0.2px;
+            line-height: 1.2;
+            letter-spacing: 0.3px;
         }
 
+        /* DEV BOX */
         .dev-box {
             display: flex;
             gap: 25px;
@@ -456,7 +462,6 @@
             color: #000;
         }
 
-        /* FOOTER */
         .sitio-footer {
             background-color: #000000;
             padding: 40px 60px;
@@ -491,7 +496,7 @@
             white-space: nowrap;
         }
 
-        .columna-central {
+      .columna-central {
             display: flex;
             justify-content: center;
             gap: 25px;
@@ -514,32 +519,12 @@
             line-height: 1.6;
         }
         
-        .linea-politicas {
-            font-size: 12px;
-            color: #888888;
-        }
-        
-        .linea-politicas a {
-            color: #888888;
-            text-decoration: underline;
-        }
-        
-        .linea-politicas a:hover {
-            color: #FFC601;
-            text-decoration: underline;
-        }
-        
-        .linea-derechos {
-            font-size: 11px;
-            color: #888888;
-        }
-        
-        .linea-copyright {
-            font-size: 11px;
-            color: #888888;
-        }
+        .linea-politicas { font-size: 12px; color: #888888; }
+        .linea-politicas a { color: #888888; text-decoration: underline; }
+        .linea-politicas a:hover { color: #FFC601; }
+        .linea-derechos { font-size: 11px; color: #888888; }
+        .linea-copyright { font-size: 11px; color: #888888; }
 
-        /* RESPONSIVE */
         @media(max-width: 1024px) {
             .header { padding: 15px 40px; }
             .brand-logo { font-size: 18px; }
@@ -570,32 +555,11 @@
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .featured-project { grid-template-columns: 1fr; }
-            
-            .gallery-thumbs {
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 8px !important;
-            }
-            
-            .contenedor-creditos-doble { 
-                max-width: 100%; 
-                grid-template-columns: 1fr !important;
-                gap: 15px !important;
-            }
-            
-            .cajon-credito-individual { 
-                padding: 20px 15px !important;
-            }
-
-            .logo-telepacific {
-                justify-content: center !important;
-            }
-            
+            .gallery-thumbs { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
+            .contenedor-creditos-doble { max-width: 100%; grid-template-columns: 1fr !important; gap: 15px !important; }
+            .cajon-credito-individual { padding: 20px 15px !important; }
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
             .columna-derecha { text-align: center !important; line-height: 1.8 !important; }
-            
-            .linea-politicas { font-size: 11px !important; }
-            .linea-derechos { font-size: 9.5px !important; }
-            .linea-copyright { font-size: 9.5px !important; }
         }
     </style>
 </head>
@@ -603,11 +567,7 @@
 
     <header class="header">
         <div class="brand-logo">GARABATO CINE</div>
-
-        <button class="menu-toggle" id="menuBtn" aria-label="Abrir menú">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-
+        <button class="menu-toggle" id="menuBtn" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
         <nav class="nav" id="navMenu">
             <a href="proyectos.html">Proyectos</a>
             <span class="nav-proximamente">Próximamente</span>
@@ -629,10 +589,8 @@
     </div>
 
     <div class="web-container">
-
         <section class="seccion-proyecto">
             <div class="fila-dos-columnas featured-project">
-                
                 <div class="columna main-poster">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla-portada.png?raw=true" alt="Madre Semilla">
                     <div class="gallery-thumbs">
@@ -650,20 +608,15 @@
                         <div class="subtitle-yellow">Largometraje de ficción</div>
                         <p class="synopsis">Amira vive su propia condena: amar a un hijo sentenciado a muerte por corrupción. Este es un drama social con visos de surrealismo.</p>
                     </div>
-
                     <div class="divisor-seccion"></div>
-
                     <div class="contenedor-creditos-doble">
                         <div class="cajon-credito-individual">
                             <div class="meta-label">Protagonizada por:</div>
                             <p>Carmiña Martínez <br><span class="parrafo-pajaros">(Pájaros de verano)</span></p>
                         </div>
-                        
                         <div class="cajon-credito-individual">
                             <div class="meta-label">Coproducida con:</div>
-                            <div class="logo-telepacific">
-                                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/logo-telepacifico.png?raw=true" alt="Logo Telepacífico">
-                            </div>
+                            <div class="logo-telepacific"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/logo-telepacifico.png?raw=true" alt="Logo Telepacífico"></div>
                         </div>
                     </div>
                 </div>
@@ -673,39 +626,43 @@
         <section class="seccion-proyecto">
             <div class="section-title">OTROS PROYECTOS EN POSTPRODUCCIÓN</div>
             <div class="fila-dos-columnas">
+                <!-- ACTO CÍVICO -->
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/actocivici-portada.JPG?raw=true" alt="Acto Cívico">
-                    
                     <div class="card-header-group">
                         <h3>Acto Cívico</h3>
                         <div class="card-subtitle">Cortometraje de ficción</div>
                     </div>
-
                     <div class="card-body-group">
-                        <p class="desc">Carmen descubre algo que no le gusta cuando prepara el acto cívico que celebrará el Día del Maestro.</p>
+                        <p class="desc">Carmen descubre algo que no le gusta mientras prepara el acto cívico que celebrará el Día del Maestro.</p>
                     </div>
-                    
-                    <div class="card-footer-laureles">
-                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
-                        <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
+                    <div class="laureles-wrapper">
+                        <div class="laurel-item">
+                            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
+                            <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- PROFESORA LEDA -->
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
-                    
                     <div class="card-header-group">
                         <h3>Profesora Leda</h3>
                         <div class="card-subtitle">Largometraje de ficción</div>
                     </div>
-
                     <div class="card-body-group">
                         <p class="desc">Cuando una de sus alumnas está a punto de abandonar sus estudios, la profesora Leda se embarca en una lucha para salvaguardar su sueño de un futuro mejor.</p>
                     </div>
-                    
-                    <div class="card-footer-laureles">
-                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
-                        <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
+                    <div class="laureles-wrapper">
+                        <div class="laurel-item">
+                            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
+                            <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
+                        </div>
+                        <div class="laurel-item">
+                            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
+                            <div class="laurel-text">Proyecto ganador del premio Churubusco - CineQuaNon</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -732,7 +689,6 @@
                 </div>
             </div>
         </section>
-
     </div>
 
     <div class="cta-banner">
@@ -746,40 +702,26 @@
                 <h4>GARABATO CINE</h4>
                 <p>Cine hecho desde el Caribe colombiano.</p>
             </div>
-            
             <div class="columna-central">
                 <a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                 <a href="https://www.youtube.com/@garabatocine862" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             </div>
-            
             <div class="columna-derecha">
                 <div class="linea-politicas"><a href="privacidadycookies.html">Privacidad y Cookies</a></div>
                 <div class="linea-derechos">Todos los derechos reservados</div>
                 <div class="linea-copyright">© 2026 Garabato Cine</div>
-            </div>
+          </div>
         </div>
     </footer>
 
     <script>
         window.history.scrollRestoration = 'manual';
-        window.onload = function() {
-            window.scrollTo(0, 0);
-        };
-
+        window.onload = function() { window.scrollTo(0, 0); };
         const menuBtn = document.getElementById('menuBtn');
         const navMenu = document.getElementById('navMenu');
-
-        menuBtn.addEventListener('click', (event) => {
-            event.stopPropagation();
-            navMenu.classList.toggle('open');
-        });
-
-        document.addEventListener('click', (event) => {
-            if (navMenu.classList.contains('open') && !navMenu.contains(event.target) && !menuBtn.contains(event.target)) {
-                navMenu.classList.remove('open');
-            }
-        });
+        menuBtn.addEventListener('click', (event) => { event.stopPropagation(); navMenu.classList.toggle('open'); });
+        document.addEventListener('click', (event) => { if (navMenu.classList.contains('open') && !navMenu.contains(event.target) && !menuBtn.contains(event.target)) { navMenu.classList.remove('open'); } });
     </script>
 </body>
 </html>
