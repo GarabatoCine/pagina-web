@@ -246,44 +246,25 @@
             margin: 35px 0;
         }
 
-        /* CAJÓN DE CRÉDITOS - REMODELADO PARA UN CENTRADO MILIMÉTRICO */
-        .meta-info-box {
-            border: 1px solid #222;
-            padding: 30px 20px;
-            background: #0F0F0F;
+        /* ESTRUCTURA NUEVA: DOS CAJONES SIMÉTRICOS COMPLETOS */
+        .contenedor-creditos-doble {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dos cajones idénticos de tamaño */
+            gap: 12px; /* Pequeña separación elegante entre cajones */
             max-width: 520px;
             width: 100%;
-            position: relative; /* Permite colocar la línea divisoria central de forma exacta */
         }
 
-        .meta-info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* 50% y 50% perfectos sin interrupciones */
-            width: 100%;
-            position: relative;
-        }
-
-        /* Línea divisoria central flotante: no desplaza el texto ni un solo píxel */
-        .meta-info-grid::after {
-            content: "";
-            position: absolute;
-            top: 5%;
-            left: 50%;
-            width: 1px;
-            height: 90%;
-            background-color: rgba(255, 198, 1, 0.3);
-            transform: translateX(-50%);
-        }
-
-        .meta-col {
-            min-width: 0;
-            text-align: center;
+        .cajon-credito-individual {
+            border: 1px solid #222;
+            padding: 25px 15px;
+            background: #0F0F0F;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 100%;
-            padding: 0 10px; /* Margen interno completamente simétrico en ambos lados */
+            text-align: center;
+            min-width: 0; /* Evita desbordamientos */
         }
 
         .meta-label {
@@ -294,17 +275,14 @@
             margin-bottom: 10px;
             width: 100%;
             text-align: center;
-            white-space: nowrap; /* Asegura rigurosamente una sola línea */
-            display: block;
         }
 
-        .meta-col p {
+        .cajon-credito-individual p {
             font-size: 13px;
             color: #E0E0E0;
-            line-height: 1.5;
+            line-height: 1.4;
             width: 100%;
             text-align: center;
-            white-space: nowrap; /* Mantiene a Carmiña Martínez en una línea */
         }
 
         .logo-telepacific {
@@ -312,7 +290,6 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            margin-top: 5px;
             width: 100%;
         }
 
@@ -322,8 +299,8 @@
         }
         
         .parrafo-pajaros {
-            white-space: nowrap;
-            display: inline-block;
+            color: #888888;
+            font-style: italic;
         }
 
         /* TARJETAS DE PROYECTOS */
@@ -539,103 +516,18 @@
                 gap: 8px !important;
             }
             
-            .meta-info-box { 
+            .contenedor-creditos-doble { 
                 max-width: 100%; 
-                padding: 20px 15px !important; 
-                margin: 0 auto;
-            }
-
-            /* Desactivamos la línea vertical flotante en móviles */
-            .meta-info-grid::after {
-                display: none !important;
-            }
-
-            .meta-info-grid { 
-                grid-template-columns: 1fr !important; 
-                gap: 20px !important; 
+                grid-template-columns: 1fr !important; /* Un cajón sobre el otro en celulares */
+                gap: 15px !important;
             }
             
-            .meta-col { 
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                width: 100% !important;
-                text-align: center !important;
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                justify-content: center !important;
-                position: relative;
-                margin: 0 auto;
-            }
-
-            /* Divisor horizontal elegante para diseño móvil */
-            .meta-col:first-child::after {
-                content: "";
-                position: absolute;
-                bottom: -10px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 100px;
-                height: 1px;
-                background-color: rgba(255, 198, 1, 0.3);
-            }
-            
-            .meta-info-box .meta-label {
-                font-size: 10px !important; 
-                letter-spacing: 1px !important;
-                white-space: normal !important;
-                margin-bottom: 5px !important;
-                text-align: center !important;
-                width: 100% !important;
-                padding: 0 !important;
-            }
-
-            .meta-info-box .meta-col p {
-                font-size: 12px !important; 
-                text-align: center !important;
-                width: 100% !important;
-                display: block !important;
-                white-space: normal !important;
-                padding: 0 !important;
-            }
-
-            .parrafo-pajaros {
-                white-space: normal !important;
-                display: block !important;
-                margin-top: 5px !important;
-                text-align: center;
+            .cajon-credito-individual { 
+                padding: 20px 15px !important;
             }
 
             .logo-telepacific {
-                display: inline-flex !important;
-                flex-direction: row !important;
                 justify-content: center !important;
-                align-items: center !important;
-                gap: 6px !important;
-                width: 100% !important;
-                margin: 5px auto 0 auto !important;
-                text-align: center !important;
-                float: none !important;
-            }
-
-            .logo-telepacific svg {
-                flex-shrink: 0 !important;
-                margin: 0 !important;
-                display: block !important;
-                width: 18px !important; 
-                height: 18px !important;
-            }
-
-            .logo-telepacific span {
-                font-size: 10px !important;
-                text-align: left !important;
-                display: inline-block !important;
-                line-height: 1.2 !important;
-                white-space: nowrap !important;
-            }
-            
-            .logo-telepacific span small {
-                font-size: 6px !important;
             }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
@@ -701,25 +593,24 @@
 
                     <div class="divisor-seccion"></div>
 
-                    <div class="meta-info-box">
-                        <div class="meta-info-grid">
-                            <div class="meta-col">
-                                <div class="meta-label">Protagonizada por:</div>
-                                <p>Carmiña Martínez <em class="parrafo-pajaros">(Pájaros de verano)</em></p>
-                            </div>
-                            
-                            <div class="meta-col">
-                                <div class="meta-label">Coproducida con:</div>
-                                <div class="logo-telepacific">
-                                    <svg viewBox="0 0 100 100" width="26" height="26"> 
-                                        <circle cx="50" cy="15" r="4"/><circle cx="75" cy="25" r="4"/><circle cx="85" cy="50" r="4"/>
-                                        <circle cx="75" cy="75" r="4"/><circle cx="50" cy="85" r="4"/><circle cx="25" cy="75" r="4"/>
-                                        <circle cx="15" cy="50" r="4"/><circle cx="25" cy="25" r="4"/><circle cx="50" cy="32" r="3"/>
-                                        <circle cx="63" cy="37" r="3"/><circle cx="68" cy="50" r="3"/><circle cx="63" cy="63" r="3"/>
-                                        <circle cx="50" cy="68" r="3"/><circle cx="37" cy="63" r="3"/><circle cx="32" cy="50" r="3"/>
-                                    </svg>
-                                    <span>telepacífico<br><small style="font-size:7px; opacity:0.6; display:block;">SOMOS NUESTRO CANAL</small></span>
-                                </div>
+                    <!-- NUEVA ESTRUCTURA DE DOS CAJONES COMPLETAMENTE SEPARADOS -->
+                    <div class="contenedor-creditos-doble">
+                        <div class="cajon-credito-individual">
+                            <div class="meta-label">Protagonizada por:</div>
+                            <p>Carmiña Martínez <br><span class="parrafo-pajaros">(Pájaros de verano)</span></p>
+                        </div>
+                        
+                        <div class="cajon-credito-individual">
+                            <div class="meta-label">Coproducida con:</div>
+                            <div class="logo-telepacific">
+                                <svg viewBox="0 0 100 100" width="26" height="26"> 
+                                    <circle cx="50" cy="15" r="4"/><circle cx="75" cy="25" r="4"/><circle cx="85" cy="50" r="4"/>
+                                    <circle cx="75" cy="75" r="4"/><circle cx="50" cy="85" r="4"/><circle cx="25" cy="75" r="4"/>
+                                    <circle cx="15" cy="50" r="4"/><circle cx="25" cy="25" r="4"/><circle cx="50" cy="32" r="3"/>
+                                    <circle cx="63" cy="37" r="3"/><circle cx="68" cy="50" r="3"/><circle cx="63" cy="63" r="3"/>
+                                    <circle cx="50" cy="68" r="3"/><circle cx="37" cy="63" r="3"/><circle cx="32" cy="50" r="3"/>
+                                </svg>
+                                <span style="text-align: left; display: inline-block; line-height: 1.2;">telepacífico<br><small style="font-size:7px; opacity:0.6; display:block;">SOMOS NUESTRO CANAL</small></span>
                             </div>
                         </div>
                     </div>
