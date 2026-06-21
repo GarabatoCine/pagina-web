@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-
+        /* ESTILOS COMPLETOS */
         * {
             margin: 0;
             padding: 0;
@@ -154,7 +154,7 @@
             padding: 0 60px;
         }
 
-        /* TÍTULOS CON LÍNEA DINÁMICA */
+        /* CORRECCIÓN LÍNEA DE TÍTULO */
         .section-title {
             display: flex;
             align-items: center;
@@ -313,14 +313,12 @@
             font-style: italic;
         }
 
-        /* TARJETAS DE PROYECTOS */
+        /* CORRECCIÓN FOTOS TARJETAS */
         .card {
             min-width: 0;
             border: 1px solid #222;
             padding-bottom: 25px;
             background: #0F0F0F;
-            display: flex;
-            flex-direction: column;
         }
 
         .card img {
@@ -331,15 +329,8 @@
             margin-bottom: 25px;
         }
 
-        /* Contenedor que alinea los títulos */
-        .card-header-group {
+        .card h3, .card .card-subtitle, .card p.desc {
             padding: 0 25px;
-            min-height: 130px; 
-        }
-
-        .card-body-group {
-            padding: 0 25px;
-            flex-grow: 1;
         }
 
         .card h3 {
@@ -351,17 +342,10 @@
         }
 
         .card .card-subtitle {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 400;
             color: #FFC601;
             font-size: 14px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             margin: 10px 0 20px;
-            text-transform: lowercase; /* Forzada a minúsculas */
-        }
-        
-        /* Ajuste de primera letra minúscula para subtítulo */
-        .card .card-subtitle::first-letter {
             text-transform: uppercase;
         }
 
@@ -369,30 +353,6 @@
             font-size: clamp(14px, 1.5vw, 17px);
             line-height: 1.7;
             color: #CCCCCC;
-            margin-bottom: 20px;
-        }
-
-        /* CONTENEDOR DE LAURELES */
-        .card-footer-laureles {
-            padding: 0 25px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            width: 50%;
-        }
-
-        .card-footer-laureles img {
-            width: 70px; 
-            height: auto;
-            margin-bottom: 0;
-            flex-shrink: 0;
-        }
-
-        .laurel-text {
-            font-size: 10px;
-            color: #FFFFFF;
-            line-height: 1.6; /* Aumentado */
-            letter-spacing: 0.2px;
         }
 
         .dev-box {
@@ -660,7 +620,7 @@
                         <div class="cajon-credito-individual">
                             <div class="meta-label">Coproducida con:</div>
                             <div class="logo-telepacific">
-                                <img src="https://github.com/GarabatoCine/blob/main/proximamente/logo-telepacifico.png?raw=true" alt="Logo Telepacífico">
+                                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/logo-telepacifico.png?raw=true" alt="Logo Telepacífico">
                             </div>
                         </div>
                     </div>
@@ -673,38 +633,15 @@
             <div class="fila-dos-columnas">
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/actocivici-portada.JPG?raw=true" alt="Acto Cívico">
-                    
-                    <div class="card-header-group">
-                        <h3>Acto Cívico</h3>
-                        <div class="card-subtitle">Cortometraje de ficción</div>
-                    </div>
-
-                    <div class="card-body-group">
-                        <p class="desc">Cuando la profesora Carmen descubre que una de sus alumnas está a punto de abandonar la escuela, hará lo posible por traerla de vuelta a tiempo para el acto cívico que celebrará el Día del Maestro.</p>
-                    </div>
-                    
-                    <div class="card-footer-laureles">
-                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
-                        <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
-                    </div>
+                    <h3>Acto Cívico</h3>
+                    <div class="card-subtitle">Cortometraje de ficción</div>
+                    <p class="desc">Una ceremonia escolar se convierte en el escenario donde dos adolescentes cuestionan lo que significa pertenecer.</p>
                 </div>
-
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
-                    
-                    <div class="card-header-group">
-                        <h3>Profesora Leda</h3>
-                        <div class="card-subtitle">Largometraje de ficción</div>
-                    </div>
-
-                    <div class="card-body-group">
-                        <p class="desc">En un pueblo apartado, una profesora llega a cambiar el destino de sus estudiantes y también el suyo.</p>
-                    </div>
-                    
-                    <div class="card-footer-laureles">
-                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
-                        <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
-                    </div>
+                    <h3>Profesora Leda</h3>
+                    <div class="card-subtitle">Largometraje de ficción</div>
+                    <p class="desc">En un pueblo apartado, una profesora llega a cambiar el destino de sus estudiantes y también el suyo.</p>
                 </div>
             </div>
         </section>
