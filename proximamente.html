@@ -92,6 +92,7 @@
             font-size: 24px;
             cursor: pointer;
             z-index: 110;
+            margin-left: auto; /* Fuerza al botón a la derecha */
         }
 
         /* BANNER */
@@ -99,7 +100,7 @@
             width: 100%;
             position: relative;
             background: #000;
-            min-height: 200px; /* Asegura altura mínima en móvil */
+            min-height: 200px;
         }
 
         .banner-container img {
@@ -556,12 +557,13 @@
         @media(max-width: 767px) {
             .header { padding: 15px 25px; }
             .brand-logo { display: none; }
+            .menu-toggle { display: block; }
             .nav { right: 25px; top: 45px; }
             
-            /* Banner forzado visible */
-            .banner-container { min-height: 150px; }
+            /* Ajustes para el Banner */
+            .banner-container { min-height: 250px; display: flex; align-items: flex-end; }
+            .banner-text-overlay { position: relative; left: 0; bottom: 0; padding: 25px; }
             
-            .banner-text-overlay { left: 25px; bottom: 15px; }
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .featured-project { grid-template-columns: 1fr; }
