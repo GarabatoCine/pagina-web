@@ -182,6 +182,7 @@
             display: block;
         }
 
+        /* Galería de miniaturas configurada para mantener siempre la proporción horizontal */
         .gallery-thumbs {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -191,8 +192,9 @@
 
         .gallery-thumbs img {
             width: 100%;
-            height: 110px;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
+            display: block;
         }
 
         .project-details {
@@ -207,9 +209,10 @@
             margin-bottom: 15px;
         }
 
+        /* TÍTULO MADRE SEMILLA REDUCIDO 1 PUNTO (en base a la proporción establecida) */
         .project-details h2 {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(30px, 5vw, 75px);
+            font-size: clamp(29px, 4.8vw, 74px);
             font-weight: 700;
             line-height: 1;
             margin-bottom: 12px;
@@ -537,7 +540,7 @@
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .featured-project { grid-template-columns: 1fr; }
             
-            /* Corrección definitiva: ancho libre, alto automático para respetar proporción horizontal de las 4 fotos */
+            /* Ajustes en tablets/celulares para asegurar que las 4 fotos queden en fila y horizontales */
             .gallery-thumbs {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr) !important;
