@@ -336,12 +336,12 @@
 
         /* Contenedor que alinea los títulos */
         .card-header-group {
-            padding: 0 25px;
+            padding: 0 35px;
             min-height: 130px; 
         }
 
         .card-body-group {
-            padding: 0 25px;
+            padding: 0 35px;
             flex-grow: 1;
         }
 
@@ -359,7 +359,7 @@
             color: #FFC601;
             font-size: 14px;
             letter-spacing: 1px;
-            margin: 10px 0 10px; /* MODIFICADO AQUÍ PARA REDUCIR ESPACIO */
+            margin: 10px 0 10px; 
             text-transform: lowercase;
         }
         
@@ -372,15 +372,21 @@
             line-height: 1.7;
             color: #CCCCCC;
             margin-bottom: 20px;
+            text-align: justify;
         }
 
         /* CONTENEDOR DE LAURELES */
+        .laureles-wrapper {
+            padding: 0 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
         .card-footer-laureles {
-            padding: 0 25px;
             display: flex;
             align-items: center;
             gap: 15px;
-            width: 50%;
         }
 
         .card-footer-laureles img {
@@ -685,9 +691,11 @@
                         <p class="desc">Carmen descubre algo que no le gusta mientras prepara el acto cívico que celebrará el Día del Maestro.</p>
                     </div>
                     
-                    <div class="card-footer-laureles">
-                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
-                        <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
+                    <div class="laureles-wrapper">
+                        <div class="card-footer-laureles">
+                            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
+                            <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
+                        </div>
                     </div>
                 </div>
 
@@ -703,9 +711,15 @@
                         <p class="desc">Cuando una de sus alumnas está a punto de abandonar sus estudios, la profesora Leda se embarca en una lucha para salvaguardar su sueño de un futuro mejor.</p>
                     </div>
                     
-                    <div class="card-footer-laureles">
-                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
-                        <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
+                    <div class="laureles-wrapper">
+                        <div class="card-footer-laureles">
+                            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
+                            <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
+                        </div>
+                        <div class="card-footer-laureles">
+                            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
+                            <div class="laurel-text">Proyecto gandor del Premio Churubusco - CineQuaNon</div>
+                        </div>
                     </div>
                 </div>
             </div>
