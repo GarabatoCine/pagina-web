@@ -572,21 +572,20 @@
             .featured-project { grid-template-columns: 1fr; }
             .gallery-thumbs { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
             
-            /* CORRECCIÓN FORZADA PARA EL MÓVIL */
+            /* --- APILADOS VERTICALMENTE EN MÓVIL --- */
             .contenedor-creditos-doble { 
                 display: flex !important;
-                flex-direction: row !important;
-                gap: 10px !important;
+                flex-direction: column !important;
+                gap: 15px !important;
                 max-width: 100% !important;
                 width: 100% !important;
             }
             .cajon-credito-individual { 
-                flex: 1 !important;
-                padding: 10px 5px !important; 
+                width: 100% !important;
+                padding: 20px 10px !important; 
                 display: flex !important;
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
             }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
