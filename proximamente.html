@@ -537,12 +537,17 @@
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .featured-project { grid-template-columns: 1fr; }
             
-            /* Corrección para forzar miniaturas horizontales en tablets y celulares */
+            /* Corrección de miniaturas: se muestran las 4 en proporción horizontal pero más pequeñas para tablet y celular */
             .gallery-thumbs {
+                display: grid;
                 grid-template-columns: repeat(4, 1fr) !important;
+                gap: 6px !important;
+                margin-top: 12px !important;
             }
             .gallery-thumbs img {
-                height: 65px !important;
+                width: 100% !important;
+                height: 40px !important;
+                object-fit: cover !important;
             }
 
             .meta-info-grid { grid-template-columns: 1fr; }
