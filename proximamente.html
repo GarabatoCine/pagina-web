@@ -99,7 +99,7 @@
             width: 100%;
             position: relative;
             background: #000;
-            min-height: 200px; /* Asegura altura mínima en móvil */
+            min-height: 400px;
         }
 
         .banner-container img {
@@ -558,10 +558,11 @@
             .brand-logo { display: none; }
             .nav { right: 25px; top: 45px; }
             
-            /* Banner forzado visible */
-            .banner-container { min-height: 150px; }
+            /* CORRECCIÓN PARA VISIBILIDAD EN MÓVIL */
+            .banner-container { min-height: 250px; display: flex; align-items: center; }
+            .banner-container img { height: 100%; object-fit: cover; }
+            .banner-text-overlay { position: relative; left: 0; bottom: 0; padding: 20px 25px; }
             
-            .banner-text-overlay { left: 25px; bottom: 15px; }
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .featured-project { grid-template-columns: 1fr; }
