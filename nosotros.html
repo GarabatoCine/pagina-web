@@ -330,8 +330,9 @@ body{padding-top:86px;}
 
 /* Ajustes aplicados exclusivamente para móviles y tablets */
 .intro-text{ 
-    font-size: 20px; /* Tamaño establecido exactamente a 20px para dispositivos */
-    padding: 0 20px;  /* Margen lateral reducido para ensanchar el bloque de texto */
+    font-size: 20px;            /* Tamaño establecido a 20px */
+    padding: 0 20px;             /* Margen lateral reducido (ensanchando el texto) */
+    margin: 90px auto 70px auto; /* Margen superior e inferior aumentados para dar respiro */
     line-height: 1.5;
 }
 
@@ -547,9 +548,4 @@ document.addEventListener('DOMContentLoaded', () => {
 if (history.scrollRestoration) {
     history.scrollRestoration = 'manual'; 
 }
-window.onload = function() {
-    window.scrollTo(0, 0); 
-};
-</script>
-</body>
-</html>
+window.onload = function()
