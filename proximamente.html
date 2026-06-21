@@ -92,7 +92,6 @@
             font-size: 24px;
             cursor: pointer;
             z-index: 110;
-            margin-left: auto;
         }
 
         /* BANNER */
@@ -100,7 +99,7 @@
             width: 100%;
             position: relative;
             background: #000;
-            line-height: 0;
+            min-height: 200px;
         }
 
         .banner-container img {
@@ -112,11 +111,10 @@
 
         .banner-text-overlay {
             position: absolute;
-            bottom: 40px;
+            bottom: 15px;
             left: 60px;
             z-index: 10;
             max-width: 700px;
-            pointer-events: none;
         }
 
         .banner-text-overlay h1 {
@@ -257,7 +255,6 @@
             margin: 35px 0;
         }
 
-        /* --- CONTENEDOR DE CRÉDITOS --- */
         .contenedor-creditos-doble {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -308,7 +305,6 @@
             width: auto;  
             display: block;
             flex-shrink: 0;
-            max-width: 100%;
         }
         
         .parrafo-pajaros {
@@ -542,14 +538,15 @@
                 display: none; 
                 flex-direction: column;
                 position: absolute;
-                top: 60px;
-                right: 0;
-                background: #0A0A0A;
+                top: 50px;
+                right: 40px;
+                background: rgba(10, 10, 10, 0.98);
                 border: 1px solid #222;
                 padding: 30px;
                 gap: 25px;
-                align-items: center;
-                width: 100%;
+                align-items: flex-start;
+                width: 220px;
+                box-shadow: 0px 10px 30px rgba(0,0,0,0.7);
                 z-index: 200;
             }
             .nav.open { display: flex; }
@@ -559,39 +556,30 @@
         @media(max-width: 767px) {
             .header { padding: 15px 25px; }
             .brand-logo { display: none; }
-            .menu-toggle { display: block; }
+            .nav { right: 25px; top: 45px; }
             
-            .banner-container { min-height: auto; }
-            .banner-text-overlay { bottom: 20px; left: 25px; }
-
-            .banner-text-overlay h1 { font-size: clamp(22px, 8vw, 26px); }
-            .banner-text-overlay p { font-size: clamp(12px, 4vw, 14px); }
+            /* Banner forzado visible */
+            .banner-container { min-height: 150px; }
             
+            .banner-text-overlay { left: 25px; bottom: 15px; }
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .featured-project { grid-template-columns: 1fr; }
             .gallery-thumbs { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
             
-            /* --- REGLA FORZADA PARA MÓVIL --- */
+            /* Ajuste para los cajones de crédito en móvil */
             .contenedor-creditos-doble { 
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 15px !important;
-                max-width: 100% !important;
-                width: 100% !important;
-                border: none !important;
+                max-width: 100% !important; 
+                display: flex !important; 
+                flex-direction: column !important; 
+                gap: 15px !important; 
             }
             .cajon-credito-individual { 
-                display: flex !important;
-                flex-direction: column !important;
+                padding: 20px 15px !important; 
+                display: flex !important; 
                 align-items: center !important;
-                justify-content: center !important;
-                width: 100% !important;
-                padding: 25px 20px !important;
-                border: 1px solid #222 !important;
-                background-color: #0F0F0F !important;
-                min-height: 120px !important;
-                margin-bottom: 10px !important;
+                border: 1px solid #222 !important; 
+                background: #0F0F0F !important;
             }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
@@ -652,9 +640,7 @@
                         </div>
                         <div class="cajon-credito-individual">
                             <div class="meta-label">Coproducida con:</div>
-                            <div class="logo-telepacific">
-                                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/logo-telepacifico.png?raw=true" alt="Logo Telepacífico">
-                            </div>
+                            <div class="logo-telepacific"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/logo-telepacifico.png?raw=true" alt="Logo Telepacífico"></div>
                         </div>
                     </div>
                 </div>
