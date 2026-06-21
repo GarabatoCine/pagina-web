@@ -182,7 +182,7 @@
             display: block;
         }
 
-        /* Galería de miniaturas configurada para mantener siempre la proporción horizontal */
+        /* Galería de escritorio: 4 columnas */
         .gallery-thumbs {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -209,7 +209,6 @@
             margin-bottom: 15px;
         }
 
-        /* TÍTULO MADRE SEMILLA REDUCIDO 1 PUNTO (en base a la proporción establecida) */
         .project-details h2 {
             font-family: 'Oswald', sans-serif;
             font-size: clamp(29px, 4.8vw, 74px);
@@ -225,7 +224,6 @@
             font-weight: 400;
         }
 
-        /* Subtexto de Madre Semilla reducido 1 punto y totalmente continuo */
         .project-details .synopsis {
             font-size: 14px;
             line-height: 1.45;
@@ -540,17 +538,21 @@
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .featured-project { grid-template-columns: 1fr; }
             
-            /* Ajustes en tablets/celulares para asegurar que las 4 fotos queden en fila y horizontales */
+            /* Galería de tablet/celular: 3 columnas, ancho libre y alto automático para mantener proporción */
             .gallery-thumbs {
                 display: grid;
-                grid-template-columns: repeat(4, 1fr) !important;
-                gap: 6px !important;
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 8px !important;
                 margin-top: 12px !important;
             }
             .gallery-thumbs img {
                 width: 100% !important;
                 height: auto !important;
                 object-fit: contain !important;
+            }
+            /* Ocultar la cuarta miniatura para tablet/celular */
+            .gallery-thumbs img:nth-child(4) {
+                display: none;
             }
 
             .meta-info-grid { grid-template-columns: 1fr; }
@@ -693,24 +695,4 @@
             <div class="columna-central">
                 <a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="http://www.youtube.com/channel/UC4vuld7vS7GhKcBf2dv0fJw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-            
-            <div class="columna-derecha">
-                <p class="link-linea-1"><a href="privacidadycookies.html" class="footer-link-normal" target="_blank">Privacidad y cookies</a></p>
-                <p class="texto-chico texto-linea-2">Todos los derechos reservados</p>
-                <p class="texto-chico texto-linea-3">© 2026 Garabato Cine</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const navMenu = document.getElementById('navMenu');
-
-        menuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
-        });
-    </script>
-</body>
-</html>
+                <a href="
