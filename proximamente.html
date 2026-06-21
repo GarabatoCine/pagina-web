@@ -562,7 +562,6 @@
             .banner-container { min-height: auto; }
             .banner-text-overlay { bottom: 20px; left: 25px; }
 
-            /* Ajustes móviles específicos */
             .banner-text-overlay h1 { font-size: clamp(22px, 8vw, 26px); }
             .banner-text-overlay p { font-size: clamp(12px, 4vw, 14px); }
             
@@ -571,16 +570,15 @@
             .featured-project { grid-template-columns: 1fr; }
             .gallery-thumbs { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
             
-            /* Ajuste para mantener créditos lado a lado en móvil, conservando los cajones */
+            /* Ajuste crítico para móviles */
             .contenedor-creditos-doble { 
                 max-width: 100% !important; 
+                display: grid !important;
                 grid-template-columns: 1fr 1fr !important; 
                 gap: 10px !important; 
             }
             .cajon-credito-individual { 
                 padding: 15px 10px !important; 
-                border: 1px solid #222; 
-                background: #0F0F0F; 
             }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
@@ -641,14 +639,102 @@
                         </div>
                         <div class="cajon-credito-individual">
                             <div class="meta-label">Coproducida con:</div>
-                            <div class="logo-telepacific"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/logo-telepacifico.png?raw=true" alt="Logo Telepacífico"></div>
+                            <div class="logo-telepacific"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/logo-telepacific.png?raw=true" alt="Logo Telepacífico"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <section class="seccion-proyecto">
+            <div class="section-title">OTROS PROYECTOS EN POSTPRODUCCIÓN</div>
+            <div class="fila-dos-columnas">
+                <div class="columna card">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/actocivici-portada.JPG?raw=true" alt="Acto Cívico">
+                    <div class="card-header-group">
+                        <h3>Acto Cívico</h3>
+                        <div class="card-subtitle">Cortometraje de ficción</div>
+                    </div>
+                    <div class="card-body-group">
+                        <p class="desc">Carmen descubre algo que no le gusta mientras prepara el acto cívico que celebrará el Día del Maestro.</p>
+                    </div>
+                    <div class="laureles-wrapper">
+                        <div class="laurel-item">
+                            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
+                            <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="columna card">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
+                    <div class="card-header-group">
+                        <h3>Profesora Leda</h3>
+                        <div class="card-subtitle">Largometraje de ficción</div>
+                    </div>
+                    <div class="card-body-group">
+                        <p class="desc">Cuando una de sus alumnas está a punto de abandonar sus estudios, la profesora Leda se embarca en una lucha para salvaguardar su sueño de un futuro mejor.</p>
+                    </div>
+                    <div class="laureles-wrapper">
+                        <div class="laurel-item">
+                            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
+                            <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
+                        </div>
+                        <div class="laurel-item">
+                            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
+                            <div class="laurel-text">Proyecto ganador del premio Churubusco - CineQuaNon</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-proyecto">
+            <div class="section-title">PROYECTOS EN DESARROLLO</div>
+            <div class="fila-dos-columnas">
+                <div class="columna dev-box">
+                    <div class="dev-circle-icon"><i class="fa-solid fa-water"></i></div>
+                    <div class="dev-inner-content card-dev">
+                        <h3>Ballenata</h3>
+                        <div class="card-subtitle">Serie</div>
+                        <p class="desc">Una exploración del Caribe contemporáneo a través de la música, el territorio y la identidad.</p>
+                    </div>
+                </div>
+                <div class="columna dev-box">
+                    <div class="dev-circle-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                    <div class="dev-inner-content card-dev">
+                        <h3>Fuego en la Memoria</h3>
+                        <div class="card-subtitle">Largometraje</div>
+                        <p class="desc">Inspirada en hechos reales, una historia sobre la resistencia, el olvido y la fuerza de la memoria colectiva.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="cta-banner">
+        <p>¿Te interesa conocer más sobre nuestros próximos proyectos?</p>
+        <a href="contacto.html" class="cta-btn">Contáctanos</a>
+    </div>
+
+    <footer class="sitio-footer">
+        <div class="fila-tres-columnas">
+            <div class="columna-izquierda">
+                <h4>GARABATO CINE</h4>
+                <p>Cine hecho desde el Caribe colombiano.</p>
+            </div>
+            <div class="columna-central">
+                <a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@garabatocine862" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="columna-derecha">
+                <div class="linea-politicas"><a href="privacidadycookies.html">Privacidad y Cookies</a></div>
+                <div class="linea-derechos">Todos los derechos reservados</div>
+                <div class="linea-copyright">© 2026 Garabato Cine</div>
+            </div>
         </div>
+    </footer>
 
     <script>
         window.history.scrollRestoration = 'manual';
