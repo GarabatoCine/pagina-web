@@ -92,15 +92,15 @@
             font-size: 24px;
             cursor: pointer;
             z-index: 110;
-            margin-left: auto; /* Fuerza al botón a la derecha */
+            margin-left: auto;
         }
 
-        /* BANNER */
+        /* BANNER CORREGIDO: Pegado al tope y sin márgenes forzados */
         .banner-container {
             width: 100%;
             position: relative;
             background: #000;
-            min-height: 200px;
+            overflow: hidden;
         }
 
         .banner-container img {
@@ -112,7 +112,7 @@
 
         .banner-text-overlay {
             position: absolute;
-            bottom: 15px;
+            bottom: 40px;
             left: 60px;
             z-index: 10;
             max-width: 700px;
@@ -539,15 +539,14 @@
                 display: none; 
                 flex-direction: column;
                 position: absolute;
-                top: 50px;
-                right: 40px;
-                background: rgba(10, 10, 10, 0.98);
+                top: 60px;
+                right: 0;
+                background: #0A0A0A;
                 border: 1px solid #222;
                 padding: 30px;
                 gap: 25px;
-                align-items: flex-start;
-                width: 220px;
-                box-shadow: 0px 10px 30px rgba(0,0,0,0.7);
+                align-items: center;
+                width: 100%;
                 z-index: 200;
             }
             .nav.open { display: flex; }
@@ -558,10 +557,9 @@
             .header { padding: 15px 25px; }
             .brand-logo { display: none; }
             .menu-toggle { display: block; }
-            .nav { right: 25px; top: 45px; }
             
             /* Ajustes para el Banner */
-            .banner-container { min-height: 250px; display: flex; align-items: flex-end; }
+            .banner-container { min-height: auto; }
             .banner-text-overlay { position: relative; left: 0; bottom: 0; padding: 25px; }
             
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
