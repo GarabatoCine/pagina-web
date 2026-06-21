@@ -574,18 +574,19 @@
             
             /* Corrección para que los cajones sean visibles en móvil */
             .contenedor-creditos-doble { 
-                max-width: 100% !important; 
                 display: grid !important;
                 grid-template-columns: 1fr 1fr !important; 
-                gap: 10px !important;
-                visibility: visible !important;
-                height: auto !important;
+                gap: 8px !important;
+                max-width: 100% !important;
+                min-height: 100px;
             }
             .cajon-credito-individual { 
-                padding: 15px 10px !important; 
+                padding: 10px 5px !important; 
                 display: flex !important;
-                visibility: visible !important;
+                justify-content: center;
             }
+            .meta-label { font-size: 8px !important; margin-bottom: 5px !important; }
+            .cajon-credito-individual p { font-size: 10px !important; }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
             .columna-derecha { text-align: center !important; line-height: 1.8 !important; }
@@ -646,7 +647,7 @@
                         <div class="cajon-credito-individual">
                             <div class="meta-label">Coproducida con:</div>
                             <div class="logo-telepacific">
-                                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/logo-telepacifico.png?raw=true"Logo Telepacífico">
+                                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/logo-telepacifico.png?raw=true" alt="Logo Telepacífico">
                             </div>
                         </div>
                     </div>
