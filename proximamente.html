@@ -153,16 +153,27 @@
             padding: 0 60px;
         }
 
+        /* TÍTULO AJUSTADO */
         .section-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 60px;
             font-family: 'Oswald', sans-serif;
             font-size: 15px;
             letter-spacing: 3px;
             color: #FFC601;
-            border-bottom: 1px solid rgba(255, 198, 1, 0.4);
-            display: inline-block;
-            padding-bottom: 8px;
-            margin-bottom: 60px;
             text-transform: uppercase;
+        }
+        .section-title span {
+            border-bottom: 2px solid #FFC601;
+            padding-bottom: 4px;
+        }
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 198, 1, 0.4);
         }
 
         .fila-dos-columnas {
@@ -246,7 +257,6 @@
             margin: 35px 0;
         }
 
-        /* CAJONES SIMÉTRICOS COMPLETOS */
         .contenedor-creditos-doble {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -285,7 +295,6 @@
             text-align: center;
         }
 
-        /* CONTENEDOR LOGO PNG EXCLUSIVO */
         .logo-telepacific {
             display: flex;
             align-items: center;
@@ -294,7 +303,7 @@
         }
 
         .logo-telepacific img {
-            height: 38px; /* Tamaño optimizado para que luzca excelente */
+            height: 38px; 
             width: auto;  
             display: block;
             flex-shrink: 0;
@@ -612,7 +621,6 @@
                         <div class="cajon-credito-individual">
                             <div class="meta-label">Coproducida con:</div>
                             <div class="logo-telepacific">
-                                <!-- LOGO PNG EXCLUSIVO CORREGIDO -->
                                 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/logo-telepacifico.png?raw=true" alt="Logo Telepacífico">
                             </div>
                         </div>
@@ -623,7 +631,7 @@
         </section>
 
         <section class="seccion-proyecto">
-            <div class="section-title">OTROS PROYECTOS EN POSTPRODUCCIÓN</div>
+            <div class="section-title"><span>OTROS PROYECTOS EN POSTPRODUCCIÓN</span></div>
             <div class="fila-dos-columnas">
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/actocivici-portada.JPG?raw=true" alt="Acto Cívico">
@@ -641,7 +649,7 @@
         </section>
 
         <section class="seccion-proyecto">
-            <div class="section-title">PROYECTOS EN DESARROLLO</div>
+            <div class="section-title"><span>PROYECTOS EN DESARROLLO</span></div>
             <div class="fila-dos-columnas">
                 <div class="columna dev-box">
                     <div class="dev-circle-icon"><i class="fa-solid fa-water"></i></div>
@@ -691,6 +699,12 @@
     </footer>
 
     <script>
+        // Scroll al tope al refrescar
+        window.history.scrollRestoration = 'manual';
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        };
+
         const menuBtn = document.getElementById('menuBtn');
         const navMenu = document.getElementById('navMenu');
 
