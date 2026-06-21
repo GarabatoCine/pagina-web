@@ -222,9 +222,9 @@
             font-weight: 400;
         }
 
-        /* Subtexto de Madre Semilla actualizado, proporcionado y reducido 1 punto */
+        /* Subtexto de Madre Semilla reducido 1 punto y totalmente continuo */
         .project-details .synopsis {
-            font-size: clamp(14px, 1.5vw, 18px);
+            font-size: 14px;
             line-height: 1.45;
             font-weight: 300;
             color: #CCCCCC;
@@ -537,7 +537,7 @@
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .featured-project { grid-template-columns: 1fr; }
             
-            /* Corrección de miniaturas: se muestran las 4 en proporción horizontal pero más pequeñas para tablet y celular */
+            /* Corrección definitiva: ancho libre, alto automático para respetar proporción horizontal de las 4 fotos */
             .gallery-thumbs {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr) !important;
@@ -546,8 +546,8 @@
             }
             .gallery-thumbs img {
                 width: 100% !important;
-                height: 40px !important;
-                object-fit: cover !important;
+                height: auto !important;
+                object-fit: contain !important;
             }
 
             .meta-info-grid { grid-template-columns: 1fr; }
@@ -604,7 +604,7 @@
                     <h2>MADRE SEMILLA</h2>
                     <div class="subtitle-yellow">Largometraje de ficción</div>
                     
-                    <p class="synopsis">Amira vive su propia condena: amar a un hijo sentenciado a<br>muerte por corrupción.</p>
+                    <p class="synopsis">Amira vive su propia condena: amar a un hijo sentenciado a muerte por corrupción.</p>
 
                     <div class="meta-info-grid">
                         <div class="meta-col">
