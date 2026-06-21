@@ -334,7 +334,7 @@
 
         .card-header-group {
             padding: 0 25px;
-            min-height: 100px; /* Ajustado */
+            min-height: 100px;
         }
 
         .card-body-group {
@@ -356,7 +356,7 @@
             color: #FFC601;
             font-size: 14px;
             letter-spacing: 1px;
-            margin: 5px 0 5px; /* Ajustado para reducir espacio */
+            margin: 5px 0 5px;
             text-transform: lowercase;
         }
         
@@ -368,38 +368,41 @@
             font-size: 15px;
             line-height: 1.6;
             color: #CCCCCC;
-            margin-top: 0; /* Ajustado para reducir espacio */
+            margin-top: 0;
             margin-bottom: 20px;
             text-align: justify;
         }
 
-        /* CONTENEDOR DE LAURELES (BLOQUE COMPACTO HORIZONTAL) */
+        /* CONTENEDOR DE LAURELES (AJUSTADO PARA SER COMPACTO Y HORIZONTAL) */
         .laureles-wrapper {
             padding: 0 25px;
             display: flex;
-            flex-wrap: wrap; /* Permitir que salten si es necesario */
-            gap: 20px;
+            flex-wrap: nowrap;
+            gap: 10px;
+            width: 100%;
         }
 
         .laurel-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            flex: 1 1 200px; /* Se alinean horizontalmente */
+            gap: 8px;
+            flex: 1;
         }
 
         .laurel-item img {
-            width: 40px; 
+            width: 35px; 
             height: auto;
             margin-bottom: 0;
             flex-shrink: 0;
         }
 
         .laurel-text {
-            font-size: 11px;
+            font-size: 10px;
             color: #FFFFFF;
-            line-height: 1.2;
-            letter-spacing: 0.3px;
+            line-height: 1.1;
+            letter-spacing: 0.2px;
+            display: block;
+            width: 100%;
         }
 
         /* DEV BOX */
@@ -560,6 +563,9 @@
             .cajon-credito-individual { padding: 20px 15px !important; }
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
             .columna-derecha { text-align: center !important; line-height: 1.8 !important; }
+            
+            /* Ajustes para mantener premios en fila en móviles */
+            .laureles-wrapper { flex-wrap: nowrap !important; }
         }
     </style>
 </head>
@@ -711,7 +717,7 @@
                 <div class="linea-politicas"><a href="privacidadycookies.html">Privacidad y Cookies</a></div>
                 <div class="linea-derechos">Todos los derechos reservados</div>
                 <div class="linea-copyright">© 2026 Garabato Cine</div>
-          </div>
+            </div>
         </div>
     </footer>
 
