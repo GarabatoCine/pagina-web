@@ -33,7 +33,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 40px 60px;
+            padding: 25px 60px; /* Acercado hacia arriba */
             z-index: 100;
             display: flex;
             justify-content: space-between;
@@ -65,8 +65,12 @@
             transition: color 0.3s;
         }
 
+        .nav a.nav-proximamente {
+            color: #FFDF50; /* Amarillo diferenciado */
+        }
+
         .nav a:hover {
-            color: #FFC601; /* Actualizado a #FFC601 */
+            color: #FFC601;
         }
 
         .lang {
@@ -112,17 +116,17 @@
 
         .banner-text-overlay h1 {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(32px, 5vw, 64px); 
+            font-size: clamp(40px, 6vw, 78px); /* Tamaño aumentado de la palabra */
             font-weight: 700;
             line-height: 1.1;
             letter-spacing: 2px;
-            margin-bottom: 10px; /* Reducido para acortar la distancia entre título y subtexto */
+            margin-bottom: 10px;
             color: #FFF;
             text-transform: uppercase;
         }
 
         .subrayado-amarillo {
-            border-bottom: 4px solid #FFC601; /* Actualizado a #FFC601 */
+            border-bottom: 4px solid #FFC601;
             padding-bottom: 12px;
             display: inline-block;
             line-height: 0.9;
@@ -151,8 +155,8 @@
             font-family: 'Oswald', sans-serif;
             font-size: 15px;
             letter-spacing: 3px;
-            color: #FFC601; /* Actualizado a #FFC601 */
-            border-bottom: 1px solid rgba(255, 198, 1, 0.4); /* Actualizado a #FFC601 con opacidad */
+            color: #FFC601;
+            border-bottom: 1px solid rgba(255, 198, 1, 0.4);
             display: inline-block;
             padding-bottom: 8px;
             margin-bottom: 60px;
@@ -197,7 +201,7 @@
             font-family: 'Oswald', sans-serif;
             font-size: 14px;
             letter-spacing: 3px;
-            color: #FFC601; /* Actualizado a #FFC601 */
+            color: #FFC601;
             margin-bottom: 15px;
         }
 
@@ -210,7 +214,7 @@
         }
 
         .project-details .subtitle-yellow {
-            color: #FFC601; /* Actualizado a #FFC601 */
+            color: #FFC601;
             font-size: 17px;
             margin-bottom: 30px;
             font-weight: 400;
@@ -233,7 +237,7 @@
         }
 
         .meta-col {
-            border-left: 1px solid rgba(255, 198, 1, 0.3); /* Actualizado a #FFC601 con opacidad */
+            border-left: 1px solid rgba(255, 198, 1, 0.3);
             padding-left: 20px;
             min-width: 0;
         }
@@ -246,7 +250,7 @@
         }
 
         .meta-label {
-            color: #FFC601; /* Actualizado a #FFC601 */
+            color: #FFC601;
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -260,7 +264,7 @@
         }
 
         .star-icon {
-            color: #FFC601; /* Actualizado a #FFC601 */
+            color: #FFC601;
             font-size: 26px;
             margin-top: 2px;
         }
@@ -316,7 +320,7 @@
         }
 
         .card .card-subtitle {
-            color: #FFC601; /* Actualizado a #FFC601 */
+            color: #FFC601;
             font-size: 14px;
             letter-spacing: 2px;
             margin: 10px 0 20px;
@@ -340,7 +344,7 @@
         }
 
         .laurel-svg {
-            fill: #FFC601; /* Actualizado a #FFC601 */
+            fill: #FFC601;
             flex-shrink: 0;
         }
 
@@ -355,13 +359,13 @@
         .dev-circle-icon {
             width: 70px;
             height: 70px;
-            border: 1px solid #FFC601; /* Actualizado a #FFC601 */
+            border: 1px solid #FFC601;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            color: #FFC601; /* Actualizado a #FFC601 */
+            color: #FFC601;
             flex-shrink: 0;
         }
 
@@ -386,7 +390,7 @@
         }
 
         .technical-sheet div strong {
-            color: #FFC601; /* Actualizado a #FFC601 */
+            color: #FFC601;
             display: block;
             margin-bottom: 5px;
             font-size: 11px;
@@ -409,8 +413,8 @@
         .cta-btn {
             display: inline-block;
             padding: 12px 35px;
-            border: 1px solid #FFC601; /* Actualizado a #FFC601 */
-            color: #FFC601; /* Actualizado a #FFC601 */
+            border: 1px solid #FFC601;
+            color: #FFC601;
             font-size: 13px;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -418,7 +422,7 @@
         }
 
         .cta-btn:hover {
-            background: #FFC601; /* Actualizado a #FFC601 */
+            background: #FFC601;
             color: #000;
         }
 
@@ -471,7 +475,7 @@
         }
 
         .columna-central a:hover {
-            color: #FFC601; /* Actualizado a #FFC601 */
+            color: #FFC601;
         }
 
         .columna-derecha {
@@ -485,26 +489,24 @@
             line-height: 1.6;
         }
 
-        /* Estilos de fuente ligeramente más pequeña para las líneas 2 y 3 */
         .texto-chico {
             font-size: 11.5px !important;
             color: #888888;
         }
         
-        /* Enlaces footer normales con subrayado permanente y color heredado (#888888) */
         .footer-link-normal {
             display: inline-block;
             font-size: 13px;
             color: inherit; 
-            text-decoration: underline; /* Subrayado forzado */
+            text-decoration: underline;
             transition: color 0.3s ease;
         }
 
         .footer-link-normal:hover {
-            color: #FFC601; /* Actualizado a #FFC601 */
+            color: #FFC601;
         }
 
-        /* RESPONSIVE DISPOSITIVOS (TABLETS) */
+        /* RESPONSIVE DISPOSITIVOS (TABLETS Y ESCRITORIO) */
         @media(max-width: 1024px) {
             .header { 
                 padding: 20px 40px; 
@@ -522,7 +524,7 @@
                 display: none; 
                 flex-direction: column;
                 position: absolute;
-                top: 70px; 
+                top: 70px; /* Ajustado al nuevo margen */
                 right: 40px;
                 background: rgba(10, 10, 10, 0.98);
                 border: 1px solid #222;
@@ -562,7 +564,10 @@
                 letter-spacing: 1px;
             }
 
-            .nav { right: 25px; top: 60px; }
+            .nav { 
+                right: 25px; 
+                top: 60px; /* Ajuste para pantallas pequeñas */
+            }
 
             .banner-text-overlay { 
                 left: 25px; 
@@ -594,8 +599,6 @@
                 text-align: center;
             }
             
-            /* Contenedor reorganizado explícitamente para dispositivos móviles/tablets 
-               Forzando el orden visual con la propiedad 'order' */
             .columna-derecha {
                 display: flex;
                 flex-direction: column;
@@ -626,21 +629,22 @@
             <i class="fa-solid fa-bars"></i>
         </button>
 
-        <div class="nav" id="navMenu">
-            <a href="catalogo.html">CATÁLOGO</a>
-            <a href="nosotros.html">NOSOTROS</a>
+        <nav class="nav" id="navMenu">
+            <a href="catalogo.html">Proyectos</a>
+            <a href="proximamente.html" class="nav-proximamente">Próximamente.</a>
+            <a href="nosotros.html">Nosotros</a>
             <div class="lang">
                 <span class="active">ES</span>
                 <span>/</span>
                 <a href="#">EN</a>
             </div>
-        </div>
+        </nav>
     </header>
 
     <div class="banner-container">
         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/banner-proximamente1.png?raw=true" alt="Banner Principal">
         <div class="banner-text-overlay">
-            <h1><span class="subrayado-amarillo">PR</span>ÓXIMAMENTE</h1>
+            <h1><span class="subrayado-amarillo">PR</span>ÓXIMAMENTE.</h1>
             <p>Nuevas proyectos en camino.<br>Historias que nacen desde el Caribe<br>para dialogar con el mundo.</p>
         </div>
     </div>
