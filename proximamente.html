@@ -469,21 +469,17 @@
         /* Estilos footer derecho */
         .linea-politicas {
             font-size: 12px;
-            color: #888888; /* Se agregó el color gris unificado al contenedor */
+            color: #888888;
         }
         
         .linea-politicas a {
             color: #888888;
             text-decoration: underline;
         }
-
-        /* Evita que la "y" suelta quede blanca heredando el color del body */
-        .linea-politicas span {
-            color: #888888; 
-        }
         
         .linea-politicas a:hover {
             color: #FFC601;
+            text-decoration: underline;
         }
         
         .linea-derechos {
@@ -569,7 +565,7 @@
                 background-color: rgba(255, 198, 1, 0.3);
             }
             
-            /* Forzado a 7.2px etiqueta y 8.4px texto para que sea imposible que partan la línea */
+            /* Ajustado milimétricamente para forzar una sola línea sin cortes */
             .meta-info-box .meta-label {
                 font-size: 7.2px !important; 
                 letter-spacing: 0px !important;
@@ -780,7 +776,7 @@
             </div>
             
             <div class="columna-derecha">
-                <div class="linea-politicas"><a href="privacidad.html">Privacidad</a> <span>y</span> <a href="cookies.html">Cookies</a></div>
+                <div class="linea-politicas"><a href="privacidadycookies.html">Privacidad y Cookies</a></div>
                 <div class="linea-derechos">Todos los derechos reservados</div>
                 <div class="linea-copyright">© 2026 Garabato Cine</div>
             </div>
