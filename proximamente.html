@@ -99,7 +99,7 @@
             width: 100%;
             position: relative;
             background: #000;
-            display: block; /* Asegura visibilidad */
+            min-height: 200px; /* Asegura altura mínima en móvil */
         }
 
         .banner-container img {
@@ -115,7 +115,6 @@
             left: 60px;
             z-index: 10;
             max-width: 700px;
-            padding-left: 0;
         }
 
         .banner-text-overlay h1 {
@@ -127,7 +126,6 @@
             margin-bottom: 10px;
             color: #FFF;
             text-transform: uppercase;
-            margin-left: 0;
         }
 
         .subrayado-amarillo {
@@ -143,7 +141,6 @@
             font-weight: 300;
             color: #CCCCCC;
             letter-spacing: 0.5px;
-            margin-left: 0;
         }
 
         /* CUERPO DE LA PÁGINA */
@@ -558,9 +555,12 @@
 
         @media(max-width: 767px) {
             .header { padding: 15px 25px; }
-            /* Ocultar logo en móvil */
             .brand-logo { display: none; }
             .nav { right: 25px; top: 45px; }
+            
+            /* Banner forzado visible */
+            .banner-container { min-height: 150px; }
+            
             .banner-text-overlay { left: 25px; bottom: 15px; }
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
@@ -636,7 +636,6 @@
         <section class="seccion-proyecto">
             <div class="section-title">OTROS PROYECTOS EN POSTPRODUCCIÓN</div>
             <div class="fila-dos-columnas">
-                <!-- ACTO CÍVICO -->
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/actocivici-portada.JPG?raw=true" alt="Acto Cívico">
                     <div class="card-header-group">
@@ -654,7 +653,6 @@
                     </div>
                 </div>
 
-                <!-- PROFESORA LEDA -->
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
                     <div class="card-header-group">
