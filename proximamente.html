@@ -252,7 +252,7 @@
             padding: 30px;
             background: #0F0F0F;
             max-width: 520px;
-            width: 100%; /* Asegura que tome el tamaño correcto */
+            width: 100%;
         }
 
         .meta-info-grid {
@@ -495,12 +495,13 @@
             
             .meta-info-box { 
                 max-width: 100%; 
-                padding: 25px 5px !important; /* Márgenes internos simétricos más amplios en la caja */
+                padding: 25px 20px !important; /* Margen interno completamente simétrico y amplio */
             }
 
-            /* Estilos exclusivos para móviles y tablets */
+            /* MÓVILES Y TABLETS: Convertimos el grid en filas flexibles centradas */
             .meta-info-grid { 
-                grid-template-columns: 1fr !important; /* Apilamos en 1 columna */
+                display: flex !important;
+                flex-direction: column !important;
                 gap: 25px !important; 
             }
             
@@ -511,12 +512,12 @@
                 width: 100% !important;
                 display: flex !important;
                 flex-direction: column !important;
-                align-items: center !important; /* Forzamos centrado horizontal estricto */
+                align-items: center !important; /* Forzamos centrado absoluto */
                 position: relative !important;
                 text-align: center !important;
             }
 
-            /* Línea divisoria horizontal centrada entre los dos bloques */
+            /* Línea divisoria horizontal exactamente en medio de los dos bloques centrados */
             .meta-col:first-child::after {
                 content: "";
                 position: absolute;
@@ -530,10 +531,11 @@
             
             .meta-info-box .meta-label {
                 font-size: 11px !important;
-                letter-spacing: 1px !important;
+                letter-spacing: 1.5px !important;
                 white-space: nowrap !important;
                 margin-bottom: 8px !important;
                 text-align: center !important;
+                width: auto !important;
             }
 
             .meta-info-box .meta-col p {
@@ -550,21 +552,23 @@
             }
 
             .logo-telepacific {
+                display: flex !important;
                 justify-content: center !important;
+                align-items: center !important;
+                float: none !important;
                 width: 100% !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
+                margin: 5px auto 0 auto !important;
             }
 
-            /* Alineamos bien el logo y su texto sin que se pegue a la derecha */
             .logo-telepacific svg {
                 flex-shrink: 0;
             }
 
+            /* Centramos el bloque completo del logo de telepacifico con su texto */
             .logo-telepacific span {
                 font-size: 12.5px !important;
-                text-align: left !important; /* Lectura ordenada del canal */
-                display: inline-block;
+                text-align: left !important; /* Mantiene la lectura corporativa ordenada */
+                display: inline-block !important;
             }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
@@ -611,7 +615,7 @@
                         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla2.png?raw=true" alt="Madre Semilla 1">
                         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla1.jpg?raw=true" alt="Madre Semilla 2">
                         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla3.jpg?raw=true" alt="Madre Semilla 3">
-                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla4.png?raw=true" alt="Madre Semilla 4">
+                        <img src="https://github.com/GarabatoCine/blob/main/proximamente/madresemilla4.png?raw=true" alt="Madre Semilla 4">
                     </div>
                 </div>
 
