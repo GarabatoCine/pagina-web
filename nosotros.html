@@ -165,7 +165,7 @@ width:100%;
 .intro-text{
 max-width:1100px;
 margin:70px auto 50px auto;
-padding:0 40px; /* Tamaño original para PC */
+padding:0 40px; /* Tamaño y margen original para PC */
 text-align:center;
 font-family: 'Roboto', sans-serif;
 font-size: clamp(16px, 1.3vw, 20px); 
@@ -328,11 +328,11 @@ body{padding-top:86px;}
 .nav { display: none; }
 .nav-mobile { top: 86px; right: 22px; }
 
-/* Ajustes aplicados solo para dispositivos */
+/* Ajustes aplicados exclusivamente para móviles y tablets */
 .intro-text{ 
-    font-size: clamp(14px, 1.5vw, 18px); /* Ligeramente más pequeño para evitar que la última palabra baje sola */
-    padding: 0 55px; /* Margen lateral reducido para distribuir en 2 líneas */
-    line-height: 1.45;
+    font-size: 20px; /* Tamaño establecido exactamente a 20px para dispositivos */
+    padding: 0 20px;  /* Margen lateral reducido para ensanchar el bloque de texto */
+    line-height: 1.5;
 }
 
 .festival-row{ grid-template-columns:repeat(3,1fr); gap:25px; }
