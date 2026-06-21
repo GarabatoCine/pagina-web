@@ -246,11 +246,11 @@
             margin: 35px 0;
         }
 
-        /* ESTRUCTURA NUEVA: DOS CAJONES SIMÉTRICOS COMPLETOS */
+        /* CAJONES SIMÉTRICOS COMPLETOS */
         .contenedor-creditos-doble {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Dos cajones idénticos de tamaño */
-            gap: 12px; /* Pequeña separación elegante entre cajones */
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
             max-width: 520px;
             width: 100%;
         }
@@ -264,14 +264,14 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            min-width: 0; /* Evita desbordamientos */
+            min-width: 0;
         }
 
         .meta-label {
             color: #FFC601;
-            font-size: 11px;
+            font-size: 10px; /* Reducido levemente para escritorio de pantallas cortas */
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px; /* Reducido espacio entre letras para ganar margen interno */
             margin-bottom: 10px;
             width: 100%;
             text-align: center;
@@ -518,12 +518,21 @@
             
             .contenedor-creditos-doble { 
                 max-width: 100%; 
-                grid-template-columns: 1fr !important; /* Un cajón sobre el otro en celulares */
+                grid-template-columns: 1fr !important;
                 gap: 15px !important;
             }
             
             .cajon-credito-individual { 
                 padding: 20px 15px !important;
+            }
+
+            /* REFUERZO DE TAMAÑO Y REGLA DE NO-SALTO PARA MÓVILES */
+            .meta-info-box .meta-label, 
+            .contenedor-creditos-doble .meta-label {
+                font-size: 9.5px !important;
+                letter-spacing: 0.5px !important;
+                white-space: nowrap !important; /* Fuerza rigurosamente una sola línea horizontal */
+                display: block !important;
             }
 
             .logo-telepacific {
@@ -593,7 +602,7 @@
 
                     <div class="divisor-seccion"></div>
 
-                    <!-- NUEVA ESTRUCTURA DE DOS CAJONES COMPLETAMENTE SEPARADOS -->
+                    <!-- CONTENEDOR DE DOS CAJONES CON LA REDUCCIÓN DE FUENTE APLICADA -->
                     <div class="contenedor-creditos-doble">
                         <div class="cajon-credito-individual">
                             <div class="meta-label">Protagonizada por:</div>
