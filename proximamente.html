@@ -252,6 +252,7 @@
             padding: 30px;
             background: #0F0F0F;
             max-width: 520px;
+            width: 100%;
         }
 
         .meta-info-grid {
@@ -284,7 +285,7 @@
             letter-spacing: 1px;
             margin-bottom: 10px;
             width: 100%;
-            white-space: nowrap;
+            text-align: center;
         }
 
         .meta-col p {
@@ -292,6 +293,7 @@
             color: #E0E0E0;
             line-height: 1.5;
             width: 100%;
+            text-align: center;
         }
 
         .logo-telepacific {
@@ -300,12 +302,12 @@
             justify-content: center;
             gap: 10px;
             margin-top: 5px;
-            text-align: left;
             width: 100%;
         }
         
         .parrafo-pajaros {
             white-space: nowrap;
+            display: inline-block;
         }
 
         /* TARJETAS DE PROYECTOS */
@@ -498,6 +500,7 @@
             .meta-info-box { 
                 max-width: 100%; 
                 padding: 25px 15px !important;
+                margin: 0 auto;
             }
 
             .meta-info-grid { 
@@ -505,7 +508,7 @@
                 gap: 20px !important; 
             }
             
-            /* Ajustes centrados y tipografía más pequeña */
+            /* Correcciones para centrar dentro del cajón móvil */
             .meta-col { 
                 border-left: none !important; 
                 padding-left: 0 !important;
@@ -517,6 +520,7 @@
                 align-items: center !important;
                 justify-content: center !important;
                 position: relative;
+                margin: 0 auto;
             }
 
             .meta-col:first-child::after {
@@ -530,30 +534,37 @@
                 background-color: rgba(255, 198, 1, 0.3);
             }
             
+            /* Etiquetas reducidas un punto y centradas */
             .meta-info-box .meta-label {
-                font-size: 10px !important; /* Reducido un punto para celulares */
+                font-size: 10px !important; 
                 letter-spacing: 1.5px !important;
                 white-space: normal !important;
                 margin-bottom: 6px !important;
                 text-align: center !important;
                 width: 100% !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
             }
 
             .meta-info-box .meta-col p {
-                font-size: 12px !important; /* Reducido un punto para celulares */
+                font-size: 12px !important; 
                 text-align: center !important;
                 width: 100% !important;
                 display: block !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
             }
 
             .parrafo-pajaros {
-                white-space: nowrap !important;
+                white-space: normal !important;
                 display: inline-block !important;
                 margin-top: 4px !important;
+                text-align: center;
             }
 
+            /* Logotipo de telepacifico centrado y proporcionado */
             .logo-telepacific {
-                display: flex !important;
+                display: inline-flex !important;
                 flex-direction: row !important;
                 justify-content: center !important;
                 align-items: center !important;
@@ -567,11 +578,12 @@
             .logo-telepacific svg {
                 flex-shrink: 0 !important;
                 margin: 0 !important;
+                display: block !important;
             }
 
             .logo-telepacific span {
                 font-size: 11px !important;
-                text-align: left !important;
+                text-align: center !important;
                 display: inline-block !important;
             }
             
@@ -643,7 +655,8 @@
                             <div class="meta-col">
                                 <div class="meta-label">Coproducida con:</div>
                                 <div class="logo-telepacific">
-                                    <svg viewBox="0 0 100 100" width="30" height="30" fill="#FFC601"> <circle cx="50" cy="15" r="4"/><circle cx="75" cy="25" r="4"/><circle cx="85" cy="50" r="4"/>
+                                    <svg viewBox="0 0 100 100" width="30" height="30" fill="#FFC601"> 
+                                        <circle cx="50" cy="15" r="4"/><circle cx="75" cy="25" r="4"/><circle cx="85" cy="50" r="4"/>
                                         <circle cx="75" cy="75" r="4"/><circle cx="50" cy="85" r="4"/><circle cx="25" cy="75" r="4"/>
                                         <circle cx="15" cy="50" r="4"/><circle cx="25" cy="25" r="4"/><circle cx="50" cy="32" r="3"/>
                                         <circle cx="63" cy="37" r="3"/><circle cx="68" cy="50" r="3"/><circle cx="63" cy="63" r="3"/>
@@ -689,37 +702,4 @@
                     </div>
                 </div>
                 <div class="columna dev-box">
-                    <div class="dev-circle-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
-                    <div class="dev-inner-content card">
-                        <h3>Fuego en la Memoria</h3>
-                        <div class="card-subtitle">Largometraje</div>
-                        <p class="desc">Inspirada en hechos reales, una historia sobre la resistencia, el olvido y la fuerza de la memoria colectiva.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </div>
-
-    <div class="cta-banner">
-        <p>¿Te interesa conocer más sobre nuestros próximos proyectos?</p>
-        <a href="contacto.html" class="cta-btn">Contáctanos</a>
-    </div>
-
-    <footer class="sitio-footer">
-        <div class="fila-tres-columnas">
-            <div class="columna-izquierda">
-                <h4>GARABATO CINE</h4>
-                <p>Cine hecho desde el Caribe colombiano.</p>
-            </div>
-            
-            <div class="columna-central">
-                <a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-            </div>
-            <div class="columna-derecha"></div>
-        </div>
-    </footer>
-
-</body>
-</html>
+                    <div class="dev-circle-icon"><i class="fa-solid fa-fire-flame-cur
