@@ -153,7 +153,6 @@
             padding: 0 60px;
         }
 
-        /* TÍTULO CON LÍNEA HASTA EL MARGEN */
         .section-title {
             margin-bottom: 60px;
             font-family: 'Oswald', sans-serif;
@@ -305,9 +304,11 @@
             font-style: italic;
         }
 
-        /* TARJETAS DE PROYECTOS */
+        /* TARJETAS DE PROYECTOS (MODIFICADAS PARA QUE LA FOTO PEGUE AL BORDE) */
         .card {
             min-width: 0;
+            border: 1px solid #222; /* Se mantiene el borde del cajón */
+            padding-bottom: 25px; /* Padding solo abajo para el texto */
         }
 
         .card img {
@@ -315,13 +316,18 @@
             height: 440px;
             object-fit: cover;
             display: block;
+            margin-bottom: 25px; /* Separación de la imagen con el texto */
+        }
+
+        .card h3, .card .card-subtitle, .card p.desc {
+            padding: 0 25px; /* Margen interno para el texto */
         }
 
         .card h3 {
             font-family: 'Oswald', sans-serif;
             font-size: clamp(24px, 4.0vw, 40px);
             font-weight: 500;
-            margin-top: 25px;
+            margin-top: 0;
             text-transform: uppercase;
         }
 
@@ -635,7 +641,7 @@
             <div class="fila-dos-columnas">
                 <div class="columna dev-box">
                     <div class="dev-circle-icon"><i class="fa-solid fa-water"></i></div>
-                    <div class="dev-inner-content card">
+                    <div class="dev-inner-content card-dev">
                         <h3>Ballenata</h3>
                         <div class="card-subtitle">Serie</div>
                         <p class="desc">Una exploración del Caribe contemporáneo a través de la música, el territorio y la identidad.</p>
@@ -643,7 +649,7 @@
                 </div>
                 <div class="columna dev-box">
                     <div class="dev-circle-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
-                    <div class="dev-inner-content card">
+                    <div class="dev-inner-content card-dev">
                         <h3>Fuego en la Memoria</h3>
                         <div class="card-subtitle">Largometraje</div>
                         <p class="desc">Inspirada en hechos reales, una historia sobre la resistencia, el olvido y la fuerza de la memoria colectiva.</p>
@@ -681,7 +687,6 @@
     </footer>
 
     <script>
-        // Scroll al tope al cargar la página
         window.history.scrollRestoration = 'manual';
         window.onload = function() {
             window.scrollTo(0, 0);
