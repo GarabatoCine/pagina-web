@@ -469,11 +469,17 @@
         /* Estilos footer derecho */
         .linea-politicas {
             font-size: 12px;
+            color: #888888; /* Se agregó el color gris unificado al contenedor */
         }
         
         .linea-politicas a {
             color: #888888;
             text-decoration: underline;
+        }
+
+        /* Evita que la "y" suelta quede blanca heredando el color del body */
+        .linea-politicas span {
+            color: #888888; 
         }
         
         .linea-politicas a:hover {
@@ -529,7 +535,7 @@
             
             .meta-info-box { 
                 max-width: 100%; 
-                padding: 12px 0px !important; 
+                padding: 0px 0px !important; 
                 margin: 0 auto;
             }
 
@@ -563,9 +569,9 @@
                 background-color: rgba(255, 198, 1, 0.3);
             }
             
-            /* Ajustado a 7.5px etiqueta y 8.5px texto con padding cero, para que no parta la línea */
+            /* Forzado a 7.2px etiqueta y 8.4px texto para que sea imposible que partan la línea */
             .meta-info-box .meta-label {
-                font-size: 7.5px !important; 
+                font-size: 7.2px !important; 
                 letter-spacing: 0px !important;
                 white-space: nowrap !important;
                 margin-bottom: 2px !important;
@@ -575,7 +581,7 @@
             }
 
             .meta-info-box .meta-col p {
-                font-size: 8.5px !important; 
+                font-size: 8.4px !important; 
                 text-align: center !important;
                 width: 100% !important;
                 display: block !important;
@@ -590,7 +596,7 @@
                 text-align: center;
             }
 
-            /* Logotipo de telepacífico */
+            /* Logotipo de telepacífico compacto */
             .logo-telepacific {
                 display: inline-flex !important;
                 flex-direction: row !important;
@@ -774,7 +780,7 @@
             </div>
             
             <div class="columna-derecha">
-                <div class="linea-politicas"><a href="privacidad.html">Privacidad</a> y <a href="cookies.html">Cookies</a></div>
+                <div class="linea-politicas"><a href="privacidad.html">Privacidad</a> <span>y</span> <a href="cookies.html">Cookies</a></div>
                 <div class="linea-derechos">Todos los derechos reservados</div>
                 <div class="linea-copyright">© 2026 Garabato Cine</div>
             </div>
