@@ -252,6 +252,7 @@
             padding: 30px;
             background: #0F0F0F;
             max-width: 520px;
+            width: 100%; /* Asegura que tome el tamaño correcto */
         }
 
         .meta-info-grid {
@@ -494,27 +495,28 @@
             
             .meta-info-box { 
                 max-width: 100%; 
-                padding: 25px 20px; 
+                padding: 25px 5px !important; /* Márgenes internos simétricos más amplios en la caja */
             }
 
-            /* MÓVILES Y TABLETS: Se convierten en una lista vertical con espacios centrados y simétricos */
+            /* Estilos exclusivos para móviles y tablets */
             .meta-info-grid { 
-                grid-template-columns: 1fr; 
-                gap: 25px; 
+                grid-template-columns: 1fr !important; /* Apilamos en 1 columna */
+                gap: 25px !important; 
             }
             
             .meta-col { 
                 border-left: none !important; 
                 padding-left: 0 !important;
                 padding-right: 0 !important;
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                position: relative;
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important; /* Forzamos centrado horizontal estricto */
+                position: relative !important;
+                text-align: center !important;
             }
 
-            /* Línea divisoria horizontal centrada en móviles */
+            /* Línea divisoria horizontal centrada entre los dos bloques */
             .meta-col:first-child::after {
                 content: "";
                 position: absolute;
@@ -528,29 +530,41 @@
             
             .meta-info-box .meta-label {
                 font-size: 11px !important;
-                letter-spacing: 1px;
-                white-space: nowrap;
-                margin-bottom: 8px;
+                letter-spacing: 1px !important;
+                white-space: nowrap !important;
+                margin-bottom: 8px !important;
+                text-align: center !important;
             }
 
             .meta-info-box .meta-col p {
-                font-size: 13.5px !important;
-                text-align: center;
+                font-size: 13px !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
             .parrafo-pajaros {
-                white-space: nowrap;
-                display: inline-block;
+                white-space: nowrap !important;
+                display: inline-block !important;
             }
 
             .logo-telepacific {
-                justify-content: center;
-                width: 100%;
+                justify-content: center !important;
+                width: 100% !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            /* Alineamos bien el logo y su texto sin que se pegue a la derecha */
+            .logo-telepacific svg {
+                flex-shrink: 0;
             }
 
             .logo-telepacific span {
-                font-size: 13px !important;
-                text-align: left; /* Mantiene la lectura del logo ordenada */
+                font-size: 12.5px !important;
+                text-align: left !important; /* Lectura ordenada del canal */
+                display: inline-block;
             }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
@@ -597,7 +611,7 @@
                         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla2.png?raw=true" alt="Madre Semilla 1">
                         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla1.jpg?raw=true" alt="Madre Semilla 2">
                         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla3.jpg?raw=true" alt="Madre Semilla 3">
-                        <img src="https://github.com/GarabatoCine/blob/main/proximamente/madresemilla4.png?raw=true" alt="Madre Semilla 4">
+                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla4.png?raw=true" alt="Madre Semilla 4">
                     </div>
                 </div>
 
@@ -627,7 +641,7 @@
                                         <circle cx="63" cy="37" r="3"/><circle cx="68" cy="50" r="3"/><circle cx="63" cy="63" r="3"/>
                                         <circle cx="50" cy="68" r="3"/><circle cx="37" cy="63" r="3"/><circle cx="32" cy="50" r="3"/>
                                     </svg>
-                                    <span style="font-size:14px; font-weight:700; line-height:1.1; letter-spacing:0.5px;">telepacífico<br><small style="font-size:8px; opacity:0.6; display:block;">SOMOS NUESTRO CANAL</small></span>
+                                    <span>telepacífico<br><small style="font-size:8px; opacity:0.6; display:block;">SOMOS NUESTRO CANAL</small></span>
                                 </div>
                             </div>
                         </div>
