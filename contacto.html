@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contacto - Garabato Cine</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Se añadió Oswald a la importación de Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
@@ -51,7 +52,9 @@ text-transform:uppercase;
 color:#000;
 }
 
+/* Se aplicó Oswald aquí, conservando los 24px originales */
 .logo a{
+font-family: 'Oswald', sans-serif;
 font-size:24px;
 font-weight:500;
 letter-spacing:2px;
@@ -61,7 +64,7 @@ text-decoration:none;
 .nav{
 display:flex;
 align-items:center;
-gap:25px; /* Ligeramente más espaciado para que se vea completo */
+gap:25px; 
 font-size:13px;
 }
 
@@ -230,7 +233,7 @@ cursor:pointer;
 align-self:flex-end;
 }
 
-/* ================= FOOTER (CONFIGURADO EN 240px PARA MONITORES) ================= */
+/* ================= FOOTER ================= */
 
 .sitio-footer {
 background-color: #000000;
@@ -249,7 +252,7 @@ align-items: center;
 
 @media (min-width: 1025px) {
     .fila-tres-columnas {
-        padding: 0 240px; /* Ajuste manual confirmado por ti */
+        padding: 0 240px; 
     }
 }
 
