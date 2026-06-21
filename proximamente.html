@@ -332,21 +332,6 @@
             color: #CCCCCC;
         }
 
-        .festival-laurels {
-            margin-top: 30px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            color: #E0E0E0;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        .laurel-svg {
-            fill: #FFC601;
-            flex-shrink: 0;
-        }
-
         .dev-box {
             display: flex;
             gap: 25px;
@@ -538,7 +523,7 @@
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .featured-project { grid-template-columns: 1fr; }
             
-            /* Galería de tablet/celular: 3 columnas */
+            /* Galería de tablet/celular: adaptada a 3 columnas */
             .gallery-thumbs {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr) !important;
@@ -549,10 +534,6 @@
                 width: 100% !important;
                 height: auto !important;
                 object-fit: contain !important;
-            }
-            /* Ocultar la cuarta miniatura solo para tablet/celular */
-            .gallery-thumbs img:nth-child(4) {
-                display: none !important;
             }
 
             .meta-info-grid { grid-template-columns: 1fr; }
@@ -597,11 +578,11 @@
             <div class="fila-dos-columnas featured-project">
                 <div class="columna main-poster">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla-portada.png?raw=true" alt="Madre Semilla">
-                    <div class="gallery-thumbs">
-                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla2.png?raw=true" alt="Miniatura 1">
-                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla1.jpg?raw=true" alt="Miniatura 2">
-                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla3.jpg?raw=true" alt="Miniatura 3">
-                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla4.png?raw=true" alt="Miniatura 4">
+                    <div class="gallery-thumbs" id="galeriaMadreSemilla">
+                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla2.png?raw=true" alt="Madre Semilla 1">
+                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla1.jpg?raw=true" alt="Madre Semilla 2">
+                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla3.jpg?raw=true" alt="Madre Semilla 3">
+                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla4.png?raw=true" alt="Madre Semilla 4">
                     </div>
                 </div>
                 <div class="columna project-details">
@@ -648,7 +629,7 @@
                     <p class="desc">Una ceremonia escolar se convierte en el escenario donde dos adolescentes cuestionan lo que significa pertenecer.</p>
                 </div>
                 <div class="columna card">
-                    <img src="https://github.com/GarabatoCide/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
                     <h3>Profesora Leda</h3>
                     <div class="card-subtitle">Largometraje de ficción</div>
                     <p class="desc">En un pueblo apartado, una profesora llega a cambiar el destino de sus estudiantes y también el suyo.</p>
@@ -699,6 +680,24 @@
             <div class="columna-derecha"></div>
         </div>
     </footer>
+
+    <script>
+        function ajustarMiniaturas() {
+            // Detecta si el ancho de pantalla es de tablet o celular (767px o menos)
+            if (window.matchMedia("(max-width: 767px)").matches) {
+                const galeria = document.getElementById('galeriaMadreSemilla');
+                if (galeria) {
+                    const cuartaImagen = galeria.querySelector('img:nth-child(4)');
+                    if (cuartaImagen) {
+                        cuartaImagen.remove(); // Elimina físicamente la cuarta imagen del HTML
+                    }
+                }
+            }
+        }
+        
+        // Ejecuta la función al cargar la página
+        window.addEventListener('DOMContentLoaded', ajustarMiniaturas);
+    </script>
 
 </body>
 </html>
