@@ -264,7 +264,6 @@
             border-left: 1px solid rgba(255, 198, 1, 0.3);
             padding-left: 20px;
             min-width: 0;
-            /* CENTRADO DE CONTENIDO */
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -284,6 +283,7 @@
             letter-spacing: 1px;
             margin-bottom: 10px;
             width: 100%;
+            white-space: nowrap; /* Evita que las etiquetas colapsen o se partan en dos líneas en escritorio */
         }
 
         .meta-col p {
@@ -295,13 +295,17 @@
         .logo-telepacific {
             display: flex;
             align-items: center;
-            justify-content: center; /* Centro horizontalmente el logo y el texto */
+            justify-content: center;
             gap: 10px;
             margin-top: 5px;
-            text-align: left; /* Mantengo el texto de telepacífico alineado a su izquierda relativa */
+            text-align: left;
+        }
+        
+        .parrafo-pajaros {
+            white-space: nowrap;
         }
 
-        /* OTROS PROYECTOS */
+        /* TARJETAS DE PROYECTOS */
         .card {
             min-width: 0;
         }
@@ -451,7 +455,7 @@
             flex: 1;
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE - MODIFICADO PARA TABLETS Y CELULARES */
         @media(max-width: 1024px) {
             .header { padding: 15px 40px; }
             .brand-logo { font-size: 18px; }
@@ -488,9 +492,28 @@
                 gap: 8px !important;
             }
             
-            .meta-info-box { max-width: 100%; }
-            .meta-info-grid { grid-template-columns: 1fr; gap: 35px; }
+            .meta-info-box { max-width: 100%; padding: 20px 10px; }
+            .meta-info-grid { grid-template-columns: 1fr; gap: 20px; }
             .meta-col { border-left: none; padding-left: 0; }
+            
+            /* REGLAS ESPECÍFICAS PARA MÓVILES (AMPLIACIÓN DE MARGENES Y REDUCCIÓN DE FUENTE) */
+            .meta-info-box .meta-label {
+                font-size: 10.5px !important; /* Reducción de fuente para que entren en una línea */
+                letter-spacing: 0.5px;
+                white-space: nowrap;
+            }
+
+            .meta-info-box .meta-col p {
+                font-size: 12.5px !important; /* Reducción de fuente */
+            }
+
+            .parrafo-pajaros {
+                white-space: nowrap; /* Forzamos a que Pájaros de verano quede en una sola línea */
+            }
+
+            .logo-telepacific span {
+                font-size: 13px !important;
+            }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
         }
@@ -553,8 +576,8 @@
                     <div class="meta-info-box">
                         <div class="meta-info-grid">
                             <div class="meta-col">
-                                <div class="meta-label">Protagonizada por</div>
-                                <p>Carmiña Martínez<br><em>(Pájaros de verano)</em></p>
+                                <div class="meta-label">Protagonizada por:</div>
+                                <p>Carmiña Martínez<br><em class="parrafo-pajaros">(Pájaros de verano)</em></p>
                             </div>
                             
                             <div class="meta-col">
