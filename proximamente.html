@@ -201,7 +201,7 @@
 
         .project-details .status-tag {
             font-family: 'Oswald', sans-serif;
-            font-size: 15px; /* Aumentado 1 punto */
+            font-size: 15px;
             letter-spacing: 3px;
             color: #FFC601;
             margin-bottom: 15px;
@@ -217,21 +217,25 @@
 
         .project-details .subtitle-yellow {
             color: #FFC601;
-            font-size: 16px; /* Disminuido 1 punto */
+            font-size: 16px;
             margin-bottom: 30px;
             font-weight: 400;
         }
 
+        /* Subtexto de Madre Semilla usando la misma tipografía y proporción de renglones */
         .project-details .synopsis {
-            font-size: clamp(14px, 1.5vw, 17px);
-            line-height: 1.7;
-            color: #DCDCDC;
+            font-size: clamp(15px, 1.6vw, 19px);
+            line-height: 1.45;
+            font-weight: 300;
+            color: #CCCCCC;
+            letter-spacing: 0.5px;
             margin-bottom: 45px;
+            max-width: 520px;
         }
 
         .meta-info-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Cambiado a 2 columnas */
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
             margin-bottom: 50px;
             border-top: 1px solid #222;
@@ -532,6 +536,15 @@
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .featured-project { grid-template-columns: 1fr; }
+            
+            /* Corrección para forzar miniaturas horizontales en tablets y celulares */
+            .gallery-thumbs {
+                grid-template-columns: repeat(4, 1fr) !important;
+            }
+            .gallery-thumbs img {
+                height: 65px !important;
+            }
+
             .meta-info-grid { grid-template-columns: 1fr; }
             .meta-col { border-left: none; padding-left: 0; }
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
@@ -585,7 +598,8 @@
                     <div class="status-tag">PRÓXIMO ESTRENO</div>
                     <h2>MADRE SEMILLA</h2>
                     <div class="subtitle-yellow">Largometraje de ficción</div>
-                    <p class="synopsis">Amira vive su propia condena: amar a un hijo sentenciado a muerte por corrupción. 
+                    
+                    <p class="synopsis">En lo profundo del Caribe, una mujer defiende su territorio y su herencia.<br>Una historia sobre la tierra que comienza a ser devorada.</p>
 
                     <div class="meta-info-grid">
                         <div class="meta-col">
@@ -618,77 +632,4 @@
             <div class="section-title">OTROS PROYECTOS EN POSTPRODUCCIÓN</div>
             <div class="fila-dos-columnas">
                 <div class="columna card">
-                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/actocivici-portada.JPG?raw=true" alt="Acto Cívico">
-                    <h3>Acto Cívico</h3>
-                    <div class="card-subtitle">Cortometraje de ficción</div>
-                    <p class="desc">Una ceremonia escolar se convierte en el escenario donde dos adolescentes cuestionan lo que significa pertenecer.</p>
-                </div>
-                <div class="columna card">
-                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
-                    <h3>Profesora Leda</h3>
-                    <div class="card-subtitle">Largometraje de ficción</div>
-                    <p class="desc">En un pueblo apartado, una profesora llega a cambiar el destino de sus estudiantes y también el suyo.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="seccion-proyecto">
-            <div class="section-title">PROYECTOS EN DESARROLLO</div>
-            <div class="fila-dos-columnas">
-                <div class="columna dev-box">
-                    <div class="dev-circle-icon"><i class="fa-solid fa-water"></i></div>
-                    <div class="dev-inner-content card">
-                        <h3>Ballenata</h3>
-                        <div class="card-subtitle">Serie</div>
-                        <p class="desc">Una exploración del Caribe contemporáneo a través de la música, el territorio y la identidad.</p>
-                    </div>
-                </div>
-                <div class="columna dev-box">
-                    <div class="dev-circle-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
-                    <div class="dev-inner-content card">
-                        <h3>Fuego en la Memoria</h3>
-                        <div class="card-subtitle">Largometraje</div>
-                        <p class="desc">Inspirada en hechos reales, una historia sobre la resistencia, el olvido y la fuerza de la memoria colectiva.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </div>
-
-    <div class="cta-banner">
-        <p>¿Te interesa conocer más sobre nuestros próximos proyectos?</p>
-        <a href="contacto.html" class="cta-btn">Contáctanos</a>
-    </div>
-
-    <footer class="sitio-footer">
-        <div class="fila-tres-columnas">
-            <div class="columna-izquierda">
-                <h4>GARABATO CINE</h4>
-                <p>Cine hecho desde el Caribe colombiano.</p>
-            </div>
-            
-            <div class="columna-central">
-                <a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="http://www.youtube.com/channel/UC4vuld7vS7GhKcBf2dv0fJw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-            
-            <div class="columna-derecha">
-                <p class="link-linea-1"><a href="privacidadycookies.html" class="footer-link-normal" target="_blank">Privacidad y cookies</a></p>
-                <p class="texto-chico texto-linea-2">Todos los derechos reservados</p>
-                <p class="texto-chico texto-linea-3">© 2026 Garabato Cine</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const navMenu = document.getElementById('navMenu');
-
-        menuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
-        });
-    </script>
-</body>
-</html>
+                    <img src="
