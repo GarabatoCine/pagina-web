@@ -92,6 +92,7 @@
             font-size: 24px;
             cursor: pointer;
             z-index: 110;
+            margin-left: auto;
         }
 
         /* BANNER */
@@ -99,6 +100,7 @@
             width: 100%;
             position: relative;
             background: #000;
+            line-height: 0;
         }
 
         .banner-container img {
@@ -110,11 +112,11 @@
 
         .banner-text-overlay {
             position: absolute;
-            bottom: 15px;
+            bottom: 40px;
             left: 60px;
             z-index: 10;
             max-width: 700px;
-            padding-left: 0;
+            pointer-events: none;
         }
 
         .banner-text-overlay h1 {
@@ -126,7 +128,6 @@
             margin-bottom: 10px;
             color: #FFF;
             text-transform: uppercase;
-            margin-left: 0;
         }
 
         .subrayado-amarillo {
@@ -142,7 +143,6 @@
             font-weight: 300;
             color: #CCCCCC;
             letter-spacing: 0.5px;
-            margin-left: 0;
         }
 
         /* CUERPO DE LA PÁGINA */
@@ -334,7 +334,7 @@
 
         .card-header-group {
             padding: 0 25px;
-            min-height: 100px; /* Ajustado */
+            min-height: 100px;
         }
 
         .card-body-group {
@@ -356,7 +356,7 @@
             color: #FFC601;
             font-size: 14px;
             letter-spacing: 1px;
-            margin: 5px 0 5px; /* Ajustado para reducir espacio */
+            margin: 5px 0 5px;
             text-transform: lowercase;
         }
         
@@ -368,38 +368,45 @@
             font-size: 15px;
             line-height: 1.6;
             color: #CCCCCC;
-            margin-top: 0; /* Ajustado para reducir espacio */
+            margin-top: 0;
             margin-bottom: 20px;
             text-align: justify;
         }
 
-        /* CONTENEDOR DE LAURELES (BLOQUE COMPACTO HORIZONTAL) */
+        /* CONTENEDOR DE LAURELES */
         .laureles-wrapper {
             padding: 0 25px;
             display: flex;
-            flex-wrap: wrap; /* Permitir que salten si es necesario */
-            gap: 20px;
+            flex-wrap: nowrap;
+            gap: 15px;
+            width: 100%;
         }
 
         .laurel-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            flex: 1 1 200px; /* Se alinean horizontalmente */
+            gap: 8px;
+            flex: 1;
+            min-width: 0;
         }
 
         .laurel-item img {
-            width: 40px; 
+            width: 35px; 
             height: auto;
             margin-bottom: 0;
             flex-shrink: 0;
         }
 
         .laurel-text {
-            font-size: 11px;
+            font-size: 10px;
             color: #FFFFFF;
             line-height: 1.2;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            width: 100%;
         }
 
         /* DEV BOX */
@@ -496,7 +503,7 @@
             white-space: nowrap;
         }
 
-      .columna-central {
+        .columna-central {
             display: flex;
             justify-content: center;
             gap: 25px;
@@ -533,15 +540,14 @@
                 display: none; 
                 flex-direction: column;
                 position: absolute;
-                top: 50px;
-                right: 40px;
-                background: rgba(10, 10, 10, 0.98);
+                top: 60px;
+                right: 0;
+                background: #0A0A0A;
                 border: 1px solid #222;
                 padding: 30px;
                 gap: 25px;
-                align-items: flex-start;
-                width: 220px;
-                box-shadow: 0px 10px 30px rgba(0,0,0,0.7);
+                align-items: center;
+                width: 100%;
                 z-index: 200;
             }
             .nav.open { display: flex; }
@@ -550,8 +556,16 @@
 
         @media(max-width: 767px) {
             .header { padding: 15px 25px; }
-            .nav { right: 25px; top: 45px; }
-            .banner-text-overlay { left: 25px; bottom: 15px; }
+            .brand-logo { display: none; }
+            .menu-toggle { display: block; }
+            
+            .banner-container { min-height: auto; }
+            .banner-text-overlay { bottom: 20px; left: 25px; }
+
+            /* Ajustes móviles específicos */
+            .banner-text-overlay h1 { font-size: clamp(22px, 8vw, 26px); }
+            .banner-text-overlay p { font-size: clamp(12px, 4vw, 14px); }
+            
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .featured-project { grid-template-columns: 1fr; }
@@ -626,7 +640,6 @@
         <section class="seccion-proyecto">
             <div class="section-title">OTROS PROYECTOS EN POSTPRODUCCIÓN</div>
             <div class="fila-dos-columnas">
-                <!-- ACTO CÍVICO -->
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/actocivici-portada.JPG?raw=true" alt="Acto Cívico">
                     <div class="card-header-group">
@@ -644,7 +657,6 @@
                     </div>
                 </div>
 
-                <!-- PROFESORA LEDA -->
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
                     <div class="card-header-group">
@@ -711,7 +723,7 @@
                 <div class="linea-politicas"><a href="privacidadycookies.html">Privacidad y Cookies</a></div>
                 <div class="linea-derechos">Todos los derechos reservados</div>
                 <div class="linea-copyright">© 2026 Garabato Cine</div>
-          </div>
+            </div>
         </div>
     </footer>
 
