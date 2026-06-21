@@ -572,13 +572,14 @@
             .featured-project { grid-template-columns: 1fr; }
             .gallery-thumbs { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
             
-            /* --- REGLA FORZADA: APILADOS CON ESTILO DE CAJÓN --- */
+            /* --- REGLA CORREGIDA PARA QUE LOS CAJONES APAREZCAN EN MÓVIL --- */
             .contenedor-creditos-doble { 
                 display: flex !important;
                 flex-direction: column !important;
                 gap: 12px !important;
                 max-width: 100% !important;
                 width: 100% !important;
+                grid-template-columns: none !important;
             }
             .cajon-credito-individual { 
                 display: flex !important;
