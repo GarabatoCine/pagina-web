@@ -538,7 +538,7 @@
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .featured-project { grid-template-columns: 1fr; }
             
-            /* Galería de tablet/celular: 3 columnas, ancho libre y alto automático para mantener proporción */
+            /* Galería de tablet/celular: 3 columnas */
             .gallery-thumbs {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr) !important;
@@ -550,9 +550,9 @@
                 height: auto !important;
                 object-fit: contain !important;
             }
-            /* Ocultar la cuarta miniatura para tablet/celular */
+            /* Ocultar la cuarta miniatura solo para tablet/celular */
             .gallery-thumbs img:nth-child(4) {
-                display: none;
+                display: none !important;
             }
 
             .meta-info-grid { grid-template-columns: 1fr; }
@@ -648,7 +648,7 @@
                     <p class="desc">Una ceremonia escolar se convierte en el escenario donde dos adolescentes cuestionan lo que significa pertenecer.</p>
                 </div>
                 <div class="columna card">
-                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
+                    <img src="https://github.com/GarabatoCide/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
                     <h3>Profesora Leda</h3>
                     <div class="card-subtitle">Largometraje de ficción</div>
                     <p class="desc">En un pueblo apartado, una profesora llega a cambiar el destino de sus estudiantes y también el suyo.</p>
@@ -695,4 +695,10 @@
             <div class="columna-central">
                 <a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="
+            </div>
+            <div class="columna-derecha"></div>
+        </div>
+    </footer>
+
+</body>
+</html>
