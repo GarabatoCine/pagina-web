@@ -246,7 +246,7 @@
             margin: 35px 0;
         }
 
-        /* CAJÓN DE CRÉDITOS MODIFICADO */
+        /* CAJÓN DE CRÉDITOS CORREGIDO - CENTRADO ABSOLUTO SIMÉTRICO */
         .meta-info-box {
             border: 1px solid #222;
             padding: 30px;
@@ -257,37 +257,37 @@
 
         .meta-info-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Mitades exactamente iguales (50/50) */
-            gap: 20px;
+            grid-template-columns: 1fr 1fr; /* Divide al 50% exacto */
+            gap: 0px; /* Quitamos el gap para controlar la simetría manual */
             width: 100%;
         }
 
         .meta-col {
-            border-left: 1px solid rgba(255, 198, 1, 0.3);
-            padding-left: 10px;
             min-width: 0;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Centrado vertical absoluto */
+            justify-content: center;
             width: 100%;
+            padding: 0 15px; /* Padding igualitario a izquierda y derecha para un centrado perfecto */
         }
 
-        .meta-col:first-child {
-            border-left: none;
-            padding-left: 0;
+        /* Línea divisoria central exacta sin alterar los márgenes de los textos */
+        .meta-col:last-child {
+            border-left: 1px solid rgba(255, 198, 1, 0.3);
         }
 
         .meta-label {
             color: #FFC601;
-            font-size: 10.5px; /* Tamaño optimizado para evitar saltos */
+            font-size: 10.5px;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 10px;
             width: 100%;
             text-align: center;
-            white-space: nowrap; /* Fuerza una sola línea */
+            white-space: nowrap; /* Mantiene la frase fija en una sola línea */
+            display: block;
         }
 
         .meta-col p {
