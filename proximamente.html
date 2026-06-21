@@ -99,6 +99,7 @@
             width: 100%;
             position: relative;
             background: #000;
+            display: block; /* Asegura visibilidad */
         }
 
         .banner-container img {
@@ -373,11 +374,11 @@
             text-align: justify;
         }
 
-        /* CONTENEDOR DE LAURELES (GLOBAL Y COMPACTO) */
+        /* CONTENEDOR DE LAURELES */
         .laureles-wrapper {
             padding: 0 25px;
             display: flex;
-            flex-wrap: nowrap; /* Fuerza horizontalidad constante */
+            flex-wrap: nowrap;
             gap: 15px;
             width: 100%;
         }
@@ -386,7 +387,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            flex: 1; /* Permite que se repartan el ancho equitativamente */
+            flex: 1;
             min-width: 0;
         }
 
@@ -398,12 +399,12 @@
         }
 
         .laurel-text {
-            font-size: 10px; /* Compacto */
+            font-size: 10px;
             color: #FFFFFF;
             line-height: 1.2;
             letter-spacing: 0.2px;
             display: -webkit-box;
-            -webkit-line-clamp: 4; /* Fuerza 4 líneas máximo */
+            -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
             overflow: hidden;
             width: 100%;
@@ -557,6 +558,8 @@
 
         @media(max-width: 767px) {
             .header { padding: 15px 25px; }
+            /* Ocultar logo en móvil */
+            .brand-logo { display: none; }
             .nav { right: 25px; top: 45px; }
             .banner-text-overlay { left: 25px; bottom: 15px; }
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
@@ -633,6 +636,7 @@
         <section class="seccion-proyecto">
             <div class="section-title">OTROS PROYECTOS EN POSTPRODUCCIÓN</div>
             <div class="fila-dos-columnas">
+                <!-- ACTO CÍVICO -->
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/actocivici-portada.JPG?raw=true" alt="Acto Cívico">
                     <div class="card-header-group">
@@ -650,6 +654,7 @@
                     </div>
                 </div>
 
+                <!-- PROFESORA LEDA -->
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
                     <div class="card-header-group">
