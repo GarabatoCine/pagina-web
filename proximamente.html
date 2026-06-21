@@ -463,25 +463,31 @@
         .columna-derecha {
             text-align: right;
             flex: 1;
+            line-height: 1.6;
         }
         
-        .columna-derecha p {
-            font-size: 11px;
-            color: #888888;
-            line-height: 1.4;
+        /* Estilos y jerarquía exacta para el footer derecho */
+        .linea-politicas {
+            font-size: 13.5px;
         }
         
-        .columna-derecha .politicas-links {
-            margin-top: 4px;
-        }
-        
-        .columna-derecha .politicas-links a {
-            color: #aaaaaa;
+        .linea-politicas a {
+            color: #ffffff;
             text-decoration: underline;
         }
         
-        .columna-derecha .politicas-links a:hover {
+        .linea-politicas a:hover {
             color: #FFC601;
+        }
+        
+        .linea-derechos {
+            font-size: 11px;
+            color: #888888;
+        }
+        
+        .linea-copyright {
+            font-size: 11px;
+            color: #666666;
         }
 
         /* RESPONSIVE */
@@ -523,7 +529,7 @@
             
             .meta-info-box { 
                 max-width: 100%; 
-                padding: 16px 4px !important; 
+                padding: 16px 2px !important; 
                 margin: 0 auto;
             }
 
@@ -557,9 +563,9 @@
                 background-color: rgba(255, 198, 1, 0.3);
             }
             
-            /* Reducido el tamaño de fuente de las etiquetas a 6.5px para evitar cortes */
+            /* Reducido a 5.5px para evitar cortes y mantener en una línea en móviles */
             .meta-info-box .meta-label {
-                font-size: 6.5px !important; 
+                font-size: 5.5px !important; 
                 letter-spacing: 0px !important;
                 white-space: nowrap !important;
                 margin-bottom: 3px !important;
@@ -569,7 +575,7 @@
             }
 
             .meta-info-box .meta-col p {
-                font-size: 9px !important; 
+                font-size: 8px !important; 
                 text-align: center !important;
                 width: 100% !important;
                 display: block !important;
@@ -601,12 +607,12 @@
                 flex-shrink: 0 !important;
                 margin: 0 !important;
                 display: block !important;
-                width: 18px !important; 
-                height: 18px !important;
+                width: 16px !important; 
+                height: 16px !important;
             }
 
             .logo-telepacific span {
-                font-size: 8px !important;
+                font-size: 7.5px !important;
                 text-align: left !important;
                 display: inline-block !important;
                 line-height: 1.1 !important;
@@ -614,11 +620,15 @@
             }
             
             .logo-telepacific span small {
-                font-size: 6px !important;
+                font-size: 5.5px !important;
             }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
-            .columna-derecha { text-align: center !important; }
+            .columna-derecha { text-align: center !important; line-height: 1.8 !important; }
+            
+            .linea-politicas { font-size: 12px !important; }
+            .linea-derechos { font-size: 10px !important; }
+            .linea-copyright { font-size: 9.5px !important; }
         }
     </style>
 </head>
@@ -764,10 +774,9 @@
             </div>
             
             <div class="columna-derecha">
-                <p>© 2026 Garabato Cine. Todos los derechos reservados.</p>
-                <div class="politicas-links">
-                    <a href="politicas.html">Políticas de Privacidad</a> y <a href="cookies.html">Cookies</a>
-                </div>
+                <div class="linea-politicas"><a href="politicas.html">Políticas de Privacidad</a> y <a href="cookies.html">Cookies</a></div>
+                <div class="linea-derechos">Todos los derechos reservados</div>
+                <div class="linea-copyright">© 2026 Garabato Cine</div>
             </div>
         </div>
     </footer>
