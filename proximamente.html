@@ -33,7 +33,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 25px 60px; /* Acercado hacia arriba */
+            padding: 15px 60px; /* Más pegado al margen superior */
             z-index: 100;
             display: flex;
             justify-content: space-between;
@@ -65,11 +65,14 @@
             transition: color 0.3s;
         }
 
-        .nav a.nav-proximamente {
-            color: #FFDF50; /* Amarillo diferenciado */
+        /* Próximamente en gris claro igual que el idioma inactivo */
+        .nav .nav-proximamente {
+            color: white;
+            opacity: .5;
+            cursor: default;
         }
 
-        .nav a:hover {
+        .nav a:hover:not(.nav-proximamente) {
             color: #FFC601;
         }
 
@@ -116,7 +119,7 @@
 
         .banner-text-overlay h1 {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(40px, 6vw, 78px); /* Tamaño aumentado de la palabra */
+            font-size: clamp(40px, 6vw, 78px); /* Tamaño aumentado */
             font-weight: 700;
             line-height: 1.1;
             letter-spacing: 2px;
@@ -509,7 +512,7 @@
         /* RESPONSIVE DISPOSITIVOS (TABLETS Y ESCRITORIO) */
         @media(max-width: 1024px) {
             .header { 
-                padding: 20px 40px; 
+                padding: 15px 40px; 
             }
 
             .brand-logo {
@@ -524,7 +527,7 @@
                 display: none; 
                 flex-direction: column;
                 position: absolute;
-                top: 70px; /* Ajustado al nuevo margen */
+                top: 50px; /* Subido para tablets */
                 right: 40px;
                 background: rgba(10, 10, 10, 0.98);
                 border: 1px solid #222;
@@ -566,7 +569,7 @@
 
             .nav { 
                 right: 25px; 
-                top: 60px; /* Ajuste para pantallas pequeñas */
+                top: 45px; /* Subido para móviles */
             }
 
             .banner-text-overlay { 
@@ -631,7 +634,7 @@
 
         <nav class="nav" id="navMenu">
             <a href="catalogo.html">Proyectos</a>
-            <a href="proximamente.html" class="nav-proximamente">Próximamente.</a>
+            <span class="nav-proximamente">Próximamente</span>
             <a href="nosotros.html">Nosotros</a>
             <div class="lang">
                 <span class="active">ES</span>
@@ -644,7 +647,7 @@
     <div class="banner-container">
         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/banner-proximamente1.png?raw=true" alt="Banner Principal">
         <div class="banner-text-overlay">
-            <h1><span class="subrayado-amarillo">PR</span>ÓXIMAMENTE.</h1>
+            <h1><span class="subrayado-amarillo">PR</span>ÓXIMAMENTE</h1>
             <p>Nuevas proyectos en camino.<br>Historias que nacen desde el Caribe<br>para dialogar con el mundo.</p>
         </div>
     </div>
