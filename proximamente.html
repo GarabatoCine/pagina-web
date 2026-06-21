@@ -334,7 +334,7 @@
 
         .card-header-group {
             padding: 0 25px;
-            min-height: 130px; 
+            min-height: 100px; /* Ajustado */
         }
 
         .card-body-group {
@@ -356,7 +356,7 @@
             color: #FFC601;
             font-size: 14px;
             letter-spacing: 1px;
-            margin: 10px 0 10px; 
+            margin: 5px 0 5px; /* Ajustado para reducir espacio */
             text-transform: lowercase;
         }
         
@@ -368,26 +368,28 @@
             font-size: 15px;
             line-height: 1.6;
             color: #CCCCCC;
+            margin-top: 0; /* Ajustado para reducir espacio */
             margin-bottom: 20px;
             text-align: justify;
         }
 
-        /* CONTENEDOR DE LAURELES (BLOQUE COMPACTO) */
+        /* CONTENEDOR DE LAURELES (BLOQUE COMPACTO HORIZONTAL) */
         .laureles-wrapper {
             padding: 0 25px;
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            flex-wrap: wrap; /* Permitir que salten si es necesario */
+            gap: 20px;
         }
 
         .laurel-item {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            flex: 1 1 200px; /* Se alinean horizontalmente */
         }
 
         .laurel-item img {
-            width: 50px; 
+            width: 40px; 
             height: auto;
             margin-bottom: 0;
             flex-shrink: 0;
@@ -396,7 +398,7 @@
         .laurel-text {
             font-size: 11px;
             color: #FFFFFF;
-            line-height: 1.4;
+            line-height: 1.2;
             letter-spacing: 0.3px;
         }
 
@@ -494,7 +496,7 @@
             white-space: nowrap;
         }
 
-        .columna-central {
+      .columna-central {
             display: flex;
             justify-content: center;
             gap: 25px;
@@ -709,7 +711,7 @@
                 <div class="linea-politicas"><a href="privacidadycookies.html">Privacidad y Cookies</a></div>
                 <div class="linea-derechos">Todos los derechos reservados</div>
                 <div class="linea-copyright">© 2026 Garabato Cine</div>
-            </div>
+          </div>
         </div>
     </footer>
 
