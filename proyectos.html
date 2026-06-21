@@ -53,7 +53,9 @@ text-transform:uppercase;
 color:#000;
 }
 
+/* Se mantiene en 24px con la fuente Oswald */
 .logo a{
+font-family: 'Oswald', sans-serif;
 font-size:24px;
 font-weight:500;
 letter-spacing:2px;
@@ -535,24 +537,19 @@ Cortometrajes
 <script>
 
 function toggleMenu(event) {
-    // Evitamos que se propague el evento para que no sea interceptado por el listener de abajo de inmediato
     if (event) event.stopPropagation();
     const menu = document.getElementById("mobileMenu");
     menu.classList.toggle("active");
 }
 
-// Clic fuera del menú móvil para cerrarlo
 document.addEventListener('click', (event) => {
     const menu = document.getElementById("mobileMenu");
     const hambBtn = document.getElementById("hambBtn");
     
-    // Si el menú está abierto y se hace clic fuera del menú y fuera del botón hamburguesa
     if (menu.classList.contains("active") && !menu.contains(event.target) && !hambBtn.contains(event.target)) {
         menu.classList.remove("active");
     }
 });
-
-/* VOLVER AL TOP AL RECARGAR */
 
 if (history.scrollRestoration) {
 history.scrollRestoration = 'manual';
