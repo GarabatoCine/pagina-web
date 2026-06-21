@@ -153,27 +153,18 @@
             padding: 0 60px;
         }
 
-        /* TÍTULO AJUSTADO: Subrayado solo en "OTROS" */
+        /* TÍTULO CON LÍNEA HASTA EL MARGEN */
         .section-title {
-            display: flex;
-            align-items: center;
-            gap: 15px;
             margin-bottom: 60px;
             font-family: 'Oswald', sans-serif;
             font-size: 15px;
             letter-spacing: 3px;
             color: #FFC601;
             text-transform: uppercase;
-        }
-        .sub-otros {
-            border-bottom: 2px solid #FFC601;
-            padding-bottom: 4px;
-        }
-        .section-title::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: rgba(255, 198, 1, 0.4);
+            border-bottom: 1px solid rgba(255, 198, 1, 0.4);
+            padding-bottom: 10px;
+            display: block;
+            width: 100%;
         }
 
         .fila-dos-columnas {
@@ -537,14 +528,6 @@
                 padding: 20px 15px !important;
             }
 
-            .meta-info-box .meta-label, 
-            .contenedor-creditos-doble .meta-label {
-                font-size: 9.5px !important;
-                letter-spacing: 0.5px !important;
-                white-space: nowrap !important;
-                display: block !important;
-            }
-
             .logo-telepacific {
                 justify-content: center !important;
             }
@@ -626,12 +609,11 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
         <section class="seccion-proyecto">
-            <div class="section-title"><span class="sub-otros">OTROS</span> PROYECTOS EN POSTPRODUCCIÓN</div>
+            <div class="section-title">OTROS PROYECTOS EN POSTPRODUCCIÓN</div>
             <div class="fila-dos-columnas">
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/actocivici-portada.JPG?raw=true" alt="Acto Cívico">
@@ -649,7 +631,7 @@
         </section>
 
         <section class="seccion-proyecto">
-            <div class="section-title"><span class="sub-otros">PROYECTOS</span> EN DESARROLLO</div>
+            <div class="section-title">PROYECTOS EN DESARROLLO</div>
             <div class="fila-dos-columnas">
                 <div class="columna dev-box">
                     <div class="dev-circle-icon"><i class="fa-solid fa-water"></i></div>
@@ -699,6 +681,7 @@
     </footer>
 
     <script>
+        // Scroll al tope al cargar la página
         window.history.scrollRestoration = 'manual';
         window.onload = function() {
             window.scrollTo(0, 0);
@@ -718,6 +701,5 @@
             }
         });
     </script>
-
 </body>
 </html>
