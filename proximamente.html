@@ -535,7 +535,6 @@
                 margin: 0 auto;
             }
 
-            /* Apilado vertical para garantizar que no se corten los textos en pantallas estrechas */
             .meta-info-grid { 
                 grid-template-columns: 1fr !important; 
                 gap: 20px !important; 
@@ -592,7 +591,6 @@
                 text-align: center;
             }
 
-            /* Logotipo de telepacífico estructurado y cómodo verticalmente */
             .logo-telepacific {
                 display: inline-flex !important;
                 flex-direction: row !important;
@@ -639,12 +637,12 @@
     <header class="header">
         <div class="brand-logo">GARABATO CINE</div>
 
-        <button class="menu-toggle" id="menuBtn">
+        <button class="menu-toggle" id="menuBtn" aria-label="Abrir menú">
             <i class="fa-solid fa-bars"></i>
         </button>
 
         <nav class="nav" id="navMenu">
-            <a href="catalogo.html">Proyectos</a>
+            <a href="proyectos.html">Proyectos</a>
             <span class="nav-proximamente">Próximamente</span>
             <a href="nosotros.html">Nosotros</a>
             <div class="lang">
@@ -782,6 +780,24 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        // Controla la apertura y cierre del menú al pulsar el botón
+        menuBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            navMenu.classList.toggle('open');
+        });
+
+        // Cierra el menú de manera segura si se clickea en cualquier otra parte de la pantalla
+        document.addEventListener('click', (event) => {
+            if (navMenu.classList.contains('open') && !navMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+                navMenu.classList.remove('open');
+            }
+        });
+    </script>
 
 </body>
 </html>
