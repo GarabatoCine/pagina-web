@@ -565,9 +565,9 @@
                 background-color: rgba(255, 198, 1, 0.3);
             }
             
-            /* Ajustado milimétricamente para forzar una sola línea sin cortes */
+            /* Reducido 1 punto más: etiqueta pasa de 7.2px a 6.2px y texto de 8.4px a 7.4px */
             .meta-info-box .meta-label {
-                font-size: 7.2px !important; 
+                font-size: 6.2px !important; 
                 letter-spacing: 0px !important;
                 white-space: nowrap !important;
                 margin-bottom: 2px !important;
@@ -577,7 +577,7 @@
             }
 
             .meta-info-box .meta-col p {
-                font-size: 8.4px !important; 
+                font-size: 7.4px !important; 
                 text-align: center !important;
                 width: 100% !important;
                 display: block !important;
@@ -592,7 +592,7 @@
                 text-align: center;
             }
 
-            /* Logotipo de telepacífico compacto */
+            /* Logotipo de telepacífico compacto (adaptado a la nueva escala) */
             .logo-telepacific {
                 display: inline-flex !important;
                 flex-direction: row !important;
@@ -609,12 +609,12 @@
                 flex-shrink: 0 !important;
                 margin: 0 !important;
                 display: block !important;
-                width: 16px !important; 
-                height: 16px !important;
+                width: 14px !important; 
+                height: 14px !important;
             }
 
             .logo-telepacific span {
-                font-size: 7.5px !important;
+                font-size: 6.5px !important;
                 text-align: left !important;
                 display: inline-block !important;
                 line-height: 1.1 !important;
@@ -622,7 +622,7 @@
             }
             
             .logo-telepacific span small {
-                font-size: 5.5px !important;
+                font-size: 4.8px !important;
             }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
@@ -698,14 +698,14 @@
                             <div class="meta-col">
                                 <div class="meta-label">Coproducida con:</div>
                                 <div class="logo-telepacific">
-                                    <svg viewBox="0 0 100 100" width="30" height="30"> 
+                                    <svg viewBox="0 0 100 100" width="26" height="26"> 
                                         <circle cx="50" cy="15" r="4"/><circle cx="75" cy="25" r="4"/><circle cx="85" cy="50" r="4"/>
                                         <circle cx="75" cy="75" r="4"/><circle cx="50" cy="85" r="4"/><circle cx="25" cy="75" r="4"/>
                                         <circle cx="15" cy="50" r="4"/><circle cx="25" cy="25" r="4"/><circle cx="50" cy="32" r="3"/>
                                         <circle cx="63" cy="37" r="3"/><circle cx="68" cy="50" r="3"/><circle cx="63" cy="63" r="3"/>
                                         <circle cx="50" cy="68" r="3"/><circle cx="37" cy="63" r="3"/><circle cx="32" cy="50" r="3"/>
                                     </svg>
-                                    <span>telepacífico<br><small style="font-size:8px; opacity:0.6; display:block;">SOMOS NUESTRO CANAL</small></span>
+                                    <span>telepacífico<br><small style="font-size:7px; opacity:0.6; display:block;">SOMOS NUESTRO CANAL</small></span>
                                 </div>
                             </div>
                         </div>
