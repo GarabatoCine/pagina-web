@@ -252,15 +252,12 @@
             padding: 30px;
             background: #0F0F0F;
             max-width: 520px;
-            width: 100%;
         }
 
-        /* Estructura base para escritorio: Grid de 2 columnas */
         .meta-info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            width: 100%;
         }
 
         .meta-col {
@@ -272,7 +269,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            width: 100%;
         }
 
         .meta-col:first-child {
@@ -307,7 +303,6 @@
         
         .parrafo-pajaros {
             white-space: nowrap;
-            display: block;
         }
 
         /* TARJETAS DE PROYECTOS */
@@ -484,7 +479,6 @@
             .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
         }
 
-        /* TABLETS Y CELULARES: Corrección estricta centrada y con márgenes laterales simétricos */
         @media(max-width: 767px) {
             .header { padding: 15px 25px; }
             .nav { right: 25px; top: 45px; }
@@ -498,21 +492,14 @@
                 gap: 8px !important;
             }
             
-            /* Caja contenedora con idéntico margen en ambos lados (izq y der) */
             .meta-info-box { 
-                max-width: 100% !important; 
-                padding: 30px 20px !important;
-                box-sizing: border-box;
+                max-width: 100%; 
+                padding: 25px 15px !important;
             }
 
-            /* Forzar apilamiento vertical flexible centrado */
             .meta-info-grid { 
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                justify-content: center !important;
-                gap: 30px !important; 
-                width: 100% !important;
+                grid-template-columns: 1fr !important; 
+                gap: 20px !important; 
             }
             
             .meta-col { 
@@ -520,42 +507,39 @@
                 padding-left: 0 !important;
                 padding-right: 0 !important;
                 width: 100% !important;
+                text-align: center !important;
                 display: flex !important;
                 flex-direction: column !important;
-                align-items: center !important; /* Centrado horizontal absoluto */
-                position: relative !important;
-                text-align: center !important;
+                align-items: center !important;
+                justify-content: center !important;
+                position: relative;
             }
 
-            /* Línea divisoria horizontal perfectamente centrada entre los dos bloques */
             .meta-col:first-child::after {
                 content: "";
                 position: absolute;
-                bottom: -15px;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
-                width: 140px !important;
-                height: 1px !important;
-                background-color: rgba(255, 198, 1, 0.3) !important;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 140px;
+                height: 1px;
+                background-color: rgba(255, 198, 1, 0.3);
             }
             
             .meta-info-box .meta-label {
-                font-size: 12px !important;
-                letter-spacing: 2px !important;
-                white-space: nowrap !important;
-                margin-bottom: 10px !important;
+                font-size: 11px !important;
+                letter-spacing: 1.5px !important;
+                white-space: normal !important;
+                margin-bottom: 6px !important;
                 text-align: center !important;
                 width: 100% !important;
             }
 
             .meta-info-box .meta-col p {
-                font-size: 14px !important;
+                font-size: 13px !important;
                 text-align: center !important;
                 width: 100% !important;
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                line-height: 1.6 !important;
+                display: block !important;
             }
 
             .parrafo-pajaros {
@@ -564,27 +548,27 @@
                 margin-top: 4px !important;
             }
 
-            /* Centrado del bloque contenedor de logotipo e iconos */
             .logo-telepacific {
                 display: flex !important;
                 flex-direction: row !important;
                 justify-content: center !important;
                 align-items: center !important;
+                gap: 10px !important;
                 width: 100% !important;
-                margin: 0 auto !important;
-                gap: 12px !important;
+                margin: 4px auto 0 auto !important;
+                text-align: center !important;
                 float: none !important;
             }
 
             .logo-telepacific svg {
                 flex-shrink: 0 !important;
+                margin: 0 !important;
             }
 
             .logo-telepacific span {
-                font-size: 13px !important;
-                text-align: left !important; /* Mantiene el orden de lectura del logo */
+                font-size: 12px !important;
+                text-align: left !important;
                 display: inline-block !important;
-                line-height: 1.2 !important;
             }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
@@ -631,7 +615,7 @@
                         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla2.png?raw=true" alt="Madre Semilla 1">
                         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla1.jpg?raw=true" alt="Madre Semilla 2">
                         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla3.jpg?raw=true" alt="Madre Semilla 3">
-                        <img src="https://github.com/GarabatoCine/blob/main/proximamente/madresemilla4.png?raw=true" alt="Madre Semilla 4">
+                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla4.png?raw=true" alt="Madre Semilla 4">
                     </div>
                 </div>
 
