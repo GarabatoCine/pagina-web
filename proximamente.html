@@ -504,13 +504,13 @@
             
             .meta-info-box { 
                 max-width: 100%; 
-                padding: 20px 10px !important;
+                padding: 16px 6px !important; /* Lados más estrechos para ganar espacio horizontal */
                 margin: 0 auto;
             }
 
             .meta-info-grid { 
                 grid-template-columns: 1fr !important; 
-                gap: 15px !important; 
+                gap: 12px !important; 
             }
             
             .meta-col { 
@@ -530,7 +530,7 @@
             .meta-col:first-child::after {
                 content: "";
                 position: absolute;
-                bottom: -8px;
+                bottom: -6px;
                 left: 50%;
                 transform: translateX(-50%);
                 width: 140px;
@@ -538,22 +538,24 @@
                 background-color: rgba(255, 198, 1, 0.3);
             }
             
-            /* Etiquetas más chicas para que entren en una sola línea (nowrap) y sin espacios molestos */
+            /* Reducido a 7.5px y padding en ceros para que no partan la línea en pantallas muy pequeñas */
             .meta-info-box .meta-label {
-                font-size: 8.5px !important; 
-                letter-spacing: 1px !important;
+                font-size: 7.5px !important; 
+                letter-spacing: 0.5px !important;
                 white-space: nowrap !important;
-                margin-bottom: 4px !important;
+                margin-bottom: 3px !important;
                 text-align: center !important;
                 width: 100% !important;
+                padding: 0 !important;
             }
 
             .meta-info-box .meta-col p {
-                font-size: 11px !important; 
+                font-size: 10px !important; /* Ligeramente más chico para asegurar una sola línea */
                 text-align: center !important;
                 width: 100% !important;
                 display: block !important;
                 white-space: nowrap !important;
+                padding: 0 !important;
             }
 
             .parrafo-pajaros {
@@ -563,13 +565,13 @@
                 text-align: center;
             }
 
-            /* Logotipo de telepacifico compacto con SVG dimensionado */
+            /* Logotipo de telepacífico compacto */
             .logo-telepacific {
                 display: inline-flex !important;
                 flex-direction: row !important;
                 justify-content: center !important;
                 align-items: center !important;
-                gap: 6px !important;
+                gap: 5px !important;
                 width: 100% !important;
                 margin: 2px auto 0 auto !important;
                 text-align: center !important;
@@ -580,12 +582,12 @@
                 flex-shrink: 0 !important;
                 margin: 0 !important;
                 display: block !important;
-                width: 22px !important;  /* Forzamos tamaño más pequeño para móviles */
-                height: 22px !important;
+                width: 20px !important; 
+                height: 20px !important;
             }
 
             .logo-telepacific span {
-                font-size: 9.5px !important;
+                font-size: 8.5px !important;
                 text-align: left !important;
                 display: inline-block !important;
                 line-height: 1.1 !important;
@@ -593,7 +595,7 @@
             }
             
             .logo-telepacific span small {
-                font-size: 7px !important;
+                font-size: 6.5px !important;
             }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
