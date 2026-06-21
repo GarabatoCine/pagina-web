@@ -492,17 +492,21 @@
                 gap: 8px !important;
             }
             
-            .meta-info-box { max-width: 100%; padding: 25px 15px; }
+            .meta-info-box { 
+                max-width: 100%; 
+                padding: 25px 20px; 
+            }
+
+            /* MÓVILES Y TABLETS: Se convierten en una lista vertical con espacios centrados y simétricos */
             .meta-info-grid { 
                 grid-template-columns: 1fr; 
-                gap: 20px; 
+                gap: 25px; 
             }
             
-            /* Corrección de márgenes y bordes en móviles y tablets */
             .meta-col { 
-                border-left: none; 
-                padding-left: 0;
-                padding-right: 0;
+                border-left: none !important; 
+                padding-left: 0 !important;
+                padding-right: 0 !important;
                 width: 100%;
                 display: flex;
                 flex-direction: column;
@@ -510,31 +514,33 @@
                 position: relative;
             }
 
-            /* Separador central en vista de una columna para móviles */
+            /* Línea divisoria horizontal centrada en móviles */
             .meta-col:first-child::after {
                 content: "";
                 position: absolute;
-                bottom: -10px;
+                bottom: -13px;
                 left: 50%;
                 transform: translateX(-50%);
                 width: 140px;
                 height: 1px;
-                background-color: rgba(255, 198, 1, 0.25);
+                background-color: rgba(255, 198, 1, 0.3);
             }
             
             .meta-info-box .meta-label {
-                font-size: 10.5px !important;
-                letter-spacing: 0.5px;
+                font-size: 11px !important;
+                letter-spacing: 1px;
                 white-space: nowrap;
                 margin-bottom: 8px;
             }
 
             .meta-info-box .meta-col p {
-                font-size: 12.5px !important;
+                font-size: 13.5px !important;
+                text-align: center;
             }
 
             .parrafo-pajaros {
                 white-space: nowrap;
+                display: inline-block;
             }
 
             .logo-telepacific {
@@ -544,6 +550,7 @@
 
             .logo-telepacific span {
                 font-size: 13px !important;
+                text-align: left; /* Mantiene la lectura del logo ordenada */
             }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
