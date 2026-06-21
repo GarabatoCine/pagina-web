@@ -373,12 +373,12 @@
             text-align: justify;
         }
 
-        /* CONTENEDOR DE LAURELES (AJUSTADO PARA SER COMPACTO Y HORIZONTAL) */
+        /* CONTENEDOR DE LAURELES (GLOBAL Y COMPACTO) */
         .laureles-wrapper {
             padding: 0 25px;
             display: flex;
-            flex-wrap: nowrap;
-            gap: 10px;
+            flex-wrap: nowrap; /* Fuerza horizontalidad constante */
+            gap: 15px;
             width: 100%;
         }
 
@@ -386,7 +386,8 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            flex: 1;
+            flex: 1; /* Permite que se repartan el ancho equitativamente */
+            min-width: 0;
         }
 
         .laurel-item img {
@@ -397,11 +398,14 @@
         }
 
         .laurel-text {
-            font-size: 10px;
+            font-size: 10px; /* Compacto */
             color: #FFFFFF;
-            line-height: 1.1;
+            line-height: 1.2;
             letter-spacing: 0.2px;
-            display: block;
+            display: -webkit-box;
+            -webkit-line-clamp: 4; /* Fuerza 4 líneas máximo */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
             width: 100%;
         }
 
@@ -499,7 +503,7 @@
             white-space: nowrap;
         }
 
-      .columna-central {
+        .columna-central {
             display: flex;
             justify-content: center;
             gap: 25px;
@@ -563,9 +567,6 @@
             .cajon-credito-individual { padding: 20px 15px !important; }
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
             .columna-derecha { text-align: center !important; line-height: 1.8 !important; }
-            
-            /* Ajustes para mantener premios en fila en móviles */
-            .laureles-wrapper { flex-wrap: nowrap !important; }
         }
     </style>
 </head>
@@ -632,7 +633,6 @@
         <section class="seccion-proyecto">
             <div class="section-title">OTROS PROYECTOS EN POSTPRODUCCIÓN</div>
             <div class="fila-dos-columnas">
-                <!-- ACTO CÍVICO -->
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/actocivici-portada.JPG?raw=true" alt="Acto Cívico">
                     <div class="card-header-group">
@@ -650,7 +650,6 @@
                     </div>
                 </div>
 
-                <!-- PROFESORA LEDA -->
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
                     <div class="card-header-group">
