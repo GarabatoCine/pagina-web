@@ -182,7 +182,6 @@
             display: block;
         }
 
-        /* Galería adaptada a 3 miniaturas */
         .gallery-thumbs {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -240,7 +239,6 @@
             max-width: 520px;
         }
 
-        /* LÍNEA DIVISORIA ENTRE SECCIONES DE TEXTO */
         .divisor-seccion {
             width: 140px;
             height: 1px;
@@ -266,6 +264,12 @@
             border-left: 1px solid rgba(255, 198, 1, 0.3);
             padding-left: 20px;
             min-width: 0;
+            /* CENTRADO DE CONTENIDO */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
         }
 
         .meta-col:first-child {
@@ -279,6 +283,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 10px;
+            width: 100%;
         }
 
         .meta-col p {
@@ -290,11 +295,13 @@
         .logo-telepacific {
             display: flex;
             align-items: center;
+            justify-content: center; /* Centro horizontalmente el logo y el texto */
             gap: 10px;
             margin-top: 5px;
+            text-align: left; /* Mantengo el texto de telepacífico alineado a su izquierda relativa */
         }
 
-        /* TARJETAS DE PROYECTOS */
+        /* OTROS PROYECTOS */
         .card {
             min-width: 0;
         }
@@ -387,7 +394,7 @@
             color: #000;
         }
 
-        /* FOOTER BASE */
+        /* FOOTER */
         .sitio-footer {
             background-color: #000000;
             padding: 40px 60px;
@@ -444,12 +451,6 @@
             flex: 1;
         }
 
-        .columna-derecha p {
-            font-size: 13px;
-            color: #888888;
-            line-height: 1.6;
-        }
-
         /* RESPONSIVE */
         @media(max-width: 1024px) {
             .header { padding: 15px 40px; }
@@ -488,7 +489,7 @@
             }
             
             .meta-info-box { max-width: 100%; }
-            .meta-info-grid { grid-template-columns: 1fr; gap: 25px; }
+            .meta-info-grid { grid-template-columns: 1fr; gap: 35px; }
             .meta-col { border-left: none; padding-left: 0; }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
