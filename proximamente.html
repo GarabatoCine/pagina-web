@@ -255,10 +255,12 @@
             width: 100%;
         }
 
+        /* Estructura base para escritorio: Grid de 2 columnas */
         .meta-info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
+            width: 100%;
         }
 
         .meta-col {
@@ -270,6 +272,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
+            width: 100%;
         }
 
         .meta-col:first-child {
@@ -304,6 +307,7 @@
         
         .parrafo-pajaros {
             white-space: nowrap;
+            display: block;
         }
 
         /* TARJETAS DE PROYECTOS */
@@ -480,6 +484,7 @@
             .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
         }
 
+        /* TABLETS Y CELULARES: Corrección estricta centrada y con márgenes laterales simétricos */
         @media(max-width: 767px) {
             .header { padding: 15px 25px; }
             .nav { right: 25px; top: 45px; }
@@ -493,16 +498,21 @@
                 gap: 8px !important;
             }
             
+            /* Caja contenedora con idéntico margen en ambos lados (izq y der) */
             .meta-info-box { 
-                max-width: 100%; 
-                padding: 25px 20px !important; /* Margen interno completamente simétrico y amplio */
+                max-width: 100% !important; 
+                padding: 30px 20px !important;
+                box-sizing: border-box;
             }
 
-            /* MÓVILES Y TABLETS: Convertimos el grid en filas flexibles centradas */
+            /* Forzar apilamiento vertical flexible centrado */
             .meta-info-grid { 
                 display: flex !important;
                 flex-direction: column !important;
-                gap: 25px !important; 
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 30px !important; 
+                width: 100% !important;
             }
             
             .meta-col { 
@@ -512,63 +522,69 @@
                 width: 100% !important;
                 display: flex !important;
                 flex-direction: column !important;
-                align-items: center !important; /* Forzamos centrado absoluto */
+                align-items: center !important; /* Centrado horizontal absoluto */
                 position: relative !important;
                 text-align: center !important;
             }
 
-            /* Línea divisoria horizontal exactamente en medio de los dos bloques centrados */
+            /* Línea divisoria horizontal perfectamente centrada entre los dos bloques */
             .meta-col:first-child::after {
                 content: "";
                 position: absolute;
-                bottom: -13px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 140px;
-                height: 1px;
-                background-color: rgba(255, 198, 1, 0.3);
+                bottom: -15px;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                width: 140px !important;
+                height: 1px !important;
+                background-color: rgba(255, 198, 1, 0.3) !important;
             }
             
             .meta-info-box .meta-label {
-                font-size: 11px !important;
-                letter-spacing: 1.5px !important;
+                font-size: 12px !important;
+                letter-spacing: 2px !important;
                 white-space: nowrap !important;
-                margin-bottom: 8px !important;
+                margin-bottom: 10px !important;
                 text-align: center !important;
-                width: auto !important;
+                width: 100% !important;
             }
 
             .meta-info-box .meta-col p {
-                font-size: 13px !important;
+                font-size: 14px !important;
                 text-align: center !important;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                line-height: 1.6 !important;
             }
 
             .parrafo-pajaros {
                 white-space: nowrap !important;
                 display: inline-block !important;
+                margin-top: 4px !important;
             }
 
+            /* Centrado del bloque contenedor de logotipo e iconos */
             .logo-telepacific {
                 display: flex !important;
+                flex-direction: row !important;
                 justify-content: center !important;
                 align-items: center !important;
-                float: none !important;
                 width: 100% !important;
-                margin: 5px auto 0 auto !important;
+                margin: 0 auto !important;
+                gap: 12px !important;
+                float: none !important;
             }
 
             .logo-telepacific svg {
-                flex-shrink: 0;
+                flex-shrink: 0 !important;
             }
 
-            /* Centramos el bloque completo del logo de telepacifico con su texto */
             .logo-telepacific span {
-                font-size: 12.5px !important;
-                text-align: left !important; /* Mantiene la lectura corporativa ordenada */
+                font-size: 13px !important;
+                text-align: left !important; /* Mantiene el orden de lectura del logo */
                 display: inline-block !important;
+                line-height: 1.2 !important;
             }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
