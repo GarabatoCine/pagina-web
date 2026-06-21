@@ -145,7 +145,7 @@
             margin-left: 0;
         }
 
-        /* CUERPO */
+        /* CUERPO DE LA PÁGINA */
         .web-container {
             width: 100%;
         }
@@ -372,6 +372,7 @@
             text-align: justify;
         }
 
+        /* CONTENEDOR DE LAURELES (BLOQUE COMPACTO) */
         .laureles-wrapper {
             padding: 0 25px;
             display: flex;
@@ -379,32 +380,24 @@
             gap: 15px;
         }
 
-        /* Estilo para los premios de Leda */
-        .laureles-row {
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-        }
-
-        .card-footer-laureles {
+        .laurel-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            flex: 1;
+            gap: 12px;
         }
 
-        .card-footer-laureles img {
-            width: 45px; 
+        .laurel-item img {
+            width: 50px; 
             height: auto;
             margin-bottom: 0;
             flex-shrink: 0;
         }
 
         .laurel-text {
-            font-size: 9px;
+            font-size: 11px;
             color: #FFFFFF;
-            line-height: 1.2;
-            letter-spacing: 0.2px;
+            line-height: 1.4;
+            letter-spacing: 0.3px;
         }
 
         /* DEV BOX */
@@ -631,6 +624,7 @@
         <section class="seccion-proyecto">
             <div class="section-title">OTROS PROYECTOS EN POSTPRODUCCIÓN</div>
             <div class="fila-dos-columnas">
+                <!-- ACTO CÍVICO -->
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/actocivici-portada.JPG?raw=true" alt="Acto Cívico">
                     <div class="card-header-group">
@@ -638,16 +632,17 @@
                         <div class="card-subtitle">Cortometraje de ficción</div>
                     </div>
                     <div class="card-body-group">
-                        <p class="desc">Carmen descubre algo que no le gusta cuando prepara el acto cívico que celebrará el Día del Maestro.</p>
+                        <p class="desc">Carmen descubre algo que no le gusta mientras prepara el acto cívico que celebrará el Día del Maestro.</p>
                     </div>
                     <div class="laureles-wrapper">
-                        <div class="card-footer-laureles">
+                        <div class="laurel-item">
                             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
                             <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
                         </div>
                     </div>
                 </div>
 
+                <!-- PROFESORA LEDA -->
                 <div class="columna card">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
                     <div class="card-header-group">
@@ -658,15 +653,13 @@
                         <p class="desc">Cuando una de sus alumnas está a punto de abandonar sus estudios, la profesora Leda se embarca en una lucha para salvaguardar su sueño de un futuro mejor.</p>
                     </div>
                     <div class="laureles-wrapper">
-                        <div class="laureles-row">
-                            <div class="card-footer-laureles">
-                                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
-                                <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
-                            </div>
-                            <div class="card-footer-laureles">
-                                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
-                                <div class="laurel-text">Selección oficial Churubusco - CineQuaNon</div>
-                            </div>
+                        <div class="laurel-item">
+                            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
+                            <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
+                        </div>
+                        <div class="laurel-item">
+                            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
+                            <div class="laurel-text">Proyecto ganador del premio Churubusco - CineQuaNon</div>
                         </div>
                     </div>
                 </div>
