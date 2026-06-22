@@ -324,6 +324,7 @@
             background: #0F0F0F;
             display: flex;
             flex-direction: column;
+            height: 100%; /* Para igualar alturas */
         }
 
         .card img {
@@ -382,6 +383,7 @@
             flex-direction: column;
             gap: 15px;
             width: 100%;
+            margin-top: auto; /* Empuja siempre al fondo */
         }
 
         .laurel-item {
@@ -400,8 +402,8 @@
 
         .laurel-text {
             font-size: 10px;
-            color: #888888; /* Aplicado gris */
-            font-style: italic; /* Aplicado itálica */
+            color: #888888;
+            font-style: italic;
             line-height: 1.2;
             letter-spacing: 0.2px;
             display: -webkit-box;
@@ -574,13 +576,16 @@
             .featured-project { grid-template-columns: 1fr; }
             .gallery-thumbs { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
             
+            /* CORRECCIÓN: Espacio para cajones móviles */
             .contenedor-creditos-doble { 
                 display: flex !important;
                 flex-direction: column !important;
                 gap: 15px !important;
                 max-width: 100% !important;
                 width: 100% !important;
+                margin-top: 40px !important; 
             }
+            
             .cajon-credito-individual { 
                 display: flex !important;
                 flex-direction: column !important;
