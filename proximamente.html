@@ -379,7 +379,7 @@
         .laureles-wrapper {
             padding: 0 25px;
             display: flex;
-            flex-wrap: nowrap;
+            flex-direction: column; /* Cambiado de nowrap a column */
             gap: 15px;
             width: 100%;
         }
@@ -388,8 +388,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            flex: 1;
-            min-width: 0;
+            width: 100%;
         }
 
         .laurel-item img {
@@ -561,7 +560,6 @@
             .brand-logo { display: none; }
             .menu-toggle { display: block; }
             
-            /* MODIFICACIÓN SOLICITADA: Ocultar línea en móvil */
             .divisor-seccion { display: none !important; }
             
             .banner-container { min-height: auto; }
@@ -575,7 +573,6 @@
             .featured-project { grid-template-columns: 1fr; }
             .gallery-thumbs { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
             
-            /* REGLA FORZADA PARA MÓVIL */
             .contenedor-creditos-doble { 
                 display: flex !important;
                 flex-direction: column !important;
