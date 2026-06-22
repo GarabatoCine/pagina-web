@@ -324,7 +324,7 @@
             background: #0F0F0F;
             display: flex;
             flex-direction: column;
-            height: 100%; /* Para igualar alturas */
+            height: 100%;
         }
 
         .card img {
@@ -376,14 +376,16 @@
             text-align: justify;
         }
 
-        /* CONTENEDOR DE LAURELES */
+        /* CONTENEDOR DE LAURELES - CORREGIDO PARA ALINEACIÓN */
         .laureles-wrapper {
             padding: 0 25px;
             display: flex;
             flex-direction: column;
             gap: 15px;
             width: 100%;
-            margin-top: auto; /* Empuja siempre al fondo */
+            margin-top: auto;
+            /* Altura mínima para asegurar alineación de filas en PC/Tablet */
+            min-height: 140px; 
         }
 
         .laurel-item {
@@ -576,7 +578,6 @@
             .featured-project { grid-template-columns: 1fr; }
             .gallery-thumbs { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
             
-            /* CORRECCIÓN: Espacio para cajones móviles */
             .contenedor-creditos-doble { 
                 display: flex !important;
                 flex-direction: column !important;
@@ -598,6 +599,9 @@
                 min-height: 120px !important;
                 margin-bottom: 10px !important;
             }
+            
+            /* RESET para móvil: eliminamos la altura fija */
+            .laureles-wrapper { min-height: auto !important; }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
             .columna-derecha { text-align: center !important; line-height: 1.8 !important; }
