@@ -309,6 +309,7 @@
             display: block;
             flex-shrink: 0;
             max-width: 100%;
+            object-fit: contain; /* Mantiene la proporción */
         }
         
         .parrafo-pajaros {
@@ -376,7 +377,6 @@
             text-align: justify;
         }
 
-        /* CONTENEDOR DE LAURELES - AJUSTADO A CONTENIDO */
         .laureles-wrapper {
             padding: 0 25px;
             display: flex;
@@ -384,7 +384,6 @@
             gap: 15px;
             width: 100%;
             margin-top: auto;
-            /* Altura mínima ajustada para ceñirse al contenido */
             min-height: 90px;
             padding-bottom: 25px;
         }
@@ -404,7 +403,7 @@
         }
 
         .laurel-text {
-            font-size: 12px;
+            font-size: 11px;
             color: #888888;
             font-style: italic;
             line-height: 1.2;
@@ -559,6 +558,13 @@
             }
             .nav.open { display: flex; }
             .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
+            
+            /* Ajuste específico para Tablet: evitar que el logo se aplaste */
+            .logo-telepacific img {
+                height: 30px; /* Ajuste leve de altura en tablet */
+                object-fit: contain;
+                max-width: 100%;
+            }
         }
 
         @media(max-width: 767px) {
@@ -601,7 +607,6 @@
                 margin-bottom: 10px !important;
             }
             
-            /* RESET para móvil: eliminamos la altura fija */
             .laureles-wrapper { min-height: auto !important; padding-bottom: 20px !important; }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
