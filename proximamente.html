@@ -423,20 +423,6 @@
             background: #0F0F0F;
         }
 
-        .dev-circle-icon {
-            width: 70px;
-            height: 70px;
-            border: 1px solid #FFC601;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: #FFC601;
-            flex-shrink: 0;
-        }
-        
-        /* Ajuste para usar la imagen del acordeón y fuego */
         .dev-image-icon {
             width: 70px;
             height: 70px;
@@ -458,9 +444,9 @@
             font-family: 'Oswald', sans-serif;
             font-size: clamp(22px, 3.5vw, 36px);
             text-transform: uppercase;
+            font-weight: 500; /* Aseguramos peso normal */
         }
 
-        /* Estilo para las nuevas tarjetas de desarrollo */
         .dev-inner-content .card-subtitle {
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
@@ -589,58 +575,14 @@
             }
             .nav.open { display: flex; }
             .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
-            
-            .logo-telepacific img {
-                height: 30px;
-                object-fit: contain;
-                max-width: 100%;
-            }
         }
 
         @media(max-width: 767px) {
             .header { padding: 15px 25px; }
-            .brand-logo { display: block; }
-            .menu-toggle { display: block; margin-left: auto; }
-            
-            .divisor-seccion { display: none !important; }
-            
-            .banner-container { min-height: auto; }
-            .banner-text-overlay { bottom: 20px; left: 25px; }
-
-            .banner-text-overlay h1 { font-size: clamp(22px, 8vw, 26px); }
-            .banner-text-overlay p { font-size: clamp(12px, 4vw, 14px); }
-            
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
-            .featured-project { grid-template-columns: 1fr; }
-            .gallery-thumbs { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
-            
-            .contenedor-creditos-doble { 
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 15px !important;
-                max-width: 100% !important;
-                width: 100% !important;
-                margin-top: 40px !important; 
-            }
-            
-            .cajon-credito-individual { 
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                justify-content: center !important;
-                width: 100% !important;
-                padding: 25px 20px !important;
-                border: 1px solid #222 !important;
-                background-color: #0F0F0F !important;
-                min-height: 120px !important;
-                margin-bottom: 10px !important;
-            }
-            
-            .laureles-wrapper { min-height: auto !important; padding-bottom: 20px !important; }
-            
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
-            .columna-derecha { text-align: center !important; line-height: 1.8 !important; }
+            .columna-derecha { text-align: center !important; }
         }
     </style>
 </head>
