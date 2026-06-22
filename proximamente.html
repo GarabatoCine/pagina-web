@@ -376,7 +376,7 @@
             text-align: justify;
         }
 
-        /* CONTENEDOR DE LAURELES - CORREGIDO PARA ALINEACIÓN */
+        /* CONTENEDOR DE LAURELES - AJUSTADO A CONTENIDO */
         .laureles-wrapper {
             padding: 0 25px;
             display: flex;
@@ -384,8 +384,9 @@
             gap: 15px;
             width: 100%;
             margin-top: auto;
-            /* Altura mínima para asegurar alineación de filas en PC/Tablet */
-            min-height: 140px; 
+            /* Altura mínima ajustada para ceñirse al contenido */
+            min-height: 90px;
+            padding-bottom: 25px;
         }
 
         .laurel-item {
@@ -601,7 +602,7 @@
             }
             
             /* RESET para móvil: eliminamos la altura fija */
-            .laureles-wrapper { min-height: auto !important; }
+            .laureles-wrapper { min-height: auto !important; padding-bottom: 20px !important; }
             
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
             .columna-derecha { text-align: center !important; line-height: 1.8 !important; }
