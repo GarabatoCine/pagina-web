@@ -444,7 +444,7 @@
             font-family: 'Oswald', sans-serif;
             font-size: clamp(22px, 3.5vw, 36px);
             text-transform: uppercase;
-            font-weight: 500; /* Aseguramos peso normal */
+            font-weight: 500;
         }
 
         .dev-inner-content .card-subtitle {
@@ -579,10 +579,18 @@
 
         @media(max-width: 767px) {
             .header { padding: 15px 25px; }
+            
+            /* OCULTAR GARABATO CINE EN MÓVIL */
+            .brand-logo { display: none; }
+            
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
             .columna-derecha { text-align: center !important; }
+            
+            /* AJUSTE TAMAÑO BANNER MÓVIL */
+            .banner-text-overlay h1 { font-size: 32px !important; }
+            .banner-text-overlay p { font-size: 14px !important; }
         }
     </style>
 </head>
