@@ -92,7 +92,6 @@
             font-size: 24px;
             cursor: pointer;
             z-index: 110;
-            margin-left: auto;
         }
 
         /* BANNER */
@@ -257,7 +256,7 @@
             margin: 35px 0;
         }
 
-        /* --- CONTENEDOR DE CRÉDITOS --- */
+        /* CONTENEDOR DE CRÉDITOS */
         .contenedor-creditos-doble {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -309,7 +308,7 @@
             display: block;
             flex-shrink: 0;
             max-width: 100%;
-            object-fit: contain; /* Mantiene la proporción */
+            object-fit: contain;
         }
         
         .parrafo-pajaros {
@@ -541,7 +540,7 @@
         @media(max-width: 1024px) {
             .header { padding: 15px 40px; }
             .brand-logo { font-size: 18px; }
-            .menu-toggle { display: block; }
+            .menu-toggle { display: block; margin-left: auto; }
             .nav {
                 display: none; 
                 flex-direction: column;
@@ -559,9 +558,8 @@
             .nav.open { display: flex; }
             .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
             
-            /* Ajuste específico para Tablet: evitar que el logo se aplaste */
             .logo-telepacific img {
-                height: 30px; /* Ajuste leve de altura en tablet */
+                height: 30px;
                 object-fit: contain;
                 max-width: 100%;
             }
@@ -569,8 +567,8 @@
 
         @media(max-width: 767px) {
             .header { padding: 15px 25px; }
-            .brand-logo { display: none; }
-            .menu-toggle { display: block; }
+            .brand-logo { display: block; }
+            .menu-toggle { display: block; margin-left: auto; }
             
             .divisor-seccion { display: none !important; }
             
