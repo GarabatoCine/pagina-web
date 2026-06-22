@@ -304,7 +304,7 @@
 
         .logo-telepacific img {
             height: 38px; 
-            width: auto;   
+            width: auto;  
             display: block;
             flex-shrink: 0;
             max-width: 100%;
@@ -444,7 +444,7 @@
             font-family: 'Oswald', sans-serif;
             font-size: clamp(22px, 3.5vw, 36px);
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 500; /* Aseguramos peso normal */
         }
 
         .dev-inner-content .card-subtitle {
@@ -579,18 +579,10 @@
 
         @media(max-width: 767px) {
             .header { padding: 15px 25px; }
-            
-            /* OCULTAR GARABATO CINE EN MÓVIL */
-            .brand-logo { display: none; }
-            
             .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
             .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
             .columna-derecha { text-align: center !important; }
-            
-            /* AJUSTE TAMAÑO BANNER MÓVIL (FUENTES MÁS PEQUEÑAS) */
-            .banner-text-overlay h1 { font-size: 24px !important; }
-            .banner-text-overlay p { font-size: 12px !important; }
         }
     </style>
 </head>
@@ -707,7 +699,7 @@
                     <div class="dev-inner-content">
                         <h3><b>Valle</b>nata</h3>
                         <div class="card-subtitle">Serie</div>
-                        <p class="desc">Una exploración del Caribe contemporáneo a través de la música, el territorio y la identidad.</p>
+                        <p class="desc">El día en que su novio le propone matrimonio, Natalia, con apenas 22 años, decide decir no por primera vez. Rechaza la vida tradicional que otros han imaginado para ella y se atreve a perseguir su sueño de convertirse en cantante de música vallenata, un mundo dominado por hombres. Mientras enfrenta el rechazo de su familia, lucha por abrirse camino en la música. Esta historia contrapone un universo libre y colorido con un Caribe conservador que aún disputa el deseo de libertad de algunas mujeres.</p>
                     </div>
                 </div>
                 <div class="columna dev-box">
@@ -715,7 +707,7 @@
                     <div class="dev-inner-content">
                         <h3>Fuego en la Memoria</h3>
                         <div class="card-subtitle">Largometraje</div>
-                        <p class="desc">Inspirada en hechos reales, una historia sobre la resistencia, el olvido y la fuerza de la memoria colectiva.</p>
+                        <p class="desc">Elisa y su hija Luisa viven en un pueblo caribe Colombiano. Son madre y hermana de Alejandro, un joven desaparecido durante la ola de asesinatos fraguados por miembros del ejército, que hicieron pasar por guerrilleros a jóvenes inocentes. A Elisa le diagnosticaron Alzheimer y lucha por recordar a su hijo, mientras Luisa está resignada y quiere seguir con su vida. Madre e hija deberán hacer las paces para que la una pueda descansar mientras la otra asume la defensa de sus derechos.Esta historia exalta la necesidad de justicia, en un país que lucha con su memoria.</p>
                     </div>
                 </div>
             </div>
