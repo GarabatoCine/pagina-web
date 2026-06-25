@@ -23,13 +23,19 @@ box-sizing:border-box;
 html,body{
 width:100%;
 overflow-x:hidden;
+background:#000;
+color:#fff;
+font-family:'Roboto',sans-serif;
 scroll-behavior:smooth;
 }
 
-body{
-font-family:'Roboto',sans-serif;
-background:#000;
-color:#fff;
+a{
+text-decoration:none;
+}
+
+img{
+max-width:100%;
+display:block;
 }
 
 /* ================= HEADER ================= */
@@ -39,21 +45,19 @@ position:absolute;
 top:0;
 left:0;
 width:100%;
+z-index:1000;
+padding:30px 45px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:28px 45px;
-z-index:100;
 text-transform:uppercase;
 }
 
 .logo a{
 font-family:'Oswald',sans-serif;
 font-size:24px;
-font-weight:500;
 letter-spacing:2px;
 color:#fff;
-text-decoration:none;
 }
 
 .nav{
@@ -65,23 +69,14 @@ gap:28px;
 .nav a{
 color:#fff;
 font-size:14px;
-font-weight:400;
-letter-spacing:.5px;
-text-decoration:none;
-opacity:.85;
-transition:.3s;
-}
-
-.nav a:hover{
-opacity:1;
+opacity:.9;
 }
 
 .lang{
 display:flex;
-align-items:center;
 gap:6px;
-font-size:13px;
 color:#fff;
+font-size:13px;
 }
 
 .lang .active{
@@ -93,14 +88,17 @@ opacity:.5;
 .hero{
 position:relative;
 width:100%;
-height:78vh;
-min-height:680px;
-background:url('https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-banner.jpg?raw=true');
+height:95vh;
+min-height:780px;
+
+background-image:url('https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-banner.jpg?raw=true');
 background-size:cover;
-background-position:center center;
+background-position:center 25%;
+background-repeat:no-repeat;
+
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 text-align:center;
 }
 
@@ -114,32 +112,29 @@ background:rgba(0,0,0,.35);
 .hero-content{
 position:relative;
 z-index:2;
-padding:40px;
 }
 
 .hero h1{
 font-family:'Oswald',sans-serif;
 font-size:clamp(70px,10vw,150px);
 font-weight:500;
+letter-spacing:4px;
 line-height:.9;
-letter-spacing:3px;
-margin-bottom:18px;
-text-transform:uppercase;
+margin-bottom:20px;
 }
 
 .hero-subtitle{
-font-size:22px;
+font-size:24px;
 font-weight:300;
 margin-bottom:35px;
-letter-spacing:.5px;
 }
 
-.trailer-btn{
+.hero-btn{
 display:inline-block;
-padding:14px 34px;
-border:1px solid rgba(255,255,255,.9);
+padding:14px 36px;
+border:1px solid rgba(255,255,255,.8);
 background:rgba(255,255,255,.08);
-backdrop-filter:blur(4px);
+backdrop-filter:blur(6px);
 color:#fff;
 font-size:13px;
 letter-spacing:2px;
@@ -147,90 +142,98 @@ text-transform:uppercase;
 transition:.3s;
 }
 
-.trailer-btn:hover{
+.hero-btn:hover{
 background:#FFC601;
 border-color:#FFC601;
 color:#000;
 }
 
-/* ================= MAIN INFO ================= */
+/* ================= INFO ================= */
 
-.main-info{
-max-width:1300px;
-margin:110px auto;
-padding:0 40px;
+.project-info{
+max-width:1400px;
+margin:auto;
+padding:120px 50px;
 }
 
-.main-grid{
+.project-grid{
 display:grid;
 grid-template-columns:35% 65%;
-gap:70px;
+gap:80px;
 align-items:start;
 }
 
 .poster img{
 width:100%;
-display:block;
 }
 
-.info-column{
+.info-right{
 padding-top:10px;
 }
 
-.cairo-box{
+/* ================= ESTRENO ================= */
+
+.premiere-header{
 display:flex;
 align-items:center;
-gap:25px;
-margin-bottom:35px;
+gap:30px;
+margin-bottom:40px;
 }
 
-.cairo-box img{
+.premiere-header img{
 width:90px;
 }
 
-.cairo-text{
-font-size:17px;
-line-height:1.7;
-color:#d0d0d0;
+.premiere-title{
+font-family:'Oswald',sans-serif;
+font-size:30px;
+color:#FFC601;
+margin-bottom:8px;
 }
 
-.highlight-festivals{
+.premiere-sub{
+color:#888888;
+font-size:15px;
+line-height:1.6;
+}
+
+.festival-logos{
 display:flex;
+align-items:center;
+gap:30px;
 flex-wrap:wrap;
-gap:12px;
-margin-bottom:45px;
+margin-bottom:60px;
 }
 
-.highlight-festivals span{
-padding:10px 18px;
-border:1px solid rgba(255,255,255,.15);
-background:rgba(255,255,255,.04);
-font-size:12px;
-letter-spacing:1px;
-text-transform:uppercase;
+.festival-logos img{
+height:65px;
+width:auto;
 }
+
+/* ================= SINOPSIS ================= */
 
 .section-title{
 font-family:'Oswald',sans-serif;
-font-size:42px;
+font-size:44px;
 margin-bottom:25px;
 text-transform:uppercase;
 }
 
 .synopsis{
-font-size:20px;
-line-height:1.95;
-color:#d4d4d4;
-margin-bottom:45px;
-max-width:850px;
+font-size:21px;
+line-height:1.9;
+color:#d6d6d6;
+margin-bottom:50px;
 }
+
+/* ================= DATOS ================= */
 
 .quick-data{
 display:grid;
 grid-template-columns:repeat(5,1fr);
-gap:18px;
+gap:25px;
 padding-top:35px;
-border-top:1px solid rgba(255,255,255,.1);
+border-top:1px solid rgba(255,255,255,.08);
 }
 
 .data-item span{
@@ -238,26 +241,24 @@ display:block;
 font-size:11px;
 letter-spacing:1px;
 text-transform:uppercase;
-color:#888;
+color:#FFC601;
 margin-bottom:8px;
 }
 
 .data-item strong{
-font-size:15px;
-font-weight:500;
+font-size:16px;
+font-weight:400;
 color:#fff;
 }
 
-/* ================= MOBILE ================= */
-
 @media(max-width:1024px){
 
-.main-grid{
+.project-grid{
 grid-template-columns:1fr;
 }
 
 .poster{
-max-width:430px;
+max-width:450px;
 margin:auto;
 }
 
@@ -270,38 +271,35 @@ grid-template-columns:repeat(2,1fr);
 @media(max-width:768px){
 
 .header{
-padding:22px;
+padding:20px;
 }
 
 .nav{
 display:none;
 }
 
+.project-info{
+padding:80px 25px;
+}
+
 .hero{
-height:70vh;
-min-height:550px;
+height:85vh;
 }
 
-.hero-subtitle{
-font-size:18px;
+.hero h1{
+font-size:70px;
 }
 
-.main-info{
-padding:0 25px;
-margin:70px auto;
+.quick-data{
+grid-template-columns:1fr 1fr;
 }
 
-.section-title{
-font-size:34px;
+.festival-logos{
+gap:20px;
 }
 
-.synopsis{
-font-size:18px;
-}
-
-.cairo-box{
-flex-direction:column;
-align-items:flex-start;
+.festival-logos img{
+height:50px;
 }
 
 }
@@ -327,7 +325,7 @@ align-items:flex-start;
 <div class="lang">
 <span class="active">ES</span>
 <span>|</span>
-<a href="#" style="color:white;">EN</a>
+<span>EN</span>
 </div>
 
 </div>
@@ -345,7 +343,7 @@ Una película de David David
 </div>
 
 <a
-class="trailer-btn"
+class="hero-btn"
 href="https://www.youtube.com/watch?v=FeABm-LkkHk"
 target="_blank">
 Ver Tráiler
@@ -355,39 +353,51 @@ Ver Tráiler
 
 </section>
 
-<section class="main-info">
+<section class="project-info">
 
-<div class="main-grid">
+<div class="project-grid">
 
 <div class="poster">
 
-<img
-src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-poster.jpg?raw=true"
-alt="La Frontera">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-poster.jpg?raw=true">
 
 </div>
 
-<div class="info-column">
+<div class="info-right">
 
-<div class="cairo-box">
+<div class="premiere-header">
 
-<img
-src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/logo-cairo.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cairo.png?raw=true">
 
-<div class="cairo-text">
-Estreno Mundial en el Cairo International Film Festival,
-festival clase A acreditado por la FIAPF.
+<div>
+
+<div class="premiere-title">
+ESTRENO MUNDIAL
+</div>
+
+<div class="premiere-sub">
+Festival Internacional de Cine de El Cairo
+</div>
+
+<div class="premiere-sub">
+Festival Clase A
 </div>
 
 </div>
 
-<div class="highlight-festivals">
+</div>
 
-<span>Cairo</span>
-<span>Gramado</span>
-<span>FICCI</span>
-<span>IFFI Goa</span>
-<span>Premio Macondo</span>
+<div class="festival-logos">
+
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/goa.png?raw=true">
+
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/ficci.png?raw=true">
+
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/premiomacondo.png?raw=true">
+
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/gramado.png?raw=true">
+
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lasalturas.png?raw=true">
 
 </div>
 
@@ -396,14 +406,14 @@ Sinopsis
 </h2>
 
 <p class="synopsis">
-Diana Ipuana es una joven wayuu embarazada, habitante de la frontera colombo venezolana, quien lucha por ver nacer a su hijo en un suelo fértil.
+Diana Ipuana es una joven wayuu embarazada, habitante de la frontera colombo venezolana quien lucha por ver nacer a su hijo en un suelo fértil.
 </p>
 
 <div class="quick-data">
 
 <div class="data-item">
 <span>Duración</span>
-<strong>90 min</strong>
+<strong>90 minutos</strong>
 </div>
 
 <div class="data-item">
@@ -442,41 +452,93 @@ Diana Ipuana es una joven wayuu embarazada, habitante de la frontera colombo ven
 
 .frames-section{
 max-width:1400px;
-margin:0 auto;
-padding:20px 40px 120px;
+margin:auto;
+padding:0 50px 120px;
 }
 
 .frames-title{
 font-family:'Oswald',sans-serif;
-font-size:42px;
+font-size:44px;
 text-transform:uppercase;
-margin-bottom:35px;
 text-align:center;
+margin-bottom:40px;
 }
 
-.frames-strip{
+.frames-carousel{
+display:flex;
+gap:16px;
+overflow-x:auto;
+scroll-behavior:smooth;
+padding-bottom:15px;
+}
+
+.frames-carousel::-webkit-scrollbar{
+height:6px;
+}
+
+.frames-carousel::-webkit-scrollbar-thumb{
+background:#FFC601;
+}
+
+.frames-carousel img{
+height:320px;
+width:auto;
+flex:none;
+object-fit:contain;
+background:#111;
+}
+
+/* ================= BURRO + FICHA ================= */
+
+.tech-layout{
+max-width:1400px;
+margin:auto;
+padding:0 50px 120px;
+
 display:grid;
-grid-template-columns:repeat(6,1fr);
-gap:8px;
+grid-template-columns:40% 60%;
+gap:80px;
+align-items:start;
 }
 
-.frames-strip img{
+.tech-image img{
 width:100%;
-height:220px;
-object-fit:cover;
-display:block;
-transition:.35s;
 }
 
-.frames-strip img:hover{
-transform:scale(1.03);
-opacity:.95;
+.tech-title{
+font-family:'Oswald',sans-serif;
+font-size:44px;
+margin-bottom:40px;
+text-transform:uppercase;
+}
+
+.credit-row{
+display:grid;
+grid-template-columns:220px 1fr;
+gap:25px;
+
+padding:14px 0;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.credit-role{
+color:#FFC601;
+font-size:12px;
+letter-spacing:1px;
+text-transform:uppercase;
+}
+
+.credit-name{
+color:#d5d5d5;
+font-size:17px;
+line-height:1.8;
 }
 
 @media(max-width:1024px){
 
-.frames-strip{
-grid-template-columns:repeat(3,1fr);
+.tech-layout{
+grid-template-columns:1fr;
 }
 
 }
@@ -487,12 +549,17 @@ grid-template-columns:repeat(3,1fr);
 padding:0 25px 80px;
 }
 
-.frames-strip{
-grid-template-columns:1fr 1fr;
+.frames-carousel img{
+height:220px;
 }
 
-.frames-strip img{
-height:180px;
+.tech-layout{
+padding:0 25px 80px;
+}
+
+.credit-row{
+grid-template-columns:1fr;
+gap:5px;
 }
 
 }
@@ -503,7 +570,7 @@ height:180px;
 Fotogramas
 </h2>
 
-<div class="frames-strip">
+<div class="frames-carousel">
 
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera1.jpg?raw=true">
 
@@ -521,203 +588,118 @@ Fotogramas
 
 </section>
 
-<!-- ================= IMAGEN PRINCIPAL ================= -->
+<section class="tech-layout">
 
-<section class="feature-image">
+<div class="tech-image">
 
-<style>
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera.png?raw=true">
 
-.feature-image{
-max-width:1400px;
-margin:0 auto;
-padding:0 40px 120px;
-}
+</div>
 
-.feature-image img{
-width:100%;
-display:block;
-}
-
-@media(max-width:768px){
-
-.feature-image{
-padding:0 25px 80px;
-}
-
-}
-
-</style>
-
-<img
-src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera.png?raw=true"
-alt="La Frontera">
-
-</section>
-
-<!-- ================= FICHA TÉCNICA ================= -->
-
-<section class="tech-section">
-
-<style>
-
-.tech-section{
-max-width:1300px;
-margin:auto;
-padding:0 40px 120px;
-}
-
-.tech-title{
-font-family:'Oswald',sans-serif;
-font-size:42px;
-margin-bottom:45px;
-text-transform:uppercase;
-text-align:center;
-}
-
-.tech-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-}
-
-.tech-item{
-padding-bottom:18px;
-margin-bottom:18px;
-border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.tech-label{
-font-size:11px;
-letter-spacing:1px;
-text-transform:uppercase;
-color:#888;
-margin-bottom:8px;
-}
-
-.tech-value{
-font-size:17px;
-line-height:1.7;
-color:#e2e2e2;
-}
-
-@media(max-width:768px){
-
-.tech-section{
-padding:0 25px 80px;
-}
-
-.tech-grid{
-grid-template-columns:1fr;
-}
-
-.tech-title{
-font-size:34px;
-}
-
-}
-
-</style>
+<div class="tech-info">
 
 <h2 class="tech-title">
 Ficha Técnica
 </h2>
 
-<div class="tech-grid">
-
-<div>
-
-<div class="tech-item">
-<div class="tech-label">Dirección y Guion</div>
-<div class="tech-value">David David</div>
+<div class="credit-row">
+<div class="credit-role">Guion y Dirección</div>
+<div class="credit-name">David David</div>
 </div>
 
-<div class="tech-item">
-<div class="tech-label">Producción</div>
-<div class="tech-value">David David · Carolina David</div>
+<div class="credit-row">
+<div class="credit-role">Producción</div>
+<div class="credit-name">David David · Carolina David</div>
 </div>
 
-<div class="tech-item">
-<div class="tech-label">Montaje</div>
-<div class="tech-value">David David</div>
+<div class="credit-row">
+<div class="credit-role">Director de Fotografía</div>
+<div class="credit-name">Iván Molina</div>
 </div>
 
-<div class="tech-item">
-<div class="tech-label">Dirección de Arte</div>
-<div class="tech-value">Gabi Egurrola · Lucy Shalom</div>
+<div class="credit-row">
+<div class="credit-role">Montaje</div>
+<div class="credit-name">David David</div>
 </div>
 
+<div class="credit-row">
+<div class="credit-role">Dirección de Arte</div>
+<div class="credit-name">Gabi Egurrola · Lucy Shalom</div>
 </div>
 
-<div>
-
-<div class="tech-item">
-<div class="tech-label">Sonido</div>
-<div class="tech-value">Héctor Sánchez · Daniel Najar</div>
+<div class="credit-row">
+<div class="credit-role">Sonido</div>
+<div class="credit-name">Héctor Sánchez · Daniel "Gato" Najar</div>
 </div>
 
-<div class="tech-item">
-<div class="tech-label">Música</div>
-<div class="tech-value">Oliver Camargo · Jorge Gómez</div>
+<div class="credit-row">
+<div class="credit-role">Música Original</div>
+<div class="credit-name">Oliver Camargo · Jorge Gómez</div>
 </div>
 
-<div class="tech-item">
-<div class="tech-label">Reparto</div>
-<div class="tech-value">
-Daylin Vega · Sheila Monterola · Alejo Aguilar · Nelson Camayo · Yull Núñez
+<div class="credit-row">
+<div class="credit-role">Reparto</div>
+<div class="credit-name">
+Daylin Vega<br>
+Sheila Monterola<br>
+Alejo Aguilar<br>
+Nelson Camayo<br>
+Yull Núñez
 </div>
-</div>
-
 </div>
 
 </div>
 
 </section>
 
-<!-- ================= CANCIÓN ORIGINAL ================= -->
+<!-- ================= RTVC + CANCIÓN ================= -->
 
-<section class="song-section">
+<section class="media-section">
 
 <style>
 
-.song-section{
-max-width:1200px;
+.media-section{
+max-width:1400px;
 margin:auto;
-padding:0 40px 120px;
+padding:0 50px 120px;
 }
 
-.song-grid{
+.media-grid{
 display:grid;
-grid-template-columns:320px 1fr;
-gap:70px;
-align-items:center;
+grid-template-columns:1fr 1fr;
+gap:40px;
 }
 
-.song-cover img{
-width:100%;
-display:block;
+.media-card{
+border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.02);
+padding:45px;
+height:100%;
 }
 
-.song-title{
+.media-card img{
+height:70px;
+width:auto;
+margin-bottom:25px;
+}
+
+.media-title{
 font-family:'Oswald',sans-serif;
-font-size:42px;
-margin-bottom:15px;
+font-size:36px;
+margin-bottom:20px;
 text-transform:uppercase;
 }
 
-.song-name{
-font-size:28px;
-margin-bottom:10px;
-}
-
-.song-artist{
-color:#aaa;
+.media-text{
+font-size:17px;
+line-height:1.9;
+color:#cfcfcf;
 margin-bottom:30px;
-font-size:18px;
 }
 
-.song-btn{
+.media-btn{
 display:inline-block;
-padding:14px 32px;
+padding:14px 30px;
 background:#FFC601;
 color:#000;
 font-size:13px;
@@ -726,382 +708,60 @@ text-transform:uppercase;
 font-weight:500;
 }
 
-@media(max-width:768px){
-
-.song-section{
-padding:0 25px 80px;
+.song-name{
+font-size:28px;
+margin-bottom:8px;
 }
 
-.song-grid{
-grid-template-columns:1fr;
-}
-
-.song-cover{
-max-width:320px;
-margin:auto;
-}
-
-}
-
-</style>
-
-<div class="song-grid">
-
-<div class="song-cover">
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-cancion.png?raw=true">
-
-</div>
-
-<div>
-
-<h2 class="song-title">
-Canción Original
-</h2>
-
-<div class="song-name">
-La Frontera
-</div>
-
-<div class="song-artist">
-Interpretada por Adriana Lucía
-</div>
-
-<a
-class="song-btn"
-href="https://www.youtube.com/watch?v=VRcRpjae9RI&list=RDVRcRpjae9RI&start_radio=1"
-target="_blank">
-Escuchar Canción
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= FOTOGRAMAS ================= -->
-
-<section class="frames-section">
-
-<style>
-
-.frames-section{
-max-width:1400px;
-margin:0 auto;
-padding:20px 40px 120px;
-}
-
-.frames-title{
-font-family:'Oswald',sans-serif;
-font-size:42px;
-text-transform:uppercase;
-margin-bottom:35px;
-text-align:center;
-}
-
-.frames-strip{
-display:grid;
-grid-template-columns:repeat(6,1fr);
-gap:8px;
-}
-
-.frames-strip img{
-width:100%;
-height:220px;
-object-fit:cover;
-display:block;
-transition:.35s;
-}
-
-.frames-strip img:hover{
-transform:scale(1.03);
-opacity:.95;
+.song-artist{
+color:#999;
+margin-bottom:25px;
 }
 
 @media(max-width:1024px){
 
-.frames-strip{
-grid-template-columns:repeat(3,1fr);
-}
-
-}
-
-@media(max-width:768px){
-
-.frames-section{
-padding:0 25px 80px;
-}
-
-.frames-strip{
-grid-template-columns:1fr 1fr;
-}
-
-.frames-strip img{
-height:180px;
-}
-
-}
-
-</style>
-
-<h2 class="frames-title">
-Fotogramas
-</h2>
-
-<div class="frames-strip">
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera1.jpg?raw=true">
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera2.jpg?raw=true">
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera3.jpg?raw=true">
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera4.jpg?raw=true">
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera5.jpg?raw=true">
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera6.jpg?raw=true">
-
-</div>
-
-</section>
-
-<!-- ================= IMAGEN PRINCIPAL ================= -->
-
-<section class="feature-image">
-
-<style>
-
-.feature-image{
-max-width:1400px;
-margin:0 auto;
-padding:0 40px 120px;
-}
-
-.feature-image img{
-width:100%;
-display:block;
-}
-
-@media(max-width:768px){
-
-.feature-image{
-padding:0 25px 80px;
-}
-
-}
-
-</style>
-
-<img
-src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera.png?raw=true"
-alt="La Frontera">
-
-</section>
-
-<!-- ================= FICHA TÉCNICA ================= -->
-
-<section class="tech-section">
-
-<style>
-
-.tech-section{
-max-width:1300px;
-margin:auto;
-padding:0 40px 120px;
-}
-
-.tech-title{
-font-family:'Oswald',sans-serif;
-font-size:42px;
-margin-bottom:45px;
-text-transform:uppercase;
-text-align:center;
-}
-
-.tech-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-}
-
-.tech-item{
-padding-bottom:18px;
-margin-bottom:18px;
-border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.tech-label{
-font-size:11px;
-letter-spacing:1px;
-text-transform:uppercase;
-color:#888;
-margin-bottom:8px;
-}
-
-.tech-value{
-font-size:17px;
-line-height:1.7;
-color:#e2e2e2;
-}
-
-@media(max-width:768px){
-
-.tech-section{
-padding:0 25px 80px;
-}
-
-.tech-grid{
+.media-grid{
 grid-template-columns:1fr;
 }
 
-.tech-title{
-font-size:34px;
-}
-
-}
-
-</style>
-
-<h2 class="tech-title">
-Ficha Técnica
-</h2>
-
-<div class="tech-grid">
-
-<div>
-
-<div class="tech-item">
-<div class="tech-label">Dirección y Guion</div>
-<div class="tech-value">David David</div>
-</div>
-
-<div class="tech-item">
-<div class="tech-label">Producción</div>
-<div class="tech-value">David David · Carolina David</div>
-</div>
-
-<div class="tech-item">
-<div class="tech-label">Montaje</div>
-<div class="tech-value">David David</div>
-</div>
-
-<div class="tech-item">
-<div class="tech-label">Dirección de Arte</div>
-<div class="tech-value">Gabi Egurrola · Lucy Shalom</div>
-</div>
-
-</div>
-
-<div>
-
-<div class="tech-item">
-<div class="tech-label">Sonido</div>
-<div class="tech-value">Héctor Sánchez · Daniel Najar</div>
-</div>
-
-<div class="tech-item">
-<div class="tech-label">Música</div>
-<div class="tech-value">Oliver Camargo · Jorge Gómez</div>
-</div>
-
-<div class="tech-item">
-<div class="tech-label">Reparto</div>
-<div class="tech-value">
-Daylin Vega · Sheila Monterola · Alejo Aguilar · Nelson Camayo · Yull Núñez
-</div>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= CANCIÓN ORIGINAL ================= -->
-
-<section class="song-section">
-
-<style>
-
-.song-section{
-max-width:1200px;
-margin:auto;
-padding:0 40px 120px;
-}
-
-.song-grid{
-display:grid;
-grid-template-columns:320px 1fr;
-gap:70px;
-align-items:center;
-}
-
-.song-cover img{
-width:100%;
-display:block;
-}
-
-.song-title{
-font-family:'Oswald',sans-serif;
-font-size:42px;
-margin-bottom:15px;
-text-transform:uppercase;
-}
-
-.song-name{
-font-size:28px;
-margin-bottom:10px;
-}
-
-.song-artist{
-color:#aaa;
-margin-bottom:30px;
-font-size:18px;
-}
-
-.song-btn{
-display:inline-block;
-padding:14px 32px;
-background:#FFC601;
-color:#000;
-font-size:13px;
-letter-spacing:2px;
-text-transform:uppercase;
-font-weight:500;
 }
 
 @media(max-width:768px){
 
-.song-section{
+.media-section{
 padding:0 25px 80px;
-}
-
-.song-grid{
-grid-template-columns:1fr;
-}
-
-.song-cover{
-max-width:320px;
-margin:auto;
 }
 
 }
 
 </style>
 
-<div class="song-grid">
+<div class="media-grid">
 
-<div class="song-cover">
+<div class="media-card">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-cancion.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/logo-rtvcplay.png?raw=true">
+
+<h2 class="media-title">
+RTVC Play
+</h2>
+
+<p class="media-text">
+La Frontera forma parte del catálogo de RTVC Play y está disponible para visualización en línea.
+</p>
+
+<a
+class="media-btn"
+href="https://rtvcplay.co/peliculas-ficcion/la-frontera"
+target="_blank">
+Ver Película
+</a>
 
 </div>
 
-<div>
+<div class="media-card">
 
-<h2 class="song-title">
+<h2 class="media-title">
 Canción Original
 </h2>
 
@@ -1110,18 +770,363 @@ La Frontera
 </div>
 
 <div class="song-artist">
-Interpretada por Adriana Lucía
+Adriana Lucía
 </div>
 
+<p class="media-text">
+Canción original inspirada en la película.
+</p>
+
 <a
-class="song-btn"
+class="media-btn"
 href="https://www.youtube.com/watch?v=VRcRpjae9RI&list=RDVRcRpjae9RI&start_radio=1"
 target="_blank">
-Escuchar Canción
+Escuchar
 </a>
+
+</div>
+
+
+<!-- ================= PRENSA ================= -->
+
+<section class="press-section">
+
+<style>
+
+.press-section{
+max-width:1400px;
+margin:auto;
+padding:0 50px 120px;
+}
+
+.press-title{
+font-family:'Oswald',sans-serif;
+font-size:44px;
+text-transform:uppercase;
+margin-bottom:45px;
+text-align:center;
+}
+
+.press-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.press-card{
+border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.02);
+padding:35px;
+}
+
+.press-source{
+font-family:'Oswald',sans-serif;
+font-size:24px;
+color:#FFC601;
+margin-bottom:15px;
+}
+
+.press-quote{
+color:#d2d2d2;
+line-height:1.8;
+font-size:16px;
+}
+
+@media(max-width:1024px){
+
+.press-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.press-section{
+padding:0 25px 80px;
+}
+
+}
+
+</style>
+
+<h2 class="press-title">
+Prensa
+</h2>
+
+<div class="press-grid">
+
+<div class="press-card">
+
+<div class="press-source">
+EL ESPECTADOR
+</div>
+
+<div class="press-quote">
+“Una mirada profundamente humana sobre la frontera, la identidad y la maternidad.”
+</div>
+
+</div>
+
+<div class="press-card">
+
+<div class="press-source">
+SEMANA
+</div>
+
+<div class="press-quote">
+“David David construye una historia íntima que revela las complejidades del territorio fronterizo.”
+</div>
+
+</div>
+
+<div class="press-card">
+
+<div class="press-source">
+EL TIEMPO
+</div>
+
+<div class="press-quote">
+“Una propuesta cinematográfica sensible y visualmente poderosa.”
+</div>
 
 </div>
 
 </div>
 
 </section>
+
+<!-- ================= OTROS FESTIVALES ================= -->
+
+<section class="other-festivals">
+
+<style>
+
+.other-festivals{
+max-width:1200px;
+margin:auto;
+padding:0 50px 120px;
+}
+
+.other-title{
+font-family:'Oswald',sans-serif;
+font-size:44px;
+color:#FFC601;
+text-transform:uppercase;
+margin-bottom:45px;
+}
+
+.other-item{
+margin-bottom:18px;
+line-height:1.9;
+color:#d2d2d2;
+font-size:16px;
+}
+
+@media(max-width:768px){
+
+.other-festivals{
+padding:0 25px 80px;
+}
+
+}
+
+</style>
+
+<h2 class="other-title">
+Otros Festivales
+</h2>
+
+<div class="other-item">• Industria Latin American Works in Progress, Santiago Festival de Cine de Chile - SANFIC, Chile, 2018.</div>
+
+<div class="other-item">• Film in Progress, Ventana Sur, Argentina, 2018.</div>
+
+<div class="other-item">• Estreno Mundial - Competencia Internacional, Festival Internacional de Cine de El Cairo - CIFF, Egipto, 2019.</div>
+
+<div class="other-item">• Muestra Panorama Latinoamericano, 32 Festival Internacional de Cine de Viña del Mar - FICVIÑA, Chile, 2020.</div>
+
+<div class="other-item">• Selección Oficial Latinoamericana Largometraje Ficción, 6 Festival Internacional de Cine de Mérida y Yucatán, México, 2020.</div>
+
+<div class="other-item">• Visiones del Mundo, Santiago Festival Internacional de Cine - SANFIC, Chile, 2020.</div>
+
+<div class="other-item">• Selección Oficial, 18 Vancouver Latin American Film Festival - VLAFF, Canadá, 2020.</div>
+
+<div class="other-item">• Ficciones de Aquí, 60 Festival Internacional de Cine de Cartagena de Indias - FICCI, Colombia, 2020.</div>
+
+<div class="other-item">• Selección Oficial, Colombian Film Festival New York, Estados Unidos, 2020.</div>
+
+<div class="other-item">• Selección Oficial, Chicago Latino Film Festival, Estados Unidos, 2020.</div>
+
+<div class="other-item">• Selección Oficial, Seattle Latino Film Festival, Estados Unidos, 2020.</div>
+
+<div class="other-item">• Competencia Largometraje de Ficción y Sección Paralela Focus Venezuela, Panorama du Cinéma Colombien, Francia, 2020.</div>
+
+<div class="other-item">• Selección Oficial, Festival de Cine Independiente de Villa de Leyva, Colombia.</div>
+
+<div class="other-item">• Selección Oficial, Festival Cinéma du Monde de Sherbrooke.</div>
+
+<div class="other-item">• Selección Oficial, Festival Internacional de Cine y Memoria Común de Nador.</div>
+
+<div class="other-item">• Selección Oficial, San Diego Latino Film Festival, Estados Unidos.</div>
+
+<div class="other-item">• Selección Oficial, Philadelphia Latino Film Festival, Estados Unidos.</div>
+
+<div class="other-item">• Selección Oficial, 16 Tucumán Cine Festival Latinoamericano Gerardo Vallejo.</div>
+
+<div class="other-item">• Selección Oficial, Bolivia Lab, Santa Cruz, Bolivia.</div>
+
+<div class="other-item">• Selección Oficial, Festival de Cine Cinesur, España.</div>
+
+<div class="other-item">• Selección Oficial, Festival Internacional de Cine de Las Alturas.</div>
+
+<div class="other-item">• Selección Oficial, Festival de Cine de Fusagasugá, Colombia.</div>
+
+<div class="other-item">• Selección Oficial, 25 Salón Internacional del Autor, Barranquilla, Colombia.</div>
+
+<div class="other-item">• Selección Oficial, Semana del Cine Andino.</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="sitio-footer">
+
+<style>
+
+.sitio-footer{
+background:#000;
+border-top:1px solid rgba(255,255,255,.08);
+padding:40px 60px;
+}
+
+.fila-tres-columnas{
+max-width:1300px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.columna-izquierda{
+flex:1;
+}
+
+.columna-izquierda h4{
+font-family:'Oswald',sans-serif;
+font-size:22px;
+letter-spacing:2px;
+margin-bottom:6px;
+}
+
+.columna-izquierda p{
+font-size:13px;
+color:#888;
+}
+
+.columna-central{
+display:flex;
+justify-content:center;
+gap:25px;
+flex:1;
+}
+
+.columna-central a{
+color:#fff;
+font-size:18px;
+transition:.3s;
+}
+
+.columna-central a:hover{
+color:#FFC601;
+}
+
+.columna-derecha{
+flex:1;
+text-align:right;
+}
+
+.columna-derecha p{
+font-size:13px;
+color:#888;
+line-height:1.8;
+}
+
+.footer-link-normal{
+color:inherit;
+text-decoration:underline;
+}
+
+.footer-link-normal:hover{
+color:#FFC601;
+}
+
+@media(max-width:767px){
+
+.fila-tres-columnas{
+flex-direction:column;
+gap:25px;
+text-align:center;
+}
+
+.columna-derecha{
+text-align:center;
+}
+
+}
+
+</style>
+
+<div class="fila-tres-columnas">
+
+<div class="columna-izquierda">
+
+<h4>GARABATO CINE</h4>
+
+<p>
+Cine hecho desde el Caribe colombiano.
+</p>
+
+</div>
+
+<div class="columna-central">
+
+<a href="https://www.instagram.com/garabatocine/" target="_blank">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+
+<a href="http://www.youtube.com/channel/UC4vuld7vS7GhKcBf2dv0fJw" target="_blank">
+<i class="fa-brands fa-youtube"></i>
+</a>
+
+</div>
+
+<div class="columna-derecha">
+
+<p>
+<a href="privacidadycookies.html"
+class="footer-link-normal"
+target="_blank">
+Privacidad y cookies
+</a>
+</p>
+
+<p>
+Todos los derechos reservados
+</p>
+
+<p>
+© 2026 Garabato Cine
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
