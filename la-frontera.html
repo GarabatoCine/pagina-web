@@ -240,7 +240,7 @@ opacity: 1;
 
 .poster-text-section {
 width: 100%;
-padding: 0px 20px 100px 20px;
+padding: 0px 20px 32px 20px; /* Ajuste inferior a 32px */
 background: #ffffff;
 display: flex;
 justify-content: center;
@@ -307,11 +307,10 @@ margin-bottom: 16px;
 text-align: left;
 }
 
-/* ================= FOTOGRAMAS (NUEVA SECCIÓN) ================= */
+/* ================= FOTOGRAMAS ================= */
 
 .fotogramas-section {
 width: 100%;
-/* Mismo margen que la franja negra (32px) */
 margin-bottom: 32px;
 padding: 0 20px;
 }
@@ -321,23 +320,29 @@ display: flex;
 gap: 15px;
 overflow-x: auto;
 scroll-snap-type: x mandatory;
-scrollbar-width: none; /* Oculta scrollbar en Firefox */
--ms-overflow-style: none; /* Oculta scrollbar en IE/Edge */
+padding-bottom: 15px;
 }
 
+/* Scrollbar amarillo */
 .fotogramas-carousel::-webkit-scrollbar {
-display: none; /* Oculta scrollbar en Chrome/Safari */
+height: 8px;
+}
+.fotogramas-carousel::-webkit-scrollbar-thumb {
+background-color: #FFC601;
+border-radius: 4px;
+}
+.fotogramas-carousel::-webkit-scrollbar-track {
+background-color: #f1f1f1;
 }
 
 .fotograma-item {
-/* 4 fotogramas de entrada (25% del ancho menos el gap) */
-flex: 0 0 calc(25% - 12px);
+flex: 0 0 calc(25% - 12px); /* 4 en PC */
 scroll-snap-align: start;
 }
 
 .fotograma-item img {
 width: 100%;
-height: 250px; /* Altura fija para uniformidad */
+height: 250px; 
 object-fit: cover;
 border-radius: 4px;
 }
@@ -461,6 +466,10 @@ color:#FFC601;
 
 /* ================= RESPONSIVE ================= */
 
+@media(max-width:1024px) {
+    .fotograma-item { flex: 0 0 calc(33.33% - 10px); } /* 3 en tablet */
+}
+
 @media(max-width:850px){
 .pt-wrapper {
     flex-direction: column; 
@@ -478,10 +487,6 @@ color:#FFC601;
 .pt-paragraph {
     margin-bottom: 20px !important;
     text-align: justify;
-}
-/* Fotogramas: mostrar 2 en tablets */
-.fotograma-item {
-    flex: 0 0 calc(50% - 8px);
 }
 }
 
@@ -528,9 +533,10 @@ text-align: center;
     .subrayado-amarillo { border-bottom: none !important; padding-bottom: 0 !important; }
     .hero-btn { padding: 6px 16px; font-size: 9px; border-radius: 20px; border: 0.5px solid rgba(255,255,255,0.4); }
     .premio-logo { flex: 1 1 calc(33.33% - 20px); }
-    /* Fotogramas: mostrar 1 en móviles */
+    
+    /* 2 fotogramas en móvil */
     .fotograma-item {
-        flex: 0 0 100%;
+        flex: 0 0 calc(50% - 8px);
     }
 }
 </style>
