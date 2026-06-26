@@ -311,7 +311,7 @@ text-align: left;
 
 .fotogramas-section {
 width: 100%;
-margin-top: 50px; /* Restaurado margen original */
+margin-top: 50px; 
 margin-bottom: 32px;
 padding: 0 20px; 
 }
@@ -341,23 +341,29 @@ scroll-snap-align: start;
 
 .fotograma-item img {
 width: 100%;
-height: auto; /* Mantiene proporción original */
+height: auto; 
 object-fit: contain; 
-border-radius: 0; /* Esquinas rectas */
+border-radius: 0; 
 }
 
-/* Indicador de scroll lateral */
-.scroll-indicator-container {
-display: flex;
-justify-content: flex-end;
-padding-right: 20px;
-margin-top: 5px;
-}
+/* Indicador de scroll centrado y animado */
 .scroll-indicator {
+text-align: center;
 font-size: 12px;
-color: #000;
+color: #888;
+margin-top: 15px;
 text-transform: uppercase;
 letter-spacing: 1px;
+}
+.scroll-indicator i {
+animation: pulse 1.5s infinite;
+display: block;
+margin-top: 5px;
+}
+@keyframes pulse {
+0% { transform: translateX(-10px); opacity: 0.5; }
+50% { transform: translateX(10px); opacity: 1; }
+100% { transform: translateX(-10px); opacity: 0.5; }
 }
 
 /* ================= CONTACTO ================= */
@@ -547,7 +553,7 @@ text-align: center;
     .hero-btn { padding: 6px 16px; font-size: 9px; border-radius: 20px; border: 0.5px solid rgba(255,255,255,0.4); }
     .premio-logo { flex: 1 1 calc(33.33% - 20px); }
     
-    /* Celular: 6 imágenes fijas, sin scroll, esquinas rectas, proporción original */
+    /* Celular: 6 imágenes fijas, sin scroll */
     .fotogramas-carousel {
         flex-wrap: wrap;
         overflow-x: visible;
@@ -556,7 +562,7 @@ text-align: center;
     .fotograma-item {
         flex: 0 0 calc(50% - 5px); 
     }
-    .scroll-indicator-container { display: none; }
+    .scroll-indicator { display: none; }
     .fotogramas-section { margin-top: 20px; }
 }
 </style>
@@ -628,8 +634,9 @@ text-align: center;
         <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera5.jpg?raw=true" alt="Fotograma 5"></div>
         <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera6.jpg?raw=true" alt="Fotograma 6"></div>
     </div>
-    <div class="scroll-indicator-container">
-        <div class="scroll-indicator">Desliza para ver más</div>
+    <div class="scroll-indicator">
+        Desliza para ver más
+        <i class="fa-solid fa-arrow-right-long"></i>
     </div>
 </section>
 
