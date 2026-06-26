@@ -124,7 +124,7 @@ color:#fff;
 opacity:.45;
 }
 
-/* ================= HERO (BANNER PRINCIPAL) ================= */
+/* ================= HERO ================= */
 
 .hero-banner{
 position:relative;
@@ -200,12 +200,11 @@ color: #000000;
 border-color: #FFFFFF;
 }
 
-/* ================= SECCIÓN PREMIOS ================= */
+/* ================= PREMIOS ================= */
 
 .premios-section {
 width: 100%;
 background: #000000;
-/* Reducido 20% adicional del padding anterior (50px -> 40px) */
 padding: 40px 10px; 
 margin-top: 32px;
 margin-bottom: 32px;
@@ -215,7 +214,6 @@ justify-content: center;
 
 .premios-container {
 width: 100%;
-/* Margen lateral reducido a la mitad para mayor ancho */
 max-width: 1400px; 
 display: flex;
 justify-content: space-between;
@@ -232,14 +230,13 @@ align-items: center;
 }
 
 .premio-logo img {
-max-height: 75px; /* Tamaño original en PC */
+max-height: 75px; 
 width: auto;
 filter: brightness(0) invert(1);
 opacity: 1;
-transition: transform 0.3s ease;
 }
 
-/* ================= SECCIÓN PÓSTER + TEXTO ================= */
+/* ================= PÓSTER + TEXTO ================= */
 
 .poster-text-section {
 width: 100%;
@@ -310,11 +307,42 @@ margin-bottom: 16px;
 text-align: left;
 }
 
-.pt-paragraph:last-child {
-margin-bottom: 0;
+/* ================= FOTOGRAMAS (NUEVA SECCIÓN) ================= */
+
+.fotogramas-section {
+width: 100%;
+/* Mismo margen que la franja negra (32px) */
+margin-bottom: 32px;
+padding: 0 20px;
 }
 
-/* ================= SECCIÓN MEDIA (CONTÁCTANOS) ================= */
+.fotogramas-carousel {
+display: flex;
+gap: 15px;
+overflow-x: auto;
+scroll-snap-type: x mandatory;
+scrollbar-width: none; /* Oculta scrollbar en Firefox */
+-ms-overflow-style: none; /* Oculta scrollbar en IE/Edge */
+}
+
+.fotogramas-carousel::-webkit-scrollbar {
+display: none; /* Oculta scrollbar en Chrome/Safari */
+}
+
+.fotograma-item {
+/* 4 fotogramas de entrada (25% del ancho menos el gap) */
+flex: 0 0 calc(25% - 12px);
+scroll-snap-align: start;
+}
+
+.fotograma-item img {
+width: 100%;
+height: 250px; /* Altura fija para uniformidad */
+object-fit: cover;
+border-radius: 4px;
+}
+
+/* ================= CONTACTO ================= */
 
 .contact-section {
 width: 100%;
@@ -451,6 +479,10 @@ color:#FFC601;
     margin-bottom: 20px !important;
     text-align: justify;
 }
+/* Fotogramas: mostrar 2 en tablets */
+.fotograma-item {
+    flex: 0 0 calc(50% - 8px);
+}
 }
 
 @media(max-width:992px){
@@ -483,10 +515,9 @@ text-align: center;
 }
 }
 
-/* Reducción 30% logos para tablets y móviles */
 @media(max-width: 991px) {
     .premio-logo img {
-        max-height: 52.5px; /* 75px * 0.7 = 52.5px */
+        max-height: 52.5px;
     }
 }
 
@@ -497,6 +528,10 @@ text-align: center;
     .subrayado-amarillo { border-bottom: none !important; padding-bottom: 0 !important; }
     .hero-btn { padding: 6px 16px; font-size: 9px; border-radius: 20px; border: 0.5px solid rgba(255,255,255,0.4); }
     .premio-logo { flex: 1 1 calc(33.33% - 20px); }
+    /* Fotogramas: mostrar 1 en móviles */
+    .fotograma-item {
+        flex: 0 0 100%;
+    }
 }
 </style>
 
@@ -505,21 +540,13 @@ text-align: center;
 <body>
 
 <header class="header">
-<div class="logo">
-<a href="index.html">GARABATO CINE</a>
-</div>
-<div class="menu-toggle" id="menu-btn">
-<i class="fa-solid fa-bars"></i>
-</div>
+<div class="logo"><a href="index.html">GARABATO CINE</a></div>
+<div class="menu-toggle" id="menu-btn"><i class="fa-solid fa-bars"></i></div>
 <div class="nav">
 <a href="proyectos.html">PROYECTOS</a>
 <a href="proximamente.html">PRÓXIMAMENTE</a>
 <a href="nosotros.html">NOSOTROS</a>
-<div class="lang">
-<span class="active">ES</span>
-<span>|</span>
-<span>EN</span>
-</div>
+<div class="lang"><span class="active">ES</span><span>|</span><span>EN</span></div>
 </div>
 </header>
 
@@ -527,23 +554,16 @@ text-align: center;
     <a href="proyectos.html">PROYECTOS</a>
     <a href="proximamente.html">PRÓXIMAMENTE</a>
     <a href="nosotros.html">NOSOTROS</a>
-    <div class="lang-mobile">
-        <span>ES</span> | <span>EN</span>
-    </div>
+    <div class="lang-mobile"><span>ES</span> | <span>EN</span></div>
 </nav>
 
 <section class="hero-banner">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-banner.jpg?raw=true" alt="Banner La Frontera">
 <div class="hero-overlay">
-<h1 class="hero-title">
-<span class="subrayado-amarillo">LA FR</span>ONTERA
-</h1>
-<div class="hero-subtitle">
-Una película de David David
-</div>
+<h1 class="hero-title"><span class="subrayado-amarillo">LA FR</span>ONTERA</h1>
+<div class="hero-subtitle">Una película de David David</div>
 <a class="hero-btn" href="https://www.youtube.com/watch?v=FeABm-LkkHk" target="_blank">
-<i class="fa-solid fa-play"></i> Ver Tráiler
-</a>
+<i class="fa-solid fa-play"></i> Ver Tráiler</a>
 </div>
 </section>
 
@@ -566,25 +586,28 @@ Una película de David David
 <div class="pt-info">
     <div>
         <h1 class="pt-title"><span class="pt-subrayado-amarillo">La Frontera</span></h1>
-        <p class="pt-paragraph">
-        Ambientada durante el cierre de la frontera entre Colombia y Venezuela en 2016, la película parte de un contexto específico para hablar de una experiencia profundamente universal: la necesidad de resistir, adaptarse y preservar la propia identidad frente al cambio.
-        </p>
-        <p class="pt-paragraph">
-        A través de Diana, una mujer que enfrenta la incertidumbre con la esperanza de construir un futuro para su hijo, la película explora las fronteras visibles e invisibles que atraviesan nuestras vidas. Más allá de los límites geográficos y políticos, La Frontera reflexiona sobre el arraigo, la transformación y la búsqueda de un equilibrio entre permanecer y partir, entre conservar lo que somos y abrirnos a lo que está por venir.
-        </p>
+        <p class="pt-paragraph">Ambientada durante el cierre de la frontera entre Colombia y Venezuela en 2016, la película parte de un contexto específico para hablar de una experiencia profundamente universal: la necesidad de resistir, adaptarse y preservar la propia identidad frente al cambio.</p>
+        <p class="pt-paragraph">A través de Diana, una mujer que enfrenta la incertidumbre con la esperanza de construir un futuro para su hijo, la película explora las fronteras visibles e invisibles que atraviesan nuestras vidas.</p>
     </div>
 </div>
 </div>
 </section>
 
+<section class="fotogramas-section">
+    <div class="fotogramas-carousel">
+        <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera1.jpg?raw=true" alt="Fotograma 1"></div>
+        <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera2.jpg?raw=true" alt="Fotograma 2"></div>
+        <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera3.jpg?raw=true" alt="Fotograma 3"></div>
+        <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera4.jpg?raw=true" alt="Fotograma 4"></div>
+        <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera5.jpg?raw=true" alt="Fotograma 5"></div>
+        <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera6.jpg?raw=true" alt="Fotograma 6"></div>
+    </div>
+</section>
+
 <section class="contact-section">
 <div class="contact-container">
-<h2 class="contact-title">
-¿Quieres conocer más sobre nuestros proyectos?
-</h2>
-<a href="contacto.html" class="contact-btn">
-Contáctanos
-</a>
+<h2 class="contact-title">¿Quieres conocer más sobre nuestros proyectos?</h2>
+<a href="contacto.html" class="contact-btn">Contáctanos</a>
 </div>
 </section>
 
@@ -592,33 +615,17 @@ Contáctanos
 <div class="fila-tres-columnas">
 <div class="columna-izquierda">
 <h4>GARABATO CINE</h4>
-<p>
-Cine hecho desde el Caribe colombiano.
-</p>
+<p>Cine hecho desde el Caribe colombiano.</p>
 </div>
 <div class="columna-central">
-<a href="https://www.instagram.com/garabatocine/" target="_blank">
-<i class="fa-brands fa-instagram"></i>
-</a>
-<a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank">
-<i class="fa-brands fa-facebook-f"></i>
-</a>
-<a href="http://www.youtube.com/channel/UC4vuld7vS7GhKcBf2dv0fJw" target="_blank">
-<i class="fa-brands fa-youtube"></i>
-</a>
+<a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+<a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="http://www.youtube.com/channel/UC4vuld7vS7GhKcBf2dv0fJw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
 </div>
 <div class="columna-derecha">
-<p>
-<a href="privacidadycookies.html" class="footer-link-normal" target="_blank">
-Privacidad y cookies
-</a>
-</p>
-<p>
-Todos los derechos reservados
-</p>
-<p>
-© 2026 Garabato Cine
-</p>
+<p><a href="privacidadycookies.html" class="footer-link-normal" target="_blank">Privacidad y cookies</a></p>
+<p>Todos los derechos reservados</p>
+<p>© 2026 Garabato Cine</p>
 </div>
 </div>
 </footer>
