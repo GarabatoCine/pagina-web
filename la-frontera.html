@@ -70,7 +70,7 @@ font-size: 24px;
 cursor: pointer;
 color: #fff;
 z-index: 2000;
-margin-left: auto; /* Fuerza el botón a la derecha */
+margin-left: auto;
 }
 
 .nav{
@@ -426,26 +426,6 @@ display: none;
 display: block;
 }
 
-/* CORRECCIÓN FINAL BANNER MÓVIL */
-.hero-overlay { 
-left: 20px; 
-bottom: 5%; 
-width: 90%; 
-max-width: 300px; /* Limitado para que no toque la cara */
-}
-.hero-title { 
-font-size: 22px !important; 
-margin-bottom: 2px;
-}
-.hero-subtitle { 
-font-size: 12px !important; 
-margin-bottom: 5px;
-}
-.hero-btn { 
-padding: 5px 12px; 
-font-size: 10px; 
-}
-
 /* Responsive Footer */
 .sitio-footer{
 padding:40px 25px;
@@ -461,6 +441,24 @@ text-align:center;
 .columna-derecha p {
 text-align: center;
 }
+}
+
+/* NUEVAS CORRECCIONES QUIRÚRGICAS */
+@media(max-width: 600px) {
+    /* Banner móvil: quitar subrayado y achicar título */
+    .hero-title .subrayado-amarillo {
+        border-bottom: none !important;
+        padding-bottom: 0 !important;
+    }
+    .hero-title {
+        font-size: 24px !important;
+    }
+    /* Botón tipo píldora */
+    .hero-btn {
+        border-radius: 50px;
+        padding: 8px 25px;
+        font-size: 11px;
+    }
 }
 </style>
 
@@ -492,7 +490,6 @@ text-align: center;
 
 </header>
 
-<!-- Menú móvil con idioma -->
 <nav class="nav-mobile" id="nav-mobile">
     <a href="proyectos.html">PROYECTOS</a>
     <a href="proximamente.html">PRÓXIMAMENTE</a>
