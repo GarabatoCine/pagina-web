@@ -401,7 +401,7 @@ body{padding-top:86px;}
 .nav-mobile { top: 86px; right: 22px; }
 
 .intro-text{ 
-    font-size: 20px;             
+    font-size: 20px;              
     padding: 0 20px;             
     margin: 90px auto 70px auto; 
     line-height: 1.5;
@@ -410,17 +410,18 @@ body{padding-top:86px;}
 .festival-row{ grid-template-columns:repeat(3,1fr); gap:25px; }
 .people{ grid-template-columns:1fr; gap: 40px; }
 .person img { 
-    max-width: 75%; 
+    max-width: 420px; /* Asegura el tamaño base de la foto */
+    width: 100%;
     height: auto; 
-    object-fit: contain; 
+    object-fit: cover; 
     margin: 0 auto 20px; 
 }
-/* AJUSTADO: Aumentado el ancho a 90% para mejor legibilidad */
+/* AJUSTE TABLET: El texto sigue el ancho máximo de la imagen (420px) */
 .person p { 
     text-align: justify; 
-    max-width: 90%; 
-    padding: 0; 
-    font-size: 16px; 
+    max-width: 420px; 
+    width: 100%;
+    margin: 0 auto;
 }
 
 /* Ajuste de galería para móviles y tablets */
@@ -444,6 +445,14 @@ body{padding-top:82px;}
 }
 
 @media(max-width: 767px) {
+/* AJUSTE MOBILE: Foto se expande al 100% del contenedor y texto se alinea */
+.person img { 
+    max-width: 100%; 
+    height: auto; 
+}
+.person p { 
+    max-width: 100%; 
+}
 .fila-tres-columnas {
 flex-direction: column;
 gap: 25px;
