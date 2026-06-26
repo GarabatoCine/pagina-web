@@ -23,8 +23,8 @@ box-sizing:border-box;
 html,body{
 width:100%;
 overflow-x:hidden;
-background:#ffffff; /* FONDO BLANCO */
-color:#000000;     /* TEXTO OSCURO */
+background:#ffffff; 
+color:#000000;     
 font-family:'Roboto',sans-serif;
 }
 
@@ -61,9 +61,9 @@ font-family:'Oswald',sans-serif;
 font-size:24px;
 letter-spacing:2px;
 color:#fff;
+display: block;
 }
 
-/* Botón Hamburguesa (Oculto en Desktop) */
 .menu-toggle {
 display: none;
 font-size: 24px;
@@ -392,13 +392,15 @@ padding:20px;
 display:none;
 }
 
-/* Mostrar hamburguesa en tablet y móvil */
-.menu-toggle {
-display: block;
+/* Ocultar logo en tablet y móvil */
+.logo {
+display: none;
 }
 
-.logo a { 
-font-size: 18px; 
+/* Mostrar hamburguesa y alinear a la derecha */
+.menu-toggle {
+display: block;
+margin-left: auto;
 }
 
 /* Responsive Banner */
@@ -439,14 +441,6 @@ text-align:center;
 text-align: center;
 }
 }
-
-/* Ocultar nombre de marca en móviles muy pequeños */
-@media(max-width:480px){
-.logo-text {
-display: none;
-}
-}
-
 </style>
 
 </head>
@@ -456,10 +450,9 @@ display: none;
 <header class="header">
 
 <div class="logo">
-<a href="index.html"><span class="logo-text">GARABATO CINE</span></a>
+<a href="index.html">GARABATO CINE</a>
 </div>
 
-<!-- Menú hamburguesa para tablet/móvil -->
 <div class="menu-toggle">
 <i class="fa-solid fa-bars"></i>
 </div>
