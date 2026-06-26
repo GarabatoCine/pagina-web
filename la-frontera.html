@@ -82,58 +82,79 @@ color:#fff;
 opacity:.45;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO (BANNER) ================= */
 
 .hero-banner{
 position:relative;
 width:100%;
+background: #000;
+line-height: 0;
 }
 
 .hero-banner img{
 width:100%;
 height:auto;
 display:block;
+filter: brightness(0.65);
 }
 
 .hero-overlay{
 position:absolute;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
-text-align:center;
-width:90%;
+bottom: 40px;
+left: 60px;
+z-index: 10;
+max-width: 700px;
+transform: none;
+text-align: left;
+width: auto;
 }
 
 .hero-title{
 font-family:'Oswald',sans-serif;
-font-size:clamp(58px,8vw,120px);
-letter-spacing:4px;
-margin-bottom:12px;
+font-size:clamp(28px, 4.2vw, 54.6px);
+font-weight: 700;
+line-height: 1.1;
+letter-spacing: 2px;
+margin-bottom: 10px;
+color: #FFF;
+text-transform: uppercase;
+}
+
+.subrayado-amarillo {
+border-bottom: 4px solid #FFC601;
+padding-bottom: 12px;
+display: inline-block;
+line-height: 0.9;
 }
 
 .hero-subtitle{
-font-size:22px;
-font-weight:300;
-margin-bottom:30px;
+font-size: clamp(14px, 1.5vw, 18px);
+line-height: 1.35;
+font-weight: 300;
+color: #CCCCCC;
+letter-spacing: 0.5px;
+margin-bottom: 20px;
 }
 
 .hero-btn{
 display:inline-block;
-padding:14px 34px;
-border:1px solid rgba(255,255,255,.75);
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(6px);
-color:#fff;
-font-size:13px;
-letter-spacing:2px;
-text-transform:uppercase;
-transition:.3s;
+padding:12px 35px;
+background: transparent;
+border: 1px solid #FFFFFF;
+color: #FFFFFF;
+font-family: 'Roboto', sans-serif;
+font-size: 14px;
+font-weight: 400;
+letter-spacing: 2px;
+text-transform: uppercase;
+transition: all 0.3s ease;
+cursor: pointer;
 }
 
 .hero-btn:hover{
-background:#FFC601;
-border-color:#FFC601;
-color:#000;
+background: #FFFFFF;
+color: #000000;
+border-color: #FFFFFF;
 }
 
 /* ================= INFO ================= */
@@ -351,10 +372,6 @@ padding-left:25px;
 padding-right:25px;
 }
 
-.hero-title{
-font-size:58px;
-}
-
 .festival-logos img{
 height:45px;
 }
@@ -362,6 +379,13 @@ height:45px;
 .frames-carousel img{
 height:140px;
 }
+
+/* Ajustes móviles consistentes con Próximamente */
+.logo a { font-size: 18px; }
+.hero-overlay { left: 20px; bottom: 30px; width: 100%; }
+.hero-title { font-size: 26px; }
+.hero-subtitle { font-size: 13px; }
+.hero-btn { padding: 10px 25px; font-size: 12px; }
 
 }
 
@@ -395,24 +419,20 @@ height:140px;
 
 <section class="hero-banner">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-banner.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-banner.jpg?raw=true" alt="Banner La Frontera">
 
 <div class="hero-overlay">
 
 <h1 class="hero-title">
-LA FRONTERA
+<span class="subrayado-amarillo">LA FR</span>ONTERA
 </h1>
 
 <div class="hero-subtitle">
 Una película de David David
 </div>
 
-<a
-class="hero-btn"
-href="#">
-
+<a class="hero-btn" href="URL_DEL_TRAILER_AQUI" target="_blank">
 Ver Tráiler
-
 </a>
 
 </div>
@@ -425,7 +445,7 @@ Ver Tráiler
 
 <div class="poster">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-poster.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-poster.jpg?raw=true" alt="Poster La Frontera">
 
 </div>
 
@@ -435,7 +455,7 @@ Ver Tráiler
 
 <div class="premiere-header">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cairo.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cairo.png?raw=true" alt="Estreno Mundial El Cairo">
 
 <div>
 
@@ -457,15 +477,15 @@ Festival Clase A
 
 <div class="festival-logos">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/goa.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/goa.png?raw=true" alt="Goa">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/ficci.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/ficci.png?raw=true" alt="FICCI">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/premiomacondo.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/premiomacondo.png?raw=true" alt="Premio Macondo">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/gramado.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/gramado.png?raw=true" alt="Gramado">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lasalturas.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lasalturas.png?raw=true" alt="Las Alturas">
 
 </div>
 
@@ -527,35 +547,31 @@ Diana Ipuana es una joven wayuu embarazada, habitante de la frontera colombo ven
 
 </section>
 
-<!-- ================= FOTOGRAMAS ================= -->
-
 <section class="frames-section">
 
 <div class="frames-carousel">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera1.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera1.jpg?raw=true" alt="Fotograma 1">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera2.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera2.jpg?raw=true" alt="Fotograma 2">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera3.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera3.jpg?raw=true" alt="Fotograma 3">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera4.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera4.jpg?raw=true" alt="Fotograma 4">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera5.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera5.jpg?raw=true" alt="Fotograma 5">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera6.jpg?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera6.jpg?raw=true" alt="Fotograma 6">
 
 </div>
 
 </section>
 
-<!-- ================= FICHA ================= -->
-
 <section class="tech-layout">
 
 <div class="tech-image">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera.png?raw=true" alt="Ficha Imagen">
 
 </div>
 
@@ -675,8 +691,6 @@ Yull Núñez
 
 </section>
 
-<!-- ================= RTVC + CANCIÓN ================= -->
-
 <style>
 
 .media-section{
@@ -754,7 +768,7 @@ grid-template-columns:1fr;
 
 <div class="media-card">
 
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/logo-rtvcplay.png?raw=true">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/logo-rtvcplay.png?raw=true" alt="Logo RTVC Play">
 
 <h2 class="media-title">
 RTVC Play
@@ -807,8 +821,6 @@ Escuchar
 </div>
 
 </section>
-
-<!-- ================= PRENSA ================= -->
 
 <style>
 
@@ -870,7 +882,7 @@ font-size:15px;
 color:#d2d2d2;
 }
 
-/* ================= FOOTER ================= */
+/* ================= FOOTER ================= -->
 
 .sitio-footer{
 background:#000;
@@ -1013,8 +1025,6 @@ EL TIEMPO
 
 </section>
 
-<!-- ================= OTROS FESTIVALES ================= -->
-
 <section class="other-festivals">
 
 <h2 class="other-title">
@@ -1118,8 +1128,6 @@ Otros Festivales
 </div>
 
 </section>
-
-<!-- ================= FOOTER ================= -->
 
 <footer class="sitio-footer">
 
