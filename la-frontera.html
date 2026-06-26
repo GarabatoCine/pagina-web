@@ -240,7 +240,7 @@ opacity: 1;
 
 .poster-text-section {
 width: 100%;
-padding: 0px 20px 32px 20px; 
+padding: 0px 20px 0px 20px; /* Reducción de margen inferior */
 background: #ffffff;
 display: flex;
 justify-content: center;
@@ -311,52 +311,37 @@ text-align: left;
 
 .fotogramas-section {
 width: 100%;
+margin-top: 15px; /* Reducción espacio texto-foto */
 margin-bottom: 32px;
-padding: 0 40px;
-position: relative;
+padding: 0; /* Sin márgenes laterales */
 }
 
 .fotogramas-carousel {
 display: flex;
-gap: 15px;
+gap: 0; /* Sin espacio entre fotos */
 overflow-x: auto;
 scroll-snap-type: x mandatory;
-scrollbar-width: none;
--ms-overflow-style: none;
-padding: 10px 0;
+padding: 0;
 }
 
 .fotogramas-carousel::-webkit-scrollbar {
-display: none;
+height: 8px;
+}
+.fotogramas-carousel::-webkit-scrollbar-thumb {
+background-color: #FFC601;
 }
 
 .fotograma-item {
-flex: 0 0 23%; /* 4 en PC */
+flex: 0 0 25%; /* 4 en pantalla completa */
 scroll-snap-align: start;
 }
 
 .fotograma-item img {
 width: 100%;
-height: auto;
-object-fit: contain; /* Mantiene proporción */
-border-radius: 4px;
+height: 100%;
+object-fit: cover;
+display: block;
 }
-
-/* Flechas de desplazamiento */
-.scroll-arrow {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-font-size: 30px;
-color: #FFC601;
-cursor: pointer;
-z-index: 10;
-background: rgba(0,0,0,0.3);
-padding: 10px;
-border-radius: 50%;
-}
-.scroll-left { left: 5px; }
-.scroll-right { right: 5px; }
 
 /* ================= CONTACTO ================= */
 
@@ -478,7 +463,7 @@ color:#FFC601;
 /* ================= RESPONSIVE ================= */
 
 @media(max-width:1024px) {
-    .fotograma-item { flex: 0 0 31%; } /* 3 en tablet sin cortar */
+    .fotograma-item { flex: 0 0 33.33%; } 
 }
 
 @media(max-width:850px){
@@ -545,9 +530,12 @@ text-align: center;
     .hero-btn { padding: 6px 16px; font-size: 9px; border-radius: 20px; border: 0.5px solid rgba(255,255,255,0.4); }
     .premio-logo { flex: 1 1 calc(33.33% - 20px); }
     
-    /* 2 fotogramas en móvil sin cortar */
+    /* Maximización en móvil */
     .fotograma-item {
-        flex: 0 0 47%;
+        flex: 0 0 100%; /* Fotos a pantalla completa en vertical */
+    }
+    .fotogramas-section {
+        margin-top: 10px; /* Reducción de espacio final */
     }
 }
 </style>
@@ -611,8 +599,7 @@ text-align: center;
 </section>
 
 <section class="fotogramas-section">
-    <div class="scroll-arrow scroll-left" onclick="moveCarousel(-1)"><i class="fa-solid fa-chevron-left"></i></div>
-    <div class="fotogramas-carousel" id="carousel">
+    <div class="fotogramas-carousel">
         <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera1.jpg?raw=true" alt="Fotograma 1"></div>
         <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera2.jpg?raw=true" alt="Fotograma 2"></div>
         <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera3.jpg?raw=true" alt="Fotograma 3"></div>
@@ -620,7 +607,6 @@ text-align: center;
         <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera5.jpg?raw=true" alt="Fotograma 5"></div>
         <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera6.jpg?raw=true" alt="Fotograma 6"></div>
     </div>
-    <div class="scroll-arrow scroll-right" onclick="moveCarousel(1)"><i class="fa-solid fa-chevron-right"></i></div>
 </section>
 
 <section class="contact-section">
@@ -661,12 +647,6 @@ text-align: center;
             navMobile.style.display = 'none';
         }
     });
-
-    function moveCarousel(direction) {
-        const carousel = document.getElementById('carousel');
-        const scrollAmount = 300;
-        carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-    }
 </script>
 </body>
 </html>
