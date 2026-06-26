@@ -123,7 +123,7 @@ width:auto;
 
 .hero-title{
 font-family:'Oswald',sans-serif;
-font-size:clamp(28px, 4.2vw, 54.6px);
+font-size: 54.6px;
 font-weight:700;
 line-height:1.1;
 letter-spacing:2px;
@@ -140,7 +140,7 @@ line-height: 0.9;
 }
 
 .hero-subtitle{
-font-size: clamp(14px, 1.5vw, 18px);
+font-size: 18px;
 line-height: 1.35;
 font-weight: 300;
 color: #CCCCCC;
@@ -382,8 +382,7 @@ color:#FFC601;
 }
 }
 
-@media(max-width:768px){
-
+@media(max-width:992px){
 .header{
 padding:20px;
 }
@@ -392,7 +391,7 @@ padding:20px;
 display:none;
 }
 
-/* Ocultar logo en tablet y móvil */
+/* Ocultar logo en dispositivos menores a 992px (Tablet y Móvil) */
 .logo {
 display: none;
 }
@@ -403,7 +402,7 @@ display: block;
 margin-left: auto;
 }
 
-/* Responsive Banner */
+/* Ajuste de tipografía en el banner para Tablet y Móvil */
 .hero-overlay { 
 left:20px; 
 bottom:30px; 
@@ -412,10 +411,10 @@ max-width:none;
 padding-right:20px;
 }
 .hero-title { 
-font-size:26px; 
+font-size: 32px !important; 
 }
 .hero-subtitle { 
-font-size:13px; 
+font-size: 14px !important; 
 }
 .hero-btn { 
 padding:10px 25px; 
