@@ -161,22 +161,22 @@ color: #000000;
 border-color: #FFFFFF;
 }
 
-/* ================= POSTER + TEXTO (BLOQUE ESTRECHO Y ALINEADO) ================= */
+/* ================= POSTER + TEXTO (MÁS COMPRIMIDO, CERCA, ROBOTO) ================= */
 
 .poster-text-section {
 width: 100%;
-padding: 120px 20px 100px;
+padding: 100px 20px; /* Margen superior e inferior reducidos */
 background: #ffffff;
 display: flex;
-justify-content: center; /* Centra .pt-wrapper en la página */
+justify-content: center;
 }
 
 .pt-wrapper {
 display: flex;
 flex-direction: row;
-justify-content: center; /* Centra el conjunto afiche + texto estrictamente en el medio */
-align-items: flex-start; /* Título alineado exactamente arriba con el afiche */
-gap: 60px;
+justify-content: center;
+align-items: flex-start; 
+gap: 35px; /* Acercado considerablemente a la ficha (reducido de 60px a 35px) */
 max-width: 1200px;
 width: 100%;
 }
@@ -187,37 +187,38 @@ flex-shrink: 0;
 
 .pt-poster {
 width: 100%;
-max-width: 480px; /* Tamaño de afiche imponente */
+max-width: 480px; 
 box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 height: auto;
 object-fit: cover;
 }
 
 .pt-info {
-width: 250px; /* Bloque de texto estrecho, fuerza a que baje y ocupe el alto del afiche */
+width: 240px; /* Bloque de texto más angosto para comprimir el ancho y que baje a alinearse abajo */
 flex-shrink: 0;
-padding-top: 5px; /* Sincroniza el inicio del texto con el borde superior de la imagen */
+padding-top: 0px; 
 }
 
+/* TÍTULO: Misma tipografía Roboto (delgada/normal) de la sección media, tamaño prudente */
 .pt-title {
-font-family: 'Georgia', serif; /* Nueva opción tipográfica elegante tipo póster/cine */
-font-size: 42px;
-font-weight: normal;
-line-height: 1.15;
+font-family: 'Roboto', sans-serif; 
+font-size: 28px;
+font-weight: 400;
+line-height: 1.2;
 color: #000000;
-margin-bottom: 30px;
+margin-bottom: 22px;
 letter-spacing: 0px;
 text-transform: none; 
 }
 
-/* Texto justificado con fuente y tamaño legible, adaptado al bloque estrecho */
+/* TEXTO: Fuente Roboto, interlineado más pequeño (1.5), justificado */
 .pt-paragraph {
 font-family: 'Roboto', sans-serif;
-font-size: 16px; /* Letra un poco más grande */
+font-size: 14.5px; /* Letra un poquitín más grande que antes pero encuadrada */
 font-weight: 400;
-line-height: 1.8;
+line-height: 1.5; /* Interlineado comprimido más estético */
 color: #222222;
-margin-bottom: 25px;
+margin-bottom: 18px;
 text-align: justify; 
 text-justify: inter-word;
 }
@@ -342,13 +343,13 @@ color:#FFC601;
 
 @media(max-width:850px){
 .pt-wrapper {
-    flex-direction: column; /* Pasa a columna en dispositivos pequeños */
+    flex-direction: column; 
     align-items: center;
     gap: 40px;
 }
 .pt-info {
     width: 100%;
-    max-width: 480px; /* Alineado al ancho del póster en responsivo */
+    max-width: 480px; 
 }
 .pt-title {
     text-align: center;
