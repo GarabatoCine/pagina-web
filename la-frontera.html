@@ -161,59 +161,56 @@ color: #000000;
 border-color: #FFFFFF;
 }
 
-/* ================= POSTER + TEXTO ================= */
+/* ================= POSTER + TEXTO (BLOQUE CENTRADO) ================= */
 
 .poster-text-section {
 width: 100%;
-padding: 120px 20px;
+padding: 120px 20px 80px;
 background: #ffffff;
 display: flex;
-justify-content: center;
+justify-content: center; /* Centra el bloque .pt-wrapper en la pantalla */
 }
 
-.pt-container {
-max-width: 1300px;
-width: 100%;
-display: grid;
-grid-template-columns: 1fr 1fr;
+.pt-wrapper {
+display: flex;
+flex-direction: row;
+justify-content: center; /* Asegura que el conjunto afiche + texto esté perfectamente centrado */
+align-items: flex-start; /* Título alineado con el margen superior del póster */
 gap: 50px;
-align-items: center;
-margin: 0 auto;
+max-width: 1200px;
+width: 100%;
 }
 
 .pt-poster-wrapper {
-width: 100%;
-display: flex;
-justify-content: flex-end;
-padding-right: 20px;
+flex-shrink: 0;
 }
 
 .pt-poster {
 width: 100%;
-max-width: 580px;
+max-width: 460px; /* Tamaño prudente para guardar proporción con el bloque estrecho */
 box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 height: auto;
 object-fit: cover;
 }
 
 .pt-info {
-color: #333333;
-max-width: 380px; /* Bloque de texto estrecho */
-text-align: left;
+width: 320px; /* Bloque de texto estrecho para que ocupe más líneas verticales */
+flex-shrink: 0;
+padding-top: 4px; /* Pequeño ajuste óptico para alinear con el borde superior de la imagen */
 }
 
 .pt-title {
-font-family: 'Oswald', sans-serif; /* Se adopta tipografía Oswald o Roboto corporativa, limpia y sin serifa */
-font-size: 36px;
-font-weight: 500;
+font-family: 'Roboto', sans-serif; 
+font-size: 32px;
+font-weight: 400;
 line-height: 1.2;
 color: #000000;
 margin-bottom: 25px;
-text-transform: uppercase;
-letter-spacing: 1px;
+text-transform: none; 
+letter-spacing: 0px;
 }
 
-/* Texto justificado y unificado en fuente Roboto */
+/* Texto justificado en fuente Roboto (estilo Próximamente/General) */
 .pt-paragraph {
 font-family: 'Roboto', sans-serif;
 font-size: 15px;
@@ -222,6 +219,7 @@ line-height: 1.8;
 color: #333333;
 margin-bottom: 20px;
 text-align: justify; 
+text-justify: inter-word;
 }
 
 /* ================= SECCIÓN MEDIA (CONTÁCTANOS) ================= */
@@ -342,21 +340,18 @@ color:#FFC601;
 
 /* ================= RESPONSIVE ================= */
 
-@media(max-width:1024px){
-.pt-container {
-    gap: 30px;
-    grid-template-columns: 1fr 1fr;
-}
-.pt-poster-wrapper {
-    justify-content: center;
-    padding-right: 0;
-}
-.pt-poster {
-    max-width: 480px;
+@media(max-width:850px){
+.pt-wrapper {
+    flex-direction: column; /* Pasa a columna en tablets pequeñas y móviles */
+    align-items: center;
+    gap: 40px;
 }
 .pt-info {
-    max-width: 320px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 460px; /* Alineado al ancho del póster */
+}
+.pt-title {
+    text-align: center;
 }
 }
 
@@ -391,27 +386,6 @@ font-size:13px;
 .hero-btn { 
 padding:10px 25px; 
 font-size:12px; 
-}
-
-/* Responsive Poster + Texto */
-.pt-container {
-grid-template-columns: 1fr; /* Una columna en móvil */
-gap: 50px;
-padding: 0 20px;
-}
-.pt-poster-wrapper {
-justify-content: center;
-padding-right: 0;
-}
-.pt-poster {
-max-width: 100%;
-}
-.pt-info {
-max-width: 100%;
-text-align: center;
-}
-.pt-title {
-text-align: center;
 }
 
 /* Responsive Sección Media */
@@ -496,7 +470,7 @@ Ver Tráiler
 
 <section class="poster-text-section">
 
-<div class="pt-container">
+<div class="pt-wrapper">
 
 <div class="pt-poster-wrapper">
 <img class="pt-poster" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-poster.jpg?raw=true" alt="Póster La Frontera">
