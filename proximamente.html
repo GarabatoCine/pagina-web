@@ -116,7 +116,7 @@
         .banner-text-overlay {
             position: absolute;
             bottom: 40px;
-            left: 60px;
+            left: 60px; /* Alineado con el padding del header */
             z-index: 10;
             max-width: 700px;
             pointer-events: none;
@@ -377,7 +377,7 @@
             color: #CCCCCC;
             margin-top: 0;
             margin-bottom: 20px;
-            text-align: left; /* Ajuste solicitado */
+            text-align: left;
         }
 
         .laureles-wrapper {
@@ -466,7 +466,7 @@
             line-height: 1.6;
             color: #CCCCCC;
             margin-top: 0;
-            text-align: left; /* Ajuste solicitado */
+            text-align: left;
         }
 
         .cta-banner {
@@ -580,6 +580,7 @@
             }
             .nav.open { display: flex; }
             .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
+            .banner-text-overlay { left: 40px; } /* Ajuste proporcional */
         }
 
         @media(max-width: 767px) {
@@ -589,9 +590,8 @@
             .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
             .columna-derecha { text-align: center !important; }
             
-            /* Ajustes móviles solicitados */
-            .brand-logo { display: none; }
-            .banner-text-overlay { left: 20px; bottom: 30px; }
+            /* Ajustes móviles alineados con el nuevo margen */
+            .banner-text-overlay { left: 25px; bottom: 30px; }
             .banner-text-overlay h1 { font-size: 26px; }
             .banner-text-overlay p { font-size: 13px; }
         }
