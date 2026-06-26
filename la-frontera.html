@@ -85,7 +85,6 @@ color:#fff;
 opacity:.9;
 }
 
-/* Menú móvil alineado a la derecha */
 .nav-mobile {
 display: none;
 position: fixed;
@@ -206,8 +205,8 @@ border-color: #FFFFFF;
 .premios-section {
 width: 100%;
 background: #000000;
-padding: 50px 20px;
-/* Espaciado uniforme de 32px arriba y abajo */
+/* Reducido 20% adicional del padding anterior (50px -> 40px) */
+padding: 40px 10px; 
 margin-top: 32px;
 margin-bottom: 32px;
 display: flex;
@@ -216,7 +215,8 @@ justify-content: center;
 
 .premios-container {
 width: 100%;
-max-width: 1200px;
+/* Margen lateral reducido a la mitad para mayor ancho */
+max-width: 1400px; 
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -232,18 +232,17 @@ align-items: center;
 }
 
 .premio-logo img {
-max-height: 75px;
+max-height: 75px; /* Tamaño original en PC */
 width: auto;
-/* Filtro fijo para que siempre se vean blancos y sin efecto hover */
 filter: brightness(0) invert(1);
 opacity: 1;
+transition: transform 0.3s ease;
 }
 
 /* ================= SECCIÓN PÓSTER + TEXTO ================= */
 
 .poster-text-section {
 width: 100%;
-/* Ajustado el padding para eliminar espacio extra */
 padding: 0px 20px 100px 20px;
 background: #ffffff;
 display: flex;
@@ -484,6 +483,13 @@ text-align: center;
 }
 }
 
+/* Reducción 30% logos para tablets y móviles */
+@media(max-width: 991px) {
+    .premio-logo img {
+        max-height: 52.5px; /* 75px * 0.7 = 52.5px */
+    }
+}
+
 @media(max-width: 600px) {
     .hero-overlay { left: 10px !important; bottom: 10%; width: 90%; }
     .hero-title { font-size: 20px !important; line-height: 1 !important; margin-bottom: 2px !important; }
@@ -499,27 +505,22 @@ text-align: center;
 <body>
 
 <header class="header">
-
 <div class="logo">
 <a href="index.html">GARABATO CINE</a>
 </div>
-
 <div class="menu-toggle" id="menu-btn">
 <i class="fa-solid fa-bars"></i>
 </div>
-
 <div class="nav">
 <a href="proyectos.html">PROYECTOS</a>
 <a href="proximamente.html">PRÓXIMAMENTE</a>
 <a href="nosotros.html">NOSOTROS</a>
-
 <div class="lang">
 <span class="active">ES</span>
 <span>|</span>
 <span>EN</span>
 </div>
 </div>
-
 </header>
 
 <nav class="nav-mobile" id="nav-mobile">
@@ -532,25 +533,18 @@ text-align: center;
 </nav>
 
 <section class="hero-banner">
-
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-banner.jpg?raw=true" alt="Banner La Frontera">
-
 <div class="hero-overlay">
-
 <h1 class="hero-title">
 <span class="subrayado-amarillo">LA FR</span>ONTERA
 </h1>
-
 <div class="hero-subtitle">
 Una película de David David
 </div>
-
 <a class="hero-btn" href="https://www.youtube.com/watch?v=FeABm-LkkHk" target="_blank">
 <i class="fa-solid fa-play"></i> Ver Tráiler
 </a>
-
 </div>
-
 </section>
 
 <section class="premios-section">
@@ -565,13 +559,10 @@ Una película de David David
 </section>
 
 <section class="poster-text-section">
-
 <div class="pt-wrapper">
-
 <div class="pt-poster-wrapper">
 <img class="pt-poster" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-poster.jpg?raw=true" alt="Póster La Frontera">
 </div>
-
 <div class="pt-info">
     <div>
         <h1 class="pt-title"><span class="pt-subrayado-amarillo">La Frontera</span></h1>
@@ -583,96 +574,67 @@ Una película de David David
         </p>
     </div>
 </div>
-
 </div>
-
 </section>
 
 <section class="contact-section">
-
 <div class="contact-container">
-
 <h2 class="contact-title">
 ¿Quieres conocer más sobre nuestros proyectos?
 </h2>
-
 <a href="contacto.html" class="contact-btn">
 Contáctanos
 </a>
-
 </div>
-
 </section>
 
 <footer class="sitio-footer">
-
 <div class="fila-tres-columnas">
-
 <div class="columna-izquierda">
-
 <h4>GARABATO CINE</h4>
-
 <p>
 Cine hecho desde el Caribe colombiano.
 </p>
-
 </div>
-
 <div class="columna-central">
-
 <a href="https://www.instagram.com/garabatocine/" target="_blank">
 <i class="fa-brands fa-instagram"></i>
 </a>
-
 <a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank">
 <i class="fa-brands fa-facebook-f"></i>
 </a>
-
 <a href="http://www.youtube.com/channel/UC4vuld7vS7GhKcBf2dv0fJw" target="_blank">
 <i class="fa-brands fa-youtube"></i>
 </a>
-
 </div>
-
 <div class="columna-derecha">
-
 <p>
 <a href="privacidadycookies.html" class="footer-link-normal" target="_blank">
 Privacidad y cookies
 </a>
 </p>
-
 <p>
 Todos los derechos reservados
 </p>
-
 <p>
 © 2026 Garabato Cine
 </p>
-
 </div>
-
 </div>
-
 </footer>
 
 <script>
     const menuBtn = document.getElementById('menu-btn');
     const navMobile = document.getElementById('nav-mobile');
-    
-    // Abrir/Cerrar menú
     menuBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         navMobile.style.display = (navMobile.style.display === 'flex') ? 'none' : 'flex';
     });
-
-    // Cerrar menú al hacer clic fuera
     document.addEventListener('click', (e) => {
         if (navMobile.style.display === 'flex' && !navMobile.contains(e.target) && e.target !== menuBtn) {
             navMobile.style.display = 'none';
         }
     });
 </script>
-
 </body>
 </html>
