@@ -161,22 +161,22 @@ color: #000000;
 border-color: #FFFFFF;
 }
 
-/* ================= POSTER + TEXTO (BLOQUE CENTRADO) ================= */
+/* ================= POSTER + TEXTO (BLOQUE ESTRECHO Y ALINEADO) ================= */
 
 .poster-text-section {
 width: 100%;
-padding: 120px 20px 80px;
+padding: 120px 20px 100px;
 background: #ffffff;
 display: flex;
-justify-content: center; /* Centra el bloque .pt-wrapper en la pantalla */
+justify-content: center; /* Centra .pt-wrapper en la página */
 }
 
 .pt-wrapper {
 display: flex;
 flex-direction: row;
-justify-content: center; /* Asegura que el conjunto afiche + texto esté perfectamente centrado */
-align-items: flex-start; /* Título alineado con el margen superior del póster */
-gap: 50px;
+justify-content: center; /* Centra el conjunto afiche + texto estrictamente en el medio */
+align-items: flex-start; /* Título alineado exactamente arriba con el afiche */
+gap: 60px;
 max-width: 1200px;
 width: 100%;
 }
@@ -187,37 +187,37 @@ flex-shrink: 0;
 
 .pt-poster {
 width: 100%;
-max-width: 460px; /* Tamaño prudente para guardar proporción con el bloque estrecho */
+max-width: 480px; /* Tamaño de afiche imponente */
 box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 height: auto;
 object-fit: cover;
 }
 
 .pt-info {
-width: 320px; /* Bloque de texto estrecho para que ocupe más líneas verticales */
+width: 250px; /* Bloque de texto estrecho, fuerza a que baje y ocupe el alto del afiche */
 flex-shrink: 0;
-padding-top: 4px; /* Pequeño ajuste óptico para alinear con el borde superior de la imagen */
+padding-top: 5px; /* Sincroniza el inicio del texto con el borde superior de la imagen */
 }
 
 .pt-title {
-font-family: 'Roboto', sans-serif; 
-font-size: 32px;
-font-weight: 400;
-line-height: 1.2;
+font-family: 'Georgia', serif; /* Nueva opción tipográfica elegante tipo póster/cine */
+font-size: 42px;
+font-weight: normal;
+line-height: 1.15;
 color: #000000;
-margin-bottom: 25px;
-text-transform: none; 
+margin-bottom: 30px;
 letter-spacing: 0px;
+text-transform: none; 
 }
 
-/* Texto justificado en fuente Roboto (estilo Próximamente/General) */
+/* Texto justificado con fuente y tamaño legible, adaptado al bloque estrecho */
 .pt-paragraph {
 font-family: 'Roboto', sans-serif;
-font-size: 15px;
+font-size: 16px; /* Letra un poco más grande */
 font-weight: 400;
 line-height: 1.8;
-color: #333333;
-margin-bottom: 20px;
+color: #222222;
+margin-bottom: 25px;
 text-align: justify; 
 text-justify: inter-word;
 }
@@ -342,13 +342,13 @@ color:#FFC601;
 
 @media(max-width:850px){
 .pt-wrapper {
-    flex-direction: column; /* Pasa a columna en tablets pequeñas y móviles */
+    flex-direction: column; /* Pasa a columna en dispositivos pequeños */
     align-items: center;
     gap: 40px;
 }
 .pt-info {
     width: 100%;
-    max-width: 460px; /* Alineado al ancho del póster */
+    max-width: 480px; /* Alineado al ancho del póster en responsivo */
 }
 .pt-title {
     text-align: center;
