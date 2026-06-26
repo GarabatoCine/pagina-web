@@ -53,7 +53,7 @@ text-transform:uppercase;
 }
 
 .header, .header a {
-color: #FFFFFF; /* Para que resalte sobre el banner oscuro */
+color: #FFFFFF; 
 }
 
 .logo a{
@@ -86,7 +86,7 @@ color:#fff;
 opacity:.45;
 }
 
-/* ================= HERO (BANNER) ================= */
+/* ================= HERO (BANNER PRINCIPAL) ================= */
 
 .hero-banner{
 position:relative;
@@ -161,7 +161,7 @@ color: #000000;
 border-color: #FFFFFF;
 }
 
-/* ================= POSTER + TEXTO (ANCHO ESTRECHO Y ALINEADO ABAJO) ================= */
+/* ================= SECCIÓN PÓSTER + TEXTO (ESTILO EL PIEDRA) ================= */
 
 .poster-text-section {
 width: 100%;
@@ -174,9 +174,9 @@ justify-content: center;
 .pt-wrapper {
 display: flex;
 flex-direction: row;
-justify-content: center; /* Centra el objeto compuesto estrictamente en el medio */
-align-items: flex-start;  /* Título alineado exactamente al margen superior del póster */
-gap: 30px;                /* Cerca de la ficha visualmente */
+justify-content: center; 
+align-items: flex-start;  
+gap: 30px;                /* Bloque más pegado a la ficha */
 max-width: 1200px;
 width: 100%;
 }
@@ -190,33 +190,39 @@ width: 100%;
 max-width: 480px; 
 box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 height: auto;
-object-fit: cover;
 }
 
 .pt-info {
-width: 210px; /* Bloque de texto más estrecho para aumentar la altura y empatar abajo con la ficha */
+width: 215px; /* Bloque estrecho para obligar al texto a bajar y nivelarse con el póster */
 flex-shrink: 0;
-padding-top: 0px; 
+padding-top: 5px; 
 }
 
-/* TÍTULO: Misma fuente Roboto y tamaño distinguible */
+/* TÍTULO CON SUBRAYADO AMARILLO PROPORCIONAL */
 .pt-title {
 font-family: 'Roboto', sans-serif; 
 font-size: 28px;
-font-weight: 400;
+font-weight: 500; /* Letra "bonita" y clara */
 line-height: 1.2;
 color: #000000;
-margin-bottom: 20px;
-letter-spacing: 0px;
-text-transform: none; 
+margin-bottom: 25px;
+text-transform: uppercase;
+letter-spacing: 1px;
 }
 
-/* TEXTO: Fuente Roboto (misma del footer/contacto), tamaño 17px, interlineado mayor (1.9) y justificado a ambos lados */
+.pt-subrayado-amarillo {
+border-bottom: 3px solid #FFC601; /* Subrayado proporcional (más fino que el del banner) */
+padding-bottom: 8px;
+display: inline-block;
+line-height: 0.8;
+}
+
+/* TEXTO: Fuente Roboto, interlineado amplio para alcanzar el fondo de la ficha */
 .pt-paragraph {
 font-family: 'Roboto', sans-serif;
 font-size: 17px; 
-font-weight: 300; /* Estilo ligero de la sección de contacto */
-line-height: 1.9; /* Interlineado mayor para ocupar renglones suficientes */
+font-weight: 300; 
+line-height: 1.95; /* Interlineado ajustado para nivelar altura */
 color: #111111;
 margin-bottom: 20px;
 text-align: justify; 
@@ -478,7 +484,7 @@ Ver Tráiler
 </div>
 
 <div class="pt-info">
-<h1 class="pt-title">La Frontera</h1>
+<h1 class="pt-title"><span class="pt-subrayado-amarillo">LA FR</span>ONTERA</h1>
 <p class="pt-paragraph">
 Ambientada durante el cierre de la frontera entre Colombia y Venezuela en 2016, la película parte de un contexto específico para hablar de una experiencia profundamente universal: la necesidad de resistir, adaptarse y preservar la propia identidad frente al cambio.
 </p>
