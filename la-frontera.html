@@ -161,7 +161,7 @@ color: #000000;
 border-color: #FFFFFF;
 }
 
-/* ================= SECCIÓN PÓSTER + TEXTO (ESTILO EL PIEDRA) ================= */
+/* ================= SECCIÓN PÓSTER + TEXTO (AJUSTES PRECISOS) ================= */
 
 .poster-text-section {
 width: 100%;
@@ -175,14 +175,16 @@ justify-content: center;
 display: flex;
 flex-direction: row;
 justify-content: center; 
-align-items: flex-start;  
-gap: 30px;                /* Bloque más pegado a la ficha */
+align-items: stretch; /* Estira ambos lados para que interactúen en altura si es necesario */
+gap: 35px;            
 max-width: 1200px;
 width: 100%;
 }
 
 .pt-poster-wrapper {
 flex-shrink: 0;
+display: flex;
+align-items: flex-start; /* Afiche firme arriba */
 }
 
 .pt-poster {
@@ -190,41 +192,45 @@ width: 100%;
 max-width: 480px; 
 box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 height: auto;
+align-self: flex-start;
 }
 
 .pt-info {
-width: 215px; /* Bloque estrecho para obligar al texto a bajar y nivelarse con el póster */
+width: 260px; /* Ancho ampliado un 20% (de 215px a 260px) para dar más respiro visual */
 flex-shrink: 0;
 padding-top: 5px; 
+display: flex;
+flex-direction: column;
+justify-content: space-between; /* Distribuye el espacio para que el bloque ocupe exactamente el alto del afiche */
 }
 
-/* TÍTULO CON SUBRAYADO AMARILLO PROPORCIONAL */
+/* TÍTULO: Restaurada la fuente Serif clásica (Georgia) que te había gustado */
 .pt-title {
-font-family: 'Roboto', sans-serif; 
-font-size: 28px;
-font-weight: 500; /* Letra "bonita" y clara */
-line-height: 1.2;
+font-family: 'Georgia', serif; 
+font-size: 38px;
+font-weight: normal;
+line-height: 1.15;
 color: #000000;
 margin-bottom: 25px;
-text-transform: uppercase;
-letter-spacing: 1px;
+text-transform: none;
+letter-spacing: 0px;
 }
 
 .pt-subrayado-amarillo {
-border-bottom: 3px solid #FFC601; /* Subrayado proporcional (más fino que el del banner) */
+border-bottom: 3px solid #FFC601; 
 padding-bottom: 8px;
 display: inline-block;
 line-height: 0.8;
 }
 
-/* TEXTO: Fuente Roboto, interlineado amplio para alcanzar el fondo de la ficha */
+/* TEXTO: Restaurada fuente Roboto, interlineado reducido a 1.7 para evitar que sobresalga */
 .pt-paragraph {
 font-family: 'Roboto', sans-serif;
-font-size: 17px; 
-font-weight: 300; 
-line-height: 1.95; /* Interlineado ajustado para nivelar altura */
-color: #111111;
-margin-bottom: 20px;
+font-size: 16.5px; 
+font-weight: 400; 
+line-height: 1.7; /* Interlineado exacto para que el bloque acabe a la par del afiche */
+color: #222222;
+margin-bottom: 0px; /* Eliminamos margen inferior para depender del flex justify-content */
 text-align: justify; 
 text-justify: inter-word;
 }
@@ -356,9 +362,13 @@ color:#FFC601;
 .pt-info {
     width: 100%;
     max-width: 480px; 
+    justify-content: flex-start;
 }
 .pt-title {
     text-align: center;
+}
+.pt-paragraph {
+    margin-bottom: 20px;
 }
 }
 
@@ -484,13 +494,17 @@ Ver Tráiler
 </div>
 
 <div class="pt-info">
-<h1 class="pt-title"><span class="pt-subrayado-amarillo">LA FR</span>ONTERA</h1>
-<p class="pt-paragraph">
-Ambientada durante el cierre de la frontera entre Colombia y Venezuela en 2016, la película parte de un contexto específico para hablar de una experiencia profundamente universal: la necesidad de resistir, adaptarse y preservar la propia identidad frente al cambio.
-</p>
-<p class="pt-paragraph">
-A través de Diana, una mujer que enfrenta la incertidumbre con la esperanza de construir un futuro para su hijo, la película explora las fronteras visibles e invisibles que atraviesan nuestras vidas. Más allá de los límites geográficos y políticos, La Frontera reflexiona sobre el arraigo, la transformación y la búsqueda de un equilibrio entre permanecer y partir, entre conservar lo que somos y abrirnos a lo que está por venir.
-</p>
+<div>
+    <h1 class="pt-title"><span class="pt-subrayado-amarillo">LA FR</span>ONTERA</h1>
+    <p class="pt-paragraph" style="margin-bottom: 20px;">
+    Ambientada durante el cierre de la frontera entre Colombia y Venezuela en 2016, la película parte de un contexto específico para hablar de una experiencia profundamente universal: la necesidad de resistir, adaptarse y preservar la propia identidad frente al cambio.
+    </p>
+</div>
+<div>
+    <p class="pt-paragraph">
+    A través de Diana, una mujer que enfrenta la incertidumbre con la esperanza de construir un futuro para su hijo, la película explora las fronteras visibles e invisibles que atraviesan nuestras vidas. Más allá de los límites geográficos y políticos, La Frontera reflexiona sobre el arraigo, la transformación y la búsqueda de un equilibrio entre permanecer y partir, entre conservar lo que somos y abrirnos a lo que está por venir.
+    </p>
+</div>
 </div>
 
 </div>
