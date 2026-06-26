@@ -161,7 +161,7 @@ color: #000000;
 border-color: #FFFFFF;
 }
 
-/* ================= SECCIÓN PÓSTER + TEXTO (AJUSTES PRECISOS) ================= */
+/* ================= SECCIÓN PÓSTER + TEXTO ================= */
 
 .poster-text-section {
 width: 100%;
@@ -175,7 +175,7 @@ justify-content: center;
 display: flex;
 flex-direction: row;
 justify-content: center; 
-align-items: stretch; /* Estira ambos lados para que interactúen en altura si es necesario */
+align-items: stretch; /* Permite controlar la sincronización de altura de forma robusta */
 gap: 35px;            
 max-width: 1200px;
 width: 100%;
@@ -184,7 +184,7 @@ width: 100%;
 .pt-poster-wrapper {
 flex-shrink: 0;
 display: flex;
-align-items: flex-start; /* Afiche firme arriba */
+align-items: flex-start; 
 }
 
 .pt-poster {
@@ -195,42 +195,43 @@ height: auto;
 align-self: flex-start;
 }
 
+/* CONTENEDOR DE TEXTO DINÁMICO (Se adapta mediante columnas automáticas) */
 .pt-info {
-width: 260px; /* Ancho ampliado un 20% (de 215px a 260px) para dar más respiro visual */
+width: 260px; 
 flex-shrink: 0;
-padding-top: 5px; 
+padding-top: 2px; 
 display: flex;
 flex-direction: column;
-justify-content: space-between; /* Distribuye el espacio para que el bloque ocupe exactamente el alto del afiche */
+justify-content: space-between; /* Distribuye los párrafos automáticamente al alto del afiche */
 }
 
-/* TÍTULO: Restaurada la fuente Serif clásica (Georgia) que te había gustado */
+/* TÍTULO: Fuente Serif Clásica (Georgia) con mayúscula inicial restaurada */
 .pt-title {
 font-family: 'Georgia', serif; 
-font-size: 38px;
+font-size: 36px;
 font-weight: normal;
-line-height: 1.15;
+line-height: 1.2;
 color: #000000;
-margin-bottom: 25px;
-text-transform: none;
+margin-bottom: 20px;
 letter-spacing: 0px;
+text-transform: none;
 }
 
 .pt-subrayado-amarillo {
 border-bottom: 3px solid #FFC601; 
-padding-bottom: 8px;
+padding-bottom: 6px;
 display: inline-block;
 line-height: 0.8;
 }
 
-/* TEXTO: Restaurada fuente Roboto, interlineado reducido a 1.7 para evitar que sobresalga */
+/* TEXTO: Aplicada la misma fuente de la sección de contacto (Roboto ligera), tamaño optimizado para que encaje alineado al borde inferior del póster */
 .pt-paragraph {
 font-family: 'Roboto', sans-serif;
-font-size: 16.5px; 
-font-weight: 400; 
-line-height: 1.7; /* Interlineado exacto para que el bloque acabe a la par del afiche */
+font-size: 15.5px; 
+font-weight: 300; /* Peso ligero estilizado de la sección inferior */
+line-height: 1.62; /* Interlineado exacto para acoplar altura */
 color: #222222;
-margin-bottom: 0px; /* Eliminamos margen inferior para depender del flex justify-content */
+margin-bottom: 0px; 
 text-align: justify; 
 text-justify: inter-word;
 }
@@ -368,7 +369,7 @@ color:#FFC601;
     text-align: center;
 }
 .pt-paragraph {
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
 }
 }
 
@@ -494,8 +495,8 @@ Ver Tráiler
 </div>
 
 <div class="pt-info">
-<div>
-    <h1 class="pt-title"><span class="pt-subrayado-amarillo">LA FR</span>ONTERA</h1>
+<div style="margin-bottom: 25px;">
+    <h1 class="pt-title"><span class="pt-subrayado-amarillo">La Frontera</span></h1>
     <p class="pt-paragraph" style="margin-bottom: 20px;">
     Ambientada durante el cierre de la frontera entre Colombia y Venezuela en 2016, la película parte de un contexto específico para hablar de una experiencia profundamente universal: la necesidad de resistir, adaptarse y preservar la propia identidad frente al cambio.
     </p>
