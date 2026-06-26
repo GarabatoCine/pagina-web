@@ -175,7 +175,7 @@ justify-content: center;
 display: flex;
 flex-direction: row;
 justify-content: center; 
-align-items: stretch; /* Permite controlar la sincronización de altura de forma robusta */
+align-items: stretch; /* Se sincroniza automáticamente con el alto del afiche flex-start */
 gap: 35px;            
 max-width: 1200px;
 width: 100%;
@@ -195,17 +195,17 @@ height: auto;
 align-self: flex-start;
 }
 
-/* CONTENEDOR DE TEXTO DINÁMICO (Se adapta mediante columnas automáticas) */
+/* CONTENEDOR DE TEXTO: Alineación inteligente mediante Flexbox */
 .pt-info {
 width: 260px; 
 flex-shrink: 0;
 padding-top: 2px; 
 display: flex;
 flex-direction: column;
-justify-content: space-between; /* Distribuye los párrafos automáticamente al alto del afiche */
+justify-content: space-between; /* Distribuye el contenido para que el bloque de texto comience arriba y termine exactamente al ras del afiche */
 }
 
-/* TÍTULO: Fuente Serif Clásica (Georgia) con mayúscula inicial restaurada */
+/* TÍTULO: Fuente Serif Clásica (Georgia) */
 .pt-title {
 font-family: 'Georgia', serif; 
 font-size: 36px;
@@ -224,16 +224,21 @@ display: inline-block;
 line-height: 0.8;
 }
 
-/* TEXTO: Aplicada la misma fuente de la sección de contacto (Roboto ligera), tamaño optimizado para que encaje alineado al borde inferior del póster */
+/* TEXTO: Párrafos fluidos, interlineado natural sin espacios muertos */
 .pt-paragraph {
 font-family: 'Roboto', sans-serif;
-font-size: 15.5px; 
-font-weight: 300; /* Peso ligero estilizado de la sección inferior */
-line-height: 1.62; /* Interlineado exacto para acoplar altura */
+font-size: 16.5px; 
+font-weight: 300; 
+line-height: 1.62; 
 color: #222222;
-margin-bottom: 0px; 
+margin-bottom: 16px; /* Espaciado normal y estético entre párrafos */
 text-align: justify; 
 text-justify: inter-word;
+}
+
+/* Corrección para que el último párrafo no tenga margen innecesario y se alinee al fondo */
+.pt-paragraph:last-child {
+margin-bottom: 0;
 }
 
 /* ================= SECCIÓN MEDIA (CONTÁCTANOS) ================= */
@@ -495,17 +500,15 @@ Ver Tráiler
 </div>
 
 <div class="pt-info">
-<div style="margin-bottom: 25px;">
-    <h1 class="pt-title"><span class="pt-subrayado-amarillo">La Frontera</span></h1>
-    <p class="pt-paragraph" style="margin-bottom: 20px;">
-    Ambientada durante el cierre de la frontera entre Colombia y Venezuela en 2016, la película parte de un contexto específico para hablar de una experiencia profundamente universal: la necesidad de resistir, adaptarse y preservar la propia identidad frente al cambio.
-    </p>
-</div>
-<div>
-    <p class="pt-paragraph">
-    A través de Diana, una mujer que enfrenta la incertidumbre con la esperanza de construir un futuro para su hijo, la película explora las fronteras visibles e invisibles que atraviesan nuestras vidas. Más allá de los límites geográficos y políticos, La Frontera reflexiona sobre el arraigo, la transformación y la búsqueda de un equilibrio entre permanecer y partir, entre conservar lo que somos y abrirnos a lo que está por venir.
-    </p>
-</div>
+    <div>
+        <h1 class="pt-title"><span class="pt-subrayado-amarillo">La Frontera</span></h1>
+        <p class="pt-paragraph">
+        Ambientada durante el cierre de la frontera entre Colombia y Venezuela en 2016, la película parte de un contexto específico para hablar de una experiencia profundamente universal: la necesidad de resistir, adaptarse y preservar la propia identidad frente al cambio.
+        </p>
+        <p class="pt-paragraph">
+        A través de Diana, una mujer que enfrenta la incertidumbre con la esperanza de construir un futuro para su hijo, la película explora las fronteras visibles e invisibles que atraviesan nuestras vidas. Más allá de los límites geográficos y políticos, La Frontera reflexiona sobre el arraigo, la transformación y la búsqueda de un equilibrio entre permanecer y partir, entre conservar lo que somos y abrirnos a lo que está por venir.
+        </p>
+    </div>
 </div>
 
 </div>
