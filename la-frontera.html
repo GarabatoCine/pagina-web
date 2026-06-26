@@ -240,7 +240,7 @@ opacity: 1;
 
 .poster-text-section {
 width: 100%;
-padding: 0px 20px 0px 20px; /* Reducción de margen inferior */
+padding: 0px 20px 0px 20px; 
 background: #ffffff;
 display: flex;
 justify-content: center;
@@ -311,36 +311,43 @@ text-align: left;
 
 .fotogramas-section {
 width: 100%;
-margin-top: 15px; /* Reducción espacio texto-foto */
+margin-top: 15px; 
 margin-bottom: 32px;
-padding: 0; /* Sin márgenes laterales */
+padding: 0 20px; 
 }
 
 .fotogramas-carousel {
 display: flex;
-gap: 0; /* Sin espacio entre fotos */
+gap: 15px; 
 overflow-x: auto;
 scroll-snap-type: x mandatory;
-padding: 0;
+padding-bottom: 15px; 
 }
 
+/* Barra de desplazamiento siempre visible y estilizada */
 .fotogramas-carousel::-webkit-scrollbar {
-height: 8px;
+height: 10px;
+display: block;
+}
+.fotogramas-carousel::-webkit-scrollbar-track {
+background: #f1f1f1;
+border-radius: 5px;
 }
 .fotogramas-carousel::-webkit-scrollbar-thumb {
-background-color: #FFC601;
+background: #FFC601;
+border-radius: 5px;
 }
 
 .fotograma-item {
-flex: 0 0 25%; /* 4 en pantalla completa */
+flex: 0 0 calc(25% - 12px); 
 scroll-snap-align: start;
 }
 
 .fotograma-item img {
 width: 100%;
-height: 100%;
-object-fit: cover;
-display: block;
+height: 250px; 
+object-fit: contain; 
+border-radius: 4px;
 }
 
 /* ================= CONTACTO ================= */
@@ -463,7 +470,7 @@ color:#FFC601;
 /* ================= RESPONSIVE ================= */
 
 @media(max-width:1024px) {
-    .fotograma-item { flex: 0 0 33.33%; } 
+    .fotograma-item { flex: 0 0 calc(33.33% - 10px); } 
 }
 
 @media(max-width:850px){
@@ -530,12 +537,12 @@ text-align: center;
     .hero-btn { padding: 6px 16px; font-size: 9px; border-radius: 20px; border: 0.5px solid rgba(255,255,255,0.4); }
     .premio-logo { flex: 1 1 calc(33.33% - 20px); }
     
-    /* Maximización en móvil */
+    /* Ajuste para 2 fotos en móvil */
     .fotograma-item {
-        flex: 0 0 100%; /* Fotos a pantalla completa en vertical */
+        flex: 0 0 calc(50% - 8px); 
     }
     .fotogramas-section {
-        margin-top: 10px; /* Reducción de espacio final */
+        margin-top: 10px;
     }
 }
 </style>
