@@ -165,64 +165,63 @@ border-color: #FFFFFF;
 
 .poster-text-section {
 width: 100%;
-padding: 100px 20px;
+padding: 120px 20px;
 background: #ffffff;
 display: flex;
 justify-content: center;
 }
 
 .pt-container {
-max-width: 1200px;
+max-width: 1300px;
 width: 100%;
 display: grid;
-grid-template-columns: 1fr 1fr; /* Afiche izquierda, Texto derecha */
-gap: 60px;
-align-items: start;
+grid-template-columns: 1fr 1fr;
+gap: 50px;
+align-items: center;
 margin: 0 auto;
 }
 
 .pt-poster-wrapper {
 width: 100%;
 display: flex;
-justify-content: flex-end; /* Centrado visual cargado a la izquierda del grid */
+justify-content: flex-end;
+padding-right: 20px;
 }
 
 .pt-poster {
 width: 100%;
-max-width: 460px; /* Tamaño prudente para que luzca proporcionado */
-box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+max-width: 580px;
+box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+height: auto;
+object-fit: cover;
 }
 
 .pt-info {
-padding-top: 10px;
-color: #111111;
-max-width: 520px; /* Controla que el texto termine alineado armónicamente */
+color: #333333;
+max-width: 380px; /* Bloque de texto estrecho */
+text-align: left;
 }
 
 .pt-title {
-font-family: 'Georgia', serif; /* Tipo de fuente del modelo */
-font-size: 32px;
-font-weight: normal;
+font-family: 'Oswald', sans-serif; /* Se adopta tipografía Oswald o Roboto corporativa, limpia y sin serifa */
+font-size: 36px;
+font-weight: 500;
 line-height: 1.2;
 color: #000000;
-margin-bottom: 24px;
+margin-bottom: 25px;
+text-transform: uppercase;
+letter-spacing: 1px;
 }
 
-.pt-subtitle {
-font-family: 'Georgia', serif;
-font-style: italic;
-font-size: 16px;
-line-height: 1.5;
-color: #333333;
-margin-bottom: 35px;
-}
-
+/* Texto justificado y unificado en fuente Roboto */
 .pt-paragraph {
 font-family: 'Roboto', sans-serif;
 font-size: 15px;
+font-weight: 400;
 line-height: 1.8;
-color: #222222;
-margin-bottom: 25px;
+color: #333333;
+margin-bottom: 20px;
+text-align: justify; 
 }
 
 /* ================= SECCIÓN MEDIA (CONTÁCTANOS) ================= */
@@ -281,11 +280,11 @@ border-top:1px solid rgba(255,255,255,.08);
 }
 
 .fila-tres-columnas{
-max-width:1300px;
-margin:auto;
-display:flex;
-justify-content:space-between;
-align-items:center;
+max-width: 1300px;
+margin: auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
 .columna-izquierda{
@@ -343,6 +342,24 @@ color:#FFC601;
 
 /* ================= RESPONSIVE ================= */
 
+@media(max-width:1024px){
+.pt-container {
+    gap: 30px;
+    grid-template-columns: 1fr 1fr;
+}
+.pt-poster-wrapper {
+    justify-content: center;
+    padding-right: 0;
+}
+.pt-poster {
+    max-width: 480px;
+}
+.pt-info {
+    max-width: 320px;
+    margin: 0 auto;
+}
+}
+
 @media(max-width:768px){
 
 .header{
@@ -378,15 +395,23 @@ font-size:12px;
 
 /* Responsive Poster + Texto */
 .pt-container {
-grid-template-columns: 1fr;
-gap: 40px;
-padding: 0 15px;
+grid-template-columns: 1fr; /* Una columna en móvil */
+gap: 50px;
+padding: 0 20px;
 }
 .pt-poster-wrapper {
 justify-content: center;
+padding-right: 0;
+}
+.pt-poster {
+max-width: 100%;
 }
 .pt-info {
-margin: 0 auto;
+max-width: 100%;
+text-align: center;
+}
+.pt-title {
+text-align: center;
 }
 
 /* Responsive Sección Media */
@@ -474,14 +499,14 @@ Ver Tráiler
 <div class="pt-container">
 
 <div class="pt-poster-wrapper">
-<img class="pt-poster" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-poster.jpg?raw=true?raw=true" alt="Póster La Frontera">
+<img class="pt-poster" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-poster.jpg?raw=true" alt="Póster La Frontera">
 </div>
 
 <div class="pt-info">
 <h1 class="pt-title">La Frontera</h1>
-<h3 class="pt-subtitle">
-La Frontera es un homenaje a La Guajira, un territorio de extraordinaria belleza y profundas contradicciones que inspira esta historia. Ambientada durante el cierre de la frontera entre Colombia y Venezuela en 2016, la película parte de un contexto específico para hablar de una experiencia profundamente universal: la necesidad de resistir, adaptarse y preservar la propia identidad frente al cambio.
-</h3>
+<p class="pt-paragraph">
+Ambientada durante el cierre de la frontera entre Colombia y Venezuela en 2016, la película parte de un contexto específico para hablar de una experiencia profundamente universal: la necesidad de resistir, adaptarse y preservar la propia identidad frente al cambio.
+</p>
 <p class="pt-paragraph">
 A través de Diana, una mujer que enfrenta la incertidumbre con la esperanza de construir un futuro para su hijo, la película explora las fronteras visibles e invisibles que atraviesan nuestras vidas. Más allá de los límites geográficos y políticos, La Frontera reflexiona sobre el arraigo, la transformación y la búsqueda de un equilibrio entre permanecer y partir, entre conservar lo que somos y abrirnos a lo que está por venir.
 </p>
