@@ -161,11 +161,11 @@ color: #000000;
 border-color: #FFFFFF;
 }
 
-/* ================= POSTER + TEXTO (MÁS COMPRIMIDO, CERCA, ROBOTO) ================= */
+/* ================= POSTER + TEXTO (ANCHO ESTRECHO Y ALINEADO ABAJO) ================= */
 
 .poster-text-section {
 width: 100%;
-padding: 100px 20px; /* Margen superior e inferior reducidos */
+padding: 100px 20px;
 background: #ffffff;
 display: flex;
 justify-content: center;
@@ -174,9 +174,9 @@ justify-content: center;
 .pt-wrapper {
 display: flex;
 flex-direction: row;
-justify-content: center;
-align-items: flex-start; 
-gap: 35px; /* Acercado considerablemente a la ficha (reducido de 60px a 35px) */
+justify-content: center; /* Centra el objeto compuesto estrictamente en el medio */
+align-items: flex-start;  /* Título alineado exactamente al margen superior del póster */
+gap: 30px;                /* Cerca de la ficha visualmente */
 max-width: 1200px;
 width: 100%;
 }
@@ -194,31 +194,31 @@ object-fit: cover;
 }
 
 .pt-info {
-width: 240px; /* Bloque de texto más angosto para comprimir el ancho y que baje a alinearse abajo */
+width: 210px; /* Bloque de texto más estrecho para aumentar la altura y empatar abajo con la ficha */
 flex-shrink: 0;
 padding-top: 0px; 
 }
 
-/* TÍTULO: Misma tipografía Roboto (delgada/normal) de la sección media, tamaño prudente */
+/* TÍTULO: Misma fuente Roboto y tamaño distinguible */
 .pt-title {
 font-family: 'Roboto', sans-serif; 
 font-size: 28px;
 font-weight: 400;
 line-height: 1.2;
 color: #000000;
-margin-bottom: 22px;
+margin-bottom: 20px;
 letter-spacing: 0px;
 text-transform: none; 
 }
 
-/* TEXTO: Fuente Roboto, interlineado más pequeño (1.5), justificado */
+/* TEXTO: Fuente Roboto (misma del footer/contacto), tamaño 17px, interlineado mayor (1.9) y justificado a ambos lados */
 .pt-paragraph {
 font-family: 'Roboto', sans-serif;
-font-size: 14.5px; /* Letra un poquitín más grande que antes pero encuadrada */
-font-weight: 400;
-line-height: 1.5; /* Interlineado comprimido más estético */
-color: #222222;
-margin-bottom: 18px;
+font-size: 17px; 
+font-weight: 300; /* Estilo ligero de la sección de contacto */
+line-height: 1.9; /* Interlineado mayor para ocupar renglones suficientes */
+color: #111111;
+margin-bottom: 20px;
 text-align: justify; 
 text-justify: inter-word;
 }
