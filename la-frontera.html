@@ -182,9 +182,9 @@ margin-bottom: 20px;
 display:inline-flex;
 align-items:center;
 gap: 8px;
-padding: 10px 20px;
+padding: 8px 18px;
 background: transparent;
-border: 1px solid #FFFFFF;
+border: 0.5px solid rgba(255,255,255,0.5); /* Borde fino */
 color: #FFFFFF;
 font-family: 'Roboto', sans-serif;
 font-size: 14px;
@@ -451,10 +451,12 @@ text-align: center;
 /* MÓVIL: CORRECCIONES QUIRÚRGICAS */
 @media(max-width: 600px) {
     .hero-overlay { left: 10px !important; bottom: 10%; width: 90%; }
-    .hero-title { font-size: 24px !important; line-height: 1 !important; margin-bottom: 2px !important; }
-    .hero-subtitle { margin-bottom: 8px !important; }
+    /* Tamaño de letra reducido */
+    .hero-title { font-size: 20px !important; line-height: 1 !important; margin-bottom: 2px !important; }
+    .hero-subtitle { font-size: 12px !important; margin-bottom: 8px !important; }
     .subrayado-amarillo { border-bottom: none !important; padding-bottom: 0 !important; }
-    .hero-btn { padding: 8px 16px; font-size: 10px; border-radius: 20px; }
+    /* Borde fino y píldora */
+    .hero-btn { padding: 6px 16px; font-size: 9px; border-radius: 20px; border: 0.5px solid rgba(255,255,255,0.4); }
 }
 </style>
 
@@ -613,11 +615,16 @@ Todos los derechos reservados
     const menuBtn = document.getElementById('menu-btn');
     const navMobile = document.getElementById('nav-mobile');
     
-    menuBtn.addEventListener('click', () => {
-        if (navMobile.style.display === 'flex') {
+    // Abrir/Cerrar menú
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evita que el clic se propague al body inmediatamente
+        navMobile.style.display = (navMobile.style.display === 'flex') ? 'none' : 'flex';
+    });
+
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', (e) => {
+        if (navMobile.style.display === 'flex' && !navMobile.contains(e.target) && e.target !== menuBtn) {
             navMobile.style.display = 'none';
-        } else {
-            navMobile.style.display = 'flex';
         }
     });
 </script>
