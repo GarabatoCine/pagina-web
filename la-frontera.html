@@ -731,8 +731,9 @@ text-align: center;
     padding: 0 20px;
 }
 
+/* Título con el mismo color gris claro que los nombres */
 .titulo-ficha {
-    color: #fff;
+    color: #d1d1d1;
     font-family: 'Oswald', sans-serif;
     font-size: 26px;
     letter-spacing: 4px;
@@ -762,22 +763,21 @@ text-align: center;
     gap: 16px;
 }
 
-/* AQUÍ FORZAMOS LA CARGA DE LAS IMÁGENES */
+/* FORZAMOS VISIBILIDAD */
 .ficha-item img, .reparto img {
     width: 42px !important;
-    height: auto !important;
+    height: 42px !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    min-width: 42px !important;
 }
 
-/* AJUSTES DE TEXTO: Color gris claro, tamaño 15px e interlineado 1.2 */
+/* TAMAÑO DE LETRA REDUCIDO Y COLOR IGUALADO */
 .ficha-texto {
-    color: #d1d1d1; /* Casi blanco, con toque gris */
+    color: #d1d1d1;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px; /* Reducido en un punto */
-    line-height: 1.2; /* Interlineado más compacto */
+    font-size: 14px; /* Un punto menos */
+    line-height: 1.1; /* Interlineado más compacto */
 }
 
 .reparto {
@@ -788,27 +788,12 @@ text-align: center;
 
 .reparto img {
     width: 55px !important;
+    height: auto !important;
     margin-bottom: 18px;
 }
 
 .reparto .ficha-texto {
     text-align: center;
-}
-
-@media(max-width:1000px){
-    .ficha-tecnica-grid{
-        grid-template-columns:repeat(2,1fr);
-        row-gap:50px;
-    }
-    .reparto{
-        grid-column:1/-1;
-    }
-}
-
-@media(max-width:700px){
-    .ficha-tecnica-grid{
-        grid-template-columns:1fr;
-    }
 }
 
 </style>
