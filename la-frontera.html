@@ -365,7 +365,18 @@ animation: pulse 1.5s infinite;
 .ficha-tecnica-section {
     background: #000000;
     padding: 60px 20px;
-    margin-top: 32px;
+    margin-top: 80px; /* Margen superior amplio */
+    margin-bottom: 80px; /* Margen inferior para separarlo de contacto */
+    border: 1px solid #333;
+}
+.titulo-ficha {
+    color: #fff;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
 }
 .ficha-tecnica-grid {
     display: grid;
@@ -610,7 +621,7 @@ text-align: center;
 <div class="menu-toggle" id="menu-btn"><i class="fa-solid fa-bars"></i></div>
 <div class="nav">
 <a href="proyectos.html">PROYECTOS</a>
-<a href="proximamente.html">PRÓXIMAMENTE</a>
+<a href="proximamente.html">PRÓMAMENTE</a>
 <a href="nosotros.html">NOSOTROS</a>
 <div class="lang"><span class="active">ES</span><span>|</span><span>EN</span></div>
 </div>
@@ -675,6 +686,7 @@ text-align: center;
 </section>
 
 <section class="ficha-tecnica-section">
+    <h2 class="titulo-ficha">Ficha Técnica</h2>
     <div class="ficha-tecnica-grid">
         <div class="ficha-item">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/guion.png?raw=true" alt="Guion">
@@ -685,10 +697,10 @@ text-align: center;
             <div class="ficha-nombres"><span>David David</span></div>
         </div>
         <div class="ficha-item">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/prodcuccion.png?raw=true" alt="Producción">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/musica-original.png?raw=true" alt="Música Original">
             <div class="ficha-nombres">
-                <span>Carolina David</span>
-                <span>David David</span>
+                <span>Oliver Camargo</span>
+                <span>Jorge Gómez</span>
             </div>
         </div>
         <div class="ficha-item">
@@ -696,8 +708,11 @@ text-align: center;
             <div class="ficha-nombres"><span>David David</span></div>
         </div>
         <div class="ficha-item">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion-de-fotografia.png?raw=true" alt="Dirección de Fotografía">
-            <div class="ficha-nombres"><span>Iván Molina</span></div>
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/prodcuccion.png?raw=true" alt="Producción">
+            <div class="ficha-nombres">
+                <span>Carolina David</span>
+                <span>David David</span>
+            </div>
         </div>
         <div class="ficha-item">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion-de-arte.png?raw=true" alt="Dirección de Arte">
@@ -707,11 +722,8 @@ text-align: center;
             </div>
         </div>
         <div class="ficha-item">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/musica-original.png?raw=true" alt="Música Original">
-            <div class="ficha-nombres">
-                <span>Oliver Camargo</span>
-                <span>Jorge Gómez</span>
-            </div>
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion-de-fotografia.png?raw=true" alt="Fotografía">
+            <div class="ficha-nombres"><span>Iván Molina</span></div>
         </div>
         <div class="ficha-item">
             <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/reparto.png?raw=true" alt="Reparto">
@@ -721,6 +733,15 @@ text-align: center;
                 <span>Alejo Aguilar</span>
                 <span>Nelson Camayo</span>
                 <span>Yull Núñez</span>
+            </div>
+        </div>
+    </div>
+    <div class="ficha-tecnica-grid" style="margin-top: 30px;">
+        <div class="ficha-item">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/sonido.png?raw=true" alt="Sonido">
+            <div class="ficha-nombres">
+                <span>Héctor Sánchez</span>
+                <span>Daniel “Gato” Najar</span>
             </div>
         </div>
     </div>
