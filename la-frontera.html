@@ -314,6 +314,7 @@ width: 100%;
 margin-top: 50px; 
 margin-bottom: 32px;
 padding: 0 20px; 
+position: relative; /* Ajuste realizado */
 }
 
 .fotogramas-carousel {
@@ -341,10 +342,11 @@ border-radius: 0;
 }
 
 .scroll-indicator {
-text-align: center;
+position: absolute; /* Ajuste realizado */
+top: -40px; /* Ajuste realizado */
+right: 20px; /* Ajuste realizado */
 font-size: 12px;
 color: #888;
-margin-top: 15px;
 text-transform: uppercase;
 letter-spacing: 1px;
 display: flex;
@@ -682,80 +684,54 @@ text-align: center;
 </section>
 
 <section class="fotogramas-section">
+    <div class="scroll-indicator">
+        Desliza para ver más
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
     <div class="fotogramas-carousel">
         <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera1.jpg?raw=true" alt="Fotograma 1"></div>
         <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera2.jpg?raw=true" alt="Fotograma 2"></div>
         <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera3.jpg?raw=true" alt="Fotograma 3"></div>
         <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera4.jpg?raw=true" alt="Fotograma 4"></div>
         <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera5.jpg?raw=true" alt="Fotograma 5"></div>
-        <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera6.jpg?raw=true" alt="Fotograma 6"></div>
+      <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera6.jpg?raw=true" alt="Fotograma 6"></div>
     </div>
-    <div class="scroll-indicator">
-        Desliza para ver más
-        <i class="fa-solid fa-arrow-right-long"></i>
-    </div>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<style>
-    /* Aseguramos que la sección no tenga márgenes extra */
-    .ficha-tecnica-section {
-        background: #000000;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        padding: 0;
-    }
-
-    .ficha-tecnica-marco-wrapper {
-        /* Esto hace que el marco ocupe el ancho total menos 80px (40px de cada lado) */
-        width: calc(100% - 80px);
-        /* Margen de 40px en los 4 lados para asegurar la simetría absoluta */
-        margin: 40px; 
-        border: 2px solid #ffffff;
-        position: relative;
-        /* Padding interno grande para contenido */
-        padding: 80px 40px; 
-    }
-
-    .titulo-ficha-container {
-        position: absolute;
-        top: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #000000;
-        padding: 0 20px;
-    }
-
-    .titulo-ficha {
-        color: #ffffff;
-        font-family: 'Oswald', sans-serif;
-        font-size: 26px;
-        letter-spacing: 4px;
-        text-transform: uppercase;
-        white-space: nowrap;
-    }
-
-    .ficha-tecnica-grid {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 30px;
-        width: 100%;
-    }
-</style>
-</head>
-<body>
+</section>
 
 <section class="ficha-tecnica-section">
-    <div class="ficha-tecnica-marco-wrapper">
+    <div class="ficha-tecnica-marco">
         <div class="titulo-ficha-container">
             <h2 class="titulo-ficha">FICHA TÉCNICA</h2>
         </div>
         <div class="ficha-tecnica-grid">
-            </div>
+        </div>
     </div>
 </section>
+
+<section class="contact-section">
+    <div class="contact-container">
+        <p class="contact-title">¿Interesado en distribuir o exhibir esta película? Contáctanos.</p>
+        <button class="contact-btn">Escríbenos</button>
+    </div>
+</section>
+
+<footer class="sitio-footer">
+    <div class="fila-tres-columnas">
+        <div class="columna-izquierda">
+            <h4>GARABATO CINE</h4>
+            <p>© 2026 Todos los derechos reservados.</p>
+        </div>
+        <div class="columna-central">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+        <div class="columna-derecha">
+            <p>Valledupar, Colombia</p>
+            <p><a href="mailto:info@garabatocine.com" class="footer-link-normal">info@garabatocine.com</a></p>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
