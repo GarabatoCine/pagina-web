@@ -699,32 +699,25 @@ text-align: center;
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Frontera | Garabato Cine</title>
-<!DOCTYPE html>
-<html lang="es">
-
-<style>
-/* ================= FICHA TÉCNICA (AJUSTE SIMÉTRICO) ================= */
+/* ================= FICHA TÉCNICA (AJUSTE DE MARGENES UNIFORMES) ================= */
 .ficha-tecnica-section {
     background: #000000;
-    padding: 20px; /* Margen externo mínimo para que la caja "respire" */
+    padding: 0; /* Eliminamos el padding para controlar el espacio exclusivamente con el margen del marco */
     width: 100%;
 }
 
 .ficha-tecnica-marco-wrapper {
-    max-width: 1200px;
-    margin: 40px auto; /* Margen simétrico de 40px en los 4 lados */
+    /* Margen de 40px en los cuatro lados para que sea simétrico */
+    margin: 40px; 
     border: 2px solid #ffffff;
     position: relative;
-    padding: 80px 40px; /* Aumentamos el alto interno para el contenido futuro */
+    /* Padding interno mayor para que quepa el contenido */
+    padding: 60px; 
 }
 
 .titulo-ficha-container {
     position: absolute;
-    top: -20px; /* Se posiciona sobre la línea */
+    top: -20px; 
     left: 50%;
     transform: translateX(-50%);
     background: #000000;
@@ -742,19 +735,6 @@ text-align: center;
 .ficha-tecnica-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 40px;
+    gap: 20px;
     width: 100%;
 }
-/* ... resto del CSS ... */
-</style>
-
-<section class="ficha-tecnica-section">
-    <div class="ficha-tecnica-marco-wrapper">
-        <div class="titulo-ficha-container">
-            <h2 class="titulo-ficha">FICHA TÉCNICA</h2>
-        </div>
-        <div class="ficha-tecnica-grid">
-            <!-- Contenido -->
-        </div>
-    </div>
-</section>
