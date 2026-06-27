@@ -375,7 +375,8 @@ animation: pulse 1.5s infinite;
 
 /* Contenedor del marco blanco con margen uniforme */
 .ficha-tecnica-marco {
-    border: 1px solid #ffffff; /* Grosor reducido de 2px a 1px */
+    border: 1px solid #ffffff; /* Grosor reducido a 1px, manteniendo dimensiones con box-sizing */
+    box-sizing: border-box; /* Asegura que el borde no altere el tamaño */
     padding: 60px 40px; /* Margen uniforme interno */
     max-width: 1200px;
     margin: 0 auto;
@@ -722,16 +723,3 @@ text-align: center;
             <p>© 2026 Todos los derechos reservados.</p>
         </div>
         <div class="columna-central">
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-        </div>
-        <div class="columna-derecha">
-            <p>Valledupar, Colombia</p>
-            <p><a href="mailto:info@garabatocine.com" class="footer-link-normal">info@garabatocine.com</a></p>
-        </div>
-      </div>
-</footer>
-
-</body>
-</html>
