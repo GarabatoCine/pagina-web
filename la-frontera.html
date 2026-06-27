@@ -703,14 +703,24 @@ text-align: center;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Frontera | Garabato Cine</title>
-    <!-- [Resto de tus etiquetas head y estilos anteriores se mantienen iguales] -->
-    <style>
-        /* ... (Tu CSS anterior se mantiene intacto hasta FICHA TÉCNICA) ... */
+<!DOCTYPE html>
+<html lang="es">
 
-        /* ================= FICHA TÉCNICA (AJUSTE CORREGIDO) ================= */
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Frontera | Garabato Cine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* [ ... Todo tu CSS anterior se mantiene igual hasta la FICHA TÉCNICA ... ] */
+
+        /* ================= FICHA TÉCNICA (AJUSTE FINO DE MARGENES) ================= */
         .ficha-tecnica-section {
             background: #000000;
-            padding: 80px 20px;
+            padding: 50px 20px; /* Margen externo reducido para que no sea tan gigante */
             width: 100%;
         }
 
@@ -719,11 +729,14 @@ text-align: center;
             margin: 0 auto;
         }
 
-        /* Usamos fieldset para el marco y legend para el título "roto" */
         .marco-fieldset {
             border: 2px solid #ffffff;
-            padding: 40px; /* Margen uniforme de 40px por todos los lados */
+            /* Aquí está el ajuste: un margen interno pequeño y uniforme en los 4 lados */
+            padding: 30px 40px; 
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .titulo-legend {
@@ -732,19 +745,35 @@ text-align: center;
             font-size: 26px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            padding: 0 20px; /* Espacio a los lados del texto */
+            padding: 0 15px; /* Espacio mínimo alrededor del texto para no tocar la línea */
+            background: #000000; /* Fondo negro para que oculte la línea por donde pasa */
         }
 
         .ficha-tecnica-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
+            gap: 30px; /* Espacio entre columnas */
             width: 100%;
+            margin-top: 10px;
         }
 
-        .ficha-columna { display: flex; flex-direction: column; gap: 30px; }
-        .ficha-item { display: flex; align-items: center; gap: 10px; color: #fff; font-style: italic; font-size: 14px; }
-        .ficha-item img { width: 30px; height: 30px; object-fit: contain; filter: invert(1); }
+        .ficha-columna { display: flex; flex-direction: column; gap: 20px; }
+        
+        .ficha-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            color: #fff; 
+            font-style: italic; 
+            font-size: 14px; 
+        }
+
+        .ficha-item img { 
+            width: 25px; 
+            height: 25px; 
+            object-fit: contain; 
+            filter: invert(1); 
+        }
 
         @media(max-width: 1100px) { .ficha-tecnica-grid { grid-template-columns: repeat(3, 1fr); } }
         @media(max-width: 768px) { .ficha-tecnica-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -753,54 +782,16 @@ text-align: center;
 </head>
 
 <body>
-    <!-- ... (Hero, Premios, Poster, Fotogramas anteriores) ... -->
-
     <section class="ficha-tecnica-section">
         <div class="ficha-tecnica-wrapper">
             <fieldset class="marco-fieldset">
                 <legend class="titulo-legend" align="center">FICHA TÉCNICA</legend>
                 
                 <div class="ficha-tecnica-grid">
-                    <div class="ficha-columna">
-                        <div class="ficha-item"><img src="..." alt="Dir"><span>David David</span></div>
-                        <div class="ficha-item"><img src="..." alt="Gui"><span>David David</span></div>
                     </div>
-                    <!-- ... (resto de columnas) ... -->
-                </div>
             </fieldset>
         </div>
     </section>
 
-    <!-- ... (Contacto y Footer) ... -->
-</body>
- </div>
-
-        </div>
-    </div>
-</section>
-
-<section class="contact-section">
-<div class="contact-container">
-<h2 class="contact-title">¿Quieres más información sobre esta producción?</h2>
-<a class="contact-btn" href="mailto:info@garabatocine.com">Contáctanos</a>
-</div>
-</section>
-
-<footer class="sitio-footer">
-<div class="fila-tres-columnas">
-<div class="columna-izquierda">
-<h4>GARABATO CINE</h4>
-<p>Producción cinematográfica y audiovisual.</p>
-</div>
-<div class="columna-central">
-<a href="#"><i class="fa-brands fa-instagram"></i></a>
-<a href="#"><i class="fa-brands fa-vimeo-v"></i></a>
-</div>
-<div class="columna-derecha">
-<p>© 2026 Garabato Cine. Todos los derechos reservados.</p>
-</div>
-</div>
-</footer>
-
-</body>
+    </body>
 </html>
