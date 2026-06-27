@@ -699,28 +699,24 @@ text-align: center;
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>La Frontera | Garabato Cine</title>
 <style>
-    /* Estilos globales */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { background: #000; color: #fff; font-family: 'Roboto', sans-serif; }
-
-    /* Estilo del contenedor principal de la Ficha Técnica */
+    /* Aseguramos que la sección tenga su espacio y no se desborde */
     .ficha-tecnica-section {
         background: #000000;
+        padding: 40px 0; /* Espacio arriba y abajo respecto a otras secciones */
         width: 100%;
-        padding: 0;
     }
 
     .ficha-tecnica-marco-wrapper {
-        /* Margen de 40px en todos los lados (simétrico) */
-        margin: 40px; 
+        /* Limitamos el ancho para que no toque los bordes laterales */
+        max-width: 1200px;
+        /* margin: 0 auto centra el bloque. 
+           El 40px vertical separa de arriba/abajo simétricamente */
+        margin: 40px auto; 
         border: 2px solid #ffffff;
         position: relative;
-        /* Padding interno grande para que quepa mucha información */
-        padding: 80px; 
-        display: flex;
-        justify-content: center;
+        /* Padding interno: 80px superior/inferior, 40px laterales */
+        padding: 80px 40px; 
     }
 
     .titulo-ficha-container {
@@ -733,17 +729,18 @@ text-align: center;
     }
 
     .titulo-ficha {
+        color: #ffffff;
         font-family: 'Oswald', sans-serif;
         font-size: 26px;
         letter-spacing: 4px;
         text-transform: uppercase;
+        white-space: nowrap; /* Evita que el título se rompa */
     }
 
-    /* Grid para el contenido futuro */
     .ficha-tecnica-grid {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        gap: 40px;
+        gap: 30px;
         width: 100%;
     }
 </style>
