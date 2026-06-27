@@ -694,12 +694,20 @@ text-align: center;
         Desliza para ver más
         <i class="fa-solid fa-arrow-right-long"></i>
     </div>
-</section>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
 <style>
-    .ficha-tecnica-section { background: #000000; padding: 40px 20px; width: 100%; }
+    /* Estructura del contenedor negro */
+    .ficha-tecnica-section { 
+        background: #000000; 
+        padding: 40px 20px; 
+        width: 100%; 
+    }
     
+    /* Marco blanco simétrico y centrado */
     .ficha-tecnica-marco-wrapper {
-        /* Estructura del marco que ya validamos */
         max-width: 1200px;
         margin: 40px auto; 
         border: 2px solid #ffffff;
@@ -707,6 +715,7 @@ text-align: center;
         padding: 60px 40px; 
     }
 
+    /* Título centrado que interrumpe el borde */
     .titulo-ficha-container {
         position: absolute;
         top: -20px;
@@ -725,22 +734,26 @@ text-align: center;
         white-space: nowrap;
     }
 
-    /* Grid configurado para simetría y alineación central */
+    /* Grid de 5 columnas */
     .ficha-tecnica-grid {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 20px;
         width: 100%;
-        align-items: start;
     }
 
+    /* Iconos e información */
     .ficha-item { display: flex; align-items: center; gap: 10px; color: #fff; margin-bottom: 20px; }
-    .ficha-item img { width: 30px; height: 30px; filter: invert(1); } /* Iconos blancos */
+    .ficha-item img { width: 30px; height: 30px; filter: invert(1); } /* ICONOS BLANCOS */
+    
     .texto-info { font-family: 'Roboto', sans-serif; font-style: italic; font-size: 14px; line-height: 1.2; }
 
+    /* Estilo especial para la columna de Reparto */
     .columna-reparto { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; color: #fff; }
     .columna-reparto img { width: 30px; filter: invert(1); }
 </style>
+</head>
+<body>
 
 <section class="ficha-tecnica-section">
     <div class="ficha-tecnica-marco-wrapper">
@@ -776,3 +789,6 @@ text-align: center;
         </div>
     </div>
 </section>
+
+</body>
+</html>
