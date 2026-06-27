@@ -741,7 +741,6 @@ text-align: center;
 }
 
 /* GRID */
-
 .ficha-tecnica-grid{
     display:grid;
     grid-template-columns:repeat(5,1fr);
@@ -750,7 +749,6 @@ text-align: center;
 }
 
 /* COLUMNAS */
-
 .ficha-columna{
     display:flex;
     flex-direction:column;
@@ -764,9 +762,12 @@ text-align: center;
     gap:16px;
 }
 
-.ficha-item img{
-    width:42px;
-    flex-shrink:0;
+/* ESTA PARTE ES LA QUE HACE QUE SE VEAN LOS ICONOS */
+.ficha-item img, .reparto img {
+    width: 42px;
+    flex-shrink: 0;
+    display: block;
+    visibility: visible;
 }
 
 .ficha-texto{
@@ -793,24 +794,19 @@ text-align: center;
 }
 
 @media(max-width:1000px){
-
-.ficha-tecnica-grid{
-grid-template-columns:repeat(2,1fr);
-row-gap:50px;
-}
-
-.reparto{
-grid-column:1/-1;
-}
-
+    .ficha-tecnica-grid{
+        grid-template-columns:repeat(2,1fr);
+        row-gap:50px;
+    }
+    .reparto{
+        grid-column:1/-1;
+    }
 }
 
 @media(max-width:700px){
-
-.ficha-tecnica-grid{
-grid-template-columns:1fr;
-}
-
+    .ficha-tecnica-grid{
+        grid-template-columns:1fr;
+    }
 }
 
 </style>
