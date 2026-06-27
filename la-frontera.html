@@ -706,91 +706,93 @@ text-align: center;
 <style>
 
 /* Aseguramos que la sección no tenga márgenes extra */
-.ficha-tecnica-section{
-    background:#000;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    padding:0;
+.ficha-tecnica-section {
+    background: #000;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
 }
 
-.ficha-tecnica-marco-wrapper{
-    width:calc(100% - 80px);
-    margin:40px;
-    border:1px solid #fff;
-    position:relative;
-    padding:80px 40px;
+.ficha-tecnica-marco-wrapper {
+    width: calc(100% - 80px);
+    margin: 40px;
+    border: 1px solid #fff;
+    position: relative;
+    padding: 80px 40px;
 }
 
-.titulo-ficha-container{
-    position:absolute;
-    top:-20px;
-    left:50%;
-    transform:translateX(-50%);
-    background:#000;
-    padding:0 20px;
+.titulo-ficha-container {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    padding: 0 20px;
 }
 
-.titulo-ficha{
-    color:#fff;
-    font-family:'Oswald',sans-serif;
-    font-size:26px;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    white-space:nowrap;
+.titulo-ficha {
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
 /* GRID */
-.ficha-tecnica-grid{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:35px;
-    width:100%;
+.ficha-tecnica-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 35px;
+    width: 100%;
 }
 
 /* COLUMNAS */
-.ficha-columna{
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-    gap:50px;
+.ficha-columna {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
 }
 
-.ficha-item{
-    display:flex;
-    align-items:center;
-    gap:16px;
+.ficha-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
-/* ESTA PARTE ES LA QUE HACE QUE SE VEAN LOS ICONOS */
+/* AQUÍ FORZAMOS LA CARGA DE LAS IMÁGENES */
 .ficha-item img, .reparto img {
-    width: 42px;
-    flex-shrink: 0;
-    display: block;
-    visibility: visible;
+    width: 42px !important;
+    height: auto !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-width: 42px !important;
 }
 
-.ficha-texto{
-    color:#fff;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:16px;
-    line-height:1.55;
+/* AJUSTES DE TEXTO: Color gris claro, tamaño 15px e interlineado 1.2 */
+.ficha-texto {
+    color: #d1d1d1; /* Casi blanco, con toque gris */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px; /* Reducido en un punto */
+    line-height: 1.2; /* Interlineado más compacto */
 }
 
-.reparto{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+.reparto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.reparto img{
-    width:55px;
-    margin-bottom:18px;
+.reparto img {
+    width: 55px !important;
+    margin-bottom: 18px;
 }
 
-.reparto .ficha-texto{
-    text-align:center;
-    line-height:1.8;
+.reparto .ficha-texto {
+    text-align: center;
 }
 
 @media(max-width:1000px){
