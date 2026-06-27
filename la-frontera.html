@@ -696,26 +696,20 @@ text-align: center;
     </div>
 </section>
 <style>
-    /* Contenedor negro exterior */
-    .ficha-tecnica-section {
-        background: #000000;
-        padding: 40px 20px;
-        width: 100%;
-    }
-
-    /* Marco blanco */
+    .ficha-tecnica-section { background: #000000; padding: 40px 20px; width: 100%; }
+    
     .ficha-tecnica-marco-wrapper {
+        /* Estructura del marco que ya validamos */
         max-width: 1200px;
-        margin: 0 auto;
+        margin: 40px auto; 
         border: 2px solid #ffffff;
         position: relative;
-        padding: 60px 40px; /* Padding interno para que el contenido no toque los bordes */
+        padding: 60px 40px; 
     }
 
-    /* Título que rompe la línea */
     .titulo-ficha-container {
         position: absolute;
-        top: -18px;
+        top: -20px;
         left: 50%;
         transform: translateX(-50%);
         background: #000000;
@@ -731,7 +725,7 @@ text-align: center;
         white-space: nowrap;
     }
 
-    /* Grid de 5 columnas centrado */
+    /* Grid configurado para simetría y alineación central */
     .ficha-tecnica-grid {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
@@ -740,42 +734,12 @@ text-align: center;
         align-items: start;
     }
 
-    /* Estilo de los elementos (Icono + Texto) */
-    .ficha-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: #fff;
-        margin-bottom: 20px;
-    }
+    .ficha-item { display: flex; align-items: center; gap: 10px; color: #fff; margin-bottom: 20px; }
+    .ficha-item img { width: 30px; height: 30px; filter: invert(1); } /* Iconos blancos */
+    .texto-info { font-family: 'Roboto', sans-serif; font-style: italic; font-size: 14px; line-height: 1.2; }
 
-    .ficha-item img {
-        width: 30px;
-        height: 30px;
-        filter: invert(1); /* Fuerza a que el icono sea blanco */
-    }
-
-    .texto-info {
-        font-family: 'Roboto', sans-serif;
-        font-style: italic;
-        font-size: 14px;
-        line-height: 1.2;
-    }
-
-    /* Columna Reparto especial */
-    .columna-reparto {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 10px;
-        color: #fff;
-    }
-    
-    .columna-reparto img {
-        width: 30px;
-        filter: invert(1);
-    }
+    .columna-reparto { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; color: #fff; }
+    .columna-reparto img { width: 30px; filter: invert(1); }
 </style>
 
 <section class="ficha-tecnica-section">
