@@ -700,22 +700,23 @@ text-align: center;
 <head>
 <meta charset="UTF-8">
 <style>
-    /* Aseguramos que la sección tenga su espacio y no se desborde */
+    /* Aseguramos que la sección no tenga márgenes extra */
     .ficha-tecnica-section {
         background: #000000;
-        padding: 40px 0; /* Espacio arriba y abajo respecto a otras secciones */
         width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0;
     }
 
     .ficha-tecnica-marco-wrapper {
-        /* Limitamos el ancho para que no toque los bordes laterales */
-        max-width: 1200px;
-        /* margin: 0 auto centra el bloque. 
-           El 40px vertical separa de arriba/abajo simétricamente */
-        margin: 40px auto; 
+        /* Esto hace que el marco ocupe el ancho total menos 80px (40px de cada lado) */
+        width: calc(100% - 80px);
+        /* Margen de 40px en los 4 lados para asegurar la simetría absoluta */
+        margin: 40px; 
         border: 2px solid #ffffff;
         position: relative;
-        /* Padding interno: 80px superior/inferior, 40px laterales */
+        /* Padding interno grande para contenido */
         padding: 80px 40px; 
     }
 
@@ -734,7 +735,7 @@ text-align: center;
         font-size: 26px;
         letter-spacing: 4px;
         text-transform: uppercase;
-        white-space: nowrap; /* Evita que el título se rompa */
+        white-space: nowrap;
     }
 
     .ficha-tecnica-grid {
