@@ -374,7 +374,7 @@ animation: pulse 1.5s infinite;
 }
 
 /* Contenedor del marco blanco con margen uniforme */
-.ficha-tecnica-marco {
+.ficha-tecnica-marco-wrapper {
     border: 2px solid #ffffff;
     padding: 60px 40px; /* Margen uniforme interno */
     max-width: 1200px;
@@ -414,11 +414,13 @@ animation: pulse 1.5s infinite;
 
 .ficha-item { display: flex; align-items: center; gap: 12px; }
 
-.ficha-item img {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-    filter: invert(1); /* Simplificado para blanco */
+.ficha-item img{
+    width:36px;
+    height:auto;
+    max-height:36px;
+    display:block;
+    object-fit:contain;
+} /* Simplificado para blanco */
 }
 
 .ficha-texto { font-size: 14px; color: #e0e0e0; line-height: 1.3; font-style: italic; }
@@ -679,7 +681,6 @@ text-align: center;
         <p class="pt-paragraph">Ambientada durante el cierre de la frontera entre Colombia y Venezuela en 2016, la película parte de un contexto específico para hablar de una experiencia profundamente universal: la necesidad de resistir, adaptarse y preservar la propia identidad frente al cambio.</p>
         <p class="pt-paragraph">A través de Diana, una mujer que enfrenta la incertidumbre con la esperanza de construir un futuro para su hijo, la película explora las fronteras visibles e invisibles que atraviesan nuestras vidas.</p>
     </div>
-</div>
 </div>
 </section>
 
