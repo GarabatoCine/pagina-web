@@ -374,7 +374,7 @@ animation: pulse 1.5s infinite;
 }
 
 /* Contenedor del marco blanco con margen uniforme */
-.ficha-tecnica-marco-wrapper {
+.ficha-tecnica-marco {
     border: 2px solid #ffffff;
     padding: 60px 40px; /* Margen uniforme interno */
     max-width: 1200px;
@@ -404,61 +404,21 @@ animation: pulse 1.5s infinite;
 .ficha-tecnica-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 30px; 
+    gap: 40px; /* Espaciado entre columnas */
     max-width: 100%;
-}
-.ficha-columna{
-    display:flex;
-    flex-direction:column;
-    gap:55px;
+    margin: 0 auto;
+    justify-items: start; /* Alineación de los items */
 }
 
-.ficha-item{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-.ficha-item img{
-    width:38px;
-    height:auto;
-    display:block;
-    flex-shrink:0;
-}
-
-.ficha-texto{
-    color:#fff;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:15px;
-    line-height:1.35;
-}
-
-.reparto{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-}
-
-.reparto img{
-    width:52px;
-    margin-bottom:18px;
-}
-
-.reparto .ficha-texto{
-    line-height:1.6;
-}
 .ficha-columna { display: flex; flex-direction: column; gap: 30px; width: 100%; }
 
 .ficha-item { display: flex; align-items: center; gap: 12px; }
 
-.ficha-item img{
-    width:36px;
-    height:auto;
-    max-height:36px;
-    display:block;
-    object-fit:contain;
-} /* Simplificado para blanco */
+.ficha-item img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    filter: invert(1); /* Simplificado para blanco */
 }
 
 .ficha-texto { font-size: 14px; color: #e0e0e0; line-height: 1.3; font-style: italic; }
@@ -720,6 +680,7 @@ text-align: center;
         <p class="pt-paragraph">A través de Diana, una mujer que enfrenta la incertidumbre con la esperanza de construir un futuro para su hijo, la película explora las fronteras visibles e invisibles que atraviesan nuestras vidas.</p>
     </div>
 </div>
+</div>
 </section>
 
 <section class="fotogramas-section">
@@ -736,6 +697,7 @@ text-align: center;
       <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera6.jpg?raw=true" alt="Fotograma 6"></div>
     </div>
 </section>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -743,44 +705,239 @@ text-align: center;
 
 <style>
 
-.ficha-tecnica-section {
-    background: #000000;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 0;
+/* Aseguramos que la sección no tenga márgenes extra */
+.ficha-tecnica-section{
+    background:#000;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:0;
 }
 
-.ficha-tecnica-marco-wrapper {
-    width: calc(100% - 80px);
-    margin: 40px;
-    border: 1px solid #ffffff;
-    position: relative;
-    padding: 80px 40px;
+.ficha-tecnica-marco-wrapper{
+    width:calc(100% - 80px);
+    margin:40px;
+    border:1px solid #fff;
+    position:relative;
+    padding:80px 40px;
 }
 
-.titulo-ficha-container {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #000000;
-    padding: 0 20px;
+.titulo-ficha-container{
+    position:absolute;
+    top:-20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#000;
+    padding:0 20px;
 }
 
-.titulo-ficha {
-    color: #ffffff;
-    font-family: 'Oswald', sans-serif;
-    font-size: 26px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    white-space: nowrap;
+.titulo-ficha{
+    color:#fff;
+    font-family:'Oswald',sans-serif;
+    font-size:26px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    white-space:nowrap;
 }
 
-/* GRID ORIGINAL */
-.ficha-tecnica-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 30px;
-    width: 100%;
+/* GRID */
+
+.ficha-tecnica-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:35px;
+    width:100%;
 }
+
+/* COLUMNAS */
+
+.ficha-columna{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    gap:50px;
+}
+
+.ficha-item{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.ficha-item img{
+    width:42px;
+    flex-shrink:0;
+}
+
+.ficha-texto{
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    line-height:1.55;
+}
+
+.reparto{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.reparto img{
+    width:55px;
+    margin-bottom:18px;
+}
+
+.reparto .ficha-texto{
+    text-align:center;
+    line-height:1.8;
+}
+
+@media(max-width:1000px){
+
+.ficha-tecnica-grid{
+grid-template-columns:repeat(2,1fr);
+row-gap:50px;
+}
+
+.reparto{
+grid-column:1/-1;
+}
+
+}
+
+@media(max-width:700px){
+
+.ficha-tecnica-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="ficha-tecnica-section">
+
+<div class="ficha-tecnica-marco-wrapper">
+
+<div class="titulo-ficha-container">
+<h2 class="titulo-ficha">FICHA TÉCNICA</h2>
+</div>
+
+<div class="ficha-tecnica-grid">
+
+<!-- COLUMNA 1 -->
+
+<div class="ficha-columna">
+
+<div class="ficha-item">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion.png?raw=true">
+<div class="ficha-texto">
+David David
+</div>
+</div>
+
+<div class="ficha-item">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/guion.png?raw=true">
+<div class="ficha-texto">
+David David
+</div>
+</div>
+
+</div>
+
+<!-- COLUMNA 2 -->
+
+<div class="ficha-columna">
+
+<div class="ficha-item">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion-de-fotografia.png?raw=true">
+<div class="ficha-texto">
+Ivan Molina
+</div>
+</div>
+
+<div class="ficha-item">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion-de-arte.png?raw=true">
+<div class="ficha-texto">
+Gabi Egurrola<br>
+Lucy Shalom
+</div>
+</div>
+
+</div>
+
+<!-- COLUMNA 3 -->
+
+<div class="ficha-columna">
+
+<div class="ficha-item">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/musica-original.png?raw=true">
+<div class="ficha-texto">
+Oliver Camargo<br>
+Jorge Gomez
+</div>
+</div>
+
+<div class="ficha-item">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/sonido.png?raw=true">
+<div class="ficha-texto">
+Hector Sanchez<br>
+Daniel "Gato" Najar
+</div>
+</div>
+
+</div>
+
+<!-- COLUMNA 4 -->
+
+<div class="ficha-columna">
+
+<div class="ficha-item">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/montaje.png?raw=true">
+<div class="ficha-texto">
+David David
+</div>
+</div>
+
+<div class="ficha-item">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/prodcuccion.png?raw=true">
+<div class="ficha-texto">
+David David<br>
+Carolina David
+</div>
+</div>
+
+</div>
+
+<!-- COLUMNA 5 -->
+
+<div class="ficha-columna">
+
+<div class="reparto">
+
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/reparto.png?raw=true">
+
+<div class="ficha-texto">
+Daylin Vega<br>
+Sheila Monterola<br>
+Alejo Aguilar<br>
+Nelson Camayo<br>
+Yull Núñez
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
