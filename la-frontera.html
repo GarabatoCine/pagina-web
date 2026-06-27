@@ -705,7 +705,6 @@ text-align: center;
 
 <style>
 
-/* Aseguramos que la sección no tenga márgenes extra */
 .ficha-tecnica-section{
     background:#000;
     width:100%;
@@ -719,7 +718,7 @@ text-align: center;
     margin:40px;
     border:1px solid #fff;
     position:relative;
-    padding:80px 40px;
+    padding:80px 50px;
 }
 
 .titulo-ficha-container{
@@ -740,22 +739,19 @@ text-align: center;
     white-space:nowrap;
 }
 
-/* GRID */
-
 .ficha-tecnica-grid{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:35px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
     width:100%;
+    gap:25px;
 }
 
-/* COLUMNAS */
-
 .ficha-columna{
+    width:19%;
     display:flex;
     flex-direction:column;
-    justify-content:flex-start;
-    gap:50px;
+    gap:60px;
 }
 
 .ficha-item{
@@ -766,37 +762,44 @@ text-align: center;
 
 .ficha-item img{
     width:42px;
+    height:42px;
+    object-fit:contain;
     flex-shrink:0;
 }
 
 .ficha-texto{
     color:#fff;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     font-size:16px;
-    line-height:1.55;
+    line-height:1.6;
 }
 
 .reparto{
     display:flex;
     flex-direction:column;
     align-items:center;
+    text-align:center;
 }
 
 .reparto img{
-    width:55px;
+    width:52px;
     margin-bottom:18px;
 }
 
 .reparto .ficha-texto{
-    text-align:center;
-    line-height:1.8;
+    line-height:1.9;
 }
 
-@media(max-width:1000px){
+@media(max-width:1100px){
 
 .ficha-tecnica-grid{
+display:grid;
 grid-template-columns:repeat(2,1fr);
-row-gap:50px;
+row-gap:55px;
+}
+
+.ficha-columna{
+width:100%;
 }
 
 .reparto{
@@ -805,7 +808,7 @@ grid-column:1/-1;
 
 }
 
-@media(max-width:700px){
+@media(max-width:650px){
 
 .ficha-tecnica-grid{
 grid-template-columns:1fr;
@@ -829,8 +832,6 @@ grid-template-columns:1fr;
 
 <div class="ficha-tecnica-grid">
 
-<!-- COLUMNA 1 -->
-
 <div class="ficha-columna">
 
 <div class="ficha-item">
@@ -848,8 +849,6 @@ David David
 </div>
 
 </div>
-
-<!-- COLUMNA 2 -->
 
 <div class="ficha-columna">
 
@@ -869,8 +868,6 @@ Lucy Shalom
 </div>
 
 </div>
-
-<!-- COLUMNA 3 -->
 
 <div class="ficha-columna">
 
@@ -892,8 +889,6 @@ Daniel "Gato" Najar
 
 </div>
 
-<!-- COLUMNA 4 -->
-
 <div class="ficha-columna">
 
 <div class="ficha-item">
@@ -906,14 +901,12 @@ David David
 <div class="ficha-item">
 <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/prodcuccion.png?raw=true">
 <div class="ficha-texto">
-David David<br>
-Carolina David
+Carolina David<br>
+David David
 </div>
 </div>
 
 </div>
-
-<!-- COLUMNA 5 -->
 
 <div class="ficha-columna">
 
