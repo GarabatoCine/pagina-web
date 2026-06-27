@@ -925,3 +925,13 @@ Yull Núñez
 
 </body>
 </html>
+/* REGLA DE EMERGENCIA PARA LIBERAR IMAGENES */
+.ficha-tecnica-marco-wrapper img {
+    display: block !important;
+    visibility: visible !important;
+    width: 42px !important;
+    height: 42px !important;
+    opacity: 1 !important;
+    z-index: 9999 !important;
+    background: red !important; /* Esto pondrá un fondo rojo si el icono es invisible */
+}
