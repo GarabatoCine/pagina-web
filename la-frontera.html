@@ -362,17 +362,28 @@ animation: pulse 1.5s infinite;
 }
 
 /* ================= FICHA TÉCNICA (NUEVA ESTRUCTURA 5 COLUMNAS Y MARCO) ================= */
+
+/* Contenedor principal de la sección */
 .ficha-tecnica-section {
     background: #000000;
-    padding: 80px 40px;
-    margin: 100px 20px 80px 20px;
-    border: 2px solid #ffffff; /* MARCO BLANCO PERIMETRAL */
+    padding: 100px 20px; /* Margen superior amplio para el título */
+    position: relative;
+    width: 100%;
+}
+
+/* Contenedor del marco blanco con margen uniforme */
+.ficha-tecnica-marco {
+    border: 2px solid #ffffff;
+    padding: 60px 40px; /* Margen uniforme interno */
+    max-width: 1200px;
+    margin: 0 auto;
     position: relative;
 }
 
+/* Título que interrumpe la línea superior */
 .titulo-ficha-container {
     position: absolute;
-    top: -22px;
+    top: -20px; /* Posición ajustada para quedar sobre la línea */
     left: 50%;
     transform: translateX(-50%);
     background: #000000;
@@ -385,26 +396,27 @@ animation: pulse 1.5s infinite;
     font-size: 26px;
     letter-spacing: 4px;
     text-transform: uppercase;
+    white-space: nowrap; /* Evita que el título se rompa */
 }
 
 .ficha-tecnica-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    max-width: 1400px;
+    gap: 40px; /* Espaciado entre columnas */
+    max-width: 100%;
     margin: 0 auto;
-    justify-items: center;
+    justify-items: start; /* Alineación de los items */
 }
 
 .ficha-columna { display: flex; flex-direction: column; gap: 30px; width: 100%; }
 
-.ficha-item { display: flex; align-items: center; gap: 10px; }
+.ficha-item { display: flex; align-items: center; gap: 12px; }
 
 .ficha-item img {
     width: 30px;
     height: 30px;
     object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(95%) sepia(2%) saturate(272%) hue-rotate(301deg) brightness(104%) contrast(105%);
+    filter: invert(1); /* Simplificado para blanco */
 }
 
 .ficha-texto { font-size: 14px; color: #e0e0e0; line-height: 1.3; font-style: italic; }
@@ -432,8 +444,8 @@ padding: 0 25px;
 
 .contact-title {
 font-family: 'Roboto', sans-serif; 
-font-size: 20px;                
-font-weight: 300;                
+font-size: 20px;                 
+font-weight: 300;                 
 line-height: 1.3;
 letter-spacing: 0.5px;
 margin-bottom: 30px;
@@ -682,6 +694,8 @@ text-align: center;
         Desliza para ver más
         <i class="fa-solid fa-arrow-right-long"></i>
     </div>
+</section>
+
 <section class="ficha-tecnica-section">
     <div class="titulo-ficha-container">
         <h2 class="titulo-ficha">FICHA TÉCNICA</h2>
@@ -718,59 +732,28 @@ text-align: center;
     </div>
 </section>
 
-<style>
-    .ficha-tecnica-section {
-        background: #000000;
-        padding: 60px 20px; /* Espacio exterior */
-        margin: 50px auto;
-        position: relative;
-    }
+<section class="contact-section">
+<div class="contact-container">
+<h2 class="contact-title">¿Quieres más información sobre esta producción?</h2>
+<a class="contact-btn" href="mailto:info@garabatocine.com">Contáctanos</a>
+</div>
+</section>
 
-    .ficha-tecnica-marco {
-        border: 2px solid #ffffff;
-        padding: 40px 30px; /* El "dedito" de separación de los bordes */
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+<footer class="sitio-footer">
+<div class="fila-tres-columnas">
+<div class="columna-izquierda">
+<h4>GARABATO CINE</h4>
+<p>Producción cinematográfica y audiovisual.</p>
+</div>
+<div class="columna-central">
+<a href="#"><i class="fa-brands fa-instagram"></i></a>
+<a href="#"><i class="fa-brands fa-vimeo-v"></i></a>
+</div>
+<div class="columna-derecha">
+<p>© 2026 Garabato Cine. Todos los derechos reservados.</p>
+</div>
+</div>
+</footer>
 
-    .titulo-ficha-container {
-        position: absolute;
-        top: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #000000;
-        padding: 0 15px;
-    }
-
-    .titulo-ficha {
-        color: #ffffff;
-        font-family: 'Oswald', sans-serif;
-        font-size: 24px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-    }
-
-    .ficha-tecnica-grid {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 20px;
-    }
-
-    .ficha-columna { display: flex; flex-direction: column; gap: 30px; }
-
-    .ficha-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        color: #ffffff;
-        font-size: 14px;
-        font-style: italic;
-    }
-
-    .ficha-item img {
-        width: 28px;
-        height: 28px;
-        object-fit: contain;
-        filter: invert(1);
-    }
-</style>
+</body>
+</html>
