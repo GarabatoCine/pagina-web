@@ -24,7 +24,7 @@ html,body{
 width:100%;
 overflow-x:hidden;
 background:#ffffff; 
-color:#000000;           
+color:#000000;         
 font-family:'Roboto',sans-serif;
 }
 
@@ -370,21 +370,51 @@ animation: pulse 1.5s infinite;
 .titulo-ficha-container { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background: #000; padding: 0 20px; z-index: 5; }
 .titulo-ficha { color: #d1d1d1; font-family: 'Oswald', sans-serif; font-size: 26px; letter-spacing: 4px; text-transform: uppercase; white-space: nowrap; }
 
-/* Distribución uniforme centrada */
-.ficha-tecnica-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; width: 100%; }
-.ficha-columna { display: flex; flex-direction: column; justify-content: flex-start; gap: 40px; min-width: 160px; }
+/* PC: Distribución extendida hacia los bordes */
+.ficha-tecnica-grid { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    gap: 20px; 
+    width: 100%; 
+}
+.ficha-columna { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    gap: 40px; 
+    flex: 1; 
+    min-width: 140px;
+}
 
-.ficha-item { display: flex; align-items: center; gap: 16px; position: relative; z-index: 10; }
+.ficha-item { display: flex; align-items: center; gap: 12px; position: relative; z-index: 10; }
 .reparto { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 10; }
-.reparto img { width: 55px !important; height: auto !important; margin-bottom: 10px !important; filter: none !important; display: block !important; position: relative; z-index: 20; }
+.reparto img { width: 50px !important; height: auto !important; margin-bottom: 8px !important; filter: none !important; display: block !important; }
 .reparto .ficha-texto { text-align: center; }
-.ficha-item img { width: 42px !important; height: 42px !important; display: block !important; visibility: visible !important; opacity: 1 !important; filter: none !important; position: relative; z-index: 20; }
+.ficha-item img { width: 38px !important; height: 38px !important; display: block !important; }
 
 .ficha-texto { color: #d1d1d1; font-family: 'Roboto', sans-serif; font-size: 14px !important; line-height: 1.6 !important; }
 
-@media(max-width: 1100px) { .ficha-tecnica-grid { gap: 30px; } }
-@media(max-width: 768px) { .ficha-tecnica-grid { grid-template-columns: repeat(2, 1fr); display: grid; } }
-@media(max-width: 500px) { .ficha-tecnica-grid { grid-template-columns: 1fr; display: grid; } }
+/* TABLET: 3 columnas de 3 filas */
+@media(max-width: 1024px) { 
+    .ficha-tecnica-grid { 
+        display: grid; 
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 20px; 
+    } 
+    .ficha-columna { gap: 20px; }
+}
+
+/* CELULAR: Fila de 2 iconos */
+@media(max-width: 600px) { 
+    .ficha-tecnica-grid { 
+        display: grid; 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px; 
+    } 
+    .ficha-item img, .reparto img { width: 30px !important; height: 30px !important; }
+    .ficha-texto { font-size: 11px !important; }
+}
 
 /* ================= CONTACTO ================= */
 
