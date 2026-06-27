@@ -696,64 +696,81 @@ text-align: center;
     </div>
 </section>
 
-<section class="ficha-tecnica-section">
-    <div class="titulo-ficha-container">
-        <h2 class="titulo-ficha">FICHA TÉCNICA</h2>
-    </div>
+<!DOCTYPE html>
+<html lang="es">
 
-    <div class="ficha-tecnica-marco">
-        <div class="ficha-tecnica-grid">
-            
-            <div class="ficha-columna">
-                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion.png?raw=true" alt="Dir"><span>David David</span></div>
-                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/guion.png?raw=true" alt="Gui"><span>David David</span></div>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Frontera | Garabato Cine</title>
+    <!-- [Resto de tus etiquetas head y estilos anteriores se mantienen iguales] -->
+    <style>
+        /* ... (Tu CSS anterior se mantiene intacto hasta FICHA TÉCNICA) ... */
 
-            <div class="ficha-columna">
-                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion-de-fotografia.png?raw=true" alt="Fot"><span>Iván Molina</span></div>
-                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion-de-arte.png?raw=true" alt="Art"><span>Gabi Egurrola<br>Lucy Shalom</span></div>
-            </div>
+        /* ================= FICHA TÉCNICA (AJUSTE CORREGIDO) ================= */
+        .ficha-tecnica-section {
+            background: #000000;
+            padding: 80px 20px;
+            width: 100%;
+        }
 
-            <div class="ficha-columna">
-                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/musica-original.png?raw=true" alt="Mus"><span>Oliver Camargo<br>Jorge Gómez</span></div>
-                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/sonido.png?raw=true" alt="Son"><span>Héctor Sánchez<br>Daniel “Gato” Najar</span></div>
-            </div>
+        .ficha-tecnica-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-            <div class="ficha-columna">
-                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/montaje.png?raw=true" alt="Mon"><span>David David</span></div>
-                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/produccion.png?raw=true" alt="Prod"><span>Carolina David<br>David David</span></div>
-            </div>
+        /* Usamos fieldset para el marco y legend para el título "roto" */
+        .marco-fieldset {
+            border: 2px solid #ffffff;
+            padding: 40px; /* Margen uniforme de 40px por todos los lados */
+            margin: 0;
+        }
 
-            <div class="ficha-columna">
-                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/actores.png?raw=true" alt="Act"><span>Daylin Vega<br>Sheila Monterola<br>Alejo Aguilar<br>Nelson Camayo<br>Yull Núñez</span></div>
-            </div>
+        .titulo-legend {
+            color: #ffffff;
+            font-family: 'Oswald', sans-serif;
+            font-size: 26px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            padding: 0 20px; /* Espacio a los lados del texto */
+        }
 
+        .ficha-tecnica-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        .ficha-columna { display: flex; flex-direction: column; gap: 30px; }
+        .ficha-item { display: flex; align-items: center; gap: 10px; color: #fff; font-style: italic; font-size: 14px; }
+        .ficha-item img { width: 30px; height: 30px; object-fit: contain; filter: invert(1); }
+
+        @media(max-width: 1100px) { .ficha-tecnica-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media(max-width: 768px) { .ficha-tecnica-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media(max-width: 500px) { .ficha-tecnica-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body>
+    <!-- ... (Hero, Premios, Poster, Fotogramas anteriores) ... -->
+
+    <section class="ficha-tecnica-section">
+        <div class="ficha-tecnica-wrapper">
+            <fieldset class="marco-fieldset">
+                <legend class="titulo-legend" align="center">FICHA TÉCNICA</legend>
+                
+                <div class="ficha-tecnica-grid">
+                    <div class="ficha-columna">
+                        <div class="ficha-item"><img src="..." alt="Dir"><span>David David</span></div>
+                        <div class="ficha-item"><img src="..." alt="Gui"><span>David David</span></div>
+                    </div>
+                    <!-- ... (resto de columnas) ... -->
+                </div>
+            </fieldset>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="contact-section">
-<div class="contact-container">
-<h2 class="contact-title">¿Quieres más información sobre esta producción?</h2>
-<a class="contact-btn" href="mailto:info@garabatocine.com">Contáctanos</a>
-</div>
-</section>
-
-<footer class="sitio-footer">
-<div class="fila-tres-columnas">
-<div class="columna-izquierda">
-<h4>GARABATO CINE</h4>
-<p>Producción cinematográfica y audiovisual.</p>
-</div>
-<div class="columna-central">
-<a href="#"><i class="fa-brands fa-instagram"></i></a>
-<a href="#"><i class="fa-brands fa-vimeo-v"></i></a>
-</div>
-<div class="columna-derecha">
-<p>© 2026 Garabato Cine. Todos los derechos reservados.</p>
-</div>
-</div>
-</footer>
-
+    <!-- ... (Contacto y Footer) ... -->
 </body>
 </html>
