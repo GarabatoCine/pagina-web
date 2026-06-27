@@ -314,7 +314,7 @@ width: 100%;
 margin-top: 50px; 
 margin-bottom: 32px;
 padding: 0 20px; 
-position: relative; /* Ajuste realizado */
+position: relative;
 }
 
 .fotogramas-carousel {
@@ -342,9 +342,9 @@ border-radius: 0;
 }
 
 .scroll-indicator {
-position: absolute; /* Ajuste realizado */
-top: -40px; /* Ajuste realizado */
-right: 20px; /* Ajuste realizado */
+position: absolute;
+top: -40px;
+right: 20px;
 font-size: 12px;
 color: #888;
 text-transform: uppercase;
@@ -363,65 +363,20 @@ animation: pulse 1.5s infinite;
 100% { transform: translateX(-5px); opacity: 0.5; }
 }
 
-/* ================= FICHA TÉCNICA (NUEVA ESTRUCTURA 5 COLUMNAS Y MARCO) ================= */
+/* ================= FICHA TÉCNICA (INTEGRADA) ================= */
 
-/* Contenedor principal de la sección */
-.ficha-tecnica-section {
-    background: #000000;
-    padding: 100px 20px; /* Margen superior amplio para el título */
-    position: relative;
-    width: 100%;
-}
-
-/* Contenedor del marco blanco con margen uniforme */
-.ficha-tecnica-marco {
-    border: 2px solid #ffffff;
-    padding: 60px 40px; /* Margen uniforme interno */
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-}
-
-/* Título que interrumpe la línea superior */
-.titulo-ficha-container {
-    position: absolute;
-    top: -20px; /* Posición ajustada para quedar sobre la línea */
-    left: 50%;
-    transform: translateX(-50%);
-    background: #000000;
-    padding: 0 20px;
-}
-
-.titulo-ficha {
-    color: #ffffff;
-    font-family: 'Oswald', sans-serif;
-    font-size: 26px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    white-space: nowrap; /* Evita que el título se rompa */
-}
-
-.ficha-tecnica-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 40px; /* Espaciado entre columnas */
-    max-width: 100%;
-    margin: 0 auto;
-    justify-items: start; /* Alineación de los items */
-}
-
-.ficha-columna { display: flex; flex-direction: column; gap: 30px; width: 100%; }
-
-.ficha-item { display: flex; align-items: center; gap: 12px; }
-
-.ficha-item img {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-    filter: invert(1); /* Simplificado para blanco */
-}
-
-.ficha-texto { font-size: 14px; color: #e0e0e0; line-height: 1.3; font-style: italic; }
+.ficha-tecnica-section { background: #000; width: 100%; display: flex; justify-content: center; padding: 0; }
+.ficha-tecnica-marco-wrapper { width: calc(100% - 80px); margin: 40px; border: 1px solid #fff; position: relative; padding: 80px 40px; }
+.titulo-ficha-container { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background: #000; padding: 0 20px; }
+.titulo-ficha { color: #d1d1d1; font-family: 'Oswald', sans-serif; font-size: 26px; letter-spacing: 4px; text-transform: uppercase; white-space: nowrap; }
+.ficha-tecnica-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 35px; width: 100%; }
+.ficha-columna { display: flex; flex-direction: column; justify-content: flex-start; gap: 40px; }
+.ficha-item { display: flex; align-items: center; gap: 16px; }
+.reparto { display: flex; flex-direction: column; align-items: center; }
+.reparto img { width: 55px !important; height: auto !important; margin-bottom: 10px !important; }
+.reparto .ficha-texto { text-align: center; }
+.ficha-item img, .reparto img { width: 42px !important; height: 42px !important; display: block !important; visibility: visible !important; opacity: 1 !important; filter: invert(1); }
+.ficha-texto { color: #d1d1d1; font-family: Arial, Helvetica, sans-serif; font-size: 13px !important; line-height: 1.1 !important; }
 
 @media(max-width: 1100px) { .ficha-tecnica-grid { grid-template-columns: repeat(3, 1fr); } }
 @media(max-width: 768px) { .ficha-tecnica-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -627,7 +582,9 @@ text-align: center;
 }
 </style>
 
-</head><body>
+</head>
+
+<body>
 
 <header class="header">
 <div class="logo"><a href="index.html">GARABATO CINE</a></div>
@@ -648,7 +605,7 @@ text-align: center;
 </nav>
 
 <section class="hero-banner">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-banner.jpg?raw=true" alt="Banner La Frontera">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera-banner.jpg" alt="Banner La Frontera">
 <div class="hero-overlay">
 <h1 class="hero-title"><span class="subrayado-amarillo">LA FR</span>ONTERA</h1>
 <div class="hero-subtitle">Una película de David David</div>
@@ -659,19 +616,19 @@ text-align: center;
 
 <section class="premios-section">
     <div class="premios-container">
-        <div class="premio-logo"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/festivales/cairo.png?raw=true" alt="Cairo"></div>
-        <div class="premio-logo"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/festivales/goa.png?raw=true" alt="Goa"></div>
-        <div class="premio-logo"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/festivales/ficci.png?raw=true" alt="Fixie"></div>
-        <div class="premio-logo"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/festivales/gramado.png?raw=true" alt="Grado"></div>
-        <div class="premio-logo"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/festivales/premiomacondo.png?raw=true" alt="Premios Macondo"></div>
-        <div class="premio-logo"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/festivales/lasalturas.png?raw=true" alt="Las Alturas"></div>
+        <div class="premio-logo"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/festivales/cairo.png" alt="Cairo"></div>
+        <div class="premio-logo"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/festivales/goa.png" alt="Goa"></div>
+        <div class="premio-logo"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/festivales/ficci.png" alt="Fixie"></div>
+        <div class="premio-logo"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/festivales/gramado.png" alt="Grado"></div>
+        <div class="premio-logo"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/festivales/premiomacondo.png" alt="Premios Macondo"></div>
+        <div class="premio-logo"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/festivales/lasalturas.png" alt="Las Alturas"></div>
     </div>
 </section>
 
 <section class="poster-text-section">
 <div class="pt-wrapper">
 <div class="pt-poster-wrapper">
-<img class="pt-poster" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-poster.jpg?raw=true" alt="Póster La Frontera">
+<img class="pt-poster" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera-poster.jpg" alt="Póster La Frontera">
 </div>
 <div class="pt-info">
     <div>
@@ -689,249 +646,56 @@ text-align: center;
         <i class="fa-solid fa-arrow-right-long"></i>
     </div>
     <div class="fotogramas-carousel">
-        <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera1.jpg?raw=true" alt="Fotograma 1"></div>
-        <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera2.jpg?raw=true" alt="Fotograma 2"></div>
-        <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera3.jpg?raw=true" alt="Fotograma 3"></div>
-        <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera4.jpg?raw=true" alt="Fotograma 4"></div>
-        <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera5.jpg?raw=true" alt="Fotograma 5"></div>
-      <div class="fotograma-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera6.jpg?raw=true" alt="Fotograma 6"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera1.jpg" alt="Fotograma 1"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera2.jpg" alt="Fotograma 2"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera3.jpg" alt="Fotograma 3"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera4.jpg" alt="Fotograma 4"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera5.jpg" alt="Fotograma 5"></div>
+      <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera6.jpg" alt="Fotograma 6"></div>
     </div>
 </section>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-
-<style>
-
-/* Aseguramos que la sección no tenga márgenes extra */
-.ficha-tecnica-section {
-    background: #000;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-}
-
-.ficha-tecnica-marco-wrapper {
-    width: calc(100% - 80px);
-    margin: 40px;
-    border: 1px solid #fff;
-    position: relative;
-    padding: 80px 40px;
-}
-
-.titulo-ficha-container {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #000;
-    padding: 0 20px;
-}
-
-/* Título con el mismo color gris claro que los nombres */
-.titulo-ficha {
-    color: #d1d1d1;
-    font-family: 'Oswald', sans-serif;
-    font-size: 26px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    white-space: nowrap;
-}
-
-/* GRID */
-.ficha-tecnica-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 35px;
-    width: 100%;
-}
-
-/* COLUMNAS */
-.ficha-columna {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 40px;
-}
-
-.ficha-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-/* FORZAMOS VISIBILIDAD DE ICONOS */
-.ficha-item img, .reparto img {
-    width: 42px !important;
-    height: 42px !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    filter: invert(1) !important; /* ESTA LÍNEA ES LA CLAVE SI LOS ICONOS SON BLANCOS O TRANSPARENTES */
-}
-
-/* TAMAÑO DE LETRA Y COLOR */
-.ficha-texto {
-    color: #d1d1d1;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px !important; /* Reducido un punto más */
-    line-height: 1.1 !important; /* Interlineado más compacto */
-}
-
-.reparto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.reparto img {
-    width: 55px !important;
-    height: auto !important;
-    margin-bottom: 10px !important;
-}
-
-.reparto .ficha-texto {
-    text-align: center;
-}
-
-</style>
-
-</head>
-
-<body>
-
 <section class="ficha-tecnica-section">
-
-<div class="ficha-tecnica-marco-wrapper">
-
-<div class="titulo-ficha-container">
-<h2 class="titulo-ficha">FICHA TÉCNICA</h2>
-</div>
-
-<div class="ficha-tecnica-grid">
-
-<!-- COLUMNA 1 -->
-
-<div class="ficha-columna">
-
-<div class="ficha-item">
-<img src="https://img.icons8.com/ios-filled/100/ffffff/director-chair.png" style="width:42px !important; height:42px !important; display:block !important;">
-<div class="ficha-texto">
-David David
-</div>
-</div>
-
-<div class="ficha-item">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/guion.png?raw=true">
-<div class="ficha-texto">
-David David
-</div>
-</div>
-
-</div>
-
-<!-- COLUMNA 2 -->
-
-<div class="ficha-columna">
-
-<div class="ficha-item">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion-de-fotografia.png?raw=true">
-<div class="ficha-texto">
-Ivan Molina
-</div>
-</div>
-
-<div class="ficha-item">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion-de-arte.png?raw=true">
-<div class="ficha-texto">
-Gabi Egurrola<br>
-Lucy Shalom
-</div>
-</div>
-
-</div>
-
-<!-- COLUMNA 3 -->
-
-<div class="ficha-columna">
-
-<div class="ficha-item">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/musica-original.png?raw=true">
-<div class="ficha-texto">
-Oliver Camargo<br>
-Jorge Gomez
-</div>
-</div>
-
-<div class="ficha-item">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/sonido.png?raw=true">
-<div class="ficha-texto">
-Hector Sanchez<br>
-Daniel "Gato" Najar
-</div>
-</div>
-
-</div>
-
-<!-- COLUMNA 4 -->
-
-<div class="ficha-columna">
-
-<div class="ficha-item">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/montaje.png?raw=true">
-<div class="ficha-texto">
-David David
-</div>
-</div>
-
-<div class="ficha-item">
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/prodcuccion.png?raw=true">
-<div class="ficha-texto">
-David David<br>
-Carolina David
-</div>
-</div>
-
-</div>
-
-<!-- COLUMNA 5 -->
-
-<div class="ficha-columna">
-
-<div class="reparto">
-
-<img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/reparto.png?raw=true">
-
-<div class="ficha-texto">
-Daylin Vega<br>
-Sheila Monterola<br>
-Alejo Aguilar<br>
-Nelson Camayo<br>
-Yull Núñez
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+    <div class="ficha-tecnica-marco-wrapper">
+        <div class="titulo-ficha-container"><h2 class="titulo-ficha">FICHA TÉCNICA</h2></div>
+        <div class="ficha-tecnica-grid">
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/direccion.png"><div class="ficha-texto">David David</div></div>
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/guion.png"><div class="ficha-texto">David David</div></div>
+            </div>
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/direccion-de-fotografia.png"><div class="ficha-texto">Ivan Molina</div></div>
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/direccion-de-arte.png"><div class="ficha-texto">Gabi Egurrola<br>Lucy Shalom</div></div>
+            </div>
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/musica-original.png"><div class="ficha-texto">Oliver Camargo<br>Jorge Gomez</div></div>
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/sonido.png"><div class="ficha-texto">Hector Sanchez<br>Daniel "Gato" Najar</div></div>
+            </div>
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/montaje.png"><div class="ficha-texto">David David</div></div>
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/prodcuccion.png"><div class="ficha-texto">David David<br>Carolina David</div></div>
+            </div>
+            <div class="ficha-columna">
+                <div class="reparto"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/reparto.png"><div class="ficha-texto">Daylin Vega<br>Sheila Monterola<br>Alejo Aguilar<br>Nelson Camayo<br>Yull Núñez</div></div>
+            </div>
+        </div>
+    </div>
 </section>
+
+<section class="contact-section">
+    <div class="contact-container">
+        <p class="contact-title">¿Interesado en distribuir esta película o necesitas más información?</p>
+        <a class="contact-btn" href="mailto:info@garabatocine.com">Escríbenos</a>
+    </div>
+</section>
+
+<footer class="sitio-footer">
+    <div class="fila-tres-columnas">
+        <div class="columna-izquierda"><h4>GARABATO CINE</h4><p>© 2026 Todos los derechos reservados.</p></div>
+        <div class="columna-central"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook"></i></a></div>
+        <div class="columna-derecha"><p>Valledupar, Colombia</p></div>
+    </div>
+</footer>
 
 </body>
 </html>
-/* REGLA DE EMERGENCIA PARA LIBERAR IMAGENES */
-.ficha-tecnica-marco-wrapper img {
-    display: block !important;
-    visibility: visible !important;
-    width: 42px !important;
-    height: 42px !important;
-    opacity: 1 !important;
-    z-index: 9999 !important;
-    background: red !important; /* Esto pondrá un fondo rojo si el icono es invisible */
-}
