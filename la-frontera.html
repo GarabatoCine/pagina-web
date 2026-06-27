@@ -360,10 +360,11 @@ animation: pulse 1.5s infinite;
 50% { transform: translateX(5px); opacity: 1; }
 100% { transform: translateX(-5px); opacity: 0.5; }
 }
-    /* ================= FICHA TÉCNICA (ESTRUCTURA 5 COLUMNAS) ================= */
+
+/* ================= FICHA TÉCNICA (NUEVA ESTRUCTURA 5 COLUMNAS Y MARCO) ================= */
 .ficha-tecnica-section {
     background: #000000;
-    padding: 60px 40px;
+    padding: 80px 40px;
     margin: 100px 20px 80px 20px;
     border: 2px solid #ffffff; /* MARCO BLANCO PERIMETRAL */
     position: relative;
@@ -374,7 +375,7 @@ animation: pulse 1.5s infinite;
     top: -22px;
     left: 50%;
     transform: translateX(-50%);
-    background: #000000; /* Fondo negro que "corta" el marco blanco arriba */
+    background: #000000;
     padding: 0 20px;
 }
 
@@ -392,10 +393,12 @@ animation: pulse 1.5s infinite;
     gap: 20px;
     max-width: 1400px;
     margin: 0 auto;
+    justify-items: center;
 }
 
-.ficha-columna { display: flex; flex-direction: column; gap: 30px; }
-.ficha-item { display: flex; align-items: flex-start; gap: 10px; }
+.ficha-columna { display: flex; flex-direction: column; gap: 30px; width: 100%; }
+
+.ficha-item { display: flex; align-items: center; gap: 10px; }
 
 .ficha-item img {
     width: 30px;
@@ -405,7 +408,6 @@ animation: pulse 1.5s infinite;
 }
 
 .ficha-texto { font-size: 14px; color: #e0e0e0; line-height: 1.3; font-style: italic; }
-.ficha-texto strong { display: block; color: #fff; font-size: 11px; margin-bottom: 2px; font-style: normal; text-transform: uppercase; }
 
 @media(max-width: 1100px) { .ficha-tecnica-grid { grid-template-columns: repeat(3, 1fr); } }
 @media(max-width: 768px) { .ficha-tecnica-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -611,9 +613,7 @@ text-align: center;
 }
 </style>
 
-</head>
-
-<body>
+</head><body>
 
 <header class="header">
 <div class="logo"><a href="index.html">GARABATO CINE</a></div>
@@ -682,57 +682,30 @@ text-align: center;
         Desliza para ver más
         <i class="fa-solid fa-arrow-right-long"></i>
     </div>
-</section>
-
-<section class="ficha-tecnica-section">
+</section><section class="ficha-tecnica-section">
     <div class="titulo-ficha-container">
         <h2 class="titulo-ficha">FICHA TÉCNICA</h2>
     </div>
-    <div class="ficha-tecnica-grid">
-        <div class="ficha-columna">
-            <div class="ficha-item">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion.png?raw=true" alt="dir">
-                <div class="ficha-texto"><strong>Dirección</strong>David David</div>
+    <div class="ficha-tecnica-marco">
+        <div class="ficha-tecnica-grid">
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion.png?raw=true" alt="Dir"><div>David David</div></div>
+                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/guion.png?raw=true" alt="Guion"><div>David David</div></div>
             </div>
-            <div class="ficha-item">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/guion.png?raw=true" alt="gui">
-                <div class="ficha-texto"><strong>Guion</strong>David David</div>
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion-de-fotografia.png?raw=true" alt="Foto"><div>Iván Molina</div></div>
+                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion-de-arte.png?raw=true" alt="Arte"><div>Gabi Egurrola<br>Lucy Shalom</div></div>
             </div>
-        </div>
-        <div class="ficha-columna">
-            <div class="ficha-item">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion-de-fotografia.png?raw=true" alt="fot">
-                <div class="ficha-texto"><strong>Dir. Fotografía</strong>Iván Molina</div>
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/musica-original.png?raw=true" alt="Mus"><div>Oliver Camargo<br>Jorge Gómez</div></div>
+                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/sonido.png?raw=true" alt="Son"><div>Héctor Sánchez<br>Daniel “Gato” Najar</div></div>
             </div>
-            <div class="ficha-item">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/direccion-de-arte.png?raw=true" alt="art">
-                <div class="ficha-texto"><strong>Arte</strong>Gabi Egurrola<br>Lucy Shalom</div>
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/montaje.png?raw=true" alt="Mont"><div>David David</div></div>
+                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/produccion.png?raw=true" alt="Prod"><div>Carolina David<br>David David</div></div>
             </div>
-        </div>
-        <div class="ficha-columna">
-            <div class="ficha-item">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/musica-original.png?raw=true" alt="mus">
-                <div class="ficha-texto"><strong>Música</strong>Oliver Camargo<br>Jorge Gómez</div>
-            </div>
-            <div class="ficha-item">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/sonido.png?raw=true" alt="son">
-                <div class="ficha-texto"><strong>Sonido</strong>Héctor Sánchez<br>Daniel “Gato” Najar</div>
-            </div>
-        </div>
-        <div class="ficha-columna">
-            <div class="ficha-item">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/montaje.png?raw=true" alt="mon">
-                <div class="ficha-texto"><strong>Montaje</strong>David David</div>
-            </div>
-            <div class="ficha-item">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/produccion.png?raw=true" alt="prod">
-                <div class="ficha-texto"><strong>Producción</strong>Carolina David<br>David David</div>
-            </div>
-        </div>
-        <div class="ficha-columna">
-            <div class="ficha-item">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/actores.png?raw=true" alt="act">
-                <div class="ficha-texto"><strong>Actores</strong>Daylin Vega<br>Sheila Monterola<br>Alejo Aguilar<br>Nelson Camayo<br>Yull Núñez</div>
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/fichatecnica/actores.png?raw=true" alt="Act"><div>Daylin Vega<br>Sheila Monterola<br>Alejo Aguilar<br>Nelson Camayo<br>Yull Núñez</div></div>
             </div>
         </div>
     </div>
