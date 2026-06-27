@@ -706,92 +706,55 @@ text-align: center;
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Frontera | Garabato Cine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ================= FICHA TÉCNICA (AJUSTE SIMÉTRICO) ================= */
+.ficha-tecnica-section {
+    background: #000000;
+    padding: 20px; /* Margen externo mínimo para que la caja "respire" */
+    width: 100%;
+}
 
-    <style>
-        /* [ ... Todo tu CSS anterior se mantiene igual hasta la FICHA TÉCNICA ... ] */
+.ficha-tecnica-marco-wrapper {
+    max-width: 1200px;
+    margin: 40px auto; /* Margen simétrico de 40px en los 4 lados */
+    border: 2px solid #ffffff;
+    position: relative;
+    padding: 80px 40px; /* Aumentamos el alto interno para el contenido futuro */
+}
 
-        /* ================= FICHA TÉCNICA (AJUSTE FINO DE MARGENES) ================= */
-        .ficha-tecnica-section {
-            background: #000000;
-            padding: 50px 20px; /* Margen externo reducido para que no sea tan gigante */
-            width: 100%;
-        }
+.titulo-ficha-container {
+    position: absolute;
+    top: -20px; /* Se posiciona sobre la línea */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000000;
+    padding: 0 20px;
+}
 
-        .ficha-tecnica-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.titulo-ficha {
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
 
-        .marco-fieldset {
-            border: 2px solid #ffffff;
-            /* Aquí está el ajuste: un margen interno pequeño y uniforme en los 4 lados */
-            padding: 30px 40px; 
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.ficha-tecnica-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    width: 100%;
+}
+/* ... resto del CSS ... */
+</style>
 
-        .titulo-legend {
-            color: #ffffff;
-            font-family: 'Oswald', sans-serif;
-            font-size: 26px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            padding: 0 15px; /* Espacio mínimo alrededor del texto para no tocar la línea */
-            background: #000000; /* Fondo negro para que oculte la línea por donde pasa */
-        }
-
-        .ficha-tecnica-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 30px; /* Espacio entre columnas */
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .ficha-columna { display: flex; flex-direction: column; gap: 20px; }
-        
-        .ficha-item { 
-            display: flex; 
-            align-items: center; 
-            gap: 10px; 
-            color: #fff; 
-            font-style: italic; 
-            font-size: 14px; 
-        }
-
-        .ficha-item img { 
-            width: 25px; 
-            height: 25px; 
-            object-fit: contain; 
-            filter: invert(1); 
-        }
-
-        @media(max-width: 1100px) { .ficha-tecnica-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media(max-width: 768px) { .ficha-tecnica-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media(max-width: 500px) { .ficha-tecnica-grid { grid-template-columns: 1fr; } }
-    </style>
-</head>
-
-<body>
-    <section class="ficha-tecnica-section">
-        <div class="ficha-tecnica-wrapper">
-            <fieldset class="marco-fieldset">
-                <legend class="titulo-legend" align="center">FICHA TÉCNICA</legend>
-                
-                <div class="ficha-tecnica-grid">
-                    </div>
-            </fieldset>
+<section class="ficha-tecnica-section">
+    <div class="ficha-tecnica-marco-wrapper">
+        <div class="titulo-ficha-container">
+            <h2 class="titulo-ficha">FICHA TÉCNICA</h2>
         </div>
-    </section>
-
-    </body>
-</html>
+        <div class="ficha-tecnica-grid">
+            <!-- Contenido -->
+        </div>
+    </div>
+</section>
