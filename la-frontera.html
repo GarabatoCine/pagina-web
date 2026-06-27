@@ -763,21 +763,22 @@ text-align: center;
     gap: 16px;
 }
 
-/* FORZAMOS VISIBILIDAD */
+/* FORZAMOS VISIBILIDAD DE ICONOS */
 .ficha-item img, .reparto img {
     width: 42px !important;
     height: 42px !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    filter: invert(1) !important; /* ESTA LÍNEA ES LA CLAVE SI LOS ICONOS SON BLANCOS O TRANSPARENTES */
 }
 
-/* TAMAÑO DE LETRA REDUCIDO Y COLOR IGUALADO */
+/* TAMAÑO DE LETRA Y COLOR */
 .ficha-texto {
     color: #d1d1d1;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px; /* Un punto menos */
-    line-height: 1.1; /* Interlineado más compacto */
+    font-size: 13px !important; /* Reducido un punto más */
+    line-height: 1.1 !important; /* Interlineado más compacto */
 }
 
 .reparto {
@@ -789,7 +790,7 @@ text-align: center;
 .reparto img {
     width: 55px !important;
     height: auto !important;
-    margin-bottom: 18px;
+    margin-bottom: 10px !important;
 }
 
 .reparto .ficha-texto {
