@@ -368,8 +368,7 @@ animation: pulse 1.5s infinite;
 .ficha-tecnica-section { background: #000; width: 100%; display: flex; justify-content: center; padding: 20px 0; }
 .ficha-tecnica-marco-wrapper { 
     width: calc(100% - 60px); 
-    max-width: 1200px;
-    margin: 20px auto; 
+    margin: 20px; 
     border: 1px solid #fff; 
     position: relative; 
     padding: 60px 40px 40px 40px; 
@@ -377,6 +376,7 @@ animation: pulse 1.5s infinite;
 .titulo-ficha-container { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background: #000; padding: 0 20px; z-index: 5; }
 .titulo-ficha { color: #d1d1d1; font-family: 'Oswald', sans-serif; font-size: 26px; letter-spacing: 4px; text-transform: uppercase; white-space: nowrap; }
 
+/* PC: 5 columnas originales */
 .ficha-tecnica-grid { 
     display: flex; 
     justify-content: space-between; 
@@ -420,54 +420,72 @@ animation: pulse 1.5s infinite;
 }
 
 /* ================= VER Y ESCUCHAR ================= */
-.ver-escuchar-section { 
-    width: 100%; 
-    display: flex; 
-    justify-content: center; 
-    padding: 20px 0; 
-    background: #fff; 
+
+.ver-escuchar-section {
+    width: 100%;
+    padding: 60px 20px;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: center;
 }
 
-.ve-wrapper-marco { 
-    width: calc(100% - 60px); 
-    max-width: 1200px; 
-    margin: 20px auto; 
-    border: 1px solid #ddd; 
-    padding: 40px; 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 30px; 
-    align-items: stretch; /* Mantiene misma altura que la imagen */
+.ve-container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
 }
 
-.ve-imagen-grande img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; /* Mantiene proporción, ocupa todo el espacio */
-    display: block; 
+.ve-imagen img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.ve-info { 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between;
-    gap: 20px; 
+.ve-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.ve-bloque { 
-    padding: 20px; 
-    background: #f9f9f9; 
-    border: 1px solid #eee; 
-    display: flex; 
-    align-items: center; 
-    gap: 20px; 
+.ve-bloque {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.ve-imagen-bloque { width: 120px; flex-shrink: 0; }
+.ve-bloque h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
 
-.ve-cancion-contenido h3 { font-family: 'Oswald', sans-serif; font-size: 20px; margin-bottom: 5px; text-transform: uppercase; }
-.ve-cancion-contenido p { font-size: 13px; margin-bottom: 8px; }
-.ve-btn { display: inline-block; padding: 8px 16px; background: #000; color: #fff; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+.ve-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: #000;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.ve-btn:hover {
+    background: #FFC601;
+    color: #000;
+}
+
+@media(max-width: 850px) {
+    .ve-container { grid-template-columns: 1fr; }
+}
 
 /* ================= CONTACTO ================= */
 
@@ -590,7 +608,6 @@ color:#FFC601;
 
 @media(max-width:1024px) {
     .fotograma-item { flex: 0 0 calc(33.33% - 10px); } 
-    .ve-wrapper-marco { grid-template-columns: 1fr; }
 }
 
 @media(max-width:850px){
@@ -667,8 +684,6 @@ text-align: center;
     }
     .scroll-indicator { display: none; }
     .fotogramas-section { margin-top: 20px; }
-    .ve-wrapper-marco { padding: 20px; }
-    .ve-bloque { flex-direction: column; text-align: center; }
 }
 </style>
 
@@ -773,37 +788,30 @@ text-align: center;
 </section>
 
 <section class="ver-escuchar-section">
-    <div class="ve-wrapper-marco">
-        <div class="ve-imagen-grande">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-fotogramagrande.png?raw=true" alt="Fotograma La Frontera">
+    <div class="ve-container">
+        <div class="ve-imagen">
+            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-cancion.png?raw=true" alt="Imagen Canción La Frontera">
         </div>
-        
         <div class="ve-info">
             <div class="ve-bloque">
-                <div class="ve-imagen-bloque">
-                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-cancion.png?raw=true" alt="Canción">
-                </div>
-                <div class="ve-cancion-contenido">
-                    <h3>Música Original</h3>
-                    <p>LA FRONTERA<br>Intérprete: ADRIANA LUCÍA</p>
-                    <a href="https://www.youtube.com/watch?v=VRcRpjae9RI&list=RDVRcRpjae9RI&start_radio=1" target="_blank" class="ve-btn"><i class="fab fa-spotify"></i> Escuchar</a>
-                </div>
+                <h3>Música Original</h3>
+                <p>Canción original: LA FRONTERA</p>
+                <p>Intérprete: ADRIANA LUCÍA</p>
+                <br>
+                <a href="https://open.spotify.com/intl-es/track/7oq21dTDyIfcmzMCINqXZ1?si=1bf58ce3771b46c4" target="_blank" class="ve-btn">
+                    <i class="fab fa-spotify"></i> Escuchar canción
+                </a>
             </div>
-            
             <div class="ve-bloque">
-                <div class="ve-imagen-bloque">
-                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/logo-rtvcplay.png?raw=true" alt="RTVCPlay">
-                </div>
-                <div class="ve-cancion-contenido">
-                    <h3>¿Dónde ver?</h3>
-                    <p>Disponible en RTVCPlay para Colombia.</p>
-                    <a href="https://rtvcplay.co/peliculas-ficcion/la-frontera" target="_blank" class="ve-btn">Ver Película</a>
-                </div>
+                <h3>¿Dónde ver la película?</h3>
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/logo-rtvcplay.png?raw=true" alt="RTVCPlay" style="max-width: 150px; margin-bottom: 15px;">
+                <p>La frontera se encuentra disponible para el público colombiano a través de RTVCPlay.</p>
+                <br>
+                <a href="https://rtvcplay.co/peliculas-ficcion/la-frontera" target="_blank" class="ve-btn">Ver la película</a>
             </div>
         </div>
     </div>
 </section>
-
 <section class="contact-section">
     <div class="contact-container">
         <p class="contact-title">¿Interesado en distribuir esta película o necesitas más información?</p>
