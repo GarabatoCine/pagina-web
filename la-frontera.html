@@ -516,8 +516,8 @@ padding: 0 25px;
 
 .contact-title {
 font-family: 'Roboto', sans-serif; 
-font-size: 20px;                  
-font-weight: 300;                  
+font-size: 20px;                 
+font-weight: 300;                 
 line-height: 1.3;
 letter-spacing: 0.5px;
 margin-bottom: 30px;
@@ -834,11 +834,20 @@ text-align: center;
     const menuBtn = document.getElementById('menu-btn');
     const navMobile = document.getElementById('nav-mobile');
 
-    menuBtn.addEventListener('click', () => {
+    // Abrir/cerrar al hacer clic en el botón
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evita que el clic se propague al documento inmediatamente
         if (navMobile.style.display === 'flex') {
             navMobile.style.display = 'none';
         } else {
             navMobile.style.display = 'flex';
+        }
+    });
+
+    // Cerrar al hacer clic en cualquier parte fuera del menú
+    document.addEventListener('click', (e) => {
+        if (navMobile.style.display === 'flex' && !navMobile.contains(e.target) && e.target !== menuBtn) {
+            navMobile.style.display = 'none';
         }
     });
 </script>
