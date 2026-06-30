@@ -394,39 +394,42 @@ animation: pulse 1.5s infinite;
 .ficha-item img { width: 35px !important; height: 35px !important; display: block !important; }
 .ficha-texto { color: #d1d1d1; font-family: 'Roboto', sans-serif; font-size: 13px !important; line-height: 1.4 !important; }
 
-/* TABLET: 3 columnas, centrado */
+/* TABLET: 3 columnas, centrado, posiciones fijas */
 @media(max-width: 1024px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
         grid-template-columns: repeat(3, 1fr) !important; 
         gap: 30px 15px !important; 
+        justify-items: start !important; /* Alineación a la izquierda para el icono */
     } 
-    .ficha-columna { 
-        display: contents !important; /* Esto hace que los items ignoren las columnas y se unan a la cuadrícula */
-    }
+    /* Forzamos que cada columna tenga un orden lógico para no mover iconos */
+    .ficha-columna:nth-child(1) { grid-column: 1; }
+    .ficha-columna:nth-child(2) { grid-column: 2; }
+    .ficha-columna:nth-child(3) { grid-column: 3; }
+    .ficha-columna:nth-child(4) { grid-column: 1; grid-row: 2; }
+    .ficha-columna:nth-child(5) { grid-column: 2; grid-row: 2; } /* Reparto en columna 2, fila 2 */
+    .ficha-columna:nth-child(6) { grid-column: 3; grid-row: 2; } /* Producción en columna 3, fila 2 */
+
+    .ficha-item { flex-direction: row !important; align-items: center !important; }
+    .reparto { flex-direction: row !important; align-items: center !important; }
 }
 
-/* MÓVIL: 3 columnas, ícono arriba */
+/* MÓVIL: 3 columnas, ícono a la izquierda, posiciones estrictas */
 @media(max-width: 600px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
         grid-template-columns: repeat(3, 1fr) !important; 
-        gap: 15px 5px !important; 
+        gap: 10px 5px !important; 
     } 
-    .ficha-columna { 
-        display: contents !important; /* Esto libera los items para que se acomoden en 3 columnas */
-    }
-    .ficha-item { 
-        flex-direction: column !important; 
-        align-items: center !important; 
-        text-align: center !important; 
-        gap: 5px !important; 
-    }
-    .ficha-item img { width: 25px !important; height: 25px !important; }
-    .ficha-texto { font-size: 9px !important; }
+    /* Ubicación exacta para Móvil */
+    .ficha-columna:nth-child(5) { grid-column: 2; grid-row: 3; } /* Reparto en Col 2, Fila 3 */
+    .ficha-columna:nth-child(4) { grid-column: 3; grid-row: 3; } /* Producción en Col 3, Fila 3 */
+
+    .ficha-item { flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; }
+    .reparto { flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; }
     
-    /* Forzamos que el Reparto ocupe todo el ancho si es necesario */
-    .reparto { grid-column: span 3 !important; margin-top: 10px !important; }
+    .ficha-item img, .reparto img { width: 25px !important; height: 25px !important; }
+    .ficha-texto { font-size: 9px !important; text-align: left !important; }
 }
 
 /* ================= NUEVA SECCIÓN VER Y ESCUCHAR ALINEADA ================= */
