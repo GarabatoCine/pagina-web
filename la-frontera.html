@@ -394,25 +394,32 @@ animation: pulse 1.5s infinite;
 .ficha-item img { width: 35px !important; height: 35px !important; display: block !important; }
 .ficha-texto { color: #d1d1d1; font-family: 'Roboto', sans-serif; font-size: 13px !important; line-height: 1.4 !important; }
 
-/* TABLET: 3 columnas, centrado real */
+/* TABLET: Ajustes finales - Alineación izquierda y cambio de orden */
 @media(max-width: 1024px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
         grid-template-columns: repeat(3, 1fr) !important; 
         gap: 30px !important; 
         width: 100% !important; 
-        justify-content: center !important; /* Centra las columnas completas */
-        align-items: center !important;
+        justify-content: center !important;
+        align-items: start !important; /* Alinea los elementos al tope */
     } 
     .ficha-columna { display: contents !important; }
+    
     .ficha-item, .reparto { 
         display: flex !important; 
         flex-direction: row !important; 
         align-items: center !important; 
-        justify-content: flex-start !important; 
-        width: auto !important; /* Ajusta al contenido para que no fuerce el ancho */
-        margin: 0 auto !important; /* Centra cada item individual */
+        justify-content: flex-start !important; /* Asegura iconos a la izquierda */
+        text-align: left !important; /* Asegura nombres a la izquierda */
+        width: 100% !important;
     }
+
+    /* Intercambio de posiciones (Orden 1=Izquierda, 2=Centro, 3=Derecha) */
+    .reparto { order: 2 !important; } /* Reparto se mueve al centro */
+    /* Buscamos el ítem de producción para moverlo a la derecha (orden 3) */
+    /* Si producción estaba al final, le damos orden 3 */
+    .ficha-columna:nth-child(4) .ficha-item:nth-child(2) { order: 3 !important; } 
 }
 
 /* MÓVIL: 3 columnas, centrado real */
