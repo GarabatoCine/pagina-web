@@ -394,24 +394,48 @@ animation: pulse 1.5s infinite;
 .ficha-item img { width: 35px !important; height: 35px !important; display: block !important; }
 .ficha-texto { color: #d1d1d1; font-family: 'Roboto', sans-serif; font-size: 13px !important; line-height: 1.4 !important; }
 
-/* TABLET: 3 columnas, ícono izquierda, nombre derecha, sin reducir tamaño */
+/* TABLET: 3 columnas, forzando orden */
 @media(max-width: 1024px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
         grid-template-columns: repeat(3, 1fr) !important; 
-        gap: 15px 10px !important; 
+        gap: 30px 15px !important; 
+        width: 100% !important; 
+    } 
+    .ficha-columna { 
+        display: flex !important; 
+        flex-direction: column !important; 
+        align-items: center !important; 
+        gap: 20px !important; 
     }
-    .ficha-item { flex-direction: row !important; align-items: center !important; gap: 10px !important; }
-    .ficha-item img { width: 35px !important; height: 35px !important; }
-    .ficha-texto { font-size: 13px !important; text-align: left !important; }
 }
 
 /* MÓVIL: 3 columnas, ícono arriba, texto abajo */
 @media(max-width: 600px) { 
-    .ficha-tecnica-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 15px 5px !important; }
-    .ficha-item { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 5px !important; }
-    .ficha-item img { width: 25px !important; height: 25px !important; }
-    .ficha-texto { font-size: 9px !important; }
+    .ficha-tecnica-grid { 
+        display: grid !important; 
+        grid-template-columns: repeat(3, 1fr) !important; 
+        gap: 15px 5px !important; 
+        width: 100% !important;
+    } 
+    .ficha-item { 
+        flex-direction: column !important; 
+        align-items: center !important; 
+        text-align: center !important; 
+        gap: 5px !important; 
+    }
+    .ficha-item img { 
+        width: 25px !important; 
+        height: 25px !important; 
+    }
+    .ficha-texto { 
+        font-size: 9px !important; 
+        line-height: 1.2 !important;
+    }
+    .reparto { 
+        grid-column: span 3 !important; /* El reparto ocupará toda la fila de abajo */
+        margin-top: 10px !important; 
+    }
 }
 
 /* ================= NUEVA SECCIÓN VER Y ESCUCHAR ALINEADA ================= */
