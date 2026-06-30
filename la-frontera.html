@@ -428,40 +428,52 @@ animation: pulse 1.5s infinite;
     /* El bloque que quieres que sea el TERCERO (Derecha) - Ponemos Producción aquí */
     .ficha-columna:nth-child(6) { order: 3 !important; } 
 }
-/* MÓVIL: Alineación vertical perfecta y espacio superior */
+/* MÓVIL: Ajuste de alineación del reparto y alineación final */
 @media(max-width: 600px) { 
-    /* 1. Damos un poco más de aire arriba, pero controlamos el total */
+    /* 1. Marco y espaciado general (mantenemos los buenos márgenes laterales) */
     .ficha-tecnica-marco-wrapper { 
-        padding: 35px 10px 15px 10px !important; /* Más aire arriba, menos abajo */
+        padding: 30px 10px 15px 10px !important; 
         margin: 10px auto !important;
         width: 95% !important;
     }
 
-    /* 2. Ajustamos el contenedor del grid */
+    /* 2. Grid y alineación base (forzamos alineación al tope) */
     .ficha-tecnica-grid { 
         display: grid !important; 
         grid-template-columns: repeat(3, 1fr) !important; 
-        gap: 15px 5px !important; /* Aumentamos el espacio vertical */
+        gap: 15px 5px !important; 
         width: 100% !important; 
-        align-items: start !important; /* ¡ESTO ALINEARÁ LAS TRES COLUMNAS ARRIBA! */
+        align-items: start !important; /* Alinea los ítems de las 3 columnas arriba */
     } 
 
     .ficha-columna { display: contents !important; }
     
-    /* 3. Aseguramos alineación vertical constante */
+    /* 3. Ítems generales */
     .ficha-item, .reparto { 
         display: flex !important; 
         flex-direction: column !important; 
         align-items: center !important; 
-        justify-content: flex-start !important; /* Alinea los ítems al mismo nivel */
+        justify-content: flex-start !important; 
         text-align: center !important; 
         gap: 5px !important;
-        min-height: 60px !important; /* Esto asegura que todas las celdas tengan altura mínima igual */
+    }
+
+    /* 4. ¡SOLUCIÓN ESPECÍFICA PARA DAYLIN VEGA! */
+    .reparto { 
+        gap: 2px !important; /* Mínimo gap entre icono y nombre */
+        padding-top: 0 !important;
     }
     
+    .reparto .ficha-texto { 
+        margin-top: -3px !important; /* Empuja el texto hacia arriba */
+        line-height: 1.1 !important;
+    }
+    
+    /* 5. Ajustes de tamaño */
     .ficha-item img, .reparto img { 
         width: 26px !important; 
         height: 26px !important; 
+        margin-bottom: 0 !important;
     }
     
     .ficha-texto { 
