@@ -428,27 +428,31 @@ animation: pulse 1.5s infinite;
     /* El bloque que quieres que sea el TERCERO (Derecha) - Ponemos Producción aquí */
     .ficha-columna:nth-child(6) { order: 3 !important; } 
 }
-/* MÓVIL: 3 columnas, centrado real */
+/* MÓVIL: Iconos arriba, mejor uso del espacio */
 @media(max-width: 600px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
         grid-template-columns: repeat(3, 1fr) !important; 
-        gap: 15px 5px !important; 
-        width: 100% !important; 
-        justify-content: center !important; 
+        gap: 15px 10px !important; 
+        width: 100% !important; /* Usamos todo el ancho */
+        padding: 0 5px !important; /* Mínimo margen a los lados para aprovechar espacio */
+        margin-top: 10px !important; /* Reduce espacio con el título */
     } 
     .ficha-columna { display: contents !important; }
+    
     .ficha-item, .reparto { 
         display: flex !important; 
-        flex-direction: row !important; 
+        flex-direction: column !important; /* Icono arriba, texto abajo */
         align-items: center !important; 
         justify-content: flex-start !important; 
-        width: auto !important;
+        text-align: center !important; /* Centra el texto debajo del icono */
+        gap: 5px !important;
     }
-    .ficha-item img, .reparto img { width: 22px !important; height: 22px !important; }
-    .ficha-texto { font-size: 9px !important; line-height: 1.2 !important; }
-}
-/* ================= NUEVA SECCIÓN VER Y ESCUCHAR ALINEADA ================= */
+    
+    /* Ajustes de tamaño para que quepa todo */
+    .ficha-item img, .reparto img { width: 25px !important; height: 25px !important; margin-bottom: 0 !important; }
+    .ficha-texto { font-size: 8px !important; line-height: 1.1 !important; word-break: break-word !important; }
+}/* ================= NUEVA SECCIÓN VER Y ESCUCHAR ALINEADA ================= */
 .ve-section-wrapper {
     width: calc(100% - 60px);
     max-width: 1200px;
