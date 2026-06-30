@@ -1,4 +1,4 @@
-ç<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -416,16 +416,8 @@ animation: pulse 1.5s infinite;
         text-align: left !important;
     }
 
-    /* Trueque: Usamos 'order' con números consecutivos. 
-        Esto le dice al navegador el orden de dibujo: 1, 2, 3... */
-    
-    /* El bloque que quieres que sea el PRIMERO (Izquierda) */
     .ficha-columna:nth-child(1) { order: 1 !important; }
-    
-    /* El bloque que quieres que sea el SEGUNDO (Centro) - Ponemos Reparto aquí */
     .reparto { order: 2 !important; }
-    
-    /* El bloque que quieres que sea el TERCERO (Derecha) - Ponemos Producción aquí */
     .ficha-columna:nth-child(6) { order: 3 !important; } 
 }
 /* MÓVIL: Código completo y optimizado */
@@ -465,7 +457,6 @@ animation: pulse 1.5s infinite;
         line-height: 1.1 !important;
     }
     
-    /* ICONOS: Tamaño estándar y sin deformación */
     .ficha-item img, .reparto img { 
         width: 30px !important; 
         height: 30px !important; 
@@ -605,15 +596,6 @@ color:#888;
 line-height:1.8;
 }
 
-.footer-link-normal{
-color:inherit;
-text-decoration:underline;
-}
-
-.footer-link-normal:hover{
-color:#FFC601;
-}
-
 /* ================= RESPONSIVE ================= */
 
 @media(max-width:1024px) {
@@ -668,12 +650,6 @@ text-align:center;
 .columna-derecha p {
 text-align: center;
 }
-}
-
-@media(max-width: 991px) {
-    .premio-logo img {
-        max-height: 52.5px;
-    }
 }
 
 @media(max-width: 600px) {
@@ -756,7 +732,7 @@ text-align: center;
 <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera-banner.jpg" alt="Banner La Frontera">
 <div class="hero-overlay">
     <div class="hero-text-mobile">
-        <h1 class="hero-title"><span class="subrayado-amarillo">LA FRONTERA</span></h1>
+        <h1 class="hero-title"><span class="subrayado-amarillo">LA FR</span>ONTERA</h1>
         <div class="hero-subtitle">Una película de David David</div>
     </div>
     <a class="hero-btn" href="https://www.youtube.com/watch?v=FeABm-LkkHk" target="_blank">
@@ -782,7 +758,7 @@ text-align: center;
 </div>
 <div class="pt-info">
     <div>
-        <h1 class="pt-title"><span class="pt-subrayado-amarillo">La Frontera</span></h1>
+        <h1 class="pt-title"><span class="pt-subrayado-amarillo">La Fr</span>ontera</h1>
         <p class="pt-paragraph">Ambientada durante el cierre de la frontera entre Colombia y Venezuela en 2016, la película parte de un contexto específico para hablar de una experiencia profundamente universal: la necesidad de resistir, adaptarse y preservar la propia identidad frente al cambio.</p>
         <p class="pt-paragraph">A través de Diana, una mujer que enfrenta la incertidumbre con la esperanza de construir un futuro para su hijo, la película explora las fronteras visibles e invisibles que atraviesan nuestras vidas.</p>
     </div>
@@ -818,74 +794,4 @@ text-align: center;
                 <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/direccion-de-arte.png"><div class="ficha-texto">Gabi Egurrola<br>Lucy Shalom</div></div>
             </div>
             <div class="ficha-columna">
-                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/musica-original.png"><div class="ficha-texto">Oliver Camargo<br>Jorge Gomez</div></div>
-                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/sonido.png"><div class="ficha-texto">Hector Sanchez<br>Daniel "Gato" Najar</div></div>
-            </div>
-            <div class="ficha-columna">
-                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/montaje.png"><div class="ficha-texto">David David</div></div>
-                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/prodcuccion.png"><div class="ficha-texto">David David<br>Carolina David</div></div>
-            </div>
-            <div class="ficha-columna">
-                <div class="reparto"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/reparto.png"><div class="ficha-texto">Daylin Vega<br>Sheila Monterola<br>Alejo Aguilar<br>Nelson Camayo<br>Yull Núñez</div></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- NUEVA SECCIÓN VER Y ESCUCHAR -->
-<section class="ve-section-wrapper">
-    <div class="ve-img-grande"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-fotogramagrande.png?raw=true" alt="La Frontera"></div>
-    <div class="ve-bloques-derecha">
-        <div class="ve-bloque">
-            <h3>Música Original</h3>
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-cancion.png?raw=true" style="max-width:150px; margin: 10px 0;">
-            <p>Canción: LA FRONTERA<br>Intérprete: ADRIANA LUCÍA</p>
-            <a href="#" class="ve-btn">Escuchar</a>
-        </div>
-        <div class="ve-bloque">
-            <p>Disponible en:</p>
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/logo-rtvcplay.png?raw=true" style="max-width:100px; margin:10px 0;">
-            <a href="https://rtvcplay.co/peliculas-ficcion/la-frontera" target="_blank" class="ve-btn">Ver Película</a>
-        </div>
-    </div>
-</section>
-
-<section class="contact-section">
-    <div class="contact-container">
-        <p class="contact-title">¿Interesado en distribuir esta película o necesitas más información?</p>
-        <a class="contact-btn" href="mailto:info@garabatocine.com">Escríbenos</a>
-    </div>
-</section>
-
-<footer class="sitio-footer">
-    <div class="fila-tres-columnas">
-        <div class="columna-izquierda"><h4>GARABATO CINE</h4><p>© 2026 Todos los derechos reservados.</p></div>
-        <div class="columna-central"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook"></i></a></div>
-        <div class="columna-derecha"><p>Valledupar, Colombia</p></div>
-    </div>
-</footer>
-
-<script>
-    const menuBtn = document.getElementById('menu-btn');
-    const navMobile = document.getElementById('nav-mobile');
-
-    // Abrir/cerrar al hacer clic en el botón
-    menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation(); 
-        if (navMobile.style.display === 'flex') {
-            navMobile.style.display = 'none';
-        } else {
-            navMobile.style.display = 'flex';
-        }
-    });
-
-    // Cerrar al hacer clic en cualquier parte fuera del menú
-    document.addEventListener('click', (e) => {
-        if (navMobile.style.display === 'flex' && !navMobile.contains(e.target) && e.target !== menuBtn) {
-            navMobile.style.display = 'none';
-        }
-    });
-</script>
-
-</body>
-</html>
+                <div class="ficha-item"><img src="
