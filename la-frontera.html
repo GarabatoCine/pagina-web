@@ -394,32 +394,38 @@ animation: pulse 1.5s infinite;
 .ficha-item img { width: 35px !important; height: 35px !important; display: block !important; }
 .ficha-texto { color: #d1d1d1; font-family: 'Roboto', sans-serif; font-size: 13px !important; line-height: 1.4 !important; }
 
-/* TABLET: Centrado estético y preciso */
+/* TABLET: Mapa de cuadrícula fijo */
 @media(max-width: 1024px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
-        grid-template-columns: repeat(3, 1fr) !important; 
-        gap: 40px !important; /* Aumentamos un poco el gap para que respire */
-        width: 90% !important; /* Centramos el bloque total */
-        margin: 0 auto !important; 
-        justify-content: center !important; 
-        justify-items: center !important; /* Centra los iconos individualmente */
+        grid-template-columns: 1fr 1fr 1fr !important; /* Tres columnas iguales */
+        grid-template-areas: 
+            "col1 col2 col3"
+            "col4 col5 col6"; /* Aquí definimos las filas */
+        gap: 20px !important; 
+        width: 100% !important; 
+        padding: 0 5% !important; /* Espacio a los lados */
     } 
+
     .ficha-columna { display: contents !important; }
-    
+
+    /* Asignamos cada elemento a una zona del mapa */
     .ficha-item, .reparto { 
         display: flex !important; 
         flex-direction: row !important; 
         align-items: center !important; 
-        justify-content: flex-start !important; 
-        width: 100% !important; /* Deja que el item ocupe su celda pero se alinee a la izquierda dentro de ella */
+        justify-content: flex-start !important;
         text-align: left !important;
+        width: 100% !important;
     }
 
-    /* Reparto en el centro */
-    .reparto { order: 2 !important; } 
-    /* Producción a la derecha */
-    .ficha-columna:nth-child(4) .ficha-item:nth-child(2) { order: 3 !important; } 
+    /* Mover Reparto al centro (col2) y Producción a la derecha (col3) */
+    .reparto { grid-area: col2 !important; }
+    /* Para que esto funcione, necesito que busques en tu HTML y a los divs de:
+       1. Direccion y Guion (col 1)
+       2. Foto y Arte (col 2)
+       3. Musica y Sonido (col 3)
+       Les pongas una clase, pero si no quieres tocar el HTML, probemos así: */
 }
 
 /* MÓVIL: 3 columnas, centrado real */
