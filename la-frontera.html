@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ç<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -686,18 +686,35 @@ text-align: center;
         justify-content: space-between !important; 
         align-items: flex-end !important;
         max-width: 100% !important;
+        padding: 0 !important;
     }
-    .hero-title { font-size: 20px !important; line-height: 1 !important; margin-bottom: 2px !important; }
-    .hero-subtitle { font-size: 12px !important; margin-bottom: 0px !important; }
-    .subrayado-amarillo { border-bottom: none !important; padding-bottom: 0 !important; }
-    
+    .hero-text-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .hero-title { 
+        font-size: 22px !important; 
+        line-height: 1 !important; 
+        margin-bottom: 5px !important; 
+        text-transform: uppercase;
+    }
+    .hero-subtitle { 
+        font-size: 11px !important; 
+        margin-bottom: 0 !important; 
+        color: #CCCCCC !important;
+    }
+    .subrayado-amarillo { 
+        border-bottom: 3px solid #FFC601 !important; 
+        padding-bottom: 2px !important; 
+        display: inline-block !important;
+    }
     .hero-btn { 
-        padding: 4px 10px !important; 
+        padding: 4px 8px !important; 
         font-size: 8px !important; 
         margin-bottom: 0 !important;
         white-space: nowrap;
     }
-    
     .premio-logo { flex: 1 1 calc(33.33% - 20px); }
     
     .fotogramas-carousel {
@@ -710,7 +727,6 @@ text-align: center;
     }
     .scroll-indicator { display: none; }
     .fotogramas-section { margin-top: 20px; }
-}
 }
 </style>
 
@@ -739,10 +755,12 @@ text-align: center;
 <section class="hero-banner">
 <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera-banner.jpg" alt="Banner La Frontera">
 <div class="hero-overlay">
-<h1 class="hero-title"><span class="subrayado-amarillo">LA FR</span>ONTERA</h1>
-<div class="hero-subtitle">Una película de David David</div>
-<a class="hero-btn" href="https://www.youtube.com/watch?v=FeABm-LkkHk" target="_blank">
-<i class="fa-solid fa-play"></i> Ver Tráiler</a>
+    <div class="hero-text-mobile">
+        <h1 class="hero-title"><span class="subrayado-amarillo">LA FRONTERA</span></h1>
+        <div class="hero-subtitle">Una película de David David</div>
+    </div>
+    <a class="hero-btn" href="https://www.youtube.com/watch?v=FeABm-LkkHk" target="_blank">
+    <i class="fa-solid fa-play"></i> Ver Tráiler</a>
 </div>
 </section>
 
@@ -853,7 +871,7 @@ text-align: center;
 
     // Abrir/cerrar al hacer clic en el botón
     menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation(); // Evita que el clic se propague al documento inmediatamente
+        e.stopPropagation(); 
         if (navMobile.style.display === 'flex') {
             navMobile.style.display = 'none';
         } else {
