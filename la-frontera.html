@@ -394,34 +394,43 @@ animation: pulse 1.5s infinite;
 .ficha-item img { width: 35px !important; height: 35px !important; display: block !important; }
 .ficha-texto { color: #d1d1d1; font-family: 'Roboto', sans-serif; font-size: 13px !important; line-height: 1.4 !important; }
 
-/* TABLET Y MÓVIL: Fuerza total de centrado y distribución */
+/* TABLET: Centrado forzado */
 @media(max-width: 1024px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
         grid-template-columns: repeat(3, 1fr) !important; 
         gap: 20px !important; 
         width: 100% !important; 
-        margin: 0 auto !important; 
-        justify-items: center !important; /* Centra el contenido de cada celda */
-        align-items: start !important;
+        padding-left: 10% !important; /* Desplazamos el contenido desde la izquierda */
+        justify-items: start !important; 
     } 
     .ficha-columna { display: contents !important; }
-    
-    /* Forzamos a que cada grupo icono+texto se comporte como un bloque centrado */
+    .ficha-item, .reparto { 
+        display: flex !important; 
+        flex-direction: row !important; 
+        align-items: center !important; 
+        justify-content: flex-start !important;
+        width: 100% !important;
+    }
+}
+
+/* MÓVIL: Centrado forzado */
+@media(max-width: 600px) { 
+    .ficha-tecnica-grid { 
+        display: grid !important; 
+        grid-template-columns: repeat(3, 1fr) !important; 
+        gap: 10px 5px !important; 
+        width: 95% !important; 
+        margin: 0 auto !important; 
+        padding-left: 5% !important;
+    } 
+    .ficha-columna { display: contents !important; }
     .ficha-item, .reparto { 
         display: flex !important; 
         flex-direction: row !important; 
         align-items: center !important; 
         justify-content: flex-start !important; 
-        width: 180px !important; /* Ancho fijo para que el navegador reparta el espacio equitativamente */
     }
-}
-
-@media(max-width: 600px) { 
-    .ficha-tecnica-grid { gap: 10px 5px !important; }
-    .ficha-item, .reparto { width: 100px !important; } /* Menos ancho para celular */
-    .ficha-item img, .reparto img { width: 20px !important; height: 20px !important; }
-    .ficha-texto { font-size: 8px !important; }
 }
 /* ================= NUEVA SECCIÓN VER Y ESCUCHAR ALINEADA ================= */
 .ve-section-wrapper {
