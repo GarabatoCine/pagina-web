@@ -394,7 +394,7 @@ animation: pulse 1.5s infinite;
 .ficha-item img { width: 35px !important; height: 35px !important; display: block !important; }
 .ficha-texto { color: #d1d1d1; font-family: 'Roboto', sans-serif; font-size: 13px !important; line-height: 1.4 !important; }
 
-/* TABLET: Centrado mediante compensación de margen */
+/* TABLET: Código completo con centrado y orden correcto */
 @media(max-width: 1024px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
@@ -402,8 +402,7 @@ animation: pulse 1.5s infinite;
         gap: 30px !important; 
         width: 100% !important; 
         margin: 0 auto !important; 
-        /* En lugar de mover items, empujamos el grid completo un poco a la derecha */
-        padding-left: 5% !important; 
+        padding-left: 5% !important; /* Ajuste fino de centrado */
         box-sizing: border-box !important;
     } 
     .ficha-columna { display: contents !important; }
@@ -416,6 +415,10 @@ animation: pulse 1.5s infinite;
         width: 100% !important; 
         text-align: left !important;
     }
+
+    /* Orden para que queden en su sitio */
+    .reparto { order: 2 !important; } /* Reparto en la columna central */
+    .ficha-columna:nth-child(6) { order: 3 !important; } /* Producción en la columna derecha */
 }
 /* MÓVIL: 3 columnas, centrado real */
 @media(max-width: 600px) { 
