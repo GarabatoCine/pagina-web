@@ -394,14 +394,16 @@ animation: pulse 1.5s infinite;
 .ficha-item img { width: 35px !important; height: 35px !important; display: block !important; }
 .ficha-texto { color: #d1d1d1; font-family: 'Roboto', sans-serif; font-size: 13px !important; line-height: 1.4 !important; }
 
-/* TABLET: 3 columnas, centrado y equilibrado */
+/* TABLET: 3 columnas, forzando distribución uniforme */
 @media(max-width: 1024px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
-        grid-template-columns: repeat(3, 1fr) !important; 
+        grid-template-columns: repeat(3, 1fr) !important; /* 3 columnas de igual tamaño */
         gap: 20px !important; 
-        width: 90% !important; 
+        width: 100% !important; 
         margin: 0 auto !important; 
+        justify-items: start !important; /* Mantiene los iconos a la izquierda */
+        padding: 0 40px !important; /* Añadimos aire a los lados */
     } 
     .ficha-columna { display: contents !important; }
     .ficha-item, .reparto { 
@@ -413,14 +415,15 @@ animation: pulse 1.5s infinite;
     }
 }
 
-/* MÓVIL: 3 columnas, más pequeño */
+/* MÓVIL: 3 columnas, forzando distribución */
 @media(max-width: 600px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
         grid-template-columns: repeat(3, 1fr) !important; 
         gap: 10px 5px !important; 
-        width: 95% !important; 
+        width: 100% !important; 
         margin: 0 auto !important; 
+        padding: 0 10px !important; 
     } 
     .ficha-columna { display: contents !important; }
     .ficha-item, .reparto { 
@@ -433,7 +436,6 @@ animation: pulse 1.5s infinite;
     .ficha-item img, .reparto img { width: 22px !important; height: 22px !important; }
     .ficha-texto { font-size: 9px !important; line-height: 1.2 !important; }
 }
-
 /* ================= NUEVA SECCIÓN VER Y ESCUCHAR ALINEADA ================= */
 .ve-section-wrapper {
     width: calc(100% - 60px);
