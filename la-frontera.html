@@ -394,7 +394,7 @@ animation: pulse 1.5s infinite;
 .ficha-item img { width: 35px !important; height: 35px !important; display: block !important; }
 .ficha-texto { color: #d1d1d1; font-family: 'Roboto', sans-serif; font-size: 13px !important; line-height: 1.4 !important; }
 
-/* TABLET: Centrado estable + Troque visual mediante transform */
+/* TABLET: Centrado estable y trueque mediante flex-direction invertido */
 @media(max-width: 1024px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
@@ -416,14 +416,17 @@ animation: pulse 1.5s infinite;
         text-align: left !important;
     }
 
-    /* TROQUE VISUAL: Movemos los bloques sin romper el grid */
-    /* Movemos Reparto a la derecha (columna 3) */
-    .reparto { transform: translateX(100%); } 
+    /* Trueque: Usamos 'order' con números consecutivos. 
+       Esto le dice al navegador el orden de dibujo: 1, 2, 3... */
     
-    /* Movemos Producción a la izquierda (columna 2) */
-    /* Necesitamos identificar el bloque de producción. 
-       Si no se mueve, prueba cambiando el número del nth-child: 4, 5 o 6 */
-    .ficha-columna:nth-child(6) { transform: translateX(-100%); } 
+    /* El bloque que quieres que sea el PRIMERO (Izquierda) */
+    .ficha-columna:nth-child(1) { order: 1 !important; }
+    
+    /* El bloque que quieres que sea el SEGUNDO (Centro) - Ponemos Reparto aquí */
+    .reparto { order: 2 !important; }
+    
+    /* El bloque que quieres que sea el TERCERO (Derecha) - Ponemos Producción aquí */
+    .ficha-columna:nth-child(6) { order: 3 !important; } 
 }
 /* MÓVIL: 3 columnas, centrado real */
 @media(max-width: 600px) { 
