@@ -394,35 +394,15 @@ animation: pulse 1.5s infinite;
 .ficha-item img { width: 35px !important; height: 35px !important; display: block !important; }
 .ficha-texto { color: #d1d1d1; font-family: 'Roboto', sans-serif; font-size: 13px !important; line-height: 1.4 !important; }
 
-/* TABLET: Centrado forzado */
+/* TABLET: 3 columnas, centrado real */
 @media(max-width: 1024px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
         grid-template-columns: repeat(3, 1fr) !important; 
-        gap: 20px !important; 
+        gap: 30px !important; 
         width: 100% !important; 
-        padding-left: 10% !important; /* Desplazamos el contenido desde la izquierda */
-        justify-items: start !important; 
-    } 
-    .ficha-columna { display: contents !important; }
-    .ficha-item, .reparto { 
-        display: flex !important; 
-        flex-direction: row !important; 
-        align-items: center !important; 
-        justify-content: flex-start !important;
-        width: 100% !important;
-    }
-}
-
-/* MÓVIL: Centrado forzado */
-@media(max-width: 600px) { 
-    .ficha-tecnica-grid { 
-        display: grid !important; 
-        grid-template-columns: repeat(3, 1fr) !important; 
-        gap: 10px 5px !important; 
-        width: 95% !important; 
-        margin: 0 auto !important; 
-        padding-left: 5% !important;
+        justify-content: center !important; /* Centra las columnas completas */
+        align-items: center !important;
     } 
     .ficha-columna { display: contents !important; }
     .ficha-item, .reparto { 
@@ -430,7 +410,30 @@ animation: pulse 1.5s infinite;
         flex-direction: row !important; 
         align-items: center !important; 
         justify-content: flex-start !important; 
+        width: auto !important; /* Ajusta al contenido para que no fuerce el ancho */
+        margin: 0 auto !important; /* Centra cada item individual */
     }
+}
+
+/* MÓVIL: 3 columnas, centrado real */
+@media(max-width: 600px) { 
+    .ficha-tecnica-grid { 
+        display: grid !important; 
+        grid-template-columns: repeat(3, 1fr) !important; 
+        gap: 15px 5px !important; 
+        width: 100% !important; 
+        justify-content: center !important; 
+    } 
+    .ficha-columna { display: contents !important; }
+    .ficha-item, .reparto { 
+        display: flex !important; 
+        flex-direction: row !important; 
+        align-items: center !important; 
+        justify-content: flex-start !important; 
+        width: auto !important;
+    }
+    .ficha-item img, .reparto img { width: 22px !important; height: 22px !important; }
+    .ficha-texto { font-size: 9px !important; line-height: 1.2 !important; }
 }
 /* ================= NUEVA SECCIÓN VER Y ESCUCHAR ALINEADA ================= */
 .ve-section-wrapper {
