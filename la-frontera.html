@@ -394,15 +394,16 @@ animation: pulse 1.5s infinite;
 .ficha-item img { width: 35px !important; height: 35px !important; display: block !important; }
 .ficha-texto { color: #d1d1d1; font-family: 'Roboto', sans-serif; font-size: 13px !important; line-height: 1.4 !important; }
 
-/* TABLET: Ajustes finales - Alineación izquierda y cambio de orden */
+/* TABLET: Centrado estético y preciso */
 @media(max-width: 1024px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
         grid-template-columns: repeat(3, 1fr) !important; 
-        gap: 30px !important; 
-        width: 100% !important; 
-        justify-content: center !important;
-        align-items: start !important; /* Alinea los elementos al tope */
+        gap: 40px !important; /* Aumentamos un poco el gap para que respire */
+        width: 90% !important; /* Centramos el bloque total */
+        margin: 0 auto !important; 
+        justify-content: center !important; 
+        justify-items: center !important; /* Centra los iconos individualmente */
     } 
     .ficha-columna { display: contents !important; }
     
@@ -410,15 +411,14 @@ animation: pulse 1.5s infinite;
         display: flex !important; 
         flex-direction: row !important; 
         align-items: center !important; 
-        justify-content: flex-start !important; /* Asegura iconos a la izquierda */
-        text-align: left !important; /* Asegura nombres a la izquierda */
-        width: 100% !important;
+        justify-content: flex-start !important; 
+        width: 100% !important; /* Deja que el item ocupe su celda pero se alinee a la izquierda dentro de ella */
+        text-align: left !important;
     }
 
-    /* Intercambio de posiciones (Orden 1=Izquierda, 2=Centro, 3=Derecha) */
-    .reparto { order: 2 !important; } /* Reparto se mueve al centro */
-    /* Buscamos el ítem de producción para moverlo a la derecha (orden 3) */
-    /* Si producción estaba al final, le damos orden 3 */
+    /* Reparto en el centro */
+    .reparto { order: 2 !important; } 
+    /* Producción a la derecha */
     .ficha-columna:nth-child(4) .ficha-item:nth-child(2) { order: 3 !important; } 
 }
 
