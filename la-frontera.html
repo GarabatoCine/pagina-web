@@ -394,7 +394,7 @@ animation: pulse 1.5s infinite;
 .ficha-item img { width: 35px !important; height: 35px !important; display: block !important; }
 .ficha-texto { color: #d1d1d1; font-family: 'Roboto', sans-serif; font-size: 13px !important; line-height: 1.4 !important; }
 
-/* TABLET: Código completo con centrado y orden correcto */
+/* TABLET: Centrado forzado y reubicación manual */
 @media(max-width: 1024px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
@@ -402,7 +402,7 @@ animation: pulse 1.5s infinite;
         gap: 30px !important; 
         width: 100% !important; 
         margin: 0 auto !important; 
-        padding-left: 5% !important; /* Ajuste fino de centrado */
+        padding-left: 5% !important; 
         box-sizing: border-box !important;
     } 
     .ficha-columna { display: contents !important; }
@@ -416,9 +416,13 @@ animation: pulse 1.5s infinite;
         text-align: left !important;
     }
 
-    /* Orden para que queden en su sitio */
-    .reparto { order: 2 !important; } /* Reparto en la columna central */
-    .ficha-columna:nth-child(6) { order: 3 !important; } /* Producción en la columna derecha */
+    /* FORZAMOS LA POSICIÓN MANUALMENTE */
+    /* El Reparto se va a la columna 2 */
+    .reparto { grid-column: 2 / 3 !important; }
+    /* El bloque de producción (que estimo es la última columna) a la columna 3 */
+    .ficha-columna:nth-child(3) { grid-column: 3 / 4 !important; }
+    /* El resto de elementos se mantienen en la columna 1 */
+    .ficha-columna:nth-child(1), .ficha-columna:nth-child(2) { grid-column: 1 / 2 !important; }
 }
 /* MÓVIL: 3 columnas, centrado real */
 @media(max-width: 600px) { 
