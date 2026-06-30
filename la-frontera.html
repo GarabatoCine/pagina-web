@@ -394,17 +394,17 @@ animation: pulse 1.5s infinite;
 .ficha-item img { width: 35px !important; height: 35px !important; display: block !important; }
 .ficha-texto { color: #d1d1d1; font-family: 'Roboto', sans-serif; font-size: 13px !important; line-height: 1.4 !important; }
 
-/* TABLET: Centrado forzado y reubicación de elementos */
+/* TABLET: Centrado estable + Troque visual mediante transform */
 @media(max-width: 1024px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
-        grid-template-columns: 1fr 1fr 1fr !important; /* 3 columnas fijas */
-        gap: 20px !important; 
+        grid-template-columns: repeat(3, 1fr) !important; 
+        gap: 30px !important; 
         width: 100% !important; 
-        padding: 0 5% !important;
+        margin: 0 auto !important; 
+        padding-left: 5% !important; 
         box-sizing: border-box !important;
     } 
-
     .ficha-columna { display: contents !important; }
     
     .ficha-item, .reparto { 
@@ -416,15 +416,14 @@ animation: pulse 1.5s infinite;
         text-align: left !important;
     }
 
-    /* POSICIONAMIENTO MANUAL POR ORDEN DE APARICIÓN */
-    /* Columna 1: Dirección y Guion */
-    .ficha-columna:nth-child(1) .ficha-item { grid-column: 1 / 2 !important; }
+    /* TROQUE VISUAL: Movemos los bloques sin romper el grid */
+    /* Movemos Reparto a la derecha (columna 3) */
+    .reparto { transform: translateX(100%); } 
     
-    /* Columna 2: Reparto (Lo movemos al centro) */
-    .reparto { grid-column: 2 / 3 !important; }
-    
-    /* Columna 3: Producción (Lo movemos a la derecha) */
-    .ficha-columna:nth-child(3) .ficha-item { grid-column: 3 / 4 !important; }
+    /* Movemos Producción a la izquierda (columna 2) */
+    /* Necesitamos identificar el bloque de producción. 
+       Si no se mueve, prueba cambiando el número del nth-child: 4, 5 o 6 */
+    .ficha-columna:nth-child(6) { transform: translateX(-100%); } 
 }
 /* MÓVIL: 3 columnas, centrado real */
 @media(max-width: 600px) { 
