@@ -428,44 +428,44 @@ animation: pulse 1.5s infinite;
     /* El bloque que quieres que sea el TERCERO (Derecha) - Ponemos Producción aquí */
     .ficha-columna:nth-child(6) { order: 3 !important; } 
 }
-/* MÓVIL: Ajuste agresivo de altura y distribución lateral */
+/* MÓVIL: Alineación vertical perfecta y espacio superior */
 @media(max-width: 600px) { 
-    /* 1. Reducimos el espacio del marco general que envuelve todo */
+    /* 1. Damos un poco más de aire arriba, pero controlamos el total */
     .ficha-tecnica-marco-wrapper { 
-        padding: 10px 5px !important; /* Mínimo relleno para cerrar el cuadro */
-        margin: 10px !important;      /* Mínimo margen exterior */
+        padding: 35px 10px 15px 10px !important; /* Más aire arriba, menos abajo */
+        margin: 10px auto !important;
+        width: 95% !important;
     }
 
-    /* 2. Forzamos el grid a ocupar el 100% real del ancho disponible */
+    /* 2. Ajustamos el contenedor del grid */
     .ficha-tecnica-grid { 
         display: grid !important; 
         grid-template-columns: repeat(3, 1fr) !important; 
-        gap: 10px 2px !important;     /* Gap lateral muy pequeño para que se expandan */
+        gap: 15px 5px !important; /* Aumentamos el espacio vertical */
         width: 100% !important; 
-        margin: 0 !important; 
-        padding: 0 !important;
+        align-items: start !important; /* ¡ESTO ALINEARÁ LAS TRES COLUMNAS ARRIBA! */
     } 
 
     .ficha-columna { display: contents !important; }
     
-    /* 3. Iconos y nombres */
+    /* 3. Aseguramos alineación vertical constante */
     .ficha-item, .reparto { 
         display: flex !important; 
         flex-direction: column !important; 
         align-items: center !important; 
+        justify-content: flex-start !important; /* Alinea los ítems al mismo nivel */
         text-align: center !important; 
-        gap: 4px !important; 
-        padding: 0 !important;
+        gap: 5px !important;
+        min-height: 60px !important; /* Esto asegura que todas las celdas tengan altura mínima igual */
     }
     
-    /* 4. Achicamos un poco más los iconos para que no choquen */
     .ficha-item img, .reparto img { 
-        width: 20px !important; 
-        height: 20px !important; 
+        width: 26px !important; 
+        height: 26px !important; 
     }
     
     .ficha-texto { 
-        font-size: 8px !important; 
+        font-size: 9px !important; 
         line-height: 1.2 !important; 
     }
 }
