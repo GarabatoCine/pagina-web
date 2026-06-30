@@ -428,30 +428,46 @@ animation: pulse 1.5s infinite;
     /* El bloque que quieres que sea el TERCERO (Derecha) - Ponemos Producción aquí */
     .ficha-columna:nth-child(6) { order: 3 !important; } 
 }
-/* MÓVIL: Iconos arriba, mejor uso del espacio */
+/* MÓVIL: Ajuste agresivo de altura y distribución lateral */
 @media(max-width: 600px) { 
+    /* 1. Reducimos el espacio del marco general que envuelve todo */
+    .ficha-tecnica-marco-wrapper { 
+        padding: 10px 5px !important; /* Mínimo relleno para cerrar el cuadro */
+        margin: 10px !important;      /* Mínimo margen exterior */
+    }
+
+    /* 2. Forzamos el grid a ocupar el 100% real del ancho disponible */
     .ficha-tecnica-grid { 
         display: grid !important; 
         grid-template-columns: repeat(3, 1fr) !important; 
-        gap: 15px 10px !important; 
-        width: 100% !important; /* Usamos todo el ancho */
-        padding: 0 5px !important; /* Mínimo margen a los lados para aprovechar espacio */
-        margin-top: 10px !important; /* Reduce espacio con el título */
+        gap: 10px 2px !important;     /* Gap lateral muy pequeño para que se expandan */
+        width: 100% !important; 
+        margin: 0 !important; 
+        padding: 0 !important;
     } 
+
     .ficha-columna { display: contents !important; }
     
+    /* 3. Iconos y nombres */
     .ficha-item, .reparto { 
         display: flex !important; 
-        flex-direction: column !important; /* Icono arriba, texto abajo */
+        flex-direction: column !important; 
         align-items: center !important; 
-        justify-content: flex-start !important; 
-        text-align: center !important; /* Centra el texto debajo del icono */
-        gap: 5px !important;
+        text-align: center !important; 
+        gap: 4px !important; 
+        padding: 0 !important;
     }
     
-    /* Ajustes de tamaño para que quepa todo */
-    .ficha-item img, .reparto img { width: 25px !important; height: 25px !important; margin-bottom: 0 !important; }
-    .ficha-texto { font-size: 8px !important; line-height: 1.1 !important; word-break: break-word !important; }
+    /* 4. Achicamos un poco más los iconos para que no choquen */
+    .ficha-item img, .reparto img { 
+        width: 20px !important; 
+        height: 20px !important; 
+    }
+    
+    .ficha-texto { 
+        font-size: 8px !important; 
+        line-height: 1.2 !important; 
+    }
 }
 }/* ================= NUEVA SECCIÓN VER Y ESCUCHAR ALINEADA ================= */
 .ve-section-wrapper {
