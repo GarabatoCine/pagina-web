@@ -677,11 +677,27 @@ text-align: center;
 }
 
 @media(max-width: 600px) {
-    .hero-overlay { left: 10px !important; bottom: 10%; width: 90%; }
+    .hero-overlay { 
+        left: 10px !important; 
+        right: 10px !important; 
+        bottom: 10px !important; 
+        width: calc(100% - 20px) !important; 
+        display: flex !important; 
+        justify-content: space-between !important; 
+        align-items: flex-end !important;
+        max-width: 100% !important;
+    }
     .hero-title { font-size: 20px !important; line-height: 1 !important; margin-bottom: 2px !important; }
-    .hero-subtitle { font-size: 12px !important; margin-bottom: 8px !important; }
+    .hero-subtitle { font-size: 12px !important; margin-bottom: 0px !important; }
     .subrayado-amarillo { border-bottom: none !important; padding-bottom: 0 !important; }
-    .hero-btn { padding: 6px 16px; font-size: 9px; border-radius: 20px; border: 0.5px solid rgba(255,255,255,0.4); }
+    
+    .hero-btn { 
+        padding: 4px 10px !important; 
+        font-size: 8px !important; 
+        margin-bottom: 0 !important;
+        white-space: nowrap;
+    }
+    
     .premio-logo { flex: 1 1 calc(33.33% - 20px); }
     
     .fotogramas-carousel {
@@ -694,6 +710,7 @@ text-align: center;
     }
     .scroll-indicator { display: none; }
     .fotogramas-section { margin-top: 20px; }
+}
 }
 </style>
 
