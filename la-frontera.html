@@ -832,52 +832,37 @@ text-align: center;
     </div>
 </section>
 
-<!-- SECCIÓN VER Y ESCUCHAR - VERSIÓN CON MARCO Y FONDO NEGRO -->
+<!-- BLOQUE UNIFICADO: VER Y ESCUCHAR - ALINEACIÓN TOTAL -->
 <style>
-/* Contenedor principal con el mismo margen que la ficha técnica */
+/* Forzamos que este contenedor tenga la misma geometría que la ficha técnica */
 .ve-section-wrapper { 
     width: calc(100% - 60px); 
-    max-width: 1400px; 
-    margin: 40px auto; 
-    border: 1px solid #000; /* Marco exterior */
+    margin: 20px auto; 
+    border: 1px solid #000; 
     padding: 40px; 
     display: flex; 
     gap: 30px; 
-    align-items: stretch; 
+    background: #fff;
 }
 
-/* Imagen grande con un pequeño gap (padding) respecto al marco */
-.ve-img-grande { flex: 1; padding: 10px; }
+.ve-img-grande { flex: 1; }
 .ve-img-grande img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
 .ve-bloques-derecha { flex: 1; display: flex; flex-direction: column; gap: 20px; }
 
-/* Bloque Música: Fondo negro, letras claras */
-.ve-bloque-musica { 
-    background: #000; 
-    color: #fff; 
-    padding: 25px; 
-    flex: 1; 
-    display: flex; 
-    align-items: center; 
-    gap: 30px; 
-}
-.ve-bloque-musica h3, .ve-bloque-musica p { color: #fff; }
-
-.musica-imagen { width: 60%; }
-.musica-imagen img { width: 100%; height: auto; display: block; }
-.musica-info { width: 40%; }
-
-/* Bloque RTVC */
-.ve-bloque-rtvc { 
+/* Bloques internos: fondo blanco, sin bordes extra para que no se desalineen */
+.ve-bloque-musica, .ve-bloque-rtvc { 
     border: 1px solid #000; 
-    padding: 25px; 
+    padding: 20px; 
     flex: 1; 
     display: flex; 
     align-items: center; 
-    justify-content: center; 
-    gap: 30px; 
+    gap: 20px; 
 }
+
+.musica-imagen { width: 55%; }
+.musica-imagen img { width: 100%; height: auto; display: block; }
+.musica-info { width: 45%; }
 
 @media(max-width: 850px) { 
     .ve-section-wrapper { flex-direction: column; width: 95%; padding: 20px; } 
@@ -890,7 +875,6 @@ text-align: center;
         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-fotogramagrande.png?raw=true" alt="La Frontera">
     </div>
     <div class="ve-bloques-derecha">
-        <!-- Bloque Música: Fondo Negro -->
         <div class="ve-bloque-musica">
             <div class="musica-imagen">
                 <a href="https://www.youtube.com/watch?v=FeABm-LkkHk" target="_blank">
@@ -900,15 +884,14 @@ text-align: center;
             <div class="musica-info">
                 <h3>Música Original</h3>
                 <p>Canción: LA FRONTERA<br>Intérprete: ADRIANA LUCÍA</p>
-                <a href="#" style="color: #FFC601; font-weight: bold; display: block; margin-top: 10px;">
+                <a href="#" style="color: #000; font-weight: bold; display: block; margin-top: 10px; text-decoration: underline;">
                     <i class="fab fa-spotify"></i> Escuchar en Spotify
                 </a>
             </div>
         </div>
-        <!-- Bloque RTVC -->
         <div class="ve-bloque-rtvc">
             <div style="width: 40%;"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/logo-rtvcplay.png?raw=true" alt="RTVC Play"></div>
-            <a href="https://rtvcplay.co/peliculas-ficcion/la-frontera" target="_blank" class="ve-btn">Ver Película</a>
+            <a href="https://rtvcplay.co/peliculas-ficcion/la-frontera" target="_blank" class="ve-btn" style="background:#000; color:#fff; padding:10px 20px;">Ver Película</a>
         </div>
     </div>
 </section>
