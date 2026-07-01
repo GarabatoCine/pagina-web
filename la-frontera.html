@@ -832,76 +832,45 @@ text-align: center;
     </div>
 </section>
 
-<!-- BLOQUE UNIFICADO: VER Y ESCUCHAR -->
+<!-- SECCIÓN NUEVA DEFINITIVA -->
 <style>
-/* Ajuste preciso para alinear con el contenedor de Ficha Técnica */
-.ve-section-wrapper { 
-    width: calc(100% - 60px); 
-    max-width: 1340px; 
-    margin: 20px auto; /* Mismo margen que el contenedor de ficha técnica */
-    display: flex; 
-    gap: 30px; 
-    align-items: stretch; 
+.garabato-new-section { 
+    width: calc(100% - 60px) !important; 
+    max-width: 1400px !important; 
+    margin: 20px auto !important; 
+    display: flex !important; 
+    gap: 30px !important; 
+    align-items: stretch !important; 
 }
-.ve-img-grande { flex: 1; }
-.ve-img-grande img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    display: block; 
-}
-
-.ve-bloques-derecha { flex: 1; display: flex; flex-direction: column; gap: 20px; }
-
-/* Bloques con el mismo padding y distribución */
-.ve-bloque-musica, .ve-bloque-rtvc { 
-    border: 1px solid #ddd; 
-    padding: 20px; 
-    flex: 1; 
-    display: flex; 
-    align-items: center; 
-    gap: 30px; 
-}
-
-/* Imagen ampliada para ocupar más espacio */
-.musica-imagen { width: 55%; } 
-.musica-imagen img { width: 100%; height: auto; display: block; }
-.musica-info { width: 45%; }
-
-.spotify-link { display: inline-block; margin-top: 10px; color: #1DB954; font-weight: bold; }
-
-/* Bloque RTVC */
-.ve-bloque-rtvc { justify-content: center; flex-direction: row; gap: 30px; }
-.rtvc-logo { width: 50%; }
-.rtvc-logo img { width: 100%; height: auto; }
-
-@media(max-width: 850px) { 
-    .ve-section-wrapper { flex-direction: column; width: 95%; } 
-    .ve-bloque-musica, .ve-bloque-rtvc { flex-direction: column; text-align: center; }
-}
+.garabato-img-grande { flex: 1 !important; }
+.garabato-img-grande img { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; }
+.garabato-bloques-derecha { flex: 1 !important; display: flex !important; flex-direction: column !important; gap: 20px !important; }
+.garabato-bloque { border: 1px solid #ddd !important; padding: 25px !important; flex: 1 !important; display: flex !important; align-items: center !important; gap: 30px !important; }
+.garabato-musica-img { width: 60% !important; } /* Ampliado al 60% */
+.garabato-musica-img img { width: 100% !important; height: auto !important; display: block !important; }
+.garabato-musica-info { width: 40% !important; }
+@media(max-width: 850px) { .garabato-new-section { flex-direction: column !important; } }
 </style>
 
-<section class="ve-section-wrapper">
-    <div class="ve-img-grande">
+<section class="garabato-new-section">
+    <div class="garabato-img-grande">
         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-fotogramagrande.png?raw=true" alt="La Frontera">
     </div>
-    <div class="ve-bloques-derecha">
-        <div class="ve-bloque-musica">
-            <div class="musica-imagen">
+    <div class="garabato-bloques-derecha">
+        <div class="garabato-bloque">
+            <div class="garabato-musica-img">
                 <a href="https://www.youtube.com/watch?v=FeABm-LkkHk" target="_blank">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-cancion.png?raw=true" alt="Canción">
                 </a>
             </div>
-            <div class="musica-info">
+            <div class="garabato-musica-info">
                 <h3>Música Original</h3>
                 <p>Canción: LA FRONTERA<br>Intérprete: ADRIANA LUCÍA</p>
-                <a href="#" class="spotify-link"><i class="fab fa-spotify"></i> Escuchar en Spotify</a>
+                <a href="#" style="color: #1DB954; font-weight: bold;"><i class="fab fa-spotify"></i> Escuchar en Spotify</a>
             </div>
         </div>
-        <div class="ve-bloque-rtvc">
-            <div class="rtvc-logo">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/logo-rtvcplay.png?raw=true" alt="RTVC Play">
-            </div>
+        <div class="garabato-bloque" style="justify-content: center; gap: 30px;">
+            <div style="width: 40%;"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/logo-rtvcplay.png?raw=true" alt="RTVC Play"></div>
             <a href="https://rtvcplay.co/peliculas-ficcion/la-frontera" target="_blank" class="ve-btn">Ver Película</a>
         </div>
     </div>
