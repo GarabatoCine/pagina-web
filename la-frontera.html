@@ -834,17 +834,46 @@ text-align: center;
 
 <!-- BLOQUE UNIFICADO: VER Y ESCUCHAR -->
 <style>
-/* Estilos para la nueva sección */
-.ve-section-wrapper { width: calc(100% - 60px); max-width: 1200px; margin: 40px auto; display: flex; gap: 20px; align-items: stretch; }
+/* Alineación igual al marco de la ficha técnica */
+.ve-section-wrapper { 
+    width: calc(100% - 60px); 
+    max-width: 1400px; 
+    margin: 40px auto; 
+    display: flex; 
+    gap: 30px; 
+    align-items: stretch; 
+}
 .ve-img-grande { flex: 1; }
-.ve-img-grande img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ve-img-grande img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; /* Para no cortar la imagen */
+    display: block; 
+}
 .ve-bloques-derecha { flex: 1; display: flex; flex-direction: column; gap: 20px; }
-.ve-bloque-musica { border: 1px solid #ddd; padding: 20px; flex: 1; display: flex; align-items: center; gap: 20px; }
-.musica-imagen { width: 40%; }
+
+/* Bloques de igual tamaño (flex: 1) */
+.ve-bloque-musica, .ve-bloque-rtvc { 
+    border: 1px solid #ddd; 
+    padding: 25px; 
+    flex: 1; 
+    display: flex; 
+    align-items: center; 
+    gap: 25px; 
+}
+.musica-imagen { width: 45%; }
 .musica-imagen img { width: 100%; height: auto; display: block; }
-.musica-info { width: 60%; }
-.ve-bloque-rtvc { border: 1px solid #ddd; padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-@media(max-width: 850px) { .ve-section-wrapper { flex-direction: column; } .ve-bloque-musica { flex-direction: column; text-align: center; } }
+.musica-info { width: 55%; }
+.spotify-link { display: inline-block; margin-top: 10px; color: #1DB954; font-weight: bold; }
+
+/* Bloque RTVC igualado */
+.ve-bloque-rtvc { justify-content: center; flex-direction: row; }
+.rtvc-logo { width: 40%; }
+
+@media(max-width: 850px) { 
+    .ve-section-wrapper { flex-direction: column; width: 90%; } 
+    .ve-bloque-musica, .ve-bloque-rtvc { flex-direction: column; text-align: center; }
+}
 </style>
 
 <section class="ve-section-wrapper">
@@ -854,17 +883,20 @@ text-align: center;
     <div class="ve-bloques-derecha">
         <div class="ve-bloque-musica">
             <div class="musica-imagen">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-cancion.png?raw=true" alt="Canción">
+                <a href="https://www.youtube.com/watch?v=FeABm-LkkHk" target="_blank">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-cancion.png?raw=true" alt="Canción">
+                </a>
             </div>
             <div class="musica-info">
                 <h3>Música Original</h3>
                 <p>Canción: LA FRONTERA<br>Intérprete: ADRIANA LUCÍA</p>
-                <a href="#" class="ve-btn">Escuchar</a>
+                <a href="#" class="spotify-link"><i class="fab fa-spotify"></i> Escuchar en Spotify</a>
             </div>
         </div>
         <div class="ve-bloque-rtvc">
-            <p>Disponible en:</p>
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/logo-rtvcplay.png?raw=true" alt="RTVC Play">
+            <div class="rtvc-logo">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/logo-rtvcplay.png?raw=true" alt="RTVC Play">
+            </div>
             <a href="https://rtvcplay.co/peliculas-ficcion/la-frontera" target="_blank" class="ve-btn">Ver Película</a>
         </div>
     </div>
