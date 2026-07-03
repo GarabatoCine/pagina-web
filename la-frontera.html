@@ -307,49 +307,41 @@ margin-bottom: 16px;
 text-align: left;
 }
 
-/* ================= FOTOGRAMAS ================= */
+/* Contenedor principal con Grid */
 .fotogramas-section {
     width: 100%;
     margin-top: 50px;
     margin-bottom: 32px;
     position: relative;
-    padding: 0; /* Asegura que no haya padding forzado */
+    /* Ajuste para mantener el alineamiento con el resto de tu página */
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 1fr; /* Columna izquierda fija para texto, resto para fotos */
+    align-items: start;
+    padding-left: calc((100% - 1200px) / 2 + 20px); /* Ajuste de margen general */
 }
 
+/* El texto de la izquierda */
+.galeria-titulo {
+    padding-top: 10px;
+}
+
+/* Carrusel a la derecha */
 .fotogramas-carousel {
     display: flex;
-    gap: 15px; /* Ajusta el espacio entre fotos si es necesario */
+    gap: 15px;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 15px;
     scrollbar-width: none;
-    /* Esto alinea el inicio del carrusel con el margen del contenido superior */
-    padding-left: calc((100% - 1200px) / 2 + 20px);
+    padding-bottom: 15px;
+    width: 100%; /* Asegura que el carrusel ocupe su espacio */
 }
 
-.fotograma-item {
-    flex: 0 0 350px; /* Tamaño original fijo */
-    scroll-snap-align: start;
-}
-
-.fotograma-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
+/* Ajuste del indicador de deslizar */
 .scroll-indicator {
-    position: absolute;
-    top: -40px;
-    right: calc((100% - 1200px) / 2 + 20px); /* Alineado al margen derecho del contenido */
+    grid-column: 2; /* Lo posicionamos en la columna de las fotos */
+    margin-bottom: 10px;
     font-size: 12px;
     color: #888;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
 }
 
 /* ================= FICHA TÉCNICA ================= */
