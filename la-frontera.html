@@ -313,33 +313,23 @@ text-align: left;
     margin-top: 50px;
     margin-bottom: 32px;
     position: relative;
-    padding: 0;
+    padding: 0; /* Asegura que no haya padding forzado */
 }
 
-.galeria-layout {
-    display: flex; /* Pone el título a la izquierda y el carrusel a la derecha */
-    width: 100%;
-}
-
-.galeria-titulo-espacio {
-    flex: 0 0 480px; /* Ancho exacto del póster para alinear el espacio */
+.fotogramas-carousel {
+    display: flex;
+    gap: 15px; /* Ajusta el espacio entre fotos si es necesario */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 15px;
+    scrollbar-width: none;
+    /* Esto alinea el inicio del carrusel con el margen del contenido superior */
     padding-left: calc((100% - 1200px) / 2 + 20px);
 }
 
-.pt-title { font-family: 'Georgia', serif; font-size: 36px; margin: 0; }
-
-.fotogramas-carousel {
-    flex: 1; /* Ocupa el resto de la pantalla */
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    padding-bottom: 15px;
-    /* Esto asegura que la primera foto empiece justo al lado del título */
-}
-
 .fotograma-item {
-    flex: 0 0 350px; /* Tamaño que ya tenías y querías conservar */
+    flex: 0 0 350px; /* Tamaño original fijo */
+    scroll-snap-align: start;
 }
 
 .fotograma-item img {
@@ -351,11 +341,15 @@ text-align: left;
 .scroll-indicator {
     position: absolute;
     top: -40px;
-    right: 20px; /* Pegado al margen derecho */
+    right: calc((100% - 1200px) / 2 + 20px); /* Alineado al margen derecho del contenido */
     font-size: 12px;
     color: #888;
     text-transform: uppercase;
     letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 /* ================= FICHA TÉCNICA ================= */
@@ -786,26 +780,17 @@ text-align: center;
 </section>
 
 <section class="fotogramas-section">
-    <!-- Indicador arriba a la derecha -->
     <div class="scroll-indicator">
-        Desliza para ver más <i class="fa-solid fa-arrow-right-long"></i>
+        Desliza para ver más
+        <i class="fa-solid fa-arrow-right-long"></i>
     </div>
-
-    <div class="galeria-layout">
-        <!-- Espacio para la palabra Galería -->
-        <div class="galeria-titulo-espacio">
-            <h1 class="pt-title"><span class="pt-subrayado-amarillo">Gal</span>ería</h1>
-        </div>
-
-        <!-- Carrusel desplazado hacia la derecha -->
-        <div class="fotogramas-carousel">
-            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera1.jpg" alt="Foto 1"></div>
-            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera2.jpg" alt="Foto 2"></div>
-            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera3.jpg" alt="Foto 3"></div>
-            <div class="fotograma-item"><img src="https://raw.githubanatoCine/pagina-web/main/proyectos/lafrontera/lafrontera4.jpg" alt="Foto 4"></div>
-            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera5.jpg" alt="Foto 5"></div>
-            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera6.jpg" alt="Foto 6"></div>
-        </div>
+    <div class="fotogramas-carousel">
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera1.jpg" alt="Fotograma 1"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera2.jpg" alt="Fotograma 2"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera3.jpg" alt="Fotograma 3"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera4.jpg" alt="Fotograma 4"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera5.jpg" alt="Fotograma 5"></div>
+      <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera6.jpg" alt="Fotograma 6"></div>
     </div>
 </section>
 
