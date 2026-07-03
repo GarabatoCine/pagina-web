@@ -654,135 +654,43 @@ color:#FFC601;
 
 /* ================= RESPONSIVE ================= */
 
-@media(max-width:1024px) {
-    .fotograma-item { flex: 0 0 calc(33.33% - 10px); } 
-}
+/* ================= RESPONSIVE ================= */
 
-@media(max-width:850px){
-.pt-wrapper {
-    flex-direction: column; 
-    align-items: center;
-    gap: 40px;
-}
-.pt-info {
-    width: 100%;
-    max-width: 480px; 
-    justify-content: flex-start;
-}
-.pt-title {
-    text-align: center;
-}
-.pt-paragraph {
-    margin-bottom: 20px !important;
-    text-align: justify;
-}
-}
-
-@media(max-width:992px){
-.header{
-padding:20px;
-}
-.nav{
-display:none;
-}
-.logo {
-display: none;
-}
-.menu-toggle {
-display: block;
-}
-.hero-overlay { left: 20px; }
-.sitio-footer{
-padding:40px 25px;
-}
-.fila-tres-columnas{
-flex-direction:column;
-gap:25px;
-text-align:center;
-}
-.columna-derecha{
-text-align:center;
-}
-.columna-derecha p {
-text-align: center;
-}
-}
-
-@media(max-width: 991px) {
-    .premio-logo img {
-        max-height: 52.5px;
-    }
-}
-
-@media(max-width: 600px) {
-    @media(max-width: 600px) { 
-    .hero-overlay { 
-        left: 10px !important; 
-        right: 10px !important; 
-        bottom: 10px !important; 
-        width: calc(100% - 20px) !important; 
-        display: flex !important; 
-        justify-content: space-between !important; 
-        align-items: flex-end !important;
-        max-width: 100% !important;
-    }
+/* Ajustes globales para tablets y móviles */
+@media(max-width: 1024px) {
+    .fotograma-item { flex: 0 0 calc(33.33% - 10px); }
     
-    .hero-text-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        flex: 1;
-    }
-    
-    .hero-title { 
-        font-size: 20px !important; 
-        line-height: 1 !important; 
-        margin-bottom: 2px !important; 
-        white-space: nowrap !important;
-        letter-spacing: 0.5px !important;
-    }
-    
-    .hero-subtitle { 
-        font-size: 11px !important; 
-        margin-bottom: 0px !important; 
-    }
-    
-    .subrayado-amarillo { 
-        border-bottom: 3px solid #FFC601 !important; 
-        padding-bottom: 8px !important; 
-        display: inline-block !important;
-        line-height: 1 !important;
-    }
-    
-    .hero-btn { 
-        padding: 4px 10px !important; 
-        font-size: 9px !important; 
-        margin-bottom: 0 !important;
-        white-space: nowrap;
-        margin-left: 10px;
-    }
-    
-    .premio-logo { flex: 1 1 calc(33.33% - 20px); }
-    
-    .fotogramas-carousel {
-        flex-wrap: wrap;
-        overflow-x: visible;
-        gap: 10px;
-    }
-    .fotograma-item {
-        flex: 0 0 calc(50% - 5px); 
-    }
-    .scroll-indicator { display: none; }
-    .fotogramas-section { margin-top: 20px; }
-
-    }
-    /* AJUSTE GALERÍA MÓVIL */
-@media(max-width: 600px) {
+    /* GALERÍA NUEVA: Ocultar texto y expandir carrusel */
     .galeria-intro-nueva { display: none !important; }
     .scroll-indicator-nuevo { display: none !important; }
     .galeria-wrapper-nueva { display: block !important; padding: 0 !important; margin: 0 !important; }
     .fotogramas-carousel-nuevo { padding-left: 0 !important; width: 100% !important; }
-    .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 90% !important; margin-right: 10px; }
+    .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 85% !important; }
+}
+
+@media(max-width:992px){
+    .header{ padding:20px; }
+    .nav{ display:none; }
+    .logo { display: none; }
+    .menu-toggle { display: block; }
+    .hero-overlay { left: 20px; }
+    .sitio-footer{ padding:40px 25px; }
+    .fila-tres-columnas{ flex-direction:column; gap:25px; text-align:center; }
+    .columna-derecha { text-align:center; }
+    .columna-derecha p { text-align: center; }
+}
+
+@media(max-width:850px){
+    .pt-wrapper { flex-direction: column; align-items: center; gap: 40px; }
+    .pt-info { width: 100%; max-width: 480px; justify-content: flex-start; }
+    .pt-title { text-align: center; }
+    .pt-paragraph { margin-bottom: 20px !important; text-align: justify; }
+}
+
+@media(max-width: 600px) {
+    .hero-overlay { left: 10px !important; right: 10px !important; bottom: 10px !important; width: calc(100% - 20px) !important; display: flex !important; justify-content: space-between !important; align-items: flex-end !important; max-width: 100% !important; }
+    .hero-title { font-size: 20px !important; }
+    .fotograma-item { flex: 0 0 calc(50% - 5px) !important; }
 }
 </style>
 
