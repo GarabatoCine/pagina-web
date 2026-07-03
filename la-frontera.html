@@ -307,10 +307,10 @@ text-align: left;
 }
 
 /* ================= FOTOGRAMAS ================= */
+/* ================= FOTOGRAMAS ================= */
 .fotogramas-section {
     width: 100%;
-    margin-top: 50px; 
-    margin-bottom: 32px;
+    margin: 50px 0 32px 0;
     position: relative;
 }
 
@@ -324,48 +324,37 @@ text-align: left;
 }
 
 .galeria-titulo {
-    flex: 0 0 260px; /* Coincide con el ancho de la columna de info del póster */
+    flex: 0 0 480px; 
 }
 
 .fotogramas-carousel {
     display: flex;
-    gap: 10px; 
+    gap: 15px;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
     flex: 1;
+    min-width: 0;
+    padding-bottom: 10px;
 }
 
 .fotogramas-carousel::-webkit-scrollbar { display: none; }
 
 .fotograma-item {
-    flex: 0 0 calc(33.33% - 7px); /* Muestra 3 fotos en PC */
+    flex: 0 0 320px; /* Ajusta este valor si quieres las fotos un poco más grandes o pequeñas */
     scroll-snap-align: start;
 }
 
-.fotograma-item img { width: 100%; height: auto; display: block; }
-
-.scroll-indicator {
-    position: absolute;
-    top: -40px;
-    right: 20px;
-    font-size: 12px;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+.fotograma-item img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Ajuste móvil */
 @media(max-width: 850px) {
     .galeria-wrapper { flex-direction: column; }
     .galeria-titulo { flex: 0 0 auto; margin-bottom: 15px; }
-    .fotograma-item { flex: 0 0 calc(50% - 5px); }
+    .fotograma-item { flex: 0 0 200px; }
 }
-
 /* ================= FICHA TÉCNICA ================= */
 
 .ficha-tecnica-section { background: #000; width: 100%; display: flex; justify-content: center; padding: 20px 0; }
@@ -795,20 +784,13 @@ text-align: center;
 
 <!-- SECCIÓN FOTOGRAMAS MODIFICADA -->
 <section class="fotogramas-section">
-    <div class="scroll-indicator">
-        Desliza para ver más
-        <i class="fa-solid fa-arrow-right-long"></i>
-    </div>
-
     <div class="galeria-wrapper">
-        <!-- Título Galería alineado al póster -->
         <div class="galeria-titulo">
             <h1 class="pt-title"><span class="pt-subrayado-amarillo">Gal</span>ería</h1>
         </div>
         
-        <!-- Carrusel de fotos -->
         <div class="fotogramas-carousel">
-            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera1.jpg" alt="Fotograma 1"></div>
+            <!-- Empezamos desde la segunda foto original, sin borrar las demás -->
             <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera2.jpg" alt="Fotograma 2"></div>
             <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera3.jpg" alt="Fotograma 3"></div>
             <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera4.jpg" alt="Fotograma 4"></div>
