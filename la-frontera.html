@@ -654,53 +654,284 @@ color:#FFC601;
 
 /* ================= RESPONSIVE ================= */
 
-/* ================= RESPONSIVE ================= */
-
 @media(max-width:1024px) {
     .fotograma-item { flex: 0 0 calc(33.33% - 10px); } 
-
-    /* Ajuste para que la galería sea a pantalla completa en tablet/móvil */
-    .galeria-intro-nueva { display: none !important; }
-    .scroll-indicator-nuevo { display: none !important; }
-    .galeria-wrapper-nueva { display: block !important; padding: 0 !important; margin: 0 !important; }
-    .fotogramas-carousel-nuevo { padding-left: 0 !important; width: 100% !important; }
-    .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 80% !important; }
 }
 
 @media(max-width:850px){
-    .pt-wrapper { flex-direction: column; align-items: center; gap: 40px; }
-    .pt-info { width: 100%; max-width: 480px; justify-content: flex-start; }
-    .pt-title { text-align: center; }
-    .pt-paragraph { margin-bottom: 20px !important; text-align: justify; }
-    .ve-section-wrapper { flex-direction: column; }
+.pt-wrapper {
+    flex-direction: column; 
+    align-items: center;
+    gap: 40px;
+}
+.pt-info {
+    width: 100%;
+    max-width: 480px; 
+    justify-content: flex-start;
+}
+.pt-title {
+    text-align: center;
+}
+.pt-paragraph {
+    margin-bottom: 20px !important;
+    text-align: justify;
+}
 }
 
 @media(max-width:992px){
-    .header { padding:20px; }
-    .nav { display:none; }
-    .logo { display: none; }
-    .menu-toggle { display: block; }
-    .hero-overlay { left: 20px; }
-    .sitio-footer { padding:40px 25px; }
-    .fila-tres-columnas { flex-direction:column; gap:25px; text-align:center; }
-    .columna-derecha { text-align:center; }
-    .columna-derecha p { text-align: center; }
+.header{
+padding:20px;
+}
+.nav{
+display:none;
+}
+.logo {
+display: none;
+}
+.menu-toggle {
+display: block;
+}
+.hero-overlay { left: 20px; }
+.sitio-footer{
+padding:40px 25px;
+}
+.fila-tres-columnas{
+flex-direction:column;
+gap:25px;
+text-align:center;
+}
+.columna-derecha{
+text-align:center;
+}
+.columna-derecha p {
+text-align: center;
+}
 }
 
 @media(max-width: 991px) {
-    .premio-logo img { max-height: 52.5px; }
+    .premio-logo img {
+        max-height: 52.5px;
+    }
 }
 
 @media(max-width: 600px) {
-    .hero-overlay { left: 10px !important; right: 10px !important; bottom: 10px !important; width: calc(100% - 20px) !important; display: flex !important; justify-content: space-between !important; align-items: flex-end !important; max-width: 100% !important; }
-    .hero-text-container { display: flex; flex-direction: column; align-items: flex-start; flex: 1; }
-    .hero-title { font-size: 20px !important; line-height: 1 !important; margin-bottom: 2px !important; white-space: nowrap !important; letter-spacing: 0.5px !important; }
-    .hero-subtitle { font-size: 11px !important; margin-bottom: 0px !important; }
-    .subrayado-amarillo { border-bottom: 3px solid #FFC601 !important; padding-bottom: 8px !important; display: inline-block !important; line-height: 1 !important; }
-    .hero-btn { padding: 4px 10px !important; font-size: 9px !important; margin-bottom: 0 !important; white-space: nowrap; margin-left: 10px; }
+    @media(max-width: 600px) { 
+    .hero-overlay { 
+        left: 10px !important; 
+        right: 10px !important; 
+        bottom: 10px !important; 
+        width: calc(100% - 20px) !important; 
+        display: flex !important; 
+        justify-content: space-between !important; 
+        align-items: flex-end !important;
+        max-width: 100% !important;
+    }
+    
+    .hero-text-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex: 1;
+    }
+    
+    .hero-title { 
+        font-size: 20px !important; 
+        line-height: 1 !important; 
+        margin-bottom: 2px !important; 
+        white-space: nowrap !important;
+        letter-spacing: 0.5px !important;
+    }
+    
+    .hero-subtitle { 
+        font-size: 11px !important; 
+        margin-bottom: 0px !important; 
+    }
+    
+    .subrayado-amarillo { 
+        border-bottom: 3px solid #FFC601 !important; 
+        padding-bottom: 8px !important; 
+        display: inline-block !important;
+        line-height: 1 !important;
+    }
+    
+    .hero-btn { 
+        padding: 4px 10px !important; 
+        font-size: 9px !important; 
+        margin-bottom: 0 !important;
+        white-space: nowrap;
+        margin-left: 10px;
+    }
+    
     .premio-logo { flex: 1 1 calc(33.33% - 20px); }
-    .fotogramas-carousel { flex-wrap: wrap; overflow-x: visible; gap: 10px; }
-    .fotograma-item { flex: 0 0 calc(50% - 5px); }
+    
+    .fotogramas-carousel {
+        flex-wrap: wrap;
+        overflow-x: visible;
+        gap: 10px;
+    }
+    .fotograma-item {
+        flex: 0 0 calc(50% - 5px); 
+    }
     .scroll-indicator { display: none; }
     .fotogramas-section { margin-top: 20px; }
 }
+</style>
+
+</head>
+
+<body>
+
+<header class="header">
+<div class="logo"><a href="index.html">GARABATO CINE</a></div>
+<div class="menu-toggle" id="menu-btn"><i class="fa-solid fa-bars"></i></div>
+<div class="nav">
+<a href="proyectos.html">PROYECTOS</a>
+<a href="proximamente.html">PRÓXIMAMENTE</a>
+<a href="nosotros.html">NOSOTROS</a>
+<div class="lang"><span class="active">ES</span><span>|</span><span>EN</span></div>
+</div>
+</header>
+
+<nav class="nav-mobile" id="nav-mobile">
+    <a href="proyectos.html">PROYECTOS</a>
+    <a href="proximamente.html">PRÓXIMAMENTE</a>
+    <a href="nosotros.html">NOSOTROS</a>
+    <div class="lang-mobile"><span>ES</span> | <span>EN</span></div>
+</nav>
+
+<section class="hero-banner">
+<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera-banner.jpg" alt="Banner La Frontera">
+<div class="hero-overlay">
+    <div class="hero-text-container">
+        <h1 class="hero-title"><span class="subrayado-amarillo">LA FR</span>ONTERA</h1>
+        <div class="hero-subtitle">Una película de David David</div>
+    </div>
+    <a class="hero-btn" href="https://www.youtube.com/watch?v=FeABm-LkkHk" target="_blank">
+    <i class="fa-solid fa-play"></i> Ver Tráiler</a>
+</div>
+</section>
+
+<section class="premios-section">
+    <div class="premios-container">
+        <div class="premio-logo"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/festivales/cairo.png" alt="Cairo"></div>
+        <div class="premio-logo"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/festivales/goa.png" alt="Goa"></div>
+        <div class="premio-logo"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/festivales/ficci.png" alt="Fixie"></div>
+        <div class="premio-logo"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/festivales/gramado.png" alt="Grado"></div>
+        <div class="premio-logo"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/festivales/premiomacondo.png" alt="Premios Macondo"></div>
+        <div class="premio-logo"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/festivales/lasalturas.png" alt="Las Alturas"></div>
+    </div>
+</section>
+
+<section class="poster-text-section">
+<div class="pt-wrapper">
+<div class="pt-poster-wrapper">
+<img class="pt-poster" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera-poster.jpg" alt="Póster La Frontera">
+</div>
+<div class="pt-info">
+    <div>
+        <h1 class="pt-title"><span class="pt-subrayado-amarillo">La Frontera</span></h1>
+        <p class="pt-paragraph">Ambientada durante el cierre de la frontera entre Colombia y Venezuela en 2016, la película parte de un contexto específico para hablar de una experiencia profundamente universal: la necesidad de resistir, adaptarse y preservar la propia identidad frente al cambio.</p>
+        <p class="pt-paragraph">A través de Diana, una mujer que enfrenta la incertidumbre con la esperanza de construir un futuro para su hijo, la película explora las fronteras visibles e invisibles que atraviesan nuestras vidas.</p>
+    </div>
+</div>
+</div>
+</section>
+
+<section class="fotogramas-section-nueva">
+    <div class="scroll-indicator-nuevo">
+        Desliza para ver más
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
+
+    <div class="galeria-wrapper-nueva">
+        <div class="galeria-intro-nueva">
+            <h2 class="galeria-titulo-nueva"><span class="pt-subrayado-amarillo">Galería</span></h2>
+            <p class="galeria-subtitulo-nueva">Un recorrido visual por el universo de La Frontera.</p>
+        </div>
+        
+        <div class="fotogramas-carousel-nuevo">
+            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera1.jpg" alt="Fotograma 1"></div>
+            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera2.jpg" alt="Fotograma 2"></div>
+            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera3.jpg" alt="Fotograma 3"></div>
+            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera4.jpg" alt="Fotograma 4"></div>
+            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera5.jpg" alt="Fotograma 5"></div>
+            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera6.jpg" alt="Fotograma 6"></div>
+        </div>
+    </div>
+</section>
+
+<section class="ficha-tecnica-section">
+    <div class="ficha-tecnica-marco-wrapper">
+        <div class="titulo-ficha-container"><h2 class="titulo-ficha">FICHA TÉCNICA</h2></div>
+        <div class="ficha-tecnica-grid">
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/direccion.png"><div class="ficha-texto">David David</div></div>
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/guion.png"><div class="ficha-texto">David David</div></div>
+            </div>
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/direccion-de-fotografia.png"><div class="ficha-texto">Ivan Molina</div></div>
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/direccion-de-arte.png"><div class="ficha-texto">Gabi Egurrola<br>Lucy Shalom</div></div>
+            </div>
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/musica-original.png"><div class="ficha-texto">Oliver Camargo<br>Jorge Gomez</div></div>
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/sonido.png"><div class="ficha-texto">Hector Sanchez<br>Daniel "Gato" Najar</div></div>
+            </div>
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/montaje.png"><div class="ficha-texto">David David</div></div>
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/prodcuccion.png"><div class="ficha-texto">David David<br>Carolina David</div></div>
+            </div>
+            <div class="ficha-columna">
+                <div class="reparto"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/reparto.png"><div class="ficha-texto">Daylin Vega<br>Sheila Monterola<br>Alejo Aguilar<br>Nelson Camayo<br>Yull Núñez</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BANNER CANCIÓN - DESPLAZAMIENTO A LA IZQUIERDA -->
+<section id="banner-la-frontera-v3" style="width: 100%; margin-top: 40px; position: relative; font-family: 'Avenir Next', sans-serif;">
+    <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg?v=1" style="width: 100%; display: block;">
+
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; color: #d1b069; padding: 0 40px;">
+        
+        <!-- TITULO -->
+        <div style="flex: 0 0 18%; text-align: center;">
+            <p style="font-weight: 100; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #d1b069;">Canción original</p>
+            <h1 style="font-size: 34px; font-weight: normal; margin: 10px 0 25px 0; font-family: Georgia, serif; color: #d1b069;">La Frontera</h1>
+            <p style="font-weight: 100; font-size: 10px; margin: 0 0 5px 0; color: #d1b069;">Cantada por</p>
+            <h2 style="font-size: 18px; font-weight: normal; margin: 0; color: #d1b069;">Adriana Lucía</h2>
+        </div>
+
+        <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 50px;"></div>
+
+        <!-- FOTO Y BOTONES -->
+        <div style="flex: 0 0 35%; display: flex; align-items: center; gap: 40px; justify-content: center;">
+            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png?v=1" style="width: 220px;">
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <a href="https://www.youtube.com/watch?v=VRcRpjae9RI" target="_blank" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: #d1b069;">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/boton-play.png?raw=true" style="width: 35px;">
+                    <div style="line-height: 1.2;">
+                        <span style="font-size: 15px; font-weight: 400;">VER VIDEO</span><br>
+                        <span style="font-size: 10px; font-weight: 100;">EN YOUTUBE</span>
+                    </div>
+                </a>
+                <div style="width: 140px; height: 0.5px; background-color: #d1b069;"></div>
+                <a href="https://open.spotify.com/intl-es/track/7oq21dTDyIfcmzMCINqXZ1" target="_blank" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: #d1b069;">
+                    <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/spotify.png" style="width: 35px;">
+                    <div style="line-height: 1.2;">
+                        <span style="font-size: 15px; font-weight: 400;">ESCUCHAR</span><br>
+                        <span style="font-size: 15px; font-weight: 400;">CANCIÓN</span><br>
+                        <span style="font-size: 10px; font-weight: 100;">EN SPOTIFY</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 50px;"></div>
+
+        <!-- TEXTO: ALTURA CONSERVADA Y MOVIDO A LA IZQUIERDA -->
+        <div style="flex: 1; align-self: flex-start; padding-top: 165px; margin-left: -20px; font-size: 14px; font-style: italic; font-weight: 100; color: #d1b069; text-align: left;">
+            Sigue la luz que habita en mí...<br>
+            Solo quiero abrir mis alas y volar.
+        </div>
+    </div>
+</section>
