@@ -313,51 +313,44 @@ text-align: left;
     margin-top: 50px;
     margin-bottom: 32px;
     position: relative;
-    /* Quitamos el padding lateral para que llegue al borde */
     padding: 0;
 }
 
-.galeria-flex {
+.galeria-header {
     display: flex;
-    align-items: flex-start;
-    gap: 35px; /* Ajusta este valor para separar "Galería" de las fotos */
-    padding-left: 20px; /* Alineación inicial */
+    justify-content: space-between; /* Pone Galería a la izquierda y el aviso a la derecha */
+    align-items: center;
+    padding: 0 20px 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.galeria-flex .pt-title {
-    flex: 0 0 445px; /* Ancho fijo para el bloque de la izquierda */
-    margin-bottom: 0;
+.galeria-header .pt-title { margin: 0; }
+
+.scroll-indicator {
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .fotogramas-carousel {
     display: flex;
     gap: 15px;
     overflow-x: auto;
-    padding-bottom: 15px;
     scrollbar-width: none;
-    /* Asegura que el carrusel ocupe todo el ancho hasta el final */
-    flex: 1;
-    padding-right: 20px; 
+    /* ESTE ES EL AJUSTE PARA ALINEAR CON EL PÓSTER */
+    padding-left: calc((100% - 1200px) / 2 + 20px); 
 }
 
 .fotograma-item {
-    flex: 0 0 350px; /* Tamaño original de tus fotos */
+    flex: 0 0 350px; 
 }
 
 .fotograma-item img {
     width: 100%;
     height: auto;
     display: block;
-}
-
-.scroll-indicator {
-    /* Pegado inmediatamente encima del carrusel */
-    margin-left: 480px; 
-    margin-bottom: 5px;
-    font-size: 12px;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 /* ================= FICHA TÉCNICA ================= */
 
@@ -787,24 +780,21 @@ text-align: center;
 </section>
 
 <section class="fotogramas-section">
-    <!-- Indicador ahora estará pegado al carrusel -->
-    <div class="scroll-indicator">
-        Desliza para ver más <i class="fa-solid fa-arrow-right-long"></i>
+    <!-- El indicador ahora está en el contenedor para poder moverlo a la derecha -->
+    <div class="galeria-header">
+        <h1 class="pt-title"><span class="pt-subrayado-amarillo">Gal</span>ería</h1>
+        <div class="scroll-indicator">
+            Desliza para ver más <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
     </div>
     
-    <div class="galeria-flex">
-        <!-- Título a la izquierda -->
-        <h1 class="pt-title"><span class="pt-subrayado-amarillo">Gal</span>ería</h1>
-        
-        <!-- Carrusel que llega hasta el borde derecho -->
-        <div class="fotogramas-carousel">
-            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera1.jpg" alt="Foto 1"></div>
-            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera2.jpg" alt="Foto 2"></div>
-            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera3.jpg" alt="Foto 3"></div>
-            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera4.jpg" alt="Foto 4"></div>
-            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera5.jpg" alt="Foto 5"></div>
-            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera6.jpg" alt="Foto 6"></div>
-        </div>
+    <div class="fotogramas-carousel">
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera1.jpg" alt="Foto 1"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera2.jpg" alt="Foto 2"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera3.jpg" alt="Foto 3"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera4.jpg" alt="Foto 4"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera5.jpg" alt="Foto 5"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera6.jpg" alt="Foto 6"></div>
     </div>
 </section>
 
