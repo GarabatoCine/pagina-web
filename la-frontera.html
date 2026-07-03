@@ -309,16 +309,16 @@ text-align: left;
 
 /* ================= FOTOGRAMAS ================= */
 
-.fotogramas-section-nueva {
+..fotogramas-section-nueva {
     position: relative;
-    margin-top: 40px !important;    /* Margen superior unificado */
-    margin-bottom: 40px !important; /* Margen inferior unificado */
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
     padding: 0 20px;
 }
 
 .scroll-indicator-nuevo {
     position: absolute;
-    top: -35px; /* Ajustado para quedar alineado arriba de las fotos */
+    top: -35px;
     right: 20px;
     font-size: 12px;
     color: #888;
@@ -334,12 +334,17 @@ text-align: left;
 
 .galeria-wrapper-nueva {
     display: flex;
-    align-items: flex-start;
+    align-items: center; /* Esto centra el texto verticalmente respecto a las fotos */
     gap: 40px;
     width: 100%;
 }
 
-.galeria-intro-nueva { flex: 0 0 250px; }
+.galeria-intro-nueva { 
+    flex: 0 0 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .galeria-titulo-nueva {
     font-family: 'Georgia', serif;
@@ -354,6 +359,7 @@ text-align: left;
     font-size: 14px;
     line-height: 1.5;
     color: #666;
+    white-space: nowrap; /* Mantiene la unidad del texto */
 }
 
 .fotogramas-carousel-nuevo {
@@ -361,10 +367,22 @@ text-align: left;
     gap: 15px;
     overflow-x: auto;
     flex: 1;
-    padding-bottom: 20px;
+    padding-bottom: 0px; /* Quitamos el padding inferior para eliminar la barra */
+    scrollbar-width: none; /* Oculta barra en Firefox */
+}
+
+/* Oculta barra en Chrome, Safari y Edge */
+.fotogramas-carousel-nuevo::-webkit-scrollbar {
+    display: none;
 }
 
 .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 350px; }
+
+@keyframes pulse {
+    0% { transform: translateX(-5px); opacity: 0.5; }
+    50% { transform: translateX(5px); opacity: 1; }
+    100% { transform: translateX(-5px); opacity: 0.5; }
+}
 
 @media(max-width: 900px) {
     .galeria-wrapper-nueva { flex-direction: column; }
