@@ -308,50 +308,61 @@ text-align: left;
 }
 
 /* ================= FOTOGRAMAS ================= */
+
 .fotogramas-section {
-    width: 100%;
-    margin-top: 50px;
-    margin-bottom: 32px;
-    position: relative;
-    padding: 0;
-}
-
-.galeria-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px 10px 20px;
-}
-
-.pt-title { margin: 0; font-family: 'Georgia', serif; font-size: 36px; }
-
-.scroll-indicator {
-    font-size: 12px;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
+width: 100%;
+margin-top: 50px; 
+margin-bottom: 32px;
+padding: 0 20px; 
+position: relative;
 }
 
 .fotogramas-carousel {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    padding-left: calc((100% - 1200px) / 2 + 20px);
+display: flex;
+gap: 10px; 
+overflow-x: auto;
+scroll-snap-type: x mandatory;
+padding-bottom: 15px; 
+scrollbar-width: none;
+}
+.fotogramas-carousel::-webkit-scrollbar {
+display: none;
 }
 
 .fotograma-item {
-    flex: 0 0 350px; /* Tamaño fijo, no cambiará */
+flex: 0 0 calc(25% - 8px); 
+scroll-snap-align: start;
 }
 
 .fotograma-item img {
-    width: 100%;
-    height: auto;
-    display: block;
+width: 100%;
+height: auto; 
+object-fit: contain; 
+border-radius: 0; 
 }
+
+.scroll-indicator {
+position: absolute;
+top: -40px;
+right: 20px;
+font-size: 12px;
+color: #888;
+text-transform: uppercase;
+letter-spacing: 1px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+}
+.scroll-indicator i {
+animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+0% { transform: translateX(-5px); opacity: 0.5; }
+50% { transform: translateX(5px); opacity: 1; }
+100% { transform: translateX(-5px); opacity: 0.5; }
+}
+
 /* ================= FICHA TÉCNICA ================= */
 
 .ficha-tecnica-section { background: #000; width: 100%; display: flex; justify-content: center; padding: 20px 0; }
@@ -780,39 +791,44 @@ text-align: center;
 </section>
 
 <section class="fotogramas-section">
-    <!-- El indicador ahora está en el contenedor para poder moverlo a la derecha -->
-    <div class="galeria-header">
-        <h1 class="pt-title"><span class="pt-subrayado-amarillo">Gal</span>ería</h1>
-        <div class="scroll-indicator">
-            Desliza para ver más <i class="fa-solid fa-arrow-right-long"></i>
-        </div>
+    <div class="scroll-indicator">
+        Desliza para ver más
+        <i class="fa-solid fa-arrow-right-long"></i>
     </div>
-    
     <div class="fotogramas-carousel">
-        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera1.jpg" alt="Foto 1"></div>
-        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera2.jpg" alt="Foto 2"></div>
-        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera3.jpg" alt="Foto 3"></div>
-        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera4.jpg" alt="Foto 4"></div>
-        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera5.jpg" alt="Foto 5"></div>
-        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera6.jpg" alt="Foto 6"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera1.jpg" alt="Fotograma 1"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera2.jpg" alt="Fotograma 2"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera3.jpg" alt="Fotograma 3"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera4.jpg" alt="Fotograma 4"></div>
+        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera5.jpg" alt="Fotograma 5"></div>
+      <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera6.jpg" alt="Fotograma 6"></div>
     </div>
 </section>
 
-<section class="fotogramas-section">
-    <!-- Encabezado con título y aviso -->
-    <div class="galeria-header">
-        <h1 class="pt-title"><span class="pt-subrayado-amarillo">Gal</span>ería</h1>
-        <div class="scroll-indicator">Desliza para ver más <i class="fa-solid fa-arrow-right-long"></i></div>
-    </div>
-    
-    <!-- Carrusel tal cual como estaba cuando funcionaba -->
-    <div class="fotogramas-carousel">
-        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera1.jpg" alt="Foto 1"></div>
-        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera2.jpg" alt="Foto 2"></div>
-        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera3.jpg" alt="Foto 3"></div>
-        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera4.jpg" alt="Foto 4"></div>
-        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera5.jpg" alt="Foto 5"></div>
-        <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera6.jpg" alt="Foto 6"></div>
+<section class="ficha-tecnica-section">
+    <div class="ficha-tecnica-marco-wrapper">
+        <div class="titulo-ficha-container"><h2 class="titulo-ficha">FICHA TÉCNICA</h2></div>
+        <div class="ficha-tecnica-grid">
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/direccion.png"><div class="ficha-texto">David David</div></div>
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/guion.png"><div class="ficha-texto">David David</div></div>
+            </div>
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/direccion-de-fotografia.png"><div class="ficha-texto">Ivan Molina</div></div>
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/direccion-de-arte.png"><div class="ficha-texto">Gabi Egurrola<br>Lucy Shalom</div></div>
+            </div>
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/musica-original.png"><div class="ficha-texto">Oliver Camargo<br>Jorge Gomez</div></div>
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/sonido.png"><div class="ficha-texto">Hector Sanchez<br>Daniel "Gato" Najar</div></div>
+            </div>
+            <div class="ficha-columna">
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/montaje.png"><div class="ficha-texto">David David</div></div>
+                <div class="ficha-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/prodcuccion.png"><div class="ficha-texto">David David<br>Carolina David</div></div>
+            </div>
+            <div class="ficha-columna">
+                <div class="reparto"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/fichatecnica/reparto.png"><div class="ficha-texto">Daylin Vega<br>Sheila Monterola<br>Alejo Aguilar<br>Nelson Camayo<br>Yull Núñez</div></div>
+            </div>
+        </div>
     </div>
 </section>
 
