@@ -831,237 +831,210 @@ text-align: center;
         </div>
     </div>
 </section>
-
 /*====================================================
-=            CANCIÓN ORIGINAL - LA FRONTERA
+        CANCIÓN ORIGINAL - LA FRONTERA
 ====================================================*/
 
 .cancion-section{
     width:100%;
-    position:relative;
-    overflow:hidden;
     margin:70px 0;
-    color:#E8D3A0;
+    overflow:hidden;
+    position:relative;
 }
 
 .cancion-bg{
-    position:relative;
-    width:100%;
-    min-height:460px;
-    background:url("https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/banner-cancion.jpg?raw=true") center center;
-    background-size:cover;
-    display:flex;
-    align-items:center;
-}
 
-.cancion-bg::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.25);
+    width:100%;
+    height:430px;
+
+    background-image:url("https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/banner-cancion.jpg?raw=true");
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size:contain;
+    background-color:#1b140e;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
 }
 
 .cancion-wrapper{
-    position:relative;
-    z-index:2;
+
     width:100%;
-    max-width:1500px;
-    margin:auto;
-    padding:40px 50px;
+    max-width:1550px;
+
     display:grid;
-    grid-template-columns:1.2fr .9fr 1fr 1.3fr;
+
+    grid-template-columns:
+
+        1.15fr
+        1px
+        .85fr
+        1px
+        1fr
+        1px
+        1.25fr;
+
     align-items:center;
-    column-gap:40px;
+
+    padding:0 70px;
+
+    column-gap:35px;
+
 }
 
-.cancion-col{
-    position:relative;
+.c-line{
+
+    width:1px;
+    height:270px;
+    background:rgba(255,255,255,.28);
+
 }
 
-.cancion-col:not(:last-child){
-    border-right:1px solid rgba(255,255,255,.35);
-    padding-right:40px;
+/*=================== IZQUIERDA ===================*/
+
+.c-left{
+
+    color:#e8d1a0;
+
 }
 
-.cancion-small{
+.c-top{
+
     font-family:'Roboto',sans-serif;
+    font-size:18px;
     font-weight:300;
-    font-size:20px;
-    color:#d9c6a0;
-    margin-bottom:18px;
+    margin-bottom:22px;
+    letter-spacing:.3px;
+
 }
 
-.cancion-title{
+.c-title{
+
     font-family:Georgia,serif;
     font-size:66px;
     line-height:1;
-    color:#f3e1b8;
+    color:#edd7a6;
     margin-bottom:55px;
+
 }
 
-.cancion-label{
+.c-small{
+
     font-family:'Roboto',sans-serif;
-    font-size:21px;
+    font-size:19px;
     font-weight:300;
-    color:#d9c6a0;
-    margin-bottom:8px;
+    margin-bottom:10px;
+
 }
 
-.cancion-singer{
+.c-name{
+
     font-family:Georgia,serif;
     font-size:52px;
     line-height:1.05;
-    color:#f3e1b8;
+    color:#edd7a6;
+
 }
 
-.polaroid{
-    width:240px;
-    margin:auto;
+/*=================== FOTO ===================*/
+
+.c-photo{
+
+    display:flex;
+    justify-content:center;
+
+}
+
+.c-photo img{
+
+    width:220px;
     display:block;
-    transform:rotate(-1.5deg);
+
 }
 
-.links-musica{
+/*=================== BOTONES ===================*/
+
+.c-links{
+
     display:flex;
     flex-direction:column;
-    gap:38px;
+    gap:40px;
+
 }
 
-.link-item{
+.c-item{
+
     display:flex;
     align-items:center;
     gap:22px;
-    color:#E8D3A0;
+
     text-decoration:none;
-    transition:.3s;
+
+    color:#e8d1a0;
+
+    transition:.25s;
+
 }
 
-.link-item:hover{
-    opacity:.8;
+.c-item:hover{
+
+    opacity:.75;
+
 }
 
-.link-item img{
-    width:68px;
-    flex-shrink:0;
+.c-item img{
+
+    width:64px;
+
 }
 
-.link-title{
+.c-big{
+
     font-family:'Roboto',sans-serif;
-    font-size:23px;
+    font-size:22px;
     font-weight:400;
     line-height:1.05;
     text-transform:uppercase;
+
 }
 
-.link-sub{
+.c-mini{
+
     font-family:'Roboto',sans-serif;
-    font-size:16px;
+    font-size:15px;
     font-weight:300;
     text-transform:uppercase;
     margin-top:4px;
+
 }
 
-.frase-final{
-    color:#d8c39c;
+/*=================== FRASE ===================*/
+
+.c-right{
+
+    display:flex;
+    justify-content:flex-end;
+
+}
+
+.c-quote{
+
+    max-width:360px;
+
+    color:#dcc28d;
+
     font-family:'Roboto',sans-serif;
+    font-size:20px;
     font-weight:300;
     font-style:italic;
-    font-size:28px;
+
     line-height:1.5;
-    max-width:420px;
-}
 
-/*=================== TABLET ===================*/
-
-@media(max-width:1100px){
-
-.cancion-wrapper{
-grid-template-columns:1fr;
-row-gap:45px;
-text-align:center;
-padding:45px 30px;
-}
-
-.cancion-col{
-border-right:none !important;
-padding-right:0 !important;
-}
-
-.polaroid{
-width:220px;
-}
-
-.links-musica{
-align-items:center;
-}
-
-.frase-final{
-margin:auto;
-}
-
-.cancion-title{
-font-size:54px;
-}
-
-.cancion-singer{
-font-size:42px;
-}
-
-}
-
-/*=================== CELULAR ===================*/
-
-@media(max-width:700px){
-
-.cancion-bg{
-background:url("https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/banner-cancion-celular.jpg?raw=true") center center;
-background-size:cover;
-}
-
-.cancion-wrapper{
-padding:35px 20px;
-row-gap:35px;
-}
-
-.cancion-small{
-font-size:17px;
-}
-
-.cancion-title{
-font-size:44px;
-}
-
-.cancion-label{
-font-size:18px;
-}
-
-.cancion-singer{
-font-size:36px;
-}
-
-.polaroid{
-width:180px;
-}
-
-.link-item img{
-width:54px;
-}
-
-.link-title{
-font-size:20px;
-}
-
-.link-sub{
-font-size:14px;
-}
-
-.frase-final{
-font-size:22px;
-text-align:center;
-}
-<!--==================================================
-    CANCIÓN ORIGINAL
-===================================================-->
+}<!--====================================================
+            CANCIÓN ORIGINAL
+=====================================================-->
 
 <section class="cancion-section">
 
@@ -1069,101 +1042,109 @@ text-align:center;
 
         <div class="cancion-wrapper">
 
-            <!-- Columna izquierda -->
+            <!-- Texto izquierdo -->
 
-            <div class="cancion-col">
+            <div class="c-left">
 
-                <div class="cancion-small">
+                <div class="c-top">
                     Canción original
                 </div>
 
-                <div class="cancion-title">
+                <h2 class="c-title">
                     La Frontera
+                </h2>
+
+                <div class="c-small">
+                    Cantada por
                 </div>
 
-                <div class="cancion-label">
-                    Canta
-                </div>
-
-                <div class="cancion-singer">
+                <div class="c-name">
                     Adriana Lucía
                 </div>
 
             </div>
 
-            <!-- Foto -->
+            <!-- Línea -->
 
-            <div class="cancion-col">
+            <div class="c-line"></div>
+
+            <!-- Polaroid -->
+
+            <div class="c-photo">
 
                 <img
-                    class="polaroid"
-                    src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/adri.png?raw=true"
-                    alt="Adriana Lucía">
+                src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/adri.png?raw=true"
+                alt="Adriana Lucía">
 
             </div>
+
+            <!-- Línea -->
+
+            <div class="c-line"></div>
 
             <!-- Botones -->
 
-            <div class="cancion-col">
+            <div class="c-links">
 
-                <div class="links-musica">
+                <a class="c-item"
+                href="https://www.youtube.com/watch?v=VRcRpjae9RI&list=RDVRcRpjae9RI&start_radio=1"
+                target="_blank">
 
-                    <a class="link-item"
-                       href="https://www.youtube.com/watch?v=VRcRpjae9RI&list=RDVRcRpjae9RI&start_radio=1"
-                       target="_blank">
+                    <img
+                    src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/boton-play.png?raw=true"
+                    alt="YouTube">
 
-                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/boton-play.png?raw=true">
+                    <div>
 
-                        <div>
-
-                            <div class="link-title">
-                                VER VIDEO
-                            </div>
-
-                            <div class="link-sub">
-                                EN YOUTUBE
-                            </div>
-
+                        <div class="c-big">
+                            VER VIDEO
                         </div>
 
-                    </a>
-
-
-                    <a class="link-item"
-                       href="https://open.spotify.com/intl-es/track/7oq21dTDyIfcmzMCINqXZ1?si=1bf58ce3771b46c4"
-                       target="_blank">
-
-                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/spotify.png?raw=true">
-
-                        <div>
-
-                            <div class="link-title">
-                                ESCUCHAR CANCIÓN
-                            </div>
-
-                            <div class="link-sub">
-                                EN SPOTIFY
-                            </div>
-
+                        <div class="c-mini">
+                            EN YOUTUBE
                         </div>
 
-                    </a>
+                    </div>
 
-                </div>
+                </a>
+
+                <a class="c-item"
+                href="https://open.spotify.com/intl-es/track/7oq21dTDyIfcmzMCINqXZ1?si=1bf58ce3771b46c4"
+                target="_blank">
+
+                    <img
+                    src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/spotify.png?raw=true"
+                    alt="Spotify">
+
+                    <div>
+
+                        <div class="c-big">
+                            ESCUCHAR CANCIÓN
+                        </div>
+
+                        <div class="c-mini">
+                            EN SPOTIFY
+                        </div>
+
+                    </div>
+
+                </a>
 
             </div>
 
+            <!-- Línea -->
+
+            <div class="c-line"></div>
+
             <!-- Frase -->
 
-            <div class="cancion-col">
+            <div class="c-right">
 
-                <div class="frase-final">
+                <div class="c-quote">
 
-                    Sigue la luz<br>
-                    que habita en mí…<br><br>
+                    Sigue la luz que habita en mí…<br><br>
 
-                    Solo quiero abrir<br>
-                    mis alas y volar.
+                    Solo quiero abrir mis alas y volar.
 
                 </div>
 
@@ -1173,5 +1154,206 @@ text-align:center;
 
     </div>
 
-</section>
+</section>/*====================================================
+            RESPONSIVE TABLET
+====================================================*/
+
+@media (max-width:1100px){
+
+.cancion-bg{
+
+    height:auto;
+
+    padding:70px 0;
+
+    background-size:cover;
+
+}
+
+.cancion-wrapper{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:35px;
+
+    padding:0 35px;
+
+    text-align:center;
+
+}
+
+.c-line{
+
+    display:none;
+
+}
+
+.c-left{
+
+    order:1;
+
+}
+
+.c-photo{
+
+    order:2;
+
+}
+
+.c-photo img{
+
+    width:240px;
+
+}
+
+.c-links{
+
+    order:3;
+
+    align-items:center;
+
+}
+
+.c-item{
+
+    justify-content:center;
+
+}
+
+.c-right{
+
+    order:4;
+
+    justify-content:center;
+
+}
+
+.c-title{
+
+    font-size:56px;
+
+}
+
+.c-name{
+
+    font-size:44px;
+
+}
+
+.c-quote{
+
+    max-width:550px;
+
+    text-align:center;
+
+    font-size:24px;
+
+}
+
+}
+
+/*====================================================
+                CELULAR
+====================================================*/
+
+@media (max-width:700px){
+
+.cancion-bg{
+
+    background-image:url("https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/banner-cancion-celular.jpg?raw=true");
+
+    background-position:center top;
+
+    background-repeat:no-repeat;
+
+    background-size:cover;
+
+    padding:60px 0;
+
+}
+
+.cancion-wrapper{
+
+    padding:0 20px;
+
+    gap:28px;
+
+}
+
+.c-top{
+
+    font-size:16px;
+
+}
+
+.c-title{
+
+    font-size:42px;
+
+    margin-bottom:35px;
+
+}
+
+.c-small{
+
+    font-size:17px;
+
+}
+
+.c-name{
+
+    font-size:34px;
+
+}
+
+.c-photo img{
+
+    width:180px;
+
+}
+
+.c-links{
+
+    gap:25px;
+
+}
+
+.c-item{
+
+    gap:15px;
+
+}
+
+.c-item img{
+
+    width:52px;
+
+}
+
+.c-big{
+
+    font-size:18px;
+
+}
+
+.c-mini{
+
+    font-size:13px;
+
+}
+
+.c-quote{
+
+    font-size:20px;
+
+    line-height:1.45;
+
+    max-width:320px;
+
+}
+
 }
