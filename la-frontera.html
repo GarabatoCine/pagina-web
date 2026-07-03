@@ -307,39 +307,38 @@ text-align: left;
 }
 
 /* ================= FOTOGRAMAS ================= */
-/* ================= FOTOGRAMAS ================= */
 .fotogramas-section {
     width: 100%;
-    margin: 50px 0 32px 0;
+    margin-top: 50px;
+    margin-bottom: 32px;
+    padding: 0 20px;
     position: relative;
 }
 
 .galeria-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
     display: flex;
     align-items: flex-start;
-    gap: 35px;
+    gap: 35px; /* Ajusta este gap si necesitas mover las fotos más a la izquierda */
 }
 
 .galeria-titulo {
-    flex: 0 0 480px; 
+    flex: 0 0 480px; /* Ancho exacto del póster superior */
 }
 
 .fotogramas-carousel {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     overflow-x: auto;
-    flex: 1;
-    min-width: 0;
-    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 15px;
+    scrollbar-width: none;
+    flex: 1; /* Permite que el carrusel ocupe el espacio sobrante */
 }
 
-.fotogramas-carousel::-webkit-scrollbar { display: none; }
-
 .fotograma-item {
-    flex: 0 0 320px; /* Ajusta este valor si quieres las fotos un poco más grandes o pequeñas */
+    flex: 0 0 350px; /* MANTÉN AQUÍ EL TAMAÑO ORIGINAL QUE TENÍAS */
     scroll-snap-align: start;
 }
 
@@ -349,12 +348,20 @@ text-align: left;
     display: block;
 }
 
-/* Ajuste móvil */
-@media(max-width: 850px) {
-    .galeria-wrapper { flex-direction: column; }
-    .galeria-titulo { flex: 0 0 auto; margin-bottom: 15px; }
-    .fotograma-item { flex: 0 0 200px; }
+.scroll-indicator {
+    position: absolute;
+    top: -40px;
+    right: 20px;
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
+/* ... mantén tus keyframes de la animación pulse aquí ... */
 /* ================= FICHA TÉCNICA ================= */
 
 .ficha-tecnica-section { background: #000; width: 100%; display: flex; justify-content: center; padding: 20px 0; }
@@ -782,15 +789,21 @@ text-align: center;
 </div>
 </section>
 
-<!-- SECCIÓN FOTOGRAMAS MODIFICADA -->
 <section class="fotogramas-section">
+    <!-- Indicador restaurado -->
+    <div class="scroll-indicator">
+        Desliza para ver más
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
+
     <div class="galeria-wrapper">
         <div class="galeria-titulo">
             <h1 class="pt-title"><span class="pt-subrayado-amarillo">Gal</span>ería</h1>
         </div>
         
         <div class="fotogramas-carousel">
-            <!-- Empezamos desde la segunda foto original, sin borrar las demás -->
+            <!-- Todas las fotos originales intactas -->
+            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera1.jpg" alt="Fotograma 1"></div>
             <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera2.jpg" alt="Fotograma 2"></div>
             <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera3.jpg" alt="Fotograma 3"></div>
             <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera4.jpg" alt="Fotograma 4"></div>
@@ -799,7 +812,6 @@ text-align: center;
         </div>
     </div>
 </section>
-
 <section class="ficha-tecnica-section">
     <div class="ficha-tecnica-marco-wrapper">
         <div class="titulo-ficha-container"><h2 class="titulo-ficha">FICHA TÉCNICA</h2></div>
