@@ -309,7 +309,7 @@ text-align: left;
 
 /* ================= FOTOGRAMAS ================= */
 
-..fotogramas-section-nueva {
+.fotogramas-section-nueva {
     position: relative;
     margin-top: 40px !important;
     margin-bottom: 40px !important;
@@ -334,17 +334,12 @@ text-align: left;
 
 .galeria-wrapper-nueva {
     display: flex;
-    align-items: center; /* Esto centra el texto verticalmente respecto a las fotos */
+    align-items: center; /* Centrado vertical */
     gap: 40px;
     width: 100%;
 }
 
-.galeria-intro-nueva { 
-    flex: 0 0 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+.galeria-intro-nueva { flex: 0 0 250px; }
 
 .galeria-titulo-nueva {
     font-family: 'Georgia', serif;
@@ -359,7 +354,13 @@ text-align: left;
     font-size: 14px;
     line-height: 1.5;
     color: #666;
-    white-space: nowrap; /* Mantiene la unidad del texto */
+    display: block; /* Asegura que el contenido se comporte como bloque */
+}
+
+/* Fuerza el salto de línea para "La Frontera" */
+.break-line::before {
+    content: "\A";
+    white-space: pre;
 }
 
 .fotogramas-carousel-nuevo {
@@ -367,11 +368,11 @@ text-align: left;
     gap: 15px;
     overflow-x: auto;
     flex: 1;
-    padding-bottom: 0px; /* Quitamos el padding inferior para eliminar la barra */
+    padding-bottom: 0px; /* Elimina el espacio de la barra */
     scrollbar-width: none; /* Oculta barra en Firefox */
 }
 
-/* Oculta barra en Chrome, Safari y Edge */
+/* Oculta barra de desplazamiento en Chrome, Safari y Edge */
 .fotogramas-carousel-nuevo::-webkit-scrollbar {
     display: none;
 }
