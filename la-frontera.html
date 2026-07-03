@@ -831,37 +831,53 @@ text-align: center;
         </div>
     </div>
 </section>
-<!-- ESPACIO DE SEPARACIÓN (Igual al de la galería) -->
-<div style="height: 40px;"></div> 
+<!-- ESPACIO DE SEPARACIÓN -->
+<div style="height: 40px;"></div>
 
-<section style="width: 100%; position: relative; padding: 40px 5%; background-image: url('https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/banner-cancion.jpg?raw=true'); background-size: cover; background-position: center; display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; min-height: 400px; color: #d1b069;">
+<section style="width: 100%; min-height: 450px; position: relative; padding: 40px 5%; 
+    background-image: url('https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/banner-cancion.jpg?raw=true'); 
+    background-size: cover; background-position: center center; 
+    display: flex; align-items: center; justify-content: space-between; color: #d1b069;">
 
-    <!-- SECCIÓN 1: Título e Intérprete -->
-    <div style="text-align: center;">
-        <p style="font-family: 'Avenir Next', sans-serif; font-size: 14px; text-transform: uppercase;">Canción original</p>
-        <h1 style="font-family: 'Georgia', serif; font-size: 40px; margin: 10px 0;">La Frontera</h1>
-        <p style="font-family: 'Avenir Next', sans-serif; font-size: 14px;">Cantada por</p>
-        <h2 style="font-family: 'Georgia', serif; font-size: 28px;">Adriana Lucía</h2>
+    <!-- FRANGIA 1: Título e Intérprete -->
+    <div style="flex: 1; text-align: center;">
+        <p style="font-family: sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;">Canción original</p>
+        <h1 style="font-family: 'Georgia', serif; font-size: 32px; font-weight: normal; margin: 10px 0;">La Frontera</h1>
+        <p style="font-family: sans-serif; font-size: 12px; margin-bottom: 5px;">Cantada por</p>
+        <h2 style="font-family: 'Georgia', serif; font-size: 22px; font-weight: normal;">Adriana Lucía</h2>
     </div>
 
-    <!-- SECCIÓN 2: Foto y Botones -->
-    <div style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 30px;">
-        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/adri.png?raw=true" style="width: 200px;" alt="Adriana Lucía">
-        <div style="display: flex; flex-direction: column; gap: 15px; align-items: flex-start;">
-            <a href="https://www.youtube.com/watch?v=VRcRpjae9RI" style="color: #d1b069; text-decoration: none; display: flex; align-items: center; gap: 10px;">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/boton-play.png?raw=true" style="width: 30px;">
-                <span>VER VIDEO EN YOUTUBE</span>
+    <!-- LÍNEA DIVISORIA 1 -->
+    <div style="width: 0.5px; height: 150px; background-color: #d1b069;"></div>
+
+    <!-- FRANGIA 2: Foto + Botones -->
+    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/adri.png?raw=true" style="width: 180px;" alt="Adriana Lucía">
+        
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-start;">
+            <a href="#" style="color: #d1b069; text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/boton-play.png?raw=true" style="width: 25px;">
+                <div style="line-height: 1;">
+                    <span style="display: block; font-size: 14px;">VER VIDEO</span>
+                    <span style="font-size: 10px;">EN YOUTUBE</span>
+                </div>
             </a>
-            <a href="https://open.spotify.com/intl-es/track/7oq21dTDyIfcmzMCINqXZ1" style="color: #d1b069; text-decoration: none; display: flex; align-items: center; gap: 10px;">
-                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/spotify.png?raw=true" style="width: 30px;">
-                <span>ESCUCHAR CANCIÓN EN SPOTIFY</span>
+            <a href="#" style="color: #d1b069; text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/spotify.png?raw=true" style="width: 25px;">
+                <div style="line-height: 1;">
+                    <span style="display: block; font-size: 14px;">ESCUCHAR CANCIÓN</span>
+                    <span style="font-size: 10px;">EN SPOTIFY</span>
+                </div>
             </a>
         </div>
     </div>
 
-    <!-- SECCIÓN 3: Texto de la canción (Vacía de otros elementos) -->
-    <div style="align-self: flex-end; padding-bottom: 20px;">
-        <p style="font-family: 'Avenir Next', sans-serif; font-style: italic; font-size: 14px; line-height: 1.5;">
+    <!-- LÍNEA DIVISORIA 2 -->
+    <div style="width: 0.5px; height: 150px; background-color: #d1b069;"></div>
+
+    <!-- FRANGIA 3: Frase -->
+    <div style="flex: 1; align-self: flex-end; padding-bottom: 20px; padding-left: 20px;">
+        <p style="font-family: sans-serif; font-style: italic; font-size: 13px; line-height: 1.4;">
             Sigue la luz que habita en mí...<br>
             Solo quiero abrir mis alas y volar.
         </p>
