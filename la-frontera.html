@@ -313,17 +313,20 @@ text-align: left;
     margin-top: 50px;
     margin-bottom: 32px;
     position: relative;
+    /* Quitamos el padding lateral para que llegue al borde */
+    padding: 0;
 }
 
-.galeria-wrapper {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding-left: calc((100% - 1200px) / 2 + 20px); /* Ajusta al margen del contenido superior */
+.galeria-flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 35px; /* Ajusta este valor para separar "Galería" de las fotos */
+    padding-left: 20px; /* Alineación inicial */
 }
 
-.galeria-wrapper .pt-title {
-    margin-left: 0;
-    margin-bottom: 20px;
+.galeria-flex .pt-title {
+    flex: 0 0 445px; /* Ancho fijo para el bloque de la izquierda */
+    margin-bottom: 0;
 }
 
 .fotogramas-carousel {
@@ -332,10 +335,13 @@ text-align: left;
     overflow-x: auto;
     padding-bottom: 15px;
     scrollbar-width: none;
+    /* Asegura que el carrusel ocupe todo el ancho hasta el final */
+    flex: 1;
+    padding-right: 20px; 
 }
 
 .fotograma-item {
-    flex: 0 0 350px; /* Tamaño original: ajusta este número si quieres más grande/pequeño */
+    flex: 0 0 350px; /* Tamaño original de tus fotos */
 }
 
 .fotograma-item img {
@@ -345,9 +351,9 @@ text-align: left;
 }
 
 .scroll-indicator {
-    position: absolute;
-    top: -40px;
-    right: calc((100% - 1200px) / 2 + 20px);
+    /* Pegado inmediatamente encima del carrusel */
+    margin-left: 480px; 
+    margin-bottom: 5px;
     font-size: 12px;
     color: #888;
     text-transform: uppercase;
@@ -781,15 +787,18 @@ text-align: center;
 </section>
 
 <section class="fotogramas-section">
+    <!-- Indicador ahora estará pegado al carrusel -->
     <div class="scroll-indicator">
         Desliza para ver más <i class="fa-solid fa-arrow-right-long"></i>
     </div>
     
-    <div class="galeria-wrapper">
+    <div class="galeria-flex">
+        <!-- Título a la izquierda -->
         <h1 class="pt-title"><span class="pt-subrayado-amarillo">Gal</span>ería</h1>
         
+        <!-- Carrusel que llega hasta el borde derecho -->
         <div class="fotogramas-carousel">
-            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera1.jpg" alt="Hamaca"></div>
+            <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera1.jpg" alt="Foto 1"></div>
             <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera2.jpg" alt="Foto 2"></div>
             <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera3.jpg" alt="Foto 3"></div>
             <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera4.jpg" alt="Foto 4"></div>
