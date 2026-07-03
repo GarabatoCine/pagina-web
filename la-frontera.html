@@ -343,7 +343,7 @@ text-align: left;
 
 .galeria-titulo-nueva {
     font-family: 'Georgia', serif;
-    font-size: 48px;
+    font-size: 46px; /* Ajustado: 1 punto menos */
     font-weight: normal;
     margin-bottom: 10px;
     color: #000;
@@ -351,10 +351,10 @@ text-align: left;
 
 .galeria-subtitulo-nueva {
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-size: 15px; /* Ajustado: 1 punto más */
     line-height: 1.5;
     color: #666;
-    display: block; /* Asegura que el contenido se comporte como bloque */
+    display: block;
 }
 
 /* Fuerza el salto de línea para "La Frontera" */
@@ -368,11 +368,10 @@ text-align: left;
     gap: 15px;
     overflow-x: auto;
     flex: 1;
-    padding-bottom: 0px; /* Elimina el espacio de la barra */
-    scrollbar-width: none; /* Oculta barra en Firefox */
+    padding-bottom: 0px;
+    scrollbar-width: none;
 }
 
-/* Oculta barra de desplazamiento en Chrome, Safari y Edge */
 .fotogramas-carousel-nuevo::-webkit-scrollbar {
     display: none;
 }
