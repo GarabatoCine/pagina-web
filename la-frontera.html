@@ -832,18 +832,18 @@ text-align: center;
     </div>
 </section>
 
-    <!-- BANNER CANCIÓN - MODO PRUEBA DE VISUALIZACIÓN -->
-<section style="width: 100%; height: 500px; position: relative; margin-top: 40px; background-color: #000; display: flex; align-items: center; justify-content: center;">
+<!-- BANNER CANCIÓN - SIN FRANJAS -->
+<section style="width: 100%; position: relative; margin-top: 40px; display: block;">
 
-    <!-- IMAGEN COMO CONTENIDO REAL (No como fondo, para evitar recortes) -->
+    <!-- IMAGEN ADAPTATIVA (La altura se ajusta sola manteniendo la proporción) -->
     <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg" 
-         style="width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0;">
+         style="width: 100%; display: block; height: auto;">
 
-    <!-- CONTENEDOR DE ELEMENTOS (Flotando sobre la imagen) -->
-    <div style="position: relative; width: 100%; height: 100%; max-width: 1200px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; color: #d1b069;">
+    <!-- CONTENEDOR DE ELEMENTOS (Posición absoluta para flotar sobre la imagen) -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; gap: 80px; color: #d1b069; padding: 0 40px;">
         
         <!-- BLOQUE 1 -->
-        <div style="text-align: center; font-family: 'Georgia', serif;">
+        <div style="text-align: center; font-family: 'Georgia', serif; flex: 1;">
             <p style="font-family: sans-serif; font-size: 11px; text-transform: uppercase;">Canción original</p>
             <h1 style="font-size: 32px; font-weight: normal; margin: 5px 0;">La Frontera</h1>
             <p style="font-family: sans-serif; font-size: 11px;">Cantada por</p>
@@ -854,9 +854,9 @@ text-align: center;
         <div style="width: 0.5px; height: 100px; background-color: #d1b069;"></div>
 
         <!-- BLOQUE 2 -->
-        <div style="text-align: center;">
-            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png" style="width: 140px; margin-bottom: 10px;">
-            <div style="text-align: left;">
+        <div style="text-align: center; flex: 1;">
+            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png" style="width: 140px; margin: 0 auto 10px;">
+            <div style="text-align: left; display: inline-block;">
                 <p style="font-size: 13px; margin: 0;">▶ VER VIDEO</p>
                 <p style="font-size: 9px; margin: 0 0 10px 15px;">EN YOUTUBE</p>
                 <p style="font-size: 13px; margin: 0;">Ⓢ ESCUCHAR CANCIÓN</p>
@@ -868,7 +868,7 @@ text-align: center;
         <div style="width: 0.5px; height: 100px; background-color: #d1b069;"></div>
 
         <!-- BLOQUE 3 -->
-        <div style="font-family: sans-serif; font-style: italic; font-size: 13px; align-self: flex-end; padding-bottom: 40px;">
+        <div style="flex: 1; font-family: sans-serif; font-style: italic; font-size: 13px; align-self: flex-end; padding-bottom: 40px;">
             Sigue la luz que habita en mí...<br>
             Solo quiero abrir mis alas y volar.
         </div>
