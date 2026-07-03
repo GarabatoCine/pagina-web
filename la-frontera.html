@@ -832,49 +832,45 @@ text-align: center;
     </div>
 </section>
 
-<!-- BANNER CANCIÓN - DISTRIBUCIÓN EXACTA -->
+<!-- BANNER CANCIÓN - CORRECCIÓN DE ALTURA DEFINITIVA -->
 <section style="width: 100%; margin-top: 40px; position: relative; background: transparent;">
 
-    <!-- Contenedor que mantiene la proporción -->
+    <!-- Contenedor que mantiene la proporción exacta de la imagen -->
     <div style="width: 100%; aspect-ratio: 21/9; position: relative; overflow: hidden;">
         <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg" 
              style="width: 100%; height: 100%; object-fit: cover; display: block;">
     </div>
 
-    <!-- Capa de contenido -->
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; color: #d1b069; padding: 0 5%; gap: 20px;">
+    <!-- Capa de contenido (Flotando encima del contenedor) -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; gap: 80px; color: #d1b069; padding: 0 40px; pointer-events: none;">
         
-        <!-- BLOQUE 1: Título (Estrecho) -->
-        <div style="flex: 0 0 25%; text-align: center; font-family: 'Georgia', serif;">
-            <p style="font-family: sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;">Canción original</p>
+        <!-- Bloque 1 -->
+        <div style="text-align: center; font-family: 'Georgia', serif; flex: 1; pointer-events: auto;">
+            <p style="font-family: sans-serif; font-size: 11px; text-transform: uppercase;">Canción original</p>
             <h1 style="font-size: 32px; font-weight: normal; margin: 5px 0;">La Frontera</h1>
-            <p style="font-family: sans-serif; font-size: 11px; opacity: 0.8;">Cantada por</p>
+            <p style="font-family: sans-serif; font-size: 11px;">Cantada por</p>
             <h2 style="font-size: 20px; font-weight: normal;">Adriana Lucía</h2>
         </div>
 
-        <!-- LÍNEA 1 -->
-        <div style="width: 0.5px; height: 100px; background-color: #d1b069; margin: 0 20px;"></div>
+        <!-- Línea 1 -->
+        <div style="width: 0.5px; height: 100px; background-color: #d1b069;"></div>
 
-        <!-- BLOQUE 2: Foto y Botones (Más amplio) -->
-        <div style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 30px;">
-            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png" style="width: 140px;">
-            <div style="display: flex; flex-direction: column; gap: 15px;">
-                <a href="#" style="color: #d1b069; text-decoration: none; display: flex; align-items: center; gap: 10px;">
-                    <i class="fa-solid fa-circle-play" style="font-size: 24px;"></i>
-                    <div style="font-size: 11px; line-height: 1.1;">VER VIDEO<br>EN YOUTUBE</div>
-                </a>
-                <a href="#" style="color: #d1b069; text-decoration: none; display: flex; align-items: center; gap: 10px;">
-                    <i class="fa-brands fa-spotify" style="font-size: 24px;"></i>
-                    <div style="font-size: 11px; line-height: 1.1;">ESCUCHAR CANCIÓN<br>EN SPOTIFY</div>
-                </a>
+        <!-- Bloque 2 -->
+        <div style="text-align: center; flex: 1; pointer-events: auto;">
+            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png" style="width: 140px; margin: 0 auto 10px;">
+            <div style="text-align: left; display: inline-block;">
+                <p style="font-size: 13px; margin: 0;">▶ VER VIDEO</p>
+                <p style="font-size: 9px; margin: 0 0 10px 15px;">EN YOUTUBE</p>
+                <p style="font-size: 13px; margin: 0;">Ⓢ ESCUCHAR CANCIÓN</p>
+                <p style="font-size: 9px; margin: 0 0 0 15px;">EN SPOTIFY</p>
             </div>
         </div>
 
-        <!-- LÍNEA 2 -->
-        <div style="width: 0.5px; height: 100px; background-color: #d1b069; margin: 0 20px;"></div>
+        <!-- Línea 2 -->
+        <div style="width: 0.5px; height: 100px; background-color: #d1b069;"></div>
 
-        <!-- BLOQUE 3: Texto inferior (Alineado a la derecha del bloque) -->
-        <div style="flex: 0 0 25%; align-self: flex-end; padding-bottom: 40px; font-family: sans-serif; font-style: italic; font-size: 12px; line-height: 1.4;">
+        <!-- Bloque 3 -->
+        <div style="flex: 1; font-family: sans-serif; font-style: italic; font-size: 13px; align-self: flex-end; padding-bottom: 40px; pointer-events: auto;">
             Sigue la luz que habita en mí...<br>
             Solo quiero abrir mis alas y volar.
         </div>
