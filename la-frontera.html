@@ -831,46 +831,44 @@ text-align: center;
         </div>
     </div>
 </section>
-<!-- ESPACIO DE SEPARACIÓN -->
-<div style="height: 40px;"></div>
+<!-- BANNER CANCIÓN CORREGIDO -->
+<section style="width: 100%; height: 450px; position: relative; overflow: hidden; margin-top: 40px;
+    background-image: url('https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg'); 
+    background-size: cover; background-position: center; color: #d1b069;">
 
-<section style="position: relative; width: 100%; height: 450px; 
-    background-image: url('https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/banner-cancion.jpg?raw=true'); 
-    background-size: cover; background-position: center; color: #d1b069; overflow: hidden;">
+    <!-- Capa de ajuste de color (opcional, si quieres que el texto resalte más) -->
+    <div style="width: 100%; height: 100%; background: rgba(0,0,0,0.3);"></div>
 
-    <!-- CONTENEDOR PRINCIPAL PARA CENTRAR ELEMENTOS -->
-    <div style="position: relative; width: 100%; height: 100%; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 80px;">
+    <!-- CONTENEDOR FLEX PRINCIPAL -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; gap: 60px;">
         
-        <!-- BLOQUE 1: Título e Intérprete -->
-        <div style="text-align: center; font-family: 'Georgia', serif;">
-            <p style="font-family: sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;">Canción original</p>
-            <h1 style="font-size: 36px; font-weight: normal; margin: 10px 0;">La Frontera</h1>
-            <p style="font-family: sans-serif; font-size: 12px; margin-bottom: 5px;">Cantada por</p>
-            <h2 style="font-size: 24px; font-weight: normal;">Adriana Lucía</h2>
+        <!-- FRanja 1: Título -->
+        <div style="text-align: center; font-family: 'Georgia', serif; flex: 1;">
+            <p style="font-family: sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px;">Canción original</p>
+            <h1 style="font-size: 32px; font-weight: normal; margin: 0;">La Frontera</h1>
+            <p style="font-family: sans-serif; font-size: 11px; margin: 5px 0;">Cantada por</p>
+            <h2 style="font-size: 20px; font-weight: normal; margin: 0;">Adriana Lucía</h2>
         </div>
 
-        <!-- LÍNEA 1 -->
-        <div style="width: 0.5px; height: 120px; background-color: #d1b069;"></div>
+        <!-- Línea 1 -->
+        <div style="width: 0.5px; height: 100px; background-color: #d1b069;"></div>
 
-        <!-- BLOQUE 2: Foto y Botones -->
-        <div style="text-align: center;">
-            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/adri.png?raw=true" style="width: 160px; margin-bottom: 20px;">
-            <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-start;">
-                <a href="#" style="color: #d1b069; text-decoration: none; font-family: sans-serif; font-size: 13px;">
-                    ▶ VER VIDEO EN YOUTUBE
-                </a>
-                <a href="#" style="color: #d1b069; text-decoration: none; font-family: sans-serif; font-size: 13px;">
-                    Ⓢ ESCUCHAR CANCIÓN EN SPOTIFY
-                </a>
+        <!-- Franja 2: Foto y Botones -->
+        <div style="text-align: center; flex: 1; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png" style="width: 150px;">
+            <div style="text-align: left;">
+                <a href="#" style="color: #d1b069; text-decoration: none; display: block; font-size: 13px; margin-bottom: 5px;">▶ VER VIDEO <span style="font-size: 10px; display: block;">EN YOUTUBE</span></a>
+                <a href="#" style="color: #d1b069; text-decoration: none; display: block; font-size: 13px;">Ⓢ ESCUCHAR CANCIÓN <span style="font-size: 10px; display: block;">EN SPOTIFY</span></a>
             </div>
         </div>
 
-    </div>
+        <!-- Línea 2 -->
+        <div style="width: 0.5px; height: 100px; background-color: #d1b069;"></div>
 
-    <!-- BLOQUE 3: Texto inferior izquierdo (Posición absoluta sobre el banner) -->
-    <div style="position: absolute; bottom: 30px; left: 50px; font-family: sans-serif; font-style: italic; font-size: 13px;">
-        Sigue la luz que habita en mí...<br>
-        Solo quiero abrir mis alas y volar.
+        <!-- Franja 3: Texto -->
+        <div style="flex: 1; align-self: flex-end; padding-bottom: 30px; padding-left: 20px; font-family: sans-serif; font-style: italic; font-size: 13px; line-height: 1.4;">
+            Sigue la luz que habita en mí...<br>
+            Solo quiero abrir mis alas y volar.
+        </div>
     </div>
-
 </section>
