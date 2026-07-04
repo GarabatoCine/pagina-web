@@ -24,7 +24,7 @@ html,body{
 width:100%;
 overflow-x:hidden;
 background:#ffffff; 
-color:#000000;           
+color:#000000;          
 font-family:'Roboto',sans-serif;
 }
 
@@ -343,7 +343,7 @@ text-align: left;
 
 .galeria-titulo-nueva {
     font-family: 'Georgia', serif;
-    font-size: 46px; /* Ajustado: 1 punto menos */
+    font-size: 46px; 
     font-weight: normal;
     margin-bottom: 10px;
     color: #000;
@@ -351,7 +351,7 @@ text-align: left;
 
 .galeria-subtitulo-nueva {
     font-family: 'Roboto', sans-serif;
-    font-size: 15.5px; /* Ajustado: 1 punto más */
+    font-size: 15.5px; 
     line-height: 1.5;
     color: #666;
     display: block;
@@ -554,8 +554,8 @@ padding: 0 25px;
 
 .contact-title {
 font-family: 'Roboto', sans-serif; 
-font-size: 20px;                 
-font-weight: 300;                 
+font-size: 20px;                   
+font-weight: 300;                   
 line-height: 1.3;
 letter-spacing: 0.5px;
 margin-bottom: 30px;
@@ -716,9 +716,10 @@ color:#FFC601;
         padding: 0 !important;    
         margin: 0 !important;
     }
-}/* ================= ESTRATEGIA DE REORDENAMIENTO PARA TABLET ================= */
+}
+
+/* ================= CORRECCIÓN FINAL PARA TABLET (AÑADIDO) ================= */
 @media (max-width: 1024px) {
-    /* Quitamos el posicionamiento absoluto para que todo fluya hacia abajo */
     #banner-la-frontera-v3 {
         position: relative !important;
         height: auto !important;
@@ -728,31 +729,27 @@ color:#FFC601;
 
     #banner-la-frontera-v3 > div {
         position: relative !important;
-        flex-direction: column !important; /* Apilamos las 3 secciones */
+        flex-direction: column !important;
         align-items: center !important;
         text-align: center !important;
         gap: 20px !important;
         padding: 0 10px !important;
     }
 
-    /* Ocultamos las líneas verticales en tablet porque estorban al apilar */
     #banner-la-frontera-v3 > div > div:nth-child(2),
     #banner-la-frontera-v3 > div > div:nth-child(4) {
         display: none !important;
     }
 
-    /* Ajuste de tamaños para que no se vean gigantes */
     #banner-la-frontera-v3 h1 { font-size: 28px !important; }
     #banner-la-frontera-v3 img[src*="adri.png"] { width: 140px !important; }
     
-    /* El verso final */
     #banner-la-frontera-v3 > div > div:last-child {
         padding-top: 10px !important;
         margin-left: 0 !important;
     }
 }
 </style>
-
 </head>
 
 <body>
@@ -911,3 +908,6 @@ color:#FFC601;
         </div>
     </div>
 </section>
+
+</body>
+</html>
