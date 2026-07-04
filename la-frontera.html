@@ -8,7 +8,7 @@
 
 <title>La Frontera | Garabato Cine</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">cantandito
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">canta
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -682,14 +682,17 @@ color:#FFC601;
         overflow: hidden;
     }
     
-    /* Columna de texto ajustada al 16% para dar espacio al centrado */
+    /* Centrado exacto del bloque izquierdo */
     #banner-la-frontera-v3 > div > div:nth-child(1) {
         flex: 0 0 16% !important; 
         display: flex !important;
         flex-direction: column !important;
-        justify-content: center !important; /* Centrado vertical */
-        align-items: center !important;     /* Centrado horizontal */
+        justify-content: center !important;
+        align-items: center !important;
         text-align: center !important;
+        margin-left: 0 !important; /* Margen izquierdo cero */
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 
     #banner-la-frontera-v3 > div {
@@ -699,10 +702,13 @@ color:#FFC601;
         transform-origin: center center;
     }
 
-    /* Ajuste para que todo quede en una línea */
+    /* Forzar una sola línea y asegurar alineación */
     #banner-la-frontera-v3 h1, 
-    #banner-la-frontera-v3 p {
+    #banner-la-frontera-v3 p,
+    #banner-la-frontera-v3 h2 {
         white-space: nowrap !important;
+        width: 100% !important;
+        text-align: center !important;
     }
 
     #banner-la-frontera-v3 h1 {
@@ -857,7 +863,7 @@ color:#FFC601;
         <div style="flex: 0 0 18%; text-align: center;">
             <p style="font-weight: 100; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #d1b069;">Canción original</p>
             <h1 style="font-size: 34px; font-weight: normal; margin: 10px 0 25px 0; font-family: Georgia, serif; color: #d1b069;">La Frontera</h1>
-            <p style="font-weight: 100; font-size: 10px; margin: 0 0 5px 0; color: #d1b069;">Cantandito</p>
+            <p style="font-weight: 100; font-size: 10px; margin: 0 0 5px 0; color: #d1b069;">Canta</p>
             <h2 style="font-size: 18px; font-weight: normal; margin: 0; color: #d1b069;">Adriana Lucía</h2>
         </div>
         <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 50px;"></div>
