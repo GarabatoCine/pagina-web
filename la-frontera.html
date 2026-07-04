@@ -676,68 +676,32 @@ color:#FFC601;
     .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 70% !important; padding: 0 !important; margin: 0 !important; }
 }
 
-/* ===== TABLET - Bloque incrustado ===== */
+/* ===== TABLET - AJUSTE PRECISO DE BOTONES ===== */
 @media (max-width: 1024px) and (min-width: 601px) {
-    #banner-la-frontera-v3 {
-        overflow: hidden;
-    }
     
-    /* Contenedor principal */
-    #banner-la-frontera-v3 > div {
-        padding: 0 10px !important;
-        gap: 0 !important;
-        transform: none !important;
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-    }
-
-    /* Columna 1 (Texto centrado) */
-    #banner-la-frontera-v3 > div > div:nth-child(1) {
-        flex: 0 0 18% !important; 
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-        text-align: center !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        border: none !important;
-    }
-
-    /* Textos (Una sola línea) */
-    #banner-la-frontera-v3 h1, 
-    #banner-la-frontera-v3 h2,
-    #banner-la-frontera-v3 p {
-        white-space: nowrap !important;
-        margin: 0 !important;
-        width: 100% !important;
-        text-align: center !important;
-    }
-
-    #banner-la-frontera-v3 h1 { font-size: 18px !important; margin-bottom: 5px !important; }
-    #banner-la-frontera-v3 h2 { font-size: 12px !important; }
-    #banner-la-frontera-v3 p { font-size: 8px !important; }
-
-    /* Imagen */
-    #banner-la-frontera-v3 img[src*="adri.png"] {
-        width: 100px !important;
-        height: auto !important;
-        margin: 5px auto !important;
-        display: block !important;
-    }
-
-    /* LINEA VERTICAL IZQUIERDA: Ajustada a 0.25px y color dorado */
-    #banner-la-frontera-v3 > div > div:nth-child(2) {
-        flex: 0 0 0.25px !important;
-        height: 100px !important;
-        background-color: #D4AF37 !important; /* Color dorado/amarillo */
-        margin: 0 10px !important;
-    }
-
-    /* ELIMINAR LÍNEA DERECHA: Forzamos que no tenga ancho ni visibilidad */
-    #banner-la-frontera-v3 > div > div:nth-child(4) {
+    /* 1. Ocultar el texto de la canción (el último div) */
+    #banner-la-frontera-v3 > div > div:last-child {
         display: none !important;
+    }
+
+    /* 2. Compactar el bloque de botones */
+    #banner-la-frontera-v3 > div > div:nth-child(3) > div {
+        gap: 5px !important; /* Espacio entre el bloque de video y el de spotify */
+    }
+
+    /* 3. Forzar una sola línea y reducir interlineado interno en los textos */
+    #banner-la-frontera-v3 > div > div:nth-child(3) a div {
+        line-height: 0.9 !important; /* Interlineado mínimo */
+        display: flex !important;
+        flex-direction: row !important; /* Forzar horizontal */
+        align-items: center !important;
+        gap: 5px !important; /* Espacio entre "VER VIDEO" y "EN YOUTUBE" */
+    }
+
+    /* 4. Ajustar tamaño de fuente */
+    #banner-la-frontera-v3 > div > div:nth-child(3) span {
+        font-size: 11px !important;
+        white-space: nowrap !important; /* Evitar que se parta en dos líneas */
     }
 }
 </style>
