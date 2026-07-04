@@ -393,7 +393,7 @@ text-align: left;
     /* Ajustamos el tamaño de las fotos para que quepan dos */
     .fotogramas-carousel-nuevo .fotograma-item { 
         flex: 0 0 calc(50% - 10px) !important; /* Dos fotos visibles */
-    }
+    }f
 
     /* Ajustamos el título para que no sea tan grande en tablet */
     .galeria-titulo-nueva {
@@ -715,6 +715,40 @@ color:#FFC601;
         flex: 0 0 70% !important; 
         padding: 0 !important;    
         margin: 0 !important;
+    }
+}/* ================= ESTRATEGIA DE REORDENAMIENTO PARA TABLET ================= */
+@media (max-width: 1024px) {
+    /* Quitamos el posicionamiento absoluto para que todo fluya hacia abajo */
+    #banner-la-frontera-v3 {
+        position: relative !important;
+        height: auto !important;
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+    }
+
+    #banner-la-frontera-v3 > div {
+        position: relative !important;
+        flex-direction: column !important; /* Apilamos las 3 secciones */
+        align-items: center !important;
+        text-align: center !important;
+        gap: 20px !important;
+        padding: 0 10px !important;
+    }
+
+    /* Ocultamos las líneas verticales en tablet porque estorban al apilar */
+    #banner-la-frontera-v3 > div > div:nth-child(2),
+    #banner-la-frontera-v3 > div > div:nth-child(4) {
+        display: none !important;
+    }
+
+    /* Ajuste de tamaños para que no se vean gigantes */
+    #banner-la-frontera-v3 h1 { font-size: 28px !important; }
+    #banner-la-frontera-v3 img[src*="adri.png"] { width: 140px !important; }
+    
+    /* El verso final */
+    #banner-la-frontera-v3 > div > div:last-child {
+        padding-top: 10px !important;
+        margin-left: 0 !important;
     }
 }
 </style>
