@@ -681,6 +681,12 @@ color:#FFC601;
     #banner-la-frontera-v3 {
         overflow: hidden;
     }
+    
+    /* CAMBIO: Reducimos la columna de texto de la izquierda al 12% */
+    #banner-la-frontera-v3 > div > div:nth-child(1) {
+        flex: 0 0 12% !important; 
+    }
+
     #banner-la-frontera-v3 img:first-child {
         width: 100%;
         height: auto !important;
@@ -690,9 +696,6 @@ color:#FFC601;
     #banner-la-frontera-v3 > div {
         padding: 0 22px !important;
         gap: 0 !important;
-    }
-    #banner-la-frontera-v3 > div > div:nth-child(1) {
-        flex: 0 0 18% !important;
     }
     #banner-la-frontera-v3 > div > div:nth-child(2),
     #banner-la-frontera-v3 > div > div:nth-child(4) {
@@ -727,7 +730,6 @@ color:#FFC601;
         margin-left: 0 !important;
         font-size: 12px !important;
     }
-    /* Reducir proporciones del contenido */
     #banner-la-frontera-v3 > div {
         transform: scale(0.78);
         transform-origin: center center;
