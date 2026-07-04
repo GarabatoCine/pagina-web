@@ -674,14 +674,16 @@ color:#FFC601;
         padding: 5px !important;
     }
     
-    /* HACEMOS VISIBLE EL INDICADOR */
+        /* INDICADOR PEGADO A LA DERECHA */
     .scroll-indicator-nuevo { 
         display: flex !important; 
-        position: static !important; /* Lo ponemos estático para que se ubique bien */
-        justify-content: center !important;
-        margin-bottom: 15px !important;
+        position: static !important; 
+        justify-content: flex-end !important; /* Mueve todo a la derecha */
+        margin-right: 20px !important;       /* Separación del borde derecho */
+        margin-bottom: 10px !important;
         font-size: 11px !important;
         color: #666 !important;
+    }
     }
 }
 
