@@ -656,16 +656,25 @@ color:#FFC601;
 
 /* ================= RESPONSIVE ================= */
 
-/* Ajustes globales para tablets y móviles */
+/* ================= RESPONSIVE ================= */
+
 @media(max-width: 1024px) {
-    .fotograma-item { flex: 0 0 calc(33.33% - 10px); }
-    
-    /* GALERÍA NUEVA: Ocultar texto y expandir carrusel */
+    /* GALERÍA NUEVA: Se oculta el texto y las fotos se ponen de a dos */
     .galeria-intro-nueva { display: none !important; }
     .scroll-indicator-nuevo { display: none !important; }
     .galeria-wrapper-nueva { display: block !important; padding: 0 !important; margin: 0 !important; }
-    .fotogramas-carousel-nuevo { padding-left: 0 !important; width: 100% !important; }
-    .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 85% !important; }
+    
+    .fotogramas-carousel-nuevo { 
+        padding-left: 0 !important; 
+        width: 100% !important; 
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+    }
+    
+    .fotogramas-carousel-nuevo .fotograma-item { 
+        flex: 0 0 calc(50% - 10px) !important; 
+    }
 }
 
 @media(max-width:992px){
@@ -690,7 +699,6 @@ color:#FFC601;
 @media(max-width: 600px) {
     .hero-overlay { left: 10px !important; right: 10px !important; bottom: 10px !important; width: calc(100% - 20px) !important; display: flex !important; justify-content: space-between !important; align-items: flex-end !important; max-width: 100% !important; }
     .hero-title { font-size: 20px !important; }
-    .fotograma-item { flex: 0 0 calc(50% - 5px) !important; }
 }
 </style>
 
