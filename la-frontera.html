@@ -680,57 +680,63 @@ color:#FFC601;
 @media (max-width: 1024px) and (min-width: 601px) {
     #banner-la-frontera-v3 {
         overflow: hidden;
-        height: auto;
     }
     
     /* Contenedor principal */
     #banner-la-frontera-v3 > div {
         padding: 0 10px !important;
-        gap: 10px !important;
+        gap: 0 !important;
         transform: none !important;
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
     }
 
-    /* Columna 1 (Texto lateral) */
+    /* Columna 1 (Texto centrado) */
     #banner-la-frontera-v3 > div > div:nth-child(1) {
-        flex: 0 0 25% !important; 
+        flex: 0 0 18% !important; 
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
         align-items: center !important;
         text-align: center !important;
-    }
-
-    /* Reducción de fuentes y botones */
-    #banner-la-frontera-v3 h1 { font-size: 16px !important; margin: 5px 0 !important; }
-    #banner-la-frontera-v3 h2 { font-size: 11px !important; }
-    #banner-la-frontera-v3 p { font-size: 8px !important; }
-    
-    /* Ajuste de botones: reducir iconos y textos */
-    #banner-la-frontera-v3 a img { width: 20px !important; }
-    #banner-la-frontera-v3 a span:first-child { font-size: 11px !important; }
-    #banner-la-frontera-v3 a span:last-child { font-size: 8px !important; }
-    #banner-la-frontera-v3 div[style*="gap: 20px"] { gap: 8px !important; }
-
-    /* Imagen central */
-    #banner-la-frontera-v3 img[src*="adri.png"] {
-        width: 80px !important;
         margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
     }
 
-    /* Línea divisoria */
+    /* Textos (Una sola línea) */
+    #banner-la-frontera-v3 h1, 
+    #banner-la-frontera-v3 h2,
+    #banner-la-frontera-v3 p {
+        white-space: nowrap !important;
+        margin: 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    #banner-la-frontera-v3 h1 { font-size: 18px !important; margin-bottom: 5px !important; }
+    #banner-la-frontera-v3 h2 { font-size: 12px !important; }
+    #banner-la-frontera-v3 p { font-size: 8px !important; }
+
+    /* Imagen */
+    #banner-la-frontera-v3 img[src*="adri.png"] {
+        width: 100px !important;
+        height: auto !important;
+        margin: 5px auto !important;
+        display: block !important;
+    }
+
+    /* LINEA VERTICAL IZQUIERDA: Ajustada a 0.25px y color dorado */
     #banner-la-frontera-v3 > div > div:nth-child(2) {
         flex: 0 0 0.25px !important;
         height: 100px !important;
-        background-color: #D4AF37 !important;
+        background-color: #D4AF37 !important; /* Color dorado/amarillo */
         margin: 0 10px !important;
     }
 
-    /* Eliminar elementos sobrantes que causan desbordamiento */
-    #banner-la-frontera-v3 > div > div:nth-child(4),
-    #banner-la-frontera-v3 > div > div:nth-child(5) {
+    /* ELIMINAR LÍNEA DERECHA: Forzamos que no tenga ancho ni visibilidad */
+    #banner-la-frontera-v3 > div > div:nth-child(4) {
         display: none !important;
     }
 }
@@ -855,7 +861,7 @@ color:#FFC601;
         </div>
         <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 50px;"></div>
         <div style="flex: 0 0 35%; display: flex; align-items: center; gap: 40px; justify-content: center;">
-            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png?v=11" style="width: 220px;">
+            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png?v=9" style="width: 220px;">
             <div style="display: flex; flex-direction: column; gap: 20px;">
                 <a href="https://www.youtube.com/watch?v=VRcRpjae9RI" target="_blank" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: #d1b069;">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/boton-play.png?raw=true" style="width: 35px;">
