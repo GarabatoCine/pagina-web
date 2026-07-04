@@ -334,7 +334,7 @@ text-align: left;
 
 .galeria-wrapper-nueva {
     display: flex;
-    align-items: center; /* Centrado vertical */
+    align-items: center; 
     gap: 3px;
     width: 100%;
 }
@@ -343,7 +343,7 @@ text-align: left;
 
 .galeria-titulo-nueva {
     font-family: 'Georgia', serif;
-    font-size: 46px; /* Ajustado: 1 punto menos */
+    font-size: 46px; 
     font-weight: normal;
     margin-bottom: 10px;
     color: #000;
@@ -351,13 +351,12 @@ text-align: left;
 
 .galeria-subtitulo-nueva {
     font-family: 'Roboto', sans-serif;
-    font-size: 15.5px; /* Ajustado: 1 punto más */
+    font-size: 15.5px; 
     line-height: 1.5;
     color: #666;
     display: block;
 }
 
-/* Fuerza el salto de línea para "La Frontera" */
 .break-line::before {
     content: "\A";
     white-space: pre;
@@ -377,25 +376,18 @@ text-align: left;
 }
 
 .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 350px; }
-/* AJUSTES PARA TABLET */
+
 @media(max-width: 1024px) {
-    /* Mantenemos la estructura horizontal, evitamos que pase a columna */
     .galeria-wrapper-nueva { 
         flex-direction: row !important; 
         gap: 20px !important; 
     }
-
-    /* Reducimos el ancho de la intro para dar espacio al carrusel */
     .galeria-intro-nueva { 
         flex: 0 0 200px !important; 
     }
-
-    /* Ajustamos el tamaño de las fotos para que quepan dos */
     .fotogramas-carousel-nuevo .fotograma-item { 
-        flex: 0 0 calc(50% - 10px) !important; /* Dos fotos visibles */
+        flex: 0 0 calc(50% - 10px) !important; 
     }
-
-    /* Ajustamos el título para que no sea tan grande en tablet */
     .galeria-titulo-nueva {
         font-size: 32px !important;
     }
@@ -423,7 +415,6 @@ text-align: left;
 .titulo-ficha-container { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background: #000; padding: 0 20px; z-index: 5; }
 .titulo-ficha { color: #d1d1d1; font-family: 'Oswald', sans-serif; font-size: 26px; letter-spacing: 4px; text-transform: uppercase; white-space: nowrap; }
 
-/* PC: 5 columnas originales */
 .ficha-tecnica-grid { 
     display: flex; 
     justify-content: space-between; 
@@ -441,7 +432,6 @@ text-align: left;
 .ficha-item img { width: 35px !important; height: 35px !important; display: block !important; }
 .ficha-texto { color: #d1d1d1; font-family: 'Roboto', sans-serif; font-size: 13px !important; line-height: 1.4 !important; }
 
-/* TABLET: Centrado estable y trueque mediante flex-direction invertido */
 @media(max-width: 1024px) { 
     .ficha-tecnica-grid { 
         display: grid !important; 
@@ -467,7 +457,6 @@ text-align: left;
     .reparto { order: 2 !important; }
     .ficha-columna:nth-child(6) { order: 3 !important; } 
 }
-/* MÓVIL: Código completo y optimizado */
 @media(max-width: 600px) { 
     .ficha-tecnica-marco-wrapper { 
         padding: 30px 10px 15px 10px !important; 
@@ -652,47 +641,21 @@ text-decoration:underline;
 color:#FFC601;
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= RESPONSIVE GLOBALES ================= */
 
 @media(max-width: 1024px) {
-    /* Ocultar solo el título, PERO mostrar el indicador de deslizar */
+    .header { padding: 20px; }
+    .logo { display: none !important; }
+    .nav { display: none !important; }
+    .menu-toggle { display: block !important; }
     .galeria-intro-nueva { display: none !important; }
-    
-    /* Ajustes del carrusel */
     .galeria-wrapper-nueva { display: block !important; padding: 0 !important; overflow-x: auto !important; }
-    .fotogramas-carousel-nuevo { 
-        display: flex !important; 
-        flex-wrap: nowrap !important; 
-        overflow-x: auto !important; 
-        width: 100% !important;
-        padding: 0 !important;
-    }
-    
-    /* 2 fotos visibles en tablet */
-    .fotogramas-carousel-nuevo .fotograma-item { 
-        flex: 0 0 50% !important; 
-        padding: 5px !important;
-    }
-    
-        /* INDICADOR PEGADO A LA DERECHA */
-    .scroll-indicator-nuevo { 
-        display: flex !important; 
-        position: static !important; 
-        justify-content: flex-end !important; /* Mueve todo a la derecha */
-        margin-right: 20px !important;       /* Separación del borde derecho */
-        margin-bottom: 10px !important;
-        font-size: 11px !important;
-        color: #666 !important;
-    }
-    }
+    .fotogramas-carousel-nuevo { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; width: 100% !important; padding: 0 !important; }
+    .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 50% !important; padding: 5px !important; }
+    .scroll-indicator-nuevo { display: flex !important; position: static !important; justify-content: flex-end !important; margin-right: 20px !important; margin-bottom: 10px !important; font-size: 11px !important; color: #666 !important; }
 }
 
 @media(max-width:992px){
-    .header{ padding:20px; }
-    .nav{ display:none; }
-    .logo { display: none; }
-    .menu-toggle { display: block; }
-    .hero-overlay { left: 20px; }
     .sitio-footer{ padding:40px 25px; }
     .fila-tres-columnas{ flex-direction:column; gap:25px; text-align:center; }
     .columna-derecha { text-align:center; }
@@ -709,13 +672,7 @@ color:#FFC601;
 @media(max-width: 600px) {
     .hero-overlay { left: 10px !important; right: 10px !important; bottom: 10px !important; width: calc(100% - 20px) !important; display: flex !important; justify-content: space-between !important; align-items: flex-end !important; max-width: 100% !important; }
     .hero-title { font-size: 20px !important; }
-    
-    /* Fotos más grandes y pegadas */
-    .fotogramas-carousel-nuevo .fotograma-item { 
-        flex: 0 0 70% !important; 
-        padding: 0 !important;    
-        margin: 0 !important;
-    }
+    .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 70% !important; padding: 0 !important; margin: 0 !important; }
 }
 </style>
 
@@ -724,14 +681,14 @@ color:#FFC601;
 <body>
 
 <header class="header">
-<div class="logo"><a href="index.html">GARABATO CINE</a></div>
-<div class="menu-toggle" id="menu-btn"><i class="fa-solid fa-bars"></i></div>
-<div class="nav">
-<a href="proyectos.html">PROYECTOS</a>
-<a href="proximamente.html">PRÓXIMAMENTE</a>
-<a href="nosotros.html">NOSOTROS</a>
-<div class="lang"><span class="active">ES</span><span>|</span><span>EN</span></div>
-</div>
+    <div class="logo"><a href="index.html">GARABATO CINE</a></div>
+    <div class="menu-toggle" id="menu-btn"><i class="fa-solid fa-bars"></i></div>
+    <div class="nav">
+        <a href="proyectos.html">PROYECTOS</a>
+        <a href="proximamente.html">PRÓXIMAMENTE</a>
+        <a href="nosotros.html">NOSOTROS</a>
+        <div class="lang"><span class="active">ES</span><span>|</span><span>EN</span></div>
+    </div>
 </header>
 
 <nav class="nav-mobile" id="nav-mobile">
@@ -742,15 +699,15 @@ color:#FFC601;
 </nav>
 
 <section class="hero-banner">
-<img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera-banner.jpg" alt="Banner La Frontera">
-<div class="hero-overlay">
-    <div class="hero-text-container">
-        <h1 class="hero-title"><span class="subrayado-amarillo">LA FR</span>ONTERA</h1>
-        <div class="hero-subtitle">Una película de David David</div>
+    <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera-banner.jpg" alt="Banner La Frontera">
+    <div class="hero-overlay">
+        <div class="hero-text-container">
+            <h1 class="hero-title"><span class="subrayado-amarillo">LA FR</span>ONTERA</h1>
+            <div class="hero-subtitle">Una película de David David</div>
+        </div>
+        <a class="hero-btn" href="https://www.youtube.com/watch?v=FeABm-LkkHk" target="_blank">
+        <i class="fa-solid fa-play"></i> Ver Tráiler</a>
     </div>
-    <a class="hero-btn" href="https://www.youtube.com/watch?v=FeABm-LkkHk" target="_blank">
-    <i class="fa-solid fa-play"></i> Ver Tráiler</a>
-</div>
 </section>
 
 <section class="premios-section">
@@ -765,18 +722,18 @@ color:#FFC601;
 </section>
 
 <section class="poster-text-section">
-<div class="pt-wrapper">
-<div class="pt-poster-wrapper">
-<img class="pt-poster" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera-poster.jpg" alt="Póster La Frontera">
-</div>
-<div class="pt-info">
-    <div>
-        <h1 class="pt-title"><span class="pt-subrayado-amarillo">La Frontera</span></h1>
-        <p class="pt-paragraph">Ambientada durante el cierre de la frontera entre Colombia y Venezuela en 2016, la película parte de un contexto específico para hablar de una experiencia profundamente universal: la necesidad de resistir, adaptarse y preservar la propia identidad frente al cambio.</p>
-        <p class="pt-paragraph">A través de Diana, una mujer que enfrenta la incertidumbre con la esperanza de construir un futuro para su hijo, la película explora las fronteras visibles e invisibles que atraviesan nuestras vidas.</p>
+    <div class="pt-wrapper">
+        <div class="pt-poster-wrapper">
+            <img class="pt-poster" src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera-poster.jpg" alt="Póster La Frontera">
+        </div>
+        <div class="pt-info">
+            <div>
+                <h1 class="pt-title"><span class="pt-subrayado-amarillo">La Frontera</span></h1>
+                <p class="pt-paragraph">Ambientada durante el cierre de la frontera entre Colombia y Venezuela en 2016, la película parte de un contexto específico para hablar de una experiencia profundamente universal: la necesidad de resistir, adaptarse y preservar la propia identidad frente al cambio.</p>
+                <p class="pt-paragraph">A través de Diana, una mujer que enfrenta la incertidumbre con la esperanza de construir un futuro para su hijo, la película explora las fronteras visibles e invisibles que atraviesan nuestras vidas.</p>
+            </div>
+        </div>
     </div>
-</div>
-</div>
 </section>
 
 <section class="fotogramas-section-nueva">
@@ -784,13 +741,11 @@ color:#FFC601;
         Desliza para ver más
         <i class="fa-solid fa-arrow-right-long"></i>
     </div>
-
     <div class="galeria-wrapper-nueva">
         <div class="galeria-intro-nueva">
             <h2 class="galeria-titulo-nueva"><span class="pt-subrayado-amarillo">Galería</span></h2>
             <p class="galeria-subtitulo-nueva">Un recorrido visual por el universo de La Frontera.</p>
         </div>
-        
         <div class="fotogramas-carousel-nuevo">
             <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera1.jpg" alt="Fotograma 1"></div>
             <div class="fotograma-item"><img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera2.jpg" alt="Fotograma 2"></div>
@@ -829,23 +784,16 @@ color:#FFC601;
     </div>
 </section>
 
-<!-- BANNER CANCIÓN - DESPLAZAMIENTO A LA IZQUIERDA -->
 <section id="banner-la-frontera-v3" style="width: 100%; margin-top: 40px; position: relative; font-family: 'Avenir Next', sans-serif;">
     <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg?v=1" style="width: 100%; display: block;">
-
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; color: #d1b069; padding: 0 40px;">
-        
-        <!-- TITULO -->
         <div style="flex: 0 0 18%; text-align: center;">
             <p style="font-weight: 100; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #d1b069;">Canción original</p>
             <h1 style="font-size: 34px; font-weight: normal; margin: 10px 0 25px 0; font-family: Georgia, serif; color: #d1b069;">La Frontera</h1>
             <p style="font-weight: 100; font-size: 10px; margin: 0 0 5px 0; color: #d1b069;">Cantada por</p>
             <h2 style="font-size: 18px; font-weight: normal; margin: 0; color: #d1b069;">Adriana Lucía</h2>
         </div>
-
         <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 50px;"></div>
-
-        <!-- FOTO Y BOTONES -->
         <div style="flex: 0 0 35%; display: flex; align-items: center; gap: 40px; justify-content: center;">
             <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png?v=1" style="width: 220px;">
             <div style="display: flex; flex-direction: column; gap: 20px;">
@@ -867,16 +815,21 @@ color:#FFC601;
                 </a>
             </div>
         </div>
-
         <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 50px;"></div>
-
-        <!-- TEXTO: ALTURA CONSERVADA Y MOVIDO A LA IZQUIERDA -->
         <div style="flex: 1; align-self: flex-start; padding-top: 165px; margin-left: -20px; font-size: 14px; font-style: italic; font-weight: 100; color: #d1b069; text-align: left;">
             Sigue la luz que habita en mí...<br>
             Solo quiero abrir mis alas y volar.
         </div>
     </div>
-</section> 
+</section>
+
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const navMobile = document.getElementById('nav-mobile');
+    menuBtn.addEventListener('click', () => {
+        navMobile.style.display = (navMobile.style.display === 'flex') ? 'none' : 'flex';
+    });
+</script>
 
 </body>
 </html>
