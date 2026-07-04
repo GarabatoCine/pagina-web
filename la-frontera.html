@@ -674,6 +674,39 @@ color:#FFC601;
     .hero-overlay { left: 10px !important; right: 10px !important; bottom: 10px !important; width: calc(100% - 20px) !important; display: flex !important; justify-content: space-between !important; align-items: flex-end !important; max-width: 100% !important; }
     .hero-title { font-size: 20px !important; }
     .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 70% !important; padding: 0 !important; margin: 0 !important; }
+/* --- AJUSTE EXCLUSIVO TABLET: CANCIÓN --- */
+@media(max-width: 1024px) {
+    #banner-la-frontera-v3 {
+        height: auto !important;
+        padding-bottom: 20px;
+    }
+    #banner-la-frontera-v3 img[src*="banner-cancion.jpg"] {
+        height: 300px;
+        object-fit: cover;
+    }
+    #banner-la-frontera-v3 > div {
+        position: relative !important;
+        flex-direction: column !important;
+        padding: 20px !important;
+        text-align: center !important;
+        height: auto !important;
+    }
+    #banner-la-frontera-v3 img[src*="adri.png"] {
+        width: 120px !important; /* Foto reducida */
+        margin: 10px 0 !important;
+    }
+    #banner-la-frontera-v3 h1 {
+        font-size: 24px !important; /* Título reducido */
+    }
+    #banner-la-frontera-v3 h2 {
+        font-size: 14px !important; /* Subtítulo reducido */
+    }
+    /* Ocultar elementos decorativos que rompen el diseño en tablet */
+    #banner-la-frontera-v3 > div > div:nth-child(2),
+    #banner-la-frontera-v3 > div > div:nth-child(4),
+    #banner-la-frontera-v3 > div > div:nth-child(5) {
+        display: none !important;
+    }
 }
 </style>
 
