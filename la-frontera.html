@@ -670,6 +670,7 @@ color:#FFC601;
 }
 
 @media(max-width: 600px) {
+    /* Ajuste para el texto en móvil casi pegado al borde */
     .hero-overlay { left: 10px !important; right: 10px !important; bottom: 10px !important; width: calc(100% - 20px) !important; display: flex !important; justify-content: space-between !important; align-items: flex-end !important; max-width: 100% !important; }
     .hero-title { font-size: 20px !important; }
     .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 70% !important; padding: 0 !important; margin: 0 !important; }
@@ -826,8 +827,25 @@ color:#FFC601;
 <script>
     const menuBtn = document.getElementById('menu-btn');
     const navMobile = document.getElementById('nav-mobile');
-    menuBtn.addEventListener('click', () => {
+    
+    // Abrir/Cerrar menú hamburguesa
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         navMobile.style.display = (navMobile.style.display === 'flex') ? 'none' : 'flex';
+    });
+
+    // Cerrar al hacer clic en un enlace del menú
+    navMobile.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMobile.style.display = 'none';
+        });
+    });
+
+    // Cerrar al hacer clic fuera del menú
+    document.addEventListener('click', (e) => {
+        if (!navMobile.contains(e.target) && e.target !== menuBtn) {
+            navMobile.style.display = 'none';
+        }
     });
 </script>
 
