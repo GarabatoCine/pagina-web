@@ -17,11 +17,12 @@
 *{
 margin:0;
 padding:0;
-box-sizing:border-box;f
+box-sizing:border-box;
 }
 
 html,body{
 width:100%;
+overflow-x:hidden;
 background:#ffffff; 
 color:#000000;           
 font-family:'Roboto',sans-serif;
@@ -678,103 +679,83 @@ color:#FFC601;
 /* ===== TABLET - mantener diseño de escritorio ===== */
 @media (max-width:1024px) and (min-width:601px){
 
-#banner-la-frontera-v3{
-    overflow:hidden;
-}
+    #banner-la-frontera-v3{
+        overflow:hidden;
+    }
 
-#banner-la-frontera-v3 img:first-child{
-    width:100%;
-    height:auto !important;
-    object-fit:contain !important;
-    display:block;
-}
+    #banner-la-frontera-v3 img:first-child{
+        width:100%;
+        height:auto !important;
+        object-fit:contain !important;
+        display:block;
+    }
 
-#banner-la-frontera-v3 > div{
-    padding:0 22px !important;
-    gap:0 !important;
-}
+    #banner-la-frontera-v3 > div{
+        padding:0 18px !important;
+        gap:0 !important;
+        transform:scale(0.74);
+        transform-origin:center center;
+    }
 
-#banner-la-frontera-v3 > div > div:nth-child(1){
-    flex:0 0 18% !important;
-}
+    /* Columna izquierda (título) */
+    #banner-la-frontera-v3 > div > div:nth-child(1){
+        flex:0 0 13% !important;
+    }
 
-#banner-la-frontera-v3 > div > div:nth-child(2),
-#banner-la-frontera-v3 > div > div:nth-child(4){
-    height:140px !important;
-    margin:0 22px !important;
-}
+    /* Líneas divisorias */
+    #banner-la-frontera-v3 > div > div:nth-child(2),
+    #banner-la-frontera-v3 > div > div:nth-child(4){
+        height:120px !important;
+        margin:0 12px !important;
+    }
 
-#banner-la-frontera-v3 > div > div:nth-child(3){
-    flex:0 0 40% !important;
-    gap:22px !important;
-}
+    /* Columna central (foto + enlaces) */
+    #banner-la-frontera-v3 > div > div:nth-child(3){
+        flex:0 0 48% !important;
+        gap:10px !important;
+    }
 
-#banner-la-frontera-v3 img[src*="adri.png"]{
-    width:160px !important;
-}
+    /* Foto */
+    #banner-la-frontera-v3 img[src*="adri.png"]{
+        width:145px !important;
+    }
 
-#banner-la-frontera-v3 img[src*="boton-play.png"],
-#banner-la-frontera-v3 img[src*="spotify.png"]{
-    width:28px !important;
-}
+    /* Íconos */
+    #banner-la-frontera-v3 img[src*="boton-play.png"],
+    #banner-la-frontera-v3 img[src*="spotify.png"]{
+        width:24px !important;
+    }
 
-#banner-la-frontera-v3 h1{
-    font-size:28px !important;
-}
+    /* Textos */
+    #banner-la-frontera-v3 h1{
+        font-size:24px !important;
+        line-height:1.05 !important;
+    }
 
-#banner-la-frontera-v3 h2{
-    font-size:16px !important;
-}
+    #banner-la-frontera-v3 h2{
+        font-size:14px !important;
+        line-height:1.1 !important;
+    }
 
-#banner-la-frontera-v3 p{
-    font-size:9px !important;
-}
+    #banner-la-frontera-v3 p{
+        font-size:8px !important;
+        line-height:1.2 !important;
+    }
 
-#banner-la-frontera-v3 span{
-    font-size:13px !important;
-}
+    #banner-la-frontera-v3 span{
+        font-size:11px !important;
+        line-height:1.15 !important;
+    }
 
-#banner-la-frontera-v3 > div > div:last-child{
-    padding-top:120px !important;
-    margin-left:0 !important;
-    font-size:12px !important;
-}
+    /* Texto derecho */
+    #banner-la-frontera-v3 > div > div:last-child{
+        padding-top:75px !important;
+        margin-left:0 !important;
+        font-size:11px !important;
+        line-height:1.2 !important;
+    }
 
-/* ===== TABLET - Reducir proporciones del contenido ===== */
-
-#banner-la-frontera-v3 > div{
-    transform: scale(0.78);
-    transform-origin: center center;
-}
-
-#banner-la-frontera-v3 h1{
-    font-size:26px !important;
-}
-
-#banner-la-frontera-v3 h2{
-    font-size:15px !important;
-}
-
-#banner-la-frontera-v3 p{
-    font-size:9px !important;
-}
-
-#banner-la-frontera-v3 span{
-    font-size:12px !important;
-}
-
-#banner-la-frontera-v3 img[src*="adri.png"]{
-    width:170px !important;
-}
-
-#banner-la-frontera-v3 img[src*="boton-play.png"],
-#banner-la-frontera-v3 img[src*="spotify.png"]{
-    width:28px !important;
-}
-}
-</style>
-
-</head>
+}</head>
 
 <body>
 
@@ -884,39 +865,37 @@ color:#FFC601;
 
 <section id="banner-la-frontera-v3" style="width: 100%; margin-top: 40px; position: relative; font-family: 'Avenir Next', sans-serif;">
     <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg?v=1" style="width: 100%; display: block;">
-    
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; color: #d1b069; padding: 0 40px;">
-        
-        <!-- BLOQUE 1: Título y Autor -->
-        <div style="flex: 0 0 auto; text-align: center; padding-right: 30px;">
-            <p style="font-weight: 100; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #d1b069; margin-bottom: 5px;">Canción original</p>
-            <h1 style="font-size: 28px; font-weight: normal; margin: 0 0 10px 0; font-family: Georgia, serif; color: #d1b069;">La Frontera</h1>
+        <div style="flex: 0 0 18%; text-align: center;">
+            <p style="font-weight: 100; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #d1b069;">Canción original</p>
+            <h1 style="font-size: 34px; font-weight: normal; margin: 10px 0 25px 0; font-family: Georgia, serif; color: #d1b069;">La Frontera</h1>
             <p style="font-weight: 100; font-size: 10px; margin: 0 0 5px 0; color: #d1b069;">Cantada por</p>
-            <h2 style="font-size: 16px; font-weight: normal; margin: 0; color: #d1b069;">Adriana Lucía</h2>
+            <h2 style="font-size: 18px; font-weight: normal; margin: 0; color: #d1b069;">Adriana Lucía</h2>
         </div>
-
-        <div style="width: 0.5px; height: 120px; background-color: #d1b069; margin: 0 30px;"></div>
-
-        <!-- BLOQUE 2: Foto y Botones -->
-        <div style="display: flex; align-items: center; gap: 20px;">
-            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png?v=1" style="width: 120px;">
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-                <a href="https://www.youtube.com/watch?v=VRcRpjae9RI" target="_blank" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #d1b069; line-height: 1;">
-                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/boton-play.png?raw=true" style="width: 25px;">
-                    <span style="font-size: 11px; font-weight: 400; text-transform: uppercase;">Ver video<br>en YouTube</span>
+        <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 50px;"></div>
+        <div style="flex: 0 0 35%; display: flex; align-items: center; gap: 40px; justify-content: center;">
+            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png?v=1" style="width: 220px;">
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <a href="https://www.youtube.com/watch?v=VRcRpjae9RI" target="_blank" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: #d1b069;">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/boton-play.png?raw=true" style="width: 35px;">
+                    <div style="line-height: 1.2;">
+                        <span style="font-size: 15px; font-weight: 400;">VER VIDEO</span><br>
+                        <span style="font-size: 10px; font-weight: 100;">EN YOUTUBE</span>
+                    </div>
                 </a>
-                <div style="width: 100px; height: 0.5px; background-color: #d1b069;"></div>
-                <a href="https://open.spotify.com/intl-es/track/7oq21dTDyIfcmzMCINqXZ1" target="_blank" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #d1b069; line-height: 1;">
-                    <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/spotify.png" style="width: 25px;">
-                    <span style="font-size: 11px; font-weight: 400; text-transform: uppercase;">Escuchar canción<br>en Spotify</span>
+                <div style="width: 140px; height: 0.5px; background-color: #d1b069;"></div>
+                <a href="https://open.spotify.com/intl-es/track/7oq21dTDyIfcmzMCINqXZ1" target="_blank" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: #d1b069;">
+                    <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/spotify.png" style="width: 35px;">
+                    <div style="line-height: 1.2;">
+                        <span style="font-size: 15px; font-weight: 400;">ESCUCHAR</span><br>
+                        <span style="font-size: 15px; font-weight: 400;">CANCIÓN</span><br>
+                        <span style="font-size: 10px; font-weight: 100;">EN SPOTIFY</span>
+                    </div>
                 </a>
             </div>
         </div>
-
-        <div style="width: 0.5px; height: 120px; background-color: #d1b069; margin: 0 30px;"></div>
-
-        <!-- BLOQUE 3: Texto al pie -->
-        <div style="flex: 1; align-self: center; font-size: 14px; font-style: italic; font-weight: 100; color: #d1b069; text-align: left;">
+        <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 50px;"></div>
+        <div style="flex: 1; align-self: flex-start; padding-top: 165px; margin-left: -20px; font-size: 14px; font-style: italic; font-weight: 100; color: #d1b069; text-align: left;">
             Sigue la luz que habita en mí...<br>
             Solo quiero abrir mis alas y volar.
         </div>
