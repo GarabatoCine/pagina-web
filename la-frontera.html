@@ -682,69 +682,59 @@ color:#FFC601;
         overflow: hidden;
     }
     
-    /* Centrado exacto del bloque izquierdo */
+    /* Contenedor principal del banner */
+    #banner-la-frontera-v3 > div {
+        padding: 0 10px !important;
+        gap: 0 !important;
+        transform: none !important; /* Eliminado el scale para evitar saltos */
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+
+    /* Columna 1: La que quieres centrar */
     #banner-la-frontera-v3 > div > div:nth-child(1) {
-        flex: 0 0 16% !important; 
+        flex: 0 0 18% !important; 
         display: flex !important;
         flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
+        justify-content: center !important; /* Centrado vertical */
+        align-items: center !important;     /* Centrado horizontal */
         text-align: center !important;
-        margin-left: 0 !important; /* Margen izquierdo cero */
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
     }
 
-    #banner-la-frontera-v3 > div {
-        padding: 0 20px !important;
-        gap: 0 !important;
-        transform: scale(0.85);
-        transform-origin: center center;
-    }
-
-    /* Forzar una sola línea y asegurar alineación */
+    /* Textos: Forzamos una sola línea y centrado */
     #banner-la-frontera-v3 h1, 
-    #banner-la-frontera-v3 p,
-    #banner-la-frontera-v3 h2 {
+    #banner-la-frontera-v3 h2,
+    #banner-la-frontera-v3 p {
         white-space: nowrap !important;
+        margin: 0 !important;
+        padding: 0 !important;
         width: 100% !important;
         text-align: center !important;
     }
 
-    #banner-la-frontera-v3 h1 {
-        font-size: 22px !important; 
-        margin: 5px 0 10px 0 !important;
+    #banner-la-frontera-v3 h1 { font-size: 18px !important; margin-bottom: 5px !important; }
+    #banner-la-frontera-v3 h2 { font-size: 12px !important; }
+    #banner-la-frontera-v3 p { font-size: 8px !important; }
+
+    /* Imagen de Adriana: Limitada para que no se salga */
+    #banner-la-frontera-v3 img[src*="adri.png"] {
+        width: 100px !important;
+        height: auto !important;
+        margin: 5px auto !important;
+        display: block !important;
     }
 
-    /* Comprimir elementos verticales */
+    /* Líneas verticales y separadores */
     #banner-la-frontera-v3 > div > div:nth-child(2),
     #banner-la-frontera-v3 > div > div:nth-child(4) {
-        height: 120px !important;
-        margin: 0 15px !important;
-    }
-
-    #banner-la-frontera-v3 h2 {
-        font-size: 14px !important;
-        margin: 0 !important;
-    }
-
-    #banner-la-frontera-v3 p {
-        font-size: 9px !important;
-        margin: 0 !important;
-    }
-
-    #banner-la-frontera-v3 img[src*="adri.png"] {
-        width: 140px !important;
-    }
-
-    #banner-la-frontera-v3 > div > div:last-child {
-        padding-top: 100px !important;
-        font-size: 11px !important;
-    }
-
-    #banner-la-frontera-v3 img[src*="boton-play.png"],
-    #banner-la-frontera-v3 img[src*="spotify.png"] {
-        width: 25px !important;
+        flex: 0 0 1px !important;
+        height: 100px !important;
+        background-color: #fff !important; /* O el color de tu línea */
+        margin: 0 10px !important;
     }
 }
 </style>
@@ -863,12 +853,12 @@ color:#FFC601;
         <div style="flex: 0 0 18%; text-align: center;">
             <p style="font-weight: 100; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #d1b069;">Canción original</p>
             <h1 style="font-size: 34px; font-weight: normal; margin: 10px 0 25px 0; font-family: Georgia, serif; color: #d1b069;">La Frontera</h1>
-            <p style="font-weight: 100; font-size: 10px; margin: 0 0 5px 0; color: #d1b069;">Canta</p>
+            <p style="font-weight: 100; font-size: 10px; margin: 0 0 5px 0; color: #d1b069;">Cantanditooo</p>
             <h2 style="font-size: 18px; font-weight: normal; margin: 0; color: #d1b069;">Adriana Lucía</h2>
         </div>
         <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 50px;"></div>
         <div style="flex: 0 0 35%; display: flex; align-items: center; gap: 40px; justify-content: center;">
-            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png?v=2" style="width: 220px;">
+            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png?v=3" style="width: 220px;">
             <div style="display: flex; flex-direction: column; gap: 20px;">
                 <a href="https://www.youtube.com/watch?v=VRcRpjae9RI" target="_blank" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: #d1b069;">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/boton-play.png?raw=true" style="width: 35px;">
