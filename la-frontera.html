@@ -716,49 +716,12 @@ color:#FFC601;
         padding: 0 !important;    
         margin: 0 !important;
     }
-/* ================= AJUSTE DE TRES SECCIONES IGUALES EN TABLET ================= */
+/* ================= SOLUCIÓN DE ESCALA PARA TABLET (Mantiene diseño original) ================= */
 @media (max-width: 1024px) {
-    /* Permitimos que el contenedor crezca y se ajuste */
-    #banner-la-frontera-v3 > div {
-        padding: 0 15px !important;
-        gap: 10px !important;
-    }
-
-    /* 1. SECCIÓN TÍTULO (30%) */
-    #banner-la-frontera-v3 > div > div:nth-child(1) {
-        flex: 0 0 30% !important;
-    }
-
-    /* 2. LÍNEA DIVISORIA 1 */
-    #banner-la-frontera-v3 > div > div:nth-child(2) {
-        margin: 0 5px !important;
-        height: 120px !important;
-    }
-
-    /* 3. SECCIÓN FOTO Y BOTONES (30%) */
-    #banner-la-frontera-v3 > div > div:nth-child(3) {
-        flex: 0 0 30% !important;
-        gap: 10px !important;
-        justify-content: center !important;
-    }
-    #banner-la-frontera-v3 img[src*="adri.png"] {
-        width: 100px !important; /* Foto más pequeña para dejar respirar el bloque */
-    }
-
-    /* 4. LÍNEA DIVISORIA 2 (LA QUE ESTABA ENCIMA DEL TEXTO) */
-    #banner-la-frontera-v3 > div > div:nth-child(4) {
-        margin: 0 5px !important;
-        height: 120px !important;
-    }
-
-    /* 5. SECCIÓN TEXTO FINAL (30%) */
-    #banner-la-frontera-v3 > div > div:last-child {
-        flex: 0 0 30% !important;
-        padding-top: 0 !important;
-        margin-left: 0 !important;
-        font-size: 11px !important;
-        text-align: left !important;
-        align-self: center !important;
+    #banner-la-frontera-v3 {
+        transform: scale(0.65); /* Reduce todo el banner al 65% de su tamaño original */
+        transform-origin: top center; /* Evita que el banner se mueva a la izquierda */
+        margin-bottom: -150px !important; /* Ajusta el espacio para que no quede un hueco grande */
     }
 }
 </style>
