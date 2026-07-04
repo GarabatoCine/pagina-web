@@ -658,7 +658,11 @@ color:#FFC601;
     .linea-divisoria-tablet { display: none !important; }
     .tablet-ajuste { line-height: 0.8 !important; margin: 0 !important; }
 }
-
+@media(max-width: 1024px) {
+    /* Reduce el tamaño de fuente un punto para tablet */
+    #banner-la-frontera-v3 h1 { font-size: 31px !important; }
+    #banner-la-frontera-v3 h2 { font-size: 17px !important; }
+}
 @media(max-width:992px){
     .sitio-footer{ padding:40px 25px; }
     .fila-tres-columnas{ flex-direction:column; gap:25px; text-align:center; }
