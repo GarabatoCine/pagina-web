@@ -654,26 +654,34 @@ color:#FFC601;
 
 /* ================= RESPONSIVE ================= */
 
-/* ================= RESPONSIVE ================= */
-
 @media(max-width: 1024px) {
-    /* Ocultar elementos de escritorio y activar carrusel tablet */
+    /* Ocultar solo el título, PERO mostrar el indicador de deslizar */
     .galeria-intro-nueva { display: none !important; }
-    .scroll-indicator-nuevo { display: none !important; }
-    .galeria-wrapper-nueva { display: block !important; padding: 0 !important; overflow-x: auto !important; }
     
+    /* Ajustes del carrusel */
+    .galeria-wrapper-nueva { display: block !important; padding: 0 !important; overflow-x: auto !important; }
     .fotogramas-carousel-nuevo { 
         display: flex !important; 
-        flex-wrap: nowrap !important; /* Mantiene las fotos en una fila horizontal */
+        flex-wrap: nowrap !important; 
         overflow-x: auto !important; 
         width: 100% !important;
         padding: 0 !important;
     }
     
-    /* En tablet: 2 fotos visibles a la vez */
+    /* 2 fotos visibles en tablet */
     .fotogramas-carousel-nuevo .fotograma-item { 
         flex: 0 0 50% !important; 
         padding: 5px !important;
+    }
+    
+    /* HACEMOS VISIBLE EL INDICADOR */
+    .scroll-indicator-nuevo { 
+        display: flex !important; 
+        position: static !important; /* Lo ponemos estático para que se ubique bien */
+        justify-content: center !important;
+        margin-bottom: 15px !important;
+        font-size: 11px !important;
+        color: #666 !important;
     }
 }
 
@@ -700,10 +708,10 @@ color:#FFC601;
     .hero-overlay { left: 10px !important; right: 10px !important; bottom: 10px !important; width: calc(100% - 20px) !important; display: flex !important; justify-content: space-between !important; align-items: flex-end !important; max-width: 100% !important; }
     .hero-title { font-size: 20px !important; }
     
-    /* En móvil: fotos un poco más grandes, sin margen y en carrusel horizontal */
+    /* Fotos más grandes y pegadas */
     .fotogramas-carousel-nuevo .fotograma-item { 
-        flex: 0 0 70% !important; /* Más grandes que antes */
-        padding: 0 !important;    /* Sin márgenes */
+        flex: 0 0 70% !important; 
+        padding: 0 !important;    
         margin: 0 !important;
     }
 }
