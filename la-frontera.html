@@ -796,10 +796,11 @@ color:#FFC601;
 <section id="banner-la-frontera-v3" style="width: 100%; margin-top: 40px; position: relative; font-family: 'Avenir Next', sans-serif;">
     <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg?v=1" style="width: 100%; display: block;">
     
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; color: #d1b069;">
+    <!-- Contenedor general -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color: #d1b069;">
         
-        <!-- BLOQUE IZQUIERDO (TÍTULOS, FOTO Y BOTONES) -->
-        <div style="display: flex; align-items: center; gap: 20px; padding-left: 40px;">
+        <!-- Bloque izquierdo: Títulos, foto y botones (se mantiene igual) -->
+        <div style="display: flex; align-items: center; gap: 20px; padding-left: 40px; height: 100%;">
             <div class="tablet-ajuste" style="text-align: center;">
                 <p style="font-weight: 100; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #d1b069; margin-bottom: 2px; white-space: nowrap;">Canción original</p>
                 <h1 style="font-size: 32px; font-weight: normal; margin: 0 0 5px 0; font-family: Georgia, serif; color: #d1b069; white-space: nowrap;">La Frontera</h1>
@@ -825,10 +826,10 @@ color:#FFC601;
             </div>
         </div>
 
-        <!-- BLOQUE DERECHO (LÍNEA Y LEYENDA - DESPLAZADOS AL 50%) -->
-        <div style="display: flex; align-items: center; margin-left: auto; padding-right: 150px;">
+        <!-- Línea y texto posicionados exactamente en el 50% -->
+        <div class="ocultar-en-tablet" style="position: absolute; top: 50%; left: 50%; transform: translateY(-50%); display: flex; align-items: center;">
             <div class="linea-divisoria-tablet" style="width: 0.5px; height: 120px; background-color: #d1b069; margin-right: 30px;"></div>
-            <div class="ocultar-en-tablet" style="font-size: 14px; font-style: italic; font-weight: 100; color: #d1b069; text-align: left;">
+            <div style="font-size: 14px; font-style: italic; font-weight: 100; color: #d1b069; text-align: left;">
                 Sigue la luz que habita en mí...<br>
                 Solo quiero abrir mis alas y volar.
             </div>
