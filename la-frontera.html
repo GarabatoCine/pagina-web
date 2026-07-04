@@ -682,36 +682,35 @@ color:#FFC601;
         overflow: hidden;
     }
     
-    /* Contenedor principal del banner */
+    /* Contenedor principal */
     #banner-la-frontera-v3 > div {
         padding: 0 10px !important;
         gap: 0 !important;
-        transform: none !important; /* Eliminado el scale para evitar saltos */
+        transform: none !important;
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
     }
 
-    /* Columna 1: La que quieres centrar */
+    /* Columna 1 (Texto centrado) */
     #banner-la-frontera-v3 > div > div:nth-child(1) {
         flex: 0 0 18% !important; 
         display: flex !important;
         flex-direction: column !important;
-        justify-content: center !important; /* Centrado vertical */
-        align-items: center !important;     /* Centrado horizontal */
+        justify-content: center !important;
+        align-items: center !important;
         text-align: center !important;
         margin: 0 !important;
         padding: 0 !important;
         border: none !important;
     }
 
-    /* Textos: Forzamos una sola línea y centrado */
+    /* Textos (Una sola línea) */
     #banner-la-frontera-v3 h1, 
     #banner-la-frontera-v3 h2,
     #banner-la-frontera-v3 p {
         white-space: nowrap !important;
         margin: 0 !important;
-        padding: 0 !important;
         width: 100% !important;
         text-align: center !important;
     }
@@ -720,7 +719,7 @@ color:#FFC601;
     #banner-la-frontera-v3 h2 { font-size: 12px !important; }
     #banner-la-frontera-v3 p { font-size: 8px !important; }
 
-    /* Imagen de Adriana: Limitada para que no se salga */
+    /* Imagen */
     #banner-la-frontera-v3 img[src*="adri.png"] {
         width: 100px !important;
         height: auto !important;
@@ -728,13 +727,17 @@ color:#FFC601;
         display: block !important;
     }
 
-    /* Líneas verticales y separadores */
-    #banner-la-frontera-v3 > div > div:nth-child(2),
-    #banner-la-frontera-v3 > div > div:nth-child(4) {
-        flex: 0 0 1px !important;
+    /* LINEA VERTICAL IZQUIERDA: Ajustada a 0.25px y color dorado */
+    #banner-la-frontera-v3 > div > div:nth-child(2) {
+        flex: 0 0 0.25px !important;
         height: 100px !important;
-        background-color: #fff !important; /* O el color de tu línea */
+        background-color: #D4AF37 !important; /* Color dorado/amarillo */
         margin: 0 10px !important;
+    }
+
+    /* ELIMINAR LÍNEA DERECHA: Forzamos que no tenga ancho ni visibilidad */
+    #banner-la-frontera-v3 > div > div:nth-child(4) {
+        display: none !important;
     }
 }
 </style>
@@ -853,12 +856,12 @@ color:#FFC601;
         <div style="flex: 0 0 18%; text-align: center;">
             <p style="font-weight: 100; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #d1b069;">Canción original</p>
             <h1 style="font-size: 34px; font-weight: normal; margin: 10px 0 25px 0; font-family: Georgia, serif; color: #d1b069;">La Frontera</h1>
-            <p style="font-weight: 100; font-size: 10px; margin: 0 0 5px 0; color: #d1b069;">Cantanditooo</p>
+            <p style="font-weight: 100; font-size: 10px; margin: 0 0 5px 0; color: #d1b069;">Canta</p>
             <h2 style="font-size: 18px; font-weight: normal; margin: 0; color: #d1b069;">Adriana Lucía</h2>
         </div>
         <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 50px;"></div>
         <div style="flex: 0 0 35%; display: flex; align-items: center; gap: 40px; justify-content: center;">
-            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png?v=3" style="width: 220px;">
+            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png?v=4" style="width: 220px;">
             <div style="display: flex; flex-direction: column; gap: 20px;">
                 <a href="https://www.youtube.com/watch?v=VRcRpjae9RI" target="_blank" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: #d1b069;">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/boton-play.png?raw=true" style="width: 35px;">
