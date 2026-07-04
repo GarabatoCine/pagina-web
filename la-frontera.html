@@ -639,7 +639,11 @@ text-decoration:underline;
 .footer-link-normal:hover{
 color:#FFC601;
 }
-
+@media(max-width: 1024px) {
+    .ocultar-en-tablet {
+        display: none !important;
+    }
+}
 /* ================= RESPONSIVE GLOBALES ================= */
 
 @media(max-width: 1024px) {
@@ -819,7 +823,7 @@ color:#FFC601;
         <div style="width: 0.5px; height: 120px; background-color: #d1b069; margin: 0 30px;"></div>
 
         <!-- BLOQUE 3: Texto al pie -->
-        <div style="flex: 1; align-self: center; font-size: 14px; font-style: italic; font-weight: 100; color: #d1b069; text-align: left;">
+        <div class="ocultar-en-tablet" style="flex: 1; align-self: center; font-size: 14px; font-style: italic; font-weight: 100; color: #d1b069; text-align: left;">
             Sigue la luz que habita en mí...<br>
             Solo quiero abrir mis alas y volar.
         </div>
