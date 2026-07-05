@@ -853,15 +853,21 @@ color:#FFC601;
 <section id="banner-la-frontera-v3" style="width: 100%; margin-top: 40px; position: relative; font-family: 'Avenir Next', sans-serif;">
     <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg?v=1" style="width: 100%; display: block;">
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; color: #d1b069; padding: 0 40px;">
+        
+        <!-- 1. TEXTO INTEGRADO (Menor interlineado) -->
         <div style="flex: 0 0 18%; text-align: center;">
-            <p style="font-weight: 100; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #d1b069;">Canción original</p>
-            <h1 style="font-size: 34px; font-weight: normal; margin: 10px 0 25px 0; font-family: Georgia, serif; color: #d1b069;">La Frontera</h1>
-            <p style="font-weight: 100; font-size: 10px; margin: 0 0 5px 0; color: #d1b069;">Canta ay ombe</p>
+            <p style="font-weight: 100; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #d1b069; margin: 0;">Canción original</p>
+            <h1 style="font-size: 34px; font-weight: normal; margin: 2px 0 8px 0; font-family: Georgia, serif; color: #d1b069; line-height: 1;">La Frontera</h1>
+            <p style="font-weight: 100; font-size: 10px; margin: 0 0 2px 0; color: #d1b069;">Canta ay ombe</p>
             <h2 style="font-size: 18px; font-weight: normal; margin: 0; color: #d1b069;">Adriana Lucía</h2>
         </div>
-        <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 50px;"></div>
+        
+        <!-- 2. LÍNEA VERTICAL IZQUIERDA (Más corta y 0.25px de grosor) -->
+        <div style="width: 0.25px; height: 65%; background-color: #d1b069; margin: 0 50px;"></div>
+        
+        <!-- 3. IMAGEN DE ADRIANA MÁS PEQUEÑA (Para no desbordar) -->
         <div style="flex: 0 0 35%; display: flex; align-items: center; gap: 40px; justify-content: center;">
-            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png?v=12" style="width: 220px;">
+            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png?v=12" style="width: 170px; height: auto;">
             <div style="display: flex; flex-direction: column; gap: 20px;">
                 <a href="https://www.youtube.com/watch?v=VRcRpjae9RI" target="_blank" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: #d1b069;">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/boton-play.png?raw=true" style="width: 35px;">
@@ -881,14 +887,18 @@ color:#FFC601;
                 </a>
             </div>
         </div>
-        <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 50px;"></div>
-        <div style="flex: 1; align-self: flex-start; padding-top: 165px; margin-left: -20px; font-size: 14px; font-style: italic; font-weight: 100; color: #d1b069; text-align: left;">
+        
+        <!-- 2. LÍNEA VERTICAL DERECHA (Más corta y 0.25px de grosor) -->
+        <div style="width: 0.25px; height: 65%; background-color: #d1b069; margin: 0 50px;"></div>
+        
+        <!-- 4. TEXTO DE LA LETRA MÁS ALTO (Alineado con "Ver video") -->
+        <div style="flex: 1; margin-left: -20px; font-size: 14px; font-style: italic; font-weight: 100; color: #d1b069; text-align: left; transform: translateY(-25px);">
             Sigue la luz que habita en mí...<br>
             Solo quiero abrir mis alas y volar.
         </div>
+        
     </div>
 </section>
-
 <script>
     const menuBtn = document.getElementById('menu-btn');
     const navMobile = document.getElementById('nav-mobile');
