@@ -12,217 +12,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    /* ================= BANNER DE LA CANCIÓN - VERSIÓN CORREGIDA IMPECABLE ================= */
-#banner-la-frontera-v3 {
-    width: 100%;
-    margin: 40px 0;
-    position: relative;
-    font-family: 'Avenir Next', sans-serif;
-    background-color: #000;
-    overflow: hidden;
-}
-
-#banner-la-frontera-v3 .bf-bg-img {
-    width: 100%;
-    display: block;
-    height: auto;
-    min-height: 250px; /* Evita colapsos visuales */
-    object-fit: cover;
-}
-
-#banner-la-frontera-v3 .bf-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center; /* Centrado vertical automático perfecto */
-    justify-content: center;
-    color: #d1b069;
-    padding: 0 4%;
-    gap: 2%;
-}
-
-#banner-la-frontera-v3 .bf-col-info {
-    flex: 0 0 20%;
-    max-width: 240px;
-    text-align: center;
-}
-
-#banner-la-frontera-v3 .bf-tag {
-    font-weight: 300;
-    font-size: clamp(10px, 0.9vw, 13px);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #d1b069;
-    margin: 0 0 5px 0;
-}
-
-#banner-la-frontera-v3 .bf-title {
-    font-size: clamp(22px, 2.4vw, 36px);
-    font-weight: normal;
-    margin: 5px 0 15px 0;
-    font-family: Georgia, serif;
-    color: #d1b069;
-    line-height: 1.1;
-}
-
-#banner-la-frontera-v3 .bf-subtag {
-    font-weight: 300;
-    font-size: clamp(10px, 0.9vw, 12px);
-    margin: 0 0 3px 0;
-    color: #d1b069;
-    text-transform: uppercase;
-}
-
-#banner-la-frontera-v3 .bf-artist-name {
-    font-size: clamp(15px, 1.5vw, 22px);
-    font-weight: normal;
-    margin: 0;
-    color: #d1b069;
-    line-height: 1.1;
-}
-
-#banner-la-frontera-v3 .bf-v-line {
-    width: 1px;
-    height: 55%;
-    background-color: rgba(209, 176, 105, 0.4);
-    flex-shrink: 0;
-}
-
-#banner-la-frontera-v3 .bf-col-center {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    justify-content: center;
-    padding: 0 10px;
-}
-
-#banner-la-frontera-v3 .bf-artist-photo {
-    width: clamp(110px, 14vw, 170px);
-    height: auto;
-    display: block;
-    flex-shrink: 0;
-}
-
-#banner-la-frontera-v3 .bf-links-block {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    flex-shrink: 0;
-}
-
-#banner-la-frontera-v3 .bf-link-btn {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: #d1b069;
-    transition: opacity 0.2s ease;
-}
-
-#banner-la-frontera-v3 .bf-link-btn:hover {
-    opacity: 0.8;
-}
-
-#banner-la-frontera-v3 .bf-icon {
-    width: clamp(24px, 2.2vw, 32px);
-    height: auto;
-    display: block;
-}
-
-#banner-la-frontera-v3 .bf-btn-text {
-    line-height: 1.2;
-}
-
-#banner-la-frontera-v3 .bf-txt-lg {
-    font-size: clamp(11px, 1vw, 14px);
-    font-weight: 400;
-    letter-spacing: 1px;
-}
-
-#banner-la-frontera-v3 .bf-txt-sm {
-    font-size: clamp(8px, 0.75vw, 10px);
-    font-weight: 300;
-    opacity: 0.8;
-}
-
-#banner-la-frontera-v3 .bf-h-line {
-    width: 100%;
-    height: 1px;
-    background-color: rgba(209, 176, 105, 0.3);
-}
-
-#banner-la-frontera-v3 .bf-quote {
-    flex: 1;
-    max-width: 280px;
-    font-size: clamp(12px, 1.1vw, 15px);
-    font-style: italic;
-    font-weight: 300;
-    color: #d1b069;
-    text-align: left;
-    line-height: 1.4;
-    padding-left: 10px;
-}
-
-/* ================= RESPONSIVO PARA MÓVILES (BAJO 850PX) ================= */
-@media (max-width: 850px) {
-    #banner-la-frontera-v3 .bf-bg-img {
-        display: none;
-    }
-    #banner-la-frontera-v3 {
-        background-image: url('https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg?v=1');
-        background-size: cover;
-        background-position: center;
-        padding: 50px 20px;
-    }
-    #banner-la-frontera-v3 .bf-overlay {
-        position: relative;
-        flex-direction: column;
-        height: auto;
-        gap: 30px;
-        padding: 0;
-        text-align: center;
-    }
-    #banner-la-frontera-v3 .bf-col-info {
-        max-width: 100%;
-    }
-    #banner-la-frontera-v3 .bf-tag { font-size: 12px; }
-    #banner-la-frontera-v3 .bf-title { font-size: 32px; margin: 5px 0 10px 0; }
-    #banner-la-frontera-v3 .bf-subtag { font-size: 11px; }
-    #banner-la-frontera-v3 .bf-artist-name { font-size: 20px; }
-    
-    #banner-la-frontera-v3 .bf-v-line {
-        width: 80%;
-        height: 1px;
-        margin: 0 auto;
-    }
-    #banner-la-frontera-v3 .bf-col-center {
-        flex-direction: column;
-        gap: 25px;
-    }
-    #banner-la-frontera-v3 .bf-artist-photo {
-        width: 150px;
-    }
-    #banner-la-frontera-v3 .bf-links-block {
-        align-items: center;
-        gap: 15px;
-    }
-    #banner-la-frontera-v3 .bf-h-line {
-        width: 120px;
-    }
-    #banner-la-frontera-v3 .bf-txt-lg { font-size: 14px; }
-    #banner-la-frontera-v3 .bf-txt-sm { font-size: 10px; }
-    #banner-la-frontera-v3 .bf-icon { width: 32px; }
-    
-    #banner-la-frontera-v3 .bf-quote {
-        max-width: 100%;
-        text-align: center;
-        padding-left: 0;
-        font-size: 14px;
-    }
-}
 <style>
 
 *{
@@ -462,7 +251,7 @@ display: flex;
 flex-direction: row;
 justify-content: center; 
 align-items: stretch;
-gap: 35px;         
+gap: 35px;          
 max-width: 1200px;
 width: 100%;
 }
@@ -717,23 +506,159 @@ text-align: left;
     }
 }
 
-/* ================= NUEVA SECCIÓN VER Y ESCUCHAR ALINEADA ================= */
-.ve-section-wrapper {
-    width: calc(100% - 60px);
-    max-width: 1200px;
-    margin: 40px auto;
-    display: flex;
-    gap: 30px;
-    align-items: stretch;
-    border: 1px solid #ddd;
-    padding: 20px;
+/* ================= BANNER DE LA CANCIÓN - CORREGIDO FLUIDO ================= */
+#banner-la-frontera-v3 {
+    width: 100%;
+    margin: 40px 0;
+    position: relative;
+    font-family: 'Avenir Next', sans-serif;
+    background-color: #000;
+    overflow: hidden;
 }
-.ve-img-grande { flex: 1; }
-.ve-img-grande img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.ve-bloques-derecha { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; }
-.ve-bloque { border: 1px solid #eee; padding: 25px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
-.ve-btn { display: inline-block; padding: 10px 20px; background: #000; color: #fff; text-align: center; text-transform: uppercase; font-size: 12px; margin-top: 10px; }
-@media(max-width: 850px) { .ve-section-wrapper { flex-direction: column; } }
+
+#banner-la-frontera-v3 .bf-bg-img {
+    width: 100%;
+    display: block;
+    height: auto;
+    min-height: 250px;
+    object-fit: cover;
+}
+
+#banner-la-frontera-v3 .bf-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d1b069;
+    padding: 0 4%;
+    gap: 2%;
+}
+
+#banner-la-frontera-v3 .bf-col-info {
+    flex: 0 0 20%;
+    max-width: 240px;
+    text-align: center;
+}
+
+#banner-la-frontera-v3 .bf-tag {
+    font-weight: 300;
+    font-size: clamp(10px, 0.9vw, 13px);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #d1b069;
+    margin: 0 0 5px 0;
+}
+
+#banner-la-frontera-v3 .bf-title {
+    font-size: clamp(22px, 2.4vw, 36px);
+    font-weight: normal;
+    margin: 5px 0 15px 0;
+    font-family: Georgia, serif;
+    color: #d1b069;
+    line-height: 1.1;
+}
+
+#banner-la-frontera-v3 .bf-subtag {
+    font-weight: 300;
+    font-size: clamp(10px, 0.9vw, 12px);
+    margin: 0 0 3px 0;
+    color: #d1b069;
+    text-transform: uppercase;
+}
+
+#banner-la-frontera-v3 .bf-artist-name {
+    font-size: clamp(15px, 1.5vw, 22px);
+    font-weight: normal;
+    margin: 0;
+    color: #d1b069;
+    line-height: 1.1;
+}
+
+#banner-la-frontera-v3 .bf-v-line {
+    width: 1px;
+    height: 55%;
+    background-color: rgba(209, 176, 105, 0.4);
+    flex-shrink: 0;
+}
+
+#banner-la-frontera-v3 .bf-col-center {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+#banner-la-frontera-v3 .bf-artist-photo {
+    width: clamp(110px, 14vw, 170px);
+    height: auto;
+    display: block;
+    flex-shrink: 0;
+}
+
+#banner-la-frontera-v3 .bf-links-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+#banner-la-frontera-v3 .bf-link-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #d1b069;
+    transition: opacity 0.2s ease;
+}
+
+#banner-la-frontera-v3 .bf-link-btn:hover {
+    opacity: 0.8;
+}
+
+#banner-la-frontera-v3 .bf-icon {
+    width: clamp(24px, 2.2vw, 32px);
+    height: auto;
+    display: block;
+}
+
+#banner-la-frontera-v3 .bf-btn-text {
+    line-height: 1.2;
+}
+
+#banner-la-frontera-v3 .bf-txt-lg {
+    font-size: clamp(11px, 1vw, 14px);
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+#banner-la-frontera-v3 .bf-txt-sm {
+    font-size: clamp(8px, 0.75vw, 10px);
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+#banner-la-frontera-v3 .bf-h-line {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(209, 176, 105, 0.3);
+}
+
+#banner-la-frontera-v3 .bf-quote {
+    flex: 1;
+    max-width: 280px;
+    font-size: clamp(12px, 1.1vw, 15px);
+    font-style: italic;
+    font-weight: 300;
+    color: #d1b069;
+    text-align: left;
+    line-height: 1.4;
+    padding-left: 10px;
+}
 
 /* ================= CONTACTO ================= */
 
@@ -754,7 +679,7 @@ padding: 0 25px;
 
 .contact-title {
 font-family: 'Roboto', sans-serif; 
-font-size: 20px;                
+font-size: 20px;                 
 font-weight: 300;                
 line-height: 1.3;
 letter-spacing: 0.5px;
@@ -866,123 +791,48 @@ color:#FFC601;
     .scroll-indicator-nuevo { display: flex !important; position: static !important; justify-content: flex-end !important; margin-right: 20px !important; margin-bottom: 10px !important; font-size: 11px !important; color: #666 !important; }
 }
 
-@media(max-width:992px){
+@media(max-width: 992px){
     .sitio-footer{ padding:40px 25px; }
     .fila-tres-columnas{ flex-direction:column; gap:25px; text-align:center; }
     .columna-derecha { text-align:center; }
     .columna-derecha p { text-align: center; }
 }
 
-@media(max-width:850px){
+@media(max-width: 850px){
     .pt-wrapper { flex-direction: column; align-items: center; gap: 40px; }
     .pt-info { width: 100%; max-width: 480px; justify-content: flex-start; }
     .pt-title { text-align: center; }
     .pt-paragraph { margin-bottom: 20px !important; text-align: justify; }
+    
+    /* Responsive Banner Canción */
+    #banner-la-frontera-v3 .bf-bg-img { display: none; }
+    #banner-la-frontera-v3 {
+        background-image: url('https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg?v=1');
+        background-size: cover;
+        background-position: center;
+        padding: 50px 20px;
+    }
+    #banner-la-frontera-v3 .bf-overlay { position: relative; flex-direction: column; height: auto; gap: 30px; padding: 0; text-align: center; }
+    #banner-la-frontera-v3 .bf-col-info { max-width: 100%; }
+    #banner-la-frontera-v3 .bf-tag { font-size: 12px; }
+    #banner-la-frontera-v3 .bf-title { font-size: 32px; margin: 5px 0 10px 0; }
+    #banner-la-frontera-v3 .bf-subtag { font-size: 11px; }
+    #banner-la-frontera-v3 .bf-artist-name { font-size: 20px; }
+    #banner-la-frontera-v3 .bf-v-line { width: 80%; height: 1px; margin: 0 auto; }
+    #banner-la-frontera-v3 .bf-col-center { flex-direction: column; gap: 25px; }
+    #banner-la-frontera-v3 .bf-artist-photo { width: 150px; }
+    #banner-la-frontera-v3 .bf-links-block { align-items: center; gap: 15px; }
+    #banner-la-frontera-v3 .bf-h-line { width: 120px; }
+    #banner-la-frontera-v3 .bf-txt-lg { font-size: 14px; }
+    #banner-la-frontera-v3 .bf-txt-sm { font-size: 10px; }
+    #banner-la-frontera-v3 .bf-icon { width: 32px; }
+    #banner-la-frontera-v3 .bf-quote { max-width: 100%; text-align: center; padding-left: 0; font-size: 14px; }
 }
 
 @media(max-width: 600px) {
-    /* Ajuste para el texto en móvil casi pegado al borde */
     .hero-overlay { left: 10px !important; right: 10px !important; bottom: 10px !important; width: calc(100% - 20px) !important; display: flex !important; justify-content: space-between !important; align-items: flex-end !important; max-width: 100% !important; }
     .hero-title { font-size: 20px !important; }
     .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 70% !important; padding: 0 !important; margin: 0 !important; }
-}
-
-/* ===== TABLET - mantener diseño de escritorio ===== */
-@media (max-width:1024px) and (min-width:601px){
-
-#banner-la-frontera-v3{
-    overflow:hidden;
-}
-
-#banner-la-frontera-v3 img:first-child{
-    width:100%;
-    height:auto !important;
-    object-fit:contain !important;
-    display:block;
-}
-
-#banner-la-frontera-v3 > div{
-    padding:0 22px !important;
-    gap:0 !important;
-}
-
-#banner-la-frontera-v3 > div > div:nth-child(1){
-    flex:0 0 18% !important;
-}
-
-#banner-la-frontera-v3 > div > div:nth-child(2),
-#banner-la-frontera-v3 > div > div:nth-child(4){
-    height:140px !important;
-    margin:0 22px !important;
-}
-
-#banner-la-frontera-v3 > div > div:nth-child(3){
-    flex:0 0 40% !important;
-    gap:22px !important;
-}
-
-#banner-la-frontera-v3 img[src*="adri.png"]{
-    width:160px !important;
-}
-
-#banner-la-frontera-v3 img[src*="boton-play.png"],
-#banner-la-frontera-v3 img[src*="spotify.png"]{
-    width:28px !important;
-}
-
-#banner-la-frontera-v3 h1{
-    font-size:28px !important;
-}
-
-#banner-la-frontera-v3 h2{
-    font-size:16px !important;
-}
-
-#banner-la-frontera-v3 p{
-    font-size:9px !important;
-}
-
-#banner-la-frontera-v3 span{
-    font-size:13px !important;
-}
-
-#banner-la-frontera-v3 > div > div:last-child{
-    padding-top:120px !important;
-    margin-left:0 !important;
-    font-size:12px !important;
-}
-
-/* ===== TABLET - Reducir proporciones del contenido ===== */
-
-#banner-la-frontera-v3 > div{
-    transform: scale(0.78);
-    transform-origin: center center;
-}
-
-#banner-la-frontera-v3 h1{
-    font-size:26px !important;
-}
-
-#banner-la-frontera-v3 h2{
-    font-size:15px !important;
-}
-
-#banner-la-frontera-v3 p{
-    font-size:9px !important;
-}
-
-#banner-la-frontera-v3 span{
-    font-size:12px !important;
-}
-
-#banner-la-frontera-v3 img[src*="adri.png"]{
-    width:170px !important;
-}
-
-#banner-la-frontera-v3 img[src*="boton-play.png"],
-#banner-la-frontera-v3 img[src*="spotify.png"]{
-    width:28px !important;
-}
 }
 </style>
 
@@ -1094,6 +944,7 @@ color:#FFC601;
     </div>
 </section>
 
+<!-- SECCIÓN DEL BANNER CORREGIDA -->
 <section id="banner-la-frontera-v3">
     <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg?v=1" class="bf-bg-img">
     <div class="bf-overlay">
@@ -1132,6 +983,30 @@ color:#FFC601;
         </div>
     </div>
 </section>
+
+<section class="contact-section">
+<div class="contact-container">
+<h2 class="contact-title">Si deseas conocer más sobre nuestras producciones o establecer contacto comercial con Garabato Cine, escrébenos.</h2>
+<button class="contact-btn" onclick="location.href='mailto:contacto@garabatocine.com'">Contacto</button>
+</div>
+</section>
+
+<footer class="sitio-footer">
+<div class="fila-tres-columnas">
+<div class="columna-izquierda">
+<h4>GARABATO CINE</h4>
+<p>© 2026 Garabato Cine. Todos los derechos reservados.</p>
+</div>
+<div class="columna-central">
+<a href="https://www.facebook.com/GarabatoCine/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+<a href="https://vimeo.com/garabatocine" target="_blank"><i class="fa-brands fa-vimeo-v"></i></a>
+</div>
+<div class="columna-derecha">
+<p>Diseño por <a href="https://www.garabatocine.com" class="footer-link-normal" target="_blank">Garabato Cine</a></p>
+</div>
+</div>
+</footer>
 
 <script>
     const menuBtn = document.getElementById('menu-btn');
