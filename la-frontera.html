@@ -677,6 +677,7 @@ color:#FFC601;
 }
 
 /* ===== TABLET - Diseño definitivo ===== */
+/* ===== TABLET - Diseño definitivo, compacto y ajustado ===== */
 @media (max-width: 1024px) and (min-width: 601px) {
 
     #banner-la-frontera-v3 {
@@ -690,7 +691,6 @@ color:#FFC601;
         display: block;
     }
 
-    /* Ajuste de escala global para tablet */
     #banner-la-frontera-v3 > div {
         padding: 0 22px !important;
         gap: 0 !important;
@@ -698,73 +698,59 @@ color:#FFC601;
         transform-origin: center center;
     }
 
-    /* Primer bloque: Alineado a la izquierda */
+    /* 1. COMPACTAR TEXTO IZQUIERDO */
     #banner-la-frontera-v3 > div > div:nth-child(1) {
         flex: 0 0 22% !important;
         text-align: left !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
+        line-height: 1 !important;
     }
 
-    /* Tamaño específico para "Canta" (12px) */
+    /* 2. "CANTA" - Tamaño forzado a 13px */
     #banner-la-frontera-v3 > div > div:nth-child(1) p:nth-of-type(2) {
-        font-size: 12px !important;
+        font-size: 13px !important;
+        margin-top: 2px !important;
+        margin-bottom: 2px !important;
     }
 
-    /* Ocultar líneas verticales (segundo y cuarto elemento) */
     #banner-la-frontera-v3 > div > div:nth-child(2),
     #banner-la-frontera-v3 > div > div:nth-child(4) {
         display: none !important;
     }
 
-    /* Columna central: Botones compactos y pegados a la línea */
+    /* 3. BOTONES - Compactados hacia las líneas */
     #banner-la-frontera-v3 > div > div:nth-child(3) {
         flex: 0 0 45% !important;
-        gap: 5px !important; 
+        gap: 0px !important; 
         justify-content: center !important;
     }
 
-    /* Enlaces más compactos */
-    #banner-la-frontera-v3 > div > div:nth-child(3) a {
-        margin: 0px 0 !important;
-        padding: 0px 0 !important;
+    /* Mover "Ver video" hacia abajo y "Escuchar" hacia arriba para pegar a la línea */
+    #banner-la-frontera-v3 > div > div:nth-child(3) a:first-child {
+        margin-top: 20px !important;
+        margin-bottom: -5px !important;
     }
 
-    /* Ocultar la frase derecha en tablet */
+    #banner-la-frontera-v3 > div > div:nth-child(3) a:last-child {
+        margin-top: -5px !important;
+    }
+
+    /* Ocultar frase final */
     #banner-la-frontera-v3 > div > div:last-child {
         display: none !important;
     }
 
-    /* Ajustes visuales de elementos */
-    #banner-la-frontera-v3 img[src*="adri.png"] {
-        width: 150px !important;
-    }
-
+    /* Ajustes finales de tamaño */
+    #banner-la-frontera-v3 img[src*="adri.png"] { width: 150px !important; }
     #banner-la-frontera-v3 img[src*="boton-play.png"],
-    #banner-la-frontera-v3 img[src*="spotify.png"] {
-        width: 25px !important;
-    }
+    #banner-la-frontera-v3 img[src*="spotify.png"] { width: 25px !important; }
 
-    #banner-la-frontera-v3 h1 {
-        font-size: 26px !important;
-        margin: 5px 0 !important;
-        font-weight: normal !important;
-    }
-
-    #banner-la-frontera-v3 h2 {
-        font-size: 15px !important;
-        font-weight: normal !important;
-    }
-
-    #banner-la-frontera-v3 p {
-        font-size: 10px !important;
-        font-weight: 300 !important;
-    }
-
-    #banner-la-frontera-v3 span {
-        font-size: 12px !important;
-    }
+    #banner-la-frontera-v3 h1 { font-size: 26px !important; margin: 0 !important; font-weight: normal !important; }
+    #banner-la-frontera-v3 h2 { font-size: 15px !important; margin: 0 !important; font-weight: normal !important; }
+    #banner-la-frontera-v3 p { font-size: 10px !important; font-weight: 300 !important; margin: 0 !important; }
+    #banner-la-frontera-v3 span { font-size: 12px !important; }
 }
 </style>
 
@@ -878,37 +864,42 @@ color:#FFC601;
 
 <section id="banner-la-frontera-v3" style="width: 100%; margin-top: 40px; position: relative; font-family: 'Avenir Next', sans-serif;">
     <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg?v=1" style="width: 100%; display: block;">
+    
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; color: #d1b069; padding: 0 40px;">
-        <div style="flex: 0 0 18%; text-align: center;">
-            <p style="font-weight: 100; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #d1b069;">Canción original</p>
-            <h1 style="font-size: 34px; font-weight: normal; margin: 10px 0 25px 0; font-family: Georgia, serif; color: #d1b069;">La Frontera</h1>
-            <p style="font-weight: 100; font-size: 10px; margin: 0 0 5px 0; color: #d1b069;">Canta</p>
-            <h2 style="font-size: 18px; font-weight: normal; margin: 0; color: #d1b069;">Adriana Lucía</h2>
+        
+        <!-- Bloque de texto -->
+        <div style="flex: 0 0 18%; text-align: left; padding-left: 10px; display: flex; flex-direction: column; justify-content: center;">
+            <p style="font-weight: 300; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #d1b069; margin: 0; line-height: 1;">Canción original</p>
+            <h1 style="font-size: 34px; font-weight: normal; margin: 5px 0; font-family: Georgia, serif; color: #d1b069; line-height: 1;">La Frontera</h1>
+            <p style="font-weight: 300; font-size: 13px; margin: 5px 0 0 0; color: #d1b069; line-height: 1;">Canta</p>
+            <h2 style="font-size: 18px; font-weight: normal; margin: 0; color: #d1b069; line-height: 1;">Adriana Lucía</h2>
         </div>
-        <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 20px;"></div>
-        <div style="flex: 0 0 35%; display: flex; align-items: center; gap: 40px; justify-content: center;">
+
+        <!-- Columna central: Botones -->
+        <div style="flex: 0 0 35%; display: flex; align-items: center; gap: 0px; justify-content: center;">
             <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png?v=1" style="width: 220px;">
-            <div style="display: flex; flex-direction: column; gap: 20px;">
-                <a href="https://www.youtube.com/watch?v=VRcRpjae9RI" target="_blank" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: #d1b069;">
+            <div style="display: flex; flex-direction: column; gap: 0px;">
+                <a href="https://www.youtube.com/watch?v=VRcRpjae9RI" target="_blank" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: #d1b069; margin-bottom: -5px;">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/boton-play.png?raw=true" style="width: 35px;">
                     <div style="line-height: 1.2;">
                         <span style="font-size: 15px; font-weight: 400;">VER VIDEO</span><br>
-                        <span style="font-size: 10px; font-weight: 100;">EN YOUTUBE</span>
+                        <span style="font-size: 10px; font-weight: 300;">EN YOUTUBE</span>
                     </div>
                 </a>
-                <div style="width: 140px; height: 0.5px; background-color: #d1b069;"></div>
-                <a href="https://open.spotify.com/intl-es/track/7oq21dTDyIfcmzMCINqXZ1" target="_blank" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: #d1b069;">
+                <div style="width: 140px; height: 0.5px; background-color: #d1b069; margin: 0 auto;"></div>
+                <a href="https://open.spotify.com/intl-es/track/7oq21dTDyIfcmzMCINqXZ1" target="_blank" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: #d1b069; margin-top: -5px;">
                     <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/spotify.png" style="width: 35px;">
                     <div style="line-height: 1.2;">
                         <span style="font-size: 15px; font-weight: 400;">ESCUCHAR</span><br>
                         <span style="font-size: 15px; font-weight: 400;">CANCIÓN</span><br>
-                        <span style="font-size: 10px; font-weight: 100;">EN SPOTIFY</span>
+                        <span style="font-size: 10px; font-weight: 300;">EN SPOTIFY</span>
                     </div>
                 </a>
             </div>
         </div>
-        <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 20px;"></div>
-        <div style="flex: 1; align-self: flex-start; padding-top: 45px; font-size: 14px; font-style: italic; font-weight: 100; color: #d1b069; text-align: left;">
+        
+        <!-- Bloque final -->
+        <div style="flex: 1; align-self: flex-start; padding-top: 45px; font-size: 14px; font-style: italic; font-weight: 300; color: #d1b069; text-align: left; padding-left: 20px;">
             Sigue la luz que habita en mí...<br>
             Solo quiero abrir mis alas y volar.
         </div>
