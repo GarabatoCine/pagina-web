@@ -757,45 +757,6 @@ color:#FFC601;
         font-size: 11px !important;
         font-weight: 300 !important;
     }
-}*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html,body{
-width:100%;
-overflow-x:hidden;
-background:#ffffff; 
-color:#000000;          
-font-family:'Roboto',sans-serif;
-}
-
-a{
-text-decoration:none;
-}
-
-img{
-display:block;
-max-width:100%;
-}
-
-/* ... (Aquí mantienes todo tu CSS actual, pero SIN poner la etiqueta </style> en medio) ... */
-
-/* ESTO ES LO QUE QUERÍAS AGREGAR AL FINAL DE TUS ESTILOS: */
-@media (max-width: 1024px) and (min-width: 601px) {
-    .grupo-botones {
-        gap: 5px !important; 
-    }
-    
-    .banner-content {
-        transform: scale(0.9);
-        transform-origin: left center;
-    }
-
-    .linea-divisor {
-        display: none !important;
-    }
 }
 </style>
 
@@ -909,19 +870,17 @@ max-width:100%;
 
 <section id="banner-la-frontera-v3" style="width: 100%; margin-top: 40px; position: relative; font-family: 'Avenir Next', sans-serif;">
     <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg?v=1" style="width: 100%; display: block;">
-    
-    <div class="banner-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; color: #d1b069; padding: 0 40px;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; color: #d1b069; padding: 0 40px;">
         <div style="flex: 0 0 18%; text-align: center;">
             <p style="font-weight: 100; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #d1b069;">Canción original</p>
             <h1 style="font-size: 34px; font-weight: normal; margin: 10px 0 25px 0; font-family: Georgia, serif; color: #d1b069;">La Frontera</h1>
             <p style="font-weight: 100; font-size: 10px; margin: 0 0 5px 0; color: #d1b069;">Canta</p>
             <h2 style="font-size: 18px; font-weight: normal; margin: 0; color: #d1b069;">Adriana Lucía</h2>
         </div>
-        <div class="linea-divisor" style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 20px;"></div>
-        
-        <div class="botones-container" style="flex: 0 0 35%; display: flex; align-items: center; gap: 40px; justify-content: center;">
+        <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 20px;"></div>
+        <div style="flex: 0 0 35%; display: flex; align-items: center; gap: 40px; justify-content: center;">
             <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png?v=1" style="width: 220px;">
-            <div class="grupo-botones" style="display: flex; flex-direction: column; gap: 20px;">
+            <div style="display: flex; flex-direction: column; gap: 20px;">
                 <a href="https://www.youtube.com/watch?v=VRcRpjae9RI" target="_blank" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: #d1b069;">
                     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/boton-play.png?raw=true" style="width: 35px;">
                     <div style="line-height: 1.2;">
@@ -940,7 +899,11 @@ max-width:100%;
                 </a>
             </div>
         </div>
-        <div class="linea-divisor" style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 20px;"></div>
+        <div style="width: 0.5px; height: 180px; background-color: #d1b069; margin: 0 20px;"></div>
+        <div style="flex: 1; align-self: flex-start; padding-top: 45px; font-size: 14px; font-style: italic; font-weight: 100; color: #d1b069; text-align: left;">
+            Sigue la luz que habita en mí...<br>
+            Solo quiero abrir mis alas y volar.
+        </div>
     </div>
 </section>
 
