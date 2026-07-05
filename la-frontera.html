@@ -676,12 +676,13 @@ color:#FFC601;
     .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 70% !important; padding: 0 !important; margin: 0 !important; }
 }
 
-/* ===== TABLET - Ajustes solicitados ===== */
+/* ===== TABLET - Ajustes finales (Solo centrar contenido) ===== */
 @media (max-width:1024px) and (min-width:601px){
 
+    /* Aseguramos que la franja siga ahí */
     #banner-la-frontera-v3 { overflow:hidden; }
 
-    /* Centrar texto en la primera sección - Sin tocar anchos ni franjas */
+    /* Centramos el texto en la primera sección sin cambiar el ancho del bloque */
     #banner-la-frontera-v3 > div > div:nth-child(1) {
         display: flex !important;
         flex-direction: column !important;
@@ -690,12 +691,7 @@ color:#FFC601;
         text-align: center !important;
     }
 
-    /* Reducir interlineados y ajustar peso a Light - Sin tocar tamaños de letra */
-    #banner-la-frontera-v3 p { font-weight: 300 !important; margin: 0 !important; }
-    #banner-la-frontera-v3 h1 { font-weight: normal !important; margin: 5px 0 !important; }
-    #banner-la-frontera-v3 h2 { font-weight: 300 !important; margin: 0 !important; }
-
-    /* Borrar segunda línea vertical y ocultar el texto de la canción */
+    /* Ocultamos lo que pediste sin afectar el resto del diseño */
     #banner-la-frontera-v3 > div > div:nth-child(4) { display: none !important; }
     #banner-la-frontera-v3 > div > div:last-child { display: none !important; }
 }
