@@ -676,30 +676,30 @@ color:#FFC601;
     .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 70% !important; padding: 0 !important; margin: 0 !important; }
 }
 
-/* ===== TABLET - Diseño ajustado y compacto ===== */
-@media (max-width:1024px) and (min-width:601px){
+/* ===== TABLET - Diseño definitivo ===== */
+@media (max-width: 1024px) and (min-width: 601px) {
 
-    #banner-la-frontera-v3{
-        overflow:hidden;
+    #banner-la-frontera-v3 {
+        overflow: hidden;
     }
 
-    #banner-la-frontera-v3 img:first-child{
-        width:100%;
-        height:auto !important;
-        object-fit:contain !important;
-        display:block;
+    #banner-la-frontera-v3 img:first-child {
+        width: 100%;
+        height: auto !important;
+        object-fit: contain !important;
+        display: block;
     }
 
-    /* Ajuste de escala y padding */
-    #banner-la-frontera-v3 > div{
-        padding:0 22px !important;
-        gap:0 !important;
+    /* Ajuste de escala global para tablet */
+    #banner-la-frontera-v3 > div {
+        padding: 0 22px !important;
+        gap: 0 !important;
         transform: scale(0.78);
         transform-origin: center center;
     }
 
-    /* Primer bloque: Alineado izquierda, compacto y fuente Light */
-    #banner-la-frontera-v3 > div > div:nth-child(1){
+    /* Primer bloque: Alineado a la izquierda */
+    #banner-la-frontera-v3 > div > div:nth-child(1) {
         flex: 0 0 22% !important;
         text-align: left !important;
         display: flex !important;
@@ -707,55 +707,57 @@ color:#FFC601;
         justify-content: center !important;
     }
 
-    /* Eliminamos las líneas verticales (que ahora serían los hijos 2 y 4) */
+    /* Tamaño específico para "Canta" (aumentado a 11px) */
+    #banner-la-frontera-v3 > div > div:nth-child(1) p:nth-of-type(2) {
+        font-size: 11px !important;
+    }
+
+    /* Ocultar líneas verticales (segundo y cuarto elemento) */
     #banner-la-frontera-v3 > div > div:nth-child(2),
-    #banner-la-frontera-v3 > div > div:nth-child(4){
+    #banner-la-frontera-v3 > div > div:nth-child(4) {
         display: none !important;
     }
 
-    /* Columna central de botones */
-    #banner-la-frontera-v3 > div > div:nth-child(3){
+    /* Columna central (botones y foto) */
+    #banner-la-frontera-v3 > div > div:nth-child(3) {
         flex: 0 0 45% !important;
         gap: 15px !important;
         justify-content: center !important;
     }
 
-    #banner-la-frontera-v3 img[src*="adri.png"]{
+    /* Ocultar la frase derecha en tablet */
+    #banner-la-frontera-v3 > div > div:last-child {
+        display: none !important;
+    }
+
+    /* Ajustes visuales de elementos */
+    #banner-la-frontera-v3 img[src*="adri.png"] {
         width: 150px !important;
     }
 
     #banner-la-frontera-v3 img[src*="boton-play.png"],
-    #banner-la-frontera-v3 img[src*="spotify.png"]{
+    #banner-la-frontera-v3 img[src*="spotify.png"] {
         width: 25px !important;
     }
 
-    /* Ajuste de tipografía a Light */
-    #banner-la-frontera-v3 h1{
+    #banner-la-frontera-v3 h1 {
         font-size: 26px !important;
         margin: 5px 0 !important;
         font-weight: normal !important;
     }
 
-    #banner-la-frontera-v3 h2{
+    #banner-la-frontera-v3 h2 {
         font-size: 15px !important;
         font-weight: normal !important;
     }
 
-    #banner-la-frontera-v3 p{
+    #banner-la-frontera-v3 p {
         font-size: 10px !important;
         font-weight: 300 !important;
     }
 
-    #banner-la-frontera-v3 span{
+    #banner-la-frontera-v3 span {
         font-size: 12px !important;
-    }
-
-    /* Bloque derecho (la frase) */
-    #banner-la-frontera-v3 > div > div:last-child{
-        padding-top: 45px !important;
-        margin-left: 10px !important;
-        font-size: 11px !important;
-        font-weight: 300 !important;
     }
 }
 </style>
