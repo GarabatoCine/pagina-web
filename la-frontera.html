@@ -676,7 +676,7 @@ color:#FFC601;
     .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 70% !important; padding: 0 !important; margin: 0 !important; }
 }
 
-/* ===== TABLET - Ajustes finales para centrar ===== */
+//* ===== TABLET - Ajustes finales para centrar ===== */
 @media (max-width:1024px) and (min-width:601px){
 
     #banner-la-frontera-v3{ overflow:hidden; }
@@ -685,15 +685,16 @@ color:#FFC601;
 
     #banner-la-frontera-v3 > div{ padding:0 22px !important; gap:0 !important; transform: scale(0.78); transform-origin: center center; }
 
-    /* ESTE ES EL BLOQUE QUE CENTRA TU TEXTO */
+    /* ESTE ES EL CAMBIO REAL: QUITAMOS LA LIMITACIÓN DE ANCHO Y FORZAMOS EL CENTRO */
     #banner-la-frontera-v3 > div > div:nth-child(1){
-        flex: 0 0 18% !important;
+        flex: 1 !important; 
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
         align-items: center !important;
         text-align: center !important;
-        margin: auto !important;
+        margin: 0 !important;
+        width: 100% !important;
     }
 
     #banner-la-frontera-v3 > div > div:nth-child(2),
