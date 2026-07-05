@@ -883,9 +883,7 @@ color:#FFC601;
     </div>
 </section>
 
-/* ================= NUEVO SISTEMA PARA EL BANNER DE LA CANCIÓN ================= */
-#banner-la-frontera-v3 {
-    width: 100%;
+<section id="banner-la-frontera-v3" style="width: 100%;
     margin-top: 40px;
     position: relative;
     font-family: 'Avenir Next', sans-serif;
@@ -1073,6 +1071,48 @@ color:#FFC601;
         text-align: center;
     }
 }
+2. El código HTML (Reemplaza solo la sección del banner en tu <body>)
+Elimina por completo la etiqueta <section> vieja del banner de Adriana Lucía (la que tenía los estilos style="..." mezclados) e introduce esta versión limpia que conecta directamente con el nuevo CSS:
+
+HTML
+<section id="banner-la-frontera-v3">
+    <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg?v=1" class="bf-bg-img">
+    <div class="bf-overlay">
+        <div class="bf-col-info">
+            <p class="bf-tag">Canción original</p>
+            <h1 class="bf-title">La Frontera</h1>
+            <p class="bf-subtag">Canta</p>
+            <h2 class="bf-artist-name">Adriana Lucía</h2>
+        </div>
+        <div class="bf-v-line"></div>
+        <div class="bf-col-center">
+            <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/adri.png?v=5" class="bf-artist-photo">
+            <div class="bf-links-block">
+                <a href="https://www.youtube.com/watch?v=VRcRpjae9RI" target="_blank" class="bf-link-btn">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/boton-play.png?raw=true" class="bf-icon">
+                    <div class="bf-btn-text">
+                        <span class="bf-txt-lg">VER VIDEO</span><br>
+                        <span class="bf-txt-sm">EN YOUTUBE</span>
+                    </div>
+                </a>
+                <div class="bf-h-line"></div>
+                <a href="https://open.spotify.com/intl-es/track/7oq21dTDyIfcmzMCINqXZ1" target="_blank" class="bf-link-btn">
+                    <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/spotify.png" class="bf-icon">
+                    <div class="bf-btn-text">
+                        <span class="bf-txt-lg">ESCUCHAR</span><br>
+                        <span class="bf-txt-lg">CANCIÓN</span><br>
+                        <span class="bf-txt-sm">EN SPOTIFY</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="bf-v-line"></div>
+        <div class="bf-quote">
+            Sigue la luz que habita en mí...<br>
+            Solo quiero abrir mis alas y volar.
+        </div>
+    </div>
+</section>
 
 <script>
     const menuBtn = document.getElementById('menu-btn');
