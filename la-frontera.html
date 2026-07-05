@@ -676,7 +676,7 @@ color:#FFC601;
     .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 70% !important; padding: 0 !important; margin: 0 !important; }
 }
 
-/* ===== TABLET - Diseño definitivo, compacto y ajustado ===== */
+/* ===== TABLET - Diseño definitivo ===== */
 @media (max-width: 1024px) and (min-width: 601px) {
 
     #banner-la-frontera-v3 {
@@ -690,6 +690,7 @@ color:#FFC601;
         display: block;
     }
 
+    /* Ajuste de escala global para tablet */
     #banner-la-frontera-v3 > div {
         padding: 0 22px !important;
         gap: 0 !important;
@@ -697,59 +698,73 @@ color:#FFC601;
         transform-origin: center center;
     }
 
-    /* 1. COMPACTAR TEXTO IZQUIERDO */
+    /* Primer bloque: Alineado a la izquierda */
     #banner-la-frontera-v3 > div > div:nth-child(1) {
         flex: 0 0 22% !important;
         text-align: left !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
-        line-height: 1 !important; /* Interlineado muy ajustado */
     }
 
-    /* 2. "CANTA" - Tamaño forzado a 13px */
+    /* Tamaño específico para "Canta" (12px) */
     #banner-la-frontera-v3 > div > div:nth-child(1) p:nth-of-type(2) {
-        font-size: 13px !important;
-        margin-top: 2px !important;
-        margin-bottom: 2px !important;
+        font-size: 12px !important;
     }
 
+    /* Ocultar líneas verticales (segundo y cuarto elemento) */
     #banner-la-frontera-v3 > div > div:nth-child(2),
     #banner-la-frontera-v3 > div > div:nth-child(4) {
         display: none !important;
     }
 
-    /* 3. BOTONES - Compactados hacia las líneas */
+    /* Columna central: Botones compactos y pegados a la línea */
     #banner-la-frontera-v3 > div > div:nth-child(3) {
         flex: 0 0 45% !important;
-        gap: 0px !important; 
+        gap: 5px !important; 
         justify-content: center !important;
     }
 
-    /* Mover "Ver video" hacia abajo (hacia la línea horizontal) */
-    #banner-la-frontera-v3 > div > div:nth-child(3) a:first-child {
-        margin-top: 20px !important;
-        margin-bottom: -5px !important;
+    /* Enlaces más compactos */
+    #banner-la-frontera-v3 > div > div:nth-child(3) a {
+        margin: 0px 0 !important;
+        padding: 0px 0 !important;
     }
 
-    /* Mover "Escuchar" hacia arriba (hacia la línea vertical) */
-    #banner-la-frontera-v3 > div > div:nth-child(3) a:last-child {
-        margin-top: -5px !important;
-    }
-
+    /* Ocultar la frase derecha en tablet */
     #banner-la-frontera-v3 > div > div:last-child {
         display: none !important;
     }
 
-    /* Ajustes finales de tamaño */
-    #banner-la-frontera-v3 img[src*="adri.png"] { width: 150px !important; }
-    #banner-la-frontera-v3 img[src*="boton-play.png"],
-    #banner-la-frontera-v3 img[src*="spotify.png"] { width: 25px !important; }
+    /* Ajustes visuales de elementos */
+    #banner-la-frontera-v3 img[src*="adri.png"] {
+        width: 150px !important;
+    }
 
-    #banner-la-frontera-v3 h1 { font-size: 26px !important; margin: 0 !important; font-weight: normal !important; }
-    #banner-la-frontera-v3 h2 { font-size: 15px !important; margin: 0 !important; font-weight: normal !important; }
-    #banner-la-frontera-v3 p { font-size: 10px !important; font-weight: 300 !important; margin: 0 !important; }
-    #banner-la-frontera-v3 span { font-size: 12px !important; }
+    #banner-la-frontera-v3 img[src*="boton-play.png"],
+    #banner-la-frontera-v3 img[src*="spotify.png"] {
+        width: 25px !important;
+    }
+
+    #banner-la-frontera-v3 h1 {
+        font-size: 26px !important;
+        margin: 5px 0 !important;
+        font-weight: normal !important;
+    }
+
+    #banner-la-frontera-v3 h2 {
+        font-size: 15px !important;
+        font-weight: normal !important;
+    }
+
+    #banner-la-frontera-v3 p {
+        font-size: 10px !important;
+        font-weight: 300 !important;
+    }
+
+    #banner-la-frontera-v3 span {
+        font-size: 12px !important;
+    }
 }
 </style>
 
