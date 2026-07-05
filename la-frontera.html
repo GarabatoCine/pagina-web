@@ -679,38 +679,57 @@ color:#FFC601;
 /* ===== TABLET - Diseño ajustado y compacto ===== */
 @media (max-width:1024px) and (min-width:601px){
 
-    #banner-la-frontera-v3{
-        overflow:hidden;
+    #banner-la-frontera-v3 {
+        overflow: hidden;
     }
 
-    #banner-la-frontera-v3 > div{
-        padding:0 20px !important;
-        gap: 10px !important; /* Más compacto */
-        transform: scale(0.85);
+    /* Ajuste general del banner para que sea compacto */
+    #banner-la-frontera-v3 > div {
+        padding: 0 20px !important;
+        gap: 20px !important; 
+        transform: scale(0.9);
         transform-origin: left center;
     }
 
-    /* Ajuste para que los botones de VER VIDEO y ESCUCHAR se vean más juntos */
-    .grupo-botones {
-        gap: 5px !important; 
+    /* Columna 1: Canción original + Título + Adriana Lucía */
+    #banner-la-frontera-v3 > div > div:nth-child(1) {
+        flex: 0 0 30% !important;
+        text-align: left !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
     }
 
-    /* Línea divisora más corta o escondida si molesta */
-    .linea-divisor {
-        margin: 0 5px !important;
+    /* Eliminar línea divisora de la derecha (hijo 4) y la de la izquierda (hijo 2) */
+    #banner-la-frontera-v3 > div > div:nth-child(2),
+    #banner-la-frontera-v3 > div > div:last-child {
+        display: none !important;
     }
 
-    /* Asegurar que la imagen de Adriana Lucia no sea gigante */
-    #banner-la-frontera-v3 img[src*="adri.png"]{
-        width: 120px !important;
+    /* Columna de botones: Más compacta y unida */
+    #banner-la-frontera-v3 > div > div:nth-child(3) {
+        flex: 0 0 50% !important;
+        gap: 15px !important;
+        justify-content: flex-start !important;
     }
 
-    #banner-la-frontera-v3 h1{ font-size: 24px !important; }
-    #banner-la-frontera-v3 h2{ font-size: 14px !important; }
+    /* Tamaño de imagen Adriana */
+    #banner-la-frontera-v3 img[src*="adri.png"] {
+        width: 140px !important;
+    }
+
+    /* Unificar interlineado del bloque de texto */
+    #banner-la-frontera-v3 h1 { font-size: 28px !important; margin: 5px 0 !important; line-height: 1 !important; }
+    #banner-la-frontera-v3 h2 { font-size: 16px !important; margin: 0 !important; }
+    #banner-la-frontera-v3 p { font-size: 10px !important; margin: 0 !important; }
     
-    /* Compactar textos de botones */
+    /* Botones de acción (Play/Spotify) */
+    .grupo-botones {
+        gap: 10px !important; 
+    }
     .grupo-botones span {
         font-size: 12px !important;
+        line-height: 1.1 !important;
     }
 }
 </style>
