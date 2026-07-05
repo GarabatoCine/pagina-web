@@ -707,9 +707,9 @@ color:#FFC601;
         justify-content: center !important;
     }
 
-    /* Tamaño específico para "Canta" (aumentado a 11px) */
+    /* Tamaño específico para "Canta" (12px) */
     #banner-la-frontera-v3 > div > div:nth-child(1) p:nth-of-type(2) {
-        font-size: 11px !important;
+        font-size: 12px !important;
     }
 
     /* Ocultar líneas verticales (segundo y cuarto elemento) */
@@ -718,11 +718,17 @@ color:#FFC601;
         display: none !important;
     }
 
-    /* Columna central (botones y foto) */
+    /* Columna central: Botones compactos y pegados a la línea */
     #banner-la-frontera-v3 > div > div:nth-child(3) {
         flex: 0 0 45% !important;
-        gap: 15px !important;
+        gap: 5px !important; 
         justify-content: center !important;
+    }
+
+    /* Enlaces más compactos */
+    #banner-la-frontera-v3 > div > div:nth-child(3) a {
+        margin: 0px 0 !important;
+        padding: 0px 0 !important;
     }
 
     /* Ocultar la frase derecha en tablet */
