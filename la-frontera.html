@@ -506,29 +506,36 @@ text-align: left;
     }
 }
 
-/* ================= BANNER DE LA CANCIÓN - ESTÁNDAR PROFESIONAL COMPLETO ================= */
+/* ================= BANNER DE LA CANCIÓN - COMPORTAMIENTO IDÉNTICO AL HEADER ================= */
 #banner-la-frontera-v3 {
     width: 100%;
     margin: 40px 0;
+    position: relative;
+    background-color: #000;
+    line-height: 0; /* Bloquea la altura a la proporción física de la foto */
     font-family: 'Avenir Next', sans-serif;
-    /* Convertimos la imagen en un fondo real de CSS controlado y elástico */
-    background-image: url('https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg?v=1');
-    background-size: cover;
-    background-position: center;
-    color: #d1b069;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
+}
+
+#banner-la-frontera-v3 .bf-bg-img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 #banner-la-frontera-v3 .bf-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 1200px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 60px 40px; /* Padding fijo que define la altura inicial de forma segura */
-    gap: 20px;
+    color: #d1b069;
+    padding: 0 4%;
+    gap: 2%;
+    line-height: normal; /* Restablece el interlineado de los textos */
 }
 
 #banner-la-frontera-v3 .bf-col-info {
@@ -796,7 +803,14 @@ color:#FFC601;
     .pt-paragraph { margin-bottom: 20px !important; text-align: justify; }
     
     /* Responsive Banner Canción */
-    #banner-la-frontera-v3 .bf-overlay { flex-direction: column; height: auto; gap: 30px; padding: 50px 20px; text-align: center; }
+    #banner-la-frontera-v3 .bf-bg-img { display: none; }
+    #banner-la-frontera-v3 {
+        background-image: url('https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg?v=1');
+        background-size: cover;
+        background-position: center;
+        line-height: normal;
+    }
+    #banner-la-frontera-v3 .bf-overlay { position: relative; flex-direction: column; height: auto; gap: 30px; padding: 50px 20px; text-align: center; }
     #banner-la-frontera-v3 .bf-col-info { max-width: 100%; }
     #banner-la-frontera-v3 .bf-v-line { width: 80%; height: 1px; margin: 0 auto; }
     #banner-la-frontera-v3 .bf-col-center { flex-direction: column; gap: 25px; }
@@ -920,8 +934,8 @@ color:#FFC601;
     </div>
 </section>
 
-<!-- SECCIÓN DEL BANNER - CON ESTRUCTURA HTML LIMPIA Y ESTÁNDAR -->
 <section id="banner-la-frontera-v3">
+    <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/cancion/banner-cancion.jpg?v=1" class="bf-bg-img">
     <div class="bf-overlay">
         <div class="bf-col-info">
             <p class="bf-tag">Canción original</p>
