@@ -676,22 +676,27 @@ color:#FFC601;
     .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 70% !important; padding: 0 !important; margin: 0 !important; }
 }
 
-/* ===== TABLET - Diseño ajustado (Solo compactar botones) ===== */
+/* ===== TABLET - Solo compactar botones y quitar franja ===== */
 @media (max-width:1024px) and (min-width:601px){
 
-    /* 1. Ocultar la línea vertical que sobraba a la derecha */
-    #banner-la-frontera-v3 > div > div:last-child {
+    /* Eliminamos el bloque que impedía el scroll */
+    #banner-la-frontera-v3 {
+        overflow: visible !important;
+    }
+
+    /* Ocultamos la franja vertical de la derecha */
+    #banner-la-frontera-v3 > div > div:nth-child(4) {
         display: none !important;
     }
 
-    /* 2. Compactar el bloque de botones (padre de los enlaces) */
+    /* Compactamos exclusivamente el contenedor de los botones */
     #banner-la-frontera-v3 > div > div:nth-child(3) > div {
-        gap: 5px !important; /* Esto une Ver Video y Escuchar Canción */
+        gap: 5px !important; 
     }
-
-    /* 3. Ajustar posición para que no se vea arriba */
-    #banner-la-frontera-v3 > div {
-        padding: 0 10px !important;
+    
+    /* Reducimos el margen interno de los botones para que ocupen menos espacio vertical */
+    #banner-la-frontera-v3 > div > div:nth-child(3) a {
+        padding: 5px 0 !important;
     }
 }
 </style>
