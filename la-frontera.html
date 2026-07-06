@@ -676,7 +676,7 @@ color:#FFC601;
     .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 70% !important; padding: 0 !important; margin: 0 !important; }
 }
 
-/* ===== TABLET - mantener diseño de escritorio ===== */
+/* ===== TABLET ===== */
 @media (max-width:1024px) and (min-width:601px){
 
 #banner-la-frontera-v3{
@@ -693,75 +693,43 @@ color:#FFC601;
 #banner-la-frontera-v3 > div{
     padding:0 22px !important;
     gap:0 !important;
+    transform:scale(.78);
+    transform-origin:center center;
 }
 
+/* Bloque izquierdo */
 #banner-la-frontera-v3 > div > div:nth-child(1){
     flex:0 0 18% !important;
+    text-align:left !important;
 }
 
-#banner-la-frontera-v3 > div > div:nth-child(2),
-#banner-la-frontera-v3 > div > div:nth-child(4){
+#banner-la-frontera-v3 > div > div:nth-child(1) p{
+    line-height:1.1 !important;
+    margin:0 0 4px 0 !important;
+}
+
+#banner-la-frontera-v3 > div > div:nth-child(1) h1{
+    font-size:26px !important;
+    margin:4px 0 12px 0 !important;
+    line-height:1.05 !important;
+}
+
+#banner-la-frontera-v3 > div > div:nth-child(1) h2{
+    font-size:15px !important;
+    margin:0 !important;
+    line-height:1.05 !important;
+}
+
+/* Primera línea vertical */
+#banner-la-frontera-v3 > div > div:nth-child(2){
     height:140px !important;
     margin:0 22px !important;
 }
 
+/* Bloque central */
 #banner-la-frontera-v3 > div > div:nth-child(3){
     flex:0 0 40% !important;
     gap:22px !important;
-}
-
-#banner-la-frontera-v3 img[src*="adri.png"]{
-    width:160px !important;
-}
-
-#banner-la-frontera-v3 img[src*="boton-play.png"],
-#banner-la-frontera-v3 img[src*="spotify.png"]{
-    width:28px !important;
-}
-
-#banner-la-frontera-v3 h1{
-    font-size:28px !important;
-}
-
-#banner-la-frontera-v3 h2{
-    font-size:16px !important;
-}
-
-#banner-la-frontera-v3 p{
-    font-size:9px !important;
-}
-
-#banner-la-frontera-v3 span{
-    font-size:13px !important;
-}
-
-#banner-la-frontera-v3 > div > div:last-child{
-    padding-top:120px !important;
-    margin-left:0 !important;
-    font-size:12px !important;
-}
-
-/* ===== TABLET - Reducir proporciones del contenido ===== */
-
-#banner-la-frontera-v3 > div{
-    transform: scale(0.78);
-    transform-origin: center center;
-}
-
-#banner-la-frontera-v3 h1{
-    font-size:26px !important;
-}
-
-#banner-la-frontera-v3 h2{
-    font-size:15px !important;
-}
-
-#banner-la-frontera-v3 p{
-    font-size:9px !important;
-}
-
-#banner-la-frontera-v3 span{
-    font-size:12px !important;
 }
 
 #banner-la-frontera-v3 img[src*="adri.png"]{
@@ -772,6 +740,25 @@ color:#FFC601;
 #banner-la-frontera-v3 img[src*="spotify.png"]{
     width:28px !important;
 }
+
+#banner-la-frontera-v3 span{
+    font-size:12px !important;
+}
+
+#banner-la-frontera-v3 p{
+    font-size:9px !important;
+}
+
+/* Ocultar segunda línea vertical */
+#banner-la-frontera-v3 > div > div:nth-child(4){
+    display:none !important;
+}
+
+/* Ocultar texto de la derecha */
+#banner-la-frontera-v3 > div > div:nth-child(5){
+    display:none !important;
+}
+
 }
 </style>
 
