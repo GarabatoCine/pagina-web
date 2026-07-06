@@ -697,38 +697,49 @@ color:#FFC601;
     transform-origin:center center;
 }
 
-/* Bloque izquierdo */
+/* Columna izquierda */
 #banner-la-frontera-v3 > div > div:nth-child(1){
     flex:0 0 18% !important;
     text-align:left !important;
 }
 
-#banner-la-frontera-v3 > div > div:nth-child(1) p{
-    line-height:1.1 !important;
-    margin:0 0 4px 0 !important;
+/* Canción original */
+#banner-la-frontera-v3 > div > div:nth-child(1) > p:first-child{
+    font-size:9px !important;
+    margin:0 0 2px 0 !important;
+    line-height:1 !important;
 }
 
-#banner-la-frontera-v3 > div > div:nth-child(1) h1{
+/* La Frontera */
+#banner-la-frontera-v3 > div > div:nth-child(1) > h1{
     font-size:26px !important;
-    margin:4px 0 12px 0 !important;
+    margin:2px 0 10px 0 !important;
     line-height:1.05 !important;
 }
 
-#banner-la-frontera-v3 > div > div:nth-child(1) h2{
+/* Canta (subido 2 px) */
+#banner-la-frontera-v3 > div > div:nth-child(1) > p:nth-of-type(2){
+    font-size:9px !important;
+    margin:-2px 0 2px 0 !important;
+    line-height:1 !important;
+}
+
+/* Adriana Lucía */
+#banner-la-frontera-v3 > div > div:nth-child(1) > h2{
     font-size:15px !important;
     margin:0 !important;
-    line-height:1.05 !important;
+    line-height:1 !important;
 }
 
-/* Primera línea vertical */
-#banner-la-frontera-v3 > div > div:nth-child(2){
-    height:140px !important;
-    margin:0 22px !important;
+/* Eliminar ambas líneas verticales */
+#banner-la-frontera-v3 > div > div:nth-child(2),
+#banner-la-frontera-v3 > div > div:nth-child(4){
+    display:none !important;
 }
 
 /* Bloque central */
 #banner-la-frontera-v3 > div > div:nth-child(3){
-    flex:0 0 40% !important;
+    flex:0 0 50% !important;
     gap:22px !important;
 }
 
@@ -741,20 +752,7 @@ color:#FFC601;
     width:28px !important;
 }
 
-#banner-la-frontera-v3 span{
-    font-size:12px !important;
-}
-
-#banner-la-frontera-v3 p{
-    font-size:9px !important;
-}
-
-/* Ocultar segunda línea vertical */
-#banner-la-frontera-v3 > div > div:nth-child(4){
-    display:none !important;
-}
-
-/* Ocultar texto de la derecha */
+/* Ocultar el texto de la derecha */
 #banner-la-frontera-v3 > div > div:nth-child(5){
     display:none !important;
 }
