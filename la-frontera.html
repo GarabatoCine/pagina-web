@@ -717,7 +717,7 @@ color:#FFC601;
     line-height:1.05 !important;
 }
 
-/* Canta (subido 2 px) */
+/* Canta */
 #banner-la-frontera-v3 > div > div:nth-child(1) > p:nth-of-type(2){
     font-size:9px !important;
     margin:-2px 0 2px 0 !important;
@@ -731,7 +731,7 @@ color:#FFC601;
     line-height:1 !important;
 }
 
-/* Eliminar ambas líneas verticales */
+/* Eliminar las dos líneas verticales */
 #banner-la-frontera-v3 > div > div:nth-child(2),
 #banner-la-frontera-v3 > div > div:nth-child(4){
     display:none !important;
@@ -740,19 +740,37 @@ color:#FFC601;
 /* Bloque central */
 #banner-la-frontera-v3 > div > div:nth-child(3){
     flex:0 0 50% !important;
-    gap:22px !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:10px !important;
 }
 
+/* Columna de botones */
+#banner-la-frontera-v3 > div > div:nth-child(3) > div{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:8px !important;
+}
+
+/* Línea divisoria entre botones */
+#banner-la-frontera-v3 > div > div:nth-child(3) > div > div{
+    width:140px !important;
+    height:.5px !important;
+    margin:2px 0 !important;
+}
+
+/* Imagen Adriana */
 #banner-la-frontera-v3 img[src*="adri.png"]{
     width:170px !important;
 }
 
+/* Íconos */
 #banner-la-frontera-v3 img[src*="boton-play.png"],
 #banner-la-frontera-v3 img[src*="spotify.png"]{
     width:28px !important;
 }
 
-/* Ocultar el texto de la derecha */
+/* Ocultar el texto derecho */
 #banner-la-frontera-v3 > div > div:nth-child(5){
     display:none !important;
 }
