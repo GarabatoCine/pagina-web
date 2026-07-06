@@ -749,14 +749,15 @@ color:#FFC601;
 #banner-la-frontera-v3 > div > div:nth-child(3) > div{
     display:flex !important;
     flex-direction:column !important;
-    gap:8px !important;
+    gap:6px !important;
+    margin-left:18px !important;
 }
 
-/* Línea divisoria entre botones */
+/* Línea divisoria */
 #banner-la-frontera-v3 > div > div:nth-child(3) > div > div{
     width:140px !important;
     height:.5px !important;
-    margin:2px 0 !important;
+    margin:0 !important;
 }
 
 /* Imagen Adriana */
@@ -768,6 +769,16 @@ color:#FFC601;
 #banner-la-frontera-v3 img[src*="boton-play.png"],
 #banner-la-frontera-v3 img[src*="spotify.png"]{
     width:28px !important;
+}
+
+/* Ocultar EN YOUTUBE y EN SPOTIFY */
+#banner-la-frontera-v3 > div > div:nth-child(3) span:last-child{
+    display:none !important;
+}
+
+/* Compactar el texto de los botones */
+#banner-la-frontera-v3 > div > div:nth-child(3) a div{
+    line-height:1 !important;
 }
 
 /* Ocultar el texto derecho */
