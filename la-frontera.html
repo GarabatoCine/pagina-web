@@ -797,18 +797,17 @@ color:#FFC601;
     display:none;
 }
 
-@media(max-width:600px){
+@media (max-width:600px){
 
     #banner-la-frontera-v3{
-        display:none;
+        display:none !important;
     }
 
     #banner-la-frontera-mobile{
-        display:block;
+        display:block !important;
     }
 
-}
-</style>
+}</style>
 
 </head>
 
@@ -956,8 +955,8 @@ color:#FFC601;
         </div>
     </div>
 </section>
-<section id="banner-la-frontera-mobile">
-...
+<section id="banner-la-frontera-mobile" style="display:none;">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/cancion/banner-cancion-celular.jpg?raw=true" style="width:100%;display:block;">
 </section>
 <script>
     const menuBtn = document.getElementById('menu-btn');
