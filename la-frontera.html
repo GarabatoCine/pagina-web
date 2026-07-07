@@ -793,6 +793,21 @@ color:#FFC601;
     max-height:60px !important;
 }
 }
+    #banner-la-frontera-mobile{
+    display:none;
+}
+
+@media(max-width:600px){
+
+    #banner-la-frontera-v3{
+        display:none;
+    }
+
+    #banner-la-frontera-mobile{
+        display:block;
+    }
+
+}
 </style>
 
 </head>
@@ -941,7 +956,9 @@ color:#FFC601;
         </div>
     </div>
 </section>
-
+<section id="banner-la-frontera-mobile">
+...
+</section>
 <script>
     const menuBtn = document.getElementById('menu-btn');
     const navMobile = document.getElementById('nav-mobile');
