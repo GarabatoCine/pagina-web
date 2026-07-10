@@ -819,7 +819,44 @@ color:#FFC601;
 }
 
 #banner-la-frontera-mobile{
-    
+/* ================= PRENSA ================= */
+
+.prensa-section{
+    width:100%;
+    margin:40px 0;
+    position:relative;
+}
+
+.prensa-pc{
+    display:block;
+    width:100%;
+    position:relative;
+}
+
+.prensa-mobile{
+    display:none;
+    width:100%;
+    position:relative;
+}
+
+.prensa-pc img,
+.prensa-mobile img{
+    width:100%;
+    display:block;
+}
+
+/* Tablet y celular */
+@media(max-width:1024px){
+
+    .prensa-pc{
+        display:none;
+    }
+
+    .prensa-mobile{
+        display:block;
+    }
+
+}    
 </style>
 
 </head>
@@ -1000,6 +1037,23 @@ color:#FFC601;
             z-index:10;
             background:transparent;">
     </a>
+
+</section>
+    <section class="prensa-section">
+
+    <!-- PC -->
+    <div class="prensa-pc">
+
+        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/prensa-la-frontera-pc.png?raw=true">
+
+    </div>
+
+    <!-- Tablet y móvil -->
+    <div class="prensa-mobile">
+
+        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/prensa-la-frontera-tablet-y-movil.png?raw=true">
+
+    </div>
 
 </section>
 <script>
