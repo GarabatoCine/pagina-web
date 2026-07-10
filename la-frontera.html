@@ -814,7 +814,68 @@ color:#FFC601;
 }
 
 #banner-la-frontera-mobile{
-    
+  /*================== PRENSA ==================*/
+
+.prensa-section{
+    width:100%;
+    margin:40px 0;
+}
+
+.prensa-desktop{
+    display:block;
+    position:relative;
+    width:100%;
+}
+
+.prensa-mobile{
+    display:none;
+    position:relative;
+    width:100%;
+}
+
+.prensa-desktop img,
+.prensa-mobile img{
+    display:block;
+    width:100%;
+    height:auto;
+}
+
+.prensa-link{
+    position:absolute;
+    display:block;
+    z-index:50;
+    cursor:pointer;
+}
+
+/* ---------- PC + TABLET ---------- */
+
+.prensa-desktop .p1{left:72%;top:18%;width:17%;height:6%;}
+.prensa-desktop .p2{left:72%;top:30%;width:17%;height:6%;}
+.prensa-desktop .p3{left:72%;top:42%;width:17%;height:6%;}
+.prensa-desktop .p4{left:72%;top:54%;width:17%;height:6%;}
+.prensa-desktop .p5{left:72%;top:66%;width:17%;height:6%;}
+.prensa-desktop .p6{left:72%;top:78%;width:17%;height:6%;}
+
+/* ---------- SOLO CELULAR ---------- */
+
+@media only screen and (max-width:600px){
+
+.prensa-desktop{
+display:none !important;
+}
+
+.prensa-mobile{
+display:block !important;
+}
+
+.prensa-mobile .p1{left:56%;top:26%;width:34%;height:5%;}
+.prensa-mobile .p2{left:56%;top:37%;width:34%;height:5%;}
+.prensa-mobile .p3{left:56%;top:48%;width:34%;height:5%;}
+.prensa-mobile .p4{left:56%;top:59%;width:34%;height:5%;}
+.prensa-mobile .p5{left:56%;top:70%;width:34%;height:5%;}
+.prensa-mobile .p6{left:56%;top:81%;width:34%;height:5%;}
+
+}  
 </style>
 
 </head>
@@ -995,6 +1056,47 @@ color:#FFC601;
             z-index:10;
             background:transparent;">
     </a>
+
+</section>
+    <section class="prensa-section">
+
+    <!-- PC + TABLET -->
+    <div class="prensa-desktop">
+
+        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/prensa-la-frontera-pc-tablet.png?raw=true" alt="Prensa">
+
+        <a class="prensa-link p1" href="https://ciff.org.eg/en/media/news/cairo-international-film-festival-announces-27-world-and-international-premieres" target="_blank" aria-label="Festival Clase A"></a>
+
+        <a class="prensa-link p2" href="https://www.latamcinema.com/entrevistas/david-david-director-dla-frontera-minimalismo-de-otredad-y-resiliencia/" target="_blank" aria-label="LatAm Cinema"></a>
+
+        <a class="prensa-link p3" href="https://www.iffigoa.org/public/images/thePeacock/314193_1731667543.pdf" target="_blank" aria-label="The Peacock"></a>
+
+        <a class="prensa-link p4" href="https://www.youm7.com/story/2019/11/26/%D8%B5%D9%88%D8%B1-%D9%85%D9%87%D8%B1%D8%AC%D8%A7%D9%86-%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9-%D9%8A%D8%B9%D8%B1%D8%B6-%D9%81%D9%8A%D9%84%D9%85-%D8%A7%D9%84%D8%AD%D8%AF%D9%88%D8%AF-%D8%A8%D8%AD%D8%B6%D9%88%D8%B1-%D8%B1%D8%A7%D9%86%D9%8A%D8%A7-%D9%8A%D9%88%D8%B3%D9%81-%D9%88%D8%B3%D8%A7%D9%86%D8%AF%D9%89/4520298" target="_blank" aria-label="Youm7"></a>
+
+        <a class="prensa-link p5" href="https://es.rollingstone.com/la-frontera/" target="_blank" aria-label="Rolling Stone"></a>
+
+        <a class="prensa-link p6" href="https://www.cinematropical.com/cinema-tropical/the-border-and-king-kong-in-asuncion-top-the-gramado-film-festival" target="_blank" aria-label="Cinema Tropical"></a>
+
+    </div>
+
+    <!-- SOLO MÓVIL -->
+    <div class="prensa-mobile">
+
+        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/prensa-la-frontera-movil.png?raw=true" alt="Prensa">
+
+        <a class="prensa-link p1" href="https://ciff.org.eg/en/media/news/cairo-international-film-festival-announces-27-world-and-international-premieres" target="_blank"></a>
+
+        <a class="prensa-link p2" href="https://www.latamcinema.com/entrevistas/david-david-director-dla-frontera-minimalismo-de-otredad-y-resiliencia/" target="_blank"></a>
+
+        <a class="prensa-link p3" href="https://www.iffigoa.org/public/images/thePeacock/314193_1731667543.pdf" target="_blank"></a>
+
+        <a class="prensa-link p4" href="https://www.youm7.com/story/2019/11/26/%D8%B5%D9%88%D8%B1-%D9%85%D9%87%D8%B1%D8%AC%D8%A7%D9%87%D8%B1%D8%A7%D9%86-%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9-%D9%8A%D8%B9%D8%B1%D8%B6-%D9%81%D9%8A%D9%84%D9%85-%D8%A7%D9%84%D8%AD%D8%AF%D9%88%D8%AF-%D8%A8%D8%AD%D8%B6%D9%88%D8%B1-%D8%B1%D8%A7%D9%86%D9%8A%D8%A7-%D9%8A%D9%88%D8%B3%D9%81-%D9%88%D8%B3%D8%A7%D9%86%D8%AF%D9%89/4520298" target="_blank"></a>
+
+        <a class="prensa-link p5" href="https://es.rollingstone.com/la-frontera/" target="_blank"></a>
+
+        <a class="prensa-link p6" href="https://www.cinematropical.com/cinema-tropical/the-border-and-king-kong-in-asuncion-top-the-gramado-film-festival" target="_blank"></a>
+
+    </div>
 
 </section>
 <script>
