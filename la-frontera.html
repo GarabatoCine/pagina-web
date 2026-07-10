@@ -1026,28 +1026,38 @@ color:#FFC601;
     }, 100);
 });
 </script>
-<!-- SECCIÓN PRENSA -->
-<section style="text-align: center; margin: 40px 0;">
+<!-- SECCIÓN PRENSA FINAL -->
+<section class="prensa-final">
+    <!-- Banner para PC y Tablet -->
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/diseño final pc y tablet_2.jpg?raw=true" class="prensa-img-pc">
     
-    <!-- Imagen PC/Tablet (Si quieres enlaces aquí, se usa la misma lógica) -->
-    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/prensa-la-frontera-pc-tablet.png?raw=true" style="max-width: 100%; height: auto;" id="prensa-pc">
-
-    <!-- Imagen Móvil con Mapa de Enlaces -->
-    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/prensa-la-frontera-movil.png?raw=true" usemap="#image-map" style="max-width: 100%; height: auto; display: none;" id="prensa-mobile">
-
-    <map name="image-map">
-        <area target="_blank" alt="Festival" title="Festival" href="https://ciff.org.eg/en/media/news/cairo-international-film-festival-announces-27-world-and-international-premieres" coords="200,100,50,50" shape="rect">
-        <area target="_blank" alt="Latam" title="Latam" href="https://www.latamcinema.com/entrevistas/david-david-director-dla-frontera-minimalismo-de-otredad-y-resiliencia/" coords="200,180,50,50" shape="rect">
-        <area target="_blank" alt="Peacock" title="Peacock" href="https://www.iffigoa.org/public/images/thePeacock/314193_1731667543.pdf" coords="200,260,50,50" shape="rect">
-        <area target="_blank" alt="Prensa" title="Prensa" href="https://www.youm7.com/story/2019/11/26/%D8%B5%D9%88%D8%B1-%D9%85%D9%87%D8%B1%D8%AC%D8%A7%D9%86-%D8%A7%D9%84%D9%84%D8%A7%D9%87%D8%B1%D8%A9-%D9%8A%D8%B9%D8%B1%D8%B6-%D9%81%D9%8A%D9%84%D9%85-%D8%A8%D8%AD%D8%B6%D9%88%D8%B1-%D8%B1%D8%A7%D9%86%D9%8A%D8%A7-%D9%8A%D9%88%D8%B3%D9%81-%D9%88%D8%B3%D8%A7%D9%86%D8%AF%D9%89/4520298" coords="200,340,50,50" shape="rect">
-        <area target="_blank" alt="Rolling" title="Rolling" href="https://es.rollingstone.com/la-frontera/" coords="200,420,50,50" shape="rect">
-        <area target="_blank" alt="Tropical" title="Tropical" href="https://www.cinematropical.com/cinema-tropical/the-border-and-king-kong-in-asuncion-top-the-gramado-film-festival" coords="200,500,50,50" shape="rect">
-    </map>
+    <!-- Banner para Móvil -->
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/diseño final movil_2.jpg?raw=true" class="prensa-img-movil">
 </section>
 
 <style>
 @media (max-width: 600px) {
     #prensa-pc { display: none !important; }
     #prensa-mobile { display: block !important; }
+}
+    /* Estilos para la sección de prensa */
+.prensa-final {
+    text-align: center;
+    margin: 40px 0;
+    width: 100%;
+}
+.prensa-img-pc {
+    width: 100%;
+    display: block; /* Se muestra en PC/Tablet */
+}
+.prensa-img-movil {
+    display: none; /* Oculto en PC */
+    width: 100%;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .prensa-img-pc { display: none; }
+    .prensa-img-movil { display: block; }
 }
 </style>
