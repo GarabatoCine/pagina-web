@@ -969,7 +969,7 @@ color:#FFC601;
     
     <!-- IMAGEN PC/TABLET -->
     <div id="prensa-pc" style="display: block; width: 100%;">
-        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/prensa-la-frontera-pc.png?raw=true" style="width: 100%; height: auto; display: block;">
+        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/prensa-la-frontera-pc-tablet.png?raw=true" style="width: 100%; height: auto; display: block;">
     </div>
 
     <!-- IMAGEN CELULAR -->
@@ -987,44 +987,14 @@ color:#FFC601;
 </section>
 
 <style>
-@media (max-width: 768px) {
+/* Tablet y Móvil pequeña: Muestra el diseño móvil */
+@media (max-width: 900px) {
     #prensa-pc { display: none !important; }
     #prensa-mobile { display: block !important; }
 }
-@media (min-width: 769px) {
+/* Pantallas grandes: Muestra el diseño PC/Tablet */
+@media (min-width: 901px) {
     #prensa-pc { display: block !important; }
     #prensa-mobile { display: none !important; }
 }
 </style>
-
-<script>
-    const menuBtn = document.getElementById('menu-btn');
-    const navMobile = document.getElementById('nav-mobile');
-
-    menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        navMobile.style.display = (navMobile.style.display === 'flex') ? 'none' : 'flex';
-    });
-
-    navMobile.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMobile.style.display = 'none';
-        });
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!navMobile.contains(e.target) && e.target !== menuBtn) {
-            navMobile.style.display = 'none';
-        }
-    });
-    
-    window.addEventListener("pageshow", function () {
-        setTimeout(function () {
-            window.scrollTo(0, 0);
-        }, 100);
-    });
-</script>
-
-</body>
-</html>
-    
