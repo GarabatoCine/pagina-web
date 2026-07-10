@@ -826,12 +826,38 @@ color:#FFC601;
     display:block;
     position:relative;
     width:100%;
+    margin-top:40px;
 }
 
 .prensa-mobile{
     display:none;
     position:relative;
     width:100%;
+    margin-top:40px;
+}
+
+/* Tablet */
+@media (max-width:1024px){
+    .prensa-pc{
+        display:block;
+    }
+
+    .prensa-mobile{
+        display:none;
+    }
+}
+
+/* Celular */
+@media (max-width:600px){
+
+    .prensa-pc{
+        display:none !important;
+    }
+
+    .prensa-mobile{
+        display:block !important;
+    }
+
 }
 
 .prensa-pc img,
