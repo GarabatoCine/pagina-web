@@ -1149,18 +1149,31 @@ color:#FFC601;
 }
 </style>
     <style>
-    /* Estilos para el Banner de contacto y el Footer */
-    .banner-contacto {
-        background-color: #1a1a1a;
-        padding: 60px 20px;
-        text-align: center;
-        color: #fff;
+   /* Estilos para el nuevo Banner de contacto */
+    .banner-contacto-final {
+        width: 100%;
+        background-image: url('https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/franja-contacto-pc-tablet.png?raw=true');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 80px 20px;
     }
-    .banner-contacto h2 {
+    
+    .contenido-banner {
+        text-align: center;
+        color: white;
+    }
+
+    .contenido-banner h2 {
         font-family: 'Oswald', sans-serif;
         font-size: 32px;
         margin-bottom: 20px;
     }
+
+    /* Mantenemos el botón igual */
     .btn-contacto {
         display: inline-block;
         padding: 12px 30px;
@@ -1172,6 +1185,49 @@ color:#FFC601;
     }
     .btn-contacto:hover { background-color: #fff; }
 
+    /* Ajuste para móviles */
+    @media (max-width: 768px) {
+        .banner-contacto-final {
+            background-image: url('https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/franja-contacto-movil.png?raw=true');
+            padding: 60px 20px;
+        }
+    }
+
+    /* Estilos para el Footer (los que ya tenías) */
+    .sitio-footer {
+        background-color: #000000;
+        padding: 40px 60px;
+        border-top: 1px solid #1a1a1a;
+        width: 100%;
+    }
+    .fila-tres-columnas {
+        max-width: 1300px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .columna-izquierda { text-align: left; flex: 1; }
+    .columna-izquierda h4 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        margin-bottom: 6px;
+    }
+    .columna-izquierda p { font-size: 13px; color: #888888; }
+    .columna-central { display: flex; justify-content: center; gap: 25px; flex: 1; }
+    .columna-central a { color: #ffffff; font-size: 18px; transition: color 0.3s ease; }
+    .columna-central a:hover { color: #FFC601; }
+    .columna-derecha { text-align: right; flex: 1; line-height: 1.6; }
+    .linea-politicas { font-size: 12px; color: #888888; }
+    .linea-politicas a { color: #888888; text-decoration: underline; }
+    .linea-derechos, .linea-copyright { font-size: 11px; color: #888888; }
+
+    @media (max-width: 767px) {
+        .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
+        .columna-derecha { text-align: center; }
+    }
     .sitio-footer {
         background-color: #000000;
         padding: 40px 60px;
@@ -1208,10 +1264,12 @@ color:#FFC601;
     }
 </style>
 
-<!-- BANNER DE CONTACTO -->
-<div class="banner-contacto">
-    <h2>¿Te interesa conocer más sobre La Frontera?</h2>
-    <a href="contacto.html" class="btn-contacto">CONTÁCTANOS</a>
+<!-- NUEVA FRANJA DE CONTACTO -->
+<div class="banner-contacto-final">
+    <div class="contenido-banner">
+        <h2>¿Te interesa conocer más sobre La Frontera?</h2>
+        <a href="contacto.html" class="btn-contacto">CONTÁCTANOS</a>
+    </div>
 </div>
 
 <!-- FOOTER -->
