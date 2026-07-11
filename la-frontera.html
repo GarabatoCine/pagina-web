@@ -572,75 +572,46 @@ color: #000000;
 }
 
 /* ================= FOOTER ================= */
-
-.sitio-footer{
-background:#000000; 
-color:#ffffff;
-padding:60px 60px 40px;
-border-top:1px solid rgba(255,255,255,.08);
+.sitio-footer {
+    background-color: #000000;
+    padding: 40px 60px;
+    border-top: 1px solid #1a1a1a;
+    width: 100%;
 }
 
-.fila-tres-columnas{
-max-width: 1300px;
-margin: auto;
-display: flex;
-justify-content: space-between;
-align-items: center;
+.fila-tres-columnas {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.columna-izquierda{
-flex:1;
+.columna-izquierda { flex: 1; text-align: left; }
+.columna-izquierda h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    color: #fff;
 }
+.columna-izquierda p { font-size: 13px; color: #888888; margin: 0; }
 
-.columna-izquierda h4{
-font-family:'Oswald',sans-serif;
-font-size:22px;
-letter-spacing:2px;
-margin-bottom:6px;
+.columna-central { display: flex; justify-content: center; gap: 25px; flex: 1; }
+.columna-central a { color: #ffffff; font-size: 18px; transition: color 0.3s ease; }
+.columna-central a:hover { color: #FFC601; }
+
+.columna-derecha { flex: 1; text-align: right; line-height: 1.6; }
+.columna-derecha a { color: #888888; text-decoration: underline; font-size: 12px; }
+.columna-derecha a:hover { color: #FFC601; }
+.columna-derecha div { font-size: 11px; color: #888888; }
+
+/* RESPONSIVE */
+@media(max-width: 767px) {
+    .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
+    .columna-derecha { text-align: center !important; }
 }
-
-.columna-izquierda p{
-font-size:13px;
-color:#888;
-}
-
-.columna-central{
-display:flex;
-justify-content:center;
-gap:25px;
-flex:1;
-}
-
-.columna-central a{
-color:#fff;
-font-size:18px;
-transition:.3s;
-}
-
-.columna-central a:hover{
-color:#FFC601;
-}
-
-.columna-derecha{
-flex:1;
-text-align:right;
-}
-
-.columna-derecha p{
-font-size:13px;
-color:#888;
-line-height:1.8;
-}
-
-.footer-link-normal{
-color:inherit;
-text-decoration:underline;
-}
-
-.footer-link-normal:hover{
-color:#FFC601;
-}
-
 /* ================= RESPONSIVE GLOBALES ================= */
 
 @media(max-width: 1024px) {
@@ -1171,3 +1142,24 @@ color:#FFC601;
         </div>
     </div>
 </section>
+<footer class="sitio-footer">
+    <div class="fila-tres-columnas">
+        <div class="columna-izquierda">
+            <h4>GARABATO CINE</h4>
+            <p>Cine hecho desde el Caribe colombiano.</p>
+        </div>
+        <div class="columna-central">
+            <a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@garabatocine862" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="columna-derecha">
+            <div><a href="privacidadycookies.html">Privacidad y Cookies</a></div>
+            <div>Todos los derechos reservados</div>
+            <div>© 2026 Garabato Cine</div>
+        </div>
+    </div>
+</footer>
+
+
+    
