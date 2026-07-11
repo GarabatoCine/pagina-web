@@ -1146,7 +1146,7 @@ color:#FFC601;
 @media (max-width: 600px) {
     #prensa-pc { display: none !important; }
     #prensa-mobile { display: block !important; }
-    </style>
+   </style>
 
 <section class="banner-contacto-final">
     <div class="banner-contacto-overlay">
@@ -1156,63 +1156,72 @@ color:#FFC601;
 </section>
 
 <footer class="sitio-footer">
-    <div class="fila-tres-columnas">
-        <div class="columna-izquierda">
+    <div class="fila-footer">
+        <div class="col-izq">
             <h4>GARABATO CINE</h4>
             <p>Cine hecho desde el Caribe colombiano.</p>
         </div>
-        <div class="columna-central">
+        <div class="col-cen">
             <a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="https://www.youtube.com/@garabatocine862" target="_blank"><i class="fa-brands fa-youtube"></i></a>
         </div>
-        <div class="columna-derecha">
-            <div class="linea-politicas"><a href="privacidadycookies.html">Privacidad y Cookies</a></div>
-            <div class="linea-derechos">Todos los derechos reservados</div>
-            <div class="linea-copyright">© 2026 Garabato Cine</div>
+        <div class="col-der">
+            <a href="privacidadycookies.html">Privacidad y Cookies</a>
+            <p>Todos los derechos reservados</p>
+            <p>© 2026 Garabato Cine</p>
         </div>
     </div>
 </footer>
 
 <style>
+    /* Banner: imagen original sin estirar */
     .banner-contacto-final {
         width: 100%;
-        height: 350px;
         background-image: url('https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/banner-contcto.png?raw=true');
-        background-size: cover;
+        background-size: contain;
+        background-repeat: no-repeat;
         background-position: center;
+        aspect-ratio: 1920 / 350;
         display: flex;
         align-items: center;
         justify-content: center;
-        text-align: center;
-        margin-top: 100px;
+        margin-top: 80px;
+        margin-bottom: 80px;
     }
     .banner-contacto-overlay p {
-        font-family: 'Oswald', sans-serif;
-        font-size: 36px;
+        font-family: 'Avenir Next', sans-serif;
+        font-size: clamp(20px, 2.5vw, 30px);
         color: white;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
         text-transform: uppercase;
+        letter-spacing: 1px;
     }
     .cta-btn {
         display: inline-block;
-        padding: 12px 35px;
+        padding: 10px 30px;
         border: 1px solid #FFC601;
         color: #FFC601;
-        font-size: 13px;
+        font-size: 12px;
         letter-spacing: 2px;
         text-transform: uppercase;
         text-decoration: none;
     }
-    .sitio-footer { background: #000; color: #fff; padding: 40px 20px; text-align: center; }
-    .fila-tres-columnas { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; }
-    .columna-central a { color: #fff; margin: 0 10px; font-size: 20px; }
-    .columna-derecha { font-size: 12px; }
+
+    /* Footer: Colores gris y alineación */
+    .sitio-footer { background: #000; color: #888; padding: 40px 5%; }
+    .fila-footer { display: flex; justify-content: space-between; align-items: flex-start; max-width: 1200px; margin: auto; }
+    
+    .col-izq { text-align: left; }
+    .col-izq h4 { color: #fff; margin-bottom: 5px; }
+    
+    .col-cen a { color: #fff; margin: 0 10px; font-size: 18px; text-decoration: none; }
+    
+    .col-der { text-align: right; font-size: 11px; }
+    .col-der a { color: #888; text-decoration: none; }
+    .col-der p { margin: 2px 0; }
 </style>
 }
-</style>
-
-
 
 
     
