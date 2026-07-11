@@ -603,12 +603,18 @@ color: #000000;
     .columna-derecha { text-align: center !important; }
 }
 
-/* --- FOOTER PARA TABLET (992px) Y ESCRITORIO --- */
-@media(max-width: 992px) {
+/* --- FOOTER PARA TABLET (992px) --- */
+@media(max-width: 992px) and (min-width: 768px) {
     .sitio-footer { padding: 20px 25px !important; }
-    /* Mantenemos las columnas en fila (row) para que no se amontonen */
     .fila-tres-columnas { flex-direction: row !important; gap: 15px !important; text-align: left !important; }
     .columna-derecha { text-align: right !important; }
+}
+
+/* --- FOOTER PARA CELULAR (767px o menos) --- */
+@media(max-width: 767px) {
+    .sitio-footer { padding: 15px 20px !important; }
+    .fila-tres-columnas { flex-direction: column !important; gap: 15px !important; text-align: center !important; }
+    .columna-derecha { text-align: center !important; }
 }
 
 /* ================= RESPONSIVE GLOBALES ================= */
