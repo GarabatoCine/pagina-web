@@ -1135,90 +1135,90 @@ color:#FFC601;
         <a href="https://www.cinematropical.com/cinema-tropical/the-border-and-king-kong-in-asuncion-top-the-gramado-film-festival" target="_blank" style="position:absolute; left:50%; top:85%; width:30%; height:12%; display:block;"></a>    </div>
 
     <style>
-     </style>
+    <style>
+    /* Estilos para el Banner de contacto y el Footer */
+    .banner-contacto {
+        background-color: #1a1a1a;
+        padding: 60px 20px;
+        text-align: center;
+        color: #fff;
+    }
+    .banner-contacto h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .btn-contacto {
+        display: inline-block;
+        padding: 12px 30px;
+        background-color: #FFC601;
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+    .btn-contacto:hover { background-color: #fff; }
 
-<section class="banner-contacto-final">
-    <div class="banner-contacto-overlay">
-        <p>¿Te interesa conocer más sobre La Frontera?</p>
-        <a href="contacto.html" class="cta-btn">CONTÁCTANOS</a>
-    </div>
-</section>
+    .sitio-footer {
+        background-color: #000000;
+        padding: 40px 60px;
+        border-top: 1px solid #1a1a1a;
+        width: 100%;
+    }
+    .fila-tres-columnas {
+        max-width: 1300px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .columna-izquierda { text-align: left; flex: 1; }
+    .columna-izquierda h4 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        margin-bottom: 6px;
+    }
+    .columna-izquierda p { font-size: 13px; color: #888888; }
+    .columna-central { display: flex; justify-content: center; gap: 25px; flex: 1; }
+    .columna-central a { color: #ffffff; font-size: 18px; transition: color 0.3s ease; }
+    .columna-central a:hover { color: #FFC601; }
+    .columna-derecha { text-align: right; flex: 1; line-height: 1.6; }
+    .linea-politicas { font-size: 12px; color: #888888; }
+    .linea-politicas a { color: #888888; text-decoration: underline; }
+    .linea-derechos, .linea-copyright { font-size: 11px; color: #888888; }
 
+    @media (max-width: 767px) {
+        .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
+        .columna-derecha { text-align: center; }
+    }
+</style>
+
+<!-- BANNER DE CONTACTO -->
+<div class="banner-contacto">
+    <h2>¿Te interesa conocer más sobre La Frontera?</h2>
+    <a href="contacto.html" class="btn-contacto">CONTÁCTANOS</a>
+</div>
+
+<!-- FOOTER -->
 <footer class="sitio-footer">
-    <div class="fila-footer">
-        <div class="col-izq">
+    <div class="fila-tres-columnas">
+        <div class="columna-izquierda">
             <h4>GARABATO CINE</h4>
             <p>Cine hecho desde el Caribe colombiano.</p>
         </div>
-        <div class="col-cen">
+        <div class="columna-central">
             <a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="https://www.youtube.com/@garabatocine862" target="_blank"><i class="fa-brands fa-youtube"></i></a>
         </div>
-        <div class="col-der">
-            <a href="privacidadycookies.html">Privacidad y Cookies</a>
-            <p>Todos los derechos reservados</p>
-            <p>© 2026 Garabato Cine</p>
+        <div class="columna-derecha">
+            <div class="linea-politicas"><a href="privacidadycookies.html">Privacidad y Cookies</a></div>
+            <div class="linea-derechos">Todos los derechos reservados</div>
+            <div class="linea-copyright">© 2026 Garabato Cine</div>
         </div>
     </div>
 </footer>
-
-<style>
-    /* BANNER */
-    .banner-contacto-final {
-        width: 100%;
-        background-image: url('https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/banner-contcto.png?raw=true');
-        background-size: cover;
-        background-position: center;
-        height: 350px; 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-top: 40px;
-    }
-    .banner-contacto-overlay { text-align: center; }
-    .banner-contacto-overlay p {
-        font-family: 'Avenir Next', sans-serif;
-        font-size: 22px;
-        color: #fff;
-        margin-bottom: 20px;
-        text-transform: none;
-    }
-
-    /* BOTÓN */
-    .cta-btn {
-        display: inline-block;
-        padding: 10px 30px;
-        border: 1px solid #FFC601;
-        color: #FFC601;
-        font-family: 'Avenir Next', sans-serif;
-        font-size: 12px;
-        letter-spacing: 2px;
-        text-decoration: none;
-        transition: 0.3s;
-    }
-    .cta-btn:hover { background-color: #FFC601; color: #000; }
-
-    /* FOOTER */
-    .sitio-footer { background: #000; padding: 40px 5%; font-family: 'Avenir Next', sans-serif; }
-    .fila-footer { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; }
-    
-    .col-izq { text-align: left; }
-    .col-izq h4 { color: #fff; font-size: 14px; margin: 0 0 5px 0; letter-spacing: 1px; }
-    .col-izq p { color: #888; font-size: 11px; margin: 0; }
-    
-    .col-cen { text-align: center; flex: 1; }
-    .col-cen a { color: #fff; margin: 0 10px; font-size: 18px; }
-    
-    .col-der { text-align: right; font-size: 10px; color: #888; }
-    .col-der a { color: #888; text-decoration: underline; }
-    .col-der p { margin: 2px 0; color: #888; }
-
-    @media (max-width: 768px) {
-        .fila-footer { flex-direction: column; gap: 20px; text-align: center; }
-        .col-der { text-align: center; }
-    }
-</style>
 
     
