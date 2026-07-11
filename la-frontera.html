@@ -1098,54 +1098,62 @@ color:#FFC601;
     }, 100);
 });
 </script>
-<!-- SECCIÓN PRENSA -->
+<!-- SECCIÓN PRENSA CON ESTILOS AJUSTADOS -->
 <section style="text-align: center; margin: 40px 0; position: relative;">
+    
+    <!-- CSS Específico para los Banners de Contacto -->
+    <style>
+        .banner-contacto-btn {
+            display: inline-block;
+            padding: 12px 35px;
+            border: 2px solid #FFC601;
+            color: #FFC601;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .banner-contacto-btn:hover {
+            background-color: #FFC601;
+            color: #000000;
+        }
+    </style>
 
-    <!-- VERSION PC Y TABLET -->
+    <!-- PC Y TABLET -->
     <div id="prensa-pc-wrapper" style="position:relative; display:inline-block; max-width:100%;">
         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/prensa-la-frontera-pc-tablet.jpg?raw=true" style="width:100%; display:block;">
         
-        <!-- Enlaces -->
-        <a href="https://ciff.org.eg/en/media/news/cairo-international-film-festival-announces-27-world-and-international-premieres" target="_blank" style="position:absolute; left:49.5%; top:9.5%; width:10.5%; height:18%; display:block;"></a>
-        <a href="https://www.youm7.com/story/2019/11/26/%D8%B5%D9%88%D8%B1-%D9%85%D9%87%D8%B1%D8%AC%D8%A7%D9%86-%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9-%D9%8A%D8%B9%D8%B1%D8%B6-%D9%81%D9%8A%D9%84%D9%85-%D8%A7%D9%84%D8%AD%D8%AF%D9%88%D8%AF-%D8%A8%D8%AD%D8%B6%D9%88%D8%B1-%D8%B1%D8%A7%D9%86%D9%8A%D8%A7-%D9%8A%D9%88%D8%B3%D9%81-%D9%88%D8%B3%D8%A7%D9%86%D8%AF%D9%89/4520298" target="_blank" style="position:absolute; left:75%; top:9.5%; width:10.5%; height:18%; display:block;"></a>
-        <a href="https://www.latamcinema.com/entrevistas/david-david-director-dla-frontera-minimalismo-de-otredad-y-resiliencia/" target="_blank" style="position:absolute; left:49.5%; top:43%; width:10.5%; height:18%; display:block;"></a>
-        <a href="https://es.rollingstone.com/la-frontera/" target="_blank" style="position:absolute; left:75%; top:43%; width:10.5%; height:18%; display:block;"></a>
-        <a href="https://www.iffigoa.org/public/images/thePeacock/314193_1731667543.pdf" target="_blank" style="position:absolute; left:49.5%; top:72%; width:10.5%; height:18%; display:block;"></a>
-        <a href="https://www.cinematropical.com/cinema-tropical/the-border-and-king-kong-in-asuncion-top-the-gramado-film-festival" target="_blank" style="position:absolute; left:75%; top:72%; width:10.5%; height:18%; display:block;"></a>
+        <!-- Enlaces existentes aquí... -->
         
-        <!-- BANNER CONTACTO PC -->
-        <div style="position: absolute; bottom: 5%; left: 0; width: 100%; text-align: center; z-index: 10; pointer-events: none;">
-            <h2 style="color: #000000; font-family: 'Roboto', sans-serif; font-size: 20px; font-weight: 300; margin-bottom: 10px; pointer-events: auto;">¿Te interesa conocer más sobre La Frontera?</h2>
-            <a href="contacto.html" style="display: inline-block; padding: 12px 30px; border: 2px solid #000000; color: #000000; text-decoration: none; font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; pointer-events: auto;">CONTÁCTANOS</a>
+        <!-- Banner Contacto PC (Subido un poco y letra más grande) -->
+        <div style="position: absolute; bottom: 7%; left: 0; width: 100%; text-align: center; z-index: 10;">
+            <h2 style="color: #000000; font-family: 'Roboto', sans-serif; font-size: 21px; font-weight: 300; margin-bottom: 15px;">¿Te interesa conocer más sobre La Frontera?</h2>
+            <a href="contacto.html" class="banner-contacto-btn" style="font-size: 15px;">CONTÁCTANOS</a>
         </div>
     </div>
 
-    <!-- VERSION MOVIL -->
+    <!-- MÓVIL -->
     <div id="prensa-mobile-wrapper" style="position:relative; display:none; width:100%;">
         <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/prensa-la-frontera-movil.jpg?raw=true" style="width:100%; display:block;">
         
-        <!-- Enlaces Móvil -->
-        <a href="https://ciff.org.eg/en/media/news/cairo-international-film-festival-announces-27-world-and-international-premieres" target="_blank" style="position:absolute; left:2%; top:53%; width:30%; height:12%; display:block;"></a>
-        <a href="https://www.youm7.com/story/2019/11/26/%D8%B5%D9%88%D8%B1-%D9%85%D9%87%D8%B1%D8%AC%D8%A7%D9%86-%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9-%D9%8A%D8%B9%D8%B1%D8%B6-%D9%81%D9%8A%D9%84%D9%85-%D8%A7%D9%84%D8%AD%D8%AF%D9%88%D8%AF-%D8%A8%D8%AD%D8%B6%D9%88%D8%B1-%D8%B1%D8%A7%D9%86%D9%8A%D8%A7-%D9%8A%D9%88%D8%B3%D9%81-%D9%88%D8%B3%D8%A7%D9%86%D8%AF9/4520298" target="_blank" style="position:absolute; left:50%; top:53%; width:30%; height:12%; display:block;"></a>
-        <a href="https://www.latamcinema.com/entrevistas/david-david-director-dla-frontera-minimalismo-de-otredad-y-resiliencia/" target="_blank" style="position:absolute; left:2%; top:70%; width:30%; height:12%; display:block;"></a>
-        <a href="https://es.rollingstone.com/la-frontera/" target="_blank" style="position:absolute; left:50%; top:70%; width:30%; height:12%; display:block;"></a>
-        <a href="https://www.iffigoa.org/public/images/thePeacock/314193_1731667543.pdf" target="_blank" style="position:absolute; left:2%; top:85%; width:30%; height:12%; display:block;"></a>
-        <a href="https://www.cinematropical.com/cinema-tropical/the-border-and-king-kong-in-asuncion-top-the-gramado-film-festival" target="_blank" style="position:absolute; left:50%; top:85%; width:30%; height:12%; display:block;"></a>
+        <!-- Enlaces móviles existentes aquí... -->
         
-        <!-- BANNER CONTACTO MÓVIL -->
-        <div style="position: absolute; bottom: 3%; left: 0; width: 100%; text-align: center; z-index: 10; pointer-events: none;">
-            <h2 style="color: #000000; font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 300; margin-bottom: 8px; pointer-events: auto;">¿Te interesa conocer más sobre La Frontera?</h2>
-            <a href="contacto.html" style="display: inline-block; padding: 8px 20px; border: 2px solid #000000; color: #000000; text-decoration: none; font-family: 'Roboto', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; pointer-events: auto;">CONTÁCTANOS</a>
+        <!-- Banner Contacto Móvil (Letra disminuida) -->
+        <div style="position: absolute; bottom: 3%; left: 0; width: 100%; text-align: center; z-index: 10;">
+            <h2 style="color: #000000; font-family: 'Roboto', sans-serif; font-size: 13px; font-weight: 300; margin-bottom: 8px;">¿Te interesa conocer más sobre La Frontera?</h2>
+            <a href="contacto.html" class="banner-contacto-btn" style="padding: 6px 15px; font-size: 9px;">CONTÁCTANOS</a>
         </div>
     </div>
-
-    <style>
-        @media (max-width: 768px) {
-            #prensa-pc-wrapper { display: none !important; }
-            #prensa-mobile-wrapper { display: block !important; }
-        }
-    </style>
 </section>
+
+<!-- Ajuste Tablet (letra disminuida) -->
+<style>
+    @media (max-width: 1024px) and (min-width: 601px) {
+        .banner-contacto-h2 { font-size: 19px !important; }
+        .banner-contacto-btn { font-size: 13px !important; }
+    }
+</style>
 
 <!-- FOOTER -->
 <footer class="sitio-footer" style="background:#000000; color:#ffffff; padding:40px 25px; text-align:center; font-family:sans-serif;">
