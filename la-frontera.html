@@ -578,18 +578,10 @@ color: #000000;
 /* ================= FOOTER ================= */
 .sitio-footer { 
     background-color: #000000; 
-    padding: 15px 20px !important; /* Mantenemos esto pequeño para móviles */
+    padding: 15px 20px !important; 
     border-top: 1px solid #1a1a1a; 
     width: 100%; 
     margin-top: -50px !important;
-}
-
-/* ESTE ES EL CAMBIO PARA PC (Pantallas mayores a 767px) */
-@media(min-width: 768px) {
-    .sitio-footer {
-        padding: 50px 20px !important; /* Aumenta el 15px a 50px para dar altura */
-        margin-top: 0px !important;    /* Eliminamos el margen negativo para que no se aplaste */
-    }
 }
 .fila-tres-columnas { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
 .columna-izquierda { flex: 1; text-align: left; }
