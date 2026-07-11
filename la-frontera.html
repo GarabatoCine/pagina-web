@@ -1,206 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>La Frontera | Garabato Cine</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:100%; overflow-x:hidden; background:#ffffff; color:#000000; font-family:'Roboto',sans-serif; }
+a{ text-decoration:none; }
+img{ display:block; max-width:100%; }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+/* --- Lógica de banners --- */
+.banner-mobile { display: none !important; }
+.banner-pc { display: block !important; }
 
-html,body{
-width:100%;
-overflow-x:hidden;
-background:#ffffff; 
-color:#000000;           
-font-family:'Roboto',sans-serif;
-}
-
-a{
-text-decoration:none;
-}
-
-img{
-display:block;
-max-width:100%;
+@media(max-width: 600px) {
+    .banner-pc { display: none !important; }
+    .banner-mobile { display: block !important; }
+    .hero-overlay { bottom: 20px !important; align-items: flex-end !important; }
+    .hero-title { font-size: 18px !important; }
+    .hero-subtitle { font-size: 11px !important; }
+    .hero-btn { padding: 5px 10px !important; font-size: 10px !important; }
 }
 
 /* ================= HEADER ================= */
-
-.header{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-padding:28px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:1000;
-text-transform:uppercase;
-}
-
-.header, .header a {
-color: #FFFFFF; 
-}
-
-.logo a{
-font-family:'Oswald',sans-serif;
-font-size:24px;
-letter-spacing:2px;
-color:#fff;
-display: block;
-}
-
-.menu-toggle {
-display: none;
-font-size: 24px;
-cursor: pointer;
-color: #fff;
-z-index: 2000;
-margin-left: auto;
-}
-
-.nav{
-display:flex;
-align-items:center;
-gap:26px;
-}
-
-.nav a{
-font-size:14px;
-color:#fff;
-opacity:.9;
-}
-
-.nav-mobile {
-display: none;
-position: fixed;
-top: 80px;
-right: 20px;
-width: 200px;
-background: rgba(0,0,0,0.9);
-padding: 25px;
-z-index: 1500;
-flex-direction: column;
-gap: 15px;
-border-radius: 8px;
-text-align: right;
-}
-.nav-mobile a {
-color: #fff;
-font-size: 16px;
-text-transform: uppercase;
-}
-.nav-mobile .lang-mobile {
-color: #fff;
-margin-top: 10px;
-font-size: 14px;
-display: flex;
-justify-content: flex-end;
-gap: 8px;
-}
-
-.lang{
-display:flex;
-gap:6px;
-font-size:13px;
-color:#fff;
-}
-
-.lang .active{
-opacity:.45;
-}
+.header{ position:absolute; top:0; left:0; width:100%; padding:28px 40px; display:flex; justify-content:space-between; align-items:center; z-index:1000; text-transform:uppercase; color: #FFFFFF; }
+.header a { color: #FFFFFF; }
+.logo a{ font-family:'Oswald',sans-serif; font-size:24px; letter-spacing:2px; color:#fff; display: block; }
+.menu-toggle { display: none; font-size: 24px; cursor: pointer; color: #fff; z-index: 2000; margin-left: auto; }
+.nav{ display:flex; align-items:center; gap:26px; }
+.nav a{ font-size:14px; color:#fff; opacity:.9; }
+.nav-mobile { display: none; position: fixed; top: 80px; right: 20px; width: 200px; background: rgba(0,0,0,0.9); padding: 25px; z-index: 1500; flex-direction: column; gap: 15px; border-radius: 8px; text-align: right; }
+.nav-mobile a { color: #fff; font-size: 16px; text-transform: uppercase; }
+.nav-mobile .lang-mobile { color: #fff; margin-top: 10px; font-size: 14px; display: flex; justify-content: flex-end; gap: 8px; }
+.lang{ display:flex; gap:6px; font-size:13px; color:#fff; }
+.lang .active{ opacity:.45; }
 
 /* ================= HERO ================= */
-
-.hero-banner{
-position:relative;
-width:100%;
-background: #000;
-line-height: 0;
-}
-
-.hero-banner img{
-width:100%;
-height:auto;
-display:block;
-filter: brightness(0.65);
-}
-
-.hero-overlay{
-position:absolute;
-bottom: 10%; 
-left: 60px;
-z-index:10;
-max-width: 50%; 
-transform:none;
-text-align:left;
-}
-
-.hero-title{
-font-family:'Oswald',sans-serif;
-font-size: clamp(24px, 4vw, 54.6px); 
-font-weight:700;
-line-height:1.1;
-letter-spacing:2px;
-margin-bottom:10px;
-color:#FFF;
-text-transform:uppercase;
-}
-
-.subrayado-amarillo {
-border-bottom: 4px solid #FFC601;
-padding-bottom: 12px;
-display: inline-block;
-line-height: 0.9;
-}
-
-.hero-subtitle{
-font-size: clamp(12px, 1.5vw, 18px);
-line-height: 1.35;
-font-weight: 300;
-color: #CCCCCC;
-letter-spacing: 0.5px;
-margin-bottom: 20px;
-}
-
-.hero-btn{
-display:inline-flex;
-align-items:center;
-gap: 8px;
-padding: 8px 18px;
-background: transparent;
-border: 0.5px solid rgba(255,255,255,0.5);
-color: #FFFFFF;
-font-family: 'Roboto', sans-serif;
-font-size: 14px;
-font-weight: 400;
-letter-spacing: 2px;
-text-transform: uppercase;
-transition: all 0.3s ease;
-cursor: pointer;
-}
-
-.hero-btn:hover{
-background: #FFFFFF;
-color: #000000;
-border-color: #FFFFFF;
-}
-
-/* ================= PREMIOS ================= */
+.hero-banner{ position:relative; width:100%; background: #000; line-height: 0; }
+.hero-banner img{ width:100%; height:auto; display:block; filter: brightness(0.65); }
+.hero-overlay{ position:absolute; bottom: 10%; left: 60px; z-index:10; max-width: 50%; }
+.hero-title{ font-family:'Oswald',sans-serif; font-size: clamp(24px, 4vw, 54.6px); font-weight:700; line-height:1.1; letter-spacing:2px; margin-bottom:10px; color:#FFF; text-transform:uppercase; }
+.subrayado-amarillo { border-bottom: 4px solid #FFC601; padding-bottom: 12px; display: inline-block; line-height: 0.9; }
+.hero-subtitle{ font-size: clamp(12px, 1.5vw, 18px); line-height: 1.35; font-weight: 300; color: #CCCCCC; letter-spacing: 0.5px; margin-bottom: 20px; }
+.hero-btn{ display:inline-flex; align-items:center; gap: 8px; padding: 8px 18px; background: transparent; border: 0.5px solid rgba(255,255,255,0.5); color: #FFFFFF; font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; transition: all 0.3s ease; cursor: pointer; }
+</style>
+</head>
+<body>
+<header class="header">
+    <div class="logo"><a href="index.html">GARABATO CINE</a></div>
+    <div class="menu-toggle" id="menu-btn"><i class="fa-solid fa-bars"></i></div>
+    <div class="nav">
+        <a href="proyectos.html">PROYECTOS</a>
+        <a href="proximamente.html">PRÓXIMAMENTE</a>
+        <a href="nosotros.html">NOSOTROS</a>
+        <div class="lang"><span class="active">ES</span><span>|</span><span>EN</span></div>
+    </div>
+</header>
+<section class="hero-banner">
+    <img src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/lafrontera/lafrontera-banner.jpg" alt="Banner La Frontera" class="banner-pc">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/lafrontera-banner-celular.jpg?raw=true" alt="Banner La Frontera Móvil" class="banner-mobile">
+    <div class="hero-overlay">
+        <div class="hero-text-container">
+            <h1 class="hero-title"><span class="subrayado-amarillo">LA FR</span>ONTERA</h1>
+            <div class="hero-subtitle">Una película de David David</div>
+        </div>
+        <a class="hero-btn" href="https://www.youtube.com/watch?v=FeABm-LkkHk" target="_blank">
+        <i class="fa-solid fa-play"></i> TRÁILER</a>
+    </div>
+</section>
 
 .premios-section {
 width: 100%;
