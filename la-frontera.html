@@ -217,6 +217,31 @@ border-color: #FFFFFF;
         font-size: 10px !important; 
     }
 }
+    /* --- AJUSTES ESPECÍFICOS PARA MÓVIL --- */
+@media(max-width: 600px) {
+    .hero-overlay {
+        bottom: 20px !important;    /* Baja el bloque al fondo */
+        top: auto !important;       /* Desactiva el alineamiento superior */
+        left: 20px !important;      /* Lo pega un poco a la izquierda */
+        max-width: 90% !important;  /* Evita que tape toda la imagen */
+    }
+    
+    .hero-title { 
+        font-size: 22px !important; 
+        margin-bottom: 5px !important; /* Pega el título al subtítulo */
+    }
+    
+    .hero-subtitle { 
+        font-size: 10px !important; 
+        white-space: nowrap !important; 
+        margin-bottom: 10px !important; /* Espacio justo antes del botón */
+    }
+    
+    .hero-btn { 
+        padding: 4px 8px !important; 
+        font-size: 10px !important; 
+    }
+}
 /* ================= PREMIOS ================= */
 
 .premios-section {
