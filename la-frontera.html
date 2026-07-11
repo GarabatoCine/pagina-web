@@ -1149,17 +1149,20 @@ color:#FFC601;
 }
 </style>
     <style>
-   /* Estilos para el nuevo Banner de contacto */
+   /* Estilos para el banner que no se deforma */
     .banner-contacto-final {
         width: 100%;
         background-image: url('https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/franja-contacto-pc-tablet.png?raw=true');
-        background-size: cover;
-        background-position: center;
+        /* COVER hace que la imagen rellene sin deformarse */
+        background-size: cover; 
+        background-position: center center;
         background-repeat: no-repeat;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 80px 20px;
+        /* Ajusta este padding para definir el alto de la franja */
+        padding: 60px 20px; 
+        margin: 0 !important;
     }
     
     .contenido-banner {
@@ -1167,38 +1170,26 @@ color:#FFC601;
         color: white;
     }
 
-    .contenido-banner h2 {
-        font-family: 'Oswald', sans-serif;
-        font-size: 32px;
-        margin-bottom: 20px;
-    }
-
-    /* Mantenemos el botón igual */
-    .btn-contacto {
-        display: inline-block;
-        padding: 12px 30px;
-        background-color: #FFC601;
-        color: #000;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background 0.3s;
-    }
-    .btn-contacto:hover { background-color: #fff; }
-
-    /* Ajuste para móviles */
-    @media (max-width: 768px) {
+    /* Ajuste específico para evitar estiramientos en dispositivos */
+    @media (max-width: 1024px) {
         .banner-contacto-final {
-            background-image: url('https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/franja-contacto-movil.png?raw=true');
-            padding: 60px 20px;
+            background-size: cover;
         }
     }
 
+    @media (max-width: 768px) {
+        .banner-contacto-final {
+            background-image: url('https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/prensa/franja-contacto-movil.png?raw=true');
+            padding: 40px 10px;
+        }
+    }
     /* Estilos para el Footer (los que ya tenías) */
     .sitio-footer {
         background-color: #000000;
         padding: 40px 60px;
-        border-top: 1px solid #1a1a1a;
+        border-top: none; /* Quitamos el borde si quieres que se vea continuo */
         width: 100%;
+        margin-top: 0; /* Esto asegura que se pegue al banner */
     }
     .fila-tres-columnas {
         max-width: 1300px;
