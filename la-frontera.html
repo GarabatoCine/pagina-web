@@ -217,29 +217,30 @@ border-color: #FFFFFF;
         font-size: 10px !important; 
     }
 }
-    /* --- AJUSTES ESPECÍFICOS PARA MÓVIL --- */
+  /* --- AJUSTES ESPECÍFICOS PARA MÓVIL (MÁS BAJO Y COMPACTO) --- */
 @media(max-width: 600px) {
     .hero-overlay {
-        bottom: 20px !important;    /* Baja el bloque al fondo */
-        top: auto !important;       /* Desactiva el alineamiento superior */
-        left: 20px !important;      /* Lo pega un poco a la izquierda */
-        max-width: 90% !important;  /* Evita que tape toda la imagen */
+        bottom: 10px !important;    /* Lo bajamos al mínimo posible */
+        top: auto !important;
+        left: 15px !important;      /* Un poco más a la izquierda para centrar visualmente */
+        max-width: 85% !important;
     }
     
     .hero-title { 
-        font-size: 22px !important; 
-        margin-bottom: 5px !important; /* Pega el título al subtítulo */
+        font-size: 19px !important;    /* Bajamos el tamaño un punto más */
+        margin-bottom: 2px !important; /* Juntamos título y subtítulo */
+        letter-spacing: 0px !important; /* Quitamos espacio entre letras para que se junten */
+        line-height: 1 !important;     /* Compactamos aún más */
     }
     
     .hero-subtitle { 
-        font-size: 10px !important; 
-        white-space: nowrap !important; 
-        margin-bottom: 10px !important; /* Espacio justo antes del botón */
+        font-size: 9px !important;     /* Más pequeño para asegurar una línea */
+        margin-bottom: 8px !important; /* Espacio mínimo antes del botón */
     }
     
     .hero-btn { 
-        padding: 4px 8px !important; 
-        font-size: 10px !important; 
+        padding: 3px 6px !important; 
+        font-size: 9px !important; 
     }
 }
 /* ================= PREMIOS ================= */
