@@ -217,30 +217,36 @@ border-color: #FFFFFF;
         font-size: 10px !important; 
     }
 }
-  /* --- AJUSTES ESPECÍFICOS PARA MÓVIL (MÁS BAJO Y COMPACTO) --- */
+ /* --- CORRECCIÓN FINAL PARA MÓVIL --- */
 @media(max-width: 600px) {
     .hero-overlay {
-        bottom: -20px !important;    /* <--- ¡CÁMBIALO AQUÍ! */
+        bottom: 5px !important; /* Ajústalo a 0px o -10px si quieres bajar más */
         top: auto !important;
-        left: 15px !important;      /* Un poco más a la izquierda para centrar visualmente */
-        max-width: 85% !important;
+        left: 20px !important;
+        width: 90% !important;
+        max-width: 90% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-end !important;
     }
     
     .hero-title { 
-        font-size: 19px !important;    /* Bajamos el tamaño un punto más */
-        margin-bottom: 2px !important; /* Juntamos título y subtítulo */
-        letter-spacing: 0px !important; /* Quitamos espacio entre letras para que se junten */
-        line-height: 1 !important;     /* Compactamos aún más */
+        font-size: 18px !important; 
+        margin-bottom: 2px !important; 
+        letter-spacing: 0px !important; 
+        line-height: 1 !important; 
     }
     
     .hero-subtitle { 
-        font-size: 9px !important;     /* Más pequeño para asegurar una línea */
-        margin-bottom: 8px !important; /* Espacio mínimo antes del botón */
+        font-size: 9px !important; 
+        margin-bottom: 8px !important; 
+        white-space: nowrap !important;
     }
     
     .hero-btn { 
         padding: 3px 6px !important; 
         font-size: 9px !important; 
+        align-self: flex-start !important;
     }
 }
 /* ================= PREMIOS ================= */
