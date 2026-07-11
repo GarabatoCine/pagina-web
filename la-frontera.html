@@ -574,9 +574,10 @@ color: #000000;
 /* ================= FOOTER ================= */
 .sitio-footer { 
     background-color: #000000; 
-    padding: 10px 20px !important; 
+    padding: 15px 20px !important; 
     border-top: 1px solid #1a1a1a; 
     width: 100%; 
+    margin-top: 0 !important; 
 }
 .fila-tres-columnas { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
 .columna-izquierda { flex: 1; text-align: left; }
@@ -589,23 +590,20 @@ color: #000000;
 .columna-derecha a { color: #888888; text-decoration: underline; font-size: 12px; }
 .columna-derecha a:hover { color: #FFC601; }
 .columna-derecha div { font-size: 11px; color: #888888; }
+
 @media(max-width: 767px) {
-    .sitio-footer { padding: 20px 20px; }
+    .sitio-footer { padding: 15px 20px !important; }
     .fila-tres-columnas { flex-direction: column; gap: 15px; text-align: center; }
     .columna-izquierda { text-align: center; }
     .columna-izquierda h4 { margin-bottom: 2px; }
     .columna-derecha { text-align: center !important; }
-/* FUERZA EL PEGUE Y COMPRESIÓN DEL FOOTER */
-.sitio-footer {
-    padding: 10px 20px !important;
-    margin-top: 0 !important;
 }
 
-/* Elimina cualquier espacio generado por el bloque de 992px */
 @media(max-width:992px){
-    .sitio-footer { 
-        padding: 10px 20px !important; 
-    }
+    .sitio-footer { padding: 20px 25px !important; }
+    .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
+    .columna-derecha { text-align: center; }
+    .columna-derecha p { text-align: center; }
 }
 /* ================= RESPONSIVE GLOBALES ================= */
 
