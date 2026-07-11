@@ -313,11 +313,15 @@ color: #000;
 .sitio-footer {
     background-color: #000000;
     color: #ffffff;
-    /* Cambiamos el padding a 80px arriba/abajo y 100px a los lados para darle aire */
+    /* Forzamos una altura mínima de 200px para que sí o sí se vea grande */
+    min-height: 200px; 
     padding: 80px 100px !important; 
     border-top: 1px solid #1a1a1a;
     width: 100%;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .fila-tres-columnas {
