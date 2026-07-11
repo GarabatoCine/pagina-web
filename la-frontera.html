@@ -1125,15 +1125,9 @@ color:#FFC601;
 
         /* AJUSTE TABLET (601px a 1024px) */
         @media (min-width: 601px) and (max-width: 1024px) {
-            .tablet-adjust { 
-                font-size: 16px !important; 
-                margin-top: 50px !important; /* Despegar de imágenes */
-                margin-bottom: 10px !important;
-            }
-            .btn-tablet-adjust { 
-        font-size: 10px !important; 
-        padding: 6px 15px !important;
-            }
+            .pegado-tablet { bottom: 1% !important; } /* Esto lo pega al borde inferior */
+            .tablet-adjust { font-size: 15px !important; margin-bottom: 5px !important; }
+            .btn-tablet-adjust { font-size: 10px !important; padding: 6px 15px !important; }
         }
     </style>
 
@@ -1149,8 +1143,8 @@ color:#FFC601;
         <a href="https://www.iffigoa.org/public/images/thePeacock/314193_1731667543.pdf" target="_blank" style="position:absolute; left:49.5%; top:72%; width:10.5%; height:18%; display:block;"></a>
         <a href="https://www.cinematropical.com/cinema-tropical/the-border-and-king-kong-in-asuncion-top-the-gramado-film-festival" target="_blank" style="position:absolute; left:75%; top:72%; width:10.5%; height:18%; display:block;"></a>
         
-        <!-- BANNER CONTACTO PC -->
-        <div style="position: absolute; bottom: 5%; left: 0; width: 100%; text-align: center; z-index: 10; pointer-events: none;">
+        <!-- BANNER CONTACTO PC / TABLET -->
+        <div class="pegado-tablet" style="position: absolute; bottom: 5%; left: 0; width: 100%; text-align: center; z-index: 10; pointer-events: none;">
             <h2 class="tablet-adjust" style="color: #000000; font-family: 'Roboto', sans-serif; font-size: 20px; font-weight: 300; margin-bottom: 10px; pointer-events: auto;">¿Te interesa conocer más sobre La Frontera?</h2>
             <a href="contacto.html" class="btn-contacto-amarillo btn-tablet-adjust" style="display: inline-block; padding: 12px 30px; text-decoration: none; font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; pointer-events: auto;">CONTÁCTANOS</a>
         </div>
