@@ -199,7 +199,24 @@ background: #FFFFFF;
 color: #000000;
 border-color: #FFFFFF;
 }
-
+/* --- AJUSTE MÓVIL --- */
+@media(max-width: 600px) {
+    .hero-overlay {
+        bottom: 10px !important;
+        top: auto !important;
+        left: 20px !important;
+        max-width: 90% !important;
+    }
+    .hero-title { font-size: 20px !important; }
+    .hero-subtitle { 
+        font-size: 10px !important; 
+        white-space: nowrap !important; 
+    }
+    .hero-btn { 
+        padding: 4px 8px !important; 
+        font-size: 10px !important; 
+    }
+}
 /* ================= PREMIOS ================= */
 
 .premios-section {
@@ -894,7 +911,7 @@ color: #000000;
             <div class="hero-subtitle">Una película de David David</div>
         </div>
         <a class="hero-btn" href="https://www.youtube.com/watch?v=FeABm-LkkHk" target="_blank">
-        <i class="fa-solid fa-play"></i> Ver Tráiler</a>
+<i class="fa-solid fa-play"></i> TRÁILER</a>
     </div>
 </section>
 
