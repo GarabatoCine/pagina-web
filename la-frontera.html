@@ -1135,7 +1135,7 @@ color:#FFC601;
         <a href="https://www.cinematropical.com/cinema-tropical/the-border-and-king-kong-in-asuncion-top-the-gramado-film-festival" target="_blank" style="position:absolute; left:50%; top:85%; width:30%; height:12%; display:block;"></a>    </div>
 
     <style>
-      </style>
+     </style>
 
 <section class="banner-contacto-final">
     <div class="banner-contacto-overlay">
@@ -1164,14 +1164,13 @@ color:#FFC601;
 </footer>
 
 <style>
-    /* BANNER: Tamaño original, centrado */
+    /* BANNER: Tamaño original sin estirar */
     .banner-contacto-final {
         width: 100%;
         background-image: url('https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/lafrontera/banner-contcto.png?raw=true');
-        background-size: auto;
-        background-repeat: no-repeat;
+        background-size: cover;
         background-position: center;
-        height: 350px;
+        height: 350px; 
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1180,63 +1179,46 @@ color:#FFC601;
     }
     .banner-contacto-overlay { text-align: center; }
     .banner-contacto-overlay p {
-        font-family: 'Oswald', sans-serif;
-        font-size: 24px;
+        font-family: 'Avenir Next', sans-serif;
+        font-size: 22px;
         color: #fff;
         margin-bottom: 20px;
-        text-transform: uppercase;
+        text-transform: none; /* Quitamos las mayúsculas forzadas */
     }
 
-    /* BOTÓN: Compacto y efecto amarillo */
+    /* BOTÓN: Estilo original compacto */
     .cta-btn {
         display: inline-block;
-        padding: 8px 25px;
+        padding: 10px 30px;
         border: 1px solid #FFC601;
         color: #FFC601;
-        font-family: 'Oswald', sans-serif;
+        font-family: 'Avenir Next', sans-serif;
         font-size: 12px;
         letter-spacing: 2px;
-        text-transform: uppercase;
         text-decoration: none;
         transition: 0.3s;
     }
-    .cta-btn:hover {
-        background-color: #FFC601;
-        color: #000;
-    }
+    .cta-btn:hover { background-color: #FFC601; color: #000; }
 
-    /* FOOTER: Iconos perfectamente centrados */
+    /* FOOTER: Idéntico al modelo de Próximamente */
     .sitio-footer { background: #000; padding: 40px 5%; font-family: 'Avenir Next', sans-serif; }
-    .fila-footer { 
-        display: flex; 
-        justify-content: space-between; 
-        align-items: center; 
-        max-width: 1200px; 
-        margin: auto; 
-        position: relative;
-    }
+    .fila-footer { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; }
     
-    /* Columna Izquierda */
-    .col-izq { text-align: left; flex: 1; }
-    .col-izq h4 { color: #fff; font-size: 13px; margin: 0 0 5px 0; letter-spacing: 2px; }
+    .col-izq { text-align: left; }
+    .col-izq h4 { color: #fff; font-size: 14px; margin: 0 0 5px 0; letter-spacing: 1px; }
     .col-izq p { color: #888; font-size: 11px; margin: 0; }
     
-    /* Columna Central (Iconos) - Ahora ocupa el centro exacto */
     .col-cen { text-align: center; flex: 1; }
     .col-cen a { color: #fff; margin: 0 10px; font-size: 18px; }
     
-    /* Columna Derecha */
-    .col-der { text-align: right; font-size: 10px; color: #888; flex: 1; }
+    .col-der { text-align: right; font-size: 10px; color: #888; }
     .col-der a { color: #888; text-decoration: underline; }
-    .col-der p { margin: 2px 0; }
+    .col-der p { margin: 2px 0; color: #888; }
 
-    /* Adaptación móvil */
     @media (max-width: 768px) {
         .fila-footer { flex-direction: column; gap: 20px; text-align: center; }
-        .col-izq, .col-cen, .col-der { text-align: center; flex: none; width: 100%; }
+        .col-der { text-align: center; }
     }
 </style>
-}
-
 
     
