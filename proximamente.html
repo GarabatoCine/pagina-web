@@ -270,17 +270,18 @@
             align-items: flex-start; 
         }
 
-       .cajon-credito-individual {
+       /* CORRECCIÓN FINAL: CRÉDITOS Y LOGO */
+        .cajon-credito-individual {
             border: 1px solid #222;
-            padding: 25px; /* Margen uniforme de 25px en todos los lados */
+            padding: 25px 15px;
             background: #0F0F0F;
             display: flex;
             flex-direction: column;
-            align-items: center; 
+            align-items: center;
             justify-content: center;
             text-align: center;
             width: 100%;
-            box-sizing: border-box; /* Crucial para que el padding no sume ancho extra */
+            box-sizing: border-box;
         }
 
         .meta-label {
@@ -289,39 +290,39 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 12px;
-            width: 100%;
-            text-align: center;
+            white-space: nowrap;
         }
 
-        .cajon-credito-individual p {
-            font-size: 13px;
+        .nombre-protagonista {
+            font-size: 12px;
             color: #E0E0E0;
-            line-height: 1.4;
-            width: 100%;
-            text-align: center;
-            white-space: normal; /* Permitir que el texto se ajuste al ancho */
-            word-wrap: break-word; /* Evitar que se salga si una palabra es muy larga */
+            display: block;
+            white-space: nowrap;
         }
 
+        .parrafo-pajaros {
+            color: #888888;
+            font-style: italic;
+            font-size: 12px;
+            white-space: nowrap;
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* LOGO: TAMAÑO FIJO Y CONTROLADO */
         .logo-telepacific {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
+            height: 38px; /* Ajustado al alto del contenedor */
         }
 
         .logo-telepacific img {
             height: 38px; 
             width: auto;  
-            max-width: 100%; /* Evitar que el logo se salga del cajón */
-            object-fit: contain;
-        }
-        
-        .parrafo-pajaros {
-            color: #888888;
-            font-style: italic;
             display: block;
-            margin-top: 5px; /* Espacio para separar del nombre principal */
+            object-fit: contain;
         }
 
         /* TARJETAS DE PROYECTOS */
