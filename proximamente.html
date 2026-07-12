@@ -262,12 +262,13 @@
 
         /* CONTENEDOR DE CRÉDITOS */
         .contenedor-creditos-doble {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            max-width: 520px;
-            width: 100%;
-        }
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 520px;
+    width: 100%;
+    align-items: start; /* <--- ESTO ES LO QUE OBLIGA A QUE AMBOS EMPIECEN ARRIBA */
+}
 
         .cajon-credito-individual {
             border: 1px solid #222;
