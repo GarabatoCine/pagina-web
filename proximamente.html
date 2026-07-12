@@ -61,11 +61,11 @@
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
+            font-weight: 500;
         }
 
         .nav a {
             color: white;
-            font-weight: 500;
             transition: color 0.3s;
         }
 
@@ -142,7 +142,7 @@
 
         .banner-text-overlay p {
             font-size: clamp(14px, 1.5vw, 18px);
-            line-height: 1.35; 
+            line-height: 1.35;
             font-weight: 300;
             color: #CCCCCC;
             letter-spacing: 0.5px;
@@ -307,14 +307,14 @@
         }
 
         .logo-telepacific img {
-            height: 38px; 
-            width: auto;  
+            height: 38px;
+            width: auto;
             display: block;
             flex-shrink: 0;
             max-width: 100%;
             object-fit: contain;
         }
-        
+
         .parrafo-pajaros {
             color: #888888;
             font-style: italic;
@@ -366,11 +366,11 @@
             margin: 5px 0 5px;
             text-transform: lowercase;
         }
-        
+
         .card .card-subtitle::first-letter {
             text-transform: uppercase;
         }
-        
+
         .card p.desc {
             font-size: 15px;
             line-height: 1.6;
@@ -399,7 +399,7 @@
         }
 
         .laurel-item img {
-            width: 35px; 
+            width: 35px;
             height: auto;
             margin-bottom: 0;
             flex-shrink: 0;
@@ -553,19 +553,20 @@
             flex: 1;
             line-height: 1.6;
         }
-        
+
         .linea-politicas { font-size: 12px; color: #888888; }
         .linea-politicas a { color: #888888; text-decoration: underline; }
         .linea-politicas a:hover { color: #FFC601; }
         .linea-derechos { font-size: 11px; color: #888888; }
         .linea-copyright { font-size: 11px; color: #888888; }
 
+        /* RESPONSIVE */
         @media(max-width: 1024px) {
             .header { padding: 15px 40px; }
             .brand-logo { font-size: 18px; }
             .menu-toggle { display: block; margin-left: auto; }
             .nav {
-                display: none; 
+                display: none;
                 flex-direction: column;
                 position: absolute;
                 top: 60px;
@@ -581,12 +582,19 @@
             .nav.open { display: flex; }
             .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
         }
-/* ... (aquí sigue todo tu código anterior) ... */
 
-        .linea-copyright { font-size: 11px; color: #888888; }
-
-        /* PEGA AQUÍ EL CÓDIGO NUEVO PARA QUE QUEDE ORDENADO */
         @media(max-width: 767px) {
+            .header { padding: 15px 25px; }
+            .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
+            .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
+            .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
+            .columna-derecha { text-align: center !important; }
+
+            .brand-logo { display: none; }
+            .banner-text-overlay { left: 20px; bottom: 20px; }
+            .banner-text-overlay h1 { font-size: 20px !important; letter-spacing: 1px !important; margin-bottom: 0; }
+            .banner-text-overlay p { display: none; }
+
             .dev-box {
                 flex-direction: column;
                 align-items: flex-start;
@@ -597,31 +605,8 @@
                 height: 50px;
                 margin-bottom: 15px;
             }
-            .dev-inner-content {
-                width: 100%;
-            }
-            .dev-inner-content h3 {
-                font-size: 22px;
-                margin-bottom: 5px;
-            }
-        }
-        /* FIN DEL CÓDIGO NUEVO */
-
-        @media(max-width: 1024px) {
-            .header { padding: 15px 40px; }
-            /* ... (el resto de tu media query original) ... */
-        @media(max-width: 767px) {
-            .header { padding: 15px 25px; }
-            .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
-            .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
-            .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
-            .columna-derecha { text-align: center !important; }
-            
-            /* Ajustes móviles */
-            .brand-logo { display: none; }
-            .banner-text-overlay { left: 20px; bottom: 20px; }
-            .banner-text-overlay h1 { font-size: 20px !important; letter-spacing: 1px !important; margin-bottom: 0; }
-            .banner-text-overlay p { display: none; }
+            .dev-inner-content { width: 100%; }
+            .dev-inner-content h3 { font-size: 22px; margin-bottom: 5px; }
         }
     </style>
 </head>
