@@ -688,34 +688,10 @@ color: #000000;
 }
 
 @media(max-width: 600px) {
-    /* Ajuste para el texto en móvil */
-    .hero-overlay { 
-        left: 20px !important; 
-        right: 20px !important; 
-        bottom: 20px !important; /* Si aún quieres bajarlo más, usa valores negativos como -20px */
-        width: auto !important; 
-        display: block !important; /* Esto mantiene tus textos uno debajo del otro */
-        max-width: 90% !important; 
-    }
-    .hero-title { 
-        font-size: 19px !important; 
-        margin-bottom: 2px !important; 
-        line-height: 1 !important; 
-    }
-    .hero-subtitle { 
-        font-size: 9px !important; 
-        margin-bottom: 8px !important; 
-        white-space: nowrap !important; 
-    }
-    .hero-btn { 
-        padding: 3px 6px !important; 
-        font-size: 9px !important; 
-    }
-    .fotogramas-carousel-nuevo .fotograma-item { 
-        flex: 0 0 70% !important; 
-        padding: 0 !important; 
-        margin: 0 !important; 
-    }
+    /* Ajuste para el texto en móvil casi pegado al borde */
+    .hero-overlay { left: 10px !important; right: 10px !important; bottom: 10px !important; width: calc(100% - 20px) !important; display: flex !important; justify-content: space-between !important; align-items: flex-end !important; max-width: 100% !important; }
+    .hero-title { font-size: 20px !important; }
+    .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 70% !important; padding: 0 !important; margin: 0 !important; }
 }
 
 /* ===== TABLET ===== */
