@@ -289,6 +289,7 @@
             margin-bottom: 12px;
             width: 100%;
             text-align: center;
+            white-space: nowrap; /* Mantiene el texto en una línea */
         }
 
         .cajon-credito-individual p {
@@ -297,6 +298,7 @@
             line-height: 1.4;
             width: 100%;
             text-align: center;
+            white-space: nowrap; /* Mantiene el texto en una línea */
         }
 
         .logo-telepacific {
@@ -318,6 +320,8 @@
         .parrafo-pajaros {
             color: #888888;
             font-style: italic;
+            display: block; /* Asegura el bloque debajo */
+            white-space: nowrap;
         }
 
         /* TARJETAS DE PROYECTOS */
@@ -594,6 +598,11 @@
             .banner-text-overlay { left: 20px; bottom: 20px; }
             .banner-text-overlay h1 { font-size: 20px !important; letter-spacing: 1px !important; margin-bottom: 0; }
             .banner-text-overlay p { display: none; }
+
+            /* Ajustes específicos para evitar saltos en créditos */
+            .meta-label { font-size: 9px !important; }
+            .cajon-credito-individual p { font-size: 11px !important; }
+            .parrafo-pajaros { font-size: 10px !important; display: inline-block; margin-left: 5px; }
         }
     </style>
 </head>
@@ -646,7 +655,7 @@
                     <div class="contenedor-creditos-doble">
                         <div class="cajon-credito-individual">
                             <div class="meta-label">Protagonizada por:</div>
-                            <p>Carmiña Martínez <br><span class="parrafo-pajaros">(Pájaros de verano)</span></p>
+                            <p>Carmiña Martínez <span class="parrafo-pajaros">(Pájaros de verano)</span></p>
                         </div>
                         <div class="cajon-credito-individual">
                             <div class="meta-label">Coproducida con:</div>
