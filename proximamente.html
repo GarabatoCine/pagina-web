@@ -272,15 +272,15 @@
 
         .cajon-credito-individual {
             border: 1px solid #222;
-            padding: 25px 20px; /* Margen simétrico para que el contenido respire igual */
+            padding: 25px; /* Margen uniforme de 25px en todos los lados */
             background: #0F0F0F;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center; /* Centrado absoluto */
+            align-items: center; 
+            justify-content: center;
             text-align: center;
-            min-width: 0;
             width: 100%;
+            box-sizing: border-box; /* Crucial para que el padding no sume ancho extra */
         }
 
         .meta-label {
@@ -291,7 +291,6 @@
             margin-bottom: 12px;
             width: 100%;
             text-align: center;
-            white-space: nowrap; 
         }
 
         .cajon-credito-individual p {
@@ -299,8 +298,9 @@
             color: #E0E0E0;
             line-height: 1.4;
             width: 100%;
-            text-align: center; /* Asegura que el texto esté centrado */
-            white-space: nowrap; 
+            text-align: center;
+            white-space: normal; /* Permitir que el texto se ajuste al ancho */
+            word-wrap: break-word; /* Evitar que se salga si una palabra es muy larga */
         }
 
         .logo-telepacific {
@@ -313,17 +313,15 @@
         .logo-telepacific img {
             height: 38px; 
             width: auto;  
-            display: block;
-            flex-shrink: 0;
-            max-width: 100%;
+            max-width: 100%; /* Evitar que el logo se salga del cajón */
             object-fit: contain;
         }
         
         .parrafo-pajaros {
             color: #888888;
             font-style: italic;
-            white-space: nowrap; 
-            display: block; /* Asegura que se comporte como bloque centrado */
+            display: block;
+            margin-top: 5px; /* Espacio para separar del nombre principal */
         }
 
         /* TARJETAS DE PROYECTOS */
