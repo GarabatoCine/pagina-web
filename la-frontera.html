@@ -405,21 +405,35 @@ text-align: left;
     white-space: pre;
 }
 
+/* ================= FOTOGRAMAS (CONFIGURACIÓN PC/MÓVIL) ================= */
 .fotogramas-carousel-nuevo {
     display: flex;
     gap: 15px;
     overflow-x: auto;
     flex: 1;
-    padding-bottom: 0px;
-    scrollbar-width: none;
+    padding-bottom: 25px; /* Espacio para que la barra no toque las fotos */
+    scrollbar-width: thin; /* Barra visible en navegadores modernos */
 }
 
+/* Estilo para que la barra sea visible en Chrome/Safari */
 .fotogramas-carousel-nuevo::-webkit-scrollbar {
-    display: none;
+    height: 8px;
+    display: block !important;
+}
+.fotogramas-carousel-nuevo::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
 }
 
+/* Tamaño de las fotos */
 .fotogramas-carousel-nuevo .fotograma-item { flex: 0 0 350px; }
 
+/* Ocultar el texto "Desliza para ver más" solo en PC */
+@media(min-width: 1025px) {
+    .scroll-indicator-nuevo {
+        display: none !important;
+    }
+}
 @media(max-width: 1024px) {
     .galeria-wrapper-nueva { 
         flex-direction: row !important; 
