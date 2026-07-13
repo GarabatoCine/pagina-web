@@ -1,1 +1,637 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Garabato Cine</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+html, body{
+width:100%;
+overflow-x:hidden;
+scroll-behavior: smooth;
+}
+body{
+font-family:'Roboto', sans-serif;
+background:#fff;
+color:#999;
+padding-top:74px;
+}
+/* ================= HEADER ================= */
+.header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+z-index:1000;
+border-bottom:1px solid #eee;
+text-transform:uppercase;
+}
+.logo a, .nav a, .lang span, .lang a{
+color:#000;
+}
+.logo a{
+font-family: 'Oswald', sans-serif;
+font-size:24px;
+font-weight:500;
+letter-spacing:2px;
+text-decoration:none;
+}
+.nav{
+display:flex;
+align-items:center;
+gap:26px;
+font-size:14px;
+}
+.nav a{
+text-decoration:none;
+font-weight:500;
+opacity: 0.85;
+transition: color 0.3s, opacity 0.3s;
+}
+
+.nav a.active-page {
+opacity: 0.45;
+}
+
+.nav a:hover {
+opacity: 1;
+}
+
+.menu-toggle{
+display: none;
+flex-direction:column;
+gap:6px;
+cursor:pointer;
+width: 28px;
+background: none;
+border: none;
+padding: 4px 0;
+z-index: 3000;
+}
+.menu-toggle span{
+width:100%;
+height:2px;
+background:#000;
+display:block;
+}
+/* LANG SWITCH */
+.lang {
+display:flex;
+align-items:center;
+gap:6px;
+font-size:13px;
+}
+.lang .active{
+opacity:0.45;
+}
+.lang a{
+opacity:1;
+text-decoration:none;
+}
+.lang a:hover{
+opacity:0.7;
+}
+
+/* ================= MENÚ MOBILE ================= */
+.nav-mobile {
+position:fixed;
+top:75px;
+right:25px;
+width:220px;
+background:#fff;
+border:1px solid #eee;
+padding:20px;
+flex-direction:column;
+align-items:flex-start;
+gap:16px;
+border-radius:10px;
+box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+z-index: 1500;
+display: none;
+font-family: 'Roboto', sans-serif;
+text-transform: uppercase;
+}
+
+.nav-mobile.active{
+display: flex !important;
+}
+
+.nav-mobile a {
+color: #000 !important;
+text-decoration:none;
+font-size:14px;
+font-weight:500;
+opacity:0.85;
+}
+
+.nav-mobile a.active-page {
+opacity: 0.45;
+}
+
+.lang-mobile {
+display: flex;
+gap: 6px;
+border-top: 1px solid rgba(0,0,0,0.15);
+padding-top: 8px;
+font-size:14px;
+}
+
+.lang-mobile a{
+color:#000 !important;
+text-decoration:none;
+opacity:0.85;
+}
+
+.lang-mobile .active{
+opacity:0.45;
+}
+
+/* ================= CONTENIDO ================= */
+.page-content{
+width:100%;
+}
+.intro-text{
+max-width:1100px;
+margin:70px auto 50px auto;
+padding:0 40px; 
+text-align:center;
+font-family: 'Roboto', sans-serif;
+font-size: clamp(16px, 1.3vw, 20px); 
+font-weight: 300;
+color: #000000;
+opacity: 0.9;
+line-height: 1.5;
+letter-spacing: 0.5px;
+}
+.banner {
+width: 100%;
+margin: 0;
+padding: 0;
+}
+.banner img{
+width:100%;
+height:auto;
+display:block;
+}
+/* ================= FESTIVALES ================= */
+.festivals{
+max-width:1400px;
+margin:70px auto 20px auto;
+padding:0 40px;
+}
+.festival-row{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:40px;
+align-items:center;
+margin-bottom:55px;
+}
+.festival-row img{
+width:100%;
+max-height:60px;
+object-fit:contain;
+display:block;
+margin:auto;
+}
+/* ================= PERSONAS ================= */
+.people{
+max-width:1100px;
+margin:80px auto;
+padding:0 40px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:60px;
+}
+.person{
+text-align:center;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.person img{
+width:100%;
+max-width:420px;
+height:420px;
+object-fit:cover;
+margin:0 auto 20px;
+display:block;
+}
+.person h3{
+font-family: 'Oswald', sans-serif;
+font-size: 24px;
+font-weight: 500;
+letter-spacing: 1.5px;
+margin-bottom: 15px;
+color: #000;
+text-transform: uppercase;
+}
+.person p {
+font-family: 'Roboto', sans-serif;
+font-size: clamp(13px, 1.4vw, 17px);
+line-height: 1.4;
+text-align: justify; 
+max-width: 420px; 
+margin: 0 auto;
+color: #000000;
+opacity: 0.9;
+font-weight: 300;
+letter-spacing: 0.5px;
+}
+.person p i {
+font-family: 'Playfair Display', serif; 
+}
+
+/* ================= GALLERY (Masonry Automatizado) ================= */
+.gallery {
+max-width: 1400px;
+margin: 60px auto;
+padding: 0 40px;
+columns: 3;     /* 3 Columnas automáticas para monitor */
+column-gap: 20px;
+display: block;   /* Cambiado a block para activar las columnas CSS nativas */
+}
+
+.gallery img {
+width: 100%;
+height: auto;
+display: block;
+object-fit: contain;
+break-inside: avoid; /* Evita que una foto se parta a la mitad entre columnas */
+margin-bottom: 20px; /* Espacio vertical entre fotos */
+}
+
+/* ================= CTA BANNER ================= */
+.cta-banner {
+border-top: 1px solid #222;
+padding: 45px 40px;
+text-align: center;
+background: #000;
+color: #fff;
+margin-top: 60px;
+}
+
+.cta-banner p {
+font-size: 16px;
+margin-bottom: 20px;
+font-weight: 300;
+letter-spacing: 0.5px;
+font-family:'Roboto', sans-serif;
+}
+
+.cta-btn {
+display: inline-block;
+padding: 12px 35px;
+border: 1px solid #FFC601;
+color: #FFC601;
+font-size: 13px;
+letter-spacing: 2px;
+text-transform: uppercase;
+transition: 0.3s;
+font-family:'Roboto', sans-serif;
+text-decoration: none;
+}
+
+.cta-btn:hover {
+background: #FFC601;
+color: #000;
+}
+
+/* ================= FOOTER BASE ================= */
+.sitio-footer {
+background-color: #000000;
+color: #ffffff;
+padding: 40px 60px;
+border-top: 1px solid #1a1a1a;
+width: 100%;
+font-family: 'Roboto', sans-serif;
+}
+
+.fila-tres-columnas {
+max-width: 1300px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.columna-izquierda {
+text-align: left;
+flex: 1;
+}
+
+.columna-izquierda h4 {
+font-family: 'Oswald', sans-serif;
+font-size: 22px;
+font-weight: 500;
+letter-spacing: 2px;
+margin-bottom: 6px;
+text-transform: uppercase;
+}
+
+.columna-izquierda p {
+font-size: clamp(10px, 1.2vw, 13px);
+color: #888888;
+white-space: nowrap;
+}
+
+.columna-central {
+display: flex;
+justify-content: center;
+gap: 25px;
+flex: 1;
+}
+
+.columna-central a {
+color: #ffffff;
+font-size: 18px;
+transition: color 0.3s ease;
+}
+
+.columna-central a:hover {
+color: #FFC601;
+}
+
+.columna-derecha {
+text-align: right;
+flex: 1;
+}
+
+.columna-derecha p {
+font-size: 13px;
+color: #888888;
+line-height: 1.6;
+}
+
+.texto-chico {
+font-size: 11.5px !important;
+color: #888888;
+}
+
+.footer-link-normal {
+display: inline-block;
+font-size: 13px;
+color: inherit; 
+text-decoration: underline; 
+transition: color 0.3s ease;
+}
+
+.footer-link-normal:hover {
+color: #FFC601;
+}
+
+/* ================= MOBILE / TABLET ================= */
+@media(max-width:1024px){
+body{padding-top:86px;}
+.header{padding:16px 22px;}
+.menu-toggle { display: flex; flex-direction:column; }
+.nav { display: none; }
+.nav-mobile { top: 86px; right: 22px; }
+
+.intro-text{ 
+    font-size: 20px;              
+    padding: 0 20px;             
+    margin: 90px auto 70px auto; 
+    line-height: 1.5;
+}
+
+.festival-row{ grid-template-columns:repeat(3,1fr); gap:25px; }
+.people{ grid-template-columns:1fr; gap: 40px; }
+.person img { 
+    max-width: 420px; /* Asegura el tamaño base de la foto */
+    width: 100%;
+    height: auto; 
+    object-fit: cover; 
+    margin: 0 auto 20px; 
+}
+/* AJUSTE TABLET: El texto sigue el ancho máximo de la imagen (420px) */
+.person p { 
+    text-align: justify; 
+    max-width: 420px; 
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Ajuste de galería para móviles y tablets */
+.gallery { 
+    columns: 2;         /* Cambia automáticamente a 2 columnas perfectas */
+    column-gap: 15px; 
+    padding: 0 20px; 
+}
+.gallery img { 
+    margin-bottom: 15px; 
+}
+
+.sitio-footer { padding: 40px 40px; }
+.cta-banner { padding: 40px 25px; }
+.cta-banner p { font-size: 15px; }
+}
+
+@media(max-width:768px){
+body{padding-top:82px;}
+.nav-mobile {top: 82px; right: 22px;} 
+}
+
+@media(max-width: 767px) {
+/* AJUSTE MOBILE: Foto se expande al 100% del contenedor y texto se alinea */
+.person img { 
+    max-width: 100%; 
+    height: auto; 
+}
+.person p { 
+    max-width: 100%; 
+}
+.fila-tres-columnas {
+flex-direction: column;
+gap: 25px;
+text-align: center;
+}
+.columna-izquierda, .columna-derecha {
+text-align: center;
+}
+.columna-derecha {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 5px;
+}
+.columna-derecha .link-linea-1 { order: 1; }
+.columna-derecha .texto-linea-2 { order: 2; }
+.columna-derecha .texto-linea-3 { order: 3; }
+}
+</style>
+</head>
+<body>
+<div class="header">
+<div class="logo">
+<a href="index.html">GARABATO CINE</a>
+</div>
+
+<div class="nav">
+    <a href="projects-en.html" class="active-page">PROJECTS</a>
+    <a href="coming-soon-en.html">COMING SOON</a>
+    <a href="about-us-en.html" class="active-page">ABOUT US</a>
+
+    <div class="lang">
+        <a href="nosotros.html">ES</a>
+        <span>|</span>
+        <span class="active">EN</span>
+
+</div>
+</div>
+
+<button class="menu-toggle" id="hambBtn" aria-label="Abrir menú">
+<span></span><span></span><span></span>
+</button>
+
+<div class="nav-mobile" id="mobileMenu">
+<a href="projects-en.html" class="active-page">PROJECTS</a>
+<a href="coming-soon-en.html">COMING SOON</a>
+<a href="about-us-en.html" class="active-page">ABOUT US</a>
+
+<div class="lang-mobile">
+ <a href="nosotros.html">ES</a>
+        <span>|</span>
+        <span class="active">EN</span>
+</div>
+</div>
+
+</div>
+<div class="page-content">
+<div class="intro-text">
+We create cinema from the Colombian Caribbean, where drama, fiction, and surrealism intersect to craft profoundly human stories with a unique identity and a global vocation.
+</div>
+<div class="banner">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/banner-afiche.jpg?raw=true" alt="Banner Afiche Garabato Cine">
+</div>
+<div class="festivals">
+
+<div class="festival-row">
+<img style="max-height:52px !important;" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ficci.png?raw=true" alt="Ficci">
+<img style="max-height:99px !important;" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/ciff.png?raw=true" alt="Ciff">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/seriesmania.png?raw=true" alt="Series Mania">
+<img style="max-height:62px !important;" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/macondo.png?raw=true" alt="Macondo">
+<img style="max-height:48px !important;" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/sanfic.png?raw=true" alt="Sanfic">
+<img style="max-height:48px !important;" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/goa.png?raw=true" alt="Goa">
+</div>
+  
+<div class="festival-row">
+<img style="max-height:70px !important;" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/gramado.png?raw=true" alt="Gramado">
+<img style="max-height:99px !important;" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/san-sebastian.png?raw=true" alt="San Sebastian">
+<img style="max-height:40px !important;" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/malaga.png?raw=true" alt="Malaga">
+<img style="max-height:52px !important;" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/slamdance.png?raw=true" alt="Slamdance">
+<img style="max-height:82px !important;" src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/bogoshorts.png?raw=true" alt="Bogoshorts">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/festivales/fantasporto.png?raw=true" alt="Fantasporto">
+</div>
+
+</div>
+<div class="people">
+<div class="person">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/daviddavid.jpg?raw=true" alt="David David">
+<h3>DAVID DAVID</h3>
+<p>A filmmaker from Barranquilla and founder of Garabato Cine. His work navigates between dramatic fiction and touches of surrealism, framed within the vibrant context of the Colombian Caribbean. His series,  <i>Colorful Life</i>, is the only Colombian production ever awarded at Series Mania, where it received the Jury Special Prize. His feature film debut,  <i>The Border</i>, has been recognized at top-tier film festivals. A six-time winner of the Colombian Film Development Fund (FDC), his cinema is defined by a clear auteur voice, deeply rooted in local identity with a global reach.</p>
+</div>
+<div class="person">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/carodavid.jpg?raw=true" alt="Carolina David">
+<h3>CAROLINA DAVID</h3>
+<p>Spearheading project development, resource management, and institutional growth, she applies her background as an Industrial Engineer and organizational consultant to her role as Executive Producer at Garabato Cine. Her work bridges strategic and creative vision, having been instrumental in consolidating the company’s presence in international audiovisual forums and expanding the development and circulation of its projects.</p>
+</div>
+</div>
+
+<div class="gallery">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera8.jpg?raw=true" alt="La Frontera 8">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/macondo1.jpg?raw=true" alt="Macondo 1">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera9.jpg?raw=true" alt="La Frontera 9">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/madresemilla3.jpg?raw=true" alt="Madresemilla 3">
+ <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/seriesmania3.jpg?raw=true" alt="Series Mania 3">
+     <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera7.jpg?raw=true" alt="La Frontera 7">
+       <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/marimonda2.jpg?raw=true" alt="Marimonda 2">
+   <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/profeleda3.jpg?raw=true" alt="Profe Leda 3">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/cairo4.jpg?raw=true" alt="Madresemilla 4">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera5.jpg?raw=true" alt="La Frontera 5">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/profeleda4.jpg?raw=true" alt="Profe Leda 4">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/actocivico3.jpg?raw=true" alt="Acto Civico 3">
+   <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale1.jpg?raw=true" alt="Berlinale 1">
+   <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/profeleda2.jpg?raw=true" alt="Profe Leda 2">
+       <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera4.jpg?raw=true" alt="La Frontera 4">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera2.jpg?raw=true" alt="La Frontera 2">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/vidadecolores1.jpg?raw=true" alt="Vida de Colores 1">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/actocivico1.jpg?raw=true" alt="Acto Civico 1">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale2.jpg?raw=true" alt="Berlinale 2">
+        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/madresemilla1.jpg?raw=true" alt="Madresemilla 1">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/berlinale3.jpg?raw=true" alt="Berlinale 3">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/actocivico2.jpg?raw=true" alt="Acto Civico 2">
+    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/nosotros/lafrontera10.jpg?raw=true" alt="La Frontera 10">
+</div>
+
+<div class="cta-banner">
+<p>Would you like to learn more about our projects?</p>
+<a href="contact-en.html" class="cta-btn">Contact us</a>
+</div>
+
+<footer class="sitio-footer">
+<div class="fila-tres-columnas">
+<div class="columna-izquierda">
+<h4>GARABATO CINE</h4>
+<p>Cinema made from the Colombian Caribbean.</p>
+</div>
+
+<div class="columna-central">
+<a href="https://www.instagram.com/garabatocine/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+<a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="https://www.youtube.com/@garabatocine" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+</div>
+
+<div class="columna-derecha">
+<p class="link-linea-1"><a href="privacidadycookies.html" class="footer-link-normal" target="_blank">Privacy and Cookies</a></p>
+<p class="texto-chico texto-linea-2">All Rights reserved</p>
+<p class="texto-chico texto-linea-3">© 2026 Garabato Cine</p>
+</div>
+</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const hambBtn = document.getElementById("hambBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if (hambBtn && mobileMenu) {
+        hambBtn.addEventListener("click", (event) => {
+            event.stopPropagation(); 
+            mobileMenu.classList.toggle("active");
+        });
+
+        document.addEventListener('click', (event) => {
+            if (mobileMenu.classList.contains("active") && 
+                !mobileMenu.contains(event.target) && 
+                !hambBtn.contains(event.target)) {
+                mobileMenu.classList.remove("active");
+            }
+        });
+        
+        mobileMenu.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
+    }
+});
+
+if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual'; 
+}
+window.onload = function() {};
+</script>
+</body>
+</html>
