@@ -1,1 +1,786 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Próximamente - Garabato Cine</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0A0A0A;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* HEADER */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 60px;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .brand-logo:hover {
+            color: #FFC601;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+        }
+
+        .nav a {
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .nav .nav-proximamente {
+            color: white;
+            opacity: .5;
+            cursor: default;
+        }
+
+        .nav a:hover:not(.nav-proximamente) {
+            color: #FFC601;
+        }
+
+        .lang {
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang .active {
+            opacity: .5;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 110;
+        }
+
+        /* BANNER */
+        .banner-container {
+            width: 100%;
+            position: relative;
+            background: #000;
+            line-height: 0;
+        }
+
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: brightness(0.65);
+        }
+
+        .banner-text-overlay {
+            position: absolute;
+            bottom: 40px;
+            left: 60px;
+            z-index: 10;
+            max-width: 700px;
+            pointer-events: none;
+        }
+
+        .banner-text-overlay h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(28px, 4.2vw, 54.6px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: #FFF;
+            text-transform: uppercase;
+        }
+
+        .subrayado-amarillo {
+            border-bottom: 4px solid #FFC601;
+            padding-bottom: 12px;
+            display: inline-block;
+            line-height: 0.9;
+        }
+
+        .banner-text-overlay p {
+            font-size: clamp(14px, 1.5vw, 18px);
+            line-height: 1.35;
+            font-weight: 300;
+            color: #CCCCCC;
+            letter-spacing: 0.5px;
+        }
+
+        /* CUERPO DE LA PÁGINA */
+        .web-container {
+            width: 100%;
+        }
+
+        .seccion-proyecto {
+            max-width: 1300px;
+            margin: 100px auto;
+            padding: 0 60px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 15px;
+            letter-spacing: 3px;
+            color: #FFC601;
+            text-transform: uppercase;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            background-color: rgba(255, 198, 1, 0.4);
+            margin-left: 15px;
+        }
+
+        .fila-dos-columnas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .featured-project {
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: stretch;
+        }
+
+        .main-poster img {
+            width: 100%;
+            display: block;
+        }
+
+        .gallery-thumbs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .gallery-thumbs img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .gallery-thumbs img:nth-child(4) {
+            display: none;
+        }
+
+        .project-details {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .project-details .status-tag {
+            font-family: 'Oswald', sans-serif;
+            font-size: 15px;
+            letter-spacing: 3px;
+            color: #FFC601;
+            margin-bottom: 15px;
+        }
+
+        .project-details h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(28px, 4.2vw, 54.6px);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .project-details .subtitle-yellow {
+            color: #FFC601;
+            font-size: 16px;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .project-details .synopsis {
+            font-size: 14px;
+            line-height: 1.45;
+            font-weight: 300;
+            color: #CCCCCC;
+            letter-spacing: 0.5px;
+            max-width: 520px;
+        }
+
+        .divisor-seccion {
+            width: 140px;
+            height: 1px;
+            background-color: rgba(255, 198, 1, 0.4);
+            margin: 35px 0;
+        }
+
+        /* CONTENEDOR DE CRÉDITOS */
+        .contenedor-creditos-doble {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            max-width: 520px;
+            width: 100%;
+        }
+
+        .cajon-credito-individual {
+            border: 1px solid #222;
+            padding: 25px 15px;
+            background: #0F0F0F;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-width: 0;
+        }
+
+        .meta-label {
+            color: #FFC601;
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .cajon-credito-individual p {
+            font-size: 12px;
+            color: #E0E0E0;
+            line-height: 1.4;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-telepacific {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .logo-telepacific img {
+            height: 38px;
+            width: auto;
+            display: block;
+            flex-shrink: 0;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .parrafo-pajaros {
+            color: #888888;
+            font-style: italic;
+        }
+
+        /* TARJETAS DE PROYECTOS */
+        .card {
+            min-width: 0;
+            border: 1px solid #222;
+            padding-bottom: 25px;
+            background: #0F0F0F;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            margin-bottom: 25px;
+        }
+
+        .card-header-group {
+            padding: 0 25px;
+            min-height: 100px;
+        }
+
+        .card-body-group {
+            padding: 0 25px;
+            flex-grow: 1;
+        }
+
+        .card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(24px, 4.0vw, 40px);
+            font-weight: 500;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+
+        .card .card-subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            color: #FFC601;
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin: 5px 0 5px;
+            text-transform: lowercase;
+        }
+
+        .card .card-subtitle::first-letter {
+            text-transform: uppercase;
+        }
+
+        .card p.desc {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #CCCCCC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .laureles-wrapper {
+            padding: 0 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            margin-top: auto;
+            min-height: 90px;
+            padding-bottom: 25px;
+        }
+
+        .laurel-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .laurel-item img {
+            width: 35px;
+            height: auto;
+            margin-bottom: 0;
+            flex-shrink: 0;
+        }
+
+        .laurel-text {
+            font-size: 11px;
+            color: #888888;
+            font-style: italic;
+            line-height: 1.2;
+            letter-spacing: 0.2px;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        /* DEV BOX */
+        .dev-box {
+            display: flex;
+            gap: 25px;
+            border: 1px solid #222;
+            padding: 35px;
+            background: #0F0F0F;
+        }
+
+        .dev-image-icon {
+            width: 70px;
+            height: 70px;
+            flex-shrink: 0;
+        }
+        .dev-image-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .dev-inner-content {
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .dev-inner-content h3 {
+            margin-top: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(22px, 3.5vw, 36px);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .dev-inner-content .card-subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            color: #FFC601;
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin: 5px 0 10px;
+            text-transform: lowercase;
+        }
+        .dev-inner-content .card-subtitle::first-letter { text-transform: uppercase; }
+        .dev-inner-content .desc {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #CCCCCC;
+            margin-top: 0;
+            text-align: left;
+        }
+
+        .cta-banner {
+            border-top: 1px solid #222;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-banner p {
+            font-size: 22px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 35px;
+            border: 1px solid #FFC601;
+            color: #FFC601;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #FFC601;
+            color: #000;
+        }
+
+        .sitio-footer {
+            background-color: #000000;
+            padding: 40px 60px;
+            border-top: 1px solid #1a1a1a;
+            width: 100%;
+        }
+
+        .fila-tres-columnas {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .columna-izquierda {
+            text-align: left;
+            flex: 1;
+        }
+
+        .columna-izquierda h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        .columna-izquierda p {
+            font-size: clamp(10px, 1.2vw, 13px);
+            color: #888888;
+            white-space: nowrap;
+        }
+
+        .columna-central {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex: 1;
+        }
+
+        .columna-central a {
+            color: #ffffff;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .columna-central a:hover {
+            color: #FFC601;
+        }
+
+        .columna-derecha {
+            text-align: right;
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        .linea-politicas { font-size: 12px; color: #888888; }
+        .linea-politicas a { color: #888888; text-decoration: underline; }
+        .linea-politicas a:hover { color: #FFC601; }
+        .linea-derechos { font-size: 11px; color: #888888; }
+        .linea-copyright { font-size: 11px; color: #888888; }
+
+        /* RESPONSIVE */
+        @media(max-width: 1024px) {
+            .header { padding: 15px 40px; }
+            .brand-logo { font-size: 18px; }
+            .menu-toggle { display: block; margin-left: auto; }
+            .nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 20px; /* Separado del borde derecho */
+                background: #0A0A0A;
+                border: 1px solid #222;
+                padding: 30px;
+                gap: 25px;
+                align-items: center;
+                width: calc(100% - 40px); /* Tamaño compacto */
+                max-width: 300px; /* No más grande que esto */
+                z-index: 200;
+                border-radius: 4px;
+            }
+            .nav.open { display: flex; }
+            .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
+        }
+
+        @media(max-width: 767px) {
+            .header { padding: 15px 25px; }
+            .seccion-proyecto { padding: 0 25px; margin: 60px auto; }
+            .fila-dos-columnas { grid-template-columns: 1fr; gap: 35px; }
+            .fila-tres-columnas { flex-direction: column; gap: 25px; text-align: center; }
+            .columna-derecha { text-align: center !important; }
+
+            .brand-logo { display: none; }
+            .banner-text-overlay { left: 20px; bottom: 20px; }
+            .banner-text-overlay h1 { font-size: 20px !important; letter-spacing: 1px !important; margin-bottom: 0; }
+            .banner-text-overlay p { display: none; }
+
+            .dev-box {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 25px;
+            }
+            .dev-image-icon {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 15px;
+            }
+            .dev-inner-content { width: 100%; }
+            .dev-inner-content h3 { font-size: 22px; margin-bottom: 5px; }
+            
+            /* Ajuste CTA */
+            .cta-banner p {
+                font-size: 14px !important;
+                padding: 0 20px;
+            }
+
+            /* CORRECCIÓN FOOTER */
+            .columna-izquierda { text-align: center !important; }
+            .columna-izquierda p { white-space: normal; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="brand-logo">GARABATO CINE</a>
+        <button class="menu-toggle" id="menuBtn" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+        <nav class="nav" id="navMenu">
+            <a href="proyectos.html">Proyectos</a>
+            <span class="nav-proximamente">Próximamente</span>
+            <a href="nosotros.html">Nosotros</a>
+            <div class="lang">
+                <span class="active">ES</span>
+                <span>/</span>
+                <a href="#">EN</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="banner-container">
+        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/banner-proximamente1.png?raw=true" alt="Banner Principal">
+        <div class="banner-text-overlay">
+            <h1><span class="subrayado-amarillo">PR</span>ÓXIMAMENTE</h1>
+            <p>Historias que nacen desde el Caribe<br>para dialogar con el mundo.</p>
+        </div>
+    </div>
+
+    <div class="web-container">
+        <section class="seccion-proyecto">
+            <div class="fila-dos-columnas featured-project">
+                <div class="columna main-poster">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla-portada.png?raw=true" alt="Madre Semilla">
+                    <div class="gallery-thumbs">
+                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla2.png?raw=true" alt="Madre Semilla 1">
+                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla1.jpg?raw=true" alt="Madre Semilla 2">
+                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla3.jpg?raw=true" alt="Madre Semilla 3">
+                        <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/madresemilla4.png?raw=true" alt="Madre Semilla 4">
+                    </div>
+                </div>
+
+                <div class="columna project-details">
+                    <div>
+                        <div class="status-tag">EN POSTPRODUCCIÓN</div>
+                        <h2>MADRE SEMILLA</h2>
+                        <div class="subtitle-yellow">Largometraje de ficción</div>
+                        <p class="synopsis">Amira vive su propia condena de culpa y vergüenza porque su hijo es el primer sentenciado en una Colombia donde se aprueba la pena de muerte para políticos corruptos.</p>
+                    </div>
+                    <div class="divisor-seccion"></div>
+                    <div class="contenedor-creditos-doble">
+                        <div class="cajon-credito-individual">
+                            <div class="meta-label">Protagonizada por:</div>
+                            <p>Carmiña Martínez <br><span class="parrafo-pajaros">(Pájaros de verano)</span></p>
+                        </div>
+                        <div class="cajon-credito-individual">
+                            <div class="meta-label">Coproducida con:</div>
+                            <div class="logo-telepacific">
+                                <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/logo-telepacifico.png?raw=true" alt="Logo Telepacífico">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-proyecto">
+            <div class="section-title">OTROS PROYECTOS EN POSTPRODUCCIÓN</div>
+            <div class="fila-dos-columnas">
+                <div class="columna card">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/actocivici-portada.JPG?raw=true" alt="Acto Cívico">
+                    <div class="card-header-group">
+                        <h3>Acto Cívico</h3>
+                        <div class="card-subtitle">Cortometraje de ficción</div>
+                    </div>
+                    <div class="card-body-group">
+                        <p class="desc">En vísperas del Día del Maestro, Carmen descubre que una de sus alumnas, una talentosa acordeonera, está en riesgo de abandonar la escuela.</p>
+                    </div>
+                    <div class="laureles-wrapper">
+                        <div class="laurel-item">
+                            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
+                            <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="columna card">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/profesoraleda-portada.png?raw=true" alt="Profesora Leda">
+                    <div class="card-header-group">
+                        <h3>Profesora Leda</h3>
+                        <div class="card-subtitle">Largometraje de ficción</div>
+                    </div>
+                    <div class="card-body-group">
+                        <p class="desc">A pesar del estigma, una profesora de primaria ayuda al papá exguerrillero de una de sus alumnas, a recuperar el vínculo con su hija.</p>
+                    </div>
+                    <div class="laureles-wrapper">
+                        <div class="laurel-item">
+                            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
+                            <div class="laurel-text">Proyecto ganador del Fondo para el Desarrollo Cinematográfico - FDC</div>
+                        </div>
+                        <div class="laurel-item">
+                            <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/trofeo1.png?raw=true" alt="Laureles">
+                            <div class="laurel-text">Proyecto ganador del premio Churubusco - CineQuaNon</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-proyecto">
+            <div class="section-title">PROYECTOS EN DESARROLLO</div>
+            <div class="fila-dos-columnas">
+                <div class="columna dev-box">
+                    <div class="dev-image-icon"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/acordeon.png?raw=true" alt="Icono"></div>
+                    <div class="dev-inner-content">
+                        <h3><b>Valle</b>nata</h3>
+                        <div class="card-subtitle">Serie</div>
+                        <p class="desc">Natalia, una joven aspirante a cantante de música vallenata, transforma el duelo por la separación de sus padres, en una identidad artística nacida del escándalo público.</p>
+                    </div>
+                </div>
+                <div class="columna dev-box">
+                    <div class="dev-image-icon"><img src="https://github.com/GarabatoCine/pagina-web/blob/main/proximamente/fuego.png?raw=true" alt="Icono"></div>
+                    <div class="dev-inner-content">
+                        <h3>Fuego en la Memoria</h3>
+                        <div class="card-subtitle">Largometraje</div>
+                        <p class="desc">Mientras el alzhéimer amenaza con borrar el recuerdo de su hijo desaparecido por el ejército colombiano, Elisa intenta encomendar la búsqueda a su hija Luisa, pero Luisa preferiría olvidar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="cta-banner">
+        <p>¿Te interesa conocer más sobre nuestros próximos proyectos?</p>
+        <a href="contacto.html" class="cta-btn">Contáctanos</a>
+    </div>
+
+    <footer class="sitio-footer">
+        <div class="fila-tres-columnas">
+            <div class="columna-izquierda">
+                <h4>GARABATO CINE</h4>
+                <p>Cine hecho desde el Caribe colombiano.</p>
+            </div>
+            <div class="columna-central">
+                <a href="https://www.instagram.com/garabatocine/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@garabatocine" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="columna-derecha">
+                <div class="linea-politicas"><a href="privacidadycookies.html">Privacidad y Cookies</a></div>
+                <div class="linea-derechos">Todos los derechos reservados</div>
+                <div class="linea-copyright">© 2026 Garabato Cine</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.history.scrollRestoration = 'manual';
+        window.onload = function() { window.scrollTo(0, 0); };
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenu = document.getElementById('navMenu');
+        menuBtn.addEventListener('click', (event) => { event.stopPropagation(); navMenu.classList.toggle('open'); });
+        document.addEventListener('click', (event) => { if (navMenu.classList.contains('open') && !navMenu.contains(event.target) && !menuBtn.contains(event.target)) { navMenu.classList.remove('open'); } });
+    </script>
+</body>
+</html>
