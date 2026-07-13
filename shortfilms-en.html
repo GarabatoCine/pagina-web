@@ -1,1 +1,446 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyectos - Garabato Cine</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Roboto', sans-serif;
+background:#fff;
+color:#999;
+padding-top:72px;
+overflow-x:hidden;
+}
+
+a {
+text-decoration: none;
+color: inherit;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+z-index:1000;
+border-bottom:1px solid #eee;
+text-transform:uppercase;
+}
+
+.logo a,
+.brand-logo,
+.nav a,
+.lang span{
+color:#000;
+}
+
+.logo a,
+.brand-logo{
+font-family: 'Oswald', sans-serif;
+font-size:24px;
+font-weight:500;
+letter-spacing:2px;
+text-decoration:none;
+}
+
+.nav{
+display:flex;
+align-items:center;
+gap:40px;
+font-size:13px;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+}
+
+.nav a{
+text-decoration:none;
+font-weight:500;
+color:#000;
+transition: color 0.3s;
+}
+
+.nav a:hover {
+color: #FFC601;
+}
+
+.lang {
+display: flex;
+gap: 8px;
+}
+
+.lang span{opacity:0.6;}
+.lang .active{opacity:1;}
+
+.lang a{
+opacity:0.6;
+text-decoration:none;
+color:#000;
+}
+
+.lang a:hover{opacity:1;}
+
+.menu-toggle{
+display:none;
+background: none;
+border: none;
+color: #000;
+font-size: 24px;
+cursor: pointer;
+z-index: 110;
+}
+
+/* ================= GALERÍA ================= */
+
+.block{
+position:relative;
+width:100vw;
+margin-left:calc(-50vw + 50%);
+margin-bottom:6px;
+}
+
+.block img{
+width:100%;
+display:block;
+}
+
+.overlay{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:18px;
+background:linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+color:#fff;
+font-size:18px;
+}
+
+/* ================= CTA BANNER ================= */
+
+.cta-banner {
+border-top: 1px solid #222;
+padding: 45px 40px;
+text-align: center;
+background: #000;
+color: #fff;
+}
+
+.cta-banner p {
+font-size: 16px;
+margin-bottom: 20px;
+font-weight: 300;
+letter-spacing: 0.5px;
+}
+
+.cta-btn {
+display: inline-block;
+padding: 12px 35px;
+border: 1px solid #FFC601;
+color: #FFC601;
+font-size: 13px;
+letter-spacing: 2px;
+text-transform: uppercase;
+transition: 0.3s;
+}
+
+.cta-btn:hover {
+background: #FFC601;
+color: #000;
+}
+
+/* ================= FOOTER BASE ================= */
+
+.sitio-footer {
+background-color: #000000;
+color: #ffffff;
+padding: 40px 60px;
+border-top: 1px solid #1a1a1a;
+width: 100%;
+font-family: 'Roboto', sans-serif;
+}
+
+.fila-tres-columnas {
+max-width: 1300px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.columna-izquierda {
+text-align: left;
+flex: 1;
+}
+
+.columna-izquierda h4 {
+font-family: 'Oswald', sans-serif;
+font-size: 22px;
+font-weight: 500;
+letter-spacing: 2px;
+margin-bottom: 6px;
+text-transform: uppercase;
+}
+
+.columna-izquierda p {
+font-size: clamp(10px, 1.2vw, 13px);
+color: #888888;
+white-space: nowrap;
+}
+
+.columna-central {
+display: flex;
+justify-content: center;
+gap: 25px;
+flex: 1;
+}
+
+.columna-central a {
+color: #ffffff;
+font-size: 18px;
+transition: color 0.3s ease;
+}
+
+.columna-central a:hover {
+color: #FFC601;
+}
+
+.columna-derecha {
+text-align: right;
+flex: 1;
+}
+
+.columna-derecha p {
+font-size: 13px;
+color: #888888;
+line-height: 1.6;
+}
+
+.texto-chico {
+font-size: 11.5px !important;
+color: #888888;
+}
+
+.footer-link-normal {
+display: inline-block;
+font-size: 13px;
+color: inherit; 
+text-decoration: underline; 
+transition: color 0.3s ease;
+}
+
+.footer-link-normal:hover {
+color: #FFC601;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1024px){
+body{
+padding-top:88px;
+}
+
+.header{
+padding:16px 22px;
+}
+
+.menu-toggle { 
+display: block; 
+}
+
+.nav {
+display: none; 
+flex-direction: column;
+position: absolute;
+top: 70px; 
+right: 22px;
+background: #fff;
+border: 1px solid #eee;
+padding: 30px;
+gap: 25px;
+align-items: flex-start;
+width: 220px;
+box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+z-index: 200;
+}
+
+.nav.open { 
+display: flex; 
+}
+
+/* FOOTER TABLET */
+.sitio-footer {
+padding: 40px 40px;
+}
+}
+
+@media(max-width: 767px) {
+.header { 
+padding: 15px 25px; 
+}
+
+.nav { right: 25px; top: 60px; }
+
+.cta-banner { padding: 40px 25px; }
+.cta-banner p { font-size: 15px; }
+
+.fila-tres-columnas {
+flex-direction: column;
+gap: 25px;
+text-align: center;
+}
+.columna-izquierda, .columna-derecha {
+text-align: center;
+}
+.columna-derecha {
+text-align: center;
+}
+
+.columna-derecha {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 5px;
+}
+
+.columna-derecha .link-linea-1 {
+order: 1;
+}
+
+.columna-derecha .texto-linea-2 {
+order: 2;
+}
+
+.columna-derecha .texto-linea-3 {
+order: 3;
+}
+}
+
+</style>
+</head>
+
+<body id="top">
+
+<header class="header">
+<div class="brand-logo"><a href="https://garabatocine.github.io/pagina-web/">GARABATO CINE</a></div>
+
+<button class="menu-toggle" id="menuBtn" aria-label="Abrir menú">
+<i class="fa-solid fa-bars"></i>
+</button>
+
+<nav class="nav" id="navMenu">
+<a href="proyectos.html">PROYECTOS</a>
+<a href="proximamente.html">PRÓXIMAMENTE</a>
+<a href="nosotros.html">NOSOTROS</a>
+
+<div class="lang">
+<span class="active">ES</span>
+<span>/</span>
+<a href="#">EN</a>
+</div>
+</nav>
+</header>
+
+<div class="block">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/cortometrajes/Marimonda-tirita.png?raw=true" alt="Marimonda">
+<div class="overlay">Marimonda</div>
+</div>
+
+<div class="block">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/cortometrajes/Ano-sabatico.Tirita.png?raw=true" alt="Año Sabático">
+<div class="overlay">Año Sabático</div>
+</div>
+
+<div class="block">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/cortometrajes/Calaguala-tirita.png?raw=true" alt="Calaguala">
+<div class="overlay">Calaguala</div>
+</div>
+
+<div class="block">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/cortometrajes/El-congo-de-oro-tirita.png?raw=true" alt="El Congo de Oro">
+<div class="overlay">El Congo de Oro</div>
+</div>
+
+<div class="block">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/cortometrajes/Fracturas-tirita.png?raw=true" alt="Fracturas">
+<div class="overlay">Fracturas</div>
+</div>
+
+<div class="block">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/cortometrajes/La-princesita-tirita.png?raw=true" alt="La Princesita">
+<div class="overlay">La Princesita</div>
+</div>
+
+<div class="block">
+<img src="https://github.com/GarabatoCine/pagina-web/blob/main/cortometrajes/La-tortuga-tirita.png?raw=true" alt="La Tortuga">
+<div class="overlay">La Tortuga</div>
+</div>
+
+<div class="cta-banner">
+<p>¿Te interesa conocer más sobre nuestros próximos proyectos?</p>
+<a href="contacto.html" class="cta-btn">Contáctanos</a>
+</div>
+
+<footer class="sitio-footer">
+<div class="fila-tres-columnas">
+<div class="columna-izquierda">
+<h4>GARABATO CINE</h4>
+<p>Cine hecho desde el Caribe colombiano.</p>
+</div>
+
+<div class="columna-central">
+<a href="https://www.instagram.com/garabatocine/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+<a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="https://www.youtube.com/@garabatocine" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+</div>
+
+<div class="columna-derecha">
+<p class="link-linea-1"><a href="privacidadycookies.html" class="footer-link-normal" target="_blank">Privacidad y cookies</a></p>
+<p class="texto-chico texto-linea-2">Todos los derechos reservados</p>
+<p class="texto-chico texto-linea-3">© 2026 Garabato Cine</p>
+</div>
+</div>
+</footer>
+
+<script>
+// Funcionalidad del menú móvil
+const menuBtn = document.getElementById('menuBtn');
+const navMenu = document.getElementById('navMenu');
+
+menuBtn.addEventListener('click', () => {
+navMenu.classList.toggle('open');
+});
+
+// Forzar el scroll al inicio (Top) al recargar la página
+if (history.scrollRestoration) {
+history.scrollRestoration = 'manual';
+}
+
+window.onload = () => {
+window.scrollTo(0, 0);
+setTimeout(() => {
+window.scrollTo(0, 0);
+}, 100); // Se ejecuta un pequeño doble chequeo para navegadores quisquillosos
+};
+</script>
+
+</body>
+</html>
