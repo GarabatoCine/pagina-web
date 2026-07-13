@@ -1,1 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyectos - Garabato Cine</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html, body{
+width:100%;
+overflow-x:hidden;
+}
+
+body{
+font-family:'Roboto', sans-serif;
+background:#fff;
+color:#999;
+padding-top:74px;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+z-index:1000;
+border-bottom:1px solid #eee;
+text-transform:uppercase;
+}
+
+.logo a,
+.nav a,
+.lang span,
+.lang a{
+color:#000;
+}
+
+.logo a{
+font-family: 'Oswald', sans-serif;
+font-size:24px;
+font-weight:500;
+letter-spacing:2px;
+text-decoration:none;
+}
+
+.nav{
+display:flex;
+align-items:center;
+gap:26px;
+font-size:14px;
+}
+
+.nav a{
+text-decoration:none;
+font-weight:500;
+opacity: 0.85;
+transition: color 0.3s, opacity 0.3s;
+}
+
+.nav a.active-page {
+opacity: 0.45;
+}
+
+.nav a:hover {
+opacity: 1;
+}
+
+/* ================= LANGUAGES ================= */
+
+.lang {
+display:flex;
+align-items:center;
+gap:6px;
+font-size:13px;
+}
+
+.lang .active{
+opacity:0.45;
+}
+
+.lang a{
+opacity:1;
+text-decoration:none;
+}
+
+.lang a:hover{
+opacity:0.7;
+}
+
+/* ================= HAMBURGUESA ================= */
+
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:6px;
+cursor:pointer;
+width: 28px;
+background: none;
+border: none;
+padding: 4px 0;
+}
+
+.menu-toggle span{
+width:100%;
+height:2px;
+background:#000;
+display:block;
+}
+
+/* ================= MENU MOBILE ================= */
+
+.nav-mobile {
+position:fixed;
+top:75px;
+right:25px;
+width:220px;
+background:#fff;
+border:1px solid #eee;
+padding:20px;
+flex-direction:column;
+align-items:flex-start;
+gap:16px;
+border-radius:10px;
+box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+z-index:150;
+display:none; 
+font-family: 'Roboto', sans-serif;
+text-transform: uppercase;
+}
+
+.nav-mobile.active{
+display:flex !important; 
+}
+
+.nav-mobile a {
+color: #000 !important;
+text-decoration:none;
+font-size:14px;
+font-weight:500;
+opacity:0.85;
+}
+
+.nav-mobile a.active-page {
+opacity:0.45;
+}
+
+.lang-mobile {
+display: flex;
+gap: 6px;
+border-top: 1px solid rgba(0,0,0,0.15);
+padding-top: 8px;
+font-size:14px;
+}
+
+.lang-mobile a{
+color:#000 !important;
+text-decoration:none;
+opacity:0.85;
+}
+
+.lang-mobile .active{
+opacity:0.45;
+}
+
+/* ================= VIDEOS ================= */
+
+.video-block{
+position:relative;
+margin-top: 0px;
+margin-bottom: 18px;
+}
+
+.video-block:last-of-type {
+margin-bottom: 0;
+}
+
+.video-block video{
+width:100%;
+display:block;
+object-fit:cover;
+transform:scale(1.01);
+}
+
+/* ================= TITULOS ================= */
+
+.video-title-overlay{
+position:absolute;
+bottom:20px;
+left:20px;
+color:#fff;
+font-size:28px;
+font-weight:500;
+z-index:2;
+}
+
+.video-title-overlay span{
+font-size:14px;
+font-weight:300;
+opacity:0.95;
+margin-left:8px;
+}
+
+/* ================= CLICKABLE ================= */
+
+.video-block.clickable{
+cursor:pointer;
+}
+
+/* ================= CTA BANNER ================= */
+
+.cta-banner {
+border-top: 1px solid #222;
+padding: 45px 40px;
+text-align: center;
+background: #000;
+color: #fff;
+margin-top: 18px;
+}
+
+.cta-banner p {
+font-size: 16px;
+margin-bottom: 20px;
+font-weight: 300;
+letter-spacing: 0.5px;
+font-family:'Roboto', sans-serif;
+}
+
+.cta-btn {
+display: inline-block;
+padding: 12px 35px;
+border: 1px solid #FFC601;
+color: #FFC601;
+font-size: 13px;
+letter-spacing: 2px;
+text-transform: uppercase;
+transition: 0.3s;
+font-family:'Roboto', sans-serif;
+text-decoration: none;
+}
+
+.cta-btn:hover {
+background: #FFC601;
+color: #000;
+}
+
+/* ================= FOOTER BASE ================= */
+
+.sitio-footer {
+background-color: #000000;
+color: #ffffff;
+padding: 40px 60px;
+border-top: 1px solid #1a1a1a;
+width: 100%;
+font-family: 'Roboto', sans-serif;
+}
+
+.fila-tres-columnas {
+max-width: 1300px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.columna-izquierda {
+text-align: left;
+flex: 1;
+}
+
+.columna-izquierda h4 {
+font-family: 'Oswald', sans-serif;
+font-size: 22px;
+font-weight: 500;
+letter-spacing: 2px;
+margin-bottom: 6px;
+text-transform: uppercase;
+}
+
+.columna-izquierda p {
+font-size: clamp(10px, 1.2vw, 13px);
+color: #888888;
+white-space: nowrap;
+}
+
+.columna-central {
+display: flex;
+justify-content: center;
+gap: 25px;
+flex: 1;
+}
+
+.columna-central a {
+color: #ffffff;
+font-size: 18px;
+transition: color 0.3s ease;
+}
+
+.columna-central a:hover {
+color: #FFC601;
+}
+
+.columna-derecha {
+text-align: right;
+flex: 1;
+}
+
+.columna-derecha p {
+font-size: 13px;
+color: #888888;
+line-height: 1.6;
+}
+
+.texto-chico {
+font-size: 11.5px !important;
+color: #888888;
+}
+
+.footer-link-normal {
+display: inline-block;
+font-size: 13px;
+color: inherit; 
+text-decoration: underline; 
+transition: color 0.3s ease;
+}
+
+.footer-link-normal:hover {
+color: #FFC601;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1024px){
+
+body{
+padding-top:86px;
+}
+
+.nav{
+display:none;
+}
+
+.menu-toggle{
+display:flex;
+}
+
+.video-title-overlay{
+font-size:22px;
+}
+
+.video-title-overlay span{
+font-size:12px;
+}
+
+.sitio-footer {
+padding: 40px 40px;
+}
+
+}
+
+@media(max-width:768px){
+
+body{
+padding-top:82px;
+}
+
+.header{
+padding:16px 22px;
+}
+
+.video-title-overlay{
+font-size:18px;
+bottom:14px;
+left:14px;
+}
+
+.video-title-overlay span{
+font-size:11px;
+}
+
+.nav-mobile {
+top: 65px;
+right: 22px;
+}
+
+.cta-banner { padding: 40px 25px; }
+.cta-banner p { font-size: 15px; }
+
+}
+
+@media(max-width: 767px) {
+.fila-tres-columnas {
+flex-direction: column;
+gap: 25px;
+text-align: center;
+}
+.columna-izquierda, .columna-derecha {
+text-align: center;
+}
+.columna-derecha {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 5px;
+}
+.columna-derecha .link-linea-1 { order: 1; }
+.columna-derecha .texto-linea-2 { order: 2; }
+.columna-derecha .texto-linea-3 { order: 3; }
+}
+
+</style>
+</head>
+
+<body id="top">
+
+<div class="header">
+
+<div class="logo">
+<a href="index.html">GARABATO CINE</a>
+</div>
+
+<div class="nav">
+<a href="proyectos-en.html" class="active-page">PROJECTS</a>
+<a href="coming-soon-en.html">COMING SOON</a>
+<a href="about-us-en.html">ABOUT US</a>
+
+<div class="lang">
+<span class="active">ES</span>
+<span>|</span>
+<a href="projects-en.html">EN</a>
+</div>
+</div>
+
+<button class="menu-toggle" id="hambBtn" onclick="toggleMenu()" aria-label="Abrir menú">
+<span></span>
+<span></span>
+<span></span>
+</button>
+
+<div class="nav-mobile" id="mobileMenu">
+<a href="proyectos-en.html" class="active-page">PROJECTS</a>
+<a href="coming-soon-en.html">COMING SOON</a>
+<a href="about-us-en.html">ABOUT US</a>
+
+<div class="lang-mobile">
+<a href="#" class="active">ES</a>
+<span>/</span>
+<a href="projects-en.html">EN</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="video-block clickable" onclick="window.location.href='la-frontera.html'">
+
+<video autoplay muted loop playsinline>
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/catalogo/Banner-la-frontera.mp4">
+</video>
+
+<div class="video-title-overlay">
+The border <span>(Feature)</span>
+</div>
+
+</div>
+
+<div class="video-block">
+
+<video autoplay muted loop playsinline>
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/catalogo/Banner-vida-de-colores.mp4">
+</video>
+
+<div class="video-title-overlay">
+Colorful Life <span>(Series)</span>
+</div>
+
+</div>
+
+<div class="video-block clickable" onclick="window.location.href='cortometrajes.html'">
+
+<video autoplay muted loop playsinline>
+<source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/catalogo/banner-cortometrajes.mp4">
+</video>
+
+<div class="video-title-overlay">
+Shortfilms
+</div>
+
+</div>
+
+<div class="cta-banner">
+<p>Would you like to learn more about our projects??</p>
+<a href="contacto.html" class="cta-btn">Contact us</a>
+</div>
+
+<footer class="sitio-footer">
+<div class="fila-tres-columnas">
+<div class="columna-izquierda">
+<h4>GARABATO CINE</h4>
+<p>Cinema made from the Colombian Caribbean.</p>
+</div>
+
+<div class="columna-central">
+<a href="https://www.instagram.com/garabatocine/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+<a href="https://www.facebook.com/garabatocine?_rdc=1&_rdr" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="https://www.youtube.com/@garabatocine" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+</div>
+
+<div class="columna-derecha">
+<p class="link-linea-1"><a href="privacidadycookies.html" class="footer-link-normal" target="_blank">Privacy and Cookies</a></p>
+<p class="texto-chico texto-linea-2">All rights reserved</p>
+<p class="texto-chico texto-linea-3">© 2026 Garabato Cine</p>
+</div>
+</div>
+</footer>
+
+<script>
+
+function toggleMenu(event) {
+    if (event) event.stopPropagation();
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("active");
+}
+
+document.addEventListener('click', (event) => {
+    const menu = document.getElementById("mobileMenu");
+    const hambBtn = document.getElementById("hambBtn");
+    
+    if (menu.classList.contains("active") && !menu.contains(event.target) && !hambBtn.contains(event.target)) {
+        menu.classList.remove("active");
+    }
+});
+
+if (history.scrollRestoration) {
+history.scrollRestoration = 'manual';
+}
+
+window.onload = () => {
+window.scrollTo(0, 0);
+setTimeout(() => {
+window.scrollTo(0, 0);
+}, 100);
+};
+
+</script>
+
+</body>
+</html>
