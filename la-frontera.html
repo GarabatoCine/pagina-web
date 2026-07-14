@@ -114,7 +114,17 @@ text-transform: uppercase;
     justify-content: flex-end; /* Empuja ES | EN a la derecha */
     width: 100%;
 }
+.lang .active {
+    color: #888888;
+    cursor: default;
+    pointer-events: none;
+    text-decoration: none;
+}
 
+.lang a {
+    color: #ffffff;
+    text-decoration: none;
+}
 /* Corregimos el selector para que apunte a la clase .active dentro de .lang */
 .lang .active {
     opacity: 0.45;
