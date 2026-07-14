@@ -97,7 +97,8 @@ z-index: 1500;
 flex-direction: column;
 gap: 15px;
 border-radius: 8px;
-text-align: right;
+text-align: right; 
+    align-items: flex-end;
 }
 .nav-mobile a {
 color: #fff;
@@ -105,12 +106,13 @@ font-size: 16px;
 text-transform: uppercase;
 }
 /* Corregimos el selector para que apunte a la clase .lang */
-.lang {
+.nav-mobile .lang {
     display: flex;
     gap: 6px;
     font-size: 13px;
     color: #fff;
-    align-items: center;
+    justify-content: flex-end; /* Empuja ES | EN a la derecha */
+    width: 100%;
 }
 
 /* Corregimos el selector para que apunte a la clase .active dentro de .lang */
