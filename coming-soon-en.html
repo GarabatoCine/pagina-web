@@ -566,22 +566,26 @@
             .header { padding: 15px 40px; }
             .brand-logo { font-size: 18px; }
             .menu-toggle { display: block; margin-left: auto; }
+            
             .nav {
                 display: none;
                 flex-direction: column;
                 position: absolute;
                 top: 70px;
-                right: 20px; /* Separado del borde derecho */
+                right: 20px; 
                 background: #0A0A0A;
                 border: 1px solid #222;
                 padding: 30px;
                 gap: 25px;
                 align-items: center;
-                width: calc(100% - 40px); /* Tamaño compacto */
-                max-width: 300px; /* No más grande que esto */
+                
+                /* CAMBIOS AQUÍ */
+                width: 200px;           /* Tamaño fijo más pequeño */
+                border-radius: 8px;     /* Bordes redondeados */
+                box-shadow: 0 10px 20px rgba(0,0,0,0.5); /* Sombra para profundidad */
                 z-index: 200;
-                border-radius: 4px;
             }
+            
             .nav.open { display: flex; }
             .seccion-proyecto { padding: 0 40px; margin: 80px auto; }
         }
