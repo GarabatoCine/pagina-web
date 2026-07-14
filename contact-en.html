@@ -330,40 +330,33 @@ color: #FFC601;
 
 @media (max-width:1024px){
 
-    body{
-        padding-top:86px;
-    }
-
-    .nav{
-        display:none;
-        flex-direction:column;
-        position:absolute;
-        top:100%;
-        left:0;
-        width:100%;
-        background:#fff;
-        padding: 15px 20px; /* Reducimos el padding vertical */
-        gap: 12px;         /* Reducimos el espacio entre ítems */
-        border-bottom:1px solid #eee;
-        align-items: flex-start;
-        z-index:1001;
-    }
-
-    .nav a {
-        font-size: 16px;   /* Tamaño un poco más cómodo */
-        padding: 5px 0;    /* Añade área de clic sin engrosar la caja */
-    }
-
-    .nav.active{
-        display:flex;
-    }
-
-    .lang {
-        margin-top: 5px;   /* Menos espacio entre el menú y el selector de idioma */
-    }
-    
-    /* ... resto de tu código ... */
+body{
+padding-top:86px;
 }
+
+.nav{
+display:none;
+flex-direction:column;
+position:absolute;
+top:100%;
+left:0;
+width:100%;
+background:#fff;
+padding:20px;
+gap:20px;
+border-bottom:1px solid #eee;
+align-items:flex-start;
+z-index:1001;
+}
+
+.nav.active{
+display:flex;
+}
+
+.lang {
+margin-top: 10px;
+}
+
 .menu-toggle{
 display:flex;
 }
