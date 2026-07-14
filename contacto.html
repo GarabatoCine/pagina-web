@@ -659,17 +659,22 @@ Contacto
 </footer>
 
 <script>
-function toggleMenu() {
-document.getElementById('mobileMenu').classList.toggle('active');
-}
+    const menu = document.getElementById('mobileMenu');
+    
+    function toggleMenu() {
+        menu.classList.toggle('active');
+    }
 
-window.onbeforeunload = function () {
-window.scrollTo(0, 0);
-};
+    // Cierra el menú al hacer clic fuera de él
+    document.addEventListener('click', function(event) {
+        const toggleBtn = document.querySelector('.menu-toggle');
+        if (menu.classList.contains('active') && !menu.contains(event.target) && !toggleBtn.contains(event.target)) {
+            menu.classList.remove('active');
+        }
+    });
 
-window.addEventListener('load', function () {
-window.scrollTo(0, 0);
-});
+    window.onbeforeunload = function () { window.scrollTo(0, 0); };
+    window.addEventListener('load', function () { window.scrollTo(0, 0); });
 </script>
 
 </body>
