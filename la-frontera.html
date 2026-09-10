@@ -717,11 +717,11 @@ color: #000000;
 /* ===== TABLET ===== */
 @media (max-width:1024px) and (min-width:601px){
 
-#banner-la-frontera-v3{
+#banna-v3{
     overflow:hidden;
 }
 
-#banner-la-frontera-v3 img:first-child{
+#banna-v3 img:first-child{
     width:100%;
     height:auto !important;
     object-fit:contain !important;
@@ -924,7 +924,17 @@ color: #000000;
 }
 
 #banner-la-frontera-mobile{
-    
+    display:none;
+}
+
+/* Efecto Zoom Suave para Fotos y Fotogramas */
+.fotograma-item img, .pt-poster, .premio-logo img {
+    transition: transform 0.3s ease;
+}
+
+.fotograma-item img:hover, .pt-poster:hover, .premio-logo img:hover {
+    transform: scale(1.03);
+}
 </style>
 
 </head>
