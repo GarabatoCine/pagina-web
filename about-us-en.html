@@ -276,6 +276,11 @@ display: block;
 object-fit: contain;
 break-inside: avoid; /* Evita que una foto se parta a la mitad entre columnas */
 margin-bottom: 20px; /* Espacio vertical entre fotos */
+transition: transform 0.3s ease; /* Movimiento suave */
+}
+
+.gallery img:hover {
+transform: scale(1.03); /* Efecto pop / zoom al pasar el cursor */
 }
 
 /* ================= CTA BANNER ================= */
