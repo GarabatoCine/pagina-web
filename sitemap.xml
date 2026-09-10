@@ -1,28 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Páginas Principales - Español -->
   <url>
     <loc>https://www.garabatocine.com/</loc>
   </url>
-
   <url>
     <loc>https://www.garabatocine.com/proyectos.html</loc>
   </url>
-
   <url>
     <loc>https://www.garabatocine.com/nosotros.html</loc>
   </url>
-
   <url>
     <loc>https://www.garabatocine.com/proximamente.html</loc>
   </url>
-
   <url>
     <loc>https://www.garabatocine.com/contacto.html</loc>
   </url>
-
+<loc>https://www.garabatocine.com/la-frontera.html</loc>
+  </url>
+ <loc>https://www.garabatocine.com/vida-de-colores.html</loc>
+  </url>
+  <loc>https://www.garabatocine.com/cortometrajes.html</loc>
+  </url>
+   <loc>https://www.garabatocine.com/cortometrajes/marimonda.html</loc>
+  </url>
+   <loc>https://www.garabatocine.com/cortometrajes/ano-sabatico.html</loc>
+  </url>
+   <loc>https://www.garabatocine.com/cortometrajes/el-congo-de-oro.html</loc>
+  </url>
+ <loc>https://www.garabatocine.com/cortometrajes/calaguala.html</loc>
+  </url>
+ <loc>https://www.garabatocine.com/cortometrajes/la-princesita.html</loc>
+  </url>
+ <loc>https://www.garabatocine.com/cortometrajes/fracturas.html</loc>
+  </url>
+ <loc>https://www.garabatocine.com/cortometrajes/la-tortuga.html</loc>
+  </url>
+  
+  <!-- Páginas Principales - Inglés -->
   <url>
     <loc>https://www.garabatocine.com/about-us-en.html</loc>
   </url>
-
+  <url>
+    <loc>https://www.garabatocine.com/projects-en.html</loc>
+  </url>
+  <url>
+    <loc>https://www.garabatocine.com/coming-soon-en.html</loc>
+  </url>
+  <url>
+    <loc>https://www.garabatocine.com/contact-en.html</loc>
+  </url>
+<loc>https://www.garabatocine.com/the-border-en.html</loc>
+  </url>
+ <loc>https://www.garabatocine.com/colorful-life-en.html</loc>
+  </url>
+  <loc>https://www.garabatocine.com/shortfilms-en.html</loc>
+  </url>
+   <loc>https://www.garabatocine.com/shortfilms-en/marimonda.html-en</loc>
+  </url>
+   <loc>https://www.garabatocine.com/shortfilms-en/sabbatical-en.html</loc>
+  </url>
+   <loc>https://www.garabatocine.com/shortfilms-en/the-golden-congo-en.html</loc>
+  </url>
+   <loc>https://www.garabatocine.com/shortfilms-en/calaguala-en.html</loc>
+  </url>
+ <loc>https://www.garabatocine.com/shortfilms-en/the-little-princess-en.html</loc>
+  </url>
+ <loc>https://www.garabatocine.com/shortfilms-en/fractures-en.html</loc>
+  </url>
+ <loc>https://www.garabatocine.com/shortfilms-en/the-turtle-en.html</loc>
+  </url>
 </urlset>
