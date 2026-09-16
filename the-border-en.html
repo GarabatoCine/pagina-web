@@ -1016,7 +1016,24 @@ color: #000000;
         </div>
     </div>
 </section>
+<!-- LIGHTBOX FOTOGRAMAS -->
+<div class="lightbox" id="lightbox">
 
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+        &times;
+    </button>
+
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+        &#10094;
+    </button>
+
+    <img class="lightbox-image" id="lightboxImage" src="" alt="">
+
+    <button class="lightbox-next" id="lightboxNext" aria-label="Next image">
+        &#10095;
+    </button>
+
+</div>
 <section class="ficha-tecnica-section">
     <div class="ficha-tecnica-marco-wrapper">
         <div class="titulo-ficha-container"><h2 class="titulo-ficha">MAIN CREDITS</h2></div>
@@ -1144,6 +1161,81 @@ color: #000000;
         window.scrollTo(0, 0);
     }, 100);
 });
+        // ================= LIGHTBOX FOTOGRAMAS =================
+
+    const galleryImages = document.querySelectorAll('.fotogramas-carousel-nuevo .fotograma-item img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+
+    let currentImage = 0;
+
+    function openLightbox(index) {
+        currentImage = index;
+
+        const image = galleryImages[currentImage];
+
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function showNextImage() {
+        currentImage = (currentImage + 1) % galleryImages.length;
+
+        lightboxImage.src = galleryImages[currentImage].src;
+        lightboxImage.alt = galleryImages[currentImage].alt;
+    }
+
+    function showPreviousImage() {
+        currentImage = (currentImage - 1 + galleryImages.length) % galleryImages.length;
+
+        lightboxImage.src = galleryImages[currentImage].src;
+        lightboxImage.alt = galleryImages[currentImage].alt;
+    }
+
+    galleryImages.forEach((image, index) => {
+        image.addEventListener('click', () => {
+            openLightbox(index);
+        });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightboxNext.addEventListener('click', showNextImage);
+    lightboxPrev.addEventListener('click', showPreviousImage);
+
+    lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+
+        if (!lightbox.classList.contains('active')) return;
+
+        if (event.key === 'Escape') {
+            closeLightbox();
+        }
+
+        if (event.key === 'ArrowRight') {
+            showNextImage();
+        }
+
+        if (event.key === 'ArrowLeft') {
+            showPreviousImage();
+        }
+    });
 </script>
 <!-- SECCIÓN PRENSA -->
 <section style="text-align: center; margin: 40px 0; position: relative;">
