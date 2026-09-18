@@ -252,7 +252,20 @@
             object-fit: contain;
             display: block;
         }
+        /* ================= EFECTO ZOOM EN FOTOS DE PROYECTOS ================= */
 
+.main-poster > img,
+.gallery-thumbs img,
+.card > img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.main-poster > img:hover,
+.gallery-thumbs img:hover,
+.card > img:hover {
+    transform: scale(1.03);
+}
         .gallery-thumbs img:nth-child(4) {
             display: none;
         }
@@ -603,6 +616,107 @@
         .linea-derechos { font-size: 11px; color: #888888; }
         .linea-copyright { font-size: 11px; color: #888888; }
 
+        /* ================= LIGHTBOX PROYECTOS ================= */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 5000;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.92);
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-image {
+    max-width: 80vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: #fff;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 5002;
+    background: none;
+    border: none;
+    padding: 5px 10px;
+}
+
+.lightbox-close:hover {
+    color: #FFC601;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 42px;
+    font-weight: 300;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 20px;
+    z-index: 5002;
+    transition: color 0.2s ease;
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    color: #FFC601;
+}
+
+@media(max-width:768px) {
+    .lightbox-image {
+        max-width: 88vw;
+        max-height: 78vh;
+    }
+
+    .lightbox-close {
+        top: 15px;
+        right: 15px;
+        font-size: 32px;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        font-size: 30px;
+        padding: 10px;
+    }
+
+    .lightbox-prev {
+        left: 5px;
+    }
+
+    .lightbox-next {
+        right: 5px;
+    }
+}
         /* RESPONSIVE */
        @media(max-width: 1024px) {
             .header { padding: 15px 40px; }
@@ -797,6 +911,24 @@
         </section>
     </div>
 
+    <!-- LIGHTBOX PROYECTOS -->
+<div class="lightbox" id="projectLightbox">
+
+    <button class="lightbox-close" id="projectLightboxClose" aria-label="Cerrar">
+        &times;
+    </button>
+
+    <button class="lightbox-prev" id="projectLightboxPrev" aria-label="Imagen anterior">
+        &#10094;
+    </button>
+
+    <img class="lightbox-image" id="projectLightboxImage" src="" alt="">
+
+    <button class="lightbox-next" id="projectLightboxNext" aria-label="Imagen siguiente">
+        &#10095;
+    </button>
+
+</div>
     <div class="cta-banner">
         <p>¿Te interesa conocer más sobre nuestros próximos proyectos?</p>
         <a href="contacto.html" class="cta-btn">Contáctanos</a>
@@ -821,13 +953,130 @@
         </div>
     </footer>
 
-    <script>
+        <script>
         window.history.scrollRestoration = 'manual';
-        window.onload = function() { window.scrollTo(0, 0); };
+
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        };
+
+        /* ================= MENÚ ================= */
+
         const menuBtn = document.getElementById('menuBtn');
         const navMenu = document.getElementById('navMenu');
-        menuBtn.addEventListener('click', (event) => { event.stopPropagation(); navMenu.classList.toggle('open'); });
-        document.addEventListener('click', (event) => { if (navMenu.classList.contains('open') && !navMenu.contains(event.target) && !menuBtn.contains(event.target)) { navMenu.classList.remove('open'); } });
+
+        menuBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            navMenu.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (
+                navMenu.classList.contains('open') &&
+                !navMenu.contains(event.target) &&
+                !menuBtn.contains(event.target)
+            ) {
+                navMenu.classList.remove('open');
+            }
+        });
+
+        /* ================= LIGHTBOX PROYECTOS ================= */
+
+        const projectImages = document.querySelectorAll(
+            '.main-poster > img, .gallery-thumbs img, .card > img'
+        );
+
+        const projectLightbox = document.getElementById('projectLightbox');
+        const projectLightboxImage = document.getElementById('projectLightboxImage');
+        const projectLightboxClose = document.getElementById('projectLightboxClose');
+        const projectLightboxPrev = document.getElementById('projectLightboxPrev');
+        const projectLightboxNext = document.getElementById('projectLightboxNext');
+
+        let currentProjectImage = 0;
+
+        function openProjectLightbox(index) {
+            currentProjectImage = index;
+
+            const image = projectImages[currentProjectImage];
+
+            projectLightboxImage.src = image.src;
+            projectLightboxImage.alt = image.alt;
+
+            projectLightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectLightbox() {
+            projectLightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function showNextProjectImage() {
+            currentProjectImage =
+                (currentProjectImage + 1) % projectImages.length;
+
+            projectLightboxImage.src =
+                projectImages[currentProjectImage].src;
+
+            projectLightboxImage.alt =
+                projectImages[currentProjectImage].alt;
+        }
+
+        function showPreviousProjectImage() {
+            currentProjectImage =
+                (currentProjectImage - 1 + projectImages.length) %
+                projectImages.length;
+
+            projectLightboxImage.src =
+                projectImages[currentProjectImage].src;
+
+            projectLightboxImage.alt =
+                projectImages[currentProjectImage].alt;
+        }
+
+        projectImages.forEach((image, index) => {
+            image.addEventListener('click', () => {
+                openProjectLightbox(index);
+            });
+        });
+
+        projectLightboxClose.addEventListener(
+            'click',
+            closeProjectLightbox
+        );
+
+        projectLightboxNext.addEventListener(
+            'click',
+            showNextProjectImage
+        );
+
+        projectLightboxPrev.addEventListener(
+            'click',
+            showPreviousProjectImage
+        );
+
+        projectLightbox.addEventListener('click', (event) => {
+            if (event.target === projectLightbox) {
+                closeProjectLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+
+            if (!projectLightbox.classList.contains('active')) return;
+
+            if (event.key === 'Escape') {
+                closeProjectLightbox();
+            }
+
+            if (event.key === 'ArrowRight') {
+                showNextProjectImage();
+            }
+
+            if (event.key === 'ArrowLeft') {
+                showPreviousProjectImage();
+            }
+        });
     </script>
 </body>
 </html>
