@@ -160,7 +160,8 @@ background: #000;
 line-height: 0;
 }
 
-.hero-banner img{
+.hero-banner img,
+.hero-banner video{
 width:100%;
 height:auto;
 display:block;
@@ -308,7 +309,7 @@ opacity: 1;
 
 /* ================= PÓSTER + TEXTO ================= */
 
-.poster-text-section {
+.-text-section {
 width: 100%;
 padding: 0px 20px; 
 background: #ffffff;
@@ -326,13 +327,13 @@ max-width: 1200px;
 width: 100%;
 }
 
-.pt-poster-wrapper {
+.pt--wrapper {
 flex-shrink: 0;
 display: flex;
 align-items: flex-start; 
 }
 
-.pt-poster {
+.pt- {
 width: 100%;
 max-width: 480px; 
 box-shadow: 0 15px 40px rgba(0,0,0,0.1);
@@ -1061,11 +1062,11 @@ color: #000000;
 }
 
 /* Efecto Zoom Suave para Fotos y Fotogramas */
-.fotograma-item img, .pt-poster, .premio-logo img {
+.fotograma-item img, .pt-, .premio-logo img {
     transition: transform 0.3s ease;
 }
 
-.fotograma-item img:hover, .pt-poster:hover, .premio-logo img:hover {
+.fotograma-item img:hover, .pt-:hover, .premio-logo img:hover {
     transform: scale(1.03);
 }
 </style>
@@ -1126,8 +1127,9 @@ color: #000000;
 </nav>
 
 <section class="hero-banner">
-    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/banner-miniserie-vida-de-colores-director-david-david.jpg?raw=true" alt="Vida de colores, película dirigida por David David">
-    <div class="hero-overlay">
+       <video autoplay muted loop playsinline preload="auto">
+        <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/catalogo/Banner-vida-de-colores.mp4" type="video/mp4">
+    </video>    <div class="hero-overlay">
         <div class="hero-text-container">
             <h1 class="hero-title"><span class="subrayado-amarillo">VIDA DE</span>COLORES</h1>
             <div class="hero-subtitle">Una película de David David</div>
@@ -1148,7 +1150,7 @@ color: #000000;
     </div>
 </section>
 
-<section class="poster-text-section">
+<section class="-text-section">
     <div class="pt-wrapper">
         <div class="pt-poster-wrapper">
             <img class="pt-poster" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/afiche-vida-de-colores-miniserie-dirigida-por-david-david.jpg?raw=true" alt="Afiche oficial de Vida de colores, dirigida por David David">
