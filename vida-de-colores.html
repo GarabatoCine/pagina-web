@@ -252,11 +252,11 @@ border-color: #FFFFFF;
     }
 }
 
-/* ================= PÓSTER + INFO (SECCIÓN MODIFICADA) ================= */
+/* ================= PÓSTER + TEXTO (DISTRIBUIDO AL LADO Y AL DOBLE DE TAMAÑO) ================= */
 
 .-text-section {
 width: 100%;
-padding: 40px 20px; 
+padding: 50px 20px; 
 background: #000000;
 display: flex;
 justify-content: center;
@@ -266,109 +266,141 @@ justify-content: center;
 display: flex;
 flex-direction: row;
 justify-content: center; 
-align-items: flex-start;
-gap: 40px;          
-max-width: 1200px;
+align-items: stretch;
+gap: 45px;          
+max-width: 1300px;
 width: 100%;
 }
 
-.pt-poster-wrapper {
+.pt--wrapper {
 flex-shrink: 0;
-width: 100%;
-max-width: 420px;
+display: flex;
+align-items: flex-start; 
 }
 
-.pt-poster {
+.pt- {
 width: 100%;
+max-width: 540px; /* <--- Doble de tamaño aproximado del anterior */
+box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 height: auto;
-box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-display: block;
+align-self: flex-start;
 }
 
 .pt-info {
-flex: 1;
+flex: 1; 
 display: flex;
 flex-direction: column;
-color: #ffffff;
+justify-content: space-between; /* <--- Distribuye el contenido verticalmente al lado */
+padding-top: 0px; 
 }
 
-.pt-premio-header {
+/* Bloque Superior: Premios y Festivales */
+.pt-header-content {
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+.pt-premio-container {
 display: flex;
 align-items: center;
 gap: 20px;
-margin-bottom: 25px;
-border-bottom: 1px solid rgba(255,255,255,0.15);
-padding-bottom: 20px;
 }
 
 .pt-premio-logo {
-width: 75px;
-height: auto;
+max-height: 70px;
+width: auto;
 filter: brightness(0) invert(1);
-flex-shrink: 0;
 }
 
-.pt-premio-texto h3 {
+.pt-premio-texto h4 {
 font-family: 'Oswald', sans-serif;
-font-size: 18px;
+font-size: 20px;
 color: #FFC601;
-letter-spacing: 2px;
-margin-bottom: 4px;
+letter-spacing: 1px;
+margin-bottom: 2px;
 text-transform: uppercase;
 }
 
 .pt-premio-texto p {
-font-size: 13px;
+font-size: 13.5px;
 color: #cccccc;
 line-height: 1.4;
 }
 
-.pt-festivales-grid {
+.pt-festivales-fila {
 display: flex;
 flex-wrap: wrap;
-gap: 15px 25px;
-margin-bottom: 25px;
-font-size: 12px;
-color: #aaaaaa;
-text-transform: uppercase;
-letter-spacing: 1px;
+gap: 12px 20px;
+border-top: 1px solid rgba(255,255,255,0.15);
+border-bottom: 1px solid rgba(255,255,255,0.15);
+padding: 15px 0;
 }
 
-.pt-festivales-grid span::before {
+.pt- festival-item, .pt-festivales-fila span {
+font-size: 12px;
+color: #b0b0b0;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+.pt-festivales-fila span::before {
 content: "• ";
 color: #FFC601;
+}
+
+/* Bloque Central: Sinopsis */
+.pt-body-content {
+display: flex;
+flex-direction: column;
+gap: 14px;
+}
+
+.pt-title {
+font-family: 'Georgia', serif; 
+font-size: 32px;
+font-weight: normal;
+line-height: 1.2;
+color: #ffffff;
+letter-spacing: 0px;
+}
+
+.pt-subrayado-amarillo {
+border-bottom: 3px solid #FFC601; 
+padding-bottom: 4px;
+display: inline-block;
+line-height: 0.8;
 }
 
 .pt-paragraph {
 font-family: 'Roboto', sans-serif;
 font-size: 15.5px; 
 font-weight: 300; 
-line-height: 1.62; 
+line-height: 1.55; 
 color: #ffffff;
-margin-bottom: 20px;
 text-align: left;
 }
 
+/* Bloque Inferior: Metadata (Género, Formato, etc.) */
 .pt-meta-grid {
 display: grid;
 grid-template-columns: repeat(3, 1fr);
-gap: 20px;
-margin-top: 10px;
+gap: 15px;
 border-top: 1px solid rgba(255,255,255,0.15);
-padding-top: 20px;
+padding-top: 15px;
 }
 
 .pt-meta-item span {
 display: block;
 font-size: 11px;
 color: #888888;
-letter-spacing: 1px;
 text-transform: uppercase;
-margin-bottom: 4px;
+letter-spacing: 1px;
+margin-bottom: 3px;
 }
 
 .pt-meta-item strong {
-font-size: 14px;
+font-size: 13.5px;
 color: #ffffff;
 font-weight: 500;
 text-transform: uppercase;
@@ -381,18 +413,19 @@ text-transform: uppercase;
     margin-top: 40px !important;
     margin-bottom: 40px !important;
     padding: 0 20px;
-    max-width: 1240px;
+    max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.galeria-titulo-seccion {
+/* Título de la galería en amarillo y arriba */
+.galeria-titulo-amarillo {
     font-family: 'Oswald', sans-serif;
-    font-size: 28px;
-    color: #ffffff;
-    letter-spacing: 3px;
+    font-size: 26px;
+    color: #FFC601;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .scroll-indicator-nuevo {
@@ -454,19 +487,18 @@ text-transform: uppercase;
     100% { transform: translateX(-5px); opacity: 0.5; }
 }
 
-@media(max-width:850px){
-    .pt-wrapper { flex-direction: column; align-items: center; gap: 30px; }
-    .pt-poster-wrapper { max-width: 480px; }
-    .pt-info { width: 100%; max-width: 480px; }
+@media(max-width: 900px){
+    .pt-wrapper { flex-direction: column; align-items: center; gap: 35px; }
+    .pt-info { width: 100%; max-width: 540px; gap: 30px; }
     .pt-meta-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* Efecto Zoom Suave para Fotos y Fotogramas */
-.fotograma-item img, .pt-poster, .premio-logo img {
+.fotograma-item img, .pt-, .premio-logo img {
     transition: transform 0.3s ease;
 }
 
-.fotograma-item img:hover, .pt-poster:hover {
+.fotograma-item img:hover, .pt-:hover {
     transform: scale(1.03);
 }
 </style>
@@ -539,33 +571,40 @@ text-transform: uppercase;
     </div>
 </section>
 
-<!-- SECCIÓN MODIFICADA: AFICHE E INFORMACIÓN AL LADO -->
+<!-- SECCIÓN DEL AFICHE (DOBLE DE TAMAÑO) Y TEXTO DISTRIBUIDO VERTICALMENTE AL LADO -->
 <section class="-text-section">
     <div class="pt-wrapper">
-        <div class="pt-poster-wrapper">
-            <img class="pt-poster" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/afiche-vida-de-colores-miniserie-dirigida-por-david-david.jpg?raw=true" alt="Afiche oficial de Vida de colores, dirigida por David David">
+        <div class="pt--wrapper">
+            <img class="pt-" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/afiche-vida-de-colores-miniserie-dirigida-por-david-david.jpg?raw=true" alt="Afiche oficial de Vida de colores, dirigida por David David">
         </div>
         <div class="pt-info">
-            <div class="pt-premio-header">
-                <img class="pt-premio-logo" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/premio-especial-del-jurado-seriesmania-vida-de-colores-david-david.png?raw=true" alt="Premio Especial del Jurado Series Mania">
-                <div class="pt-premio-texto">
-                    <h3>Premio Especial del Jurado</h3>
-                    <p>Series Mania 2022 • Primera y única serie colombiana en ganar esta distinción[cite: 1].</p>
+            
+            <!-- Bloque superior: Premio especial y festivales -->
+            <div class="pt-header-content">
+                <div class="pt-premio-container">
+                    <img class="pt-premio-logo" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/premio-especial-del-jurado-seriesmania-vida-de-colores-david-david.png?raw=true" alt="Premio Especial del Jurado Series Mania">
+                    <div class="pt-premio-texto">
+                        <h4>PREMIO ESPECIAL DEL JURADO</h4>
+                        <p>SERIES MANIA 2022 • Primera y única serie colombiana en ganar el Premio Especial del Jurado en Series Mania[cite: 1].</p>
+                    </div>
+                </div>
+                <div class="pt-festivales-fila">
+                    <span>Selección Oficial Ventana Sur</span>
+                    <span>Selección Oficial Río2C</span>
+                    <span>Selección Oficial Caribbean Tales Market</span>
+                    <span>Selección Oficial FICCI</span>
+                    <span>Selección Oficial SeriesFest Global</span>
                 </div>
             </div>
 
-            <div class="pt-festivales-grid">
-                <span>Selección Oficial Ventana Sur</span>
-                <span>Selección Oficial Río2C</span>
-                <span>Selección Oficial Caribbean Tales Market</span>
-                <span>Selección Oficial FICCI</span>
-                <span>Selección Oficial SeriesFest Global</span>
+            <!-- Bloque central: Título y sinopsis -->
+            <div class="pt-body-content">
+                <h2 class="pt-title"><span class="pt-subrayado-amarillo">Vida de colores</span></h2>
+                <p class="pt-paragraph">En un barrio vibrante del Caribe colombiano, un grupo de jóvenes busca abrirse camino entre sueños, amistades, música y desafíos que parecen más grandes que ellos. Vida de Colores es una historia sobre identidad, pertenencia y la fuerza de elegir tu propio destino.</p>
+                <p class="pt-paragraph">Yerit es un joven artista no binario que vive con una mujer trans que ha interpretado el papel de su madre durante 5 años. Cuando Alma es brutalmente atacada por un vecino, Yerit debe poner a prueba su fuerza para preservar la familia que encontró en ella.</p>
             </div>
 
-            <p class="pt-paragraph">Ambientada en el caribe colombiano, la miniserie colombiana Vida de Colores, dirigida por el cineasta barranquillero David David[cite: 2] y producida por Garabato Cine[cite: 1], ganó el Premio Especial del Jurado en la sección Panorama Internacional del Festival Séries Manía en Francia en 2021[cite: 2].</p>
-            
-            <p class="pt-paragraph">Yerit es un joven artista no binario que vive con una mujer trans que ha interpretado el papel de su madre durante 5 años. Cuando Alma es brutalmente atacada por un vecino, Yerit debe poner a prueba su fuerza para preservar la familia que encontró en ella.</p>
-         
+            <!-- Bloque inferior: Metadatos distribuidos -->
             <div class="pt-meta-grid">
                 <div class="pt-meta-item">
                     <span>Género</span>
@@ -580,13 +619,14 @@ text-transform: uppercase;
                     <strong>Colombia / 2021</strong>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
 
-<!-- SECCIÓN DE FOTOGRAMAS CON TÍTULO ARRIBA -->
+<!-- SECCIÓN DE FOTOGRAMAS CON EL TÍTULO "GALERÍA" EN AMARILLO ARRIBA -->
 <section class="fotogramas-section-nueva">
-    <h2 class="galeria-titulo-seccion">Galería</h2>
+    <h2 class="galeria-titulo-amarillo">Galería</h2>
     <div class="scroll-indicator-nuevo">
         Desliza para ver más
         <i class="fa-solid fa-arrow-right-long"></i>
