@@ -243,7 +243,7 @@ border-color: #FFFFFF;
     }
 }
 
-/* ================= PÓSTER + TEXTO ================= */
+/* ================= PÓSTER + TEXTO (ESTILO IDÉNTICO A LA MUESTRA) ================= */
 
 .-text-section {
 width: 100%;
@@ -271,7 +271,7 @@ align-items: flex-start;
 
 .pt- {
 width: 100%;
-max-width: 540px; /* <--- Doble de tamaño aproximado */
+max-width: 540px; /* <--- Doble de tamaño exacto */
 box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 height: auto;
 align-self: flex-start;
@@ -281,25 +281,25 @@ align-self: flex-start;
 flex: 1; 
 display: flex;
 flex-direction: column;
-justify-content: space-between; /* <--- Distribuye el contenido verticalmente al lado */
+justify-content: space-between; 
 padding-top: 0px; 
 }
 
-/* Bloque Superior: Premios y Logos de Festivales */
+/* Bloque Superior: Premio y los 5 logos distribuidos de lado a lado en toda la línea */
 .pt-header-content {
 display: flex;
 flex-direction: column;
-gap: 15px;
+gap: 18px;
 }
 
 .pt-premio-container {
 display: flex;
 align-items: center;
-gap: 20px;
+gap: 25px;
 }
 
 .pt-premio-logo {
-max-height: 65px;
+max-height: 75px;
 width: auto;
 filter: brightness(0) invert(1);
 }
@@ -309,36 +309,38 @@ font-family: 'Oswald', sans-serif;
 font-size: 18px;
 color: #FFC601;
 letter-spacing: 1px;
-margin-bottom: 2px;
+margin-bottom: 3px;
 text-transform: uppercase;
 }
 
 .pt-premio-texto p {
-font-size: 13px;
+font-size: 13.5px;
 color: #cccccc;
 line-height: 1.4;
 }
 
-/* Contenedor de logos de festivales basados en la imagen */
-.pt-festivales-logos {
+/* Fila de los 5 logos ocupando todo el ancho de la columna de texto */
+.pt-festivales-fila-exacta {
 display: flex;
-flex-wrap: wrap;
+justify-content: space-between;
 align-items: center;
-gap: 12px 18px;
+width: 100%;
 border-top: 1px solid rgba(255,255,255,0.15);
 border-bottom: 1px solid rgba(255,255,255,0.15);
-padding: 12px 0;
+padding: 15px 0;
+gap: 10px;
 }
 
-.festival-logo-item {
-max-height: 30px;
+.pt-festivales-fila-exacta img {
+max-height: 38px;
 width: auto;
+object-fit: contain;
 filter: brightness(0) invert(1);
-opacity: 0.85;
+opacity: 0.9;
 transition: opacity 0.3s ease;
 }
 
-.festival-logo-item:hover {
+.pt-festivales-fila-exacta img:hover {
 opacity: 1;
 }
 
@@ -349,53 +351,41 @@ flex-direction: column;
 gap: 12px;
 }
 
-.pt-title {
-font-family: 'Georgia', serif; 
-font-size: 30px;
-font-weight: normal;
-line-height: 1.2;
-color: #ffffff;
-}
-
-.pt-subrayado-amarillo {
-border-bottom: 3px solid #FFC601; 
-padding-bottom: 4px;
-display: inline-block;
-line-height: 0.8;
-}
-
 .pt-paragraph {
 font-family: 'Roboto', sans-serif;
 font-size: 15px; 
 font-weight: 300; 
-line-height: 1.55; 
+line-height: 1.6; 
 color: #ffffff;
 text-align: left;
 }
 
-/* Bloque Inferior: Metadata */
-.pt-meta-grid {
+/* Bloque Inferior: Las 6 columnas exactas de la muestra con acentos amarillos */
+.pt-meta-grid-6 {
 display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 15px;
+grid-template-columns: repeat(6, 1fr);
+gap: 12px;
 border-top: 1px solid rgba(255,255,255,0.15);
-padding-top: 15px;
+padding-top: 18px;
 }
 
 .pt-meta-item span {
 display: block;
 font-size: 11px;
-color: #888888;
+color: #FFC601; /* <--- Color amarillo exacto para los títulos de las columnas */
 text-transform: uppercase;
-letter-spacing: 1px;
-margin-bottom: 3px;
+letter-spacing: 0.5px;
+margin-bottom: 5px;
+font-weight: 500;
 }
 
 .pt-meta-item strong {
-font-size: 13.5px;
+font-size: 13px;
 color: #ffffff;
-font-weight: 500;
+font-weight: 400;
 text-transform: uppercase;
+display: block;
+line-height: 1.3;
 }
 
 /* ================= FOTOGRAMAS ================= */
@@ -410,7 +400,7 @@ text-transform: uppercase;
     margin-right: auto;
 }
 
-/* Título de la galería en amarillo y arriba */
+/* Título de la galería en amarillo y justo arriba */
 .galeria-titulo-amarillo {
     font-family: 'Oswald', sans-serif;
     font-size: 26px;
@@ -479,10 +469,10 @@ text-transform: uppercase;
     100% { transform: translateX(-5px); opacity: 0.5; }
 }
 
-@media(max-width: 900px){
+@media(max-width: 950px){
     .pt-wrapper { flex-direction: column; align-items: center; gap: 35px; }
     .pt-info { width: 100%; max-width: 540px; gap: 30px; }
-    .pt-meta-grid { grid-template-columns: repeat(2, 1fr); }
+    .pt-meta-grid-6 { grid-template-columns: repeat(3, 1fr); gap: 20px; }
 }
 
 .fotograma-item img, .pt-, .premio-logo img {
@@ -572,46 +562,56 @@ text-transform: uppercase;
         </div>
         <div class="pt-info">
             
-            <!-- Bloque superior: Premio especial y logos de festivales de la imagen -->
+            <!-- Bloque superior: Premio y los 5 logos distribuidos de lado a lado -->
             <div class="pt-header-content">
                 <div class="pt-premio-container">
                     <img class="pt-premio-logo" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/premio-especial-del-jurado-seriesmania-vida-de-colores-david-david.png?raw=true" alt="Premio Especial del Jurado Series Mania">
                     <div class="pt-premio-texto">
                         <h4>PREMIO ESPECIAL DEL JURADO</h4>
-                        <p>SERIES MANIA 2022 • Primera y única serie colombiana en ganar esta distinción[cite: 1].</p>
+                        <p>SERIES MANIA 2022</p>
                     </div>
                 </div>
 
-                <!-- Logos de festivales provistos en la imagen -->
-                <div class="pt-festivales-logos">
-                    <img class="festival-logo-item" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/festival-ficali-vida-de-colores-de-david-david.png?raw=true" alt="Festival Ficali">
-                    <img class="festival-logo-item" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/festival-lalifvida-de-colores-de-david-david.png?raw=true" alt="Festival Lalif">
-                    <img class="festival-logo-item" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/festival-sanfic-vida-de-colores-de-david-david.png?raw=true" alt="Festival Sanfic">
-                    <img class="festival-logo-item" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/festival-seriencamp-vida-de-colores-de-david-david.png?raw=true" alt="Festival Seriencamp">
-                    <img class="festival-logo-item" src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/festival-seriesmania-vida-de-colores-de-david-david.png?raw=true" alt="Festival Seriesmania">
+                <!-- 5 Logos distribuidos en toda la línea del ancho de texto -->
+                <div class="pt-festivales-fila-exacta">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/festival-ficali-vida-de-colores-de-david-david.png?raw=true" alt="Festival Ficali">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/festival-lalifvida-de-colores-de-david-david.png?raw=true" alt="Festival Lalif">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/festival-sanfic-vida-de-colores-de-david-david.png?raw=true" alt="Festival Sanfic">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/festival-seriencamp-vida-de-colores-de-david-david.png?raw=true" alt="Festival Seriencamp">
+                    <img src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/festival-seriesmania-vida-de-colores-de-david-david.png?raw=true" alt="Festival Seriesmania">
                 </div>
             </div>
 
-            <!-- Bloque central: Título y sinopsis oficial -->
+            <!-- Bloque central: Sinopsis oficial exacta de la muestra -->
             <div class="pt-body-content">
-                <h2 class="pt-title"><span class="pt-subrayado-amarillo">Vida de colores</span></h2>
-                <p class="pt-paragraph">Ambientada en el caribe colombiano, la miniserie colombiana Vida de Colores, dirigida por el cineasta barranquillero David David[cite: 3] y producida por Garabato Cine, ganó el Premio Especial del Jurado en la sección Panorama Internacional del Festival Séries Manía en Francia en 2021[cite: 3].</p>
-                <p class="pt-paragraph">Yerit es un joven artista no binario que vive con una mujer trans que ha interpretado el papel de su madre durante 5 años. Cuando Alma es brutalmente atacada por un vecino, Yerit debe poner a prueba su fuerza para preservar la familia que encontró en ella.</p>
+                <p class="pt-paragraph">En un barrio vibrante del Caribe colombiano, un grupo de jóvenes busca abrirse camino entre sueños, amistades, música y desafíos que parecen más grandes que ellos. Vida de Colores es una historia sobre identidad, pertenencia y la fuerza de elegir tu propio destino.</p>
             </div>
 
-            <!-- Bloque inferior: Metadatos distribuidos -->
-            <div class="pt-meta-grid">
+            <!-- Bloque inferior: Las 6 columnas exactas de la muestra con títulos en amarillo -->
+            <div class="pt-meta-grid-6">
                 <div class="pt-meta-item">
                     <span>Género</span>
                     <strong>Drama juvenil</strong>
                 </div>
                 <div class="pt-meta-item">
                     <span>Formato</span>
-                    <strong>Serie (8 x 45 min)</strong>
+                    <strong>Serie</strong>
                 </div>
                 <div class="pt-meta-item">
-                    <span>País / Año</span>
-                    <strong>Colombia / 2021</strong>
+                    <span>Episodios</span>
+                    <strong>6 x 25 min</strong>
+                </div>
+                <div class="pt-meta-item">
+                    <span>País</span>
+                    <strong>Colombia</strong>
+                </div>
+                <div class="pt-meta-item">
+                    <span>Año</span>
+                    <strong>2021</strong>
+                </div>
+                <div class="pt-meta-item">
+                    <span>Idioma</span>
+                    <strong>Español</strong>
                 </div>
             </div>
 
