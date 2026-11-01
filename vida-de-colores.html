@@ -228,7 +228,7 @@ color: #000000;
 border-color: #FFFFFF;
 }
 /* --- AJUSTE MÓVIL --- */
-@media(max-width: 600px) {
+ {
     .hero-overlay {
         bottom: 10px !important;
         top: auto !important;
@@ -246,7 +246,7 @@ border-color: #FFFFFF;
     }
 }
   /* --- AJUSTES ESPECÍFICOS PARA MÓVIL (MÁS BAJO Y COMPACTO) --- */
-@media(max-width: 600px) {
+ {
     .hero-overlay {
         bottom: -20px !important;
         top: auto !important;
@@ -595,7 +595,7 @@ opacity: 1;
     }
 }
 
-@media(max-width: 600px) {
+ {
 
     .vida-info-section {
         padding: 15px 15px 0 15px;
@@ -1430,6 +1430,19 @@ color: #000000;
     transform-origin:left center;
 }
 
+/* OCULTAR PREMIO EN CELULARES */
+
+@media (max-width: 600px) {
+    .vida-premio-texto {
+        display: none !important;
+    }
+
+    .vida-frase {
+        border-top: none !important;
+        padding-top: 0 !important;
+    }
+}
+    
 /* Columna izquierda (más ancha) */
 
 #banner-vida-de-colores-v3 > div > div:nth-child(1){
