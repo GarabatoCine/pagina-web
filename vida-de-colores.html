@@ -1717,8 +1717,8 @@ color: #000000;
 .ficha-tecnica-imagen-section {
     width: 100%;
     background: #000000;
-    padding: 20px 0;
-    margin: 0;
+    padding: 0 !important;
+    margin: 0 !important;
     line-height: 0;
 }
 
@@ -1728,14 +1728,17 @@ color: #000000;
     display: block;
 }
 
-.ficha-tecnica-mobile {
-    display: none;
+/* COMPUTADORES Y TABLETAS */
+.ficha-tecnica-desktop {
+    display: block !important;
 }
 
-/* ===== VERSIÓN MÓVIL ===== */
+.ficha-tecnica-mobile {
+    display: none !important;
+}
 
-@media (max-width: 600px) {
-
+/* CELULARES */
+@media screen and (max-width: 600px) {
     .ficha-tecnica-desktop {
         display: none !important;
     }
@@ -1743,7 +1746,7 @@ color: #000000;
     .ficha-tecnica-mobile {
         display: block !important;
     }
-
+}
 }
 /* ===== PEGAR GALERÍA, FICHA TÉCNICA Y BANNER ===== */
 
