@@ -1762,14 +1762,18 @@ color: #000000;
     }
 
     .vida-dato {
-        padding: 0 10px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-right: none !important;
-    }
+   padding: 0 10px;
+   text-align: left;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: center;
+   border-right: 1px solid #333333 !important;
+}
+
+.vida-dato:nth-child(3n) {
+   border-right: none !important;
+}
 }
 
 
@@ -1860,6 +1864,18 @@ color: #000000;
         gap: 15px 0;
         align-items: center;
         padding: 15px 0 0 0;
+    }
+        .vida-dato {
+       text-align: left;
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       justify-content: center;
+       border-right: 1px solid #333333 !important;
+    }
+
+    .vida-dato:nth-child(2n) {
+       border-right: none !important;
     }
 }
 
@@ -1989,7 +2005,7 @@ color: #000000;
             <div class="hero-subtitle">Una miniserie de David David</div>
         </div>
 
-        <a class="hero-btn" href="https://www.youtube.com/watch?v=9iv6KbDkaV4">
+        <a class="hero-btn" href="https://www.youtube.com/watch?v=nlVxYHoyhWw&t=2s">
             <i class="fa-solid fa-play"></i> TRÁILER
         </a>
     </div>
