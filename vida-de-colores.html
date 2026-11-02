@@ -719,22 +719,28 @@ opacity: 1;
 /* ================= FOTOGRAMAS (CONFIGURACIÓN PC/MÓVIL) ================= */
 
 .fotogramas-carousel-nuevo {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    flex: 1;
-    padding-bottom: 25px;
-    scrollbar-width: thin;
+   display: flex;
+   gap: 15px;
+   overflow-x: auto;
+   flex: 1;
+   padding-bottom: 25px;
+   scrollbar-width: thin;
+   scrollbar-color: #666 #000;
 }
 
 .fotogramas-carousel-nuevo::-webkit-scrollbar {
-    height: 8px;
-    display: block !important;
+   height: 8px;
+   display: block !important;
+   background: #000;
+}
+
+.fotogramas-carousel-nuevo::-webkit-scrollbar-track {
+   background: #000;
 }
 
 .fotogramas-carousel-nuevo::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 4px;
+   background-color: #666;
+   border-radius: 4px;
 }
 
 .fotogramas-carousel-nuevo .fotograma-item {
