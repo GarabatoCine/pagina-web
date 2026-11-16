@@ -1,1 +1,2579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vida de colores: miniserie de David David | Garabato Cine">
+<meta name="twitter:description" content="Vida de colores es una miniserie colombiana dirigida por David David y producida por Garabato Cine para Telecaribe, ganó el Premio Especial del jurado en Series Mania 2021, explora la identidad, la diversidad de género y la libertad.">
+<meta name="twitter:url" content="https://garabatocine.com/vida-de-colores.html">
+<meta property="og:type" content="video.tv_show">
+<meta property="og:locale" content="es_CO">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="Vida de colores: miniserie de David David | Garabato Cine">
+    
+<meta property="og:site_name" content="Garabato Cine">
+<meta property="og:description" content="Vida de colores es una miniserie colombiana dirigida por David David y producida por Garabato Cine para Telecaribe, ganó el Premio Especial del jurado en Series Mania 2021, explora la identidad, la diversidad de género y la libertad.">
+<meta property="og:url" content="https://garabatocine.com/vida-de-colores.html">
+<meta property="og:image" content="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/afiche-vida-de-colores-miniserie-dirigida-por-david-david.jpg?raw=true">
+<meta property="og:image:alt" content="Afiche oficial de Vida de colores, dirigida por David David">
+<meta name="twitter:image" content="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/afiche-vida-de-colores-miniserie-dirigida-por-david-david.jpg?raw=true">
+<meta name="twitter:image:alt" content="Afiche oficial de Vida de colores, dirigida por David David">
+    <link rel="canonical" href="https://garabatocine.com/vida-de-colores.html">
+<link rel="alternate" hreflang="en" href="https://garabatocine.com/colorful-life-en.html">
+<link rel="alternate" hreflang="es" href="https://garabatocine.com/vida-de-colores.html">
+<link rel="alternate" hreflang="x-default" href="https://garabatocine.com/vida-de-colores.html">
 
+<title>Vida de colores: miniserie de David David | Garabato Cine</title>
+<meta name="description" content="Vida de colores es una miniserie colombiana dirigida por David David y producida por Garabato Cine para Telecaribe, ganó el Premio Especial del Jurado en Series Mania 2021, explora la identidad, la diversidad de género y la libertad."> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+html,body{
+width:100%;
+overflow-x:hidden;
+background:#000000; 
+color:#000000;           
+font-family:'Roboto',sans-serif;
+}
+a{
+text-decoration:none;
+}
+img{
+display:block;
+max-width:100%;
+}
+/* ================= HEADER ================= */
+.header{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+padding:28px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+text-transform:uppercase;
+}
+.header, .header a {
+color: #FFFFFF; 
+}
+.logo a{
+font-family:'Oswald',sans-serif;
+font-size:24px;
+letter-spacing:2px;
+color:#fff;
+display: block;
+}
+.menu-toggle {
+display: none;
+font-size: 24px;
+cursor: pointer;
+color: #fff;
+z-index: 2000;
+margin-left: auto;
+}
+.nav{
+display:flex;
+align-items:center;
+gap:26px;
+}
+.nav a{
+font-size:14px;
+color:#fff;
+opacity:.9;
+}
+.nav-mobile {
+display: none;
+position: fixed;
+top: 80px;
+right: 20px;
+width: 200px;
+background: rgba(0,0,0,0.9);
+padding: 25px;
+z-index: 1500;
+flex-direction: column;
+gap: 15px;
+border-radius: 8px;
+text-align: right; 
+align-items: flex-end;
+}
+.nav-mobile a {
+color: #fff;
+font-size: 16px;
+text-transform: uppercase;
+}
+/* Corregimos el selector para que apunte a la clase .lang */
+.nav-mobile .lang {
+    display: flex;
+    gap: 6px;
+    font-size: 13px;
+    color: #fff;
+    justify-content: flex-end; /* Empuja ES | EN a la derecha */
+    width: 100%;
+}
+.lang .active {
+    color: #888888;
+    cursor: default;
+    pointer-events: none;
+    text-decoration: none;
+}
+.lang a {
+    color: #ffffff;
+    text-decoration: none;
+}
+/* Corregimos el selector para que apunte a la clase .active dentro de .lang */
+.lang .active {
+    opacity: 0.45;
+}
+/* ================= HERO ================= */
+.hero-banner{
+position:relative;
+width:100%;
+background: #000;
+line-height: 0;
+}
+.hero-banner img,
+.hero-banner video{
+width:100%;
+height:auto;
+display:block;
+filter: brightness(0.65);
+}
+.hero-overlay{
+position:absolute;
+bottom: 10%; 
+left: 60px;
+z-index:10;
+max-width: 50%; 
+transform:none;
+text-align:left;
+}
+.hero-title{
+font-family:'Oswald',sans-serif;
+font-size: clamp(24px, 4vw, 54.6px); 
+font-weight:700;
+line-height:1.1;
+letter-spacing:2px;
+margin-bottom:10px;
+color:#FFF;
+text-transform:uppercase;
+}
+.subrayado-amarillo {
+border-bottom: 4px solid #FFC601;
+padding-bottom: 12px;
+display: inline-block;
+line-height: 0.9;
+}
+.hero-subtitle{
+font-size: clamp(12px, 1.5vw, 18px);
+line-height: 1.35;
+font-weight: 300;
+color: #CCCCCC;
+letter-spacing: 0.5px;
+margin-bottom: 20px;
+}
+.hero-btn{
+display:inline-flex;
+align-items:center;
+gap: 8px;
+padding: 8px 18px;
+background: transparent;
+border: 0.5px solid rgba(255,255,255,0.5);
+color: #FFFFFF;
+font-family: 'Roboto', sans-serif;
+font-size: 14px;
+font-weight: 400;
+letter-spacing: 2px;
+text-transform: uppercase;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+.hero-btn:hover{
+background: #000000;
+color: #000000;
+border-color: #FFFFFF;
+}
+@media (max-width: 600px) {
+    .hero-overlay {
+        bottom: 10px !important;
+        top: auto !important;
+        left: 20px !important;
+        max-width: 90% !important;
+    }
+    .hero-title { font-size: 20px !important; }
+    .hero-subtitle { 
+        font-size: 10px !important; 
+        white-space: nowrap !important; 
+    }
+    .hero-btn { 
+        padding: 4px 8px !important; 
+        font-size: 10px !important; 
+    }
+}
+  /* --- AJUSTES ESPECÍFICOS PARA MÓVIL (MÁS BAJO Y COMPACTO) --- */
+ {
+    .hero-overlay {
+        bottom: -20px !important;
+        top: auto !important;
+        left: 15px !important;
+        max-width: 85% !important;
+    }
+        .hero-title { 
+        font-size: 19px !important;
+        margin-bottom: 2px !important;
+        letter-spacing: 0px !important;
+        line-height: 1 !important;
+    }
+        .hero-subtitle { 
+        font-size: 9px !important;
+        margin-bottom: 8px !important;
+    }
+        .hero-btn { 
+        padding: 3px 6px !important; 
+        font-size: 9px !important; 
+    }
+}
+/* ================= PREMIOS ================= */
+.premios-section {
+width: 100%;
+background: #000000;
+padding: 40px 10px; 
+margin-top: 32px;
+margin-bottom: 32px;
+display: flex;
+justify-content: center;
+}
+.premios-container {
+width: 100%;
+max-width: 1400px; 
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 20px;
+}
+.premio-logo {
+flex: 1 1 calc(16.66% - 20px);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.premio-logo img {
+max-height: 75px; 
+width: auto;
+filter: brightness(0) invert(1);
+opacity: 1;
+}
+/* ================= VIDA DE COLORES - PREMIOS + INFO ================= */
+.vida-info-section {
+    width: 100%;
+    background: #000000;
+    padding: 20px 20px 0 20px;
+    margin-top: 30px;
+}
+.vida-info-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    column-gap: 45px;
+    align-items: start;
+}
+/* ---------- AFICHE ---------- */
+.vida-poster-wrapper {
+    width: 300px;
+}
+.vida-poster {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+/* ---------- COLUMNA DERECHA ---------- */
+.vida-info-right {
+    width: 100%;
+    min-width: 0;
+}
+/* ---------- PREMIO PRINCIPAL ---------- */
+.vida-premio-principal {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 155px 190px 1fr;
+    align-items: center;
+    column-gap: 20px;
+    padding-bottom: 18px;
+}
+.vida-seriesmania-logo {
+    width: 155px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+.vida-premio-texto {
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 1.25;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.vida-premio-texto strong {
+    color: #d1a84f;
+    font-weight: 500;
+}
+/* ---------- FRASE DESTACADA ---------- */
+.vida-frase {
+    border-left: 1px solid #252525;
+    padding-left: 22px;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    line-height: 1.45;
+    font-weight: 400;
+}
+/* ---------- CINCO SELECCIONES ---------- */
+.vida-selecciones {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    gap: 10px;
+    padding: 18px 0 20px 0;
+    border-top: 1px solid #252525;
+    border-bottom: 1px solid #252525;
+}
+.vida-seleccion-logo {
+    width: 100%;
+    height: 68px;
+    object-fit: contain;
+    display: block;
+}
+/* ---------- SINOPSIS ---------- */
+.vida-sinopsis {
+    padding: 20px 0 20px 0;
+}
+.vida-sinopsis p {
+    margin: 0;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 300;
+    text-align: left;
+}
+/* ---------- DATOS ---------- */
+.vida-datos {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: stretch;
+    padding-bottom: 20px;
+}
+.vida-dato {
+    padding: 0 14px;
+    border-right: 1px solid #333333;
+}
+.vida-dato:first-child {
+    padding-
+}
+.vida-dato:last-child {
+    border-right: none;
+}
+.vida-dato-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #d1a84f;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.vida-dato-value {
+    display: block;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    line-height: 1.3;
+    font-weight: 300;
+}
+/* ---------- TABLET ---------- */
+@media(max-width: 1024px) {
+    .vida-info-section {
+        padding: 20px 25px 0 25px;
+    }
+    .vida-info-container {
+        grid-template-columns: 240px 1fr;
+        column-gap: 30px;
+    }
+    .vida-poster-wrapper {
+        width: 240px;
+    }
+    .vida-premio-principal {
+        grid-template-columns: 125px 155px 1fr;
+        column-gap: 12px;
+    }
+    .vida-seriesmania-logo {
+        width: 125px;
+    }
+    .vida-premio-texto {
+        font-size: 14px;
+    }
+    .vida-frase {
+        font-size: 12px;
+        padding-left: 15px;
+    }
+    .vida-selecciones {
+        gap: 5px;
+    }
+    .vida-seleccion-logo {
+        height: 55px;
+    }
+    .vida-sinopsis p {
+        font-size: 14px;
+    }
+    .vida-dato {
+        padding: 0 7px;
+    }
+    .vida-dato-label {
+        font-size: 10px;
+    }
+    .vida-dato-value {
+        font-size: 11px;
+    }
+}
+/* ---------- MÓVIL ---------- */
+@media(max-width: 850px) {
+    .vida-info-container {
+        grid-template-columns: 1fr;
+        row-gap: 25px;
+    }
+    .vida-poster-wrapper {
+        width: 280px;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    .vida-info-right {
+        width: 100%;
+    }
+    .vida-premio-principal {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 15px;
+    }
+    .vida-seriesmania-logo {
+        width: 150px;
+        margin: 0 auto;
+    }
+    .vida-premio-texto {
+        font-size: 16px;
+    }
+    .vida-frase {
+        border-left: none;
+        border-top: 1px solid #252525;
+        padding: 15px 0 0 0;
+        text-align: center;
+    }
+    .vida-selecciones {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 4px;
+    }
+    .vida-seleccion-logo {
+        height: 50px;
+    }
+    .vida-datos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px 0;
+    }
+    .vida-dato {
+        padding: 0 8px;
+    }
+    .vida-dato:nth-child(3),
+    .vida-dato:nth-child(6) {
+        border-right: none;
+    }
+}
+ {
+    .vida-info-section {
+        padding: 15px 15px 0 15px;
+    }
+    .vida-poster-wrapper {
+        width: 240px;
+        max-width: 75%;
+    }
+  .vida-premio-texto {
+    display: none !important;
+}
+.vida-frase {
+    font-size: 13px;
+    line-height: 1.4;
+    border-top: none !important;
+    padding-top: 0 !important;
+}
+    .vida-selecciones {
+        padding: 12px 0 16px 0;
+    }
+    .vida-seleccion-logo {
+        height: 40px;
+    }
+    .vida-sinopsis {
+        padding: 18px 0;
+    }
+    .vida-sinopsis p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    .vida-datos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 0;
+    }
+    .vida-dato {
+        border-right: 1px solid #333333 !important;
+        padding: 0 10px;
+    }
+    .vida-dato:nth-child(2n) {
+        border-right: none !important;
+    }
+    .vida-dato:first-child {
+        padding-
+    }
+    .vida-dato-label {
+        font-size: 10px;
+    }
+    .vida-dato-value {
+        font-size: 11px;
+    }
+}
+/* ================= FOTOGRAMAS ================= */
+.fotogramas-section-nueva {
+    position: relative;
+    margin-top: 40px !important;
+    margin-bottom: 0 !important;
+    padding: 0 20px;
+}
+.scroll-indicator-nuevo {
+    position: absolute;
+    top: -35px;
+    right: 20px;
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.scroll-indicator-nuevo i { animation: pulse 1.5s infinite; }
+.galeria-wrapper-nueva {
+    display: flex;
+    align-items: center; 
+    gap: 3px;
+    width: 100%;
+}
+.galeria-intro-nueva { flex: 0 0 250px; }
+.galeria-titulo-nueva {
+    font-family: 'Georgia', serif;
+    font-size: 46px; 
+    font-weight: normal;
+    margin-bottom: 10px;
+    color: #000;
+}
+.galeria-subtitulo-nueva {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15.5px; 
+    line-height: 1.5;
+    color: #666;
+    display: block;
+}
+.break-line::before {
+    content: "\A";
+    white-space: pre;
+}
+/* ================= FOTOGRAMAS (CONFIGURACIÓN PC/MÓVIL) ================= */
+.fotogramas-carousel-nuevo {
+   display: flex;
+   gap: 15px;
+   overflow-x: auto;
+   flex: 1;
+   padding-bottom: 25px;
+   scrollbar-width: thin;
+   scrollbar-color: #666 #000;
+}
+.fotogramas-carousel-nuevo::-webkit-scrollbar {
+   height: 8px;
+   display: block !important;
+   background: #000;
+}
+.fotogramas-carousel-nuevo::-webkit-scrollbar-track {
+   background: #000;
+}
+.fotogramas-carousel-nuevo::-webkit-scrollbar-thumb {
+   background-color: #666;
+   border-radius: 4px;
+}
+.fotogramas-carousel-nuevo .fotograma-item {
+    flex: 0 0 350px;
+}
+@media(min-width: 1025px) {
+    .scroll-indicator-nuevo {
+        display: none !important;
+    }
+}
+@media(max-width: 1024px) {
+    .galeria-wrapper-nueva { 
+        flex-direction: row !important; 
+        gap: 20px !important; 
+    }
+    .galeria-intro-nueva { 
+        flex: 0 0 200px !important; 
+    }
+
+    .fotogramas-carousel-nuevo .fotograma-item { 
+        flex: 0 0 calc(50% - 10px) !important; 
+    }
+    .galeria-titulo-nueva {
+        font-size: 32px !important;
+    }
+}
+@keyframes pulse {
+    0% { transform: translateX(-5px); opacity: 0.5; }
+    50% { transform: translateX(5px); opacity: 1; }
+    100% { transform: translateX(-5px); opacity: 0.5; }
+}
+@media(max-width: 900px) {
+    .galeria-wrapper-nueva { flex-direction: column; }
+    .galeria-intro-nueva { margin-bottom: 20px; }
+}
+/* ================= LIGHTBOX FOTOGRAMAS ================= */
+.fotograma-item img {
+    cursor: pointer;
+}
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 5000;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.92);
+    align-items: center;
+    justify-content: center;
+}
+.lightbox.active {
+    display: flex;
+}
+.lightbox-image {
+    max-width: 80vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: #fff;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 5002;
+    background: none;
+    border: none;
+    padding: 5px 10px;
+}
+
+.lightbox-close:hover {
+    color: #FFC601;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 42px;
+    font-weight: 300;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 20px;
+    z-index: 5002;
+    transition: color 0.2s ease;
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    color: #FFC601;
+}
+
+@media(max-width:768px){
+
+    .lightbox-image {
+        max-width: 88vw;
+        max-height: 78vh;
+    }
+
+    .lightbox-close {
+        top: 15px;
+        right: 15px;
+        font-size: 32px;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        font-size: 30px;
+        padding: 10px;
+    }
+
+    .lightbox-prev {
+        left: 5px;
+    }
+
+    .lightbox-next {
+        right: 5px;
+    }
+}
+
+/* ================= FICHA TÉCNICA ================= */
+
+.ficha-tecnica-section {
+    background: #000;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.ficha-tecnica-marco-wrapper { 
+    width: calc(100% - 60px); 
+    margin: 20px; 
+    border: 1px solid #fff; 
+    position: relative; 
+    padding: 60px 40px 40px 40px; 
+}
+
+.titulo-ficha-container {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    padding: 0 20px;
+    z-index: 5;
+}
+
+.titulo-ficha {
+    color: #d1d1d1;
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.ficha-tecnica-grid { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start;
+    width: 100%; 
+}
+
+.ficha-columna { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 30px; 
+}
+
+.ficha-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.reparto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.reparto img {
+    width: 45px !important;
+    height: auto !important;
+    margin-bottom: 10px !important;
+    display: block !important;
+}
+
+.ficha-item img {
+    width: 35px !important;
+    height: 35px !important;
+    display: block !important;
+}
+
+.ficha-texto {
+    color: #d1d1d1;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+}
+
+@media(max-width: 1024px) { 
+    .ficha-tecnica-grid { 
+        display: grid !important; 
+        grid-template-columns: repeat(3, 1fr) !important; 
+        gap: 30px !important; 
+        width: 100% !important; 
+        margin: 0 auto !important; 
+        padding-left: 5% !important; 
+        box-sizing: border-box !important;
+    } 
+
+    .ficha-columna {
+        display: contents !important;
+    }
+     
+    .ficha-item,
+    .reparto { 
+        display: flex !important; 
+        flex-direction: row !important; 
+        align-items: center !important; 
+        justify-content: flex-start !important; 
+        width: 100% !important; 
+        text-align: left !important;
+    }
+
+    .ficha-columna:nth-child(1) {
+        order: 1 !important;
+    }
+
+    .reparto {
+        order: 2 !important;
+    }
+
+    .ficha-columna:nth-child(6) {
+        order: 3 !important;
+    } 
+}
+
+@media(max-width: 600px) { 
+
+    .ficha-tecnica-marco-wrapper { 
+        padding: 30px 10px 15px 10px !important; 
+        margin: 10px auto !important;
+        width: 95% !important;
+    }
+
+    .ficha-tecnica-grid { 
+        display: grid !important; 
+        grid-template-columns: repeat(3, 1fr) !important; 
+        gap: 15px 5px !important; 
+        width: 100% !important; 
+        align-items: start !important; 
+    } 
+
+    .ficha-columna {
+        display: contents !important;
+    }
+     
+    .ficha-item,
+    .reparto { 
+        display: flex !important; 
+        flex-direction: column !important; 
+        align-items: center !important; 
+        justify-content: flex-start !important; 
+        text-align: center !important; 
+        gap: 5px !important;
+    }
+
+    .reparto { 
+        gap: 2px !important; 
+        padding-top: 0 !important;
+    }
+     
+    .reparto .ficha-texto { 
+        margin-top: 2px !important; 
+        line-height: 1.1 !important;
+    }
+     
+    .ficha-item img,
+    .reparto img { 
+        width: 30px !important; 
+        height: 30px !important; 
+        object-fit: contain !important; 
+        margin-bottom: 0 !important;
+    }
+     
+    .ficha-texto { 
+        font-size: 9px !important; 
+        line-height: 1.2 !important; 
+    }
+}
+
+/* ================= NUEVA SECCIÓN VER Y R ALINEADA ================= */
+
+.ve-section-wrapper {
+    width: calc(100% - 60px);
+    max-width: 1200px;
+    margin: 40px auto;
+    display: flex;
+    gap: 30px;
+    align-items: stretch;
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+.ve-img-grande {
+    flex: 1;
+}
+
+.ve-img-grande img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.ve-bloques-derecha {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.ve-bloque {
+    border: 1px solid #eee;
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ve-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+@media(max-width: 850px) {
+    .ve-section-wrapper {
+        flex-direction: column;
+    }
+}
+
+/* ================= CONTACTO ================= */
+
+.contact-section {
+width: 100%;
+padding: 100px 0 0 0 !important;
+background: #000000;
+display: flex;
+justify-content: center;
+text-align: center;
+}
+
+.contact-container {
+max-width: 850px;
+margin: 0 auto;
+padding: 0 25px;
+}
+
+.contact-title {
+font-family: 'Roboto', sans-serif; 
+font-size: 15px;                 
+font-weight: 200;                
+line-height: 1.3;
+letter-spacing: 0.5px;
+margin-bottom: 30px;
+color: #FFFFFF;
+}
+
+.contact-btn {
+display: inline-block;
+padding: 14px 40px;
+background: transparent;
+color: #FFC601;
+font-family: 'Roboto', sans-serif;
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 3px;
+text-transform: uppercase;
+border: 2px solid #FFC601;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+background: #FFC601;
+color: #000000;
+}
+
+.contact-section {
+    padding-bottom: 20px !important;
+}
+
+/* ================= FOOTER ================= */
+
+.sitio-footer {
+   background-color: #000000;
+   padding: 15px 20px !important;
+   border-top: 1px solid #1a1a1a;
+   width: 100%;
+   margin-top: 0 !important;
+}
+
+@media(min-width: 768px) {
+    .sitio-footer {
+        padding: 40px 20px !important; 
+        margin-top: 0 !important; 
+    }
+}
+
+.fila-tres-columnas {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.columna-izquierda {
+    flex: 1;
+    text-align: left;
+}
+
+.columna-izquierda h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    color: #fff;
+}
+
+.columna-izquierda p {
+    font-size: 13px;
+    color: #888888;
+    margin: 0;
+}
+
+.columna-central {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex: 1;
+}
+
+.columna-central a {
+    color: #ffffff;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.columna-central a:hover {
+    color: #FFC601;
+}
+
+.columna-derecha {
+    flex: 1;
+    text-align: right;
+    line-height: 1.6;
+}
+
+.columna-derecha a {
+    color: #888888;
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+.columna-derecha a:hover {
+    color: #FFC601;
+}
+
+.columna-derecha div {
+    font-size: 11px;
+    color: #888888;
+}
+
+@media(max-width: 767px) {
+    .sitio-footer {
+        padding: 15px 20px !important;
+    }
+
+    .fila-tres-columnas {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .columna-izquierda {
+        text-align: center;
+    }
+
+    .columna-izquierda h4 {
+        margin-bottom: 2px;
+    }
+
+    .columna-derecha {
+        text-align: center !important;
+    }
+}
+
+/* --- FOOTER PARA TABLET (992px) --- */
+
+@media(max-width: 992px) and (min-width: 768px) {
+    .sitio-footer {
+        padding: 20px 25px !important;
+    }
+
+    .fila-tres-columnas {
+        flex-direction: row !important;
+        gap: 15px !important;
+        text-align: left !important;
+    }
+
+    .columna-derecha {
+        text-align: right !important;
+    }
+}
+
+/* --- FOOTER PARA CELULAR (767px o menos) --- */
+
+@media(max-width: 767px) {
+    .sitio-footer {
+        padding: 15px 20px !important;
+    }
+
+    .fila-tres-columnas {
+        flex-direction: column !important;
+        gap: 15px !important;
+        text-align: center !important;
+    }
+
+    .columna-derecha {
+        text-align: center !important;
+    }
+}
+
+/* ================= RESPONSIVE GLOBALES ================= */
+
+@media(max-width: 1024px) {
+    .header {
+        padding: 20px;
+    }
+
+    .logo {
+        display: none !important;
+    }
+
+    .nav {
+        display: none !important;
+    }
+
+    .menu-toggle {
+        display: block !important;
+    }
+
+    .galeria-intro-nueva {
+        display: none !important;
+    }
+
+    .galeria-wrapper-nueva {
+        display: block !important;
+        padding: 0 !important;
+        overflow-x: auto !important;
+    }
+
+    .fotogramas-carousel-nuevo {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .fotogramas-carousel-nuevo .fotograma-item {
+        flex: 0 0 50% !important;
+        padding: 5px !important;
+    }
+
+    .scroll-indicator-nuevo {
+        display: flex !important;
+        position: static !important;
+        justify-content: flex-end !important;
+        margin-right: 20px !important;
+        margin-bottom: 10px !important;
+        font-size: 11px !important;
+        color: #666 !important;
+    }
+}
+
+@media(max-width:850px){
+    .pt-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .pt-info {
+        width: 100%;
+        max-width: 480px;
+        justify-content: flex-start;
+    }
+
+    .pt-title {
+        text-align: center;
+    }
+
+    .pt-paragraph {
+        margin-bottom: 20px !important;
+        text-align: justify;
+    }
+}
+
+@media(max-width: 600px) {
+    .hero-overlay {
+        left: 10px !important;
+        right: 10px !important;
+        bottom: 10px !important;
+        width: calc(100% - 20px) !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-end !important;
+        max-width: 100% !important;
+    }
+
+    .hero-title {
+        font-size: 20px !important;
+    }
+
+    .fotogramas-carousel-nuevo .fotograma-item {
+        flex: 0 0 70% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+/* ===== TABLET ===== */
+
+@media (max-width:1024px) and (min-width:601px){
+
+#banna-v3{
+    overflow:hidden;
+}
+
+#banna-v3 img:first-child{
+    width:100%;
+    height:auto !important;
+    object-fit:contain !important;
+    display:block;
+}
+
+#banner-vida-de-colores-v3 > div{
+    padding:0 22px !important;
+    gap:0 !important;
+    transform:translateX(12px) scale(.78);
+    transform-origin:left center;
+}
+
+/* OCULTAR PREMIO EN CELULARES */
+
+@media (max-width: 600px) {
+    .vida-premio-texto {
+        display: none !important;
+    }
+
+    .vida-frase {
+        border-top: none !important;
+        padding-top: 0 !important;
+    }
+}
+    
+/* Columna izquierda (más ancha) */
+
+#banner-vida-de-colores-v3 > div > div:nth-child(1){
+    flex:0 0 22% !important;
+    text-align:left !important;
+}
+
+/* Canción original */
+
+#banner-vida-de-colores-v3 > div > div:nth-child(1) > p:first-child{
+    font-size:10px !important;
+    font-weight:300 !important;
+    margin:0 0 2px 0 !important;
+    line-height:1 !important;
+}
+
+/* Vida de colores */
+
+#banner-vida-de-colores-v3 > div > div:nth-child(1) > h1{
+    font-size:27px !important;
+    margin:2px 0 10px 0 !important;
+    line-height:1.05 !important;
+    white-space:nowrap !important;
+}
+
+/* Canta */
+
+#banner-vida-de-colores-v3 > div > div:nth-child(1) > p:nth-of-type(2){
+    font-size:12px !important;
+    font-weight:300 !important;
+    margin:-2px 0 2px 0 !important;
+    line-height:1 !important;
+}
+
+/* Adriana Lucía */
+
+#banner-vida-de-colores-v3 > div > div:nth-child(1) > h2{
+    font-size:16px !important;
+    margin:0 !important;
+    line-height:1 !important;
+}
+
+/* Sin líneas verticales */
+
+#banner-vida-de-colores-v3 > div > div:nth-child(2),
+#banner-vida-de-colores-v3 > div > div:nth-child(4){
+    display:none !important;
+}
+
+/* Bloque central */
+
+#banner-vida-de-colores-v3 > div > div:nth-child(3){
+    flex:0 0 46% !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:10px !important;
+}
+
+/* Columna botones */
+
+#banner-vida-de-colores-v3 > div > div:nth-child(3) > div{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:6px !important;
+    margin-left:18px !important;
+}
+
+/* Línea divisoria */
+
+#banner-vida-de-colores-v3 > div > div:nth-child(3) > div > div{
+    width:140px !important;
+    height:.5px !important;
+    margin:0 !important;
+}
+
+/* Imagen Adriana */
+
+#banner-vida-de-colores-v3 img[src*="adri.png"]{
+    width:155px !important;
+}
+
+/* Íconos */
+
+#banner-vida-de-colores-v3 img[src*="boton-play.png"],
+#banner-vida-de-colores-v3 img[src*="spotify.png"]{
+    width:28px !important;
+}
+
+/* Ocultar EN YOUTUBE y EN SPOTIFY */
+
+#banner-vida-de-colores-v3 > div > div:nth-child(3) span:last-child{
+    display:none !important;
+}
+
+/* Compactar texto botones */
+
+#banner-vida-de-colores-v3 > div > div:nth-child(3) a div{
+    line-height:1 !important;
+}
+
+/* Ocultar bloque derecho */
+
+#banner-vida-de-colores-v3 > div > div:nth-child(5){
+    display:none !important;
+}
+
+/* ===== PREMIOS - TABLET ===== */
+
+.premio-logo img{
+    max-height:60px !important;
+}
+
+}
+
+/* ===== MÓVIL ===== */
+
+#banner-vida-de-colores-mobile{
+    display:none;
+    margin-top:40px;
+}
+
+.-pc-wrapper{
+    position:relative;
+    display:inline-block;
+    max-width:100%;
+}
+
+.-pc-wrapper{
+    position:relative;
+    display:inline-block;
+    width:100%;
+    max-width:1920px;
+}
+
+.-pc-wrapper img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+.press-btn{
+    position:absolute;
+    display:block;
+    cursor:pointer;
+    background:transparent;
+}
+
+/************* FILA 1 *************/
+
+.festival{
+    left:49.6%;
+    top:5.4%;
+    width:10.3%;
+    height:20.2%;
+}
+
+.cairo{
+    left:71.0%;
+    top:5.4%;
+    width:10.3%;
+    height:20.2%;
+}
+
+/************* FILA 2 *************/
+
+.latam{
+    left:49.6%;
+    top:31.8%;
+    width:10.3%;
+    height:20.2%;
+}
+
+.rolling{
+    left:71.0%;
+    top:31.8%;
+    width:10.3%;
+    height:20.2%;
+}
+
+/************* FILA 3 *************/
+
+.peacock{
+    left:49.6%;
+    top:58.2%;
+    width:10.3%;
+    height:20.2%;
+}
+
+.tropical{
+    left:71.0%;
+    top:58.2%;
+    width:10.3%;
+    height:20.2%;
+}
+
+@media (max-width:600px){
+
+    #banner-vida-de-colores-v3{
+        display:none !important;
+    }
+
+    #banner-vida-de-colores-mobile{
+        display:block !important;
+        width:100%;
+        margin-top:40px;
+    }
+
+}
+
+#banner-vida-de-colores-mobile{
+    display:none;
+}
+
+/* Efecto Zoom Suave para Fotos y Fotogramas */
+
+.fotograma-item img,
+.pt-,
+.premio-logo img {
+    transition: transform 0.3s ease;
+}
+
+.fotograma-item img:hover,
+.pt-:hover,
+.premio-logo img:hover {
+    transform: scale(1.03);
+}
+
+/* ===== AJUSTE DEL AFICHE Y LA INFORMACIÓN ===== */
+
+/* ===== ESCRITORIO ===== */
+
+@media (min-width: 1025px) {
+
+    .vida-info-container {
+        grid-template-columns: 480px minmax(0, 1fr);
+        column-gap: 35px;
+        align-items: stretch;
+    }
+
+    .vida-poster-wrapper {
+        width: 480px;
+        align-self: start;
+    }
+
+    /*
+       La información de la derecha ocupa exactamente
+       la misma altura que el afiche y se divide en
+       cuatro bloques verticales.
+    */
+
+    .vida-info-right {
+    height: 80%;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 6px;
+    min-height: 0;
+}
+
+    /* 1. Premio Especial del Jurado */
+
+    .vida-premio-principal {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 110px 150px minmax(0, 1fr);
+        column-gap: 15px;
+        align-items: center;
+        padding: 0;
+        min-height: 0;
+    }
+
+    .vida-seriesmania-logo {
+        width: 110px;
+        max-width: 100%;
+    }
+
+    .vida-premio-texto {
+   font-size: 11px !important;
+}
+    .vida-frase {
+        font-size: 13px;
+        padding-left: 14px;
+    }
+
+    /* 2. Selecciones */
+
+    .vida-selecciones {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        align-items: center;
+        gap: 8px;
+        padding: 10px 0;
+        border-top: 1px solid #252525;
+        border-bottom: 1px solid #252525;
+        min-height: 0;
+    }
+
+    .vida-seleccion-logo {
+        height: 60px;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    /* 3. Sinopsis */
+
+    .vida-sinopsis {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 15px 0;
+    }
+
+    .vida-sinopsis p {
+        font-size: 14px;
+        line-height: 1.55;
+        margin: 0;
+    }
+
+    /* 4. Ficha técnica */
+
+    .vida-datos {
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px 0;
+        align-items: center;
+        padding: 15px 30px 0 30px;
+    }
+
+ .vida-dato {
+   text-align: left;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: center;
+   border-left: 1px solid #333333 !important;
+   border-right: 1px solid #333333 !important;
+}
+
+.vida-dato:nth-child(3n) {
+  border-right: none !important;
+}
+}
+
+
+/* ===== TABLET: AFICHE 20 % MÁS PEQUEÑO ===== */
+
+@media (min-width: 851px) and (max-width: 1024px) {
+
+    .vida-info-container {
+        grid-template-columns: 384px minmax(0, 1fr);
+        column-gap: 25px;
+        align-items: stretch;
+    }
+
+    .vida-poster-wrapper {
+        width: 384px;
+        max-width: 100%;
+        align-self: start;
+    }
+
+    .vida-info-right {
+    height: 80%;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 6px;
+    min-height: 0;
+}
+
+    /* 1. Premio */
+
+    .vida-premio-principal {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 90px 130px minmax(0, 1fr);
+        column-gap: 8px;
+        align-items: center;
+        padding: 0;
+        min-height: 0;
+    }
+
+    .vida-seriesmania-logo {
+        width: 90px;
+    }
+
+    .vida-premio-texto {
+        font-size: 12px;
+    }
+
+    .vida-frase {
+        font-size: 11px;
+        padding-left: 8px;
+    }
+
+    /* 2. Selecciones */
+
+    .vida-selecciones {
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 5px;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .vida-seleccion-logo {
+        height: 55px;
+    }
+
+    /* 3. Sinopsis */
+
+    .vida-sinopsis {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 15px 0;
+    }
+
+    .vida-sinopsis p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    /* 4. Ficha técnica */
+
+    .vida-datos {
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px 0;
+        align-items: center;
+        padding: 15px 0 0 0;
+    }
+        .vida-dato {
+       text-align: left;
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       justify-content: center;
+       border-right: 1px solid #333333 !important;
+    }
+
+    .vida-dato:nth-child(2n) {
+       border-right: none !important;
+    }
+}
+
+
+/* ===== TÍTULO DE GALERÍA ===== */
+
+.fotogramas-carousel-nuevo {
+    margin-top: 35px;
+}
+
+.fotogramas-carousel-nuevo .fotograma-item:first-child {
+    position: relative;
+}
+
+.vida-galeria-titulo {
+    position: absolute;
+    top: 10px;
+    left: 10;
+    color: #FFC601;
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+/* ================= FICHA TÉCNICA EN IMAGEN ================= */
+
+.ficha-tecnica-imagen-section {
+    width: 100%;
+    background: #000000;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+}
+
+.ficha-tecnica-imagen {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.ficha-tecnica-mobile {
+    display: none;
+}
+
+/* ===== VERSIÓN MÓVIL ===== */
+
+@media (max-width: 600px) {
+
+    .ficha-tecnica-desktop {
+        display: none !important;
+    }
+
+    .ficha-tecnica-mobile {
+        display: block !important;
+    }
+
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TVSeries",
+  "name": "Vida de colores",
+"description": "Vida de colores es una miniserie colombiana dirigida por David David y producida por Garabato Cine para Telecaribe. Ganadora del Premio Especial del Jurado en Series Mania 2021, explora la identidad, la diversidad de género y la libertad.",
+"alternateName": "Colorful Life",
+  "dateCreated": "2021",
+  "url": "https://garabatocine.com/vida-de-colores.html",
+  "image": "https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/afiche-vida-de-colores-miniserie-dirigida-por-david-david.jpg?raw=true",
+  "director": {
+    "@type": "Person",
+    "name": "David David",
+    "jobTitle": "Cineasta y director de cine"
+  },
+  "creator": {
+  "@type": "Person",
+  "name": "David David",
+  "jobTitle": "Cineasta y director de cine"
+},  
+ "productionCompany": {
+  "@type": "Organization",
+  "name": "Garabato Cine",
+  "url": "https://garabatocine.com/"
+},
+"creditText": "Miniserie producida por Garabato Cine por encargo de Telecaribe",
+    
+  "countryOfOrigin": {
+    "@type": "Country",
+    "name": "Colombia"
+  },
+  "numberOfEpisodes": 6,
+"numberOfSeasons": 1,
+       
+ "genre": ["Drama juvenil", "Drama social", "Diversidad sexual y de género"],   
+  "award": "Premio Especial del Jurado, Series Mania 2021",  
+  "inLanguage": "es"
+}
+</script>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo"><a href="index.html">GARABATO CINE</a></div>
+    <div class="menu-toggle" id="menu-btn"><i class="fa-solid fa-bars"></i></div>
+    <div class="nav">
+        <a href="proyectos.html">PROYECTOS</a>
+        <a href="proximamente.html">PRÓXIMAMENTE</a>
+        <a href="nosotros.html">NOSOTROS</a>
+        <div class="lang">
+            <span class="active">ES</span>
+            <span>|</span>
+            <a href="colorful-life-en.html">EN</a>
+        </div>
+    </div>
+</header>
+
+<nav class="nav-mobile" id="nav-mobile">
+    <a href="proyectos.html">PROYECTOS</a>
+    <a href="proximamente.html">PRÓXIMAMENTE</a>
+    <a href="nosotros.html">NOSOTROS</a>
+    <div class="lang">
+        <span class="active">ES</span>
+        <span>|</span>
+        <a href="colorful-life-en.html">EN</a>
+    </div>
+</nav>
+
+<section class="hero-banner">
+    <video autoplay muted loop playsinline preload="metadata">
+        <source src="https://github.com/GarabatoCine/pagina-web/raw/refs/heads/main/catalogo/Banner-vida-de-colores.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay">
+        <div class="hero-text-container">
+            <h1 class="hero-title">
+                <span class="subrayado-amarillo">VIDA DE</span> COLORES
+            </h1>
+            <div class="hero-subtitle">Una miniserie de David David</div>
+        </div>
+
+        <a class="hero-btn" href="https://www.youtube.com/watch?v=nlVxYHoyhWw&t=2s">
+            <i class="fa-solid fa-play"></i> TRÁILER
+        </a>
+    </div>
+</section>
+
+
+<section class="vida-info-section">
+
+    <div class="vida-info-container">
+
+        <!-- AFICHE -->
+
+        <div class="vida-poster-wrapper">
+            <img
+                class="vida-poster"
+                src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/afiche-vida-de-colores-miniserie-dirigida-por-david-david.jpg?raw=true"
+                alt="Afiche oficial de Vida de colores, dirigida por David David">
+        </div>
+
+
+        <!-- COLUMNA DERECHA -->
+
+        <div class="vida-info-right">
+
+            <!-- PREMIO SERIES MANIA + FRASE -->
+
+            <div class="vida-premio-principal">
+
+                <img
+                    class="vida-seriesmania-logo"
+                    src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/premio-especial-del-jurado-seriesmania-vida-de-colores-david-david.png?raw=true"
+                    alt="Premio Especial del Jurado Series Mania 2021">
+
+                <div class="vida-premio-texto">
+                    <strong>PREMIO ESPECIAL<br>
+                    DEL JURADO</strong><br>
+                    SERIES MANIA 2021
+                </div>
+
+                <div class="vida-frase">
+                    Una historia profundamente arraigada en su territorio,<br>
+                    reconocida en el panorama internacional de las series.
+                    
+                </div>
+
+            </div>
+
+
+            <!-- CINCO SELECCIONES -->
+
+            <div class="vida-selecciones">
+
+                <img
+                    class="vida-seleccion-logo"
+                    src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/festival-seriencamp-vida-de-colores-de-david-david.png?raw=true"
+                    alt="Vida de colores del director David David es Selección Oficial de Seriencamp"
+                loading="lazy" decoding="async">
+
+                <img
+                    class="vida-seleccion-logo"
+                    src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/festival-lalif-vida-de-colores-de-david-david.png?raw=true"
+                    alt="Vida de colores del director David David es Selección Oficial de Los Angeles Latino International Film Festival LALIFF"
+                loading="lazy" decoding="async">
+
+                <img
+                    class="vida-seleccion-logo"
+                    src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/festival-serielizados-vida-de-colores-de-david-david.png?raw=true"
+                    alt="Vida de colores del director David David en competencia internacional de Serielizados"
+                loading="lazy" decoding="async">
+
+                <img
+                    class="vida-seleccion-logo"
+                    src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/festival-sanfic-vida-de-colores-de-david-david.png?raw=true"
+                    alt="Special Screening de Vida de colores del director David David en SANFIC Industria"
+                loading="lazy" decoding="async">
+
+                <img
+                    class="vida-seleccion-logo"
+                    src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/festival-ficali-vida-de-colores-de-david-david.png?raw=true"
+                    alt="Special Screening de Vida de colores del director David David en FICALI"
+                loading="lazy" decoding="async">
+
+            </div>
+
+
+            <!-- SINOPSIS -->
+
+            <div class="vida-sinopsis">
+                <p>
+                    Ambientada en el Caribe colombiano, <span style="color:#FFC601;">Vida de Colores</span> sigue a Yerit, un joven artista que desafía las convenciones de género en una sociedad profundamente conservadora. A través de su relación con Alma, una mujer trans con quien ha construido una familia, la serie explora la identidad, los afectos y la lucha por vivir libremente. Con la música y el arte como hilos conductores, <em>David David</em> construye un relato íntimo y vital que celebra la diversidad y abre espacio a otros imaginarios sobre Colombia, lejos de los estereotipos que tradicionalmente han marcado su representación.                </p>
+            </div>
+
+
+            <!-- DATOS -->
+
+            <div class="vida-datos">
+
+                <div class="vida-dato">
+                    <span class="vida-dato-label">GÉNERO</span>
+                    <span class="vida-dato-value">Drama juvenil</span>
+                </div>
+
+                <div class="vida-dato">
+                    <span class="vida-dato-label">FORMATO</span>
+                    <span class="vida-dato-value">Serie</span>
+                </div>
+
+                <div class="vida-dato">
+                    <span class="vida-dato-label">EPISODIOS</span>
+                    <span class="vida-dato-value">6 x 25 min</span>
+                </div>
+
+                <div class="vida-dato">
+                    <span class="vida-dato-label">PAÍS</span>
+                    <span class="vida-dato-value">Colombia</span>
+                </div>
+
+                <div class="vida-dato">
+                    <span class="vida-dato-label">AÑO</span>
+                    <span class="vida-dato-value">2021</span>
+                </div>
+
+                <div class="vida-dato">
+                    <span class="vida-dato-label">IDIOMA</span>
+                    <span class="vida-dato-value">Español</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="fotogramas-section-nueva" style="padding-top: 55px; position: relative;">
+
+   <h2 class="vida-galeria-titulo">GALERÍA</h2>
+    <div class="scroll-indicator-nuevo">
+        Desliza para ver más
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
+    
+    <div class="fotogramas-carousel-nuevo">
+
+        <div class="fotograma-item">
+    <img
+        src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/vida-de-colores-director-david-david1.jpg?raw=true.jpg"
+        alt="Fotograma de Vida de colores, miniserie de David David"
+        loading="lazy" decoding="async">
+</div>
+        <div class="fotograma-item">
+            <img
+                src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/vida-de-colores-director-david-david7.jpg?raw=true"
+                alt="Vida de colores, miniserie dirigida por David David y ganadora del Premio Especial del Jurado en SeriesMania"
+            loading="lazy" decoding="async">
+        </div>
+
+        <div class="fotograma-item">
+            <img
+                src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/vida-de-colores-director-david-david3.jpg?raw=true"
+                alt="Vida de colores de David David, miniserie del caribe colombiano"
+            loading="lazy" decoding="async">
+        </div>
+
+        <div class="fotograma-item">
+            <img
+                src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/vida-de-colores-director-david-david4.jpg?raw=true"
+                alt="Fotograma de la miniserie Vida de colores, dirigida por David David"
+            loading="lazy" decoding="async">
+        </div>
+<div class="fotograma-item">
+      <img
+        src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/vida-de-colores-director-david-david9.jpg?raw=true"
+        alt="Fotografía de Vida de colores, dirigida por David David"
+    loading="lazy" decoding="async">
+    </div>
+        
+        <div class="fotograma-item">
+      <img
+        src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/vida-de-colores-director-david-david8.jpg?raw=true"
+        alt="Fotografía de Vida de colores, dirigida por David David"
+            loading="lazy" decoding="async">
+    </div>
+        
+        <div class="fotograma-item">
+            <img
+                src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/vida-de-colores-director-david-david6.jpg?raw=true.jpg"
+                alt="Vida de colores, dirigida por David David y ganadora de Seriesmania"
+            loading="lazy" decoding="async">
+        </div>
+
+        <div class="fotograma-item">
+            <img
+                src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/vida-de-colores-director-david-david5.jpg?raw=true"
+                alt="Escena de Vida de colores, dirigida por el barranquillero David David"
+            loading="lazy" decoding="async">
+        </div>
+    
+    <div class="fotograma-item">
+      <img
+        src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/vida-de-colores-director-david-david11.jpg?raw=true"
+        alt="Fotografía de Vida de colores, dirigida por David David"
+        loading="lazy" decoding="async">
+    </div>
+
+    <div class="fotograma-item">
+      <img
+        src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/vida-de-colores-director-david-david10.jpg?raw=true"
+        alt="Fotografía de Vida de colores, dirigida por David David"
+        loading="lazy" decoding="async">
+    </div>
+    </div>
+
+</section>
+
+
+<!-- LIGHTBOX FOTOGRAMAS -->
+
+<div class="lightbox" id="lightbox">
+
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">
+        &times;
+    </button>
+
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Imagen anterior">
+        &#10094;
+    </button>
+
+    <img class="lightbox-image" id="lightboxImage" src="" alt="">
+
+    <button class="lightbox-next" id="lightboxNext" aria-label="Siguiente imagen">
+        &#10095;
+    </button>
+
+</div>
+<section class="ficha-tecnica-imagen-section">
+<!-- FICHA TÉCNICA PC Y TABLET -->
+<img
+    class="ficha-tecnica-imagen ficha-tecnica-desktop"
+    src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/vida_de_colores_ficha_tecnica.png?raw=true"
+    alt="Ficha técnica de Vida de colores"
+    loading="lazy" decoding="async">
+
+<!-- FICHA TÉCNICA MÓVIL -->
+<img
+    class="ficha-tecnica-imagen ficha-tecnica-mobile"
+    src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/vida_de_colores_ficha_tecnica_mobile.png?raw=true"
+    alt="Ficha técnica de Vida de colores"
+    loading="lazy" decoding="async">
+</section>
+<!-- BANNER CANCIÓN VIDA DE COLORES - PC Y TABLET -->
+<section
+    id="banner-vida-de-colores-v3"
+    style="width:100%; margin:0; padding:0; position:relative; line-height:0;">
+    <img
+        src="https://raw.githubusercontent.com/GarabatoCine/pagina-web/main/proyectos/Vida%20de%20Colores/vida_de_colores_cancion_bst_detras_de_camara.png"
+        alt="Canción original de Vida de colores"
+        loading="lazy" decoding="async"
+        style="width:100%; height:auto; display:block;">
+    <!-- MÁSCARA 1: SPOTIFY -->
+    <a
+        href="https://open.spotify.com/intl-es/track/3oyuY1TnUBYI3X1wE2Kogw?si=209cf3ad584e482d"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Escuchar Vida de colores en Spotify"
+        aria-label="Escuchar la canción original de Vida de colores interpretada por Aida Bossa en Spotify"
+        style="
+            position:absolute; left:4%; top:62%; width:10%; height:10%; display:block;
+            z-index:10;
+            background:transparent;">
+    </a>
+    <!-- MÁSCARA 2: VIDEO DE LA CANCIÓN EN YOUTUBE -->
+    <a
+        href="https://youtu.be/VzuYQeN0JcI?si=RGZszRdNQ0DgplXh"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Ver el video de la canción Vida de colores interpretada por Aida Bossa en YouTube"
+        aria-label="Ver el video de la canción original de Vida de colores interpretada por Aida Bossa en YouTube"
+        style="
+            position:absolute; left:45%; top:62%; width:10%; height:10%; display:block;
+            z-index:10;
+            background:transparent;">
+    </a>
+    <!-- MÁSCARA 3: DETRÁS DE CÁMARAS -->
+    <a
+        href="https://youtu.be/Vd5gWTT5FSE?si=rMYfUgyndGxemqJf"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Ver detrás de cámaras de la miniserie colombiana Vida de colores"
+        aria-label="Ver el detrás de cámaras de la miniserie colombiana Vida de colores, dirigida por David David, en YouTube"
+        style="
+            position:absolute; left:84%; top:62%; width:10%; height:10%; display:block;
+            z-index:10;
+            background:transparent;">
+    </a>
+</section>
+<section id="banner-vida-de-colores-mobile" style="display:none;position:relative;width:100%;margin:0;padding:0;line-height:0;">
+    <img
+    src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/vida_de_colores_cancion_bst_detras_de_camara_mobile.png?raw=true"
+    alt="Canción original de Vida de colores y detrás de cámaras de la miniserie"
+    loading="lazy" decoding="async"
+    style="width:100%;display:block;">
+    
+    <!-- MÁSCARA 1: SPOTIFY -->
+    <a
+        href="https://open.spotify.com/intl-es/track/3oyuY1TnUBYI3X1wE2Kogw?si=209cf3ad584e482d"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Escuchar Vida de colores interpretada por Aida Bossa en Spotify"
+        aria-label="Escuchar la canción original de Vida de colores interpretada por Aida Bossa en Spotify"
+        style="
+            position:absolute; left:6%; top:32%; width:17%; height:5%; display:block;
+            z-index:10;
+            background:transparent;">
+    </a>
+    <!-- MÁSCARA 2: VIDEO DE LA CANCIÓN EN YOUTUBE -->
+    <a
+        href="https://youtu.be/VzuYQeN0JcI?si=RGZszRdNQ0DgplXh"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Ver el video de la canción Vida de colores interpretada por Aida Bossa en YouTube"
+        aria-label="Ver el video de la canción original de Vida de colores en YouTube"
+        style="
+            position:absolute; left:65%; top:33.5%; width:24%; height:5%; display:block;
+            z-index:10;
+            background:transparent;">
+    </a>
+    <!-- MÁSCARA 3: DETRÁS DE CÁMARAS -->
+    <a
+        href="https://youtu.be/Vd5gWTT5FSE?si=rMYfUgyndGxemqJf"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Ver detrás de cámaras de la miniserie colombiana Vida de colores"
+        aria-label="Ver el detrás de cámaras de la miniserie colombiana Vida de colores, dirigida por David David, en YouTube"
+        style="
+            position:absolute; left:55.5%; top:79%; width:23%; height:5%; display:block;
+            z-index:10;
+            background:transparent;">
+    </a>
+</section>
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const navMobile = document.getElementById('nav-mobile');
+    // Abrir/Cerrar menú hamburguesa
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navMobile.style.display =
+            (navMobile.style.display === 'flex') ? 'none' : 'flex';
+    });
+    // Cerrar al hacer clic en un enlace del menú
+    navMobile.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMobile.style.display = 'none';
+        });
+    });
+    // Cerrar al hacer clic fuera del menú
+    document.addEventListener('click', (e) => {
+        if (!navMobile.contains(e.target) && e.target !== menuBtn) {
+            navMobile.style.display = 'none';
+        }
+    });
+    window.addEventListener("pageshow", function () {
+        setTimeout(function () {
+            window.scrollTo(0, 0);
+        }, 100);
+    });
+    // ================= LIGHTBOX FOTOGRAMAS =================
+    const galleryImages =
+        document.querySelectorAll(
+            '.fotogramas-carousel-nuevo .fotograma-item img'
+        );
+    const lightbox =
+        document.getElementById('lightbox');
+    const lightboxImage =
+        document.getElementById('lightboxImage');
+    const lightboxClose =
+        document.getElementById('lightboxClose');
+    const lightboxPrev =
+        document.getElementById('lightboxPrev');
+    const lightboxNext =
+        document.getElementById('lightboxNext');
+    let currentImage = 0;
+    function openLightbox(index) {
+        currentImage = index;
+        const image = galleryImages[currentImage];
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    function showNextImage() {
+        currentImage =
+            (currentImage + 1) % galleryImages.length;
+        lightboxImage.src =
+            galleryImages[currentImage].src;
+        lightboxImage.alt =
+            galleryImages[currentImage].alt;
+    }
+    function showPreviousImage() {
+        currentImage =
+            (currentImage - 1 + galleryImages.length)
+            % galleryImages.length;
+        lightboxImage.src =
+            galleryImages[currentImage].src;
+        lightboxImage.alt =
+            galleryImages[currentImage].alt;
+    }
+    galleryImages.forEach((image, index) => {
+        image.addEventListener('click', () => {
+            openLightbox(index);
+        });
+    });
+    lightboxClose.addEventListener(
+        'click',
+        closeLightbox
+    );
+    lightboxNext.addEventListener(
+        'click',
+        showNextImage
+    );
+    lightboxPrev.addEventListener(
+        'click',
+        showPreviousImage
+    );
+    lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    document.addEventListener('keydown', (event) => {
+        if (!lightbox.classList.contains('active')) {
+            return;
+        }
+        if (event.key === 'Escape') {
+            closeLightbox();
+        }
+        if (event.key === 'ArrowRight') {
+            showNextImage();
+        }
+        if (event.key === 'ArrowLeft') {
+            showPreviousImage();
+        }
+    });
+</script>
+<!-- SECCIÓN  -->
+<section style="text-align: center; margin: 0; padding: 0; position: relative;">
+    <!-- ESTILOS -->
+    <style>
+        /* Ocultamos la versión móvil por defecto y mostramos la de PC */
+        #prensa-mobile-wrapper {
+            display: none !important;
+        }
+        #prensa-pc-wrapper {
+            display: block !important;
+        }
+        .btn-contacto-amarillo {
+            background-color: #FFC601 !important;
+            color: #000000 !important;
+            border: 2px solid #FFC601 !important;
+            transition: all 0.3s ease;
+        }
+        .btn-contacto-amarillo:hover {
+            background-color: #000000 !important;
+            color: #FFC601 !important;
+            border: 2px solid #000000 !important;
+        }
+        /* AJUSTE MÓVIL */
+        @media (max-width: 600px) {
+            #prensa-pc-wrapper {
+                display: none !important;
+            }
+            #prensa-mobile-wrapper {
+                display: block !important;
+            }
+            .mobile-title {
+                font-size: 13px !important;
+                margin-bottom: 5px !important;
+            }
+            .mobile-btn {
+                font-size: 9px !important;
+                padding: 6px 15px !important;
+            }
+        }
+        /* AJUSTE TABLET */
+        @media (min-width: 601px) and (max-width: 1024px) {
+            .pegado-tablet {
+                bottom: 3% !important;
+            }
+            .tablet-adjust {
+                font-size: 16px !important;
+                margin-bottom: 8px !important;
+            }
+            .btn-tablet-adjust {
+                font-size: 11px !important;
+                padding: 7px 18px !important;
+            }
+        }
+    </style>
+    <!-- VERSION PC / TABLET -->
+    <div
+        id="prensa-pc-wrapper"
+        style="position:relative; display:inline-block; max-width:100%;">
+        <img
+            src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/Vida%20de%20Colores/vida_de_colores_prensa.png?raw=true"
+            style="width:100%; display:block;"
+            alt="Prensa sobre la miniserie colombiana Vida de colores, dirigida por David David: artículo de Variety, participación en Series Mania 2021 y Premio Especial del Jurado"        
+        loading="lazy" decoding="async">
+        
+        <!-- Enlaces -->
+        
+        <a
+            href="https://seriesmania.com/en/festival/fiche/colorful-life/"
+            aria-label="Consultar la ficha oficial de Vida de colores en Series Mania 2021, donde participó y obtuvo el Premio Especial del Jurado"
+            target="_blank"
+            style="position:absolute; left:5%; top:14%; width:10%; height:15%; display:block;">
+        </a>
+        <a
+            href="https://www.todotvnews.com/ttvoriginals/la-colombiana-vida-de-colores-entre-las-ganadoras-de-series-mania/"
+            target="_blank"
+            style="position:absolute; left:84%; top:14%; width:10%; height:15%; display:block;">
+        </a>
+        <a
+            href="https://variety.com/2021/tv/festivals/series-mania-colorful-life-david-david-1235053559/"
+            aria-label="Leer el artículo de Variety sobre Vida de colores y su participación en Series Mania 2021"
+            target="_blank"
+            style="position:absolute; left:5%; top:35%; width:10%; height:15%; display:block;">
+        </a>
+        <a
+            href="https://www.infobae.com/america/colombia/2021/09/14/vida-de-colores-la-primera-serie-colombiana-que-logra-un-premio-en-un-festival-de-francia/"
+            target="_blank"
+            style="position:absolute; left:84%; top:35%; width:10%; height:15%; display:block;">
+        </a>
+        <a
+            href="https://www.radionacional.co/cultura/vida-de-colores-gano-premio-festival-frances"
+            target="_blank"
+            style="position:absolute; left:5%; top:55%; width:10%; height:15%; display:block;">
+        </a>
+        <a
+            href="https://www.seriencamp.tv/serien/colourful-life/"
+            target="_blank"
+            style="position:absolute; left:84%; top:55%; width:10%; height:15%; display:block;">
+        </a>
+        <!-- BANNER CONTACTO PC / TABLET -->
+        <div
+            class="pegado-tablet"
+            style="position: absolute; bottom: 5%; left: 0; width: 100%; text-align: center; z-index: 10; pointer-events: none;">
+            <h2
+                class="tablet-adjust"
+                style="color: #FFFFFF; font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 200; margin-bottom: 10px; pointer-events: auto;">
+                ¿Te interesa conocer más sobre <span style="color:#FFC601;">Vida de colores?</span>
+            </h2>
+            <a
+                href="contacto.html"
+                class="btn-contacto-amarillo btn-tablet-adjust"
+                style="display: inline-block; padding: 12px 30px; text-decoration: none; font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; pointer-events: auto;">
+                CONTÁCTANOS
+            </a>
+        </div>
+    </div>
+   <!-- VERSIÓN MÓVIL UNIFICADA -->
+<div
+  id="prensa-mobile-wrapper"
+  style="position:relative; width:100%;">
+  <img
+    src="https://github.com/GarabatoCine/pagina-web/blob/main/proyectos/
+Vida%20de%20Colores/vida_de_colores_prensa-mobile.png?raw=true"
+    style="width:100%; height:auto; display:block;"
+    alt="Prensa sobre la miniserie colombiana Vida de colores, dirigida por David David: artículo de Variety, participación en Series Mania 2021 y Premio Especial del Jurado"
+      loading="lazy" decoding="async">
+  <!-- MÁSCARAS DE ENLACES - PRENSA MÓVIL -->
+  <!-- SERIES MANIA -->
+  <a
+    href="https://seriesmania.com/en/festival/fiche/colorful-life/"
+    aria-label="Consultar la ficha oficial de Vida de colores en Series Mania 2021, donde participó y obtuvo el Premio Especial del Jurado"  
+    target="_blank"
+    style="position:absolute; left:13%; top:44%; width:18%; height:8%; display:block;">
+  </a>
+<!-- VARIETY -->
+  <a
+    href="https://variety.com/2021/tv/festivals/series-mania-colorful-life-david-david-1235053559/"
+    aria-label="Leer el artículo de Variety sobre Vida de colores y su participación en Series Mania 2021"
+    target="_blank"
+    style="position:absolute; left:42%; top:44%; width:18%; height:8%; display:block;">
+  </a>
+    <!-- TODOTVNEWS -->
+  <a
+    href="https://www.todotvnews.com/ttvoriginals/la-colombiana-vida-de-colores-entre-las-ganadoras-de-series-mania/"
+    target="_blank"
+    style="position:absolute; left:70%; top:44%; width:18%; height:8%; display:block;">
+  </a>
+    <!-- INFOBAE -->
+  <a
+    href="https://www.infobae.com/america/colombia/2021/09/14/vida-de-colores-la-primera-serie-colombiana-que-logra-un-premio-en-un-festival-de-francia/"
+    target="_blank"
+    style="position:absolute; left:13%; top:61.5%; width:18%; height:8%; display:block;">
+  </a>
+  <!-- RADIO NACIONAL -->
+  <a
+    href="https://www.radionacional.co/cultura/vida-de-colores-gano-premio-festival-frances"
+    target="_blank"
+    style="position:absolute; left:42%; top:61.5%; width:18%; height:8%; display:block;">
+  </a>
+  <!-- SERIENCAMP -->
+  <a
+    href="https://www.seriencamp.tv/serien/colourful-life/"
+    target="_blank"
+    style="position:absolute; left:70%; top:61.5%; width:18%; height:8%; display:block;">
+  </a>
+  <!-- FIN MÁSCARAS DE ENLACES -->
+  <div style="text-align:center; padding:30px 15px 40px 15px;">
+<h2 style="color:#FFFFFF; font-family:'Roboto',sans-serif; font-size:14px; font-weight:200; margin-bottom:15px;">
+  ¿Te interesa conocer más sobre <span style="color:#FFC601;">Vida de colores?</span>
+</h2>
+    <a
+      href="contacto.html"
+      class="btn-contacto-amarillo"
+      style="display:inline-block; padding:12px 30px; text-decoration:none; font-family:'Roboto',sans-serif; font-size:14px; font-weight:700;">
+      CONTÁCTANOS
+    </a>
+  </div>
+</div>
+</section>
+<footer class="sitio-footer">
+    <div class="fila-tres-columnas">
+        <div class="columna-izquierda">
+            <h4>GARABATO CINE</h4>
+            <p>
+                Cine hecho desde el Caribe colombiano.
+            </p>
+        </div>
+        <div class="columna-central">
+            <a
+                href="https://www.instagram.com/garabatocine/"
+                target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+                href="https://www.facebook.com/garabatocine?_rdc=1&_rdr"
+                target="_blank">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a
+                href="https://www.youtube.com/@garabatocine"
+                target="_blank">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+        </div>
+        <div class="columna-derecha">
+            <div>
+                <a href="privacidadycookies.html">
+                    Privacidad y Cookies
+                </a>
+            </div>
+            <div>
+                Todos los derechos reservados
+            </div>
+            <div>
+                © 2026 Garabato Cine
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
